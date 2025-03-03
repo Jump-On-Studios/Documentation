@@ -127,7 +127,7 @@ CreateThread(function()
   local key = "INPUT_JUMP"
   jo.prompt.create(group,keyLabel,key)
   while true do
-    jo.displayGroup(group,title)
+    jo.prompt.displayGroup(group,title)
     Wait(0)
   end
 end)
