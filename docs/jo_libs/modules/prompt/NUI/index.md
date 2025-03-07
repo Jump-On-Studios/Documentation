@@ -1,4 +1,4 @@
-# PromptNUI
+# Prompt Nui
 
 PromptNUI module is a module to manage prompts.
 
