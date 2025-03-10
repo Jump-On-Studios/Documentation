@@ -52,6 +52,9 @@ local group3 = jo.promptNui.createGroup(nil)
 
 -- Example 4: Create a group with a false title (no title) and a custom position
 local group4 = jo.promptNui.createGroup(false, "top-right")
+
+-- Example 5: Create a group with a red title
+local group4 = jo.promptNui.createGroup("<span style='color:red'>My Red Menu</span>")
 ```
 
 ---
@@ -198,7 +201,7 @@ group:addPrompt(key, label, holdTime, page)
   A key string or table of key strings for the prompt. Refer to [Keyboard keys mapping](../../raw-keys/client#keyboard-keys-mapping).
 
 - `label` : _string_  
-  The descriptive label for the prompt.
+  The descriptive label for the prompt. Can includes HTML.
 
 - `holdTime` : _number_ or _boolean_ (default: `false`)<BadgeOptional />  
   Duration (in milliseconds) the key must be held before activation; use `false` if not applicable.
@@ -228,6 +231,9 @@ local prompt3 = group:addPrompt("Q", "Quick Action", false)
 -- Example 4: Add multiple prompts with different configurations.
 local prompt4 = group:addPrompt("F", "Fire", 1000)
 local prompt5 = group:addPrompt({"R", "T"}, "Reload", 750, 1)
+
+-- Example 5: Add a prompt with a red title
+local prompt6 = group:addPrompt("O", "<span style='color:red'>Set on Fire</span>")
 ```
 
 ---
@@ -292,7 +298,7 @@ prompt:setLabel(label)
 #### Parameters
 
 - `label` : _string_  
-  The text label to assign to the prompt.
+  The text label to assign to the prompt. Can includes HTML.
 
 #### Example
 
@@ -300,6 +306,8 @@ prompt:setLabel(label)
 local group = jo.promptNui.createGroup("Main Menu", "bottom-right")
 local prompt = group:addPrompt("E", "Interact")
 prompt:setLabel("Press E to interact")
+-- or
+prompt:setLabel("Press E to <span style='color:red'>interact</span>")
 ```
 
 ---
