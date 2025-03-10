@@ -2,9 +2,13 @@
 outline: [2, 3]
 ---
 
-# Prompt NUI
+# Prompt Nui
 
 A library to manage NUI-based prompts. This module allows you to create and manage prompt groups with customizable prompts, key bindings, key hold durations, pagination, and visibility controls.
+
+:::tip
+You can find the complete list of valid key inputs, including special and function keys, in the [Keyboard keys mapping](../../raw-keys/client#keyboard-keys-mapping) section of the Raw Keys module.
+:::
 
 ## JO Functions
 
@@ -62,7 +66,7 @@ jo.promptNui.isCompleted(key, fireMultipleTimes)
 #### Parameters
 
 - `key` : _string_  
-  The key identifier to check. Refers to [Keyboard keys mapping](../../raw-keys/client#keyboard-keys-mapping).
+  The key identifier to check. Refer to [Keyboard keys mapping](../../raw-keys/client#keyboard-keys-mapping).
 
 - `fireMultipleTimes` : _boolean_ <BadgeOptional />  
   (Optional) If true, allows the key to trigger multiple times; defaults to false.
@@ -164,7 +168,7 @@ group:setNextPageKey(key)
 #### Parameters
 
 - `key` : _string_  
-  The key to be used for pagination. Refers to [Keyboard keys mapping](../../raw-keys/client#keyboard-keys-mapping).
+  The key to be used for pagination. Refer to [Keyboard keys mapping](../../raw-keys/client#keyboard-keys-mapping).
 
 #### Example
 
@@ -188,7 +192,7 @@ group:addPrompt(key, label, holdTime, page)
 #### Parameters
 
 - `key` : _string_ or _table_  
-  A key string or table of key strings for the prompt. Refers to [Keyboard keys mapping](../../raw-keys/client#keyboard-keys-mapping).
+  A key string or table of key strings for the prompt. Refer to [Keyboard keys mapping](../../raw-keys/client#keyboard-keys-mapping).
 
 - `label` : _string_  
   The descriptive label for the prompt.
@@ -359,7 +363,7 @@ prompt:setKeyboardKeys(keys)
 #### Parameters
 
 - `keys` : _table_ or _string_  
-  A table of key strings or a single key string. Refers to [Keyboard keys mapping](../../raw-keys/client#keyboard-keys-mapping).
+  A table of key strings or a single key string. Refer to [Keyboard keys mapping](../../raw-keys/client#keyboard-keys-mapping).
 
 #### Example
 
