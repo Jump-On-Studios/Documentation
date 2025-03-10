@@ -1,16 +1,55 @@
 ---
-outline: 2
+outline: [2, 3]
 ---
 
 # Raw Keys
 
-The **Raw Keys** module allows you to register and remove key listeners for raw keyboard events. It supports multiple keyboard layouts (QWERTY and AZERTY) by checking the `jo_libs:keyboard_layout` convar, which defaults to "qwerty". Callbacks will be triggered when a key is pressed or released.
+The **Raw Keys** module allows you to register and remove key listeners for raw keyboard events. It supports multiple keyboard layouts (QWERTY and AZERTY) by checking the `jo_libs:keyboard_layout` convar, which defaults to "QWERTY". Callbacks will be triggered when a key is pressed or released.
 
-## jo.rawKeys.listen(key, callback)
+## Why Use the Raw Keys Module?
+
+- It is faster, simpler, and more compact to write.
+- You can directly specify the key as a string (e.g., "E") instead of using a native control constant like "INPUT_LOOT".
+- The key "E" will always be the "E" key, even if the player has modified their key settings.
+
+### Comparison Example
+
+**Native Implementation:**
+
+```lua
+CreateThread(function()
+  local key = `INPUT_LOOT` -- "E" key if the player didn't edit their key settings
+  while true do
+    if IsControlJustPressed(0, key) then
+      print('Key E pressed')
+    end
+    if IsControlJustReleased(0, key) then
+      print('Key E released')
+    end
+    Wait(0)
+  end
+end)
+```
+
+**Using the Module:**
+
+```lua
+jo.rawKeys.listen("E", function(isPressed)
+  if isPressed then
+   print('Key E pressed')
+  else
+   print('Key E released')
+  end
+end)
+```
+
+## JO Functions
+
+### jo.rawKeys.listen(key, callback)
 
 Registers a listener for a specific key. When the key is pressed or released, the provided callback function is executed with a boolean value indicating the event state (true for pressed, false for released).
 
-### Syntax
+#### Syntax
 
 ```lua
 jo.rawKeys.listen(key, callback)
@@ -29,7 +68,7 @@ jo.rawKeys.listen(key, callback)
 
 None
 
-### Example
+#### Example
 
 ```lua
 jo.rawKeys.listen("A", function(pressed)
@@ -41,42 +80,48 @@ jo.rawKeys.listen("A", function(pressed)
 end)
 ```
 
-## jo.rawKeys.remove(key)
+### jo.rawKeys.remove(key)
 
 Removes the listener associated with the specified key. Use this function to stop listening for events on a key when it is no longer needed.
 
-### Syntax
+#### Syntax
 
 ```lua
 jo.rawKeys.remove(key)
 ```
 
-#### Parameters
+##### Parameters
 
 - `key` : _string_  
   The identifier of the key for which the listener should be removed.
 
-#### Return value
+##### Return value
 
 None
 
-### Example
+#### Example
 
 ```lua
 jo.rawKeys.remove("A")
 ```
 
-## Setting Keyboard Layout
+## Configuration
+
+### Setting Keyboard Layout
 
 - **Keyboard Layouts:**  
-  The module supports both QWERTY and AZERTY layouts. The layout in use is determined by the `jo_libs:keyboard_layout` convar. If set to "azerty", the corresponding key mappings are applied automatically.  
+  The module supports both QWERTY and AZERTY layouts. The layout in use is determined by the `jo_libs:keyboard_layout` convar. If set to "AZERTY", the corresponding key mappings are applied automatically.  
   You can set the keyboard layout in your server configuration by adding the following line to your `server.cfg`:
 
   ```cfg
   setr jo_libs:keyboard_layout "AZERTY"
+  ## or
+  setr jo_libs:keyboard_layout "QWERTY"
   ```
 
-## Keyboard keys mapping
+## Keys
+
+### Keyboard keys mapping
 
 | Input Parameter     | Input Description                                                |
 | ------------------- | ---------------------------------------------------------------- |
