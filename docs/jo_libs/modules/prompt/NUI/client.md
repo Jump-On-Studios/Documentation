@@ -29,13 +29,14 @@ jo.promptNui.createGroup(title, position)
 - `title` : _string_  
   The title for the new prompt group. This parameter can also be `false` or `nil`. If provided and not `false`/`nil`, it can include HTML tags (e.g., `<img>`) to display an icon before the title.
 
-- `position` : _string_ <BadgeOptional />  
-  (Optional) The screen position for the group. Accepted values are: `"top-left"`, `"top-right"`, `"center-left"`, `"center-right"`, `"bottom-left"`, and `"bottom-right"`. Defaults to `"bottom-right"` if not specified.
+- `position` : _string_ (default: "bottom-right") <BadgeOptional />  
+  The screen position for the group. Accepted values are: `"top-left"`, `"top-right"`, `"center-left"`, `"center-right"`, `"bottom-left"`, and `"bottom-right"`. Defaults to `"bottom-right"` if not specified.
 
 #### Return Value
 
-_GroupClass_  
-Returns a new prompt group instance that you can use to add and manage prompts.
+Type : [_GroupClass_](#groupclass-methods)
+
+> Returns a new prompt group instance that you can use to add and manage prompts.
 
 #### Examples
 
@@ -70,8 +71,8 @@ jo.promptNui.isCompleted(key, fireMultipleTimes)
 - `key` : _string_  
   The key identifier to check. Refer to [Keyboard keys mapping](../../raw-keys/client#keyboard-keys-mapping).
 
-- `fireMultipleTimes` : _boolean_ <BadgeOptional />  
-  (Optional) If true, allows the key to trigger multiple times; defaults to false.
+- `fireMultipleTimes` : _boolean_ (default: `false`) <BadgeOptional />  
+  If true, allows the key to trigger multiple times; defaults to false.
 
 #### Return Value
 
@@ -97,7 +98,7 @@ end)
 
 ---
 
-## Prompt Group Methods
+## GroupClass Methods
 
 The prompt group instance returned by `jo.promptNui.createGroup()` supports several methods to manage prompts within the group.
 
@@ -199,16 +200,17 @@ group:addPrompt(key, label, holdTime, page)
 - `label` : _string_  
   The descriptive label for the prompt.
 
-- `holdTime` : _number_ or _boolean_ <BadgeOptional />  
-  (Optional) Duration (in milliseconds) the key must be held before activation; use `false` if not applicable.
+- `holdTime` : _number_ or _boolean_ (default: `false`)<BadgeOptional />  
+  Duration (in milliseconds) the key must be held before activation; use `false` if not applicable.
 
-- `page` : _number_ <BadgeOptional />  
-  (Optional) The page number to add the prompt to; defaults to 1.
+- `page` : _number_ (default: 1) <BadgeOptional />  
+  The page number to add the prompt to; defaults to 1.
 
 #### Return Value
 
-_PromptClass_  
-Returns the newly created prompt object.
+Type : [_PromptClass_](#promptclass-methods)
+
+> Returns the newly created prompt object.
 
 #### Example
 
@@ -243,7 +245,7 @@ group:display(page)
 #### Parameters
 
 - `page` : _number_ <BadgeOptional />  
-  (Optional) The page number to display; defaults to the group's current page.
+  The page number to display; defaults to the group's current page.
 
 #### Example
 
@@ -273,7 +275,7 @@ group:hide()
 
 ---
 
-## Prompt Methods
+## PromptClass Methods
 
 The prompt object returned by `group:addPrompt()` provides methods to manage individual prompt properties.
 

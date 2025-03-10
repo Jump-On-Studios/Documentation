@@ -6,43 +6,6 @@ outline: [2, 3]
 
 The **Raw Keys** module allows you to register and remove key listeners for raw keyboard events. It supports multiple keyboard layouts (QWERTY and AZERTY) by checking the `jo_libs:keyboard_layout` convar, which defaults to "QWERTY". Callbacks will be triggered when a key is pressed or released.
 
-## Why Use the Raw Keys Module?
-
-- It is faster, simpler, and more compact to write.
-- You can directly specify the key as a string (e.g., "E") instead of using a native control constant like "INPUT_LOOT".
-- The key "E" will always be the "E" key, even if the player has modified their key settings.
-
-### Comparison Example
-
-**Native Implementation:**
-
-```lua
-CreateThread(function()
-  local key = `INPUT_LOOT` -- "E" key if the player didn't edit their key settings
-  while true do
-    if IsControlJustPressed(0, key) then
-      print('Key E pressed')
-    end
-    if IsControlJustReleased(0, key) then
-      print('Key E released')
-    end
-    Wait(0)
-  end
-end)
-```
-
-**Using the Module:**
-
-```lua
-jo.rawKeys.listen("E", function(isPressed)
-  if isPressed then
-   print('Key E pressed')
-  else
-   print('Key E released')
-  end
-end)
-```
-
 ## JO Functions
 
 ### jo.rawKeys.listen(key, callback)
