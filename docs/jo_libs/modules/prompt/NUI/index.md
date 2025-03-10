@@ -1,10 +1,10 @@
 # Prompt Nui
 
-PromptNUI module is a module to manage prompts.
+Prompt Nui module is a module to manage prompts.
 
-## Include PromptNUI in your script
+## Include Prompt Nui in your script
 
-1. To use the PromptNUI library, just add the initiator as a shared script inside of your `fxmanifest.lua` file.
+1. To use the Prompt Nui library, just add the initiator as a shared script inside of your `fxmanifest.lua` file.
 
 ```lua
 shared_scripts {
@@ -12,7 +12,7 @@ shared_scripts {
 }
 ```
 
-2. Add the PromptNUI module inside the `fxmanifest.lua` (in lowercase)
+2. Add the Prompt Nui module inside the `fxmanifest.lua` (in lowercase)
 
 ```lua
 jo_libs {
