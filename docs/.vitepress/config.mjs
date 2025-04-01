@@ -1,36 +1,9 @@
 import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vitepress";
-import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
+
 import fs from "node:fs/promises";
-import { createCommentNotationTransformer } from "@shikijs/transformers";
 
-function escapeRegExp(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-function transformerLuaComment() {
-  const classMap = {
-    "++": "diff add",
-    "--": "diff remove",
-  };
-  const classActivePre = "has-diff";
-  return createCommentNotationTransformer(
-    "custom-lua-comment",
-    new RegExp(
-      `\\s*(?:--)\\s+\\[!code (${Object.keys(classMap)
-        .map(escapeRegExp)
-        .join("|")})(:\\d+)?\\]\\s*(?:\\*/|-->)?`
-    ),
-    function ([_, match, range = ":1"], _line, _comment, lines, index) {
-      const lineNum = Number.parseInt(range.slice(1), 10);
-      lines.slice(index, index + lineNum).forEach((line) => {
-        this.addClassToHast(line, classMap[match]);
-      });
-      if (classActivePre) this.addClassToHast(this.pre, classActivePre);
-      return true;
-    }
-  );
-}
+import tabsPlugin from "@red-asuka/vitepress-plugin-tabs";
 
 function isFile(filename) {
   return filename.split(".").length > 1;
@@ -78,6 +51,7 @@ function firtToUpperCase(name) {
 function GenerateMenu(fileTree, key, parent) {
   key = key || "";
   parent = (parent || "") + "/";
+  if (key.includes("autodoc")) return;
   const menu = {
     text: firtToUpperCase(key),
     collapsed: true,
@@ -141,9 +115,9 @@ export default defineConfig({
       dark: "slack-dark",
     },
     config(md) {
-      md.use(tabsMarkdownPlugin);
+      tabsPlugin(md);
     },
-    codeTransformers: [transformerLuaComment()],
+    // codeTransformers: [transformerLuaComment()],
   },
   base: "/",
   title: "Jump On Docs",
@@ -223,10 +197,6 @@ export default defineConfig({
           {
             text: "<img src='/images/cashregister.webp' /> Cash register Robbery",
             link: "/RedM/cash-register-robbery",
-          },
-          {
-            text: "<img src='/images/chest.webp' /> Chest Anywhere",
-            link: "/RedM/chest-anywhere",
           },
           { text: "🎩 Clothes Wheel", link: "/RedM/clothes-wheel" },
           {
