@@ -1,12 +1,15 @@
 # :horse: Horse breeding
 Documentation relating to the **jo_stable_breeding** add-on for [Stable script](stable).
 
-:::tabs
-== BUY
+:::: tabs
+::: tab BUY
 [Buy the add-on](https://jumpon-studios.com/redm/horse-breeding)
-== PREVIEW
+:::
+
+::: tab PREVIEW
 <iframe width="560" height="315" src="https://www.youtube.com/embed/04A0kd0a8xg?si=n7lf5Dd5czIXD_A_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
+::::
 
 ## 1. Installation
 ::: warning

@@ -1,12 +1,15 @@
 # :computer_mouse: Mouse selection
 Documentation relating to the kd_mouseselection.
 
-:::tabs
-== BUY
+:::: tabs
+::: tab BUY
 [Buy the script](https://jumpon-studios.com/redm/mouse-selection)
-== PREVIEW
+:::
+
+::: tab PREVIEW
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4lZfroGikCE?si=Nb9iJY4MAJFHTNfB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
+::::
 
 ## 1. Installation
 kd_mouseselection is a standalone script. So you don't need a specific framework to use it. It's also mean it works with all framework (VORP, RedEM:RP, QBCore, …).

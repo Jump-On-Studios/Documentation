@@ -1,11 +1,11 @@
 # :racehorse: Horse and Wagon sharing
 Documentation relating to the kd_horse_sharing.
 
-:::tabs
-== BUY
+:::: tabs
+::: tab BUY
 [Buy the script](https://jumpon-studios.com/redm/share-horse-wagon)
 :::
-
+::::
 ## 1. Installation
 kd_horse_sharing is a standalone script. So you don't need a specific framework to use it. It's also mean it works with all framework (VORP, RedEM:RP, QBCore, …).
 

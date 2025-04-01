@@ -1,12 +1,15 @@
 # :scissors: Hair & beard coloring
 Documentation relating to the **kd_haidresser_coloring** add-on for [Hairdresser script](hairdresser).
 
-:::tabs
-== BUY
+:::: tabs
+::: tab BUY
 [Buy the add-on](https://jumpon-studios.com/redm/hair-coloring)
-== PREVIEW
+:::
+
+::: tab PREVIEW
 <iframe width="560" height="315" src="https://www.youtube.com/embed/L59H6mLFu_Y?si=WpVh0x8uw5KuyYEX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
+::::
 
 ## 1. Installation
 ::: warning

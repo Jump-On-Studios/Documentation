@@ -1,12 +1,15 @@
 # :fishing_pole_and_fish: Fishing
 Documentation relating to the kd_peche.
 
-:::tabs
-== BUY
+:::: tabs
+::: tab BUY
 [Buy the script](https://jumpon-studios.com/fivem/fishing)
-== PREVIEW
+:::
+
+::: tab PREVIEW
 <iframe width="560" height="315" src="https://www.youtube.com/embed/d5lysom6yWI?si=_qPVqNxG_A8yErdS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
+::::
 
 
 
