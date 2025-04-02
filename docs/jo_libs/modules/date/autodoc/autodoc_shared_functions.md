@@ -21,7 +21,7 @@ jo.date.convertMsToInterval(ms, lang)
 > The duration in ms
 >
 
-`lang` : _table_
+`lang` : _table_ <BadgeOptional />
 
 > The list of translatable strings <br> Use `false` to disable
 >

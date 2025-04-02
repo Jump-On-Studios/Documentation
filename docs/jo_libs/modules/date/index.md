@@ -16,7 +16,7 @@ jo_libs {
   'date',
 }
 ```
-You can now use the library inside of your resource with the `jo.Date` global variable.
+You can now use the library inside of your resource with the `jo.date` global variable.
 
 ## Functions
 
