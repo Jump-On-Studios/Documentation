@@ -1,22 +1,8 @@
 ---
-outline: 2
+outline: [2,3]
 ---
 # Entity
 
-A library with usefull function to manage entity
+A library with useful functions to manage entity server side
 
-## jo.entity.delete()
-A function to delete an entity only if exist
-### Syntax
-```lua
-jo.entity.deletey(entity)
-```
-#### Parameters
-`entity` : *integer*
-> The entity ID
-
-### Example
-```lua
-local entity = 23494
-jo.entity.delete(entity)
-```
+<!--@include: ./autodoc/autodoc_server_functions.md-->

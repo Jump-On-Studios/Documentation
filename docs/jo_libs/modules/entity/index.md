@@ -1,6 +1,6 @@
 # Entity
 
-Entity module is a module to manage easier the entities.
+Entity module is a module to easier manage entities.
 
 ## Include Entity in your script
 
