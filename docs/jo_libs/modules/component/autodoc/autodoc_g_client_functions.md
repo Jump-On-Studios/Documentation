@@ -59,6 +59,8 @@ jo.component.apply(ped, category, data)
 
 <!-- @include: ./slots/headers.md#jo.component.applyComponents -->
 
+A function to apply multiple components to a ped <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.applyComponents -->
 
 #### Syntax
@@ -66,6 +68,18 @@ jo.component.apply(ped, category, data)
 ```lua
 jo.component.applyComponents(ped, components)
 ```
+
+#### Parameters
+
+`ped` : _integer_
+> The entity ID
+>
+
+`components` : _table_
+
+> Table of components indexed by category name with component data
+>
+
 
 <!-- @include: ./slots/examples.md#jo.component.applyComponents -->
 
@@ -77,6 +91,8 @@ jo.component.applyComponents(ped, components)
 
 <!-- @include: ./slots/headers.md#jo.component.applySkin -->
 
+A function to apply a complete skin configuration to a ped <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.applySkin -->
 
 #### Syntax
@@ -84,6 +100,54 @@ jo.component.applyComponents(ped, components)
 ```lua
 jo.component.applySkin(ped, skin)
 ```
+
+#### Parameters
+
+`ped` : _integer_
+> The entity ID
+>
+
+`skin` : _table_
+
+> The skin configuration data
+>
+
+> `skin.model` : _string_ - The model name <BadgeOptional />
+> 
+> `skin.headHash` : _integer_ - The head component hash <BadgeOptional />
+> 
+> `skin.headIndex` : _integer_ - The head index for skin tone <BadgeOptional />
+> 
+> `skin.skinTone` : _integer_ - The skin tone value <BadgeOptional />
+> 
+> `skin.bodyUpperHash` : _integer_ - The upper body component hash <BadgeOptional />
+> 
+> `skin.bodyLowerHash` : _integer_ - The lower body component hash <BadgeOptional />
+> 
+> `skin.bodiesIndex` : _integer_ - The body index for skin tone <BadgeOptional />
+> 
+> `skin.bodyType` : _integer_ - The body type outfit preset <BadgeOptional />
+> 
+> `skin.bodyWeight` : _integer_ - The body weight outfit preset <BadgeOptional />
+> 
+> `skin.expressions` : _table_ - Table of expression values <BadgeOptional />
+> 
+> `skin.eyesHash` : _integer_ - The eyes component hash <BadgeOptional />
+> 
+> `skin.eyesIndex` : _integer_ - The eyes index <BadgeOptional />
+> 
+> `skin.teethHash` : _integer_ - The teeth component hash <BadgeOptional />
+> 
+> `skin.teethIndex` : _integer_ - The teeth index <BadgeOptional />
+> 
+> `skin.hair` : _table_ - Hair component data <BadgeOptional />
+> 
+> `skin.beards_complete` : _table_ - Beard component data <BadgeOptional />
+> 
+> `skin.overlays` : _table_ - Table of overlay configurations <BadgeOptional />
+> 
+> `skin.bodyScale` : _number_ - The body scale value <BadgeOptional />
+> 
 
 <!-- @include: ./slots/examples.md#jo.component.applySkin -->
 
@@ -223,6 +287,8 @@ jo.component.collarOpen(ped, data)
 
 <!-- @include: ./slots/headers.md#jo.component.getBodiesLowerFromSkinTone -->
 
+A function to get the lower body component hash from bodies index and skin tone <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.getBodiesLowerFromSkinTone -->
 
 #### Syntax
@@ -230,6 +296,26 @@ jo.component.collarOpen(ped, data)
 ```lua
 jo.component.getBodiesLowerFromSkinTone(ped, bodiesIndex, skinTone)
 ```
+
+#### Parameters
+
+`ped` : _integer|string_
+> The entity ID or model name
+>
+
+`bodiesIndex` : _integer_ <BadgeOptional />
+> The bodies index, defaults to 1
+>
+
+`skinTone` : _integer_ <BadgeOptional />
+> The skin tone, defaults to 1
+>
+
+#### Return Value
+
+Type : _string_
+
+> The lower body component hash string
 
 <!-- @include: ./slots/examples.md#jo.component.getBodiesLowerFromSkinTone -->
 
@@ -241,6 +327,8 @@ jo.component.getBodiesLowerFromSkinTone(ped, bodiesIndex, skinTone)
 
 <!-- @include: ./slots/headers.md#jo.component.getBodiesUpperFromSkinTone -->
 
+A function to get the upper body component hash from bodies index and skin tone <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.getBodiesUpperFromSkinTone -->
 
 #### Syntax
@@ -248,6 +336,26 @@ jo.component.getBodiesLowerFromSkinTone(ped, bodiesIndex, skinTone)
 ```lua
 jo.component.getBodiesUpperFromSkinTone(ped, bodiesIndex, skinTone)
 ```
+
+#### Parameters
+
+`ped` : _integer|string_
+> The entity ID or model name
+>
+
+`bodiesIndex` : _integer_ <BadgeOptional />
+> The bodies index, defaults to 1
+>
+
+`skinTone` : _integer_ <BadgeOptional />
+> The skin tone, defaults to 1
+>
+
+#### Return Value
+
+Type : _string_
+
+> The upper body component hash string
 
 <!-- @include: ./slots/examples.md#jo.component.getBodiesUpperFromSkinTone -->
 
@@ -291,6 +399,8 @@ Type : _object_
 
 <!-- @include: ./slots/headers.md#jo.component.getCategoryNameFromHash -->
 
+A function to get the category name from a hash value <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.getCategoryNameFromHash -->
 
 #### Syntax
@@ -299,10 +409,17 @@ Type : _object_
 jo.component.getCategoryNameFromHash(category)
 ```
 
+#### Parameters
+
+`category` : _integer|string_
+> The category hash
+>
+
 #### Return Value
 
 Type : _string_
 
+> The category name, or "unknown" if not found
 
 <!-- @include: ./slots/examples.md#jo.component.getCategoryNameFromHash -->
 
@@ -330,7 +447,7 @@ jo.component.getCategoryTint(ped, category, inTable)
 > The entity ID
 >
 
-`category` : _string_
+`category` : _string|integer_
 > The category of the component
 >
 
@@ -390,6 +507,8 @@ Type : _integer,boolean_
 
 <!-- @include: ./slots/headers.md#jo.component.getComponentEquiped -->
 
+A function to get the hash of the component equiped in a category <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.getComponentEquiped -->
 
 #### Syntax
@@ -397,6 +516,22 @@ Type : _integer,boolean_
 ```lua
 jo.component.getComponentEquiped(ped, category)
 ```
+
+#### Parameters
+
+`ped` : _integer_
+> The entity ID
+>
+
+`category` : _string|integer_
+> The category to get the component
+>
+
+#### Return Value
+
+Type : _integer|boolean_
+
+> Return the hash of the component or `false` is not equiped
 
 <!-- @include: ./slots/examples.md#jo.component.getComponentEquiped -->
 
@@ -408,6 +543,8 @@ jo.component.getComponentEquiped(ped, category)
 
 <!-- @include: ./slots/headers.md#jo.component.getComponentsEquiped -->
 
+A function to get all components equiped <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.getComponentsEquiped -->
 
 #### Syntax
@@ -415,6 +552,18 @@ jo.component.getComponentEquiped(ped, category)
 ```lua
 jo.component.getComponentsEquiped(ped)
 ```
+
+#### Parameters
+
+`ped` : _integer_
+> The entity ID
+>
+
+#### Return Value
+
+Type : _table_
+
+> Return the list of components equiped
 
 <!-- @include: ./slots/examples.md#jo.component.getComponentsEquiped -->
 
@@ -426,6 +575,8 @@ jo.component.getComponentsEquiped(ped)
 
 <!-- @include: ./slots/headers.md#jo.component.getEyesFromIndex -->
 
+A function to get the eyes component hash from an index <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.getEyesFromIndex -->
 
 #### Syntax
@@ -433,6 +584,22 @@ jo.component.getComponentsEquiped(ped)
 ```lua
 jo.component.getEyesFromIndex(ped, index)
 ```
+
+#### Parameters
+
+`ped` : _integer|string_
+> The entity ID or model name
+>
+
+`index` : _integer_ <BadgeOptional />
+> The eyes index, defaults to 1
+>
+
+#### Return Value
+
+Type : _string_
+
+> The eyes component hash string
 
 <!-- @include: ./slots/examples.md#jo.component.getEyesFromIndex -->
 
@@ -444,6 +611,8 @@ jo.component.getEyesFromIndex(ped, index)
 
 <!-- @include: ./slots/headers.md#jo.component.getHeadFromSkinTone -->
 
+A function to get the head component hash from head index and skin tone <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.getHeadFromSkinTone -->
 
 #### Syntax
@@ -451,6 +620,26 @@ jo.component.getEyesFromIndex(ped, index)
 ```lua
 jo.component.getHeadFromSkinTone(ped, headIndex, skinTone)
 ```
+
+#### Parameters
+
+`ped` : _integer_
+> The entity ID
+>
+
+`headIndex` : _integer_ <BadgeOptional />
+> The head index, defaults to 1
+>
+
+`skinTone` : _integer_ <BadgeOptional />
+> The skin tone, defaults to 1
+>
+
+#### Return Value
+
+Type : _string_
+
+> The head component hash string
 
 <!-- @include: ./slots/examples.md#jo.component.getHeadFromSkinTone -->
 
@@ -462,6 +651,8 @@ jo.component.getHeadFromSkinTone(ped, headIndex, skinTone)
 
 <!-- @include: ./slots/headers.md#jo.component.getPaletteNameFromHash -->
 
+A function to get the palette name from a hash value <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.getPaletteNameFromHash -->
 
 #### Syntax
@@ -469,6 +660,18 @@ jo.component.getHeadFromSkinTone(ped, headIndex, skinTone)
 ```lua
 jo.component.getPaletteNameFromHash(hash)
 ```
+
+#### Parameters
+
+`hash` : _integer_
+> The palette hash
+>
+
+#### Return Value
+
+Type : _string_
+
+> The palette name, or "unknown" if not found
 
 <!-- @include: ./slots/examples.md#jo.component.getPaletteNameFromHash -->
 
@@ -480,6 +683,8 @@ jo.component.getPaletteNameFromHash(hash)
 
 <!-- @include: ./slots/headers.md#jo.component.getTeethFromIndex -->
 
+A function to get the teeth component hash from an index <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.getTeethFromIndex -->
 
 #### Syntax
@@ -487,6 +692,22 @@ jo.component.getPaletteNameFromHash(hash)
 ```lua
 jo.component.getTeethFromIndex(ped, index)
 ```
+
+#### Parameters
+
+`ped` : _integer|string_
+> The entity ID or model name
+>
+
+`index` : _integer_ <BadgeOptional />
+> The teeth index, defaults to 1
+>
+
+#### Return Value
+
+Type : _string_
+
+> The teeth component hash string
 
 <!-- @include: ./slots/examples.md#jo.component.getTeethFromIndex -->
 
@@ -498,6 +719,8 @@ jo.component.getTeethFromIndex(ped, index)
 
 <!-- @include: ./slots/headers.md#jo.component.getWearableState -->
 
+Get the wearable state of a category <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.getWearableState -->
 
 #### Syntax
@@ -505,6 +728,22 @@ jo.component.getTeethFromIndex(ped, index)
 ```lua
 jo.component.getWearableState(ped, category)
 ```
+
+#### Parameters
+
+`ped` : _integer_
+> The entity ID
+>
+
+`category` : _string|integer_
+> The category name
+>
+
+#### Return Value
+
+Type : _string_
+
+> Return the wearable state of the category
 
 <!-- @include: ./slots/examples.md#jo.component.getWearableState -->
 
@@ -516,6 +755,8 @@ jo.component.getWearableState(ped, category)
 
 <!-- @include: ./slots/headers.md#jo.component.hairIsPomade -->
 
+A function to know if the hair is pomaded <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.hairIsPomade -->
 
 #### Syntax
@@ -523,6 +764,18 @@ jo.component.getWearableState(ped, category)
 ```lua
 jo.component.hairIsPomade(ped)
 ```
+
+#### Parameters
+
+`ped` : _integer_
+> The entity ID
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> Return `true` if the hair is pomaded
 
 <!-- @include: ./slots/examples.md#jo.component.hairIsPomade -->
 
@@ -533,6 +786,8 @@ jo.component.hairIsPomade(ped)
 ### jo.component.isCategoryEquiped()
 
 <!-- @include: ./slots/headers.md#jo.component.isCategoryEquiped -->
+
+A function to know if a specific category is equiped on the ped <br>
 
 <!-- @include: ./slots/descriptions.md#jo.component.isCategoryEquiped -->
 
@@ -548,12 +803,15 @@ jo.component.isCategoryEquiped(ped, category)
 > The entity ID
 >
 
-`category` : _string_
+`category` : _string|integer_
+> The category name
+>
 
 #### Return Value
 
 Type : _boolean,integer_
 
+> 1st: Return `true` if the category is equiped, `false` otherwise <br> 2nd: Return the index of the category
 
 <!-- @include: ./slots/examples.md#jo.component.isCategoryEquiped -->
 
@@ -565,6 +823,8 @@ Type : _boolean,integer_
 
 <!-- @include: ./slots/headers.md#jo.component.isMpComponent -->
 
+A function to check if a component is an MP component (multiplayer component) <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.isMpComponent -->
 
 #### Syntax
@@ -572,6 +832,22 @@ Type : _boolean,integer_
 ```lua
 jo.component.isMpComponent(ped, hash)
 ```
+
+#### Parameters
+
+`ped` : _integer_
+> The entity ID
+>
+
+`hash` : _integer_
+> The component hash
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> Return `true` if it's an MP component, `false` otherwise
 
 <!-- @include: ./slots/examples.md#jo.component.isMpComponent -->
 
@@ -582,6 +858,8 @@ jo.component.isMpComponent(ped, hash)
 ### jo.component.loadoutIsOnRight()
 
 <!-- @include: ./slots/headers.md#jo.component.loadoutIsOnRight -->
+
+A function to know if the loadout is on the right <br>
 
 <!-- @include: ./slots/descriptions.md#jo.component.loadoutIsOnRight -->
 
@@ -601,6 +879,7 @@ jo.component.loadoutIsOnRight(ped)
 
 Type : _boolean_
 
+> Return `true` if the loadout in on the right, `false` otherwise
 
 <!-- @include: ./slots/examples.md#jo.component.loadoutIsOnRight -->
 
@@ -611,6 +890,8 @@ Type : _boolean_
 ### jo.component.neckwearIsUp()
 
 <!-- @include: ./slots/headers.md#jo.component.neckwearIsUp -->
+
+Return if the neckwear is on the face of the player or not <br>
 
 <!-- @include: ./slots/descriptions.md#jo.component.neckwearIsUp -->
 
@@ -630,6 +911,7 @@ jo.component.neckwearIsUp(ped)
 
 Type : _boolean_
 
+> Return `true` if the neckwear is on the face, `false` otherwise.
 
 <!-- @include: ./slots/examples.md#jo.component.neckwearIsUp -->
 
@@ -667,6 +949,8 @@ jo.component.refreshPed(ped)
 
 <!-- @include: ./slots/headers.md#jo.component.remove -->
 
+A function to remove a component component <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.remove -->
 
 #### Syntax
@@ -681,7 +965,9 @@ jo.component.remove(ped, category)
 > The entity ID
 >
 
-`category` : _string_
+`category` : _integer|string_
+> The category of component to remove
+>
 
 <!-- @include: ./slots/examples.md#jo.component.remove -->
 
@@ -693,6 +979,8 @@ jo.component.remove(ped, category)
 
 <!-- @include: ./slots/headers.md#jo.component.removeAllClothes -->
 
+A function to remove all clothing components from a ped <br>
+
 <!-- @include: ./slots/descriptions.md#jo.component.removeAllClothes -->
 
 #### Syntax
@@ -700,6 +988,12 @@ jo.component.remove(ped, category)
 ```lua
 jo.component.removeAllClothes(ped)
 ```
+
+#### Parameters
+
+`ped` : _integer_
+> The entity ID
+>
 
 <!-- @include: ./slots/examples.md#jo.component.removeAllClothes -->
 
@@ -710,6 +1004,8 @@ jo.component.removeAllClothes(ped)
 ### jo.component.setWearableState()
 
 <!-- @include: ./slots/headers.md#jo.component.setWearableState -->
+
+A function to edit the wearable state of a category <br>
 
 <!-- @include: ./slots/descriptions.md#jo.component.setWearableState -->
 
@@ -725,11 +1021,17 @@ jo.component.setWearableState(ped, category, hash, state)
 > The entity ID
 >
 
-`category` : _string_
+`category` : _integer|string_
+> The category of the component
+>
 
-`hash` : _any_
+`data` : _object_
+> The component data, see the structure in [jo.component.apply()](#jo-component-apply)
+>
 
-`state` : _any_
+`state` : _integer|string_
+> The wearable state to apply on the component <br>  The list of wearable state can be find in the `jo_libs>module>component>client.lua` file `line 76`
+>
 
 <!-- @include: ./slots/examples.md#jo.component.setWearableState -->
 
@@ -740,6 +1042,8 @@ jo.component.setWearableState(ped, category, hash, state)
 ### jo.component.sleeveIsRolled()
 
 <!-- @include: ./slots/headers.md#jo.component.sleeveIsRolled -->
+
+Return if the sleeve are rolled <br>
 
 <!-- @include: ./slots/descriptions.md#jo.component.sleeveIsRolled -->
 
@@ -759,6 +1063,7 @@ jo.component.sleeveIsRolled(ped)
 
 Type : _boolean_
 
+> Return `true` if the sleeve are rolled, `false` otherwise.
 
 <!-- @include: ./slots/examples.md#jo.component.sleeveIsRolled -->
 
@@ -769,6 +1074,8 @@ Type : _boolean_
 ### jo.component.sleeveRoll()
 
 <!-- @include: ./slots/headers.md#jo.component.sleeveRoll -->
+
+A function to roll sleeve <br>
 
 <!-- @include: ./slots/descriptions.md#jo.component.sleeveRoll -->
 
@@ -784,7 +1091,9 @@ jo.component.sleeveRoll(ped, hash)
 > The entity ID
 >
 
-`hash` : _any_
+`data` : _object_
+> The component data, see the structure in [jo.component.apply()](#jo-component-apply)
+>
 
 <!-- @include: ./slots/examples.md#jo.component.sleeveRoll -->
 
@@ -795,6 +1104,8 @@ jo.component.sleeveRoll(ped, hash)
 ### jo.component.sleeveUnroll()
 
 <!-- @include: ./slots/headers.md#jo.component.sleeveUnroll -->
+
+A function to unroll sleeve <br>
 
 <!-- @include: ./slots/descriptions.md#jo.component.sleeveUnroll -->
 
@@ -810,7 +1121,9 @@ jo.component.sleeveUnroll(ped, hash)
 > The entity ID
 >
 
-`hash` : _any_
+`data` : _object_
+> The component data, see the structure in [jo.component.apply()](#jo-component-apply)
+>
 
 <!-- @include: ./slots/examples.md#jo.component.sleeveUnroll -->
 
@@ -821,6 +1134,8 @@ jo.component.sleeveUnroll(ped, hash)
 ### jo.component.vestIsUnderPant()
 
 <!-- @include: ./slots/headers.md#jo.component.vestIsUnderPant -->
+
+A function to know if the vest is under the pant <br>
 
 <!-- @include: ./slots/descriptions.md#jo.component.vestIsUnderPant -->
 
@@ -840,6 +1155,7 @@ jo.component.vestIsUnderPant(ped)
 
 Type : _boolean_
 
+> Return `true` if the vest is in the pant, `false` otherwise
 
 <!-- @include: ./slots/examples.md#jo.component.vestIsUnderPant -->
 
