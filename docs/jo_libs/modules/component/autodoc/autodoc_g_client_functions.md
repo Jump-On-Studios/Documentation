@@ -1161,3 +1161,29 @@ Type : _boolean_
 
 <!-- @include: ./slots/footers.md#jo.component.vestIsUnderPant -->
 
+---
+
+### jo.component.waitPedLoaded()
+
+<!-- @include: ./slots/headers.md#jo.component.waitPedLoaded -->
+
+A function to wait the refresh of ped <br>
+
+<!-- @include: ./slots/descriptions.md#jo.component.waitPedLoaded -->
+
+#### Syntax
+
+```lua
+jo.component.waitPedLoaded(ped)
+```
+
+#### Parameters
+
+`ped` : _integer_
+> The entity ID
+>
+
+<!-- @include: ./slots/examples.md#jo.component.waitPedLoaded -->
+
+<!-- @include: ./slots/footers.md#jo.component.waitPedLoaded -->
+

@@ -314,3 +314,10 @@ print(isIn)
 ```
 <!-- #endregion jo.component.vestIsUnderPant -->
 
+<!-- #region jo.component.waitPedLoaded -->
+#### Example
+```lua
+local ped = PlayerPedId()
+local isIn = jo.component.waitPedLoaded(ped)
+```
+<!-- #endregion jo.component.waitPedLoaded -->

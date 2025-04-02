@@ -162,3 +162,8 @@
 
 <!-- #endregion jo.component.vestIsUnderPant -->
 
+
+<!-- #region jo.component.waitPedLoaded -->
+
+<!-- #endregion jo.component.waitPedLoaded -->
+
