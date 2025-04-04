@@ -16,7 +16,7 @@ jo_libs {
   'utils',
 }
 ```
-You can now use the library inside of your resource with the `utils` global variable.
+You can now use the library inside of your resource with the `jo.utils` global variable.
 
 ## Functions
 
