@@ -16,7 +16,7 @@ jo_libs {
   'ui',
 }
 ```
-You can now use the library inside of your resource with the `ui` global variable.
+You can now use the library inside of your resource with the `jo.ui` global variable.
 
 ## Functions
 
