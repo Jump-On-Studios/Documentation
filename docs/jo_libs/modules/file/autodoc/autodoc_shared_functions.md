@@ -3,11 +3,11 @@
 
 ### jo.file.isExist()
 
-<!-- @include: ./slots/headers.md#jo.file.isExist -->
+<!-- @include: ./slots/headers.md#shared|jo.file.isExist -->
 
 Checks if a file exists <br>
 
-<!-- @include: ./slots/descriptions.md#jo.file.isExist -->
+<!-- @include: ./slots/descriptions.md#shared|jo.file.isExist -->
 
 #### Syntax
 
@@ -27,19 +27,19 @@ Type : _boolean_
 
 > Returns `true` if the file exists, `false` otherwise
 
-<!-- @include: ./slots/examples.md#jo.file.isExist -->
+<!-- @include: ./slots/examples.md#shared|jo.file.isExist -->
 
-<!-- @include: ./slots/footers.md#jo.file.isExist -->
+<!-- @include: ./slots/footers.md#shared|jo.file.isExist -->
 
 ---
 
 ### jo.file.load()
 
-<!-- @include: ./slots/headers.md#jo.file.load -->
+<!-- @include: ./slots/headers.md#shared|jo.file.load -->
 
 Loads and executes a Lua file <br>
 
-<!-- @include: ./slots/descriptions.md#jo.file.load -->
+<!-- @include: ./slots/descriptions.md#shared|jo.file.load -->
 
 #### Syntax
 
@@ -59,7 +59,7 @@ Type : _any_
 
 > The result of the executed file, or `false` if there was an error
 
-<!-- @include: ./slots/examples.md#jo.file.load -->
+<!-- @include: ./slots/examples.md#shared|jo.file.load -->
 
-<!-- @include: ./slots/footers.md#jo.file.load -->
+<!-- @include: ./slots/footers.md#shared|jo.file.load -->
 

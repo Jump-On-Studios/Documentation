@@ -3,11 +3,11 @@
 
 ### jo.database.addColumn()
 
-<!-- @include: ./slots/headers.md#jo.database.addColumn -->
+<!-- @include: ./slots/headers.md#server|jo.database.addColumn -->
 
 A function to create a column in a specific table if not exist <br>
 
-<!-- @include: ./slots/descriptions.md#jo.database.addColumn -->
+<!-- @include: ./slots/descriptions.md#server|jo.database.addColumn -->
 
 #### Syntax
 
@@ -35,19 +35,19 @@ Type : _boolean_
 
 > Return `true` if the column is created, `false` otherwise
 
-<!-- @include: ./slots/examples.md#jo.database.addColumn -->
+<!-- @include: ./slots/examples.md#server|jo.database.addColumn -->
 
-<!-- @include: ./slots/footers.md#jo.database.addColumn -->
+<!-- @include: ./slots/footers.md#server|jo.database.addColumn -->
 
 ---
 
 ### jo.database.addTable()
 
-<!-- @include: ./slots/headers.md#jo.database.addTable -->
+<!-- @include: ./slots/headers.md#server|jo.database.addTable -->
 
 A function to create a table if not exist <br>
 
-<!-- @include: ./slots/descriptions.md#jo.database.addTable -->
+<!-- @include: ./slots/descriptions.md#server|jo.database.addTable -->
 
 #### Syntax
 
@@ -71,19 +71,19 @@ Type : _boolean_
 
 > Return `true` if the table is created, `false` otherwise
 
-<!-- @include: ./slots/examples.md#jo.database.addTable -->
+<!-- @include: ./slots/examples.md#server|jo.database.addTable -->
 
-<!-- @include: ./slots/footers.md#jo.database.addTable -->
+<!-- @include: ./slots/footers.md#server|jo.database.addTable -->
 
 ---
 
 ### jo.database.addTrigger()
 
-<!-- @include: ./slots/headers.md#jo.database.addTrigger -->
+<!-- @include: ./slots/headers.md#server|jo.database.addTrigger -->
 
 A function to create a trigger if not exist <br>
 
-<!-- @include: ./slots/descriptions.md#jo.database.addTrigger -->
+<!-- @include: ./slots/descriptions.md#server|jo.database.addTrigger -->
 
 #### Syntax
 
@@ -107,7 +107,7 @@ Type : _boolean_
 
 > Return `true` if the trigger is created, `false` otherwise
 
-<!-- @include: ./slots/examples.md#jo.database.addTrigger -->
+<!-- @include: ./slots/examples.md#server|jo.database.addTrigger -->
 
-<!-- @include: ./slots/footers.md#jo.database.addTrigger -->
+<!-- @include: ./slots/footers.md#server|jo.database.addTrigger -->
 

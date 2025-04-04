@@ -3,11 +3,11 @@
 
 ### jo.notif.left()
 
-<!-- @include: ./slots/headers.md#jo.notif.left -->
+<!-- @include: ./slots/headers.md#server|jo.notif.left -->
 
 Notification on the left with title, icon, color and sound <br>
 
-<!-- @include: ./slots/descriptions.md#jo.notif.left -->
+<!-- @include: ./slots/descriptions.md#server|jo.notif.left -->
 
 #### Syntax
 
@@ -53,19 +53,19 @@ jo.notif.left(source, title, text, dict, icon, color, duration, soundset_ref, so
 > The name of the soundset <br> default : "Transaction_Positive"
 >
 
-<!-- @include: ./slots/examples.md#jo.notif.left -->
+<!-- @include: ./slots/examples.md#server|jo.notif.left -->
 
-<!-- @include: ./slots/footers.md#jo.notif.left -->
+<!-- @include: ./slots/footers.md#server|jo.notif.left -->
 
 ---
 
 ### jo.notif.print()
 
-<!-- @include: ./slots/headers.md#jo.notif.print -->
+<!-- @include: ./slots/headers.md#server|jo.notif.print -->
 
 A function to print in the client console from the server side <br>
 
-<!-- @include: ./slots/descriptions.md#jo.notif.print -->
+<!-- @include: ./slots/descriptions.md#server|jo.notif.print -->
 
 #### Syntax
 
@@ -83,19 +83,19 @@ jo.notif.print(source, ...)
 > The data you want to print
 >
 
-<!-- @include: ./slots/examples.md#jo.notif.print -->
+<!-- @include: ./slots/examples.md#server|jo.notif.print -->
 
-<!-- @include: ./slots/footers.md#jo.notif.print -->
+<!-- @include: ./slots/footers.md#server|jo.notif.print -->
 
 ---
 
 ### jo.notif.right()
 
-<!-- @include: ./slots/headers.md#jo.notif.right -->
+<!-- @include: ./slots/headers.md#server|jo.notif.right -->
 
 Notification on the right with icon, color and sound <br>
 
-<!-- @include: ./slots/descriptions.md#jo.notif.right -->
+<!-- @include: ./slots/descriptions.md#server|jo.notif.right -->
 
 #### Syntax
 
@@ -137,19 +137,19 @@ jo.notif.right(source, text, dict, icon, color, duration, soundset_ref, soundset
 > The name of the soundset <br> default : "Transaction_Positive"
 >
 
-<!-- @include: ./slots/examples.md#jo.notif.right -->
+<!-- @include: ./slots/examples.md#server|jo.notif.right -->
 
-<!-- @include: ./slots/footers.md#jo.notif.right -->
+<!-- @include: ./slots/footers.md#server|jo.notif.right -->
 
 ---
 
 ### jo.notif.rightError()
 
-<!-- @include: ./slots/headers.md#jo.notif.rightError -->
+<!-- @include: ./slots/headers.md#server|jo.notif.rightError -->
 
 A function to display an error notification <br>
 
-<!-- @include: ./slots/descriptions.md#jo.notif.rightError -->
+<!-- @include: ./slots/descriptions.md#server|jo.notif.rightError -->
 
 #### Syntax
 
@@ -173,19 +173,19 @@ Type : _boolean_
 
 > Always return `false`
 
-<!-- @include: ./slots/examples.md#jo.notif.rightError -->
+<!-- @include: ./slots/examples.md#server|jo.notif.rightError -->
 
-<!-- @include: ./slots/footers.md#jo.notif.rightError -->
+<!-- @include: ./slots/footers.md#server|jo.notif.rightError -->
 
 ---
 
 ### jo.notif.rightSuccess()
 
-<!-- @include: ./slots/headers.md#jo.notif.rightSuccess -->
+<!-- @include: ./slots/headers.md#server|jo.notif.rightSuccess -->
 
 A function to display a successful notification <br>
 
-<!-- @include: ./slots/descriptions.md#jo.notif.rightSuccess -->
+<!-- @include: ./slots/descriptions.md#server|jo.notif.rightSuccess -->
 
 #### Syntax
 
@@ -209,19 +209,19 @@ Type : _boolean_
 
 > Always return `true`
 
-<!-- @include: ./slots/examples.md#jo.notif.rightSuccess -->
+<!-- @include: ./slots/examples.md#server|jo.notif.rightSuccess -->
 
-<!-- @include: ./slots/footers.md#jo.notif.rightSuccess -->
+<!-- @include: ./slots/footers.md#server|jo.notif.rightSuccess -->
 
 ---
 
 ### jo.notif.simpleTop()
 
-<!-- @include: ./slots/headers.md#jo.notif.simpleTop -->
+<!-- @include: ./slots/headers.md#server|jo.notif.simpleTop -->
 
 Notification on the top with big title and subtitle (native mission start/end) <br>
 
-<!-- @include: ./slots/descriptions.md#jo.notif.simpleTop -->
+<!-- @include: ./slots/descriptions.md#server|jo.notif.simpleTop -->
 
 #### Syntax
 
@@ -247,7 +247,7 @@ jo.notif.simpleTop(source, title, subtitle, duration)
 > The duration of the notification in ms <br> default : 3000
 >
 
-<!-- @include: ./slots/examples.md#jo.notif.simpleTop -->
+<!-- @include: ./slots/examples.md#server|jo.notif.simpleTop -->
 
-<!-- @include: ./slots/footers.md#jo.notif.simpleTop -->
+<!-- @include: ./slots/footers.md#server|jo.notif.simpleTop -->
 

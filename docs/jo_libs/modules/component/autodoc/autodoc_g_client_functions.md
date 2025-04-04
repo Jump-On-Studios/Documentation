@@ -3,11 +3,11 @@
 
 ### jo.component.apply()
 
-<!-- @include: ./slots/headers.md#jo.component.apply -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.apply -->
 
 A function to apply a component on the ped <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.apply -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.apply -->
 
 #### Syntax
 
@@ -49,19 +49,19 @@ jo.component.apply(ped, category, data)
 > `data.material` : _integer_ - The material value <BadgeOptional />
 > 
 
-<!-- @include: ./slots/examples.md#jo.component.apply -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.apply -->
 
-<!-- @include: ./slots/footers.md#jo.component.apply -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.apply -->
 
 ---
 
 ### jo.component.applyComponents()
 
-<!-- @include: ./slots/headers.md#jo.component.applyComponents -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.applyComponents -->
 
 A function to apply multiple components to a ped <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.applyComponents -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.applyComponents -->
 
 #### Syntax
 
@@ -81,19 +81,19 @@ jo.component.applyComponents(ped, components)
 >
 
 
-<!-- @include: ./slots/examples.md#jo.component.applyComponents -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.applyComponents -->
 
-<!-- @include: ./slots/footers.md#jo.component.applyComponents -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.applyComponents -->
 
 ---
 
 ### jo.component.applySkin()
 
-<!-- @include: ./slots/headers.md#jo.component.applySkin -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.applySkin -->
 
 A function to apply a complete skin configuration to a ped <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.applySkin -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.applySkin -->
 
 #### Syntax
 
@@ -149,19 +149,19 @@ jo.component.applySkin(ped, skin)
 > `skin.bodyScale` : _number_ - The body scale value <BadgeOptional />
 > 
 
-<!-- @include: ./slots/examples.md#jo.component.applySkin -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.applySkin -->
 
-<!-- @include: ./slots/footers.md#jo.component.applySkin -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.applySkin -->
 
 ---
 
 ### jo.component.bootsAreUnderPant()
 
-<!-- @include: ./slots/headers.md#jo.component.bootsAreUnderPant -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.bootsAreUnderPant -->
 
 A function to know if the boots are under the pant <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.bootsAreUnderPant -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.bootsAreUnderPant -->
 
 #### Syntax
 
@@ -181,19 +181,19 @@ Type : _boolean_
 
 > Return `true` if boots are under the pant, `false` otherwise.
 
-<!-- @include: ./slots/examples.md#jo.component.bootsAreUnderPant -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.bootsAreUnderPant -->
 
-<!-- @include: ./slots/footers.md#jo.component.bootsAreUnderPant -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.bootsAreUnderPant -->
 
 ---
 
 ### jo.component.collarClose()
 
-<!-- @include: ./slots/headers.md#jo.component.collarClose -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.collarClose -->
 
 A function to close the collar <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.collarClose -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.collarClose -->
 
 #### Syntax
 
@@ -213,19 +213,19 @@ jo.component.collarClose(ped, data)
 >
 
 
-<!-- @include: ./slots/examples.md#jo.component.collarClose -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.collarClose -->
 
-<!-- @include: ./slots/footers.md#jo.component.collarClose -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.collarClose -->
 
 ---
 
 ### jo.component.collarIsOpened()
 
-<!-- @include: ./slots/headers.md#jo.component.collarIsOpened -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.collarIsOpened -->
 
 Return if the collar is opened <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.collarIsOpened -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.collarIsOpened -->
 
 #### Syntax
 
@@ -245,19 +245,19 @@ Type : _boolean_
 
 > Return `true` if the collar is opened, `false` otherwise.
 
-<!-- @include: ./slots/examples.md#jo.component.collarIsOpened -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.collarIsOpened -->
 
-<!-- @include: ./slots/footers.md#jo.component.collarIsOpened -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.collarIsOpened -->
 
 ---
 
 ### jo.component.collarOpen()
 
-<!-- @include: ./slots/headers.md#jo.component.collarOpen -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.collarOpen -->
 
 A function to open the collar <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.collarOpen -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.collarOpen -->
 
 #### Syntax
 
@@ -277,19 +277,19 @@ jo.component.collarOpen(ped, data)
 >
 
 
-<!-- @include: ./slots/examples.md#jo.component.collarOpen -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.collarOpen -->
 
-<!-- @include: ./slots/footers.md#jo.component.collarOpen -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.collarOpen -->
 
 ---
 
 ### jo.component.getBodiesLowerFromSkinTone()
 
-<!-- @include: ./slots/headers.md#jo.component.getBodiesLowerFromSkinTone -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.getBodiesLowerFromSkinTone -->
 
 A function to get the lower body component hash from bodies index and skin tone <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.getBodiesLowerFromSkinTone -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getBodiesLowerFromSkinTone -->
 
 #### Syntax
 
@@ -317,19 +317,19 @@ Type : _string_
 
 > The lower body component hash string
 
-<!-- @include: ./slots/examples.md#jo.component.getBodiesLowerFromSkinTone -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.getBodiesLowerFromSkinTone -->
 
-<!-- @include: ./slots/footers.md#jo.component.getBodiesLowerFromSkinTone -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.getBodiesLowerFromSkinTone -->
 
 ---
 
 ### jo.component.getBodiesUpperFromSkinTone()
 
-<!-- @include: ./slots/headers.md#jo.component.getBodiesUpperFromSkinTone -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.getBodiesUpperFromSkinTone -->
 
 A function to get the upper body component hash from bodies index and skin tone <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.getBodiesUpperFromSkinTone -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getBodiesUpperFromSkinTone -->
 
 #### Syntax
 
@@ -357,19 +357,19 @@ Type : _string_
 
 > The upper body component hash string
 
-<!-- @include: ./slots/examples.md#jo.component.getBodiesUpperFromSkinTone -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.getBodiesUpperFromSkinTone -->
 
-<!-- @include: ./slots/footers.md#jo.component.getBodiesUpperFromSkinTone -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.getBodiesUpperFromSkinTone -->
 
 ---
 
 ### jo.component.getCategoriesEquiped()
 
-<!-- @include: ./slots/headers.md#jo.component.getCategoriesEquiped -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.getCategoriesEquiped -->
 
 Return the list of component categories equiped on the ped <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.getCategoriesEquiped -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getCategoriesEquiped -->
 
 #### Syntax
 
@@ -389,19 +389,19 @@ Type : _object_
 
 > Return an object with the category in key and data in value <br> `categories[x].index` : integer - the index of the component on the ped <br> `categories[x].category` : string - the category name if the hash is known
 
-<!-- @include: ./slots/examples.md#jo.component.getCategoriesEquiped -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.getCategoriesEquiped -->
 
-<!-- @include: ./slots/footers.md#jo.component.getCategoriesEquiped -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.getCategoriesEquiped -->
 
 ---
 
 ### jo.component.getCategoryNameFromHash()
 
-<!-- @include: ./slots/headers.md#jo.component.getCategoryNameFromHash -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.getCategoryNameFromHash -->
 
 A function to get the category name from a hash value <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.getCategoryNameFromHash -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getCategoryNameFromHash -->
 
 #### Syntax
 
@@ -421,19 +421,19 @@ Type : _string_
 
 > The category name, or "unknown" if not found
 
-<!-- @include: ./slots/examples.md#jo.component.getCategoryNameFromHash -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.getCategoryNameFromHash -->
 
-<!-- @include: ./slots/footers.md#jo.component.getCategoryNameFromHash -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.getCategoryNameFromHash -->
 
 ---
 
 ### jo.component.getCategoryTint()
 
-<!-- @include: ./slots/headers.md#jo.component.getCategoryTint -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.getCategoryTint -->
 
 A function to get the tints of a category <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.getCategoryTint -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getCategoryTint -->
 
 #### Syntax
 
@@ -461,19 +461,19 @@ Type : _object|integer,integer,integer,integer_
 
 > When inTable is true: returns a table with {palette, tint0, tint1, tint2} <br> When inTable is false: 1st: color palette <br> 2nd: tint number 0 <br> 3rd: tint number 1 <br> 4th: tint number 2
 
-<!-- @include: ./slots/examples.md#jo.component.getCategoryTint -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.getCategoryTint -->
 
-<!-- @include: ./slots/footers.md#jo.component.getCategoryTint -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.getCategoryTint -->
 
 ---
 
 ### jo.component.getComponentCategory()
 
-<!-- @include: ./slots/headers.md#jo.component.getComponentCategory -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.getComponentCategory -->
 
 Return the category hash of a component and if it's a MP component <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.getComponentCategory -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getComponentCategory -->
 
 #### Syntax
 
@@ -497,19 +497,19 @@ Type : _integer,boolean_
 
 > 1st: Return hash value of the category <br> 2nd: Return `true` if it's a MP component, `false` otherwise
 
-<!-- @include: ./slots/examples.md#jo.component.getComponentCategory -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.getComponentCategory -->
 
-<!-- @include: ./slots/footers.md#jo.component.getComponentCategory -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.getComponentCategory -->
 
 ---
 
 ### jo.component.getComponentEquiped()
 
-<!-- @include: ./slots/headers.md#jo.component.getComponentEquiped -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.getComponentEquiped -->
 
 A function to get the hash of the component equiped in a category <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.getComponentEquiped -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getComponentEquiped -->
 
 #### Syntax
 
@@ -533,19 +533,19 @@ Type : _integer|boolean_
 
 > Return the hash of the component or `false` is not equiped
 
-<!-- @include: ./slots/examples.md#jo.component.getComponentEquiped -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.getComponentEquiped -->
 
-<!-- @include: ./slots/footers.md#jo.component.getComponentEquiped -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.getComponentEquiped -->
 
 ---
 
 ### jo.component.getComponentsEquiped()
 
-<!-- @include: ./slots/headers.md#jo.component.getComponentsEquiped -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.getComponentsEquiped -->
 
 A function to get all components equiped <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.getComponentsEquiped -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getComponentsEquiped -->
 
 #### Syntax
 
@@ -565,19 +565,19 @@ Type : _table_
 
 > Return the list of components equiped
 
-<!-- @include: ./slots/examples.md#jo.component.getComponentsEquiped -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.getComponentsEquiped -->
 
-<!-- @include: ./slots/footers.md#jo.component.getComponentsEquiped -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.getComponentsEquiped -->
 
 ---
 
 ### jo.component.getEyesFromIndex()
 
-<!-- @include: ./slots/headers.md#jo.component.getEyesFromIndex -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.getEyesFromIndex -->
 
 A function to get the eyes component hash from an index <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.getEyesFromIndex -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getEyesFromIndex -->
 
 #### Syntax
 
@@ -601,19 +601,19 @@ Type : _string_
 
 > The eyes component hash string
 
-<!-- @include: ./slots/examples.md#jo.component.getEyesFromIndex -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.getEyesFromIndex -->
 
-<!-- @include: ./slots/footers.md#jo.component.getEyesFromIndex -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.getEyesFromIndex -->
 
 ---
 
 ### jo.component.getHeadFromSkinTone()
 
-<!-- @include: ./slots/headers.md#jo.component.getHeadFromSkinTone -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.getHeadFromSkinTone -->
 
 A function to get the head component hash from head index and skin tone <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.getHeadFromSkinTone -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getHeadFromSkinTone -->
 
 #### Syntax
 
@@ -641,19 +641,19 @@ Type : _string_
 
 > The head component hash string
 
-<!-- @include: ./slots/examples.md#jo.component.getHeadFromSkinTone -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.getHeadFromSkinTone -->
 
-<!-- @include: ./slots/footers.md#jo.component.getHeadFromSkinTone -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.getHeadFromSkinTone -->
 
 ---
 
 ### jo.component.getPaletteNameFromHash()
 
-<!-- @include: ./slots/headers.md#jo.component.getPaletteNameFromHash -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.getPaletteNameFromHash -->
 
 A function to get the palette name from a hash value <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.getPaletteNameFromHash -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getPaletteNameFromHash -->
 
 #### Syntax
 
@@ -673,19 +673,19 @@ Type : _string_
 
 > The palette name, or "unknown" if not found
 
-<!-- @include: ./slots/examples.md#jo.component.getPaletteNameFromHash -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.getPaletteNameFromHash -->
 
-<!-- @include: ./slots/footers.md#jo.component.getPaletteNameFromHash -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.getPaletteNameFromHash -->
 
 ---
 
 ### jo.component.getTeethFromIndex()
 
-<!-- @include: ./slots/headers.md#jo.component.getTeethFromIndex -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.getTeethFromIndex -->
 
 A function to get the teeth component hash from an index <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.getTeethFromIndex -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getTeethFromIndex -->
 
 #### Syntax
 
@@ -709,19 +709,19 @@ Type : _string_
 
 > The teeth component hash string
 
-<!-- @include: ./slots/examples.md#jo.component.getTeethFromIndex -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.getTeethFromIndex -->
 
-<!-- @include: ./slots/footers.md#jo.component.getTeethFromIndex -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.getTeethFromIndex -->
 
 ---
 
 ### jo.component.getWearableState()
 
-<!-- @include: ./slots/headers.md#jo.component.getWearableState -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.getWearableState -->
 
 Get the wearable state of a category <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.getWearableState -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getWearableState -->
 
 #### Syntax
 
@@ -745,19 +745,19 @@ Type : _string_
 
 > Return the wearable state of the category
 
-<!-- @include: ./slots/examples.md#jo.component.getWearableState -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.getWearableState -->
 
-<!-- @include: ./slots/footers.md#jo.component.getWearableState -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.getWearableState -->
 
 ---
 
 ### jo.component.hairIsPomade()
 
-<!-- @include: ./slots/headers.md#jo.component.hairIsPomade -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.hairIsPomade -->
 
 A function to know if the hair is pomaded <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.hairIsPomade -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.hairIsPomade -->
 
 #### Syntax
 
@@ -777,19 +777,19 @@ Type : _boolean_
 
 > Return `true` if the hair is pomaded
 
-<!-- @include: ./slots/examples.md#jo.component.hairIsPomade -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.hairIsPomade -->
 
-<!-- @include: ./slots/footers.md#jo.component.hairIsPomade -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.hairIsPomade -->
 
 ---
 
 ### jo.component.isCategoryEquiped()
 
-<!-- @include: ./slots/headers.md#jo.component.isCategoryEquiped -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.isCategoryEquiped -->
 
 A function to know if a specific category is equiped on the ped <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.isCategoryEquiped -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.isCategoryEquiped -->
 
 #### Syntax
 
@@ -813,19 +813,19 @@ Type : _boolean,integer_
 
 > 1st: Return `true` if the category is equiped, `false` otherwise <br> 2nd: Return the index of the category
 
-<!-- @include: ./slots/examples.md#jo.component.isCategoryEquiped -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.isCategoryEquiped -->
 
-<!-- @include: ./slots/footers.md#jo.component.isCategoryEquiped -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.isCategoryEquiped -->
 
 ---
 
 ### jo.component.isMpComponent()
 
-<!-- @include: ./slots/headers.md#jo.component.isMpComponent -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.isMpComponent -->
 
 A function to check if a component is an MP component (multiplayer component) <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.isMpComponent -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.isMpComponent -->
 
 #### Syntax
 
@@ -849,19 +849,19 @@ Type : _boolean_
 
 > Return `true` if it's an MP component, `false` otherwise
 
-<!-- @include: ./slots/examples.md#jo.component.isMpComponent -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.isMpComponent -->
 
-<!-- @include: ./slots/footers.md#jo.component.isMpComponent -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.isMpComponent -->
 
 ---
 
 ### jo.component.loadoutIsOnRight()
 
-<!-- @include: ./slots/headers.md#jo.component.loadoutIsOnRight -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.loadoutIsOnRight -->
 
 A function to know if the loadout is on the right <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.loadoutIsOnRight -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.loadoutIsOnRight -->
 
 #### Syntax
 
@@ -881,19 +881,19 @@ Type : _boolean_
 
 > Return `true` if the loadout in on the right, `false` otherwise
 
-<!-- @include: ./slots/examples.md#jo.component.loadoutIsOnRight -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.loadoutIsOnRight -->
 
-<!-- @include: ./slots/footers.md#jo.component.loadoutIsOnRight -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.loadoutIsOnRight -->
 
 ---
 
 ### jo.component.neckwearIsUp()
 
-<!-- @include: ./slots/headers.md#jo.component.neckwearIsUp -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.neckwearIsUp -->
 
 Return if the neckwear is on the face of the player or not <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.neckwearIsUp -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.neckwearIsUp -->
 
 #### Syntax
 
@@ -913,19 +913,19 @@ Type : _boolean_
 
 > Return `true` if the neckwear is on the face, `false` otherwise.
 
-<!-- @include: ./slots/examples.md#jo.component.neckwearIsUp -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.neckwearIsUp -->
 
-<!-- @include: ./slots/footers.md#jo.component.neckwearIsUp -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.neckwearIsUp -->
 
 ---
 
 ### jo.component.refreshPed()
 
-<!-- @include: ./slots/headers.md#jo.component.refreshPed -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.refreshPed -->
 
 A function to refresh the ped components <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.refreshPed -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.refreshPed -->
 
 #### Syntax
 
@@ -939,19 +939,19 @@ jo.component.refreshPed(ped)
 > The entity ID
 >
 
-<!-- @include: ./slots/examples.md#jo.component.refreshPed -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.refreshPed -->
 
-<!-- @include: ./slots/footers.md#jo.component.refreshPed -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.refreshPed -->
 
 ---
 
 ### jo.component.remove()
 
-<!-- @include: ./slots/headers.md#jo.component.remove -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.remove -->
 
 A function to remove a component component <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.remove -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.remove -->
 
 #### Syntax
 
@@ -969,19 +969,19 @@ jo.component.remove(ped, category)
 > The category of component to remove
 >
 
-<!-- @include: ./slots/examples.md#jo.component.remove -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.remove -->
 
-<!-- @include: ./slots/footers.md#jo.component.remove -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.remove -->
 
 ---
 
 ### jo.component.removeAllClothes()
 
-<!-- @include: ./slots/headers.md#jo.component.removeAllClothes -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.removeAllClothes -->
 
 A function to remove all clothing components from a ped <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.removeAllClothes -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.removeAllClothes -->
 
 #### Syntax
 
@@ -995,19 +995,19 @@ jo.component.removeAllClothes(ped)
 > The entity ID
 >
 
-<!-- @include: ./slots/examples.md#jo.component.removeAllClothes -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.removeAllClothes -->
 
-<!-- @include: ./slots/footers.md#jo.component.removeAllClothes -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.removeAllClothes -->
 
 ---
 
 ### jo.component.setWearableState()
 
-<!-- @include: ./slots/headers.md#jo.component.setWearableState -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.setWearableState -->
 
 A function to edit the wearable state of a category <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.setWearableState -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.setWearableState -->
 
 #### Syntax
 
@@ -1033,19 +1033,19 @@ jo.component.setWearableState(ped, category, hash, state)
 > The wearable state to apply on the component <br>  The list of wearable state can be find in the `jo_libs>module>component>client.lua` file `line 76`
 >
 
-<!-- @include: ./slots/examples.md#jo.component.setWearableState -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.setWearableState -->
 
-<!-- @include: ./slots/footers.md#jo.component.setWearableState -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.setWearableState -->
 
 ---
 
 ### jo.component.sleeveIsRolled()
 
-<!-- @include: ./slots/headers.md#jo.component.sleeveIsRolled -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.sleeveIsRolled -->
 
 Return if the sleeve are rolled <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.sleeveIsRolled -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.sleeveIsRolled -->
 
 #### Syntax
 
@@ -1065,19 +1065,19 @@ Type : _boolean_
 
 > Return `true` if the sleeve are rolled, `false` otherwise.
 
-<!-- @include: ./slots/examples.md#jo.component.sleeveIsRolled -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.sleeveIsRolled -->
 
-<!-- @include: ./slots/footers.md#jo.component.sleeveIsRolled -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.sleeveIsRolled -->
 
 ---
 
 ### jo.component.sleeveRoll()
 
-<!-- @include: ./slots/headers.md#jo.component.sleeveRoll -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.sleeveRoll -->
 
 A function to roll sleeve <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.sleeveRoll -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.sleeveRoll -->
 
 #### Syntax
 
@@ -1095,19 +1095,19 @@ jo.component.sleeveRoll(ped, hash)
 > The component data, see the structure in [jo.component.apply()](#jo-component-apply)
 >
 
-<!-- @include: ./slots/examples.md#jo.component.sleeveRoll -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.sleeveRoll -->
 
-<!-- @include: ./slots/footers.md#jo.component.sleeveRoll -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.sleeveRoll -->
 
 ---
 
 ### jo.component.sleeveUnroll()
 
-<!-- @include: ./slots/headers.md#jo.component.sleeveUnroll -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.sleeveUnroll -->
 
 A function to unroll sleeve <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.sleeveUnroll -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.sleeveUnroll -->
 
 #### Syntax
 
@@ -1125,19 +1125,19 @@ jo.component.sleeveUnroll(ped, hash)
 > The component data, see the structure in [jo.component.apply()](#jo-component-apply)
 >
 
-<!-- @include: ./slots/examples.md#jo.component.sleeveUnroll -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.sleeveUnroll -->
 
-<!-- @include: ./slots/footers.md#jo.component.sleeveUnroll -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.sleeveUnroll -->
 
 ---
 
 ### jo.component.vestIsUnderPant()
 
-<!-- @include: ./slots/headers.md#jo.component.vestIsUnderPant -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.vestIsUnderPant -->
 
 A function to know if the vest is under the pant <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.vestIsUnderPant -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.vestIsUnderPant -->
 
 #### Syntax
 
@@ -1157,19 +1157,19 @@ Type : _boolean_
 
 > Return `true` if the vest is in the pant, `false` otherwise
 
-<!-- @include: ./slots/examples.md#jo.component.vestIsUnderPant -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.vestIsUnderPant -->
 
-<!-- @include: ./slots/footers.md#jo.component.vestIsUnderPant -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.vestIsUnderPant -->
 
 ---
 
 ### jo.component.waitPedLoaded()
 
-<!-- @include: ./slots/headers.md#jo.component.waitPedLoaded -->
+<!-- @include: ./slots/headers.md#g_client|jo.component.waitPedLoaded -->
 
 A function to wait the refresh of ped <br>
 
-<!-- @include: ./slots/descriptions.md#jo.component.waitPedLoaded -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.waitPedLoaded -->
 
 #### Syntax
 
@@ -1183,7 +1183,7 @@ jo.component.waitPedLoaded(ped)
 > The entity ID
 >
 
-<!-- @include: ./slots/examples.md#jo.component.waitPedLoaded -->
+<!-- @include: ./slots/examples.md#g_client|jo.component.waitPedLoaded -->
 
-<!-- @include: ./slots/footers.md#jo.component.waitPedLoaded -->
+<!-- @include: ./slots/footers.md#g_client|jo.component.waitPedLoaded -->
 

@@ -1,39 +1,39 @@
-<!-- #region jo.entity.create -->
+<!-- #region client|jo.entity.create -->
 
-<!-- #endregion jo.entity.create -->
-
-
-<!-- #region jo.entity.createWithMouse -->
-
-<!-- #endregion jo.entity.createWithMouse -->
+<!-- #endregion client|jo.entity.create -->
 
 
-<!-- #region jo.entity.delete -->
+<!-- #region client|jo.entity.createWithMouse -->
 
-<!-- #endregion jo.entity.delete -->
-
-
-<!-- #region jo.entity.fadeAndDelete -->
-
-<!-- #endregion jo.entity.fadeAndDelete -->
+<!-- #endregion client|jo.entity.createWithMouse -->
 
 
-<!-- #region jo.entity.fadeIn -->
+<!-- #region client|jo.entity.delete -->
 
-<!-- #endregion jo.entity.fadeIn -->
-
-
-<!-- #region jo.entity.fadeOut -->
-
-<!-- #endregion jo.entity.fadeOut -->
+<!-- #endregion client|jo.entity.delete -->
 
 
-<!-- #region jo.entity.requestControl -->
+<!-- #region client|jo.entity.fadeAndDelete -->
 
-<!-- #endregion jo.entity.requestControl -->
+<!-- #endregion client|jo.entity.fadeAndDelete -->
 
 
-<!-- #region jo.entity.delete -->
+<!-- #region client|jo.entity.fadeIn -->
 
-<!-- #endregion jo.entity.delete -->
+<!-- #endregion client|jo.entity.fadeIn -->
+
+
+<!-- #region client|jo.entity.fadeOut -->
+
+<!-- #endregion client|jo.entity.fadeOut -->
+
+
+<!-- #region client|jo.entity.requestControl -->
+
+<!-- #endregion client|jo.entity.requestControl -->
+
+
+<!-- #region server|jo.entity.delete -->
+
+<!-- #endregion server|jo.entity.delete -->
 

@@ -3,11 +3,11 @@
 
 ### jo.gameEvents.listen()
 
-<!-- @include: ./slots/headers.md#jo.gameEvents.listen -->
+<!-- @include: ./slots/headers.md#client|jo.gameEvents.listen -->
 
 Register a listener for a specific game event <br>
 
-<!-- @include: ./slots/descriptions.md#jo.gameEvents.listen -->
+<!-- @include: ./slots/descriptions.md#client|jo.gameEvents.listen -->
 
 #### Syntax
 
@@ -25,7 +25,7 @@ jo.gameEvents.listen(eventName, callback)
 > The function that will be called when the event is triggered
 >
 
-<!-- @include: ./slots/examples.md#jo.gameEvents.listen -->
+<!-- @include: ./slots/examples.md#client|jo.gameEvents.listen -->
 
-<!-- @include: ./slots/footers.md#jo.gameEvents.listen -->
+<!-- @include: ./slots/footers.md#client|jo.gameEvents.listen -->
 

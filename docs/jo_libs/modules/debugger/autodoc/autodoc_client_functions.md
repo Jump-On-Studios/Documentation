@@ -3,11 +3,11 @@
 
 ### jo.debugger.drawSphere()
 
-<!-- @include: ./slots/headers.md#jo.debugger.drawSphere -->
+<!-- @include: ./slots/headers.md#client|jo.debugger.drawSphere -->
 
 Draws a 3D sphere at the specified coordinates. <br>
 
-<!-- @include: ./slots/descriptions.md#jo.debugger.drawSphere -->
+<!-- @include: ./slots/descriptions.md#client|jo.debugger.drawSphere -->
 
 #### Syntax
 
@@ -39,19 +39,19 @@ jo.debugger.drawSphere(coords, size, color)
 > `color.a` : _number_ - Alpha/transparency 0-255 - default:100
 > 
 
-<!-- @include: ./slots/examples.md#jo.debugger.drawSphere -->
+<!-- @include: ./slots/examples.md#client|jo.debugger.drawSphere -->
 
-<!-- @include: ./slots/footers.md#jo.debugger.drawSphere -->
+<!-- @include: ./slots/footers.md#client|jo.debugger.drawSphere -->
 
 ---
 
 ### jo.debugger.drawText()
 
-<!-- @include: ./slots/headers.md#jo.debugger.drawText -->
+<!-- @include: ./slots/headers.md#client|jo.debugger.drawText -->
 
 Draws text on the screen with specified parameters. <br>
 
-<!-- @include: ./slots/descriptions.md#jo.debugger.drawText -->
+<!-- @include: ./slots/descriptions.md#client|jo.debugger.drawText -->
 
 #### Syntax
 
@@ -73,19 +73,19 @@ jo.debugger.drawText(text, x, y)
 > The y-coordinate position on screen - if not provided, uses and increments the global offset
 >
 
-<!-- @include: ./slots/examples.md#jo.debugger.drawText -->
+<!-- @include: ./slots/examples.md#client|jo.debugger.drawText -->
 
-<!-- @include: ./slots/footers.md#jo.debugger.drawText -->
+<!-- @include: ./slots/footers.md#client|jo.debugger.drawText -->
 
 ---
 
 ### jo.debugger.resetText()
 
-<!-- @include: ./slots/headers.md#jo.debugger.resetText -->
+<!-- @include: ./slots/headers.md#client|jo.debugger.resetText -->
 
 Resets the text display offset to its starting position. <br>
 
-<!-- @include: ./slots/descriptions.md#jo.debugger.resetText -->
+<!-- @include: ./slots/descriptions.md#client|jo.debugger.resetText -->
 
 #### Syntax
 
@@ -93,7 +93,7 @@ Resets the text display offset to its starting position. <br>
 jo.debugger.resetText()
 ```
 
-<!-- @include: ./slots/examples.md#jo.debugger.resetText -->
+<!-- @include: ./slots/examples.md#client|jo.debugger.resetText -->
 
-<!-- @include: ./slots/footers.md#jo.debugger.resetText -->
+<!-- @include: ./slots/footers.md#client|jo.debugger.resetText -->
 

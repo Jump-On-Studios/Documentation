@@ -3,11 +3,11 @@
 
 ### jo.nui.forceFocus()
 
-<!-- @include: ./slots/headers.md#jo.nui.forceFocus -->
+<!-- @include: ./slots/headers.md#client|jo.nui.forceFocus -->
 
 Forces focus on a specific NUI interface <br>
 
-<!-- @include: ./slots/descriptions.md#jo.nui.forceFocus -->
+<!-- @include: ./slots/descriptions.md#client|jo.nui.forceFocus -->
 
 #### Syntax
 
@@ -21,19 +21,19 @@ jo.nui.forceFocus(uiName)
 > The name of the NUI to focus on
 >
 
-<!-- @include: ./slots/examples.md#jo.nui.forceFocus -->
+<!-- @include: ./slots/examples.md#client|jo.nui.forceFocus -->
 
-<!-- @include: ./slots/footers.md#jo.nui.forceFocus -->
+<!-- @include: ./slots/footers.md#client|jo.nui.forceFocus -->
 
 ---
 
 ### jo.nui.load()
 
-<!-- @include: ./slots/headers.md#jo.nui.load -->
+<!-- @include: ./slots/headers.md#client|jo.nui.load -->
 
 Loads a NUI interface <br>
 
-<!-- @include: ./slots/descriptions.md#jo.nui.load -->
+<!-- @include: ./slots/descriptions.md#client|jo.nui.load -->
 
 #### Syntax
 
@@ -51,19 +51,19 @@ jo.nui.load(uiName, url)
 > The URL of the NUI to load
 >
 
-<!-- @include: ./slots/examples.md#jo.nui.load -->
+<!-- @include: ./slots/examples.md#client|jo.nui.load -->
 
-<!-- @include: ./slots/footers.md#jo.nui.load -->
+<!-- @include: ./slots/footers.md#client|jo.nui.load -->
 
 ---
 
 ### jo.nui.resetFocus()
 
-<!-- @include: ./slots/headers.md#jo.nui.resetFocus -->
+<!-- @include: ./slots/headers.md#client|jo.nui.resetFocus -->
 
 Resets the focus from any NUI interface <br>
 
-<!-- @include: ./slots/descriptions.md#jo.nui.resetFocus -->
+<!-- @include: ./slots/descriptions.md#client|jo.nui.resetFocus -->
 
 #### Syntax
 
@@ -71,7 +71,7 @@ Resets the focus from any NUI interface <br>
 jo.nui.resetFocus()
 ```
 
-<!-- @include: ./slots/examples.md#jo.nui.resetFocus -->
+<!-- @include: ./slots/examples.md#client|jo.nui.resetFocus -->
 
-<!-- @include: ./slots/footers.md#jo.nui.resetFocus -->
+<!-- @include: ./slots/footers.md#client|jo.nui.resetFocus -->
 

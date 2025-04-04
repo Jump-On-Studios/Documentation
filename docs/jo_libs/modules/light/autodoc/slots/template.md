@@ -1,24 +1,24 @@
-<!-- #region jo.light.create -->
+<!-- #region client|LightClass:delete -->
 
-<!-- #endregion jo.light.create -->
-
-
-<!-- #region LightClass:delete -->
-
-<!-- #endregion LightClass:delete -->
+<!-- #endregion client|LightClass:delete -->
 
 
-<!-- #region LightClass:setCoords -->
+<!-- #region client|LightClass:setCoords -->
 
-<!-- #endregion LightClass:setCoords -->
-
-
-<!-- #region LightClass:setIntensity -->
-
-<!-- #endregion LightClass:setIntensity -->
+<!-- #endregion client|LightClass:setCoords -->
 
 
-<!-- #region LightClass:update -->
+<!-- #region client|LightClass:setIntensity -->
 
-<!-- #endregion LightClass:update -->
+<!-- #endregion client|LightClass:setIntensity -->
+
+
+<!-- #region client|LightClass:update -->
+
+<!-- #endregion client|LightClass:update -->
+
+
+<!-- #region client|jo.light.create -->
+
+<!-- #endregion client|jo.light.create -->
 

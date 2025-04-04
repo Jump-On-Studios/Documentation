@@ -1,4 +1,4 @@
-<!-- #region jo.pedTexture.apply -->
+<!-- #region g_client|jo.pedTexture.apply -->
 #### Example
 ```lua
 local ped = PlayerPedId()
@@ -10,10 +10,10 @@ data.tint1 = 10
 data.tint2 = 40
 jo.pedTexture.apply(ped,layername,data)
 ```
-<!-- #endregion jo.pedTexture.apply -->
+<!-- #endregion g_client|jo.pedTexture.apply -->
 
 
-<!-- #region jo.pedTexture.getAll -->
+<!-- #region g_client|jo.pedTexture.getAll -->
 #### Example
 ```lua
 local ped = PlayerPedId()
@@ -21,10 +21,10 @@ local textures = jo.pedTexture.getAll(ped)
 print(json.encode(textures))
 --Expected output: {heads = {eyeshdow = {...}, foundation = {...}}}
 ```
-<!-- #endregion jo.pedTexture.getAll -->
+<!-- #endregion g_client|jo.pedTexture.getAll -->
 
 
-<!-- #region jo.pedTexture.getOverlayAssetFromId -->
+<!-- #region g_client|jo.pedTexture.getOverlayAssetFromId -->
 #### Example
 ```lua
 local isMale = true
@@ -34,10 +34,10 @@ local texture = jo.pedTexture.getOverlayAssetFromId(isMale,layername,id)
 print(texture)
 --Expected output: mp_u_faov_eyebrow_005
 ```
-<!-- #endregion jo.pedTexture.getOverlayAssetFromId -->
+<!-- #endregion g_client|jo.pedTexture.getOverlayAssetFromId -->
 
 
-<!-- #region jo.pedTexture.overwriteCategory -->
+<!-- #region g_client|jo.pedTexture.overwriteCategory -->
 #### Example
 ```lua
 local ped = PlayerPedId()
@@ -48,24 +48,24 @@ local overlays = {
 }
 jo.pedTexture.overwriteCategory(ped,category,overlays)
 ```
-<!-- #endregion jo.pedTexture.overwriteCategory -->
+<!-- #endregion g_client|jo.pedTexture.overwriteCategory -->
 
 
-<!-- #region jo.pedTexture.refreshAll -->
+<!-- #region g_client|jo.pedTexture.refreshAll -->
 #### Example
 ```lua
 local ped = PlayerPedId()
 jo.pedTexture.refreshAll(ped)
 ```
-<!-- #endregion jo.pedTexture.refreshAll -->
+<!-- #endregion g_client|jo.pedTexture.refreshAll -->
 
 
-<!-- #region jo.pedTexture.remove -->
+<!-- #region g_client|jo.pedTexture.remove -->
 #### Example
 ```lua
 local ped = PlayerPedId()
 local layername = "eyeshadow"
 jo.pedTexture.remove(ped,layername)
 ```
-<!-- #endregion jo.pedTexture.remove -->
+<!-- #endregion g_client|jo.pedTexture.remove -->
 

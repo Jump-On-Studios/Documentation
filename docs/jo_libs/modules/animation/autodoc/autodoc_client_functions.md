@@ -3,11 +3,11 @@
 
 ### jo.animation.goToCoords()
 
-<!-- @include: ./slots/headers.md#jo.animation.goToCoords -->
+<!-- @include: ./slots/headers.md#client|jo.animation.goToCoords -->
 
 Function to move a ped to a destination <br>
 
-<!-- @include: ./slots/descriptions.md#jo.animation.goToCoords -->
+<!-- @include: ./slots/descriptions.md#client|jo.animation.goToCoords -->
 
 #### Syntax
 
@@ -37,19 +37,19 @@ jo.animation.goToCoords(ped, coords, speed, waiter, distanceToStop)
 > The distance between the ped and the destination to stop it - default:0.0
 >
 
-<!-- @include: ./slots/examples.md#jo.animation.goToCoords -->
+<!-- @include: ./slots/examples.md#client|jo.animation.goToCoords -->
 
-<!-- @include: ./slots/footers.md#jo.animation.goToCoords -->
+<!-- @include: ./slots/footers.md#client|jo.animation.goToCoords -->
 
 ---
 
 ### jo.animation.load()
 
-<!-- @include: ./slots/headers.md#jo.animation.load -->
+<!-- @include: ./slots/headers.md#client|jo.animation.load -->
 
 Load the dictionnary of animation <br>
 
-<!-- @include: ./slots/descriptions.md#jo.animation.load -->
+<!-- @include: ./slots/descriptions.md#client|jo.animation.load -->
 
 #### Syntax
 
@@ -67,19 +67,19 @@ jo.animation.load(dict, waiter)
 > If need to wait the loading to end the function - default:false
 >
 
-<!-- @include: ./slots/examples.md#jo.animation.load -->
+<!-- @include: ./slots/examples.md#client|jo.animation.load -->
 
-<!-- @include: ./slots/footers.md#jo.animation.load -->
+<!-- @include: ./slots/footers.md#client|jo.animation.load -->
 
 ---
 
 ### jo.animation.play()
 
-<!-- @include: ./slots/headers.md#jo.animation.play -->
+<!-- @include: ./slots/headers.md#client|jo.animation.play -->
 
 Play animation. The function load automatically necessary resources. <br>
 
-<!-- @include: ./slots/descriptions.md#jo.animation.play -->
+<!-- @include: ./slots/descriptions.md#client|jo.animation.play -->
 
 #### Syntax
 
@@ -118,19 +118,19 @@ jo.animation.play(ped, dict, name, duration, flag, offset)
 Type : _number_
 
 
-<!-- @include: ./slots/examples.md#jo.animation.play -->
+<!-- @include: ./slots/examples.md#client|jo.animation.play -->
 
-<!-- @include: ./slots/footers.md#jo.animation.play -->
+<!-- @include: ./slots/footers.md#client|jo.animation.play -->
 
 ---
 
 ### jo.animation.setDesiredHeading()
 
-<!-- @include: ./slots/headers.md#jo.animation.setDesiredHeading -->
+<!-- @include: ./slots/headers.md#client|jo.animation.setDesiredHeading -->
 
 Turn the ped to the desired heading <br>
 
-<!-- @include: ./slots/descriptions.md#jo.animation.setDesiredHeading -->
+<!-- @include: ./slots/descriptions.md#client|jo.animation.setDesiredHeading -->
 
 #### Syntax
 
@@ -152,7 +152,7 @@ jo.animation.setDesiredHeading(ped, heading, waiter)
 > If need to reach the heading to end the function - default:true
 >
 
-<!-- @include: ./slots/examples.md#jo.animation.setDesiredHeading -->
+<!-- @include: ./slots/examples.md#client|jo.animation.setDesiredHeading -->
 
-<!-- @include: ./slots/footers.md#jo.animation.setDesiredHeading -->
+<!-- @include: ./slots/footers.md#client|jo.animation.setDesiredHeading -->
 

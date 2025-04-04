@@ -1,4 +1,4 @@
-<!-- #region jo.debugger.drawSphere -->
+<!-- #region client|jo.debugger.drawSphere -->
 #### Example
 ```lua
 local coords = vec3(1234.56, 789.01, 123.45)
@@ -6,19 +6,19 @@ local size = vec3(0.7, 0.7, 0.7)
 local color = {r = 0, g = 255, b = 0, a = 150}
 jo.debugger.drawSphere(coords, size, color)
 ```
-<!-- #endregion jo.debugger.drawSphere -->
+<!-- #endregion client|jo.debugger.drawSphere -->
 
 
-<!-- #region jo.debugger.drawText -->
+<!-- #region client|jo.debugger.drawText -->
 #### Example
 ```lua
 -- Drawing text at a specific position
 jo.debugger.drawText("Player Health: 100", 0.5, 0.2)
 ```
-<!-- #endregion jo.debugger.drawText -->
+<!-- #endregion client|jo.debugger.drawText -->
 
 
-<!-- #region jo.debugger.resetText -->
+<!-- #region client|jo.debugger.resetText -->
 #### Example
 ```lua
 jo.debugger.drawText("First line")
@@ -27,10 +27,10 @@ jo.debugger.resetText()
 
 jo.debugger.drawText("New first line")
 ```
-<!-- #endregion jo.debugger.resetText -->
+<!-- #endregion client|jo.debugger.resetText -->
 
 
-<!-- #region jo.debugger.perfomance -->
+<!-- #region shared|jo.debugger.perfomance -->
 #### Example
 ```lua
 local duration = jo.debugger.perfomance("Array iteration", function()
@@ -47,10 +47,10 @@ end)
 
 print("The operation took " .. duration .. " microseconds")
 ```
-<!-- #endregion jo.debugger.perfomance -->
+<!-- #endregion shared|jo.debugger.perfomance -->
 
 
-<!-- #region jo.debugger.perfomanceRepeat -->
+<!-- #region shared|jo.debugger.perfomanceRepeat -->
 #### Example
 ```lua
 local averageDuration = jo.debugger.perfomanceRepeat("Table lookup", 100, function()
@@ -67,5 +67,5 @@ end, 10)
 
 print("Average execution time: " .. averageDuration .. " microseconds")
 ```
-<!-- #endregion jo.debugger.perfomanceRepeat -->
+<!-- #endregion shared|jo.debugger.perfomanceRepeat -->
 

@@ -3,11 +3,11 @@
 
 ### jo.input.native()
 
-<!-- @include: ./slots/headers.md#jo.input.native -->
+<!-- @include: ./slots/headers.md#client|jo.input.native -->
 
 A function to open the native input <br>
 
-<!-- @include: ./slots/descriptions.md#jo.input.native -->
+<!-- @include: ./slots/descriptions.md#client|jo.input.native -->
 
 #### Syntax
 
@@ -35,7 +35,7 @@ Type : _string_
 
 > Return the text from the input
 
-<!-- @include: ./slots/examples.md#jo.input.native -->
+<!-- @include: ./slots/examples.md#client|jo.input.native -->
 
-<!-- @include: ./slots/footers.md#jo.input.native -->
+<!-- @include: ./slots/footers.md#client|jo.input.native -->
 

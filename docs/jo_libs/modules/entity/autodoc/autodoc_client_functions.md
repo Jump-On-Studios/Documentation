@@ -3,11 +3,11 @@
 
 ### jo.entity.create()
 
-<!-- @include: ./slots/headers.md#jo.entity.create -->
+<!-- @include: ./slots/headers.md#client|jo.entity.create -->
 
 Create a new entity at specified location <br>
 
-<!-- @include: ./slots/descriptions.md#jo.entity.create -->
+<!-- @include: ./slots/descriptions.md#client|jo.entity.create -->
 
 #### Syntax
 
@@ -43,19 +43,19 @@ Type : _integer_
 
 > The created entity ID
 
-<!-- @include: ./slots/examples.md#jo.entity.create -->
+<!-- @include: ./slots/examples.md#client|jo.entity.create -->
 
-<!-- @include: ./slots/footers.md#jo.entity.create -->
+<!-- @include: ./slots/footers.md#client|jo.entity.create -->
 
 ---
 
 ### jo.entity.createWithMouse()
 
-<!-- @include: ./slots/headers.md#jo.entity.createWithMouse -->
+<!-- @include: ./slots/headers.md#client|jo.entity.createWithMouse -->
 
 Create an entity that follows the mouse cursor for placement <br>
 
-<!-- @include: ./slots/descriptions.md#jo.entity.createWithMouse -->
+<!-- @include: ./slots/descriptions.md#client|jo.entity.createWithMouse -->
 
 #### Syntax
 
@@ -83,19 +83,19 @@ Type : _integer,vector3,number_
 
 > The created entity ID, final position, final heading
 
-<!-- @include: ./slots/examples.md#jo.entity.createWithMouse -->
+<!-- @include: ./slots/examples.md#client|jo.entity.createWithMouse -->
 
-<!-- @include: ./slots/footers.md#jo.entity.createWithMouse -->
+<!-- @include: ./slots/footers.md#client|jo.entity.createWithMouse -->
 
 ---
 
 ### jo.entity.delete()
 
-<!-- @include: ./slots/headers.md#jo.entity.delete -->
+<!-- @include: ./slots/headers.md#client|jo.entity.delete -->
 
 Delete an entity if it exists <br>
 
-<!-- @include: ./slots/descriptions.md#jo.entity.delete -->
+<!-- @include: ./slots/descriptions.md#client|jo.entity.delete -->
 
 #### Syntax
 
@@ -109,19 +109,19 @@ jo.entity.delete(entity)
 > The entity ID to delete
 >
 
-<!-- @include: ./slots/examples.md#jo.entity.delete -->
+<!-- @include: ./slots/examples.md#client|jo.entity.delete -->
 
-<!-- @include: ./slots/footers.md#jo.entity.delete -->
+<!-- @include: ./slots/footers.md#client|jo.entity.delete -->
 
 ---
 
 ### jo.entity.fadeAndDelete()
 
-<!-- @include: ./slots/headers.md#jo.entity.fadeAndDelete -->
+<!-- @include: ./slots/headers.md#client|jo.entity.fadeAndDelete -->
 
 Fade out an entity and then delete it <br>
 
-<!-- @include: ./slots/descriptions.md#jo.entity.fadeAndDelete -->
+<!-- @include: ./slots/descriptions.md#client|jo.entity.fadeAndDelete -->
 
 #### Syntax
 
@@ -139,19 +139,19 @@ jo.entity.fadeAndDelete(entity, duration)
 > Duration of the fade effect in ms <br> default:1000
 >
 
-<!-- @include: ./slots/examples.md#jo.entity.fadeAndDelete -->
+<!-- @include: ./slots/examples.md#client|jo.entity.fadeAndDelete -->
 
-<!-- @include: ./slots/footers.md#jo.entity.fadeAndDelete -->
+<!-- @include: ./slots/footers.md#client|jo.entity.fadeAndDelete -->
 
 ---
 
 ### jo.entity.fadeIn()
 
-<!-- @include: ./slots/headers.md#jo.entity.fadeIn -->
+<!-- @include: ./slots/headers.md#client|jo.entity.fadeIn -->
 
 Fade in an entity from transparent to fully visible <br>
 
-<!-- @include: ./slots/descriptions.md#jo.entity.fadeIn -->
+<!-- @include: ./slots/descriptions.md#client|jo.entity.fadeIn -->
 
 #### Syntax
 
@@ -169,19 +169,19 @@ jo.entity.fadeIn(entity, duration)
 > Duration of the fade effect in ms <br> default:1000
 >
 
-<!-- @include: ./slots/examples.md#jo.entity.fadeIn -->
+<!-- @include: ./slots/examples.md#client|jo.entity.fadeIn -->
 
-<!-- @include: ./slots/footers.md#jo.entity.fadeIn -->
+<!-- @include: ./slots/footers.md#client|jo.entity.fadeIn -->
 
 ---
 
 ### jo.entity.fadeOut()
 
-<!-- @include: ./slots/headers.md#jo.entity.fadeOut -->
+<!-- @include: ./slots/headers.md#client|jo.entity.fadeOut -->
 
 Fade out an entity from visible to transparent <br>
 
-<!-- @include: ./slots/descriptions.md#jo.entity.fadeOut -->
+<!-- @include: ./slots/descriptions.md#client|jo.entity.fadeOut -->
 
 #### Syntax
 
@@ -199,21 +199,21 @@ jo.entity.fadeOut(entity, duration)
 > Duration of the fade effect in ms - default:1000
 >
 
-<!-- @include: ./slots/examples.md#jo.entity.fadeOut -->
+<!-- @include: ./slots/examples.md#client|jo.entity.fadeOut -->
 
-<!-- @include: ./slots/footers.md#jo.entity.fadeOut -->
+<!-- @include: ./slots/footers.md#client|jo.entity.fadeOut -->
 
 ---
 
 ### jo.entity.requestControl()
 
-<!-- @include: ./slots/headers.md#jo.entity.requestControl -->
+<!-- @include: ./slots/headers.md#client|jo.entity.requestControl -->
 
  <br>
  <br>
 Request control of an entity and wait until it's granted <br>
 
-<!-- @include: ./slots/descriptions.md#jo.entity.requestControl -->
+<!-- @include: ./slots/descriptions.md#client|jo.entity.requestControl -->
 
 #### Syntax
 
@@ -227,7 +227,7 @@ jo.entity.requestControl(entity)
 > The entity ID to request control of
 >
 
-<!-- @include: ./slots/examples.md#jo.entity.requestControl -->
+<!-- @include: ./slots/examples.md#client|jo.entity.requestControl -->
 
-<!-- @include: ./slots/footers.md#jo.entity.requestControl -->
+<!-- @include: ./slots/footers.md#client|jo.entity.requestControl -->
 

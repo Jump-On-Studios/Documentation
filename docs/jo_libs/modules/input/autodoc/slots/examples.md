@@ -1,8 +1,8 @@
-<!-- #region jo.input.native -->
+<!-- #region client|jo.input.native -->
 #### Example
 ```lua
 local input = jo.input.native('The label: ', 'the placeholder')
 print(input)
 ```
-<!-- #endregion jo.input.native -->
+<!-- #endregion client|jo.input.native -->
 

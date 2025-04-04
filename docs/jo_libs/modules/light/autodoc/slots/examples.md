@@ -1,4 +1,4 @@
-<!-- #region jo.light.create -->
+<!-- #region client|jo.light.create -->
 #### Example
 ```lua
 -- Create a red light at coordinates (100, 200, 30)
@@ -10,10 +10,10 @@ local myLight = jo.light.create(
     500                          -- ease time (ms)
 )
 ```
-<!-- #endregion jo.light.create -->
+<!-- #endregion client|jo.light.create -->
 
 
-<!-- #region LightClass:delete -->
+<!-- #region client|LightClass:delete -->
 #### Example
 ```lua
 -- Create a light
@@ -22,10 +22,10 @@ local myLight = jo.light.create(vec3(100.0, 200.0, 30.0))
 -- Later, remove the light with a fade-out effect
 myLight:delete()
 ```
-<!-- #endregion LightClass:delete -->
+<!-- #endregion client|LightClass:delete -->
 
 
-<!-- #region LightClass:setCoords -->
+<!-- #region client|LightClass:setCoords -->
 #### Example
 ```lua
 local myLight = jo.light.create(vec3(100.0, 200.0, 30.0))
@@ -33,10 +33,10 @@ local myLight = jo.light.create(vec3(100.0, 200.0, 30.0))
 -- Move the light to a new position with smooth transition
 myLight:setCoords(vec3(110.0, 210.0, 35.0))
 ```
-<!-- #endregion LightClass:setCoords -->
+<!-- #endregion client|LightClass:setCoords -->
 
 
-<!-- #region LightClass:setIntensity -->
+<!-- #region client|LightClass:setIntensity -->
 #### Example
 ```lua
 local myLight = jo.light.create(vec3(100.0, 200.0, 30.0))
@@ -44,10 +44,10 @@ local myLight = jo.light.create(vec3(100.0, 200.0, 30.0))
 -- Dim the light to half brightness
 myLight:setIntensity(0.5)
 ```
-<!-- #endregion LightClass:setIntensity -->
+<!-- #endregion client|LightClass:setIntensity -->
 
 
-<!-- #region LightClass:update -->
+<!-- #region client|LightClass:update -->
 #### Example
 ```lua
 -- Note: This method is generally used internally
@@ -55,4 +55,4 @@ myLight:setIntensity(0.5)
 local myLight = jo.light.create(vec3(100.0, 200.0, 30.0))
 myLight:update(16) -- Update with 16ms delta time
 ```
-<!-- #endregion LightClass:update -->
+<!-- #endregion client|LightClass:update -->

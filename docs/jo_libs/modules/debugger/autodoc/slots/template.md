@@ -1,24 +1,24 @@
-<!-- #region jo.debugger.drawSphere -->
+<!-- #region client|jo.debugger.drawSphere -->
 
-<!-- #endregion jo.debugger.drawSphere -->
-
-
-<!-- #region jo.debugger.drawText -->
-
-<!-- #endregion jo.debugger.drawText -->
+<!-- #endregion client|jo.debugger.drawSphere -->
 
 
-<!-- #region jo.debugger.resetText -->
+<!-- #region client|jo.debugger.drawText -->
 
-<!-- #endregion jo.debugger.resetText -->
-
-
-<!-- #region jo.debugger.perfomance -->
-
-<!-- #endregion jo.debugger.perfomance -->
+<!-- #endregion client|jo.debugger.drawText -->
 
 
-<!-- #region jo.debugger.perfomanceRepeat -->
+<!-- #region client|jo.debugger.resetText -->
 
-<!-- #endregion jo.debugger.perfomanceRepeat -->
+<!-- #endregion client|jo.debugger.resetText -->
+
+
+<!-- #region shared|jo.debugger.perfomance -->
+
+<!-- #endregion shared|jo.debugger.perfomance -->
+
+
+<!-- #region shared|jo.debugger.perfomanceRepeat -->
+
+<!-- #endregion shared|jo.debugger.perfomanceRepeat -->
 

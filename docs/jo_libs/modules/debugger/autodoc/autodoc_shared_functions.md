@@ -3,12 +3,12 @@
 
 ### jo.debugger.perfomance()
 
-<!-- @include: ./slots/headers.md#jo.debugger.perfomance -->
+<!-- @include: ./slots/headers.md#shared|jo.debugger.perfomance -->
 
 Returns the current time in microseconds. <br>
 Measures the performance of a callback function execution. <br>
 
-<!-- @include: ./slots/descriptions.md#jo.debugger.perfomance -->
+<!-- @include: ./slots/descriptions.md#shared|jo.debugger.perfomance -->
 
 #### Syntax
 
@@ -32,19 +32,19 @@ Type : _number_
 
 > Duration in microseconds
 
-<!-- @include: ./slots/examples.md#jo.debugger.perfomance -->
+<!-- @include: ./slots/examples.md#shared|jo.debugger.perfomance -->
 
-<!-- @include: ./slots/footers.md#jo.debugger.perfomance -->
+<!-- @include: ./slots/footers.md#shared|jo.debugger.perfomance -->
 
 ---
 
 ### jo.debugger.perfomanceRepeat()
 
-<!-- @include: ./slots/headers.md#jo.debugger.perfomanceRepeat -->
+<!-- @include: ./slots/headers.md#shared|jo.debugger.perfomanceRepeat -->
 
 Measures the average performance of multiple executions of a callback function. <br>
 
-<!-- @include: ./slots/descriptions.md#jo.debugger.perfomanceRepeat -->
+<!-- @include: ./slots/descriptions.md#shared|jo.debugger.perfomanceRepeat -->
 
 #### Syntax
 
@@ -76,7 +76,7 @@ Type : _number_
 
 > Average duration in microseconds
 
-<!-- @include: ./slots/examples.md#jo.debugger.perfomanceRepeat -->
+<!-- @include: ./slots/examples.md#shared|jo.debugger.perfomanceRepeat -->
 
-<!-- @include: ./slots/footers.md#jo.debugger.perfomanceRepeat -->
+<!-- @include: ./slots/footers.md#shared|jo.debugger.perfomanceRepeat -->
 

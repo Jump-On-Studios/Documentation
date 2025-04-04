@@ -3,11 +3,11 @@
 
 ### jo.date.convertMsToInterval()
 
-<!-- @include: ./slots/headers.md#jo.date.convertMsToInterval -->
+<!-- @include: ./slots/headers.md#shared|jo.date.convertMsToInterval -->
 
 A function to convert a time in ms to a readable string <br>
 
-<!-- @include: ./slots/descriptions.md#jo.date.convertMsToInterval -->
+<!-- @include: ./slots/descriptions.md#shared|jo.date.convertMsToInterval -->
 
 #### Syntax
 
@@ -37,19 +37,19 @@ jo.date.convertMsToInterval(ms, lang)
 > `lang.s` : _string_ - "s"
 > 
 
-<!-- @include: ./slots/examples.md#jo.date.convertMsToInterval -->
+<!-- @include: ./slots/examples.md#shared|jo.date.convertMsToInterval -->
 
-<!-- @include: ./slots/footers.md#jo.date.convertMsToInterval -->
+<!-- @include: ./slots/footers.md#shared|jo.date.convertMsToInterval -->
 
 ---
 
 ### jo.date.now()
 
-<!-- @include: ./slots/headers.md#jo.date.now -->
+<!-- @include: ./slots/headers.md#shared|jo.date.now -->
 
 A function to get the current time <br>
 
-<!-- @include: ./slots/descriptions.md#jo.date.now -->
+<!-- @include: ./slots/descriptions.md#shared|jo.date.now -->
 
 #### Syntax
 
@@ -63,7 +63,7 @@ Type : _integer_
 
 > The current time in ms
 
-<!-- @include: ./slots/examples.md#jo.date.now -->
+<!-- @include: ./slots/examples.md#shared|jo.date.now -->
 
-<!-- @include: ./slots/footers.md#jo.date.now -->
+<!-- @include: ./slots/footers.md#shared|jo.date.now -->
 

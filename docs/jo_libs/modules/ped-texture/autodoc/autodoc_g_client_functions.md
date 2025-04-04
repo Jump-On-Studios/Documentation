@@ -3,11 +3,11 @@
 
 ### jo.pedTexture.apply()
 
-<!-- @include: ./slots/headers.md#jo.pedTexture.apply -->
+<!-- @include: ./slots/headers.md#g_client|jo.pedTexture.apply -->
 
 A function to apply texture on a specific ped <br>
 
-<!-- @include: ./slots/descriptions.md#jo.pedTexture.apply -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.pedTexture.apply -->
 
 #### Syntax
 
@@ -49,19 +49,19 @@ jo.pedTexture.apply(ped, layerName, _data)
 > `_data.tint2` : _string|integer_ - The third color <BadgeOptional />
 > 
 
-<!-- @include: ./slots/examples.md#jo.pedTexture.apply -->
+<!-- @include: ./slots/examples.md#g_client|jo.pedTexture.apply -->
 
-<!-- @include: ./slots/footers.md#jo.pedTexture.apply -->
+<!-- @include: ./slots/footers.md#g_client|jo.pedTexture.apply -->
 
 ---
 
 ### jo.pedTexture.getAll()
 
-<!-- @include: ./slots/headers.md#jo.pedTexture.getAll -->
+<!-- @include: ./slots/headers.md#g_client|jo.pedTexture.getAll -->
 
 Return the list of layers in all categories <br>
 
-<!-- @include: ./slots/descriptions.md#jo.pedTexture.getAll -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.pedTexture.getAll -->
 
 #### Syntax
 
@@ -81,19 +81,19 @@ Type : _object_
 
 > Return the list of layer apply on the ped
 
-<!-- @include: ./slots/examples.md#jo.pedTexture.getAll -->
+<!-- @include: ./slots/examples.md#g_client|jo.pedTexture.getAll -->
 
-<!-- @include: ./slots/footers.md#jo.pedTexture.getAll -->
+<!-- @include: ./slots/footers.md#g_client|jo.pedTexture.getAll -->
 
 ---
 
 ### jo.pedTexture.getOverlayAssetFromId()
 
-<!-- @include: ./slots/headers.md#jo.pedTexture.getOverlayAssetFromId -->
+<!-- @include: ./slots/headers.md#g_client|jo.pedTexture.getOverlayAssetFromId -->
 
 A function to get the hashname of a texture <br>
 
-<!-- @include: ./slots/descriptions.md#jo.pedTexture.getOverlayAssetFromId -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.pedTexture.getOverlayAssetFromId -->
 
 #### Syntax
 
@@ -127,19 +127,19 @@ Type : _string_
 
 > Return the hashname of the texture for this ID
 
-<!-- @include: ./slots/examples.md#jo.pedTexture.getOverlayAssetFromId -->
+<!-- @include: ./slots/examples.md#g_client|jo.pedTexture.getOverlayAssetFromId -->
 
-<!-- @include: ./slots/footers.md#jo.pedTexture.getOverlayAssetFromId -->
+<!-- @include: ./slots/footers.md#g_client|jo.pedTexture.getOverlayAssetFromId -->
 
 ---
 
 ### jo.pedTexture.overwriteCategory()
 
-<!-- @include: ./slots/headers.md#jo.pedTexture.overwriteCategory -->
+<!-- @include: ./slots/headers.md#g_client|jo.pedTexture.overwriteCategory -->
 
 A function to overwrite all the layers of category <br>
 
-<!-- @include: ./slots/descriptions.md#jo.pedTexture.overwriteCategory -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.pedTexture.overwriteCategory -->
 
 #### Syntax
 
@@ -165,19 +165,19 @@ jo.pedTexture.overwriteCategory(ped, category, overlays, forceRemove)
 > Whether to force remove existing textures even if the category doesn't exist <br> default: false
 >
 
-<!-- @include: ./slots/examples.md#jo.pedTexture.overwriteCategory -->
+<!-- @include: ./slots/examples.md#g_client|jo.pedTexture.overwriteCategory -->
 
-<!-- @include: ./slots/footers.md#jo.pedTexture.overwriteCategory -->
+<!-- @include: ./slots/footers.md#g_client|jo.pedTexture.overwriteCategory -->
 
 ---
 
 ### jo.pedTexture.refreshAll()
 
-<!-- @include: ./slots/headers.md#jo.pedTexture.refreshAll -->
+<!-- @include: ./slots/headers.md#g_client|jo.pedTexture.refreshAll -->
 
 A function to refresh the ped texture <br>
 
-<!-- @include: ./slots/descriptions.md#jo.pedTexture.refreshAll -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.pedTexture.refreshAll -->
 
 #### Syntax
 
@@ -191,19 +191,19 @@ jo.pedTexture.refreshAll(ped)
 > The entity ID
 >
 
-<!-- @include: ./slots/examples.md#jo.pedTexture.refreshAll -->
+<!-- @include: ./slots/examples.md#g_client|jo.pedTexture.refreshAll -->
 
-<!-- @include: ./slots/footers.md#jo.pedTexture.refreshAll -->
+<!-- @include: ./slots/footers.md#g_client|jo.pedTexture.refreshAll -->
 
 ---
 
 ### jo.pedTexture.remove()
 
-<!-- @include: ./slots/headers.md#jo.pedTexture.remove -->
+<!-- @include: ./slots/headers.md#g_client|jo.pedTexture.remove -->
 
 A function to remove a texture <br>
 
-<!-- @include: ./slots/descriptions.md#jo.pedTexture.remove -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.pedTexture.remove -->
 
 #### Syntax
 
@@ -221,7 +221,7 @@ jo.pedTexture.remove(ped, layerName)
 > The layer name of the texture
 >
 
-<!-- @include: ./slots/examples.md#jo.pedTexture.remove -->
+<!-- @include: ./slots/examples.md#g_client|jo.pedTexture.remove -->
 
-<!-- @include: ./slots/footers.md#jo.pedTexture.remove -->
+<!-- @include: ./slots/footers.md#g_client|jo.pedTexture.remove -->
 

@@ -3,11 +3,11 @@
 
 ### jo.light.create()
 
-<!-- @include: ./slots/headers.md#jo.light.create -->
+<!-- @include: ./slots/headers.md#client|jo.light.create -->
 
 Creates a new light with the given properties <br>
 
-<!-- @include: ./slots/descriptions.md#jo.light.create -->
+<!-- @include: ./slots/descriptions.md#client|jo.light.create -->
 
 #### Syntax
 
@@ -45,20 +45,20 @@ Type : _[LightClass](#lightclass-methods)_
 
 > The created light object
 
-<!-- @include: ./slots/examples.md#jo.light.create -->
+<!-- @include: ./slots/examples.md#client|jo.light.create -->
 
-<!-- @include: ./slots/footers.md#jo.light.create -->
+<!-- @include: ./slots/footers.md#client|jo.light.create -->
 
 
 ## LightClass Methods
 
 ### LightClass:delete()
 
-<!-- @include: ./slots/headers.md#LightClass:delete -->
+<!-- @include: ./slots/headers.md#client|LightClass:delete -->
 
 Marks a light for deletion and starts fading it out <br>
 
-<!-- @include: ./slots/descriptions.md#LightClass:delete -->
+<!-- @include: ./slots/descriptions.md#client|LightClass:delete -->
 
 #### Syntax
 
@@ -66,19 +66,19 @@ Marks a light for deletion and starts fading it out <br>
 LightClass:delete()
 ```
 
-<!-- @include: ./slots/examples.md#LightClass:delete -->
+<!-- @include: ./slots/examples.md#client|LightClass:delete -->
 
-<!-- @include: ./slots/footers.md#LightClass:delete -->
+<!-- @include: ./slots/footers.md#client|LightClass:delete -->
 
 ---
 
 ### LightClass:setCoords()
 
-<!-- @include: ./slots/headers.md#LightClass:setCoords -->
+<!-- @include: ./slots/headers.md#client|LightClass:setCoords -->
 
 Sets new target coordinates for the light <br>
 
-<!-- @include: ./slots/descriptions.md#LightClass:setCoords -->
+<!-- @include: ./slots/descriptions.md#client|LightClass:setCoords -->
 
 #### Syntax
 
@@ -92,19 +92,19 @@ LightClass:setCoords(coords)
 > The new target position
 >
 
-<!-- @include: ./slots/examples.md#LightClass:setCoords -->
+<!-- @include: ./slots/examples.md#client|LightClass:setCoords -->
 
-<!-- @include: ./slots/footers.md#LightClass:setCoords -->
+<!-- @include: ./slots/footers.md#client|LightClass:setCoords -->
 
 ---
 
 ### LightClass:setIntensity()
 
-<!-- @include: ./slots/headers.md#LightClass:setIntensity -->
+<!-- @include: ./slots/headers.md#client|LightClass:setIntensity -->
 
 Sets new target intensity for the light <br>
 
-<!-- @include: ./slots/descriptions.md#LightClass:setIntensity -->
+<!-- @include: ./slots/descriptions.md#client|LightClass:setIntensity -->
 
 #### Syntax
 
@@ -118,19 +118,19 @@ LightClass:setIntensity(intensity)
 > The new target intensity from 0.0 to 1.0
 >
 
-<!-- @include: ./slots/examples.md#LightClass:setIntensity -->
+<!-- @include: ./slots/examples.md#client|LightClass:setIntensity -->
 
-<!-- @include: ./slots/footers.md#LightClass:setIntensity -->
+<!-- @include: ./slots/footers.md#client|LightClass:setIntensity -->
 
 ---
 
 ### LightClass:update()
 
-<!-- @include: ./slots/headers.md#LightClass:update -->
+<!-- @include: ./slots/headers.md#client|LightClass:update -->
 
 Updates the light properties based on elapsed time <br>
 
-<!-- @include: ./slots/descriptions.md#LightClass:update -->
+<!-- @include: ./slots/descriptions.md#client|LightClass:update -->
 
 #### Syntax
 
@@ -144,7 +144,7 @@ LightClass:update(deltaTime)
 > Time elapsed since last update in ms
 >
 
-<!-- @include: ./slots/examples.md#LightClass:update -->
+<!-- @include: ./slots/examples.md#client|LightClass:update -->
 
-<!-- @include: ./slots/footers.md#LightClass:update -->
+<!-- @include: ./slots/footers.md#client|LightClass:update -->
 

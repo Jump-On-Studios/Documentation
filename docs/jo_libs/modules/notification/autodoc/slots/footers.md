@@ -1,35 +1,76 @@
-<!-- #region jo.notif.left -->
+<!-- #region client|jo.notif.left -->
 :::details Preview
 <img src="/images/notifLeft.jpg" />
 :::
-<!-- #endregion jo.notif.left -->
+<!-- #endregion client|jo.notif.left -->
 
 
-<!-- #region jo.notif.right -->
+<!-- #region client|jo.notif.right -->
 :::details Preview
 <img src="/images/notifRight.jpg" />
 :::
-<!-- #endregion jo.notif.right -->
+<!-- #endregion client|jo.notif.right -->
 
 
-<!-- #region jo.notif.rightError -->
+<!-- #region client|jo.notif.rightError -->
 :::details Preview
 <img src="/images/notifError.jpg" />
 :::
-<!-- #endregion jo.notif.rightError -->
+<!-- #endregion client|jo.notif.rightError -->
 
 
-<!-- #region jo.notif.rightSuccess -->
+<!-- #region client|jo.notif.rightSuccess -->
 :::details Preview
 <img src="/images/notifRight.jpg" />
 :::
-<!-- #endregion jo.notif.rightSuccess -->
+<!-- #endregion client|jo.notif.rightSuccess -->
 
 
-<!-- #region jo.notif.simpleTop -->
+<!-- #region client|jo.notif.simpleTop -->
 :::details Preview
 <img src="/images/notifSimpleTop.gif" />
 :::
-<!-- #endregion jo.notif.simpleTop -->
+<!-- #endregion client|jo.notif.simpleTop -->
+
+
+
+
+
+
+
+
+<!-- #region server|jo.notif.left -->
+:::details Preview
+<img src="/images/notifLeft.jpg" />
+:::
+<!-- #endregion server|jo.notif.left -->
+
+
+<!-- #region server|jo.notif.right -->
+:::details Preview
+<img src="/images/notifRight.jpg" />
+:::
+<!-- #endregion server|jo.notif.right -->
+
+
+<!-- #region server|jo.notif.rightError -->
+:::details Preview
+<img src="/images/notifError.jpg" />
+:::
+<!-- #endregion server|jo.notif.rightError -->
+
+
+<!-- #region server|jo.notif.rightSuccess -->
+:::details Preview
+<img src="/images/notifRight.jpg" />
+:::
+<!-- #endregion server|jo.notif.rightSuccess -->
+
+
+<!-- #region server|jo.notif.simpleTop -->
+:::details Preview
+<img src="/images/notifSimpleTop.gif" />
+:::
+<!-- #endregion server|jo.notif.simpleTop -->
 
 

@@ -1,9 +1,9 @@
-<!-- #region jo.gameEvents.listen -->
+<!-- #region client|jo.gameEvents.listen -->
 #### Example
 ```lua
 jo.gameEvents.listen("CEventVehicleCollision", function(data)
     print(data)
 end)
 ```
-<!-- #endregion jo.gameEvents.listen -->
+<!-- #endregion client|jo.gameEvents.listen -->
 

@@ -1,4 +1,4 @@
-<!-- #region jo.animation.goToCoords -->
+<!-- #region client|jo.animation.goToCoords -->
 #### Example
 ```lua
 local ped = PlayerPedId()
@@ -8,18 +8,18 @@ local waiter = true
 local distanceToStop = 3.0
 jo.animation.goToCoords(ped, destination, speed, waiter, distanceToStop)
 ```
-<!-- #endregion jo.animation.goToCoords -->
+<!-- #endregion client|jo.animation.goToCoords -->
 
-<!-- #region jo.animation.load -->
+<!-- #region client|jo.animation.load -->
 #### Example
 ```lua
 local dict = "cnv_camp@rchso@cnv@ccdtc33@player_karen"
 local waiter = true
 jo.animation.load(dict,waiter)
 ```
-<!-- #endregion jo.animation.load -->
+<!-- #endregion client|jo.animation.load -->
 
-<!-- #region jo.animation.play -->
+<!-- #region client|jo.animation.play -->
 #### Example
 ```lua
 local ped = PlayerPedId()
@@ -29,9 +29,9 @@ local duration = -1
 local flag = 1
 jo.animation.play(ped, dict, name, duration, flag)
 ```
-<!-- #endregion jo.animation.play -->
+<!-- #endregion client|jo.animation.play -->
 
-<!-- #region jo.animation.setDesiredHeading -->
+<!-- #region client|jo.animation.setDesiredHeading -->
 #### Example
 ```lua
 local ped = PlayerPedId()
@@ -39,5 +39,5 @@ local heading = 180.0
 local waiter = true
 jo.animation.setDesiredHeading(ped, heading, waiter)
 ```
-<!-- #endregion jo.animation.setDesiredHeading -->
+<!-- #endregion client|jo.animation.setDesiredHeading -->
 
