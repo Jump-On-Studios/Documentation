@@ -6,67 +6,7 @@ outline: [2, 3]
 
 The **Raw Keys** module allows you to register and remove key listeners for raw keyboard events. It supports multiple keyboard layouts (QWERTY and AZERTY) by checking the `jo_libs:keyboard_layout` convar, which defaults to "QWERTY". Callbacks will be triggered when a key is pressed or released.
 
-## JO Functions
-
-### jo.rawKeys.listen(key, callback)
-
-Registers a listener for a specific key. When the key is pressed or released, the provided callback function is executed with a boolean value indicating the event state (true for pressed, false for released).
-
-#### Syntax
-
-```lua
-jo.rawKeys.listen(key, callback)
-```
-
-#### Parameters
-
-- `key` : _string_  
-  The identifier of the key to listen for. This should correspond to one of the keys defined in the [keyboard mappings](#keyboard-keys-mapping)(e.g., "A", "B", "F1", etc.).
-
-- `callback` : _function_  
-  The function to be executed when the key event occurs. It receives one parameter:
-  - _boolean_ — `true` when the key is pressed, `false` when it is released.
-
-#### Return value
-
-None
-
-#### Example
-
-```lua
-jo.rawKeys.listen("A", function(pressed)
-  if pressed then
-    print("Key A pressed")
-  else
-    print("Key A released")
-  end
-end)
-```
-
-### jo.rawKeys.remove(key)
-
-Removes the listener associated with the specified key. Use this function to stop listening for events on a key when it is no longer needed.
-
-#### Syntax
-
-```lua
-jo.rawKeys.remove(key)
-```
-
-##### Parameters
-
-- `key` : _string_  
-  The identifier of the key for which the listener should be removed.
-
-##### Return value
-
-None
-
-#### Example
-
-```lua
-jo.rawKeys.remove("A")
-```
+<!--@include: ./autodoc/autodoc_client_functions.md-->
 
 ## Configuration
 
