@@ -1,7 +1,7 @@
 ---
 outline: [2,3]
 ---
-# File
+# File <BadgeShared/>
 
 A module to work with files in both client and server side
 

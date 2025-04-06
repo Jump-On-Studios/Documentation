@@ -1,7 +1,7 @@
 ---
 outline: [2,3]
 ---
-# Callback
+# Callback <BadgeClient/>
 
 A module to use callback module client side.
 

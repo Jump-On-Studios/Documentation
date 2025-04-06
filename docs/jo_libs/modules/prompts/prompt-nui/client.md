@@ -2,7 +2,7 @@
 outline: [2, 3]
 ---
 
-# Prompt Nui
+# Prompt Nui <BadgeClient/>
 
 A library to manage NUI-based prompts. This module allows you to create and manage prompt groups with customizable prompts, key bindings, key hold durations, pagination, and visibility controls.
 

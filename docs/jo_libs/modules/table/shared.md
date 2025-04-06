@@ -1,7 +1,7 @@
 ---
 outline: 2
 ---
-# Table expand
+# Table  <BadgeShared/>
 
 A library to add new table functions
 

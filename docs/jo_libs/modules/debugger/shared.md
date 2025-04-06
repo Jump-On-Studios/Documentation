@@ -1,7 +1,7 @@
 ---
 outline: [2,3]
 ---
-# Debugger
+# Debugger <BadgeShared/>
 
 A module to use debugger module client & server side.
 

@@ -2,7 +2,7 @@
 outline: [2,3]
 ---
 
-# NUI
+# NUI <BadgeClient/>
 
 NUI is a module to handle NUI interfaces 
 

@@ -2,7 +2,7 @@
 outline: [2,3]
 ---
 
-# Prompt
+# Prompt <BadgeClient/>
 
 A library to manage prompts in the game.  
 :::tip

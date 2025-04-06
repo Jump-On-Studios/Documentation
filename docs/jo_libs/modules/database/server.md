@@ -1,7 +1,7 @@
 ---
 outline: [2,3]
 ---
-# Database
+# Database <BadgeServer/>
 
 Streamlined utilities for managing database tables, triggers, and columns
 

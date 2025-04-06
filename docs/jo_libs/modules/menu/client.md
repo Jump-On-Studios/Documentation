@@ -1,7 +1,7 @@
 ---
 outline: [1,3]
 ---
-# JO Menu
+# JO Menu  <BadgeClient/>
 A client side library to use the JO Menu in your scripts.  
 JO Menu is a NUI menu fully optimized and mouse and keyboard ready.
 

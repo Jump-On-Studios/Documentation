@@ -2,7 +2,7 @@
 outline: [2, 3]
 ---
 
-# Raw Keys
+# Raw Keys <BadgeClient/>
 
 The **Raw Keys** module allows you to register and remove key listeners for raw keyboard events. It supports multiple keyboard layouts (QWERTY and AZERTY) by checking the `jo_libs:keyboard_layout` convar, which defaults to "QWERTY". Callbacks will be triggered when a key is pressed or released.
 

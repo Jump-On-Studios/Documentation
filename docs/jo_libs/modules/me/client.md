@@ -1,7 +1,7 @@
 ---
 outline: 2
 ---
-# Me
+# Me <BadgeClient/>
 A library to save in the client cache the value of PlayerPedId() and his location. These values are updated every 1000ms by default.
 Very helpfull to optimize the resource
 

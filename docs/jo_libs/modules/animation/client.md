@@ -2,7 +2,7 @@
 outline: [2,3]
 ---
 
-# Animation
+# Animation <BadgeClient/>
 
 Animation is a powerfull module to play animations in your script.
 

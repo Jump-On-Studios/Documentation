@@ -1,7 +1,7 @@
 ---
 outline: [2,3]
 ---
-# Entity
+# Entity <BadgeClient/>
 
 A library with useful functions to manage entity client side
 

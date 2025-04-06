@@ -1,7 +1,7 @@
 ---
 outline: [2,3]
 ---
-# UI
+# UI <BadgeClient/>
 
 A module to manage UI elements from the game.
 

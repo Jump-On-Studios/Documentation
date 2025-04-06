@@ -1,7 +1,7 @@
 ---
 outline: [2,3]
 ---
-# Input
+# Input <BadgeClient/>
 
 A library to manage the input box
 

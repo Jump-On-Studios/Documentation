@@ -2,7 +2,7 @@
 outline: [2,3]
 ---
 
-# Light
+# Light <BadgeClient/>
 
 Light is a powerful module to create and manage dynamic light sources with smooth transitions in your RedM script. It allows for easily creating, moving, and fading lights with full control over color, intensity, and range.
 

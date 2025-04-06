@@ -1,7 +1,7 @@
 ---
 outline: [2,3]
 ---
-# Notification
+# Notification <BadgeClient/>
 
 A library to display notification on the player screen client side
 

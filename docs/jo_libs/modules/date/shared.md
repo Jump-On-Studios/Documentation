@@ -2,7 +2,7 @@
 outline: [2,3]
 ---
 
-# Date
+# Date <BadgeShared/>
 
 Date is a powerful module to manage dates in your scripts.
 

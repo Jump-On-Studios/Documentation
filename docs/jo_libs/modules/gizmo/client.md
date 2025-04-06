@@ -1,7 +1,7 @@
 ---
 outline: [2,3]
 ---
-# Gizmo
+# Gizmo <BadgeClient/>
 
 Gizmo module is a specialized tool for manipulating entities in 3D space within RedM. It provides a visual interface for moving, rotating, and precisely positioning objects with optional camera controls.
 

@@ -1,7 +1,7 @@
 ---
 outline: [2,3]
 ---
-# Debugger
+# Debugger <BadgeClient/>
 
 A module to use debugger module client side.
 

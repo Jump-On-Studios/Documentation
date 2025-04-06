@@ -2,7 +2,7 @@
 outline: [2,3]
 ---
 
-# Trigger-Event
+# Trigger-Event <BadgeServer/>
 
 Trigger-Event module is a module to xxxx -- todo write desc
 

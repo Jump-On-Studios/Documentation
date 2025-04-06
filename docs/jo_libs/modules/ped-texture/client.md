@@ -1,7 +1,7 @@
 ---
 outline: [2,3]
 ---
-# Ped Texture
+# Ped Texture <BadgeClient/>
 
 A powerfull module to manage the ped texture like makeup/tatoo/...
 

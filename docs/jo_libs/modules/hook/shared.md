@@ -1,7 +1,7 @@
 ---
 outline: 2
 ---
-# Hook
+# Hook  <BadgeShared/>
 
 [Hooks](/DeveloperResources/hooks) are a powerfull way for one script to interact/modify another script at specific, pre-defined spots. In contrast to events, hooks are **synchronous**.
 Two kinds of hook exist :
