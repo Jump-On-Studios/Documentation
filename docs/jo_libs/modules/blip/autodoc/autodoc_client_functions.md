@@ -27,7 +27,7 @@ jo.blip.create(location, name, sprite, blipHash, color)
 >
 
 `sprite` : _string_
-> The name of the sprite
+> The name of the sprite ([Non exhaustive list](https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/textures/blips))
 >
 
 `blipHash` : _integer_ <BadgeOptional />
