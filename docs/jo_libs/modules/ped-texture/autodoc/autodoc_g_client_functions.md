@@ -30,9 +30,9 @@ jo.pedTexture.apply(ped, layerName, _data)
 > The data of the texture
 >
 
-> `_data.id` : _integer_ - The ID of the texture <br> ⚠️ Use either _data.id OR _data.albedo, not both
+> `_data.id` : _integer_ - The ID of the texture <br> OR
 > 
-> `_data.albedo` : _string_ - The albedo of the texture <br> ⚠️ Use either _data.id OR _data.albedo, not both
+> `_data.albedo` : _string_ - The albedo of the texture
 > 
 > `_data.sheetGrid` : _integer_ - The sheet grid of the texture <br> default: 0 <BadgeOptional />
 > 

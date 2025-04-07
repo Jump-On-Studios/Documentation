@@ -11,34 +11,7 @@ Gizmo module is a specialized tool for manipulating entities in 3D space within 
 
 The Gizmo module uses a configuration system that can be overridden through server convars. Below is the default configuration and how to customize it for your server.
 
-### Default Configuration
 
-```lua
-local config = {
-    enableCam = true,                 -- Enable/Disable camera feature
-    maxDistance = 100,                -- Max distance the gizmo can be moved from starting position
-    maxCamDistance = 80,              -- Max distance the camera can be moved from the player
-    minY = -40,                       -- Min Y value from starting position for camera
-    maxY = 40,                        -- Max Y value starting position for camera
-    movementSpeed = 0.1,              -- Movement speed for camera
-    maxMovementSpeed = 0.2,           -- Max movement speed for camera
-    minMovementSpeed = 0.001,         -- Min movement speed for camera
-    movementSpeedIncrement = 0.01,    -- Increment value when adjusting camera speed
-    keys = {
-        moveX = `INPUT_SCRIPTED_FLY_LR`,                     -- Left & Right (A-D)
-        moveY = `INPUT_SCRIPTED_FLY_UD`,                     -- Forward & Backward (W-S)
-        moveUp = `INPUT_FRONTEND_X`,                         -- Move Up (Q)
-        moveDown = `INPUT_FRONTEND_RUP`,                     -- Move Down (E)
-        cancel = `INPUT_GAME_MENU_TAB_RIGHT_SECONDARY`,      -- Cancel (X)
-        switchMode = `INPUT_RELOAD`,                         -- Switch mode (R)
-        snapToGround = `INPUT_INTERACT_OPTION1`,             -- Snap to ground (G)
-        confirm = `INPUT_FRONTEND_ACCEPT`,                   -- Confirm (ENTER)
-        focusEntity = `INPUT_SHOP_SPECIAL`,                  -- Focus entity (F)
-        cameraSpeedUp = `INPUT_SELECT_PREV_WEAPON`,          -- Increase camera speed (Scroll UP)
-        cameraSpeedDown = `INPUT_SELECT_NEXT_WEAPON`,        -- Decrease camera speed (Scroll DOWN)
-    }
-}
-```
 
 ### Overriding Configuration with Convars
 
