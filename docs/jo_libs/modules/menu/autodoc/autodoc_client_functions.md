@@ -189,18 +189,38 @@ Send the menu data to the NUI layer <br>
 #### Syntax
 
 ```lua
-MenuClass:send(reset)
+MenuClass:send()
 ```
-
-#### Parameters
-
-`reset` : _boolean_ <BadgeOptional />
-> Whether to reset the menu state <br> default: `true`
->
 
 <!-- @include: ./slots/examples.md#client|MenuClass:send -->
 
 <!-- @include: ./slots/footers.md#client|MenuClass:send -->
+
+---
+
+### MenuClass:setCurrentIndex()
+
+<!-- @include: ./slots/headers.md#client|MenuClass:setCurrentIndex -->
+
+Change the current active item index <br>
+
+<!-- @include: ./slots/descriptions.md#client|MenuClass:setCurrentIndex -->
+
+#### Syntax
+
+```lua
+MenuClass:setCurrentIndex(index)
+```
+
+#### Parameters
+
+`index` : _integer_
+> The item index to switch to
+>
+
+<!-- @include: ./slots/examples.md#client|MenuClass:setCurrentIndex -->
+
+<!-- @include: ./slots/footers.md#client|MenuClass:setCurrentIndex -->
 
 ---
 
@@ -772,17 +792,13 @@ Send a menu to the NUI layer by its ID <br>
 #### Syntax
 
 ```lua
-jo.menu.send(id, reset)
+jo.menu.send(id)
 ```
 
 #### Parameters
 
 `id` : _string_
 > The menu ID
->
-
-`reset` : _boolean_ <BadgeOptional />
-> Whether to reset the menu state <br> default: `true`
 >
 
 <!-- @include: ./slots/examples.md#client|jo.menu.send -->

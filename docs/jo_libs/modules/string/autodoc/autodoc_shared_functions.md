@@ -1,6 +1,38 @@
 
 ## string Methods
 
+### string:compareVersionWith()
+
+<!-- @include: ./slots/headers.md#shared|string:compareVersionWith -->
+
+Compare two version [string](#string-methods)s <br>
+
+<!-- @include: ./slots/descriptions.md#shared|string:compareVersionWith -->
+
+#### Syntax
+
+```lua
+string:compareVersionWith(version)
+```
+
+#### Parameters
+
+`version` : _[string](#string-methods)_
+> The [string](#string-methods) version to compare to
+>
+
+#### Return Value
+
+Type : _integer_
+
+> `-1` if the version is older, `0` if it's the same and `1` if it's more recent
+
+<!-- @include: ./slots/examples.md#shared|string:compareVersionWith -->
+
+<!-- @include: ./slots/footers.md#shared|string:compareVersionWith -->
+
+---
+
 ### string:convertVersion()
 
 <!-- @include: ./slots/headers.md#shared|string:convertVersion -->

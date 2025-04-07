@@ -1,3 +1,8 @@
+<!-- #region shared|string:compareVersionWith -->
+
+<!-- #endregion shared|string:compareVersionWith -->
+
+
 <!-- #region shared|string:convertVersion -->
 
 <!-- #endregion shared|string:convertVersion -->

@@ -18,6 +18,11 @@
 <!-- #endregion client|MenuClass:send -->
 
 
+<!-- #region client|MenuClass:setCurrentIndex -->
+
+<!-- #endregion client|MenuClass:setCurrentIndex -->
+
+
 <!-- #region client|MenuClass:sort -->
 
 <!-- #endregion client|MenuClass:sort -->

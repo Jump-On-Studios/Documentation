@@ -462,3 +462,26 @@ jo.menu.updateLang({
 jo.menu.updateVolume(0.8)
 ```
 <!-- #endregion client|jo.menu.updateVolume -->
+
+
+
+<!-- #region client|MenuClass:setCurrentIndex -->
+#### Example
+```lua
+local menu = jo.menu.create(id,data)
+
+menu:addItem({
+  title = "Item 1",
+})
+
+menu:addItem({
+  title = "Item 2",
+})
+
+menu:addItem({
+  title = "Item 3",
+})
+
+menu:setCurrentIndex(2) -- set item 2 as active
+```
+<!-- #endregion client|MenuClass:setCurrentIndex -->

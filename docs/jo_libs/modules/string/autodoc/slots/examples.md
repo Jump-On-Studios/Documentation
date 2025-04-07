@@ -1,3 +1,27 @@
+<!-- #region shared|string:compareVersionWith -->
+#### Example
+```lua
+-- Basic version comparison examples
+local currentVersion = "1.2.3"
+
+-- Compare with older version
+local olderVersion = "1.1.9"
+print(currentVersion:compareVersionWith(olderVersion))
+-- Expected output: 1 (current version is newer)
+
+-- Compare with same version
+local sameVersion = "1.2.3"
+print(currentVersion:compareVersionWith(sameVersion))
+-- Expected output: 0 (same version)
+
+-- Compare with newer version
+local newerVersion = "1.3.0"
+print(currentVersion:compareVersionWith(newerVersion))
+-- Expected output: -1 (current version is older)
+```
+<!-- #endregion shared|string:compareVersionWith -->
+
+
 <!-- #region shared|string:convertVersion -->
 #### Example
 ```lua
