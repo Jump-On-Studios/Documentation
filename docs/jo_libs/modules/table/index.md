@@ -1,6 +1,6 @@
 # Table
 
-Table module is a module to add new function in the table variable.
+The Table module extends Lua's native table capabilities by adding powerful utility functions for enhanced table manipulation.
 
 ## Include Table in your script
 
