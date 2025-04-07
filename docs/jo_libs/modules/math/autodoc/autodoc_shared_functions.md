@@ -1,5 +1,5 @@
 
-## Other Functions
+## Math Functions
 
 ### math.lerp()
 

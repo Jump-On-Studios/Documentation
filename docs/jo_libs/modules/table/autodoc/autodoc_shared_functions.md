@@ -1,5 +1,5 @@
 
-## Other Functions
+## Table Functions
 
 ### table.clearForNui()
 
