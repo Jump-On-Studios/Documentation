@@ -1,6 +1,6 @@
 # Utils
 
-Utils module is a module with some interesting fonction to create script for RedM.
+Utils is a module to contain miscellaneous utility functions for script creation.
 
 ## Include Utils in your script
 

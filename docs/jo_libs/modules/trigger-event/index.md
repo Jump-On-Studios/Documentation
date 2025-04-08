@@ -1,6 +1,6 @@
 # Trigger-Event
 
-Trigger-Event module is a module to xxxx -- todo write desc
+Trigger-event is a module to offer a simplified way to trigger events.
 
 ## Include Trigger-Event in your script
 

@@ -1,6 +1,6 @@
 # Callback
 
-Callback module is a module to create easy links between your client and server sides in your script.
+Callback is a module to facilitate communication between client and server scripts using a callback system.
 
 ## Include Callback in your script
 

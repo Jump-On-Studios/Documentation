@@ -1,6 +1,6 @@
 # File
 
-File is a module to work with files in both client and server side
+File is a module to provide basic file operations for checking file existence and loading Lua files on both client and server.
 
 ## Include File in your script
 

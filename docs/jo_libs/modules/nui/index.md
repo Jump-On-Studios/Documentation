@@ -1,6 +1,6 @@
 # NUI
 
-NUI is a module to handle NUI interfaces 
+NUI is a module to provide basic utilities for managing NUI interfaces.
 
 ## Include NUI in your script
 

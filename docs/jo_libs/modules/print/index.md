@@ -1,6 +1,6 @@
 # Print
 
-Print is a module to print different types of message.
+Print is a module to contain helper functions for printing colored messages to the client or server console for easier debugging.
 
 ## Include Ped Texture in your script
 

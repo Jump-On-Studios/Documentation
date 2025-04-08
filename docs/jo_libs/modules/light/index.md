@@ -1,6 +1,6 @@
 # Light
 
-Light is a module to create and manage dynamic light sources.
+Light is a module to enable the creation and dynamic management of light sources in the game world.
 
 ## Include Light in your script
 

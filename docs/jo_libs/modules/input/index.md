@@ -1,6 +1,6 @@
 # Input
 
-Input module is a module to create an input box to let user enter value.
+ Input is a module to offer a function to display the native input box to let user enter value.
 
 ## Include Input in your script
 

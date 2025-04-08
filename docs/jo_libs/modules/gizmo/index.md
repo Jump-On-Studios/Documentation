@@ -1,6 +1,6 @@
 # Gizmo
 
-Gizmo module is a specialized tool for manipulating entities in 3D space within RedM. It provides a visual interface for moving, rotating, and precisely positioning objects with optional camera controls.
+Gizmo is a module to implement an interactive 3D gizmo tool for precisely moving and rotating entities within the game world.
 
 ## Include Gizmo in your script
 

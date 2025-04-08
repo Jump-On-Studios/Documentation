@@ -1,6 +1,6 @@
 # Prompt
 
-Prompt module is a module to manage prompts.
+Prompt is a module to provide functions to interact with the game's native prompt system.
 
 ## Include Prompt in your script
 

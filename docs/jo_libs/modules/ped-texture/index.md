@@ -1,6 +1,6 @@
 # Ped Texture
 
-Ped Texture is a powerfull module to manage ped texture like makeup/tatoo...
+Ped Texture is a powerful module to manage ped texture like make-up/tattoo...
 
 ## Include Ped Texture in your script
 

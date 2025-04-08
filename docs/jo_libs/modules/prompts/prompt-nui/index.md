@@ -1,6 +1,6 @@
 # Prompt Nui
 
-Prompt Nui module is a module to manage prompts.
+Prompt Nui is a module to implement a flexible NUI-based prompt system.
 
 ## Include Prompt Nui in your script
 

@@ -1,6 +1,6 @@
 # UI
 
-UI is a module to manage the UI element of the game.
+Ui is a module to provide functions to interact with specific native UI elements.
 
 ## Include UI in your script
 

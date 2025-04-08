@@ -1,6 +1,6 @@
 # Entity
 
-Entity module is a module to easier manage entities.
+Entity is a module to simplify entity management with functions for creating, deleting, fading, and controlling game entities.
 
 ## Include Entity in your script
 

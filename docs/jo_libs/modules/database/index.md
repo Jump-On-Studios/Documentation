@@ -1,6 +1,6 @@
 # Database
 
-Database module is a module to interact with your database.
+Database is a module to provide server-side utilities for interacting with the database
 
 ## Include Database in your script
 

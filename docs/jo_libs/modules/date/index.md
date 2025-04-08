@@ -1,6 +1,6 @@
 # Date
 
-Date is a module to improve the management of date in your scripts.
+Date is a module to offer utility functions for handling dates and times.
 
 ## Include Date in your script
 

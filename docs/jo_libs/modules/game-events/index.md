@@ -1,6 +1,6 @@
 # Game Events
 
-Game Events is a module to listen and respond to in-game events.
+Game-events is a module to allow scripts to listen for and react to specific game events.
 
 ## Include Game Events in your script
 

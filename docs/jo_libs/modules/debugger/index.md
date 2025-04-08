@@ -1,6 +1,6 @@
 # Debugger
 
-Debugger is a module to help you debug your scripts
+Debugger is a module to supply tools to help debug scripts.
 
 ## Include Debugger in your script
 
