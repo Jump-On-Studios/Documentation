@@ -7,6 +7,7 @@
 
  <br>
  <br>
+Creates and returns a new User instance for the specified player <br>
 
 <!-- @include: ./slots/descriptions.md#UserClass|UserClass:get -->
 
@@ -19,11 +20,14 @@ UserClass:get(source)
 #### Parameters
 
 `source` : _integer_
+> The source ID of the player
+>
 
 #### Return Value
 
-Type : _table_
+Type : _[UserClass](#userclass-methods)_
 
+> Return a User class object containing player data and methods
 
 <!-- @include: ./slots/examples.md#UserClass|UserClass:get -->
 
@@ -38,6 +42,8 @@ Type : _table_
 
 <!-- @include: ./slots/headers.md#UserClass|UserClass:addMoney -->
 
+Adds money to the player <br>
+
 <!-- @include: ./slots/descriptions.md#UserClass|UserClass:addMoney -->
 
 #### Syntax
@@ -49,13 +55,12 @@ UserClass:addMoney(amount, moneyType)
 #### Parameters
 
 `amount` : _number_
+> The amount of money to add
+>
 
 `moneyType` : _integer_
-
-#### Return Value
-
-Type : _boolean_
-
+> The type of currency: `0`: dollar, `1`: gold, `2`: rol
+>
 
 <!-- @include: ./slots/examples.md#UserClass|UserClass:addMoney -->
 
@@ -66,6 +71,8 @@ Type : _boolean_
 ### UserClass:canBuy()
 
 <!-- @include: ./slots/headers.md#server|UserClass:canBuy -->
+
+Checks if a player has sufficient funds of a specified currency type <br>
 
 <!-- @include: ./slots/descriptions.md#server|UserClass:canBuy -->
 
@@ -78,15 +85,22 @@ UserClass:canBuy(price, moneyType, removeIfCan)
 #### Parameters
 
 `price` : _number_
+> The amount of money the player needs to have
+>
 
-`moneyType` : _integer_
+`moneyType` : _integer_ <BadgeOptional />
+> `0`: dollar, `1`: gold, `2`: rol <br> default:`1`
+>
 
 `removeIfCan` : _boolean_ <BadgeOptional />
+> Remove the money if the player has enough <br> default:`false`
+>
 
 #### Return Value
 
 Type : _boolean_
 
+> Return `true` if the player has more money than the amount
 
 <!-- @include: ./slots/examples.md#server|UserClass:canBuy -->
 
@@ -97,6 +111,8 @@ Type : _boolean_
 ### UserClass:getIdentifiers()
 
 <!-- @include: ./slots/headers.md#UserClass|UserClass:getIdentifiers -->
+
+Retrieves all identifiers associated with the player <br>
 
 <!-- @include: ./slots/descriptions.md#UserClass|UserClass:getIdentifiers -->
 
@@ -110,6 +126,7 @@ UserClass:getIdentifiers()
 
 Type : _table_
 
+> Return the player's identifiers <br> `identifiers.identifier` - Unique identifier of the player <br> `identifiers.charid` - Unique id of the player
 
 <!-- @include: ./slots/examples.md#UserClass|UserClass:getIdentifiers -->
 
@@ -120,6 +137,8 @@ Type : _table_
 ### UserClass:getJob()
 
 <!-- @include: ./slots/headers.md#UserClass|UserClass:getJob -->
+
+Returns the current job assigned to a player <br>
 
 <!-- @include: ./slots/descriptions.md#UserClass|UserClass:getJob -->
 
@@ -133,6 +152,7 @@ UserClass:getJob()
 
 Type : _string_
 
+> Returns the job name of the player
 
 <!-- @include: ./slots/examples.md#UserClass|UserClass:getJob -->
 
@@ -143,6 +163,8 @@ Type : _string_
 ### UserClass:getMoney()
 
 <!-- @include: ./slots/headers.md#UserClass|UserClass:getMoney -->
+
+Gets the amount of money a player has of the specified type <br>
 
 <!-- @include: ./slots/descriptions.md#UserClass|UserClass:getMoney -->
 
@@ -155,11 +177,14 @@ UserClass:getMoney(moneyType)
 #### Parameters
 
 `moneyType` : _integer_
+> The type of currency: `0`: dollar, `1`: gold, `2`: rol
+>
 
 #### Return Value
 
 Type : _number_
 
+> Return the amount for this kind of money
 
 <!-- @include: ./slots/examples.md#UserClass|UserClass:getMoney -->
 
@@ -170,6 +195,8 @@ Type : _number_
 ### UserClass:getRPName()
 
 <!-- @include: ./slots/headers.md#UserClass|UserClass:getRPName -->
+
+Returns the roleplay name (first and last name) of the player <br>
 
 <!-- @include: ./slots/descriptions.md#UserClass|UserClass:getRPName -->
 
@@ -183,6 +210,7 @@ UserClass:getRPName()
 
 Type : _string_
 
+> Returns the formatted first and last name of the player
 
 <!-- @include: ./slots/examples.md#UserClass|UserClass:getRPName -->
 
@@ -193,6 +221,8 @@ Type : _string_
 ### UserClass:giveGold()
 
 <!-- @include: ./slots/headers.md#server|UserClass:giveGold -->
+
+Adds gold to the player's account <br>
 
 <!-- @include: ./slots/descriptions.md#server|UserClass:giveGold -->
 
@@ -205,6 +235,8 @@ UserClass:giveGold(amount)
 #### Parameters
 
 `amount` : _number_
+> The amount of gold to add
+>
 
 <!-- @include: ./slots/examples.md#server|UserClass:giveGold -->
 
@@ -215,6 +247,8 @@ UserClass:giveGold(amount)
 ### UserClass:removeMoney()
 
 <!-- @include: ./slots/headers.md#UserClass|UserClass:removeMoney -->
+
+Removes money from the player <br>
 
 <!-- @include: ./slots/descriptions.md#UserClass|UserClass:removeMoney -->
 
@@ -227,13 +261,12 @@ UserClass:removeMoney(amount, moneyType)
 #### Parameters
 
 `amount` : _number_
+> The amount of money to remove
+>
 
 `moneyType` : _integer_
-
-#### Return Value
-
-Type : _boolean_
-
+> The type of currency: `0`: dollar, `1`: gold, `2`: rol
+>
 
 <!-- @include: ./slots/examples.md#UserClass|UserClass:removeMoney -->
 

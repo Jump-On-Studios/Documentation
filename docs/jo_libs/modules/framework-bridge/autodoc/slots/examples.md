@@ -108,7 +108,11 @@ jo.framework:removeInventory(id)
 <!-- #region UserClass|UserClass:addMoney -->
 #### Example
 ```lua
--- todo
+local source = 1
+local amount = 100.0
+local moneyType = 1
+local user = UserClass:get(source)
+user:addMoney(amount,moneyType)
 ```
 <!-- #endregion UserClass|UserClass:addMoney -->
 
@@ -116,7 +120,8 @@ jo.framework:removeInventory(id)
 <!-- #region UserClass|UserClass:get -->
 #### Example
 ```lua
--- todo
+local user = UserClass:get(source)
+print(user:getJob())
 ```
 <!-- #endregion UserClass|UserClass:get -->
 
@@ -124,7 +129,11 @@ jo.framework:removeInventory(id)
 <!-- #region UserClass|UserClass:getIdentifiers -->
 #### Example
 ```lua
--- todo
+local source = 1
+local user = UserClass:get(source)
+local identifiers = user:getIdentifiers()
+print(identifiers.identifier)
+print(identifiers.charid)
 ```
 <!-- #endregion UserClass|UserClass:getIdentifiers -->
 
@@ -132,7 +141,10 @@ jo.framework:removeInventory(id)
 <!-- #region UserClass|UserClass:getJob -->
 #### Example
 ```lua
--- todo
+local source = 1
+local user = UserClass:get(source)
+local job = user:getJob()
+print(job)
 ```
 <!-- #endregion UserClass|UserClass:getJob -->
 
@@ -140,7 +152,11 @@ jo.framework:removeInventory(id)
 <!-- #region UserClass|UserClass:getMoney -->
 #### Example
 ```lua
--- todo
+local source = 1
+local user = UserClass:get(source)
+local dollar = user:getMoney(1)
+local gold = user:getMoney(2)
+print(dollar,gold)
 ```
 <!-- #endregion UserClass|UserClass:getMoney -->
 
@@ -148,7 +164,10 @@ jo.framework:removeInventory(id)
 <!-- #region UserClass|UserClass:getRPName -->
 #### Example
 ```lua
--- todo
+local source = 1
+local user = UserClass:get(source)
+local name = user:getRPName()
+print(name)
 ```
 <!-- #endregion UserClass|UserClass:getRPName -->
 
@@ -156,7 +175,11 @@ jo.framework:removeInventory(id)
 <!-- #region UserClass|UserClass:removeMoney -->
 #### Example
 ```lua
--- todo
+local source = 1
+local amount = 100.0
+local moneyType = 1
+local user = UserClass:get(source)
+user:removeMoney(amount,moneyType)
 ```
 <!-- #endregion UserClass|UserClass:removeMoney -->
 
@@ -164,7 +187,12 @@ jo.framework:removeInventory(id)
 <!-- #region server|UserClass:canBuy -->
 #### Example
 ```lua
--- todo
+local source = 1
+local price = 20.4
+local moneyType = 2
+local user = UserClass:get(source)
+local hasEnoughGold = user:canBuy(price,moneyType)
+print(hasEnoughGold)
 ```
 <!-- #endregion server|UserClass:canBuy -->
 
@@ -172,7 +200,10 @@ jo.framework:removeInventory(id)
 <!-- #region server|UserClass:giveGold -->
 #### Example
 ```lua
--- todo
+local source = 1
+local goldAmount = 20.0
+local user = UserClass:get(source)
+user:giveGold(goldAmount)
 ```
 <!-- #endregion server|UserClass:giveGold -->
 
