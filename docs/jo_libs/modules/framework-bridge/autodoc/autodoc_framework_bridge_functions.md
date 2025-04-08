@@ -67,13 +67,6 @@ Type : _boolean_
 
 <!-- @include: ./slots/headers.md#server|UserClass:canBuy -->
 
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
-
 <!-- @include: ./slots/descriptions.md#server|UserClass:canBuy -->
 
 #### Syntax
@@ -255,6 +248,8 @@ Type : _boolean_
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:addItemInInventory -->
 
+Adds a specific item to a custom inventory with optional metadata and wait parameter <br>
+
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:addItemInInventory -->
 
 #### Syntax
@@ -265,22 +260,37 @@ jo.framework:addItemInInventory(source, invId, item, quantity, metadata, needWai
 
 #### Parameters
 
+`source` : _integer_
+> The source ID of the player
+>
+
 `invId` : _string_
+> The unique ID of the inventory
+>
 
 `item` : _string_
+> The name of the item
+>
 
 `quantity` : _integer_
+> The quantity of the item
+>
 
-`metadata` : _table_
+`metadata` : _table_ <BadgeOptional />
 
+> The metadata of the item
+>
 
 
 `needWait` : _boolean_ <BadgeOptional />
+> If need to wait after the adding <br> default:`false`
+>
 
 #### Return Value
 
 Type : _boolean_
 
+> Return `true` if the item is successfully added
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:addItemInInventory -->
 
@@ -291,6 +301,8 @@ Type : _boolean_
 ### jo.framework:addMoney()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:addMoney -->
+
+Adds money to a player <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:addMoney -->
 
@@ -303,10 +315,22 @@ jo.framework:addMoney(source, amount, moneyType)
 #### Parameters
 
 `source` : _integer_
+> The source ID of the player
+>
 
 `amount` : _number_
+> The amount of money to add
+>
 
 `moneyType` : _integer_ <BadgeOptional />
+> `0`: dollar, `1`: gold, `2`: rol <br> default:`0`
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> Return `true` if the money is successfully added
 
 <!-- @include: ./slots/examples.md#server|jo.framework:addMoney -->
 
@@ -318,10 +342,7 @@ jo.framework:addMoney(source, amount, moneyType)
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:canUseItem -->
 
- <br>
- <br>
- <br>
- <br>
+Checks if a player has the required quantity of a specific item in their inventory and optionally removes it <br>
 
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:canUseItem -->
 
@@ -334,16 +355,32 @@ jo.framework:canUseItem(source, item, amount, meta, remove)
 #### Parameters
 
 `source` : _integer_
+> The source ID of the player
+>
 
 `item` : _string_
+> The name of the item need to use
+>
 
 `amount` : _integer_
+> The quantity of the item
+>
 
-`meta` : _table_
+`meta` : _table_ <BadgeOptional />
+
+> The metadata of the item
+>
 
 
+`remove` : _boolean_ <BadgeOptional />
+> If the item has to be removed <br> default:`false`
+>
 
-`remove` : _boolean_
+#### Return Value
+
+Type : _boolean_
+
+> Return `true` if the player has enough quantity of the item
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:canUseItem -->
 
@@ -354,6 +391,8 @@ jo.framework:canUseItem(source, item, amount, meta, remove)
 ### jo.framework:canUserBuy()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:canUserBuy -->
+
+Checks if a player has sufficient funds of a specified currency type <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:canUserBuy -->
 
@@ -366,17 +405,26 @@ jo.framework:canUserBuy(source, amount, moneyType, removeIfCan)
 #### Parameters
 
 `source` : _integer_
+> The source ID of the player
+>
 
 `amount` : _number_
+> The amount of money the player needs to have
+>
 
 `moneyType` : _integer_ <BadgeOptional />
+> `0`: dollar, `1`: gold, `2`: rol <br> default:`0`
+>
 
 `removeIfCan` : _boolean_ <BadgeOptional />
+> Remove the money if the player has enough <br> default:`false`
+>
 
 #### Return Value
 
 Type : _boolean_
 
+> Return `true` if the player has more money than the amount
 
 <!-- @include: ./slots/examples.md#server|jo.framework:canUserBuy -->
 
@@ -388,6 +436,8 @@ Type : _boolean_
 
 <!-- @include: ./slots/headers.md#server|jo.framework:convertToPercent -->
 
+Converts a value to a percentage (between 0-1) whether input is in percentage or decimal form <br>
+
 <!-- @include: ./slots/descriptions.md#server|jo.framework:convertToPercent -->
 
 #### Syntax
@@ -395,6 +445,18 @@ Type : _boolean_
 ```lua
 jo.framework:convertToPercent(value)
 ```
+
+#### Parameters
+
+`value` : _number_
+> The value to convert to percentage
+>
+
+#### Return Value
+
+Type : _number_
+
+> Return the value as a decimal between -1 and 1
 
 <!-- @include: ./slots/examples.md#server|jo.framework:convertToPercent -->
 
@@ -405,6 +467,8 @@ jo.framework:convertToPercent(value)
 ### jo.framework:createInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:createInventory -->
+
+Creates a custom inventory with configurable slots, weight limits, and item restrictions <br>
 
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:createInventory -->
 
@@ -417,17 +481,40 @@ jo.framework:createInventory(invName, name, invConfig)
 #### Parameters
 
 `invName` : _string_
+> Unique id of the inventory
+>
 
 `name` : _string_
+> Label of the inventory
+>
 
 `invConfig` : _table_
 
+> Configuration of the inventory
+>
 
+> `invConfig.maxSlots` : _integer_ - Max slot of the inventory
+> 
+> `invConfig.maxWeight` : _float_ - Max weight of the inventory
+> 
+> `invConfig.acceptWeapons` : _boolean_ - Whether the inventory accepts weapons <br> default:`false`
+> 
+> `invConfig.shared` : _boolean_ - If the inventory is shared between players <br> default:`true` <BadgeOptional />
+> 
+> `invConfig.ignoreStackLimit` : _boolean_ - If the inventory can overcoming stack limits <br> default:`true` <BadgeOptional />
+> 
+> `invConfig.whitelist` : _table_ - Restrict the list of items that can be put in the inventory <BadgeOptional />
+> 
+> > `invConfig.whitelist.item` : _string_ - Name of the whitelisted item
+> > 
+> > `invConfig.whitelist.limit` : _integer_ - Stack limit of this item
+> > 
 
 #### Return Value
 
 Type : _boolean_
 
+> Return `true` if the inventory is successfully created
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:createInventory -->
 
@@ -439,6 +526,8 @@ Type : _boolean_
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:createUser -->
 
+Creates a new player in the framework with specified data and spawn information <br>
+
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:createUser -->
 
 #### Syntax
@@ -446,6 +535,32 @@ Type : _boolean_
 ```lua
 jo.framework:createUser(source, data, spawnCoordinate, isDead)
 ```
+
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+`data` : _table_
+
+> The user data to create
+>
+
+
+`spawnCoordinate` : _vector_
+> The spawn location for the player
+>
+
+`isDead` : _boolean_ <BadgeOptional />
+> Whether the player starts as dead
+>
+
+#### Return Value
+
+Type : _table_
+
+> Return the newly created user data
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:createUser -->
 
@@ -457,6 +572,8 @@ jo.framework:createUser(source, data, spawnCoordinate, isDead)
 
 <!-- @include: ./slots/headers.md#server|jo.framework:extractComponentHashIfAlone -->
 
+Extracts the component hash from a data table if it's the only property <br>
+
 <!-- @include: ./slots/descriptions.md#server|jo.framework:extractComponentHashIfAlone -->
 
 #### Syntax
@@ -467,12 +584,17 @@ jo.framework:extractComponentHashIfAlone(data)
 
 #### Parameters
 
-`data` : _any_
+`data` : _table_
+
+> The component data to process
+>
+
 
 #### Return Value
 
-Type : _table_
+Type : _any_
 
+> Return the hash if it's the only property, otherwise return the original data
 
 <!-- @include: ./slots/examples.md#server|jo.framework:extractComponentHashIfAlone -->
 
@@ -483,6 +605,8 @@ Type : _table_
 ### jo.framework:get()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:get -->
+
+Returns the name of the current active framework being used <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:get -->
 
@@ -496,6 +620,7 @@ jo.framework:get()
 
 Type : _string_
 
+> Return the name of the current framework
 
 <!-- @include: ./slots/examples.md#server|jo.framework:get -->
 
@@ -506,6 +631,8 @@ Type : _string_
 ### jo.framework:getItemsFromInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:getItemsFromInventory -->
+
+Retrieves all items from a specific inventory with their quantities and metadata <br>
 
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:getItemsFromInventory -->
 
@@ -518,11 +645,14 @@ jo.framework:getItemsFromInventory(invId)
 #### Parameters
 
 `invId` : _string_
+> The unique ID of the inventory
+>
 
 #### Return Value
 
 Type : _table_
 
+> Return the list of items with structure `{metadata = {}, amount = 0, item = "itemName"}`
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:getItemsFromInventory -->
 
@@ -533,6 +663,8 @@ Type : _table_
 ### jo.framework:getJob()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getJob -->
+
+Returns the current job assigned to a player <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:getJob -->
 
@@ -545,11 +677,14 @@ jo.framework:getJob(source)
 #### Parameters
 
 `source` : _integer_
+> The source ID of the player
+>
 
 #### Return Value
 
 Type : _string_
 
+> Return the job name of the player
 
 <!-- @include: ./slots/examples.md#server|jo.framework:getJob -->
 
@@ -560,6 +695,8 @@ Type : _string_
 ### jo.framework:getRPName()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getRPName -->
+
+Returns the roleplay name (first and last name) of the player <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:getRPName -->
 
@@ -572,11 +709,14 @@ jo.framework:getRPName(source)
 #### Parameters
 
 `source` : _integer_
+> The source ID of the player
+>
 
 #### Return Value
 
 Type : _string_
 
+> Return the formatted first and last name of the player
 
 <!-- @include: ./slots/examples.md#server|jo.framework:getRPName -->
 
@@ -587,6 +727,8 @@ Type : _string_
 ### jo.framework:getUser()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getUser -->
+
+Retrieves a player's full User object containing all player data and methods <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:getUser -->
 
@@ -599,11 +741,14 @@ jo.framework:getUser(source)
 #### Parameters
 
 `source` : _integer_
+> The source ID of the player
+>
 
 #### Return Value
 
-Type : _table_
+Type : _[UserClass](#userclass-methods)_
 
+> Return a User class object containing player data and methods
 
 <!-- @include: ./slots/examples.md#server|jo.framework:getUser -->
 
@@ -615,6 +760,8 @@ Type : _table_
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getUserClothes -->
 
+Retrieves a player's clothing data with standardized category names <br>
+
 <!-- @include: ./slots/descriptions.md#server|jo.framework:getUserClothes -->
 
 #### Syntax
@@ -623,33 +770,29 @@ Type : _table_
 jo.framework:getUserClothes(source)
 ```
 
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+#### Return Value
+
+Type : _table_
+
+> Return the list of clothes with standardized categories and properties
+
 <!-- @include: ./slots/examples.md#server|jo.framework:getUserClothes -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework:getUserClothes -->
 
 ---
 
-### jo.framework:getUserClothesInternal()
-
-<!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:getUserClothesInternal -->
-
-<!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:getUserClothesInternal -->
-
-#### Syntax
-
-```lua
-jo.framework:getUserClothesInternal(source)
-```
-
-<!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:getUserClothesInternal -->
-
-<!-- @include: ./slots/footers.md#FrameworkClass|jo.framework:getUserClothesInternal -->
-
----
-
 ### jo.framework:getUserIdentifiers()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getUserIdentifiers -->
+
+Retrieves all identifiers associated with a player <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:getUserIdentifiers -->
 
@@ -662,11 +805,14 @@ jo.framework:getUserIdentifiers(source)
 #### Parameters
 
 `source` : _integer_
+> The source ID of the player
+>
 
 #### Return Value
 
 Type : _table_
 
+> Return the player's identifiers including character ID
 
 <!-- @include: ./slots/examples.md#server|jo.framework:getUserIdentifiers -->
 
@@ -678,6 +824,8 @@ Type : _table_
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getUserSkin -->
 
+Retrieves a player's skin data with standardized properties and formatting <br>
+
 <!-- @include: ./slots/descriptions.md#server|jo.framework:getUserSkin -->
 
 #### Syntax
@@ -686,33 +834,29 @@ Type : _table_
 jo.framework:getUserSkin(source)
 ```
 
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+#### Return Value
+
+Type : _table_
+
+> Return the skin data including overlays, expressions, and teeth information
+
 <!-- @include: ./slots/examples.md#server|jo.framework:getUserSkin -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework:getUserSkin -->
 
 ---
 
-### jo.framework:getUserSkinInternal()
-
-<!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:getUserSkinInternal -->
-
-<!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:getUserSkinInternal -->
-
-#### Syntax
-
-```lua
-jo.framework:getUserSkinInternal(source)
-```
-
-<!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:getUserSkinInternal -->
-
-<!-- @include: ./slots/footers.md#FrameworkClass|jo.framework:getUserSkinInternal -->
-
----
-
 ### jo.framework:giveItem()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:giveItem -->
+
+Adds an item to a player's inventory with optional metadata <br>
 
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:giveItem -->
 
@@ -725,19 +869,28 @@ jo.framework:giveItem(source, item, quantity, meta)
 #### Parameters
 
 `source` : _integer_
+> The source ID of the player
+>
 
 `item` : _string_
+> The name of the item
+>
 
 `quantity` : _integer_
+> The amount of the item to give
+>
 
-`meta` : _table_
+`meta` : _table_ <BadgeOptional />
 
+> The metadata of the item
+>
 
 
 #### Return Value
 
 Type : _boolean_
 
+> Return `true` if the item is successfully given
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:giveItem -->
 
@@ -748,6 +901,8 @@ Type : _boolean_
 ### jo.framework:is()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:is -->
+
+Compares the current framework with a specified framework name to check compatibility <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:is -->
 
@@ -760,11 +915,14 @@ jo.framework:is(name)
 #### Parameters
 
 `name` : _string_
+> The name of the framework to check against
+>
 
 #### Return Value
 
 Type : _boolean_
 
+> Return `true` if the current framework matches the name
 
 <!-- @include: ./slots/examples.md#server|jo.framework:is -->
 
@@ -775,6 +933,8 @@ Type : _boolean_
 ### jo.framework:openInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:openInventory -->
+
+Opens a specific inventory UI for a player to interact with <br>
 
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:openInventory -->
 
@@ -787,13 +947,18 @@ jo.framework:openInventory(source, invName)
 #### Parameters
 
 `source` : _integer_
+> The source ID of the player
+>
 
 `invName` : _string_
+> The unique ID of the inventory
+>
 
 #### Return Value
 
 Type : _boolean_
 
+> Return `true` if the inventory is successfully opened
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:openInventory -->
 
@@ -804,6 +969,8 @@ Type : _boolean_
 ### jo.framework:registerUseItem()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:registerUseItem -->
+
+Registers the use of an item and attaches a callback function that executes when the item is used <br>
 
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:registerUseItem -->
 
@@ -816,15 +983,22 @@ jo.framework:registerUseItem(item, closeAfterUsed, callback)
 #### Parameters
 
 `item` : _string_
+> The name of the item
+>
+
+`closeAfterUsed` : _boolean_ <BadgeOptional />
+> If the inventory needs to be closed after using the item <br> default:`true`
+>
 
 `callback` : _function_
-
-`closeAfterUsed` : _boolean_
+> The function fired after use the item
+>
 
 #### Return Value
 
 Type : _boolean_
 
+> Return `true` if the item is successfully registered
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:registerUseItem -->
 
@@ -835,6 +1009,8 @@ Type : _boolean_
 ### jo.framework:removeInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:removeInventory -->
+
+Removes an inventory from the server cache, useful for reloading inventory data from the database <br>
 
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:removeInventory -->
 
@@ -847,11 +1023,14 @@ jo.framework:removeInventory(invName)
 #### Parameters
 
 `invName` : _string_
+> Unique id of the inventory
+>
 
 #### Return Value
 
 Type : _boolean_
 
+> Return `true` if the inventory is successfully removed
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:removeInventory -->
 
@@ -862,6 +1041,8 @@ Type : _boolean_
 ### jo.framework:removeItem()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:removeItem -->
+
+Removes an item from a player's inventory if they have enough quantity <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:removeItem -->
 
@@ -874,19 +1055,28 @@ jo.framework:removeItem(source, item, quantity, meta)
 #### Parameters
 
 `source` : _integer_
+> The source ID of the player
+>
 
 `item` : _string_
+> The name of the item to remove
+>
 
 `quantity` : _integer_
+> The quantity of the item to remove
+>
 
-`meta` : _table_
+`meta` : _table_ <BadgeOptional />
 
+> The metadata of the item
+>
 
 
 #### Return Value
 
 Type : _boolean_
 
+> Return `true` if the item is successfully removed
 
 <!-- @include: ./slots/examples.md#server|jo.framework:removeItem -->
 
@@ -897,6 +1087,8 @@ Type : _boolean_
 ### jo.framework:removeMoney()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:removeMoney -->
+
+Removes money from a player's account <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:removeMoney -->
 
@@ -909,10 +1101,22 @@ jo.framework:removeMoney(source, amount, moneyType)
 #### Parameters
 
 `source` : _integer_
+> The source ID of the player
+>
 
 `amount` : _number_
+> The amount of money to remove
+>
 
 `moneyType` : _integer_ <BadgeOptional />
+> `0`: dollar, `1`: gold, `2`: rol <br> default:`0`
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> Return `true` if the money is successfully removed
 
 <!-- @include: ./slots/examples.md#server|jo.framework:removeMoney -->
 
@@ -924,6 +1128,8 @@ jo.framework:removeMoney(source, amount, moneyType)
 
 <!-- @include: ./slots/headers.md#server|jo.framework:revertClothes -->
 
+Converts standardized clothing data back to framework-specific format <br>
+
 <!-- @include: ./slots/descriptions.md#server|jo.framework:revertClothes -->
 
 #### Syntax
@@ -932,46 +1138,31 @@ jo.framework:removeMoney(source, amount, moneyType)
 jo.framework:revertClothes(standard)
 ```
 
-<!-- @include: ./slots/examples.md#server|jo.framework:revertClothes -->
-
-<!-- @include: ./slots/footers.md#server|jo.framework:revertClothes -->
-
----
-
-### jo.framework:revertClothesInternal()
-
-<!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:revertClothesInternal -->
-
-A function to revert a standardize clothes table <br>
-
-<!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:revertClothesInternal -->
-
-#### Syntax
-
-```lua
-jo.framework:revertClothesInternal(standard)
-```
-
 #### Parameters
 
 `standard` : _table_
 
+> The standardized clothes data
+>
 
 
 #### Return Value
 
 Type : _table_
 
+> Return clothes data with framework-specific keys
 
-<!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:revertClothesInternal -->
+<!-- @include: ./slots/examples.md#server|jo.framework:revertClothes -->
 
-<!-- @include: ./slots/footers.md#FrameworkClass|jo.framework:revertClothesInternal -->
+<!-- @include: ./slots/footers.md#server|jo.framework:revertClothes -->
 
 ---
 
 ### jo.framework:revertSkin()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:revertSkin -->
+
+Converts standardized skin data back to framework-specific format <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:revertSkin -->
 
@@ -981,46 +1172,31 @@ Type : _table_
 jo.framework:revertSkin(standard)
 ```
 
-<!-- @include: ./slots/examples.md#server|jo.framework:revertSkin -->
-
-<!-- @include: ./slots/footers.md#server|jo.framework:revertSkin -->
-
----
-
-### jo.framework:revertSkinInternal()
-
-<!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:revertSkinInternal -->
-
-A function to reversed the skin data <br>
-
-<!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:revertSkinInternal -->
-
-#### Syntax
-
-```lua
-jo.framework:revertSkinInternal(standard)
-```
-
 #### Parameters
 
 `standard` : _table_
 
+> The standardized skin data
+>
 
 
 #### Return Value
 
 Type : _table_
 
+> Return skin data with framework-specific keys
 
-<!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:revertSkinInternal -->
+<!-- @include: ./slots/examples.md#server|jo.framework:revertSkin -->
 
-<!-- @include: ./slots/footers.md#FrameworkClass|jo.framework:revertSkinInternal -->
+<!-- @include: ./slots/footers.md#server|jo.framework:revertSkin -->
 
 ---
 
 ### jo.framework:standardizeClothes()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:standardizeClothes -->
+
+Converts framework-specific clothing data to a standardized format <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:standardizeClothes -->
 
@@ -1030,46 +1206,31 @@ Type : _table_
 jo.framework:standardizeClothes(clothes)
 ```
 
-<!-- @include: ./slots/examples.md#server|jo.framework:standardizeClothes -->
-
-<!-- @include: ./slots/footers.md#server|jo.framework:standardizeClothes -->
-
----
-
-### jo.framework:standardizeClothesInternal()
-
-<!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:standardizeClothesInternal -->
-
-A function to standardize the clothes data <br>
-
-<!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:standardizeClothesInternal -->
-
-#### Syntax
-
-```lua
-jo.framework:standardizeClothesInternal(clothes)
-```
-
 #### Parameters
 
 `clothes` : _table_
 
+> The framework-specific clothes data
+>
 
 
 #### Return Value
 
 Type : _table_
 
+> Return clothes data with standardized keys and structure
 
-<!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:standardizeClothesInternal -->
+<!-- @include: ./slots/examples.md#server|jo.framework:standardizeClothes -->
 
-<!-- @include: ./slots/footers.md#FrameworkClass|jo.framework:standardizeClothesInternal -->
+<!-- @include: ./slots/footers.md#server|jo.framework:standardizeClothes -->
 
 ---
 
 ### jo.framework:standardizeSkin()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:standardizeSkin -->
+
+Converts framework-specific skin data to a standardized format <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:standardizeSkin -->
 
@@ -1079,50 +1240,34 @@ Type : _table_
 jo.framework:standardizeSkin(skin)
 ```
 
-<!-- @include: ./slots/examples.md#server|jo.framework:standardizeSkin -->
-
-<!-- @include: ./slots/footers.md#server|jo.framework:standardizeSkin -->
-
----
-
-### jo.framework:standardizeSkinInternal()
-
-<!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:standardizeSkinInternal -->
-
- <br>
- <br>
- <br>
- <br>
-A function to standardize the skin data <br>
-
-<!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:standardizeSkinInternal -->
-
-#### Syntax
-
-```lua
-jo.framework:standardizeSkinInternal(skin)
-```
-
 #### Parameters
 
 `skin` : _table_
 
+> The framework-specific skin data
+>
 
 
 #### Return Value
 
 Type : _table_
 
+> Return skin data with standardized keys for components, overlays, and expressions
 
-<!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:standardizeSkinInternal -->
+<!-- @include: ./slots/examples.md#server|jo.framework:standardizeSkin -->
 
-<!-- @include: ./slots/footers.md#FrameworkClass|jo.framework:standardizeSkinInternal -->
+<!-- @include: ./slots/footers.md#server|jo.framework:standardizeSkin -->
 
 ---
 
 ### jo.framework:updateUserClothes()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:updateUserClothes -->
+
+Updates a player's clothing with new items or complete outfits <br>
+The function has two ways to work: <br>
+With 2 arguments to save multiple clothes <br>
+With 3 arguments to save one piece of clothing <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:updateUserClothes -->
 
@@ -1132,33 +1277,44 @@ Type : _table_
 jo.framework:updateUserClothes(source, _clothes, value)
 ```
 
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+`clothesArray` : _table_
+
+> The list of clothes to apply or the category name
+>
+
+
+`value` : _table_ <BadgeOptional />
+
+> The clothing data if updating a single category
+>
+
+
+#### Return Value
+
+Type : _boolean_
+
+> Return `true` if the clothes are successfully updated
+
 <!-- @include: ./slots/examples.md#server|jo.framework:updateUserClothes -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework:updateUserClothes -->
 
 ---
 
-### jo.framework:updateUserClothesInternal()
-
-<!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:updateUserClothesInternal -->
-
-<!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:updateUserClothesInternal -->
-
-#### Syntax
-
-```lua
-jo.framework:updateUserClothesInternal(source, clothes)
-```
-
-<!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:updateUserClothesInternal -->
-
-<!-- @include: ./slots/footers.md#FrameworkClass|jo.framework:updateUserClothesInternal -->
-
----
-
 ### jo.framework:updateUserSkin()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:updateUserSkin -->
+
+Updates a player's skin with new values, either replacing or merging with existing data <br>
+The function has two ways to work: <br>
+With 3 arguments to save multiple skin data <br>
+With 4 arguments to save only one skin data <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:updateUserSkin -->
 
@@ -1168,26 +1324,30 @@ jo.framework:updateUserClothesInternal(source, clothes)
 jo.framework:updateUserSkin(...)
 ```
 
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+`skinData` : _table_
+
+> The list of skin data with category for key and skin data for value
+>
+
+
+`overwrite` : _boolean_ <BadgeOptional />
+> If `true`, the new value overwrites the previous skin. Else, it's merged <br> default:`false`
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> Return `true` if the skin is successfully updated
+
 <!-- @include: ./slots/examples.md#server|jo.framework:updateUserSkin -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework:updateUserSkin -->
-
----
-
-### jo.framework:updateUserSkinInternal()
-
-<!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:updateUserSkinInternal -->
-
-<!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:updateUserSkinInternal -->
-
-#### Syntax
-
-```lua
-jo.framework:updateUserSkinInternal(source, skin, overwrite)
-```
-
-<!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:updateUserSkinInternal -->
-
-<!-- @include: ./slots/footers.md#FrameworkClass|jo.framework:updateUserSkinInternal -->
 
 <!-- #endregion group_3 -->

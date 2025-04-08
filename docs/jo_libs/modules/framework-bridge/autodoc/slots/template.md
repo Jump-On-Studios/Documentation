@@ -23,16 +23,6 @@
 <!-- #endregion FrameworkClass|jo.framework:getItemsFromInventory -->
 
 
-<!-- #region FrameworkClass|jo.framework:getUserClothesInternal -->
-
-<!-- #endregion FrameworkClass|jo.framework:getUserClothesInternal -->
-
-
-<!-- #region FrameworkClass|jo.framework:getUserSkinInternal -->
-
-<!-- #endregion FrameworkClass|jo.framework:getUserSkinInternal -->
-
-
 <!-- #region FrameworkClass|jo.framework:giveItem -->
 
 <!-- #endregion FrameworkClass|jo.framework:giveItem -->
@@ -51,36 +41,6 @@
 <!-- #region FrameworkClass|jo.framework:removeInventory -->
 
 <!-- #endregion FrameworkClass|jo.framework:removeInventory -->
-
-
-<!-- #region FrameworkClass|jo.framework:revertClothesInternal -->
-
-<!-- #endregion FrameworkClass|jo.framework:revertClothesInternal -->
-
-
-<!-- #region FrameworkClass|jo.framework:revertSkinInternal -->
-
-<!-- #endregion FrameworkClass|jo.framework:revertSkinInternal -->
-
-
-<!-- #region FrameworkClass|jo.framework:standardizeClothesInternal -->
-
-<!-- #endregion FrameworkClass|jo.framework:standardizeClothesInternal -->
-
-
-<!-- #region FrameworkClass|jo.framework:standardizeSkinInternal -->
-
-<!-- #endregion FrameworkClass|jo.framework:standardizeSkinInternal -->
-
-
-<!-- #region FrameworkClass|jo.framework:updateUserClothesInternal -->
-
-<!-- #endregion FrameworkClass|jo.framework:updateUserClothesInternal -->
-
-
-<!-- #region FrameworkClass|jo.framework:updateUserSkinInternal -->
-
-<!-- #endregion FrameworkClass|jo.framework:updateUserSkinInternal -->
 
 
 <!-- #region UserClass|UserClass:addMoney -->
