@@ -3,12 +3,12 @@
 
 ### UserClass:get()
 
-<!-- @include: ./slots/headers.md#[UserClass](#userclass-methods)|UserClass:get -->
+<!-- @include: ./slots/headers.md#UserClass|UserClass:get -->
 
  <br>
  <br>
 
-<!-- @include: ./slots/descriptions.md#[UserClass](#userclass-methods)|UserClass:get -->
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:get -->
 
 #### Syntax
 
@@ -25,9 +25,9 @@ UserClass:get(source)
 Type : _table_
 
 
-<!-- @include: ./slots/examples.md#[UserClass](#userclass-methods)|UserClass:get -->
+<!-- @include: ./slots/examples.md#UserClass|UserClass:get -->
 
-<!-- @include: ./slots/footers.md#[UserClass](#userclass-methods)|UserClass:get -->
+<!-- @include: ./slots/footers.md#UserClass|UserClass:get -->
 
 <!-- #endregion group_1 -->
 
@@ -36,9 +36,9 @@ Type : _table_
 
 ### UserClass:addMoney()
 
-<!-- @include: ./slots/headers.md#[UserClass](#userclass-methods)|UserClass:addMoney -->
+<!-- @include: ./slots/headers.md#UserClass|UserClass:addMoney -->
 
-<!-- @include: ./slots/descriptions.md#[UserClass](#userclass-methods)|UserClass:addMoney -->
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:addMoney -->
 
 #### Syntax
 
@@ -57,9 +57,9 @@ UserClass:addMoney(amount, moneyType)
 Type : _boolean_
 
 
-<!-- @include: ./slots/examples.md#[UserClass](#userclass-methods)|UserClass:addMoney -->
+<!-- @include: ./slots/examples.md#UserClass|UserClass:addMoney -->
 
-<!-- @include: ./slots/footers.md#[UserClass](#userclass-methods)|UserClass:addMoney -->
+<!-- @include: ./slots/footers.md#UserClass|UserClass:addMoney -->
 
 ---
 
@@ -96,9 +96,9 @@ Type : _boolean_
 
 ### UserClass:getIdentifiers()
 
-<!-- @include: ./slots/headers.md#[UserClass](#userclass-methods)|UserClass:getIdentifiers -->
+<!-- @include: ./slots/headers.md#UserClass|UserClass:getIdentifiers -->
 
-<!-- @include: ./slots/descriptions.md#[UserClass](#userclass-methods)|UserClass:getIdentifiers -->
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:getIdentifiers -->
 
 #### Syntax
 
@@ -111,17 +111,17 @@ UserClass:getIdentifiers()
 Type : _table_
 
 
-<!-- @include: ./slots/examples.md#[UserClass](#userclass-methods)|UserClass:getIdentifiers -->
+<!-- @include: ./slots/examples.md#UserClass|UserClass:getIdentifiers -->
 
-<!-- @include: ./slots/footers.md#[UserClass](#userclass-methods)|UserClass:getIdentifiers -->
+<!-- @include: ./slots/footers.md#UserClass|UserClass:getIdentifiers -->
 
 ---
 
 ### UserClass:getJob()
 
-<!-- @include: ./slots/headers.md#[UserClass](#userclass-methods)|UserClass:getJob -->
+<!-- @include: ./slots/headers.md#UserClass|UserClass:getJob -->
 
-<!-- @include: ./slots/descriptions.md#[UserClass](#userclass-methods)|UserClass:getJob -->
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:getJob -->
 
 #### Syntax
 
@@ -134,17 +134,17 @@ UserClass:getJob()
 Type : _string_
 
 
-<!-- @include: ./slots/examples.md#[UserClass](#userclass-methods)|UserClass:getJob -->
+<!-- @include: ./slots/examples.md#UserClass|UserClass:getJob -->
 
-<!-- @include: ./slots/footers.md#[UserClass](#userclass-methods)|UserClass:getJob -->
+<!-- @include: ./slots/footers.md#UserClass|UserClass:getJob -->
 
 ---
 
 ### UserClass:getMoney()
 
-<!-- @include: ./slots/headers.md#[UserClass](#userclass-methods)|UserClass:getMoney -->
+<!-- @include: ./slots/headers.md#UserClass|UserClass:getMoney -->
 
-<!-- @include: ./slots/descriptions.md#[UserClass](#userclass-methods)|UserClass:getMoney -->
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:getMoney -->
 
 #### Syntax
 
@@ -161,17 +161,17 @@ UserClass:getMoney(moneyType)
 Type : _number_
 
 
-<!-- @include: ./slots/examples.md#[UserClass](#userclass-methods)|UserClass:getMoney -->
+<!-- @include: ./slots/examples.md#UserClass|UserClass:getMoney -->
 
-<!-- @include: ./slots/footers.md#[UserClass](#userclass-methods)|UserClass:getMoney -->
+<!-- @include: ./slots/footers.md#UserClass|UserClass:getMoney -->
 
 ---
 
 ### UserClass:getRPName()
 
-<!-- @include: ./slots/headers.md#[UserClass](#userclass-methods)|UserClass:getRPName -->
+<!-- @include: ./slots/headers.md#UserClass|UserClass:getRPName -->
 
-<!-- @include: ./slots/descriptions.md#[UserClass](#userclass-methods)|UserClass:getRPName -->
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:getRPName -->
 
 #### Syntax
 
@@ -184,9 +184,9 @@ UserClass:getRPName()
 Type : _string_
 
 
-<!-- @include: ./slots/examples.md#[UserClass](#userclass-methods)|UserClass:getRPName -->
+<!-- @include: ./slots/examples.md#UserClass|UserClass:getRPName -->
 
-<!-- @include: ./slots/footers.md#[UserClass](#userclass-methods)|UserClass:getRPName -->
+<!-- @include: ./slots/footers.md#UserClass|UserClass:getRPName -->
 
 ---
 
@@ -214,9 +214,9 @@ UserClass:giveGold(amount)
 
 ### UserClass:removeMoney()
 
-<!-- @include: ./slots/headers.md#[UserClass](#userclass-methods)|UserClass:removeMoney -->
+<!-- @include: ./slots/headers.md#UserClass|UserClass:removeMoney -->
 
-<!-- @include: ./slots/descriptions.md#[UserClass](#userclass-methods)|UserClass:removeMoney -->
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:removeMoney -->
 
 #### Syntax
 
@@ -235,9 +235,9 @@ UserClass:removeMoney(amount, moneyType)
 Type : _boolean_
 
 
-<!-- @include: ./slots/examples.md#[UserClass](#userclass-methods)|UserClass:removeMoney -->
+<!-- @include: ./slots/examples.md#UserClass|UserClass:removeMoney -->
 
-<!-- @include: ./slots/footers.md#[UserClass](#userclass-methods)|UserClass:removeMoney -->
+<!-- @include: ./slots/footers.md#UserClass|UserClass:removeMoney -->
 
 <!-- #endregion group_2 -->
 
@@ -283,14 +283,8 @@ jo.framework:addItemInInventory(source, invId, item, quantity, metadata, needWai
 
 
 `needWait` : _boolean_ <BadgeOptional />
-> If need to wait after the adding <br> default:`false`
+> If need to wait after the SQL insertion <br> default:`false`
 >
-
-#### Return Value
-
-Type : _boolean_
-
-> Return `true` if the item is successfully added
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:addItemInInventory -->
 
@@ -413,7 +407,7 @@ jo.framework:canUserBuy(source, amount, moneyType, removeIfCan)
 >
 
 `moneyType` : _integer_ <BadgeOptional />
-> `0`: dollar, `1`: gold, `2`: rol <br> default:`0`
+> `0`: dollar, `1`: gold, `2`: rol <br> default:`1`
 >
 
 `removeIfCan` : _boolean_ <BadgeOptional />
@@ -497,24 +491,18 @@ jo.framework:createInventory(invName, name, invConfig)
 > 
 > `invConfig.maxWeight` : _float_ - Max weight of the inventory
 > 
-> `invConfig.acceptWeapons` : _boolean_ - Whether the inventory accepts weapons <br> default:`false`
+> `invConfig.acceptWeapons` : _boolean_ - Whether the inventory accepts weapons <BadgeOptional />
 > 
-> `invConfig.shared` : _boolean_ - If the inventory is shared between players <br> default:`true` <BadgeOptional />
+> `invConfig.shared` : _boolean_ - If the inventory is shared between players <BadgeOptional />
 > 
-> `invConfig.ignoreStackLimit` : _boolean_ - If the inventory can overcoming stack limits <br> default:`true` <BadgeOptional />
+> `invConfig.ignoreStackLimit` : _boolean_ - If the inventory can overcoming stack limits <BadgeOptional />
 > 
 > `invConfig.whitelist` : _table_ - Restrict the list of items that can be put in the inventory <BadgeOptional />
 > 
-> > `invConfig.whitelist.item` : _string_ - Name of the whitelisted item
-> > 
-> > `invConfig.whitelist.limit` : _integer_ - Stack limit of this item
-> > 
-
-#### Return Value
-
-Type : _boolean_
-
-> Return `true` if the inventory is successfully created
+> > > > `invConfig.whitelist[..].item` : _string_ - Name of the whitelisted item
+> > > > 
+> > > > `invConfig.whitelist[..].limit` : _integer_ - Stack limit of this item
+> > > > 
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:createInventory -->
 
@@ -620,7 +608,7 @@ jo.framework:get()
 
 Type : _string_
 
-> Return the name of the current framework
+> Return the name of the current framework : <br> `"VORP"` or `"RedEM"` or `"RedEM2023"` or `"qbr"` or `"rsg"` or `"qr"` or `"rpx"`
 
 <!-- @include: ./slots/examples.md#server|jo.framework:get -->
 
@@ -652,7 +640,7 @@ jo.framework:getItemsFromInventory(invId)
 
 Type : _table_
 
-> Return the list of items with structure `{metadata = {}, amount = 0, item = "itemName"}`
+> Return the list of items with structure : <br> `item.amount` : *integer* - The amount of the item<br> `item.id` : *integer* - The id of the item<br>`item.item` : *string* - The name of the item<br>`item.metadata` : *table* - The metadata of the item<br>
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:getItemsFromInventory -->
 
@@ -728,7 +716,7 @@ Type : _string_
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getUser -->
 
-Retrieves a player's full User object containing all player data and methods <br>
+Retrieves a player's full [UserClass](#userclass-methods) object containing all player data and methods <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:getUser -->
 
@@ -792,7 +780,7 @@ Type : _table_
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getUserIdentifiers -->
 
-Retrieves all identifiers associated with a player <br>
+Retrieves all identifiers associated with a player <br> Shortcut for [UserClass:getIdentifiers()](./user#userclass-getidentifiers) method <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:getUserIdentifiers -->
 
@@ -812,7 +800,7 @@ jo.framework:getUserIdentifiers(source)
 
 Type : _table_
 
-> Return the player's identifiers including character ID
+> Return the player's identifiers <br> `identifiers.identifier` - Unique identifier of the player <br> `identifiers.charid` - Unique id of the player
 
 <!-- @include: ./slots/examples.md#server|jo.framework:getUserIdentifiers -->
 
@@ -844,7 +832,7 @@ jo.framework:getUserSkin(source)
 
 Type : _table_
 
-> Return the skin data including overlays, expressions, and teeth information
+> Return the skin data
 
 <!-- @include: ./slots/examples.md#server|jo.framework:getUserSkin -->
 
@@ -902,7 +890,7 @@ Type : _boolean_
 
 <!-- @include: ./slots/headers.md#server|jo.framework:is -->
 
-Compares the current framework with a specified framework name to check compatibility <br>
+Compares the current framework with a specified framework name <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:is -->
 
@@ -915,7 +903,7 @@ jo.framework:is(name)
 #### Parameters
 
 `name` : _string_
-> The name of the framework to check against
+> The name of the framework to check against <br> Supported frameworks : <br> `"VORP"` or `"RedEM"` or `"RedEM2023"` or `"qbr"` or `"rsg"` or `"qr"` or `"rpx"`
 >
 
 #### Return Value
@@ -934,7 +922,7 @@ Type : _boolean_
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:openInventory -->
 
-Opens a specific inventory UI for a player to interact with <br>
+Opens a specific inventory <br>
 
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:openInventory -->
 
@@ -954,12 +942,6 @@ jo.framework:openInventory(source, invName)
 > The unique ID of the inventory
 >
 
-#### Return Value
-
-Type : _boolean_
-
-> Return `true` if the inventory is successfully opened
-
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:openInventory -->
 
 <!-- @include: ./slots/footers.md#FrameworkClass|jo.framework:openInventory -->
@@ -970,7 +952,7 @@ Type : _boolean_
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:registerUseItem -->
 
-Registers the use of an item and attaches a callback function that executes when the item is used <br>
+Registers an item as usable and attaches a callback function that executes when the item is used <br>
 
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:registerUseItem -->
 
@@ -991,14 +973,8 @@ jo.framework:registerUseItem(item, closeAfterUsed, callback)
 >
 
 `callback` : _function_
-> The function fired after use the item
+> The function fired after use the item <br> 1st argument: source <br> 2nd argument: metadata of the item
 >
-
-#### Return Value
-
-Type : _boolean_
-
-> Return `true` if the item is successfully registered
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:registerUseItem -->
 
@@ -1010,7 +986,7 @@ Type : _boolean_
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:removeInventory -->
 
-Removes an inventory from the server cache, useful for reloading inventory data from the database <br>
+Removes an inventory from the *server cache*, useful for reloading inventory data from the database <br>
 
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:removeInventory -->
 
@@ -1025,12 +1001,6 @@ jo.framework:removeInventory(invName)
 `invName` : _string_
 > Unique id of the inventory
 >
-
-#### Return Value
-
-Type : _boolean_
-
-> Return `true` if the inventory is successfully removed
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:removeInventory -->
 
@@ -1264,10 +1234,10 @@ Type : _table_
 
 <!-- @include: ./slots/headers.md#server|jo.framework:updateUserClothes -->
 
-Updates a player's clothing with new items or complete outfits <br>
+Save new clothes. <br>
 The function has two ways to work: <br>
-With 2 arguments to save multiple clothes <br>
-With 3 arguments to save one piece of clothing <br>
+- With 2 arguments to save multiple clothes <br>
+- With 3 arguments to save one piece of clothing <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:updateUserClothes -->
 
@@ -1283,7 +1253,7 @@ jo.framework:updateUserClothes(source, _clothes, value)
 > The source ID of the player
 >
 
-`clothesArray` : _table_
+`_clothes` : _table_
 
 > The list of clothes to apply or the category name
 >
@@ -1295,12 +1265,6 @@ jo.framework:updateUserClothes(source, _clothes, value)
 >
 
 
-#### Return Value
-
-Type : _boolean_
-
-> Return `true` if the clothes are successfully updated
-
 <!-- @include: ./slots/examples.md#server|jo.framework:updateUserClothes -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework:updateUserClothes -->
@@ -1311,10 +1275,10 @@ Type : _boolean_
 
 <!-- @include: ./slots/headers.md#server|jo.framework:updateUserSkin -->
 
-Updates a player's skin with new values, either replacing or merging with existing data <br>
+Save new skin values. <br>
 The function has two ways to work: <br>
-With 3 arguments to save multiple skin data <br>
-With 4 arguments to save only one skin data <br>
+- With 3 arguments to save multiple skin data <br>
+- With 4 arguments to save only one skin data <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:updateUserSkin -->
 
@@ -1336,15 +1300,19 @@ jo.framework:updateUserSkin(...)
 >
 
 
-`overwrite` : _boolean_ <BadgeOptional />
-> If `true`, the new value overwrites the previous skin. Else, it's merged <br> default:`false`
+`category` : _string_
+> The category of the skin data
 >
 
-#### Return Value
+`data` : _table_
 
-Type : _boolean_
+> The skin data
+>
 
-> Return `true` if the skin is successfully updated
+
+`overwrite` : _boolean_ <BadgeOptional />
+> If `true`, the new value overwrites the previous skin. Else, it's merged
+>
 
 <!-- @include: ./slots/examples.md#server|jo.framework:updateUserSkin -->
 
