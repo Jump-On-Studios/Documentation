@@ -47,7 +47,7 @@ jo.animation.goToCoords(ped, coords, speed, waiter, distanceToStop)
 
 <!-- @include: ./slots/headers.md#client|jo.animation.load -->
 
-Load the dictionnary of animation - test <br>
+Load the dictionnary of animation <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.animation.load -->
 
