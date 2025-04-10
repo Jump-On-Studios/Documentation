@@ -30,7 +30,9 @@ jo.menu.create(id, data)
 > 
 > `data.subtitle` : _string_ - The subtitle of the menu  ![The subtitle](https://docs.jumpon-studios.com/images/previews/menu/subtitle.jpg)
 > 
-> `data.numberOnScreen` : _integer_ - Maximum number of items visibles at the same time <br> default : 8 <BadgeOptional />
+> `data.numberOnScreen` : _integer_ - Maximum number of items visibles at the same time <br> default : `8` <BadgeOptional />
+> 
+> `data.distanceToClose` : _float_ - Distance at which the menu will self close if the player is moving away <br> default: `false`
 > 
 > `data.onEnter` : _function_ - Fired when the menu is opened <BadgeOptional />
 > 

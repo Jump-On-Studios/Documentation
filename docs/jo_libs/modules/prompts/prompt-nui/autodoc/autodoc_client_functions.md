@@ -17,8 +17,8 @@ jo.promptNui.createGroup(title, position)
 
 #### Parameters
 
-`title` : _string_
-> The title for the new prompt group.
+`title` : _string|boolean_
+> The title for the new prompt group. Set to `false` to have no title
 >
 
 `position` : _string_ <BadgeOptional />
