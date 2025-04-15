@@ -133,18 +133,18 @@ Type : _string_
 
 ---
 
-### jo.pedTexture.overwriteCategory()
+### jo.pedTexture.overwriteBodyPart()
 
-<!-- @include: ./slots/headers.md#g_client|jo.pedTexture.overwriteCategory -->
+<!-- @include: ./slots/headers.md#g_client|jo.pedTexture.overwriteBodyPart -->
 
-A function to overwrite all the layers of category <br>
+A function to overwrite all the layers of a body part <br>
 
-<!-- @include: ./slots/descriptions.md#g_client|jo.pedTexture.overwriteCategory -->
+<!-- @include: ./slots/descriptions.md#g_client|jo.pedTexture.overwriteBodyPart -->
 
 #### Syntax
 
 ```lua
-jo.pedTexture.overwriteCategory(ped, category, overlays, forceRemove)
+jo.pedTexture.overwriteBodyPart(ped, category, overlays, forceRemove)
 ```
 
 #### Parameters
@@ -165,9 +165,9 @@ jo.pedTexture.overwriteCategory(ped, category, overlays, forceRemove)
 > Whether to force remove existing textures even if the category doesn't exist <br> default: false
 >
 
-<!-- @include: ./slots/examples.md#g_client|jo.pedTexture.overwriteCategory -->
+<!-- @include: ./slots/examples.md#g_client|jo.pedTexture.overwriteBodyPart -->
 
-<!-- @include: ./slots/footers.md#g_client|jo.pedTexture.overwriteCategory -->
+<!-- @include: ./slots/footers.md#g_client|jo.pedTexture.overwriteBodyPart -->
 
 ---
 

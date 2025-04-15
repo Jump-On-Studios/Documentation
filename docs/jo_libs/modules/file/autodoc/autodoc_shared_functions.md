@@ -12,7 +12,7 @@ Checks if a file exists <br>
 #### Syntax
 
 ```lua
-jo.file.isExist(modname)
+jo.file.isExist(...)
 ```
 
 #### Parameters
@@ -62,4 +62,37 @@ Type : _any_
 <!-- @include: ./slots/examples.md#shared|jo.file.load -->
 
 <!-- @include: ./slots/footers.md#shared|jo.file.load -->
+
+---
+
+### jo.file.read()
+
+<!-- @include: ./slots/headers.md#shared|jo.file.read -->
+
+Read a file and return it if it's exist or `false`. The function accept one or two arguments. <br>
+One argument: the filepath <br>
+Two argument: the resource AND the filepath <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.file.read -->
+
+#### Syntax
+
+```lua
+jo.file.read(...)
+```
+
+#### Parameters
+
+`...` : _string_
+> path of the file
+>
+
+#### Return Value
+
+Type : _file|boolean,resource|string,modpath|string_
+
+
+<!-- @include: ./slots/examples.md#shared|jo.file.read -->
+
+<!-- @include: ./slots/footers.md#shared|jo.file.read -->
 

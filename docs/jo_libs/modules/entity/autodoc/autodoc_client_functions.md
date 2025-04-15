@@ -21,20 +21,20 @@ jo.entity.create(model, coords, heading, networked, fadeDuration)
 > The model name of the entity to create
 >
 
-`coords` : _vec3_
+`coords` : _vector3_
 > The coordinates where the entity will be created
 >
 
-`heading` : _float_
+`heading` : _number_
 > The heading direction for the entity
 >
 
-`networked` : _boolean_
-> Whether the entity should be networked
+`networked` : _boolean_ <BadgeOptional />
+> Whether the entity should be networked <br> default: `false`
 >
 
-`fadeDuration` : _integer_
-> Duration of the fade-in effect in ms - default:0
+`fadeDuration` : _integer_ <BadgeOptional />
+> Duration of the fade-in effect in ms <br> default: `0`
 >
 
 #### Return Value

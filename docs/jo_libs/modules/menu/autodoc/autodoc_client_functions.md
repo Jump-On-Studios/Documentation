@@ -731,6 +731,24 @@ jo.menu.onChange(cb)
 
 ---
 
+### jo.menu.playAudio()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.playAudio -->
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.playAudio -->
+
+#### Syntax
+
+```lua
+jo.menu.playAudio(sound)
+```
+
+<!-- @include: ./slots/examples.md#client|jo.menu.playAudio -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.playAudio -->
+
+---
+
 ### jo.menu.refresh()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.refresh -->

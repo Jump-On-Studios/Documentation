@@ -13,9 +13,9 @@
 <!-- #endregion g_client|jo.pedTexture.getOverlayAssetFromId -->
 
 
-<!-- #region g_client|jo.pedTexture.overwriteCategory -->
+<!-- #region g_client|jo.pedTexture.overwriteBodyPart -->
 
-<!-- #endregion g_client|jo.pedTexture.overwriteCategory -->
+<!-- #endregion g_client|jo.pedTexture.overwriteBodyPart -->
 
 
 <!-- #region g_client|jo.pedTexture.refreshAll -->

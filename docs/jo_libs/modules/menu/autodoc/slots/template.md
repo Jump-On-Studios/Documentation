@@ -108,6 +108,11 @@
 <!-- #endregion client|jo.menu.onChange -->
 
 
+<!-- #region client|jo.menu.playAudio -->
+
+<!-- #endregion client|jo.menu.playAudio -->
+
+
 <!-- #region client|jo.menu.refresh -->
 
 <!-- #endregion client|jo.menu.refresh -->
