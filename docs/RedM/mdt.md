@@ -37,7 +37,7 @@ end
 
 function SharedInventoryFunctions.addItemLocker(name, amount, meta, lockerId) -- [!code ++]
   if not Locker[lockerId] then Locker[lockerId] = {} end -- [!code ++]
-  addItemLocker(name, amount, meta, lockerId) -- [!code ++]
+  return addItemLocker(name, amount, meta, lockerId) -- [!code ++]
 end -- [!code ++]
 function SharedInventoryFunctions.getLocker(lockerId) -- [!code ++]
   return PrepareToOutput(Locker[lockerId]) -- [!code ++]
