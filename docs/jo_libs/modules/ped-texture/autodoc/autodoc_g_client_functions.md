@@ -197,6 +197,26 @@ jo.pedTexture.refreshAll(ped)
 
 ---
 
+### jo.pedTexture.refreshNow()
+
+<!-- @include: ./slots/headers.md#g_client|jo.pedTexture.refreshNow -->
+
+A function to apply now the ped texture modification <br>
+
+<!-- @include: ./slots/descriptions.md#g_client|jo.pedTexture.refreshNow -->
+
+#### Syntax
+
+```lua
+jo.pedTexture.refreshNow(ped)
+```
+
+<!-- @include: ./slots/examples.md#g_client|jo.pedTexture.refreshNow -->
+
+<!-- @include: ./slots/footers.md#g_client|jo.pedTexture.refreshNow -->
+
+---
+
 ### jo.pedTexture.remove()
 
 <!-- @include: ./slots/headers.md#g_client|jo.pedTexture.remove -->

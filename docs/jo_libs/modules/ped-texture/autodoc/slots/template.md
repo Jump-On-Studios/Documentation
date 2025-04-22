@@ -23,6 +23,11 @@
 <!-- #endregion g_client|jo.pedTexture.refreshAll -->
 
 
+<!-- #region g_client|jo.pedTexture.refreshNow -->
+
+<!-- #endregion g_client|jo.pedTexture.refreshNow -->
+
+
 <!-- #region g_client|jo.pedTexture.remove -->
 
 <!-- #endregion g_client|jo.pedTexture.remove -->

@@ -21,7 +21,7 @@ jo.waiter.exec(condition, executable, loopSpeed, maxDuration)
 > The condition to stop the loop
 >
 
-`executable` : _function_
+`executable` : _function_ <BadgeOptional />
 > Function to execute after each test
 >
 

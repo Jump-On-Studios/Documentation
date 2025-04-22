@@ -951,6 +951,32 @@ Type : _boolean_
 
 ---
 
+### jo.framework:onCharacterSelected()
+
+<!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:onCharacterSelected -->
+
+Callback when a character is selected <br>
+
+<!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:onCharacterSelected -->
+
+#### Syntax
+
+```lua
+jo.framework:onCharacterSelected(cb)
+```
+
+#### Parameters
+
+`cb` : _function_
+> The callback function triggered when the character is selected
+>
+
+<!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:onCharacterSelected -->
+
+<!-- @include: ./slots/footers.md#FrameworkClass|jo.framework:onCharacterSelected -->
+
+---
+
 ### jo.framework:openInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:openInventory -->

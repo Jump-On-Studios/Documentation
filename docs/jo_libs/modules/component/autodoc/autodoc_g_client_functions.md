@@ -12,7 +12,7 @@ A function to apply a component on the ped <br>
 #### Syntax
 
 ```lua
-jo.component.apply(ped, category, data)
+jo.component.apply(ped, category, _data)
 ```
 
 #### Parameters
@@ -25,28 +25,28 @@ jo.component.apply(ped, category, data)
 > The component category
 >
 
-`data` : _table_
+`_data` : _table_
 
 > The component data
 >
 
-> `data.hash` : _integer_ - The component hash
+> `_data.hash` : _integer_ - The component hash
 > 
-> `data.palette` : _string|integer_ - The color palette of the component <BadgeOptional />
+> `_data.palette` : _string|integer_ - The color palette of the component <BadgeOptional />
 > 
-> `data.tint0` : _integer_ - The first color number <BadgeOptional />
+> `_data.tint0` : _integer_ - The first color number <BadgeOptional />
 > 
-> `data.tint1` : _integer_ - The second color number <BadgeOptional />
+> `_data.tint1` : _integer_ - The second color number <BadgeOptional />
 > 
-> `data.tint2` : _integer_ - The third color number <BadgeOptional />
+> `_data.tint2` : _integer_ - The third color number <BadgeOptional />
 > 
-> `data.drawable` : _integer_ - The drawable value <BadgeOptional />
+> `_data.drawable` : _integer_ - The drawable value <BadgeOptional />
 > 
-> `data.albedo` : _integer_ - The albedo value <BadgeOptional />
+> `_data.albedo` : _integer_ - The albedo value <BadgeOptional />
 > 
-> `data.normal` : _integer_ - The normal value <BadgeOptional />
+> `_data.normal` : _integer_ - The normal value <BadgeOptional />
 > 
-> `data.material` : _integer_ - The material value <BadgeOptional />
+> `_data.material` : _integer_ - The material value <BadgeOptional />
 > 
 
 <!-- @include: ./slots/examples.md#g_client|jo.component.apply -->

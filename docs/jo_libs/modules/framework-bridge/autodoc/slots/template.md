@@ -28,6 +28,11 @@
 <!-- #endregion FrameworkClass|jo.framework:giveItem -->
 
 
+<!-- #region FrameworkClass|jo.framework:onCharacterSelected -->
+
+<!-- #endregion FrameworkClass|jo.framework:onCharacterSelected -->
+
+
 <!-- #region FrameworkClass|jo.framework:openInventory -->
 
 <!-- #endregion FrameworkClass|jo.framework:openInventory -->

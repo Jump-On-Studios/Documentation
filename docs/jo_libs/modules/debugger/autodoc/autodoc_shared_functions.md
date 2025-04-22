@@ -5,7 +5,6 @@
 
 <!-- @include: ./slots/headers.md#shared|jo.debugger.perfomance -->
 
-Returns the current time in microseconds. <br>
 Measures the performance of a callback function execution. <br>
 
 <!-- @include: ./slots/descriptions.md#shared|jo.debugger.perfomance -->
