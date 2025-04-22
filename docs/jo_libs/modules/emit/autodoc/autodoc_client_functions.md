@@ -5,9 +5,6 @@
 
 <!-- @include: ./slots/headers.md#client|jo.emit.isEventInProgress -->
 
-A function to trigger the server with limited bandwith <br>
-A function to trigger the server <br>
-
 <!-- @include: ./slots/descriptions.md#client|jo.emit.isEventInProgress -->
 
 #### Syntax
@@ -16,19 +13,69 @@ A function to trigger the server <br>
 jo.emit.isEventInProgress(eventName)
 ```
 
-#### Parameters
-
-`eventName` : _string_
-
-`...` : _any_
-
-`eventName` : _the_
-
-`...` : _any_
-
 <!-- @include: ./slots/examples.md#client|jo.emit.isEventInProgress -->
 
 <!-- @include: ./slots/footers.md#client|jo.emit.isEventInProgress -->
+
+---
+
+### jo.emit.triggerServer()
+
+<!-- @include: ./slots/headers.md#client|jo.emit.triggerServer -->
+
+A function to trigger the server <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.emit.triggerServer -->
+
+#### Syntax
+
+```lua
+jo.emit.triggerServer(eventName, ...)
+```
+
+#### Parameters
+
+`eventName` : _string_
+> The event name
+>
+
+`...` : _any_
+> Other arguments
+>
+
+<!-- @include: ./slots/examples.md#client|jo.emit.triggerServer -->
+
+<!-- @include: ./slots/footers.md#client|jo.emit.triggerServer -->
+
+---
+
+### jo.emit.triggerServer.latent()
+
+<!-- @include: ./slots/headers.md#client|jo.emit.triggerServer.latent -->
+
+A function to trigger the server with limited bandwith <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.emit.triggerServer.latent -->
+
+#### Syntax
+
+```lua
+jo.emit.triggerServer.latent(eventName, ...)
+```
+
+#### Parameters
+
+`eventName` : _string_
+> The event name
+>
+
+`...` : _any_
+> Other arguments
+>
+
+<!-- @include: ./slots/examples.md#client|jo.emit.triggerServer.latent -->
+
+<!-- @include: ./slots/footers.md#client|jo.emit.triggerServer.latent -->
 
 ---
 
