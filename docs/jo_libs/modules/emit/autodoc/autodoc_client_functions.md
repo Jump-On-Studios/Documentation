@@ -5,6 +5,8 @@
 
 <!-- @include: ./slots/headers.md#client|jo.emit.isEventInProgress -->
 
+A function to check if an event is currently getting data with emit module <br>
+
 <!-- @include: ./slots/descriptions.md#client|jo.emit.isEventInProgress -->
 
 #### Syntax
