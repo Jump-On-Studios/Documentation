@@ -87,14 +87,10 @@ jo.component.collarOpen(ped, data)
 <!-- #region g_client|jo.component.getBodiesLowerFromSkinTone -->
 #### Example
 ```lua
-local ped = PlayerPedId()
+local ped = PlayerPedId() -- OR "mp_male"/"mp_female"
 local bodiesIndex = 1
 local skinTone = 2
 local hash = jo.component.getBodiesLowerFromSkinTone(ped, bodiesIndex, skinTone)
-print(hash)
--- OR --
-local pedModel = "mp_male"
-local hash = jo.component.getBodiesLowerFromSkinTone(pedModel, bodiesIndex, skinTone)
 print(hash)
 
 ```
@@ -104,14 +100,10 @@ print(hash)
 <!-- #region g_client|jo.component.getBodiesUpperFromSkinTone -->
 #### Example
 ```lua
-local ped = PlayerPedId()
+local ped = PlayerPedId() -- OR "mp_male"/"mp_female"
 local bodiesIndex = 1
 local skinTone = 2
 local hash = jo.component.getBodiesUpperFromSkinTone(ped, bodiesIndex, skinTone)
-print(hash)
--- OR --
-local pedModel = "mp_male"
-local hash = jo.component.getBodiesUpperFromSkinTone(pedModel, bodiesIndex, skinTone)
 print(hash)
 
 ```
@@ -193,13 +185,9 @@ print(json.encode(components))
 <!-- #region g_client|jo.component.getEyesFromIndex -->
 #### Example
 ```lua
-local ped = PlayerPedId()
+local ped = PlayerPedId() -- OR "mp_male"/"mp_female"
 local index = 1
 local hash = jo.component.getEyesFromIndex(ped, index)
-print(hash)
--- OR --
-local pedModel = "mp_female"
-local hash = jo.component.getEyesFromIndex(pedModel, index)
 print(hash)
 
 ```
@@ -210,7 +198,11 @@ print(hash)
 <!-- #region g_client|jo.component.getHeadFromSkinTone -->
 #### Example
 ```lua
--- todo
+local ped = PlayerPedId() -- OR "mp_male"/"mp_female"
+local headIndex = 1
+local skinTone = 3
+local hash = jo.component.getHeadFromSkinTone(ped, headIndex, skinTone)
+print(hash)
 
 ```
 <!-- #endregion g_client|jo.component.getHeadFromSkinTone -->
@@ -219,7 +211,10 @@ print(hash)
 <!-- #region g_client|jo.component.getPaletteNameFromHash -->
 #### Example
 ```lua
--- todo
+local paletteHash = 0xAA65D8A3
+local palette = jo.component.getPaletteNameFromHash(paletteHash)
+print(palette)
+-- Expected output: `metaped_tint_generic`
 
 ```
 <!-- #endregion g_client|jo.component.getPaletteNameFromHash -->
@@ -228,7 +223,10 @@ print(hash)
 <!-- #region g_client|jo.component.getTeethFromIndex -->
 #### Example
 ```lua
--- todo
+local ped = PlayerPedId() -- OR "mp_male"/"mp_female"
+local teethIndex = 3
+local hash = jo.component.getTeethFromIndex(ped, index)
+print(hash)
 
 ```
 <!-- #endregion g_client|jo.component.getTeethFromIndex -->
@@ -272,7 +270,10 @@ print(isEquiped, index)
 <!-- #region g_client|jo.component.isMpComponent -->
 #### Example
 ```lua
--- todo
+local ped = PlayerPedId()
+local hash = 0x123456
+local isMP = jo.component.isMpComponent(ped, hash)
+print(isMP)
 
 ```
 <!-- #endregion g_client|jo.component.isMpComponent -->
@@ -324,7 +325,8 @@ jo.component.remove(ped, category)
 <!-- #region g_client|jo.component.removeAllClothes -->
 #### Example
 ```lua
--- todo
+local ped = PlayerPedId()
+jo.component.removeAllClothes(ped)
 
 ```
 <!-- #endregion g_client|jo.component.removeAllClothes -->
@@ -359,7 +361,7 @@ print(isRolled)
 ```lua
 local ped = PlayerPedId()
 local data = {hash = joaat('CLOTHING_ITEM_M_SHIRT_209_TINT_005')}
-local jo.component.sleeveRoll(ped,data)
+jo.component.sleeveRoll(ped,data)
 ```
 <!-- #endregion g_client|jo.component.sleeveRoll -->
 
@@ -369,7 +371,7 @@ local jo.component.sleeveRoll(ped,data)
 ```lua
 local ped = PlayerPedId()
 local data = {hash = joaat('CLOTHING_ITEM_M_SHIRT_209_TINT_005')}
-local jo.component.sleeveUnroll(ped,data)
+jo.component.sleeveUnroll(ped,data)
 ```
 <!-- #endregion g_client|jo.component.sleeveUnroll -->
 
