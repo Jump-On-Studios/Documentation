@@ -464,12 +464,6 @@ Type : _boolean_
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:createInventory -->
 
 Creates a custom inventory with configurable slots, weight limits, and item restrictions <br>
-└ invConfig.maxSlots integer (Max slot of the inventory) <br>
-└ invConfig.maxWeight float (Max weight of the inventory) <br>
-└ invConfig.acceptWeapons? boolean (Whether the inventory accepts weapons) <br>
-└ invConfig.shared? boolean (If the inventory is shared between players) <br>
-└ invConfig.ignoreStackLimit? boolean (If the inventory can overcoming stack limits) <br>
-└ invConfig.whitelist? table (Restrict the list of items that can be put in the inventory) <br>
 > └ x.item string (Name of the whitelisted item) <br>
 > └ x.limit integer (Stack limit of this item) <br>
 
@@ -496,6 +490,18 @@ jo.framework:createInventory(invName, name, invConfig)
 > Configuration of the inventory
 >
 
+> `invConfig.maxSlots` : _integer_ - Max slot of the inventory
+> 
+> `invConfig.maxWeight` : _float_ - Max weight of the inventory
+> 
+> `invConfig.acceptWeapons` : _boolean_ - Whether the inventory accepts weapons <BadgeOptional />
+> 
+> `invConfig.shared` : _boolean_ - If the inventory is shared between players <BadgeOptional />
+> 
+> `invConfig.ignoreStackLimit` : _boolean_ - If the inventory can overcoming stack limits <BadgeOptional />
+> 
+> `invConfig.whitelist` : _table_ - Restrict the list of items that can be put in the inventory <BadgeOptional />
+> 
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:createInventory -->
 
