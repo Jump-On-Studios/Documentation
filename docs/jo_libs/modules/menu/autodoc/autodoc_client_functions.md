@@ -735,6 +735,8 @@ jo.menu.onChange(cb)
 
 <!-- @include: ./slots/headers.md#client|jo.menu.playAudio -->
 
+A function to play a NUI sound <br>
+
 <!-- @include: ./slots/descriptions.md#client|jo.menu.playAudio -->
 
 #### Syntax
@@ -742,6 +744,10 @@ jo.menu.onChange(cb)
 ```lua
 jo.menu.playAudio(sound)
 ```
+
+#### Parameters
+
+`sound` : _string_
 
 <!-- @include: ./slots/examples.md#client|jo.menu.playAudio -->
 
