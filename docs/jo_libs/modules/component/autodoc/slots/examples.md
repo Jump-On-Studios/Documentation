@@ -55,7 +55,7 @@ print(isUnder)
 #### Example
 ```lua
 local ped = PlayerPedId()
-local data = { hash = joaat("CLOTHING_ITEM_M_SHIRT_209_TINT_005") }
+local data = { hash = "CLOTHING_ITEM_M_SHIRT_209_TINT_005" }
 jo.component.collarClose(ped, data)
 
 ```
@@ -77,7 +77,7 @@ print(isOpened)
 #### Example
 ```lua
 local ped = PlayerPedId()
-local data = { hash = joaat("CLOTHING_ITEM_M_SHIRT_209_TINT_005") }
+local data = { hash = "CLOTHING_ITEM_M_SHIRT_209_TINT_005" }
 jo.component.collarOpen(ped, data)
 
 ```
@@ -150,7 +150,7 @@ print(palette, tint0, tint1, tint2)
 #### Example
 ```lua
 local ped = PlayerPedId()
-local hash = joaat("CLOTHING_ITEM_F_HAT_241_PANTHER_VAR_001")
+local hash = "CLOTHING_ITEM_F_HAT_241_PANTHER_VAR_001"
 local catHash, isMp = jo.component.getComponentCategory(ped, hash)
 print(catHash, isMp)
 -- Expected output: -1725579161, true
@@ -337,7 +337,7 @@ jo.component.removeAllClothes(ped)
 ```lua
 local ped = PlayerPedId()
 local category = "neckwear"
-local data = { hash = joaat("CLOTHING_ITEM_F_NECKERCHIEF_000_TINT_001") }
+local data = { hash = "CLOTHING_ITEM_F_NECKERCHIEF_000_TINT_001" }
 local state = jo.component.wearableStates.neckwear[1] --neckwear UP
 jo.component.setWearableState(ped, category, data, state)
 
@@ -360,8 +360,9 @@ print(isRolled)
 #### Example
 ```lua
 local ped = PlayerPedId()
-local data = {hash = joaat('CLOTHING_ITEM_M_SHIRT_209_TINT_005')}
-jo.component.sleeveRoll(ped,data)
+local data = { hash = "CLOTHING_ITEM_M_SHIRT_209_TINT_005" }
+jo.component.sleeveRoll(ped, data)
+
 ```
 <!-- #endregion g_client|jo.component.sleeveRoll -->
 
@@ -370,8 +371,9 @@ jo.component.sleeveRoll(ped,data)
 #### Example
 ```lua
 local ped = PlayerPedId()
-local data = {hash = joaat('CLOTHING_ITEM_M_SHIRT_209_TINT_005')}
-jo.component.sleeveUnroll(ped,data)
+local data = { hash = "CLOTHING_ITEM_M_SHIRT_209_TINT_005" }
+jo.component.sleeveUnroll(ped, data)
+
 ```
 <!-- #endregion g_client|jo.component.sleeveUnroll -->
 
