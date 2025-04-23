@@ -3,6 +3,7 @@
 ```lua
 print(jo.emit.isEventInProgress('YourEventName'))
 -- Expected outfit : `true` if the event is not fully received yet.
+
 ```
 <!-- #endregion client|jo.emit.isEventInProgress -->
 
@@ -12,6 +13,7 @@ print(jo.emit.isEventInProgress('YourEventName'))
 ```lua
 local data = "MyData"
 jo.emit.triggerServer('YourEventName', data)
+
 ```
 <!-- #endregion client|jo.emit.triggerServer -->
 
@@ -20,10 +22,11 @@ jo.emit.triggerServer('YourEventName', data)
 #### Example
 ```lua
 local data = {}
-for i=1, 100000 do
+for i = 1, 100000 do
   data[i] = i
 end
-jo.emit.triggerServer.latent("YourEventName",data)
+jo.emit.triggerServer.latent("YourEventName", data)
+
 ```
 <!-- #endregion client|jo.emit.triggerServer.latent -->
 
@@ -32,6 +35,7 @@ jo.emit.triggerServer.latent("YourEventName",data)
 #### Example
 ```lua
 jo.emit.updateBps(3000)
+
 ```
 <!-- #endregion client|jo.emit.updateBps -->
 
@@ -43,9 +47,10 @@ local source = 5
 local data = "MyData"
 jo.emit.triggerServer('YourEventName', source, data)
 --OR--
-local sources = {3,4,5,13} --list of players
+local sources = { 3, 4, 5, 13 } --list of players
 local data = "MyData"
-jo.emit.triggerServer('YourEventName',sources,data)
+jo.emit.triggerServer('YourEventName', sources, data)
+
 ```
 
 <!-- #endregion server|jo.emit.triggerClient -->
@@ -56,17 +61,18 @@ jo.emit.triggerServer('YourEventName',sources,data)
 ```lua
 local source = 5
 local data = {}
-for i=1, 100000 do
+for i = 1, 100000 do
   data[i] = i
 end
 jo.emit.triggerServer.latent('YourEventName', source, data)
 --OR--
-local sources = {3,4,5,13} --list of players
+local sources = { 3, 4, 5, 13 } --list of players
 local data = {}
-for i=1, 100000 do
+for i = 1, 100000 do
   data[i] = i
 end
-jo.emit.triggerServer.latent('YourEventName',sources,data)
+jo.emit.triggerServer.latent('YourEventName', sources, data)
+
 ```
 <!-- #endregion server|jo.emit.triggerClient.latent -->
 
@@ -75,6 +81,7 @@ jo.emit.triggerServer.latent('YourEventName',sources,data)
 #### Example
 ```lua
 jo.emit.updateBps(3000)
+
 ```
 <!-- #endregion server|jo.emit.updateBps -->
 

@@ -9,6 +9,7 @@ The Waiter module provides timing utilities to handle code execution with timeou
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 
 2. Add the Waiter module inside the `fxmanifest.lua` (in lowercase):
@@ -16,6 +17,7 @@ shared_scripts {
 jo_libs {
   'waiter',
 }
+
 ```
 
 You can now use the library inside your resource with the `jo.waiter` global variable.

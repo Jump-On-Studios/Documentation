@@ -25,34 +25,34 @@ Go near a cash register (need to be setup in the config file) and press R to rob
 ```lua
 Config = {}
 
-Config.displayPrompt = true -- Display the prompt in right bottom of the screen
+Config.displayPrompt = true         -- Display the prompt in right bottom of the screen
 Config.CommandName = "StartRobbery" -- put false to disable the command
 
 Config.shops = {
   {
-    name = "Charles De Coursey", --Name of the shop
-    coords = vector3(2555.0,-1166.0,53.0), --coordinate of the shop
-    distance = 2.0, --distance around the cash register to display the prompt
-    minigame = true, --false to disable the lockpick minigame and use the shakeNumber
-    shakeNumber = 1, --number of time player have to shake the picklock to open the cashregister (only if minigame = false)
-    money = {500,1000}, --{min, max}
-    cooldown = 10000 --ms
+    name = "Charles De Coursey",           --Name of the shop
+    coords = vector3(2555.0, -1166.0, 53.0), --coordinate of the shop
+    distance = 2.0,                        --distance around the cash register to display the prompt
+    minigame = true,                       --false to disable the lockpick minigame and use the shakeNumber
+    shakeNumber = 1,                       --number of time player have to shake the picklock to open the cashregister (only if minigame = false)
+    money = { 500, 1000 },                 --{min, max}
+    cooldown = 10000                       --ms
   }
 }
 -----------------
 --Client Side
 -----------------
 -- Function to display message client side
-Config.displayTip = function(text,duration)
+Config.displayTip = function(text, duration)
 
 end
 
 ----------------
 --ServerSide
 ----------------
-Config.canStartRobbery = function(source,shopID)
+Config.canStartRobbery = function(source, shopID)
   --Fire when player start to rob the cash register
-  
+
   --Examples :
   --Add your item check here
   --Add your sheriff alert here
@@ -60,17 +60,18 @@ Config.canStartRobbery = function(source,shopID)
 end
 
 --Function when the player fails the robbery minigame
-Config.fail= function(source, shopID)
+Config.fail = function(source, shopID)
 end
 
 --Function when the robbery is started
-Config.startRobbery= function(source,shopID)
+Config.startRobbery = function(source, shopID)
   --Fire when player start to rob the cash register
 end
 
 
 
-Config.giveMoney = function(source,money, shopID)
+Config.giveMoney = function(source, money, shopID)
   --Fire when player open the cash register
 end
+
 ```

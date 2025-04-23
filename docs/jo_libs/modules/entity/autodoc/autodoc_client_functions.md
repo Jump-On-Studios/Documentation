@@ -13,6 +13,7 @@ Create a new entity at specified location <br>
 
 ```lua
 jo.entity.create(model, coords, heading, networked, fadeDuration)
+
 ```
 
 #### Parameters
@@ -61,6 +62,7 @@ Create an entity that follows the mouse cursor for placement <br>
 
 ```lua
 jo.entity.createWithMouse(model, keepEntity, networked)
+
 ```
 
 #### Parameters
@@ -101,6 +103,7 @@ Delete an entity if it exists <br>
 
 ```lua
 jo.entity.delete(entity)
+
 ```
 
 #### Parameters
@@ -127,6 +130,7 @@ Fade out an entity and then delete it <br>
 
 ```lua
 jo.entity.fadeAndDelete(entity, duration)
+
 ```
 
 #### Parameters
@@ -157,6 +161,7 @@ Fade in an entity from transparent to fully visible <br>
 
 ```lua
 jo.entity.fadeIn(entity, duration)
+
 ```
 
 #### Parameters
@@ -187,6 +192,7 @@ Fade out an entity from visible to transparent <br>
 
 ```lua
 jo.entity.fadeOut(entity, duration)
+
 ```
 
 #### Parameters
@@ -219,6 +225,7 @@ Request control of an entity and wait until it's granted <br>
 
 ```lua
 jo.entity.requestControl(entity)
+
 ```
 
 #### Parameters

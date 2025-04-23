@@ -20,6 +20,7 @@ function OWFramework.<MethodName>()
 function OWFramework.getUser(source)
   return yourFramework:getUser(source)
 end
+
 ```
 :::
 :::details List of compatible frameworks

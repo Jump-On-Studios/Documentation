@@ -25,6 +25,7 @@ CreateThread(function()
     Wait(0)
   end
 end)
+
 ```
 
 **Using the Module:**
@@ -32,11 +33,12 @@ end)
 ```lua
 jo.rawKeys.listen("E", function(isPressed)
   if isPressed then
-   print('Key E pressed')
+    print('Key E pressed')
   else
-   print('Key E released')
+    print('Key E released')
   end
 end)
+
 ```
 
 ## Include Raw Keys in your script
@@ -47,6 +49,7 @@ end)
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 
 2. Add the Raw Keys module inside the `fxmanifest.lua` (in lowercase)
@@ -55,6 +58,7 @@ shared_scripts {
 jo_libs {
   'raw-keys',
 }
+
 ```
 
 You can now use the library inside of your resource with the `jo.rawKeys` global variable.

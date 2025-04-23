@@ -23,6 +23,7 @@ A standalone libraries for providing reusable code to increase the compatibility
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. List modules you want use inside the `fxmanifest.lua` (in lowercase)
 ```lua
@@ -30,6 +31,7 @@ jo_libs {
   'print',
   'table',
 }
+
 ```
 You can now use the libraries inside of your resource with the `jo` global variable.
 
@@ -41,6 +43,7 @@ A function fired when all modules are loaded
 #### Syntax
 ```lua
 jo.ready(cb)
+
 ```
 #### Parameters
 `cb` : *function*
@@ -52,6 +55,7 @@ jo.ready(cb)
 jo.ready(function()
   print('All modules are loaded')
 end)
+
 ```
 
 ### jo.stopped()
@@ -59,6 +63,7 @@ A function fired when the script is stopped
 #### Syntax
 ```lua
 jo.stopped(cb)
+
 ```
 #### Parameters
 `cb` : *function*
@@ -67,6 +72,7 @@ jo.stopped(cb)
 #### Example
 ```lua
 jo.stopped(function()
-  print(GetCurrentResourceName()..' has been stopped')
+  print(GetCurrentResourceName() .. ' has been stopped')
 end)
+
 ```

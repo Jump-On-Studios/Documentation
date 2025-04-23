@@ -76,8 +76,10 @@ Config.ValidModel = {
 You can turn off the script for a specific player by using this client event
 ```lua
 TriggerClientEvent('kd_winch:CanUse', source, false)
+
 ```
 You can turn on the script again with the same client event
 ```lua
 TriggerClientEvent('kd_winch:CanUse', source, true)
+
 ```

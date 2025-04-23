@@ -6,7 +6,8 @@ local group = "interaction"
 local keyLabel = "The key"
 local key = "INPUT_JUMP"
 local duration = 1000
-jo.prompt.create(group,keyLabel,key, duration)
+jo.prompt.create(group, keyLabel, key, duration)
+
 ```
 <!-- #endregion client|jo.prompt.create -->
 
@@ -17,7 +18,8 @@ jo.prompt.create(group,keyLabel,key, duration)
 ```lua
 local group = "interaction"
 local key = "INPUT_JUMP"
-jo.prompt.deletePrompt(group,key)
+jo.prompt.deletePrompt(group, key)
+
 ```
 <!-- #endregion client|jo.prompt.delete -->
 
@@ -30,10 +32,11 @@ local group = "interaction"
 local keyLabel = "The key"
 local key = "INPUT_JUMP"
 local duration = 1000
-jo.prompt.create(group,keyLabel,key, duration)
+jo.prompt.create(group, keyLabel, key, duration)
 jo.prompt.deleteAllGroups()
 print(jo.prompt.isGroupExist('interaction'))
 -- Expected output : false
+
 ```
 <!-- #endregion client|jo.prompt.deleteAllGroups -->
 
@@ -44,6 +47,7 @@ print(jo.prompt.isGroupExist('interaction'))
 ```lua
 local group = "shop"
 jo.prompt.deleteGroup(group)
+
 ```
 <!-- #endregion client|jo.prompt.deleteGroup -->
 
@@ -57,12 +61,13 @@ CreateThread(function()
   local title = "Stable shop"
   local keyLabel = "The key"
   local key = "INPUT_JUMP"
-  jo.prompt.create(group,keyLabel,key)
+  jo.prompt.create(group, keyLabel, key)
   while true do
-    jo.prompt.displayGroup(group,title)
+    jo.prompt.displayGroup(group, title)
     Wait(0)
   end
 end)
+
 ```
 <!-- #endregion client|jo.prompt.displayGroup -->
 
@@ -73,7 +78,8 @@ end)
 ```lua
 local group = "shop"
 local key = "INPUT_ENTER"
-print(jo.prompt.doesLastCompletedIs(group,key))
+print(jo.prompt.doesLastCompletedIs(group, key))
+
 ```
 <!-- #endregion client|jo.prompt.doesLastCompletedIs -->
 
@@ -85,7 +91,8 @@ print(jo.prompt.doesLastCompletedIs(group,key))
 local group = "shop"
 local key = "INPUT_JUMP"
 local label = "The new label"
-jo.prompt.editKeyLabel(group,key,label)
+jo.prompt.editKeyLabel(group, key, label)
+
 ```
 <!-- #endregion client|jo.prompt.editKeyLabel -->
 
@@ -96,7 +103,8 @@ jo.prompt.editKeyLabel(group,key,label)
 ```lua
 local group = "shop"
 local key = "INPUT_JUMP"
-print(jo.prompt.get(group,key))
+print(jo.prompt.get(group, key))
+
 ```
 <!-- #endregion client|jo.prompt.get -->
 
@@ -106,6 +114,7 @@ print(jo.prompt.get(group,key))
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion client|jo.prompt.getAll -->
 
@@ -115,6 +124,7 @@ print(jo.prompt.get(group,key))
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion client|jo.prompt.getGroup -->
 
@@ -124,6 +134,7 @@ print(jo.prompt.get(group,key))
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion client|jo.prompt.getPage -->
 
@@ -135,13 +146,14 @@ print(jo.prompt.get(group,key))
 local group = "interaction"
 local keyLabel = "The key"
 local key = "INPUT_JUMP"
-jo.prompt.create(group,keyLabel,key)
+jo.prompt.create(group, keyLabel, key)
 CreateThread(function()
   while true do
-    print(jo.prompt.getProgress(group,key))
+    print(jo.prompt.getProgress(group, key))
     Wait(0)
   end
 end)
+
 ```
 <!-- #endregion client|jo.prompt.getProgress -->
 
@@ -152,8 +164,9 @@ end)
 ```lua
 local group = "interaction"
 local keyLabel = "The key"
-jo.prompt.isActive(group,key)
+jo.prompt.isActive(group, key)
 -- Expected output : false
+
 ```
 <!-- #endregion client|jo.prompt.isActive -->
 
@@ -167,15 +180,16 @@ CreateThread(function()
   local keyLabel = "The key"
   local key = "INPUT_JUMP"
   local duration = 1000
-  jo.prompt.create(group,keyLabel,key, duration)
+  jo.prompt.create(group, keyLabel, key, duration)
   while true do
-    if jo.prompt.isCompleted(group,key) then
+    if jo.prompt.isCompleted(group, key) then
       print('Key completed !')
     end
-    jo.prompt.displayGroup(group,title)
+    jo.prompt.displayGroup(group, title)
     Wait(0)
   end
 end)
+
 ```
 <!-- #endregion client|jo.prompt.isCompleted -->
 
@@ -186,8 +200,9 @@ end)
 ```lua
 local group = "interaction"
 local keyLabel = "The key"
-jo.prompt.isEnabled(group,key)
+jo.prompt.isEnabled(group, key)
 -- Expected output : false
+
 ```
 <!-- #endregion client|jo.prompt.isEnabled -->
 
@@ -199,11 +214,12 @@ jo.prompt.isEnabled(group,key)
 local group = "interaction"
 local keyLabel = "The key"
 local key = "INPUT_JUMP"
-jo.prompt.create(group,keyLabel,key)
-print(jo.prompt.isPromptExist('interaction','INPUT_JUMP'))
+jo.prompt.create(group, keyLabel, key)
+print(jo.prompt.isPromptExist('interaction', 'INPUT_JUMP'))
 -- Expected output : true
-print(jo.prompt.isGroupExist('new_group','INPUT_RELOAD'))
+print(jo.prompt.isGroupExist('new_group', 'INPUT_RELOAD'))
 -- Expected output : false
+
 ```
 <!-- #endregion client|jo.prompt.isExist -->
 
@@ -215,11 +231,12 @@ print(jo.prompt.isGroupExist('new_group','INPUT_RELOAD'))
 local group = "interaction"
 local keyLabel = "The key"
 local key = "INPUT_JUMP"
-jo.prompt.create(group,keyLabel,key)
+jo.prompt.create(group, keyLabel, key)
 print(jo.prompt.isGroupExist('interaction'))
 -- Expected output : true
 print(jo.prompt.isGroupExist('new_group'))
 -- Expected output : false
+
 ```
 <!-- #endregion client|jo.prompt.isGroupExist -->
 
@@ -228,8 +245,9 @@ print(jo.prompt.isGroupExist('new_group'))
 
 #### Example
 ```lua
-local key =  "INPUT_FRONTEND_ACCEPT"
+local key = "INPUT_FRONTEND_ACCEPT"
 print(jo.prompt.isPressed(key))
+
 ```
 <!-- #endregion client|jo.prompt.isPressed -->
 
@@ -239,6 +257,7 @@ print(jo.prompt.isPressed(key))
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion client|jo.prompt.isVisible -->
 
@@ -249,7 +268,8 @@ print(jo.prompt.isPressed(key))
 ```lua
 local group = "shop"
 local key = "INPUT_JUMP"
-jo.prompt.setEnabled(group,key,false)
+jo.prompt.setEnabled(group, key, false)
+
 ```
 <!-- #endregion client|jo.prompt.setEnabled -->
 
@@ -260,6 +280,7 @@ jo.prompt.setEnabled(group,key,false)
 ```lua
 local groups = exports.resourceName:getPrompt()
 jo.prompt.setGroups(groups)
+
 ```
 <!-- #endregion client|jo.prompt.setGroups -->
 
@@ -271,7 +292,8 @@ jo.prompt.setGroups(groups)
 local group = "shop"
 local key = "INPUT_JUMP"
 local isVisible = false
-jo.prompt.setVisible(group,key,isVisible)
+jo.prompt.setVisible(group, key, isVisible)
+
 ```
 <!-- #endregion client|jo.prompt.setVisible -->
 
@@ -285,17 +307,18 @@ CreateThread(function()
   local keyLabel = "The key"
   local key = "INPUT_JUMP"
   local duration = 1000
-  jo.prompt.create(group,keyLabel,key, duration)
+  jo.prompt.create(group, keyLabel, key, duration)
   while true do
-    if jo.prompt.isCompleted(group,key) then
+    if jo.prompt.isCompleted(group, key) then
       print('Key completed !')
       jo.prompt.waitRelease(key)
       print('Key released !')
     end
-    jo.prompt.displayGroup(group,title)
+    jo.prompt.displayGroup(group, title)
     Wait(0)
   end
 end)
+
 ```
 <!-- #endregion client|jo.prompt.waitRelease -->
 

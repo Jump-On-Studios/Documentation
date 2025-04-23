@@ -14,7 +14,8 @@ Two kinds of hook exist :
 Calls the functions that have been added to an action hook
 ### Syntax
 ```lua
-jo.hook.doActions(name,...)
+jo.hook.doActions(name, ...)
+
 ```
 #### Parameters
 `name` : *string*
@@ -28,13 +29,15 @@ jo.hook.doActions(name,...)
 local distance = 10
 local price = 500
 jo.hook.doActions('action_name', 10, 50)
+
 ```
 
 ## jo.hook.registerAction()
 Register a function to an action hook
 ### Syntax
 ```lua
-jo.hook.registerAction(name,cb,prority)
+jo.hook.registerAction(name, cb, prority)
+
 ```
 #### Parameters
 `name` : *string*
@@ -52,15 +55,17 @@ jo.hook.registerAction(name,cb,prority)
 ### Example
 From the same resource:
 ```lua
-jo.hook.registerAction('action_name', function(distance,price)
-  print(distance,price)
-end,10)
+jo.hook.registerAction('action_name', function(distance, price)
+  print(distance, price)
+end, 10)
+
 ```
 From another resource:
 ```lua
-exports.resource_name:registerAction('action_name', function(distance,price)
-  print(distance,price)
-end,10)
+exports.resource_name:registerAction('action_name', function(distance, price)
+  print(distance, price)
+end, 10)
+
 ```
 
 ## Filters
@@ -69,7 +74,8 @@ end,10)
 Calls the functions that have been added to a filter hook
 ### Syntax
 ```lua
-jo.hook.applyFilters(name,value,...)
+jo.hook.applyFilters(name, value, ...)
+
 ```
 #### Parameters
 `name` : *string*
@@ -88,13 +94,15 @@ local price = 10
 print(price)
 price = jo.hook.applyFilters('filter_name', price, distance)
 print(price)
+
 ```
 
 ## jo.hook.registerFilter()
 Register a function to a filter hook
 ### Syntax
 ```lua
-jo.hook.registerFilter(name,cb,prority)
+jo.hook.registerFilter(name, cb, prority)
+
 ```
 #### Parameters
 `name` : *string*
@@ -112,19 +120,21 @@ jo.hook.registerFilter(name,cb,prority)
 ### Example
 From the same resource:
 ```lua
-jo.hook.registerFilter('filter_name', function(price,distance)
+jo.hook.registerFilter('filter_name', function(price, distance)
   if distance > 100 then
-    price = price/2
+    price = price / 2
   end
   return price
-end,10)
+end, 10)
+
 ```
 From another resource:
 ```lua
-exports.resource_name:registerFilter('filter_name', function(price,distance)
+exports.resource_name:registerFilter('filter_name', function(price, distance)
   if distance > 100 then
-    price = price/2
+    price = price / 2
   end
   return price
-end,10)
+end, 10)
+
 ```

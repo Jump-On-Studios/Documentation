@@ -13,6 +13,7 @@ Measures the performance of a callback function execution. <br>
 
 ```lua
 jo.debugger.perfomance(title, cb)
+
 ```
 
 #### Parameters
@@ -49,6 +50,7 @@ Measures the average performance of multiple executions of a callback function. 
 
 ```lua
 jo.debugger.perfomanceRepeat(title, numberRepeat, cb, waitBetweenRepeat)
+
 ```
 
 #### Parameters

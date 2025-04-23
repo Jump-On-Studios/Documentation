@@ -13,6 +13,7 @@ Trigger an event on the server side <br>
 
 ```lua
 jo.triggerEvent.server(source, event, ...)
+
 ```
 
 #### Parameters

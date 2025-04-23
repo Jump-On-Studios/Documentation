@@ -1,8 +1,9 @@
 <!-- #region client|jo.entity.create -->
 #### Example
 ```lua
-local entity = jo.entity.create('re_kidnappedvictim_females_01',vec3(1294.0,-512.3, 30.0),90.0,true)
+local entity = jo.entity.create('re_kidnappedvictim_females_01', vec3(1294.0, -512.3, 30.0), 90.0, true)
 print(entity)
+
 ```
 <!-- #endregion client|jo.entity.create -->
 
@@ -14,6 +15,7 @@ local entityId, position, heading = jo.entity.createWithMouse('p_armchair01x', t
 print("Created entity: " .. entityId)
 print("Position: " .. tostring(position))
 print("Heading: " .. heading)
+
 ```
 <!-- #endregion client|jo.entity.createWithMouse -->
 
@@ -23,6 +25,7 @@ print("Heading: " .. heading)
 ```lua
 local entity = 23494
 jo.entity.delete(entity)
+
 ```
 <!-- #endregion client|jo.entity.delete -->
 
@@ -32,7 +35,8 @@ jo.entity.delete(entity)
 ```lua
 local entity = 32454
 local duraiton = 1000
-jo.entity.fadeAndDelete(entity,duration)
+jo.entity.fadeAndDelete(entity, duration)
+
 ```
 <!-- #endregion client|jo.entity.fadeAndDelete -->
 
@@ -40,9 +44,10 @@ jo.entity.fadeAndDelete(entity,duration)
 <!-- #region client|jo.entity.fadeIn -->
 #### Example
 ```lua
-local entity = 12345 -- Assume this is a valid entity ID
+local entity = 12345  -- Assume this is a valid entity ID
 local duration = 2000 -- 2 seconds fade in time
 jo.entity.fadeIn(entity, duration)
+
 ```
 <!-- #endregion client|jo.entity.fadeIn -->
 
@@ -50,9 +55,10 @@ jo.entity.fadeIn(entity, duration)
 <!-- #region client|jo.entity.fadeOut -->
 #### Example
 ```lua
-local entity = 12345 -- Assume this is a valid entity ID
+local entity = 12345  -- Assume this is a valid entity ID
 local duration = 2000 -- 2 seconds fade out time
 jo.entity.fadeOut(entity, duration)
+
 ```
 <!-- #endregion client|jo.entity.fadeOut -->
 
@@ -62,6 +68,7 @@ jo.entity.fadeOut(entity, duration)
 ```lua
 local entity = 23494
 jo.entity.requestControl(entity)
+
 ```
 <!-- #endregion client|jo.entity.requestControl -->
 
@@ -74,5 +81,6 @@ jo.entity.requestControl(entity)
 ```lua
 local entity = 23494
 jo.entity.delete(entity)
+
 ```
 <!-- #endregion server|jo.entity.delete -->

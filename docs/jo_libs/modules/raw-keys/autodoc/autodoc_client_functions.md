@@ -13,6 +13,7 @@ Registers a listener for a specific key. When the key is pressed or released, th
 
 ```lua
 jo.rawKeys.listen(key, callback)
+
 ```
 
 #### Parameters
@@ -43,6 +44,7 @@ Removes the listener associated with the specified key. Use this function to sto
 
 ```lua
 jo.rawKeys.remove(key)
+
 ```
 
 #### Parameters

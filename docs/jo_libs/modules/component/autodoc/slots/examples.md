@@ -3,8 +3,9 @@
 ```lua
 local ped = PlayerPedId()
 local category = "hats"
-local data = {hash = "CLOTHING_ITEM_F_HAT_241_PANTHER_VAR_001"}
-jo.component.apply(ped,category,data)
+local data = { hash = "CLOTHING_ITEM_F_HAT_241_PANTHER_VAR_001" }
+jo.component.apply(ped, category, data)
+
 ```
 <!-- #endregion g_client|jo.component.apply -->
 
@@ -12,7 +13,13 @@ jo.component.apply(ped,category,data)
 <!-- #region g_client|jo.component.applyComponents -->
 #### Example
 ```lua
--- todo
+local ped = PlayerPedId()
+local clothes = {
+  hats = { hash = "CLOTHING_ITEM_F_HAT_241_PANTHER_VAR_001" },
+  pants = { hash = 0x1234567 }
+}
+jo.component.applyComponents(ped, clothes)
+
 ```
 <!-- #endregion g_client|jo.component.applyComponents -->
 
@@ -21,6 +28,7 @@ jo.component.apply(ped,category,data)
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion g_client|jo.component.applySkin -->
 
@@ -31,6 +39,7 @@ jo.component.apply(ped,category,data)
 local ped = PlayerPedId()
 local isUnder = jo.component.bootsAreUnderPant(ped)
 print(isUnder)
+
 ```
 <!-- #endregion g_client|jo.component.bootsAreUnderPant -->
 
@@ -39,8 +48,9 @@ print(isUnder)
 #### Example
 ```lua
 local ped = PlayerPedId()
-local data = {hash = joaat('CLOTHING_ITEM_M_SHIRT_209_TINT_005')}
-jo.component.collarClose(ped,data)
+local data = { hash = joaat('CLOTHING_ITEM_M_SHIRT_209_TINT_005') }
+jo.component.collarClose(ped, data)
+
 ```
 <!-- #endregion g_client|jo.component.collarClose -->
 
@@ -51,6 +61,7 @@ jo.component.collarClose(ped,data)
 local ped = PlayerPedId()
 local isOpened = jo.component.collarIsOpened(ped)
 print(isOpened)
+
 ```
 <!-- #endregion g_client|jo.component.collarIsOpened -->
 
@@ -59,8 +70,9 @@ print(isOpened)
 #### Example
 ```lua
 local ped = PlayerPedId()
-local data = {hash = joaat('CLOTHING_ITEM_M_SHIRT_209_TINT_005')}
-jo.component.collarOpen(ped,data)
+local data = { hash = joaat('CLOTHING_ITEM_M_SHIRT_209_TINT_005') }
+jo.component.collarOpen(ped, data)
+
 ```
 <!-- #endregion g_client|jo.component.collarOpen -->
 
@@ -69,6 +81,7 @@ jo.component.collarOpen(ped,data)
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion g_client|jo.component.getBodiesLowerFromSkinTone -->
 
@@ -77,6 +90,7 @@ jo.component.collarOpen(ped,data)
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion g_client|jo.component.getBodiesUpperFromSkinTone -->
 
@@ -88,6 +102,7 @@ local ped = PlayerPedId()
 local categories = jo.component.getCategoriesEquiped(ped)
 print(json.encode(categories))
 --Expected output: categories = { 539411565 = {index = 1, category = "shirts_full"}, 491541130 = { index = 2, category = "pants"} }
+
 ```
 <!-- #endregion g_client|jo.component.getCategoriesEquiped -->
 
@@ -96,6 +111,7 @@ print(json.encode(categories))
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion g_client|jo.component.getCategoryNameFromHash -->
 
@@ -107,6 +123,7 @@ local ped = PlayerPedId()
 local category = "shirts_full"
 local palette, tint0, tint1, tint2 = jo.component.getCategoryTint(ped, category)
 print(palette, tint0, tint1, tint2)
+
 ```
 <!-- #endregion g_client|jo.component.getCategoryTint -->
 
@@ -116,9 +133,10 @@ print(palette, tint0, tint1, tint2)
 ```lua
 local ped = PlayerPedId()
 local hash = joaat("CLOTHING_ITEM_F_HAT_241_PANTHER_VAR_001")
-local catHash,isMp = jo.component.getComponentCategory(ped,hash)
-print(catHash,isMp)
+local catHash, isMp = jo.component.getComponentCategory(ped, hash)
+print(catHash, isMp)
 --Expected output: -1725579161, true
+
 ```
 <!-- #endregion g_client|jo.component.getComponentCategory -->
 
@@ -130,6 +148,7 @@ local ped = PlayerPedId()
 local category = "hats"
 local component = jo.component.getComponentEquiped(ped, category)
 print(component)
+
 ```
 <!-- #endregion g_client|jo.component.getComponentEquiped -->
 
@@ -140,6 +159,7 @@ print(component)
 local ped = PlayerPedId()
 local components = jo.component.getComponentsEquiped(ped)
 print(json.encode(components))
+
 ```
 <!-- #endregion g_client|jo.component.getComponentsEquiped -->
 
@@ -148,6 +168,7 @@ print(json.encode(components))
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion g_client|jo.component.getEyesFromIndex -->
 
@@ -156,6 +177,7 @@ print(json.encode(components))
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion g_client|jo.component.getHeadFromSkinTone -->
 
@@ -164,6 +186,7 @@ print(json.encode(components))
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion g_client|jo.component.getPaletteNameFromHash -->
 
@@ -172,6 +195,7 @@ print(json.encode(components))
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion g_client|jo.component.getTeethFromIndex -->
 
@@ -183,6 +207,7 @@ local ped = PlayerPedId()
 local category = "neckwear"
 local wearableState = jo.component.getWearableState(ped, category)
 print(wearableState)
+
 ```
 <!-- #endregion g_client|jo.component.getWearableState -->
 
@@ -193,6 +218,7 @@ print(wearableState)
 local ped = PlayerPedId()
 local isPomaded = jo.component.hairIsPomade(ped)
 print(isPomaded)
+
 ```
 <!-- #endregion g_client|jo.component.hairIsPomade -->
 
@@ -202,8 +228,9 @@ print(isPomaded)
 ```lua
 local ped = PlayerPedId()
 local category = "pants"
-local isEquiped, index = jo.component.isCategoryEquiped(ped,category)
+local isEquiped, index = jo.component.isCategoryEquiped(ped, category)
 print(isEquiped, index)
+
 ```
 <!-- #endregion g_client|jo.component.isCategoryEquiped -->
 
@@ -212,6 +239,7 @@ print(isEquiped, index)
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion g_client|jo.component.isMpComponent -->
 
@@ -222,6 +250,7 @@ print(isEquiped, index)
 local ped = PlayerPedId()
 local isRight = jo.component.loadoutIsOnRight(ped)
 print(isRight)
+
 ```
 <!-- #endregion g_client|jo.component.loadoutIsOnRight -->
 
@@ -232,6 +261,7 @@ print(isRight)
 local ped = PlayerPedId()
 local isUp = jo.component.neckwearIsUp(ped)
 print(isUp)
+
 ```
 <!-- #endregion g_client|jo.component.neckwearIsUp -->
 
@@ -241,6 +271,7 @@ print(isUp)
 ```lua
 local ped = PlayerPedId()
 jo.component.refreshPed(ped)
+
 ```
 <!-- #endregion g_client|jo.component.refreshPed -->
 
@@ -250,7 +281,8 @@ jo.component.refreshPed(ped)
 ```lua
 local ped = PlayerPedId()
 local category = "hats"
-jo.component.remove(ped,category)
+jo.component.remove(ped, category)
+
 ```
 <!-- #endregion g_client|jo.component.remove -->
 
@@ -259,6 +291,7 @@ jo.component.remove(ped,category)
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion g_client|jo.component.removeAllClothes -->
 
@@ -268,9 +301,10 @@ jo.component.remove(ped,category)
 ```lua
 local ped = PlayerPedId()
 local category = "neckwear"
-local data = {hash = joaat("CLOTHING_ITEM_F_NECKERCHIEF_000_TINT_001")}
+local data = { hash = joaat("CLOTHING_ITEM_F_NECKERCHIEF_000_TINT_001") }
 local state = jo.component.wearableStates.neckwear[1] --neckwear UP
-jo.component.setWearableState(ped,category,data,state)
+jo.component.setWearableState(ped, category, data, state)
+
 ```
 <!-- #endregion g_client|jo.component.setWearableState -->
 
@@ -281,6 +315,7 @@ jo.component.setWearableState(ped,category,data,state)
 local ped = PlayerPedId()
 local isRolled = jo.component.sleeveIsRolled(ped)
 print(isRolled)
+
 ```
 <!-- #endregion g_client|jo.component.sleeveIsRolled -->
 
@@ -311,6 +346,7 @@ local jo.component.sleeveUnroll(ped,data)
 local ped = PlayerPedId()
 local isIn = jo.component.vestIsUnderPant(ped)
 print(isIn)
+
 ```
 <!-- #endregion g_client|jo.component.vestIsUnderPant -->
 
@@ -319,5 +355,6 @@ print(isIn)
 ```lua
 local ped = PlayerPedId()
 local isIn = jo.component.waitPedLoaded(ped)
+
 ```
 <!-- #endregion g_client|jo.component.waitPedLoaded -->

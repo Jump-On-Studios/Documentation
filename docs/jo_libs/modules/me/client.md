@@ -10,6 +10,7 @@ Force the update of values
 ### Syntax
 ```lua
 jo.forceUpdateMe()
+
 ```
 
 ### Example
@@ -17,40 +18,46 @@ jo.forceUpdateMe()
 print(jo.meCoords)
 jo.forceUpdateMe()
 print(jo.meCoords)
+
 ```
 
 ## jo.me
 Return the last cached PlayerPedId() value
 ### Example
 ```lua
-print(jo.me,PlayerPedId())
+print(jo.me, PlayerPedId())
+
 ```
 
 ## jo.meCoords
 Return the last cached location of the player
 ### Example
 ```lua
-print(jo.meCoords,GetEntityCoords(PlayerPedId()))
+print(jo.meCoords, GetEntityCoords(PlayerPedId()))
+
 ```
 
 ## jo.meIsMale
 Return if the player is a male or a female
 #### Example
 ```lua
-print(jo.meIsMale,IsPedMale(PlayerPedId()))
+print(jo.meIsMale, IsPedMale(PlayerPedId()))
+
 ```
 
 ## jo.mePlayerId
 Return the last cached PlayerId() of the player
 ### Example
 ```lua
-print(jo.mePlayerId,PlayerId())
+print(jo.mePlayerId, PlayerId())
+
 ```
 ## jo.meServerId
 Return the last cached GetPlayerServerId(PlayerId()) of the player
 ### Example
 ```lua
-print(jo.meServerId,GetPlayerServerId(PlayerId()))
+print(jo.meServerId, GetPlayerServerId(PlayerId()))
+
 ```
 
 ## jo.updateMeTimer()
@@ -58,6 +65,7 @@ Change the speed of the updater
 ### Syntax
 ```lua
 jo.updateMeTimer(value)
+
 ```
 #### Parameters
 `value` : *integer*
@@ -68,4 +76,5 @@ jo.updateMeTimer(value)
 ```lua
 --update less often jo.me & jo.meCoords : from 1s to 2s
 jo.updateMeTimer(2000)
+
 ```

@@ -31,27 +31,29 @@ kd_realistic_mining is a standalone script. So you don't need a specific framewo
 Start the job with the client event
 ```lua
 TriggerEvent('StartMiningFarm')
+
 ```
 Stop the job with the client event
 ```lua
 TriggerEvent('StopMiningFarm')
+
 ```
 
 ## 3. Config.lua
 ```lua
 FarmCoords = {
   -- DropZone location for rocks
-  depot = vector3(2945.007,2773.99,38.244),
+  depot = vector3(2945.007, 2773.99, 38.244),
   -- Rocks spawn random locations
   RochePos = {
-      vector4(2923.944,2799.029,40.261,97.85),
-      vector4(2924.639,2809.91,42.497,3.247),
-      vector4(2939.157,2816.008,42.329,98.808),
-      vector4(2946.439,2817.478,41.534,292.448),
-      vector4(2954.591,2818.096,41.412,262.348),
-      vector4(2974.129,2794.987,39.879,228.509),
-      vector4(2970.261,2777.113,37.421,154.085),
-      vector4(2961.687,2775.053,38.745,105.347),
+    vector4(2923.944, 2799.029, 40.261, 97.85),
+    vector4(2924.639, 2809.91, 42.497, 3.247),
+    vector4(2939.157, 2816.008, 42.329, 98.808),
+    vector4(2946.439, 2817.478, 41.534, 292.448),
+    vector4(2954.591, 2818.096, 41.412, 262.348),
+    vector4(2974.129, 2794.987, 39.879, 228.509),
+    vector4(2970.261, 2777.113, 37.421, 154.085),
+    vector4(2961.687, 2775.053, 38.745, 105.347),
   }
 }
 
@@ -80,12 +82,13 @@ end
 
 RegisterNetEvent("StartMiningFarm")
 AddEventHandler("StartMiningFarm", function()
-    FarmInProgress = true
-    FarmMineur()
-end)    
+  FarmInProgress = true
+  FarmMineur()
+end)
 
 RegisterNetEvent("StopMiningFarm")
 AddEventHandler("StopMiningFarm", function()
-    FarmInProgress = false
+  FarmInProgress = false
 end)
+
 ```

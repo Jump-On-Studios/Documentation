@@ -1,10 +1,11 @@
 <!-- #region g_client|jo.callback.register -->
 #### Example
 ```lua
-jo.callback.register('testClientCallback', function(value1,value2)
+jo.callback.register('testClientCallback', function(value1, value2)
   print(value1, value2)
   return value1 + value2
 end)
+
 ```
 <!-- #endregion g_client|jo.callback.register -->
 
@@ -14,9 +15,14 @@ end)
 ```lua
 local value1 = 10
 local value2 = 5
-jo.callback.triggerClient('testClientCallback', function(newValue)
-  print(newValue)
-end, value1,value2)
+jo.callback.triggerClient('testClientCallback', function(returnValue)
+  print(returnValue)
+end, value1, value2)
+--OR--
+local value1 = 10
+local value2 = 5
+local returnValue = jo.callback.triggerClient('testClientCallback', value1, value2)
+
 ```
 <!-- #endregion g_client|jo.callback.triggerClient -->
 
@@ -26,9 +32,14 @@ end, value1,value2)
 ```lua
 local value1 = 10
 local value2 = 5
-jo.callback.triggerServer('testServerCallback', function(newValue)
-  print(newValue)
-end, value1,value2)
+jo.callback.triggerServer('testServerCallback', function(returnValue)
+  print(returnValue)
+end, value1, value2)
+--OR--
+local value1 = 10
+local value2 = 5
+local returnValue = jo.callback.triggerServer('testServerCallback', value1, value2)
+
 ```
 <!-- #endregion g_client|jo.callback.triggerServer -->
 
@@ -36,10 +47,11 @@ end, value1,value2)
 <!-- #region g_server|jo.callback.register -->
 #### Example
 ```lua
-jo.callback.register('testServerCallback', function(source,value1,value2)
-  print(source,value1,value2)
+jo.callback.register('testServerCallback', function(source, value1, value2)
+  print(source, value1, value2)
   return value1 + value2
 end)
+
 ```
 <!-- #endregion g_server|jo.callback.register -->
 
@@ -49,10 +61,15 @@ end)
 ```lua
 local value1 = 5
 local value2 = 10
-local source =  1
+local source = 1
 jo.callback.triggerClient('testClientCallback', source, function(returnValue)
   print(returnValue)
 end, value1, value2)
+--OR--
+local value1 = 10
+local value2 = 5
+local returnValue = jo.callback.triggerClient('testClientCallback', source, value1, value2)
+
 ```
 <!-- #endregion g_server|jo.callback.triggerClient -->
 
@@ -65,6 +82,11 @@ local value2 = 10
 jo.callback.triggerServer('testServerCallback', function(returnValue)
   print(returnValue)
 end, value1, value2)
+--OR--
+local value1 = 10
+local value2 = 5
+local returnValue = jo.callback.triggerServer('testServerCallback', source, value1, value2)
+
 ```
 <!-- #endregion g_server|jo.callback.triggerServer -->
 

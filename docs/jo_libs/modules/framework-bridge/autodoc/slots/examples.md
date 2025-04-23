@@ -5,8 +5,9 @@ local source = 1
 local id = "locker:sheriff"
 local item = "mdt_report"
 local quantity = 1
-local metadata = {id:321}
-jo.framework:addItemInInventory(source,id,item,quantity,metadata)
+local metadata = { id = 321 }
+jo.framework:addItemInInventory(source, id, item, quantity, metadata)
+
 ```
 <!-- #endregion FrameworkClass|jo.framework:addItemInInventory -->
 
@@ -19,6 +20,7 @@ local item = "water"
 local amount = 1
 local canUseWater = jo.framework:canUseItem(source, item, amount, nil, nil)
 print(canUseWater)
+
 ```
 <!-- #endregion FrameworkClass|jo.framework:canUseItem -->
 
@@ -37,7 +39,8 @@ local definition = {
     { item = "mdt_report", limit = 1000 }
   }
 }
-jo.framework:createInventory(id,label,definition)
+jo.framework:createInventory(id, label, definition)
+
 ```
 <!-- #endregion FrameworkClass|jo.framework:createInventory -->
 
@@ -46,6 +49,7 @@ jo.framework:createInventory(id,label,definition)
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion FrameworkClass|jo.framework:createUser -->
 
@@ -55,10 +59,11 @@ jo.framework:createInventory(id,label,definition)
 ```lua
 local source = 1
 local id = "locker:sheriff"
-local items = jo.framework:getItemsFromInventory(source,id)
-for key,item in pairs (items) do
+local items = jo.framework:getItemsFromInventory(source, id)
+for key, item in pairs(items) do
   print(item.item)
 end
+
 ```
 <!-- #endregion FrameworkClass|jo.framework:getItemsFromInventory -->
 
@@ -69,8 +74,9 @@ end
 local source = 1
 local item = "water"
 local amount = 1
-local itemGave = jo.framework:giveItem(source,item,amount)
+local itemGave = jo.framework:giveItem(source, item, amount)
 print(itemGave)
+
 ```
 <!-- #endregion FrameworkClass|jo.framework:giveItem -->
 
@@ -80,7 +86,8 @@ print(itemGave)
 ```lua
 local source = 1
 local id = "locker:sheriff"
-jo.framework:openInventory(source,id)
+jo.framework:openInventory(source, id)
+
 ```
 <!-- #endregion FrameworkClass|jo.framework:openInventory -->
 
@@ -88,10 +95,11 @@ jo.framework:openInventory(source,id)
 <!-- #region FrameworkClass|jo.framework:registerUseItem -->
 #### Example
 ```lua
-jo.framework:registerUseItem('water',true, function(source, metadata)
-  TriggerServerEvent('drinkWater',source)
-  jo.framework:removeItem(source,'water',1,metadata)
+jo.framework:registerUseItem('water', true, function(source, metadata)
+  TriggerServerEvent('drinkWater', source)
+  jo.framework:removeItem(source, 'water', 1, metadata)
 end)
+
 ```
 <!-- #endregion FrameworkClass|jo.framework:registerUseItem -->
 
@@ -101,6 +109,7 @@ end)
 ```lua
 local id = "locker:sheriff"
 jo.framework:removeInventory(id)
+
 ```
 <!-- #endregion FrameworkClass|jo.framework:removeInventory -->
 
@@ -112,7 +121,8 @@ local source = 1
 local amount = 100.0
 local moneyType = 1
 local user = UserClass:get(source)
-user:addMoney(amount,moneyType)
+user:addMoney(amount, moneyType)
+
 ```
 <!-- #endregion UserClass|UserClass:addMoney -->
 
@@ -122,6 +132,7 @@ user:addMoney(amount,moneyType)
 ```lua
 local user = UserClass:get(source)
 print(user:getJob())
+
 ```
 <!-- #endregion UserClass|UserClass:get -->
 
@@ -134,6 +145,7 @@ local user = UserClass:get(source)
 local identifiers = user:getIdentifiers()
 print(identifiers.identifier)
 print(identifiers.charid)
+
 ```
 <!-- #endregion UserClass|UserClass:getIdentifiers -->
 
@@ -145,6 +157,7 @@ local source = 1
 local user = UserClass:get(source)
 local job = user:getJob()
 print(job)
+
 ```
 <!-- #endregion UserClass|UserClass:getJob -->
 
@@ -156,7 +169,8 @@ local source = 1
 local user = UserClass:get(source)
 local dollar = user:getMoney(1)
 local gold = user:getMoney(2)
-print(dollar,gold)
+print(dollar, gold)
+
 ```
 <!-- #endregion UserClass|UserClass:getMoney -->
 
@@ -168,6 +182,7 @@ local source = 1
 local user = UserClass:get(source)
 local name = user:getRPName()
 print(name)
+
 ```
 <!-- #endregion UserClass|UserClass:getRPName -->
 
@@ -179,7 +194,8 @@ local source = 1
 local amount = 100.0
 local moneyType = 1
 local user = UserClass:get(source)
-user:removeMoney(amount,moneyType)
+user:removeMoney(amount, moneyType)
+
 ```
 <!-- #endregion UserClass|UserClass:removeMoney -->
 
@@ -191,8 +207,9 @@ local source = 1
 local price = 20.4
 local moneyType = 2
 local user = UserClass:get(source)
-local hasEnoughGold = user:canBuy(price,moneyType)
+local hasEnoughGold = user:canBuy(price, moneyType)
 print(hasEnoughGold)
+
 ```
 <!-- #endregion server|UserClass:canBuy -->
 
@@ -204,6 +221,7 @@ local source = 1
 local goldAmount = 20.0
 local user = UserClass:get(source)
 user:giveGold(goldAmount)
+
 ```
 <!-- #endregion server|UserClass:giveGold -->
 
@@ -212,6 +230,7 @@ user:giveGold(goldAmount)
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion server|jo.framework:addMoney -->
 
@@ -221,8 +240,9 @@ user:giveGold(goldAmount)
 ```lua
 local price = 103
 local source = 1
-print(jo.framework:canUserBuy(source,103))
+print(jo.framework:canUserBuy(source, 103))
 -- Expected output : true if the player has more than $103
+
 ```
 <!-- #endregion server|jo.framework:canUserBuy -->
 
@@ -231,6 +251,7 @@ print(jo.framework:canUserBuy(source,103))
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion server|jo.framework:convertToPercent -->
 
@@ -239,6 +260,7 @@ print(jo.framework:canUserBuy(source,103))
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion server|jo.framework:extractComponentHashIfAlone -->
 
@@ -248,6 +270,7 @@ print(jo.framework:canUserBuy(source,103))
 ```lua
 local frameworkName = jo.framework:get()
 print(frameworkName)
+
 ```
 <!-- #endregion server|jo.framework:get -->
 
@@ -257,6 +280,7 @@ print(frameworkName)
 ```lua
 local source = 1
 print(jo.framework:getJob(source))
+
 ```
 <!-- #endregion server|jo.framework:getJob -->
 
@@ -266,6 +290,7 @@ print(jo.framework:getJob(source))
 ```lua
 local source = 1
 print(jo.framework:getRPName(source))
+
 ```
 <!-- #endregion server|jo.framework:getRPName -->
 
@@ -276,6 +301,7 @@ print(jo.framework:getRPName(source))
 local source = 1
 local user = jo.framework:getUser(source)
 print(user.data.firstname)
+
 ```
 <!-- #endregion server|jo.framework:getUser -->
 
@@ -286,6 +312,7 @@ print(user.data.firstname)
 local source = 1
 local clothes = jo.framework:getUserClothes(source)
 print(json.encode(clothes))
+
 ```
 <!-- #endregion server|jo.framework:getUserClothes -->
 
@@ -296,6 +323,7 @@ print(json.encode(clothes))
 local source = 1
 local identifiers = jo.framework:getUserIdentifiers(source)
 print(identifiers.charid)
+
 ```
 <!-- #endregion server|jo.framework:getUserIdentifiers -->
 
@@ -304,8 +332,9 @@ print(identifiers.charid)
 #### Example
 ```lua
 local source = 1
-local skin =  jo.framework:getUserSkin(source)
+local skin = jo.framework:getUserSkin(source)
 print(json.encode(skin))
+
 ```
 <!-- #endregion server|jo.framework:getUserSkin -->
 
@@ -315,6 +344,7 @@ print(json.encode(skin))
 ```lua
 local isVORP = jo.framework:is('VORP')
 print(isVORP)
+
 ```
 <!-- #endregion server|jo.framework:is -->
 
@@ -323,6 +353,7 @@ print(isVORP)
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion server|jo.framework:removeItem -->
 
@@ -331,6 +362,7 @@ print(isVORP)
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion server|jo.framework:removeMoney -->
 
@@ -339,6 +371,7 @@ print(isVORP)
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion server|jo.framework:revertClothes -->
 
@@ -347,6 +380,7 @@ print(isVORP)
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion server|jo.framework:revertSkin -->
 
@@ -355,6 +389,7 @@ print(isVORP)
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion server|jo.framework:standardizeClothes -->
 
@@ -363,6 +398,7 @@ print(isVORP)
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion server|jo.framework:standardizeSkin -->
 
@@ -372,15 +408,16 @@ print(isVORP)
 ```lua
 local source = 1
 local clothes = {
-  pants = {hash = 2450348132},
-  boots = {hash = 3596743543}
+  pants = { hash = 2450348132 },
+  boots = { hash = 3596743543 }
 }
-jo.framework:updateUserClothes(source,clothes)
+jo.framework:updateUserClothes(source, clothes)
 -- OR  --
 local source = 1
 local category = pants
-local clothes = {hash = 2450348132}
-jo.framework:updateUserClothes(source,category,clothes)
+local clothes = { hash = 2450348132 }
+jo.framework:updateUserClothes(source, category, clothes)
+
 ```
 <!-- #endregion server|jo.framework:updateUserClothes -->
 
@@ -394,13 +431,14 @@ local skin = {
   torso = 345823423
 }
 local overwrite = false
-jo.framework:updateUserSkin(source,skin,overwrite)
+jo.framework:updateUserSkin(source, skin, overwrite)
 -- OR --
 local source = 1
 local category = "head"
 local data = 394785690
 local overwrite = false
-jo.framework:updateUserSkin(source,category,data,overwrite)
+jo.framework:updateUserSkin(source, category, data, overwrite)
+
 ```
 <!-- #endregion server|jo.framework:updateUserSkin -->
 

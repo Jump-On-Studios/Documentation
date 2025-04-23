@@ -11,6 +11,7 @@
 
 ```lua
 jo.emit.isEventInProgress(eventName)
+
 ```
 
 <!-- @include: ./slots/examples.md#client|jo.emit.isEventInProgress -->
@@ -31,6 +32,7 @@ A function to trigger the server <br>
 
 ```lua
 jo.emit.triggerServer(eventName, ...)
+
 ```
 
 #### Parameters
@@ -61,6 +63,7 @@ A function to trigger the server with limited bandwith <br>
 
 ```lua
 jo.emit.triggerServer.latent(eventName, ...)
+
 ```
 
 #### Parameters
@@ -91,6 +94,7 @@ A function to update the bit/s of emit module <br>
 
 ```lua
 jo.emit.updateBps(bps)
+
 ```
 
 #### Parameters

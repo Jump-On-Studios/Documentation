@@ -3,8 +3,9 @@
 ```lua
 local coords = vec3(1234.56, 789.01, 123.45)
 local size = vec3(0.7, 0.7, 0.7)
-local color = {r = 0, g = 255, b = 0, a = 150}
+local color = { r = 0, g = 255, b = 0, a = 150 }
 jo.debugger.drawSphere(coords, size, color)
+
 ```
 <!-- #endregion client|jo.debugger.drawSphere -->
 
@@ -14,6 +15,7 @@ jo.debugger.drawSphere(coords, size, color)
 ```lua
 -- Drawing text at a specific position
 jo.debugger.drawText("Player Health: 100", 0.5, 0.2)
+
 ```
 <!-- #endregion client|jo.debugger.drawText -->
 
@@ -26,6 +28,7 @@ jo.debugger.drawText("First line")
 jo.debugger.resetText()
 
 jo.debugger.drawText("New first line")
+
 ```
 <!-- #endregion client|jo.debugger.resetText -->
 
@@ -38,7 +41,7 @@ local duration = jo.debugger.perfomance("Array iteration", function()
     for i = 1, 10000 do
         array[i] = i
     end
-    
+
     local sum = 0
     for i = 1, #array do
         sum = sum + array[i]
@@ -46,6 +49,7 @@ local duration = jo.debugger.perfomance("Array iteration", function()
 end)
 
 print("The operation took " .. duration .. " microseconds")
+
 ```
 <!-- #endregion shared|jo.debugger.perfomance -->
 
@@ -58,7 +62,7 @@ local averageDuration = jo.debugger.perfomanceRepeat("Table lookup", 100, functi
     for i = 1, 1000 do
         testTable[i] = "value_" .. i
     end
-    
+
     -- Operation to measure
     for i = 1, 1000 do
         local value = testTable[i]
@@ -66,6 +70,7 @@ local averageDuration = jo.debugger.perfomanceRepeat("Table lookup", 100, functi
 end, 10)
 
 print("Average execution time: " .. averageDuration .. " microseconds")
+
 ```
 <!-- #endregion shared|jo.debugger.perfomanceRepeat -->
 

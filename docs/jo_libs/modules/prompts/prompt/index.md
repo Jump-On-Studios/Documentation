@@ -9,12 +9,14 @@ Prompt is a module to provide functions to interact with the game's native promp
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the Prompt module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'prompt',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.prompt` global variable.
 

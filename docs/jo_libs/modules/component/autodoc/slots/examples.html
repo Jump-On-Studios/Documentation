@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Example</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <!-- #region g_client|jo.component.apply -->
+<h4 id="example">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> category = <span class="hljs-string">&quot;hats&quot;</span>
+<span class="hljs-keyword">local</span> data = { hash = <span class="hljs-string">&quot;CLOTHING_ITEM_F_HAT_241_PANTHER_VAR_001&quot;</span> }
+jo.component.apply(ped, category, data)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.apply -->
+<!-- #region g_client|jo.component.applyComponents -->
+<h4 id="example-1">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> clothes = {
+  hats = { hash = <span class="hljs-string">&#x27;CLOTHING_ITEM_F_HAT_241_PANTHER_VAR_001&#x27;</span> },
+  pants = { hash = <span class="hljs-number">0x1234567</span> }
+}
+jo.component.applyComponents(ped, clothes)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.applyComponents -->
+<!-- #region g_client|jo.component.applySkin -->
+<h4 id="example-2">Example</h4>
+<pre><code class="language-lua"><span class="hljs-comment">-- todo</span>
+
+</code></pre>
+<!-- #endregion g_client|jo.component.applySkin -->
+<!-- #region g_client|jo.component.bootsAreUnderPant -->
+<h4 id="example-3">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> isUnder = jo.component.bootsAreUnderPant(ped)
+<span class="hljs-built_in">print</span>(isUnder)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.bootsAreUnderPant -->
+<!-- #region g_client|jo.component.collarClose -->
+<h4 id="example-4">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> data = { hash = joaat(<span class="hljs-string">&#x27;CLOTHING_ITEM_M_SHIRT_209_TINT_005&#x27;</span>) }
+jo.component.collarClose(ped, data)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.collarClose -->
+<!-- #region g_client|jo.component.collarIsOpened -->
+<h4 id="example-5">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> isOpened = jo.component.collarIsOpened(ped)
+<span class="hljs-built_in">print</span>(isOpened)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.collarIsOpened -->
+<!-- #region g_client|jo.component.collarOpen -->
+<h4 id="example-6">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> data = { hash = joaat(<span class="hljs-string">&#x27;CLOTHING_ITEM_M_SHIRT_209_TINT_005&#x27;</span>) }
+jo.component.collarOpen(ped, data)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.collarOpen -->
+<!-- #region g_client|jo.component.getBodiesLowerFromSkinTone -->
+<h4 id="example-7">Example</h4>
+<pre><code class="language-lua"><span class="hljs-comment">-- todo</span>
+
+</code></pre>
+<!-- #endregion g_client|jo.component.getBodiesLowerFromSkinTone -->
+<!-- #region g_client|jo.component.getBodiesUpperFromSkinTone -->
+<h4 id="example-8">Example</h4>
+<pre><code class="language-lua"><span class="hljs-comment">-- todo</span>
+
+</code></pre>
+<!-- #endregion g_client|jo.component.getBodiesUpperFromSkinTone -->
+<!-- #region g_client|jo.component.getCategoriesEquiped -->
+<h4 id="example-9">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> categories = jo.component.getCategoriesEquiped(ped)
+<span class="hljs-built_in">print</span>(json.encode(categories))
+<span class="hljs-comment">--Expected output: categories = { 539411565 = {index = 1, category = &quot;shirts_full&quot;}, 491541130 = { index = 2, category = &quot;pants&quot;} }</span>
+
+</code></pre>
+<!-- #endregion g_client|jo.component.getCategoriesEquiped -->
+<!-- #region g_client|jo.component.getCategoryNameFromHash -->
+<h4 id="example-10">Example</h4>
+<pre><code class="language-lua"><span class="hljs-comment">-- todo</span>
+
+</code></pre>
+<!-- #endregion g_client|jo.component.getCategoryNameFromHash -->
+<!-- #region g_client|jo.component.getCategoryTint -->
+<h4 id="example-11">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> category = <span class="hljs-string">&quot;shirts_full&quot;</span>
+<span class="hljs-keyword">local</span> palette, tint0, tint1, tint2 = jo.component.getCategoryTint(ped, category)
+<span class="hljs-built_in">print</span>(palette, tint0, tint1, tint2)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.getCategoryTint -->
+<!-- #region g_client|jo.component.getComponentCategory -->
+<h4 id="example-12">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> hash = joaat(<span class="hljs-string">&quot;CLOTHING_ITEM_F_HAT_241_PANTHER_VAR_001&quot;</span>)
+<span class="hljs-keyword">local</span> catHash, isMp = jo.component.getComponentCategory(ped, hash)
+<span class="hljs-built_in">print</span>(catHash, isMp)
+<span class="hljs-comment">--Expected output: -1725579161, true</span>
+
+</code></pre>
+<!-- #endregion g_client|jo.component.getComponentCategory -->
+<!-- #region g_client|jo.component.getComponentEquiped -->
+<h4 id="example-13">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> category = <span class="hljs-string">&quot;hats&quot;</span>
+<span class="hljs-keyword">local</span> component = jo.component.getComponentEquiped(ped, category)
+<span class="hljs-built_in">print</span>(component)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.getComponentEquiped -->
+<!-- #region g_client|jo.component.getComponentsEquiped -->
+<h4 id="example-14">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> components = jo.component.getComponentsEquiped(ped)
+<span class="hljs-built_in">print</span>(json.encode(components))
+
+</code></pre>
+<!-- #endregion g_client|jo.component.getComponentsEquiped -->
+<!-- #region g_client|jo.component.getEyesFromIndex -->
+<h4 id="example-15">Example</h4>
+<pre><code class="language-lua"><span class="hljs-comment">-- todo</span>
+
+</code></pre>
+<!-- #endregion g_client|jo.component.getEyesFromIndex -->
+<!-- #region g_client|jo.component.getHeadFromSkinTone -->
+<h4 id="example-16">Example</h4>
+<pre><code class="language-lua"><span class="hljs-comment">-- todo</span>
+
+</code></pre>
+<!-- #endregion g_client|jo.component.getHeadFromSkinTone -->
+<!-- #region g_client|jo.component.getPaletteNameFromHash -->
+<h4 id="example-17">Example</h4>
+<pre><code class="language-lua"><span class="hljs-comment">-- todo</span>
+
+</code></pre>
+<!-- #endregion g_client|jo.component.getPaletteNameFromHash -->
+<!-- #region g_client|jo.component.getTeethFromIndex -->
+<h4 id="example-18">Example</h4>
+<pre><code class="language-lua"><span class="hljs-comment">-- todo</span>
+
+</code></pre>
+<!-- #endregion g_client|jo.component.getTeethFromIndex -->
+<!-- #region g_client|jo.component.getWearableState -->
+<h4 id="example-19">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> category = <span class="hljs-string">&quot;neckwear&quot;</span>
+<span class="hljs-keyword">local</span> wearableState = jo.component.getWearableState(ped, category)
+<span class="hljs-built_in">print</span>(wearableState)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.getWearableState -->
+<!-- #region g_client|jo.component.hairIsPomade -->
+<h4 id="example-20">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> isPomaded = jo.component.hairIsPomade(ped)
+<span class="hljs-built_in">print</span>(isPomaded)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.hairIsPomade -->
+<!-- #region g_client|jo.component.isCategoryEquiped -->
+<h4 id="example-21">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> category = <span class="hljs-string">&quot;pants&quot;</span>
+<span class="hljs-keyword">local</span> isEquiped, index = jo.component.isCategoryEquiped(ped, category)
+<span class="hljs-built_in">print</span>(isEquiped, index)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.isCategoryEquiped -->
+<!-- #region g_client|jo.component.isMpComponent -->
+<h4 id="example-22">Example</h4>
+<pre><code class="language-lua"><span class="hljs-comment">-- todo</span>
+
+</code></pre>
+<!-- #endregion g_client|jo.component.isMpComponent -->
+<!-- #region g_client|jo.component.loadoutIsOnRight -->
+<h4 id="example-23">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> isRight = jo.component.loadoutIsOnRight(ped)
+<span class="hljs-built_in">print</span>(isRight)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.loadoutIsOnRight -->
+<!-- #region g_client|jo.component.neckwearIsUp -->
+<h4 id="example-24">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> isUp = jo.component.neckwearIsUp(ped)
+<span class="hljs-built_in">print</span>(isUp)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.neckwearIsUp -->
+<!-- #region g_client|jo.component.refreshPed -->
+<h4 id="example-25">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+jo.component.refreshPed(ped)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.refreshPed -->
+<!-- #region g_client|jo.component.remove -->
+<h4 id="example-26">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> category = <span class="hljs-string">&quot;hats&quot;</span>
+jo.component.<span class="hljs-built_in">remove</span>(ped, category)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.remove -->
+<!-- #region g_client|jo.component.removeAllClothes -->
+<h4 id="example-27">Example</h4>
+<pre><code class="language-lua"><span class="hljs-comment">-- todo</span>
+
+</code></pre>
+<!-- #endregion g_client|jo.component.removeAllClothes -->
+<!-- #region g_client|jo.component.setWearableState -->
+<h4 id="example-28">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> category = <span class="hljs-string">&quot;neckwear&quot;</span>
+<span class="hljs-keyword">local</span> data = { hash = joaat(<span class="hljs-string">&quot;CLOTHING_ITEM_F_NECKERCHIEF_000_TINT_001&quot;</span>) }
+<span class="hljs-keyword">local</span> state = jo.component.wearableStates.neckwear[<span class="hljs-number">1</span>] <span class="hljs-comment">--neckwear UP</span>
+jo.component.setWearableState(ped, category, data, state)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.setWearableState -->
+<!-- #region g_client|jo.component.sleeveIsRolled -->
+<h4 id="example-29">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> isRolled = jo.component.sleeveIsRolled(ped)
+<span class="hljs-built_in">print</span>(isRolled)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.sleeveIsRolled -->
+<!-- #region g_client|jo.component.sleeveRoll -->
+<h4 id="example-30">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> data = {hash = joaat(<span class="hljs-string">&#x27;CLOTHING_ITEM_M_SHIRT_209_TINT_005&#x27;</span>)}
+<span class="hljs-keyword">local</span> jo.component.sleeveRoll(ped,data)
+</code></pre>
+<!-- #endregion g_client|jo.component.sleeveRoll -->
+<!-- #region g_client|jo.component.sleeveUnroll -->
+<h4 id="example-31">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> data = {hash = joaat(<span class="hljs-string">&#x27;CLOTHING_ITEM_M_SHIRT_209_TINT_005&#x27;</span>)}
+<span class="hljs-keyword">local</span> jo.component.sleeveUnroll(ped,data)
+</code></pre>
+<!-- #endregion g_client|jo.component.sleeveUnroll -->
+<!-- #region g_client|jo.component.vestIsUnderPant -->
+<h4 id="example-32">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> isIn = jo.component.vestIsUnderPant(ped)
+<span class="hljs-built_in">print</span>(isIn)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.vestIsUnderPant -->
+<!-- #region g_client|jo.component.waitPedLoaded -->
+<h4 id="example-33">Example</h4>
+<pre><code class="language-lua"><span class="hljs-keyword">local</span> ped = PlayerPedId()
+<span class="hljs-keyword">local</span> isIn = jo.component.waitPedLoaded(ped)
+
+</code></pre>
+<!-- #endregion g_client|jo.component.waitPedLoaded -->
+            
+            
+        </body>
+        </html>

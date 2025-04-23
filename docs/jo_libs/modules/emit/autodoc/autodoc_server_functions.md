@@ -13,6 +13,7 @@ A function to trigger a client(s) <br>
 
 ```lua
 jo.emit.triggerClient(eventName, source, ...)
+
 ```
 
 #### Parameters
@@ -47,6 +48,7 @@ A function to trigger a client(s) with a limited bandwith <br>
 
 ```lua
 jo.emit.triggerClient.latent(eventName, source, ...)
+
 ```
 
 #### Parameters
@@ -81,6 +83,7 @@ A function to update the bit/s of emit module <br>
 
 ```lua
 jo.emit.updateBps(bps)
+
 ```
 
 #### Parameters

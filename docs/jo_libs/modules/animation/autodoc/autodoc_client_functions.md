@@ -13,6 +13,7 @@ Function to move a ped to a destination <br>
 
 ```lua
 jo.animation.goToCoords(ped, coords, speed, waiter, distanceToStop)
+
 ```
 
 #### Parameters
@@ -55,6 +56,7 @@ Load the dictionnary of animation <br>
 
 ```lua
 jo.animation.load(dict, waiter)
+
 ```
 
 #### Parameters
@@ -85,6 +87,7 @@ Play animation. The function load automatically necessary resources. <br>
 
 ```lua
 jo.animation.play(ped, dict, name, duration, flag, offset)
+
 ```
 
 #### Parameters
@@ -136,6 +139,7 @@ Turn the ped to the desired heading <br>
 
 ```lua
 jo.animation.setDesiredHeading(ped, heading, waiter)
+
 ```
 
 #### Parameters

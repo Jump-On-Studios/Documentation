@@ -9,6 +9,7 @@ Print is a module to contain helper functions for printing colored messages to t
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 You can now use the print functions inside of your resource.
 

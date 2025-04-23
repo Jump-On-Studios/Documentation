@@ -10,6 +10,7 @@ Print a blue message
 ### Syntax
 ```lua
 bprint(text)
+
 ```
 #### Parameters
 `text` : *string*
@@ -18,6 +19,7 @@ bprint(text)
 ### Example
 ```lua
 bprint('This is a blue message')
+
 ```
 
 ## dprint
@@ -25,6 +27,7 @@ Print a debug message, only if `Config.debug = true`
 ### Syntax
 ```lua
 dprint(text)
+
 ```
 #### Parameters
 `text` : *string*
@@ -33,6 +36,7 @@ dprint(text)
 ### Example
 ```lua
 dprint('This is a debug message')
+
 ```
 
 ## eprint
@@ -40,6 +44,7 @@ Print a red message
 ### Syntax
 ```lua
 eprint(text)
+
 ```
 #### Parameters
 `text` : *string*
@@ -48,6 +53,7 @@ eprint(text)
 ### Example
 ```lua
 eprint('This is a red message')
+
 ```
 
 ## gprint
@@ -55,6 +61,7 @@ Print a green message
 ### Syntax
 ```lua
 gprint(text)
+
 ```
 #### Parameters
 `text` : *string*
@@ -63,6 +70,7 @@ gprint(text)
 ### Example
 ```lua
 gprint('This is a green message')
+
 ```
 
 ## oprint
@@ -70,6 +78,7 @@ Print an orange message
 ### Syntax
 ```lua
 oprint(text)
+
 ```
 #### Parameters
 `text` : *string*
@@ -78,6 +87,7 @@ oprint(text)
 ### Example
 ```lua
 oprint('This is an orange message')
+
 ```
 
 ## sprint
@@ -85,6 +95,7 @@ Print a red message
 ### Syntax
 ```lua
 sprint(text)
+
 ```
 #### Parameters
 `text` : *string*
@@ -93,4 +104,5 @@ sprint(text)
 ### Example
 ```lua
 sprint('This is a red message')
+
 ```

@@ -9,12 +9,14 @@ Promise is a module to transform callback-style functions into Promise-based ope
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the math module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'promise',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.promise` global variable.
 

@@ -35,10 +35,12 @@ CREATE TABLE IF NOT EXISTS `coffre_deplacable` (
 Put the chest on the ground with the client event
 ```lua
 TriggerEvent('AddChest')
+
 ```
 Use the decoder device with the client event
 ```lua
 TriggerEvent('DecodeChest')
+
 ```
 
 ## 3. Config.lua
@@ -75,7 +77,7 @@ end
 
 -- Function when the chest is open
 function OpenChest(ChestId)
-  print('Chest opened '..ChestId)
+  print('Chest opened ' .. ChestId)
 end
 
 -- Function when decoder is dead
@@ -87,4 +89,5 @@ end
 -- Function when chest is placed. Remove the chest item from the player inventory
 function LooseChest()
 end
+
 ```

@@ -9,12 +9,14 @@ NUI is a module to provide basic utilities for managing NUI interfaces.
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the NUI module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'nui',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.nui` global variable.
 

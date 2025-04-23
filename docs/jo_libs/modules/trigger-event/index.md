@@ -9,12 +9,14 @@ Trigger-event is a module to offer a simplified way to trigger events.
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the Trigger-Event module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'trigger-event',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.triggerEvent` global variable.
 

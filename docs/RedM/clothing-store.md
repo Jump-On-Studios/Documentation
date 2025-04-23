@@ -97,19 +97,19 @@ Go on the store (blip on the map) to get the prompt. Press the key to open the m
 Config = {}
 
 Config.Debug = false
-Config.BlipSprite = `blip_shop_tailor`	 -- Clothing shop sprite
+Config.BlipSprite = `blip_shop_tailor` -- Clothing shop sprite
 Config.BlipSpriteWardrobes = `blip_shop_wardrobe`
 Config.DisplayOutfitId = false
-Config.PercentResell = 0.33 -- Use 0 tu turn off the resell feature : 0.5 = 50% of the initial price
+Config.PercentResell = 0.33        -- Use 0 tu turn off the resell feature : 0.5 = 50% of the initial price
 Config.CanResellInWardrobe = false --Allow player to resell clothes in wardrobe
 Config.OpenStoreNewCharacter = true
 Config.EnablePrompt = true
-Config.ExtraLightIntensity = 10.0 -- Light added in the store to see better the character
-Config.OffsetRoutingBucket = 0 --value added to the serverID of the player to define the instance ID
+Config.ExtraLightIntensity = 10.0     -- Light added in the store to see better the character
+Config.OffsetRoutingBucket = 0        --value added to the serverID of the player to define the instance ID
 Config.enableClothesManagement = true --use false to turn off the clothes management feature
 
-Config.commands = { --set false to disable a command
-	refreshAllClothes = "rac" --command to refresh all clothes, use "/rac 0" to only update clothes states
+Config.commands = {                   --set false to disable a command
+	refreshAllClothes = "rac"           --command to refresh all clothes, use "/rac 0" to only update clothes states
 }
 
 Config.oldVORPChar = false --(Only for VORP users) to use the C# version of VORP Character
@@ -130,12 +130,12 @@ Config.KeysDisabled = {
 }
 
 Config.clothesInItem = true -- set false to disable this feature
-Config.clothesItem = { -- Only necessary if Config.clothesInItem = true
+Config.clothesItem = {      -- Only necessary if Config.clothesInItem = true
 	gloves = 'gloves',
 	eyewear = 'eyewear',
-  dresses = 'dresses',
+	dresses = 'dresses',
 	shirts_full = 'shirts_full',
-  armor = 'armor',
+	armor = 'armor',
 	gauntlets = 'gauntlets',
 	suspenders = 'suspenders',
 	neckties = 'neckties',
@@ -155,7 +155,7 @@ Config.clothesItem = { -- Only necessary if Config.clothesInItem = true
 	jewelry_rings_left = 'jewelry',
 	jewelry_bracelets = 'jewelry',
 	aprons = 'aprons',
-  pants = 'pants',
+	pants = 'pants',
 	skirts = 'skirts',
 	belts = 'belts',
 	belt_buckles = 'belt_buckles',
@@ -165,19 +165,19 @@ Config.clothesItem = { -- Only necessary if Config.clothesInItem = true
 	boot_accessories = 'boot_accessories',
 	spats = 'spats',
 	chaps = 'chaps',
-  badges = 'badges',
-  gunbelt_accs = 'gunbelt_accs',
-  hair_accessories = 'hair_accessories'
+	badges = 'badges',
+	gunbelt_accs = 'gunbelt_accs',
+	hair_accessories = 'hair_accessories'
 }
 
 Config.Stores = {
-	{ -- VALENTINE
-		book = vector4(-326.17, 773.757, 117.5, -170.0), --location of the book
+	{                                                       -- VALENTINE
+		book = vector4(-326.17, 773.757, 117.5, -170.0),      --location of the book
 		fittingRoom = vector4(-329.31, 775.11, 120.63, 294.79), --location of the fitting room
-		pedCoords = vector4(-325.67, 772.63, 116.44, 11.3), --location of the tailor ped
-		pedModel = `S_M_M_Tailor_01`, --model of the tailor ped
-		blip = true, --if the blip is displayed for this store
-		distancePrompt = 2.0, --distance to display the prompt
+		pedCoords = vector4(-325.67, 772.63, 116.44, 11.3),   --location of the tailor ped
+		pedModel = `S_M_M_Tailor_01`,                         --model of the tailor ped
+		blip = true,                                          --if the blip is displayed for this store
+		distancePrompt = 2.0,                                 --distance to display the prompt
 		needInstance = true,
 	},
 }
@@ -233,22 +233,23 @@ Config.Prices = {
 Config.modelPrices = {}
 Config.modelPrices["male"] = {}
 Config.modelPrices["female"] = {}
-for category in pairs (Config.Prices) do
+for category in pairs(Config.Prices) do
 	Config.modelPrices["male"][category] = {}
 	Config.modelPrices["female"][category] = {}
 end
 --Config.modelPrices[<sexe>][<category>][<number>] = <price>
 Config.modelPrices["male"]["hats"][2] = Config.Prices.hats * 1.25
-Config.modelPrices["male"]["hats"][3] = {money=2.75, gold = 2}
+Config.modelPrices["male"]["hats"][3] = { money = 2.75, gold = 2 }
 Config.modelPrices["male"]["hats"][4] = 5.5
 Config.modelPrices["male"]["hats"][5] = 4.25
 Config.modelPrices["male"]["hats"][6] = Config.Prices.hats * 2
 Config.modelPrices["female"]["skirts"][6] = Config.Prices.hats * 2
 
 --Function to buy item with gold for framework without native way to do it
-Config.CanBuyWithGold = function (source,price)
+Config.CanBuyWithGold = function(source, price)
 	return false
 end
+
 ```
 :::
 
@@ -264,14 +265,16 @@ Function to init your framework
 -- variable "CoreInv" - global variable for inventory scriot
 Config.InitFramework = function()
 end
+
 ```
 #### <Badge type="server" text="Server" /> Apply new Outfit
 Function fires when a player selects an outfit
 ```lua
 --@param source is the serverID of the player
 --@param clothes in the table with category in key and hash in value of the outfit
-Config.ApplyNewOutfit = function(source,clothes)
+Config.ApplyNewOutfit = function(source, clothes)
 end
+
 ```
 #### <Badge type="server" text="Server" /> Check money
 Function to check if the player has enough money
@@ -280,9 +283,10 @@ Function to check if the player has enough money
 --@param price is the price of the cloth
 --@param moneyType is the devise of the price : 0 for normal & 1 for gold
 -- @return true/false to accept/deny the purchase
-Config.CanBuy = function(source,price, moneyType)
+Config.CanBuy = function(source, price, moneyType)
   return true
 end
+
 ```
 #### <Badge type="server" text="Server" /> Initialize the framework
 Function to init your framework
@@ -291,6 +295,7 @@ Function to init your framework
 -- variable "CoreInv" - global variable for inventory scriot
 Config.InitFramework = function()
 end
+
 ```
 #### <Badge type="server" text="Server" /> Get Clothes
 Function to get the player's clothes
@@ -302,6 +307,7 @@ Config.GetClothes = function(source)
     local clothes = {}
     return clothes
 end
+
 ```
 #### <Badge type="server" text="Server" /> Get Identifier
 Function to get the player identifier
@@ -311,10 +317,11 @@ Function to get the player identifier
 Config.GetIdentifier = function(source)
     local player = {
         identifier = identifier, --the identifier of player
-        charid = charid --the charid of player. If not needed just use ''
+        charid = charid          --the charid of player. If not needed just use ''
     }
     return player
 end
+
 ```
 #### <Badge type="server" text="Server" /> Get Skin
 Function to get the player's skin
@@ -325,6 +332,7 @@ Config.GetSkin = function(source)
     local skin = {}
     return skin
 end
+
 ```
 #### <Badge type="server" text="Server" /> Give Item
 Function to give item to player
@@ -333,8 +341,9 @@ Function to give item to player
 --@param item is the item name
 --@param quantity is the quantity of item
 --@param meta is the meta of the item
-Config.GiveItem= function(source,item,quantity,meta)
+Config.GiveItem = function(source, item, quantity, meta)
 end
+
 ```
 #### <Badge type="server" text="Server" /> Give Money
 Function to give money to player
@@ -343,6 +352,7 @@ Function to give money to player
 --@param amount is the amount of money to be sent to the player
 Config.GiveMoney = function(source, amount)
 end
+
 ```
 #### <Badge type="server" text="Server" /> Notify
 Function to send notification to player from serverside
@@ -351,6 +361,7 @@ Function to send notification to player from serverside
 --@param text is the text to be sent to the player
 Config.Notify = function(source, text)
 end
+
 ```
 #### <Badge type="server" text="Server" /> Register an Item
 Function to register as usable an item
@@ -358,8 +369,9 @@ Function to register as usable an item
 --@param item is the item name
 --@param callback is the callback event with two arguments :
 --callback(source,{hash = clothesHash})
-Config.RegisterUseItem = function(item,callback)
+Config.RegisterUseItem = function(item, callback)
 end
+
 ```
 #### <Badge type="server" text="Server" /> Remove money
 Function to register as usable an item
@@ -367,8 +379,9 @@ Function to register as usable an item
 --@param source is the serverID of the player
 --@param price is the price of the cloth
 --@param moneyType is the devise of the price : 0 for normal & 1 for gold
-Config.RemoveMoney = function(source,price, moneyType)
+Config.RemoveMoney = function(source, price, moneyType)
 end
+
 ```
 #### <Badge type="server" text="Server" /> Save new clothes
 Function to save the new clothe in the database
@@ -377,8 +390,9 @@ Function to save the new clothe in the database
 --@param dataPreview is a table with the new cloth data :
 -- dataPreview.menu is the category of cloth
 -- dataPreview.hash is the hash of cloth
-Config.SaveNewCloth = function(source,dataPreview)
+Config.SaveNewCloth = function(source, dataPreview)
 end
+
 ```
 
 ### Events
@@ -386,12 +400,14 @@ end
 You can equip all clothes with this client event :
 ```lua
 TriggerEvent('kd_clothingstore:resetClothes')
+
 ```
 #### <Badge type="client" text="Client" /> Listen the closing of menu
 You can grab the closing of the menu after the ped creation with this client event :
 ```lua
 RegisterNetEvent('kd_clothingstore:client:endCreation', function()
 end)
+
 ```
 #### <Badge type="client" text="Client" /> Open the store
 Event to open the store
@@ -400,6 +416,7 @@ Event to open the store
 TriggerEvent('kd_clothingstore:openStore', needInstance)
 --Or
 exports['kd_clothingstore']:openStore(needInstance)
+
 ```
 #### <Badge type="client" text="Client" /> Open the wardrobe
 Event to open the wardrobe
@@ -408,16 +425,19 @@ Event to open the wardrobe
 TriggerEvent('kd_clothingstore:openWardrobe', needInstance)
 --Or
 exports['kd_clothingstore']:openWardrobe(needInstance)
+
 ```
 #### <Badge type="client" text="Client" /> Remove all clothes
 You can remove all clothes with this client event :
 ```lua
 TriggerEvent('kd_clothingstore:removeAllClothes')
+
 ```
 #### <Badge type="client" text="Client" /> Use outfit
 You can apply an outfit from his id to a player by trigger this server event (from client) :
 ```lua
-TriggerServerEvent('kd_clothingstore:useOutfitId',id)
+TriggerServerEvent('kd_clothingstore:useOutfitId', id)
+
 ```
 
 ### Filters
@@ -436,13 +456,14 @@ end)
 
 - Example :
 ```lua
-kd_clothingstore:RegisterFilter('canAccessToSpecificClothes', function(canAccess,source,clothesData,moneyType)
-  local job = GetJob(source)
+kd_clothingstore:RegisterFilter('canAccessToSpecificClothes', function(canAccess, source, clothesData, moneyType)
+	local job = GetJob(source)
 	if job ~= "tailor" then
 		return false, SendNotif("Only tailer can buy clothes")
 	end
-  return canAccess
+	return canAccess
 end)
+
 ```
 
 #### <Badge type="client" text="Client" /> Restrict the saving of new outfit
@@ -452,6 +473,7 @@ Fires to disable the "New" & "Save" button in the outfit menu
 exports.kd_clothingstore:RegisterFilter('canSaveNewOutfit', function(canSave)
 	return canSave
 end)
+
 ```
 #### <Badge type="server" text="Server" /> Edit metadata of clothes item
 Fires before add the item in the player inventory
@@ -459,9 +481,10 @@ Fires before add the item in the player inventory
 -- @param metadata - table : metadata of the item
 -- @param source - int : serverID of the player
 -- @param item - string : item name
-exports.kd_clothingstore:RegisterFilter('editItemMeta', function(meta,source,item)
+exports.kd_clothingstore:RegisterFilter('editItemMeta', function(meta, source, item)
 	return canAccess
 end)
+
 ```
 #### <Badge type="server" text="Server" /> Restrict specific clothes
 Fires before buy a new clothes
@@ -471,9 +494,10 @@ Fires before buy a new clothes
 -- @param clothesData - table : information about clothes
 -- @param clothesData.hash - int : hash of the clothes
 -- @param moneyType - int : devise of the order : 0 for normal & 1 for gold
-exports.kd_clothingstore:RegisterFilter('canAccessToSpecificClothes', function(canAccess,source,clothesData,moneyType)
+exports.kd_clothingstore:RegisterFilter('canAccessToSpecificClothes', function(canAccess, source, clothesData, moneyType)
 	return canAccess
 end)
+
 ```
 #### <Badge type="server" text="Server" /> Restrict the using of clothes/outfit item
 Fires when a player use an item
@@ -481,9 +505,10 @@ Fires when a player use an item
 -- @param canUse - boolean : return false to not use the item
 -- @param source - int : serverID of the player
 -- @param metadata - table : item metadata
-exports.kd_clothingstore:RegisterFilter('canUseItem', function(canUse,source,metadata)
+exports.kd_clothingstore:RegisterFilter('canUseItem', function(canUse, source, metadata)
 	return canAccess
 end)
+
 ```
 
 ## 5. Compatibility issues

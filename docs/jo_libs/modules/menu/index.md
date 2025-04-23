@@ -22,16 +22,19 @@ Your players will love the innovative features, including the grid layout, color
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the Menu module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'menu',
 }
+
 ```
 3. Add the Menu UI inside the `fxmanifest.lua`
 ```lua
 ui_page "nui://jo_libs/nui/menu/index.html"
+
 ```
 You can now use the library inside of your resource with the `jo.menu` global variable.
 

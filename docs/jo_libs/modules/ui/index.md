@@ -9,12 +9,14 @@ Ui is a module to provide functions to interact with specific native UI elements
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the UI module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'ui',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.ui` global variable.
 

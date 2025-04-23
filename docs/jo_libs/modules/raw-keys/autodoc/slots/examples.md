@@ -8,6 +8,7 @@ jo.rawKeys.listen("A", function(pressed)
     print("Key A released")
   end
 end)
+
 ```
 <!-- #endregion client|jo.rawKeys.listen -->
 
@@ -16,6 +17,7 @@ end)
 #### Example
 ```lua
 jo.rawKeys.remove("A")
+
 ```
 <!-- #endregion client|jo.rawKeys.remove -->
 

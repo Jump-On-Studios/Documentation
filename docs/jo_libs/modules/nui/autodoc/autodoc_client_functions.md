@@ -13,6 +13,7 @@ Forces focus on a specific NUI interface <br>
 
 ```lua
 jo.nui.forceFocus(uiName)
+
 ```
 
 #### Parameters
@@ -39,6 +40,7 @@ Loads a NUI interface <br>
 
 ```lua
 jo.nui.load(uiName, url)
+
 ```
 
 #### Parameters
@@ -69,6 +71,7 @@ Resets the focus from any NUI interface <br>
 
 ```lua
 jo.nui.resetFocus()
+
 ```
 
 <!-- @include: ./slots/examples.md#client|jo.nui.resetFocus -->

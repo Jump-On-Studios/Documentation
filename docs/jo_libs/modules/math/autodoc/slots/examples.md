@@ -7,6 +7,7 @@ local factor = 0.5 -- 50% between start and end
 
 local result = math.lerp(startValue, endValue, factor)
 print(result) -- Output: 50
+
 ```
 <!-- #endregion shared|math.lerp -->
 
@@ -27,5 +28,6 @@ print(rounded2Decimal) -- Output: 3.14
 local price = 19.9567
 local formattedPrice = math.round(price, 2)
 print("$" .. formattedPrice) -- Output: $19.95
+
 ```
 <!-- #endregion shared|math.round -->

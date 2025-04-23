@@ -9,12 +9,14 @@ Light is a module to enable the creation and dynamic management of light sources
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the light module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'light',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.light` global variable.
 

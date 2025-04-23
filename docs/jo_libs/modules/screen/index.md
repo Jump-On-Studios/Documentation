@@ -9,12 +9,14 @@ Screen module is a module to control screen effects such as fades, transitions, 
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the Screen module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'screen',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.screen` global variable.
 

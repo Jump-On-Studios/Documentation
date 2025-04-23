@@ -2,6 +2,7 @@
 #### Example
 ```lua
 -- todo
+
 ```
 <!-- #endregion server|jo.triggerEvent.server -->
 

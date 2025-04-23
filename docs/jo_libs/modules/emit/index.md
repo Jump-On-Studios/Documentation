@@ -9,12 +9,14 @@ Emit is a module to optimize your trigger events server <> client. It's especial
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the Emit module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'emit',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.emit` global variable.
 

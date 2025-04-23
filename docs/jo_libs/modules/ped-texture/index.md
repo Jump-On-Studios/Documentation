@@ -9,12 +9,14 @@ Ped Texture is a powerful module to manage ped texture like make-up/tattoo...
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the Ped Texture module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'pedTexture',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.pedTexture` global variable.
 

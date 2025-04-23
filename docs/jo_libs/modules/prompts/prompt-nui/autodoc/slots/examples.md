@@ -6,17 +6,18 @@ local group = jo.promptNui.createGroup("Main Menu", "bottom-right")
 local prompt1 = group:addPrompt("E", "Interact")
 
 -- Example 2: Add a prompt using a table of keys and specifying page 2.
-local prompt2 = group:addPrompt({"W", "A"}, "Move", false, 2)
+local prompt2 = group:addPrompt({ "W", "A" }, "Move", false, 2)
 
 -- Example 3: Add a prompt with no hold time (using false) on the default page.
 local prompt3 = group:addPrompt("Q", "Quick Action", false)
 
 -- Example 4: Add multiple prompts with different configurations.
 local prompt4 = group:addPrompt("F", "Fire", 1000)
-local prompt5 = group:addPrompt({"R", "T"}, "Reload", 750, 1)
+local prompt5 = group:addPrompt({ "R", "T" }, "Reload", 750, 1)
 
 -- Example 5: Add a prompt with a red title
 local prompt6 = group:addPrompt("O", "<span style='color:red'>Set on Fire</span>")
+
 ```
 <!-- #endregion client|GroupClass:addPrompt -->
 
@@ -26,6 +27,7 @@ local prompt6 = group:addPrompt("O", "<span style='color:red'>Set on Fire</span>
 ```lua
 local group = jo.promptNui.createGroup()
 group:display()
+
 ```
 <!-- #endregion client|GroupClass:display -->
 
@@ -35,6 +37,7 @@ group:display()
 ```lua
 local group = jo.promptNui.createGroup()
 group:hide()
+
 ```
 <!-- #endregion client|GroupClass:hide -->
 
@@ -47,6 +50,7 @@ group:display()
 print(group:isVisible()) -- return true
 group:hide()
 print(group:isVisible()) -- return false
+
 ```
 <!-- #endregion client|GroupClass:isVisible -->
 
@@ -67,6 +71,7 @@ group:refreshNUI("position")
 
 -- Note: Typically you would use setTitle() and setPosition() methods
 -- which call refreshNUI internally, but this shows direct usage
+
 ```
 <!-- #endregion client|GroupClass:refreshNUI -->
 
@@ -76,6 +81,7 @@ group:refreshNUI("position")
 ```lua
 local group = jo.promptNui.createGroup()
 group:setNextPageKey("N")
+
 ```
 <!-- #endregion client|GroupClass:setNextPageKey -->
 
@@ -85,6 +91,7 @@ group:setNextPageKey("N")
 ```lua
 local group = jo.promptNui.createGroup()
 group:setPosition("top-left")
+
 ```
 <!-- #endregion client|GroupClass:setPosition -->
 
@@ -102,6 +109,7 @@ group:setTitle(false)
 
 -- Example 3: Set a title with an icon using HTML tags
 group:setTitle("<img src='icon.png'> Options")
+
 ```
 <!-- #endregion client|GroupClass:setTitle -->
 
@@ -127,6 +135,7 @@ prompt:refreshNUI("visible")
 
 -- Note: Typically you would use setLabel(), setEnabled(), setVisible() methods
 -- which call refreshNUI internally, but this shows direct usage
+
 ```
 <!-- #endregion client|PromptClass:refreshNUI -->
 
@@ -137,6 +146,7 @@ prompt:refreshNUI("visible")
 local group = jo.promptNui.createGroup("Main Menu", "bottom-right")
 local prompt = group:addPrompt("E", "Interact")
 prompt:setEnabled(false)
+
 ```
 <!-- #endregion client|PromptClass:setEnabled -->
 
@@ -147,6 +157,7 @@ prompt:setEnabled(false)
 local group = jo.promptNui.createGroup("Main Menu", "bottom-right")
 local prompt = group:addPrompt("E", "Interact")
 prompt:setHoldTime(500)
+
 ```
 <!-- #endregion client|PromptClass:setHoldTime -->
 
@@ -158,7 +169,8 @@ local group = jo.promptNui.createGroup("Main Menu", "bottom-right")
 local prompt = group:addPrompt("E", "Interact")
 prompt:setKeyboardKeys("A")
 -- or
-prompt:setKeyboardKeys({"E", "F"})
+prompt:setKeyboardKeys({ "E", "F" })
+
 ```
 <!-- #endregion client|PromptClass:setKeyboardKeys -->
 
@@ -171,6 +183,7 @@ local prompt = group:addPrompt("E", "Interact")
 prompt:setLabel("Press E to interact")
 -- or
 prompt:setLabel("Press E to <span style='color:red'>interact</span>")
+
 ```
 <!-- #endregion client|PromptClass:setLabel -->
 
@@ -181,6 +194,7 @@ prompt:setLabel("Press E to <span style='color:red'>interact</span>")
 local group = jo.promptNui.createGroup("Main Menu", "bottom-right")
 local prompt = group:addPrompt("E", "Interact")
 prompt:setVisible(false)
+
 ```
 <!-- #endregion client|PromptClass:setVisible -->
 
@@ -202,6 +216,7 @@ local group4 = jo.promptNui.createGroup(false, "top-right")
 
 -- Example 5: Create a group with a red title
 local group4 = jo.promptNui.createGroup("<span style='color:red'>My Red Menu</span>")
+
 ```
 <!-- #endregion client|jo.promptNui.createGroup -->
 
@@ -221,6 +236,7 @@ CreateThread(function()
     Wait(0)
   end
 end)
+
 ```
 <!-- #endregion client|jo.promptNui.isCompleted -->
 

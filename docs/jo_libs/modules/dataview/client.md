@@ -23,4 +23,5 @@ if Citizen.InvokeNative(0x79923CD21BECE14E, 1, view:Buffer(), Citizen.ReturnResu
         upperCaseName = view:GetFixedString(248, 64),
     }
 end
+
 ```
