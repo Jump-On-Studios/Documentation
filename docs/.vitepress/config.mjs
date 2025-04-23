@@ -83,6 +83,9 @@ let sideBarModules = GenerateMenu(libModules);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  ignoreDeadLinks:[
+    "./user"
+  ],
   sitemap: {
     hostname: "https://docs.jumpon-studios.com",
   },

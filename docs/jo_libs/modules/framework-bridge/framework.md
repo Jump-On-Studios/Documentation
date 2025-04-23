@@ -9,7 +9,7 @@ The class is automatically initiated when you load the library under the `jo.fra
 :::
 ::: tip
 If you have a custom framework, you can overwrite methods by added them in the overwrite-functions.lua file.  
-Read more about [OWFramework](./OWFramework.md).
+<!-- Read more about [OWFramework](./OWFramework.md). -->
 #### Syntax
 ```lua
 function OWFramework.<MethodName>()
