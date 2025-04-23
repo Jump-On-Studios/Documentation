@@ -1,6 +1,6 @@
 # Emit
 
-Emit is a module to xxxxx
+Emit is a module to optimize your trigger events server <> client. It's especially usefull for large data or sending data to specific players.
 
 ## Include Emit in your script
 

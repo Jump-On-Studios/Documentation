@@ -1,6 +1,6 @@
 # Animation
 
-Animation is a module to play animations in your script.
+Animation is a module to play ped animations in your script.
 
 ## Include Animation in your script
 

@@ -3,7 +3,7 @@ outline: [2,3]
 ---
 # Emit <BadgeClient/>
 
-A module to xxxx
+A module to optimize your trigger events server <> client.
 
 <!--@include: ./autodoc/convars/autodoc_client_convars.md-->
 
