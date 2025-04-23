@@ -168,7 +168,7 @@ prompt:setHoldTime(500)
 local group = jo.promptNui.createGroup("Main Menu", "bottom-right")
 local prompt = group:addPrompt("E", "Interact")
 prompt:setKeyboardKeys("A")
--- or
+-- OR --
 prompt:setKeyboardKeys({ "E", "F" })
 
 ```
@@ -181,7 +181,7 @@ prompt:setKeyboardKeys({ "E", "F" })
 local group = jo.promptNui.createGroup("Main Menu", "bottom-right")
 local prompt = group:addPrompt("E", "Interact")
 prompt:setLabel("Press E to interact")
--- or
+-- OR --
 prompt:setLabel("Press E to <span style='color:red'>interact</span>")
 
 ```
