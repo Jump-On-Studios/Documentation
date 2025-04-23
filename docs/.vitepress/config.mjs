@@ -261,6 +261,12 @@ export default defineConfig({
                 collapsed: true,
                 items: sideBarModules.items,
               },
+              {
+                text: "Convars",
+                link: "/convars/",
+                collapsed: true,
+                items:[]
+              },
             ],
           },
           {

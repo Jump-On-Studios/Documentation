@@ -231,3 +231,44 @@ jo.entity.requestControl(entity)
 
 <!-- @include: ./slots/footers.md#client|jo.entity.requestControl -->
 
+---
+
+### jo.entity.selectWithMouse()
+
+<!-- @include: ./slots/headers.md#client|jo.entity.selectWithMouse -->
+
+Raycast from the camera through the mouse cursor position and return what was hit <br>
+Must be called each frames <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.entity.selectWithMouse -->
+
+#### Syntax
+
+```lua
+jo.entity.selectWithMouse(distance, flags, toIgnore)
+```
+
+#### Parameters
+
+`distance` : _number_ <BadgeOptional />
+> Maximum raycast distance <br> default:100
+>
+
+`flags` : _integer_ <BadgeOptional />
+> Flags for the raycast <br> default:(1|2|8|16)
+>
+
+`toIgnore` : _integer_ <BadgeOptional />
+> Entity to ignore in the raycast <br> default:PlayerPedId()
+>
+
+#### Return Value
+
+Type : _boolean,vector3,integer_
+
+> Hit status, hit coordinates, hit entity
+
+<!-- @include: ./slots/examples.md#client|jo.entity.selectWithMouse -->
+
+<!-- @include: ./slots/footers.md#client|jo.entity.selectWithMouse -->
+

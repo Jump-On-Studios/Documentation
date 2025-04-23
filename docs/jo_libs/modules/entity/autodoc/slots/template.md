@@ -33,6 +33,11 @@
 <!-- #endregion client|jo.entity.requestControl -->
 
 
+<!-- #region client|jo.entity.selectWithMouse -->
+
+<!-- #endregion client|jo.entity.selectWithMouse -->
+
+
 <!-- #region server|jo.entity.delete -->
 
 <!-- #endregion server|jo.entity.delete -->

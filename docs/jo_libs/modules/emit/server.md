@@ -5,4 +5,6 @@ outline: [2,3]
 
 A module to xxx
 
+<!--@include: ./autodoc/convars/autodoc_server_convars.md-->
+
 <!--@include: ./autodoc/autodoc_server_functions.md-->

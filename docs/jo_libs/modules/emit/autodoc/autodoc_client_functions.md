@@ -5,8 +5,6 @@
 
 <!-- @include: ./slots/headers.md#client|jo.emit.isEventInProgress -->
 
-A function to check if an event is currently getting data with emit module <br>
-
 <!-- @include: ./slots/descriptions.md#client|jo.emit.isEventInProgress -->
 
 #### Syntax
@@ -14,10 +12,6 @@ A function to check if an event is currently getting data with emit module <br>
 ```lua
 jo.emit.isEventInProgress(eventName)
 ```
-
-#### Parameters
-
-`eventName` : _string_
 
 <!-- @include: ./slots/examples.md#client|jo.emit.isEventInProgress -->
 
