@@ -1,6 +1,7 @@
 # NUI
 
 NUI is a module to provide basic utilities for managing NUI interfaces.
+With NUI module, you can load multiples nui page inside the same resource.
 
 ## Include NUI in your script
 
