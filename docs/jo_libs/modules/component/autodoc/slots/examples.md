@@ -48,7 +48,7 @@ print(isUnder)
 #### Example
 ```lua
 local ped = PlayerPedId()
-local data = { hash = joaat('CLOTHING_ITEM_M_SHIRT_209_TINT_005') }
+local data = { hash = joaat("CLOTHING_ITEM_M_SHIRT_209_TINT_005") }
 jo.component.collarClose(ped, data)
 
 ```
@@ -70,7 +70,7 @@ print(isOpened)
 #### Example
 ```lua
 local ped = PlayerPedId()
-local data = { hash = joaat('CLOTHING_ITEM_M_SHIRT_209_TINT_005') }
+local data = { hash = joaat("CLOTHING_ITEM_M_SHIRT_209_TINT_005") }
 jo.component.collarOpen(ped, data)
 
 ```
