@@ -464,8 +464,6 @@ Type : _boolean_
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:createInventory -->
 
 Creates a custom inventory with configurable slots, weight limits, and item restrictions <br>
-> └ x.item string (Name of the whitelisted item) <br>
-> └ x.limit integer (Stack limit of this item) <br>
 
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:createInventory -->
 
@@ -501,6 +499,10 @@ jo.framework:createInventory(invName, name, invConfig)
 > `invConfig.ignoreStackLimit` : _boolean_ - If the inventory can overcoming stack limits <BadgeOptional />
 > 
 > `invConfig.whitelist` : _table_ - Restrict the list of items that can be put in the inventory <BadgeOptional />
+> 
+> `invConfig.whitelistˌ_x_ˌitem` : _string_ - Name of the whitelisted item
+> 
+> `invConfig.whitelistˌ_x_ˌlimit` : _integer_ - Stack limit of this item
 > 
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:createInventory -->
