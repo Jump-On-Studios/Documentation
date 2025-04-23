@@ -78,6 +78,16 @@
 <!-- #endregion g_client|jo.component.getEyesFromIndex -->
 
 
+<!-- #region g_client|jo.component.getFullHorseComponentList -->
+
+<!-- #endregion g_client|jo.component.getFullHorseComponentList -->
+
+
+<!-- #region g_client|jo.component.getFullPedComponentList -->
+
+<!-- #endregion g_client|jo.component.getFullPedComponentList -->
+
+
 <!-- #region g_client|jo.component.getHeadFromSkinTone -->
 
 <!-- #endregion g_client|jo.component.getHeadFromSkinTone -->

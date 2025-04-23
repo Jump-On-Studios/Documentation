@@ -13,6 +13,10 @@
 jo.emit.isEventInProgress(eventName)
 ```
 
+#### Parameters
+
+`eventName` : _string_
+
 <!-- @include: ./slots/examples.md#client|jo.emit.isEventInProgress -->
 
 <!-- @include: ./slots/footers.md#client|jo.emit.isEventInProgress -->

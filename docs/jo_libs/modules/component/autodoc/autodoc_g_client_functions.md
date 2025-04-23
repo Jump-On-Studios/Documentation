@@ -607,6 +607,56 @@ Type : _string_
 
 ---
 
+### jo.component.getFullHorseComponentList()
+
+<!-- @include: ./slots/headers.md#g_client|jo.component.getFullHorseComponentList -->
+
+A function to get the list of horse's components sorted by category <br>
+
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getFullHorseComponentList -->
+
+#### Syntax
+
+```lua
+jo.component.getFullHorseComponentList()
+```
+
+#### Return Value
+
+Type : _table_
+
+
+<!-- @include: ./slots/examples.md#g_client|jo.component.getFullHorseComponentList -->
+
+<!-- @include: ./slots/footers.md#g_client|jo.component.getFullHorseComponentList -->
+
+---
+
+### jo.component.getFullPedComponentList()
+
+<!-- @include: ./slots/headers.md#g_client|jo.component.getFullPedComponentList -->
+
+A function to get the list of clothes sorted by sex and category <br>
+
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getFullPedComponentList -->
+
+#### Syntax
+
+```lua
+jo.component.getFullPedComponentList()
+```
+
+#### Return Value
+
+Type : _table_
+
+
+<!-- @include: ./slots/examples.md#g_client|jo.component.getFullPedComponentList -->
+
+<!-- @include: ./slots/footers.md#g_client|jo.component.getFullPedComponentList -->
+
+---
+
 ### jo.component.getHeadFromSkinTone()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getHeadFromSkinTone -->
