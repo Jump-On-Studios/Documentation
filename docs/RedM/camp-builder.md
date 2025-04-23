@@ -1,12 +1,15 @@
 # :tent: Camp builder
 Documentation relating to the kd_campbuilder.
 
-:::tabs
-== BUY
+:::: tabs
+::: tab BUY
 [Buy the script](https://jumpon-studios.com/redm/camp-builder)
-== PREVIEW
+:::
+
+::: tab PREVIEW
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4tKYbyswJGQ?si=vmhF5oiiYUOn8RJp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
+::::
 
 ## 1. Installation
 kd_campbuilder works with RedEM:RP and VORP. Be sure you installed one of them before to use this script.

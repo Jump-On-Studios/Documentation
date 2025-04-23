@@ -1,6 +1,6 @@
 # Notification
 
-Notification module to display notification on the player screen.
+Notification is a module to offer functions to display various types of native-style notifications on the player's screen.
 
 ## Include Notification in your script
 

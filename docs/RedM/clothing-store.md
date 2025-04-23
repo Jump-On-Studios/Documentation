@@ -1,12 +1,15 @@
 # :necktie: Clothing Store
 Documentation relating to the kd_clothingstore.
 
-:::tabs
-== BUY
+:::: tabs
+::: tab BUY
 [Buy the script](https://jumpon-studios.com/redm/clothing-store)
-== PREVIEW
+:::
+
+::: tab PREVIEW
 <iframe width="560" height="315" src="https://www.youtube.com/embed/afp8_zY7WX0?si=tWRzRmBMctwgdtKA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
+::::
 
 ## 1. Installation
 kd_clothingstore works on all frameworks compatible with jo_libs ([the list](/jo_libs/)).

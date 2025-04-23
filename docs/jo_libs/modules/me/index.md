@@ -1,6 +1,6 @@
 # Me
 
-Me module is a fully optimize way to get the classic data from the player, list PlayerPedId(), coordinates, ...
+Me is a a module to provide optimized, cached access to common local player data.
 
 ## Include Me in your script
 

@@ -1,6 +1,6 @@
 # UI
 
-UI is a module to manage the UI element of the game.
+Ui is a module to provide functions to interact with specific native UI elements.
 
 ## Include UI in your script
 
@@ -16,7 +16,7 @@ jo_libs {
   'ui',
 }
 ```
-You can now use the library inside of your resource with the `ui` global variable.
+You can now use the library inside of your resource with the `jo.ui` global variable.
 
 ## Functions
 

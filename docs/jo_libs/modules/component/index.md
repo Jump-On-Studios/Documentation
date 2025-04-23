@@ -1,6 +1,6 @@
 # Component
 
-Component is a very usefull module to manage ped component.
+Component is a module to offer tools for managing ped appearance, including applying, removing, and querying clothing components and skin attributes.
 
 ## Include Component in your script
 

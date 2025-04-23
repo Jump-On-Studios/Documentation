@@ -1,12 +1,15 @@
 # :deer: Hunting wagon Storage
 Documentation relating to the kd_huntingwagon.
 
-:::tabs
-== BUY
+:::: tabs
+::: tab BUY
 [Buy the script](https://jumpon-studios.com/redm/hunting-wagon)
-== PREVIEW
+:::
+
+::: tab PREVIEW
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CA1v7WScf_U?si=i_uMbhvL92IlO7Db" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
+::::
 
 ## 1. Installation
 kd_huntingwagon is a standalone script. So you don't need a specific framework to use it. It's also mean it works with all framework (VORP, RedEM:RP, QBCore, …).

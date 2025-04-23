@@ -1,6 +1,6 @@
 # Framework
 
-Framework module is a very powerfull module to build a multi-framework script.
+Framework is a powerful module to act as a compatibility layer, allowing scripts to interact with various RedM frameworks using a standardized set of functions.
 
 ## Include Framework in your script
 
@@ -28,5 +28,6 @@ The **framework bridge** module is compatible with these frameworks:
   
 ## Functions
 
-Documentation for the [Server](./server-class/framework.md) side  
+Documentation for the [Framework](./framework.md)  
+Documentation for the [User](./user.md) 
 

@@ -1,28 +1,8 @@
 ---
-outline: 2
+outline: [2,3]
 ---
-# String
+# String <BadgeShared/>
 
-String module is an upgrader of string LUA module to add more functions.
+The String module extends Lua's native string capabilities by adding powerful utility functions for enhanced string manipulation. It seamlessly integrates with the standard string library by augmenting the string metatable, providing developers with a comprehensive toolkit for case conversion, string splitting, whitespace trimming, version number handling, and hexadecimal conversions.
 
-## string.firstToUpper()
-Return the string with the first letter in uppercase
-### Syntax
-```lua
-string.firstToUpper(str)
-```
-#### Parameters
-`str` : *srtring*
-> The sentence you want edit
-  
-
-#### Return value
-Type: *string*
-> Return the string with the first letter in uppercase
-  
-### Example
-```lua
-local first = string.firstToUpper('test')
-print(first)
---Expected output: Test
-```
+<!--@include: ./autodoc/autodoc_shared_functions.md-->
