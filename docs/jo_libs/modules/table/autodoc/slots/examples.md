@@ -10,7 +10,7 @@ local tbl = {
 }
 local tbl2 = table.clearForNui(tbl)
 print(json.encode(tbl2))
---Expected output: tbl2 = {a = 4, c = 10}
+-- Expected output: tbl2 = {a = 4, c = 10}
 
 ```
 <!-- #endregion shared|table.clearForNui -->
@@ -79,7 +79,7 @@ local filter = function(element, key, tble)
 end
 local tbl2 = table.filter(tbl, filter)
 print(json.encode(tbl2))
---Expected output : tbl = {b=2}
+-- Expected output : tbl = {b=2}
 
 ```
 <!-- #endregion shared|table.filter -->
@@ -94,7 +94,7 @@ local cb = function(element)
 end
 local found = table.find(tbl,cb)
 print(found)
---Expected output : 12
+-- Expected output : 12
 ```
 <!-- #endregion shared|table.find -->
 
@@ -142,7 +142,7 @@ local cb = function(element)
 end
 local tbl2 = table.map(tbl, cb)
 print(json.encode(tbl2))
---Expected output : tbl2 = {2,8,18,32}
+-- Expected output : tbl2 = {2,8,18,32}
 
 ```
 <!-- #endregion shared|table.map -->

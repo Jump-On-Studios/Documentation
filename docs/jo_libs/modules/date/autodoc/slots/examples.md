@@ -4,7 +4,7 @@
 local gap = 10000003
 local forHumain = jo.date.convertMsToInterval(gap)
 print(forHumain)
---Expected output: '2h, 46min, 40s, 3ms'
+-- Expected output: '2h, 46min, 40s, 3ms'
 
 ```
 <!-- #endregion shared|jo.date.convertMsToInterval -->

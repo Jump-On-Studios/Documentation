@@ -27,7 +27,14 @@ jo.component.applyComponents(ped, clothes)
 <!-- #region g_client|jo.component.applySkin -->
 #### Example
 ```lua
--- todo
+local ped = PlayerPedId()
+local skin = {
+  model = "mp_male",
+  headIndex = 1,
+  skinTone = 1,
+  bodiesIndex = 1,
+}
+jo.component.applySkin(ped, skin)
 
 ```
 <!-- #endregion g_client|jo.component.applySkin -->
@@ -80,7 +87,15 @@ jo.component.collarOpen(ped, data)
 <!-- #region g_client|jo.component.getBodiesLowerFromSkinTone -->
 #### Example
 ```lua
--- todo
+local ped = PlayerPedId()
+local bodiesIndex = 1
+local skinTone = 2
+local hash = jo.component.getBodiesLowerFromSkinTone(ped, bodiesIndex, skinTone)
+print(hash)
+-- OR --
+local pedModel = "mp_male"
+local hash = jo.component.getBodiesLowerFromSkinTone(pedModel, bodiesIndex, skinTone)
+print(hash)
 
 ```
 <!-- #endregion g_client|jo.component.getBodiesLowerFromSkinTone -->
@@ -89,7 +104,15 @@ jo.component.collarOpen(ped, data)
 <!-- #region g_client|jo.component.getBodiesUpperFromSkinTone -->
 #### Example
 ```lua
--- todo
+local ped = PlayerPedId()
+local bodiesIndex = 1
+local skinTone = 2
+local hash = jo.component.getBodiesUpperFromSkinTone(ped, bodiesIndex, skinTone)
+print(hash)
+-- OR --
+local pedModel = "mp_male"
+local hash = jo.component.getBodiesUpperFromSkinTone(pedModel, bodiesIndex, skinTone)
+print(hash)
 
 ```
 <!-- #endregion g_client|jo.component.getBodiesUpperFromSkinTone -->
@@ -101,7 +124,7 @@ jo.component.collarOpen(ped, data)
 local ped = PlayerPedId()
 local categories = jo.component.getCategoriesEquiped(ped)
 print(json.encode(categories))
---Expected output: categories = { 539411565 = {index = 1, category = "shirts_full"}, 491541130 = { index = 2, category = "pants"} }
+-- Expected output: categories = { 539411565 = {index = 1, category = "shirts_full"}, 491541130 = { index = 2, category = "pants"} }
 
 ```
 <!-- #endregion g_client|jo.component.getCategoriesEquiped -->
@@ -110,7 +133,10 @@ print(json.encode(categories))
 <!-- #region g_client|jo.component.getCategoryNameFromHash -->
 #### Example
 ```lua
--- todo
+local hash = 0x9925C067
+local category = jo.component.getCategoryNameFromHash(hash)
+print(category)
+-- Expected output: `hats`
 
 ```
 <!-- #endregion g_client|jo.component.getCategoryNameFromHash -->
@@ -135,7 +161,7 @@ local ped = PlayerPedId()
 local hash = joaat("CLOTHING_ITEM_F_HAT_241_PANTHER_VAR_001")
 local catHash, isMp = jo.component.getComponentCategory(ped, hash)
 print(catHash, isMp)
---Expected output: -1725579161, true
+-- Expected output: -1725579161, true
 
 ```
 <!-- #endregion g_client|jo.component.getComponentCategory -->
@@ -167,9 +193,17 @@ print(json.encode(components))
 <!-- #region g_client|jo.component.getEyesFromIndex -->
 #### Example
 ```lua
--- todo
+local ped = PlayerPedId()
+local index = 1
+local hash = jo.component.getEyesFromIndex(ped, index)
+print(hash)
+-- OR --
+local pedModel = "mp_female"
+local hash = jo.component.getEyesFromIndex(pedModel, index)
+print(hash)
 
 ```
+
 <!-- #endregion g_client|jo.component.getEyesFromIndex -->
 
 

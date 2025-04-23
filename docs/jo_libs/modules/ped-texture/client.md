@@ -26,7 +26,7 @@ jo.pedTexture.categories[layername]
 ```lua
 local part = jo.pedTexture.categories.eyeshadow
 print(part)
---Expected output: heads
+-- Expected output: heads
 
 ```
 

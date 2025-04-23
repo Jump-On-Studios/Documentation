@@ -3,7 +3,7 @@
 ```lua
 local timeout = jo.timeout.set(1000, function() print("Done") end)
 timeout:clear()
---Expected output : Nothing because the function was canceled
+-- Expected output : Nothing because the function was canceled
 
 ```
 <!-- #endregion shared|TimeoutClass:clear -->
@@ -14,7 +14,7 @@ timeout:clear()
 ```lua
 local timeout = TimeoutClass:set(1000, function() print('Done') end)
 timeout:execute()
---Expected output: 'Done' after 1000 ms
+-- Expected output: 'Done' after 1000 ms
 
 ```
 <!-- #endregion shared|TimeoutClass:execute -->
@@ -47,7 +47,7 @@ local timeout = jo.timeout.set(1000, function() print('Done') end)
 timeout:setCb(function()
     print('Done overwrited')
 end)
---Expected output: "Done overwrited" printed after 1000ms
+-- Expected output: "Done overwrited" printed after 1000ms
 
 ```
 <!-- #endregion shared|TimeoutClass:setCb -->
@@ -90,7 +90,7 @@ local id = "TheUniqueID"
 local delay = jo.timeout.delay(id, 1000, function() print('Done') end)
 Wait(500)
 local delay2 = jo.timeout.delay(id, 1000, function() print('Done 2') end)
---Expected output : "Done 2" printed after 1500ms (500 + 1000). delay function was canceled by delay2 because it's the same id
+-- Expected output : "Done 2" printed after 1500ms (500 + 1000). delay function was canceled by delay2 because it's the same id
 
 ```
 <!-- #endregion shared|jo.timeout.delay -->
@@ -102,7 +102,7 @@ local delay2 = jo.timeout.delay(id, 1000, function() print('Done 2') end)
 jo.timeout.loop(1000, function()
     print(GetGameTimer())
 end)
---Expected output: The GetGameTimer() will be printed every 1000 msec
+-- Expected output: The GetGameTimer() will be printed every 1000 msec
 
 ```
 <!-- #endregion shared|jo.timeout.loop -->
@@ -116,7 +116,7 @@ local cb = function()
     print('Fired')
 end
 jo.timeout.set(waiter, cb)
---Expected output: 'Fired' after 1000 ms
+-- Expected output: 'Fired' after 1000 ms
 
 ```
 <!-- #endregion shared|jo.timeout.set -->
