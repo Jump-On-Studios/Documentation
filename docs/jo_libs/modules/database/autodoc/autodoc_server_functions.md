@@ -13,7 +13,6 @@ A function to create a column in a specific table if not exist <br>
 
 ```lua
 jo.database.addColumn(tableName, name, definition)
-
 ```
 
 #### Parameters
@@ -54,7 +53,6 @@ A function to create a table if not exist <br>
 
 ```lua
 jo.database.addTable(tableName, definition)
-
 ```
 
 #### Parameters
@@ -91,7 +89,6 @@ A function to create a trigger if not exist <br>
 
 ```lua
 jo.database.addTrigger(triggerName, definition)
-
 ```
 
 #### Parameters

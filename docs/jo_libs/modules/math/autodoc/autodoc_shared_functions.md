@@ -13,7 +13,6 @@ Performs linear interpolation between two values. <br>
 
 ```lua
 math.lerp(a, b, t)
-
 ```
 
 #### Parameters
@@ -54,7 +53,6 @@ Rounds a number to the specified decimal precision. <br>
 
 ```lua
 math.round(number, precision)
-
 ```
 
 #### Parameters

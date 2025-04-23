@@ -13,7 +13,6 @@ Creates a new light with the given properties <br>
 
 ```lua
 jo.light.create(coords, intensity, rgb, range, ease)
-
 ```
 
 #### Parameters
@@ -65,7 +64,6 @@ Marks a light for deletion and starts fading it out <br>
 
 ```lua
 LightClass:delete()
-
 ```
 
 <!-- @include: ./slots/examples.md#client|LightClass:delete -->
@@ -86,7 +84,6 @@ Sets new target coordinates for the light <br>
 
 ```lua
 LightClass:setCoords(coords)
-
 ```
 
 #### Parameters
@@ -113,7 +110,6 @@ Sets new target intensity for the light <br>
 
 ```lua
 LightClass:setIntensity(intensity)
-
 ```
 
 #### Parameters
@@ -140,7 +136,6 @@ Updates the light properties based on elapsed time <br>
 
 ```lua
 LightClass:update(deltaTime)
-
 ```
 
 #### Parameters

@@ -13,7 +13,6 @@ A function to delay execution. If another delay is created with the same id, the
 
 ```lua
 jo.timeout.delay(id, msec, cb, ...)
-
 ```
 
 #### Parameters
@@ -58,7 +57,6 @@ Create a loop to execute the function at regular interval <br>
 
 ```lua
 jo.timeout.loop(msec, cb, ...)
-
 ```
 
 #### Parameters
@@ -99,7 +97,6 @@ A function to set a timeout <br>
 
 ```lua
 jo.timeout.set(msec, cb, ...)
-
 ```
 
 #### Parameters
@@ -142,7 +139,6 @@ Prevents the callback from being executed <br>
 
 ```lua
 TimeoutClass:clear()
-
 ```
 
 <!-- @include: ./slots/examples.md#shared|TimeoutClass:clear -->
@@ -164,7 +160,6 @@ Automatically clears the timeout and passes any stored arguments to the callback
 
 ```lua
 TimeoutClass:execute()
-
 ```
 
 <!-- @include: ./slots/examples.md#shared|TimeoutClass:execute -->
@@ -185,7 +180,6 @@ Initialize a new timeout <br>
 
 ```lua
 TimeoutClass:set(msec, cb, args)
-
 ```
 
 #### Parameters
@@ -228,7 +222,6 @@ Change the callback function of the timeout <br>
 
 ```lua
 TimeoutClass:setCb(cb)
-
 ```
 
 #### Parameters
@@ -255,7 +248,6 @@ Change the timeout duration or waiter function <br>
 
 ```lua
 TimeoutClass:setMsec(msec)
-
 ```
 
 #### Parameters
@@ -283,7 +275,6 @@ Either waits for msec milliseconds or executes the waiter function <br>
 
 ```lua
 TimeoutClass:start()
-
 ```
 
 <!-- @include: ./slots/examples.md#shared|TimeoutClass:start -->

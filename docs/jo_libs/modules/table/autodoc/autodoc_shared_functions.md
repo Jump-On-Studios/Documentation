@@ -13,7 +13,6 @@ Returns a copy of the table with all function values removed. <br>
 
 ```lua
 table.clearForNui(t)
-
 ```
 
 #### Parameters
@@ -48,7 +47,6 @@ Deep copies a table. Unlike "=", it doesn't keep the link between both tables. <
 
 ```lua
 table.copy(orig)
-
 ```
 
 #### Parameters
@@ -83,7 +81,6 @@ Counts the number of values inside a table. <br>
 
 ```lua
 table.count(_table)
-
 ```
 
 #### Parameters
@@ -118,7 +115,6 @@ Extracts a value from a table by key and removes that key from the table. <br>
 
 ```lua
 table.extract(t, key)
-
 ```
 
 #### Parameters
@@ -157,7 +153,6 @@ Filters a table based on a callback function. <br>
 
 ```lua
 table.filter(t, filterIter, keepKeyAssociation)
-
 ```
 
 #### Parameters
@@ -200,7 +195,6 @@ Returns the first element in the table that satisfies the provided function. <br
 
 ```lua
 table.find(t, func)
-
 ```
 
 #### Parameters
@@ -239,7 +233,6 @@ Compares two tables for equality. <br>
 
 ```lua
 table.isEgal(table1, table2, strict, canMissInTable1, canMissInTable2)
-
 ```
 
 #### Parameters
@@ -292,7 +285,6 @@ Checks if a table is empty. <br>
 
 ```lua
 table.isEmpty(_table)
-
 ```
 
 #### Parameters
@@ -327,7 +319,6 @@ Creates a new table populated with the results of calling a function on every el
 
 ```lua
 table.map(t, func)
-
 ```
 
 #### Parameters
@@ -366,7 +357,6 @@ Merges two tables together. <br>
 
 ```lua
 table.merge(t1, t2)
-
 ```
 
 #### Parameters
@@ -407,7 +397,6 @@ Merges the values of the second table sequentially into the first table. <br>
 
 ```lua
 table.mergeAfter(t1, t2)
-
 ```
 
 #### Parameters

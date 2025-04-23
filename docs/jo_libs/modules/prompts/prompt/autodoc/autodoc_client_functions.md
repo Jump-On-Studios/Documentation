@@ -13,7 +13,6 @@ A function to create a new prompt. <br>
 
 ```lua
 jo.prompt.create(group, str, key, holdTime, page)
-
 ```
 
 #### Parameters
@@ -62,7 +61,6 @@ A function to delete a prompt. <br>
 
 ```lua
 jo.prompt.delete(group, key, page)
-
 ```
 
 #### Parameters
@@ -97,7 +95,6 @@ A function to delete all prompts created <br>
 
 ```lua
 jo.prompt.deleteAllGroups()
-
 ```
 
 <!-- @include: ./slots/examples.md#client|jo.prompt.deleteAllGroups -->
@@ -118,7 +115,6 @@ A function to delete a group and all its prompts. <br>
 
 ```lua
 jo.prompt.deleteGroup(group)
-
 ```
 
 #### Parameters
@@ -146,7 +142,6 @@ Needs to be called each frame. <br>
 
 ```lua
 jo.prompt.displayGroup(group, title)
-
 ```
 
 #### Parameters
@@ -177,7 +172,6 @@ A function that returns if it's the last prompt completed. <br>
 
 ```lua
 jo.prompt.doesLastCompletedIs(group, key, page)
-
 ```
 
 #### Parameters
@@ -218,7 +212,6 @@ A function to edit the label of a key. <br>
 
 ```lua
 jo.prompt.editKeyLabel(group, key, label, page)
-
 ```
 
 #### Parameters
@@ -257,7 +250,6 @@ A function to get the prompt ID. <br>
 
 ```lua
 jo.prompt.get(group, key, page)
-
 ```
 
 #### Parameters
@@ -298,7 +290,6 @@ A function to get all registered prompts. <br>
 
 ```lua
 jo.prompt.getAll()
-
 ```
 
 #### Return Value
@@ -325,7 +316,6 @@ A function to get the group ID. <br>
 
 ```lua
 jo.prompt.getGroup(group)
-
 ```
 
 #### Parameters
@@ -358,7 +348,6 @@ A function to get the current page ID for a group. <br>
 
 ```lua
 jo.prompt.getPage(group)
-
 ```
 
 #### Parameters
@@ -391,7 +380,6 @@ A function to return the progress of a prompt. <br>
 
 ```lua
 jo.prompt.getProgress(group, key, page)
-
 ```
 
 #### Parameters
@@ -432,7 +420,6 @@ A function to know if a prompt is active or not. <br>
 
 ```lua
 jo.prompt.isActive(group, key, page)
-
 ```
 
 #### Parameters
@@ -473,7 +460,6 @@ A function to test if the prompt is pressed and completed. <br>
 
 ```lua
 jo.prompt.isCompleted(group, key, fireMultipleTimes, page)
-
 ```
 
 #### Parameters
@@ -518,7 +504,6 @@ A function to know if the prompt is enabled. <br>
 
 ```lua
 jo.prompt.isEnabled(group, key, page)
-
 ```
 
 #### Parameters
@@ -559,7 +544,6 @@ A function to know if a prompt exists. <br>
 
 ```lua
 jo.prompt.isExist(group, key, page)
-
 ```
 
 #### Parameters
@@ -600,7 +584,6 @@ A function to know if a prompt group exists. <br>
 
 ```lua
 jo.prompt.isGroupExist(group)
-
 ```
 
 #### Parameters
@@ -633,7 +616,6 @@ A function to know if a key is pressed. <br>
 
 ```lua
 jo.prompt.isPressed(key)
-
 ```
 
 #### Parameters
@@ -666,7 +648,6 @@ A function to check if a prompt is visible. <br>
 
 ```lua
 jo.prompt.isVisible(group, key, page)
-
 ```
 
 #### Parameters
@@ -707,7 +688,6 @@ A function to define if the prompt is enabled or not. <br>
 
 ```lua
 jo.prompt.setEnabled(group, key, value, page)
-
 ```
 
 #### Parameters
@@ -746,7 +726,6 @@ A function to overwrite the prompt groups value. <br>
 
 ```lua
 jo.prompt.setGroups(groups)
-
 ```
 
 #### Parameters
@@ -775,7 +754,6 @@ Turn on/off a prompt. <br>
 
 ```lua
 jo.prompt.setVisible(group, key, value, page)
-
 ```
 
 #### Parameters
@@ -814,7 +792,6 @@ A function to wait for the release of pressed key. <br>
 
 ```lua
 jo.prompt.waitRelease(key)
-
 ```
 
 #### Parameters

@@ -15,7 +15,6 @@ Creates and returns a new User instance for the specified player <br>
 
 ```lua
 UserClass:get(source)
-
 ```
 
 #### Parameters
@@ -51,7 +50,6 @@ Adds money to the player <br>
 
 ```lua
 UserClass:addMoney(amount, moneyType)
-
 ```
 
 #### Parameters
@@ -82,7 +80,6 @@ Checks if a player has sufficient funds of a specified currency type <br>
 
 ```lua
 UserClass:canBuy(price, moneyType, removeIfCan)
-
 ```
 
 #### Parameters
@@ -123,7 +120,6 @@ Retrieves all identifiers associated with the player <br>
 
 ```lua
 UserClass:getIdentifiers()
-
 ```
 
 #### Return Value
@@ -150,7 +146,6 @@ Returns the current job assigned to a player <br>
 
 ```lua
 UserClass:getJob()
-
 ```
 
 #### Return Value
@@ -177,7 +172,6 @@ Gets the amount of money a player has of the specified type <br>
 
 ```lua
 UserClass:getMoney(moneyType)
-
 ```
 
 #### Parameters
@@ -210,7 +204,6 @@ Returns the roleplay name (first and last name) of the player <br>
 
 ```lua
 UserClass:getRPName()
-
 ```
 
 #### Return Value
@@ -237,7 +230,6 @@ Adds gold to the player's account <br>
 
 ```lua
 UserClass:giveGold(amount)
-
 ```
 
 #### Parameters
@@ -264,7 +256,6 @@ Removes money from the player <br>
 
 ```lua
 UserClass:removeMoney(amount, moneyType)
-
 ```
 
 #### Parameters
@@ -298,7 +289,6 @@ Adds a specific item to a custom inventory with optional metadata and wait param
 
 ```lua
 jo.framework:addItemInInventory(source, invId, item, quantity, metadata, needWait)
-
 ```
 
 #### Parameters
@@ -347,7 +337,6 @@ Adds money to a player <br>
 
 ```lua
 jo.framework:addMoney(source, amount, moneyType)
-
 ```
 
 #### Parameters
@@ -388,7 +377,6 @@ Checks if a player has the required quantity of a specific item in their invento
 
 ```lua
 jo.framework:canUseItem(source, item, amount, meta, remove)
-
 ```
 
 #### Parameters
@@ -439,7 +427,6 @@ Checks if a player has sufficient funds of a specified currency type <br>
 
 ```lua
 jo.framework:canUserBuy(source, amount, moneyType, removeIfCan)
-
 ```
 
 #### Parameters
@@ -472,44 +459,19 @@ Type : _boolean_
 
 ---
 
-### jo.framework:convertToPercent()
-
-<!-- @include: ./slots/headers.md#server|jo.framework:convertToPercent -->
-
-Converts a value to a percentage (between 0-1) whether input is in percentage or decimal form <br>
-
-<!-- @include: ./slots/descriptions.md#server|jo.framework:convertToPercent -->
-
-#### Syntax
-
-```lua
-jo.framework:convertToPercent(value)
-
-```
-
-#### Parameters
-
-`value` : _number_
-> The value to convert to percentage
->
-
-#### Return Value
-
-Type : _number_
-
-> Return the value as a decimal between -1 and 1
-
-<!-- @include: ./slots/examples.md#server|jo.framework:convertToPercent -->
-
-<!-- @include: ./slots/footers.md#server|jo.framework:convertToPercent -->
-
----
-
 ### jo.framework:createInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:createInventory -->
 
 Creates a custom inventory with configurable slots, weight limits, and item restrictions <br>
+└ invConfig.maxSlots integer (Max slot of the inventory) <br>
+└ invConfig.maxWeight float (Max weight of the inventory) <br>
+└ invConfig.acceptWeapons? boolean (Whether the inventory accepts weapons) <br>
+└ invConfig.shared? boolean (If the inventory is shared between players) <br>
+└ invConfig.ignoreStackLimit? boolean (If the inventory can overcoming stack limits) <br>
+└ invConfig.whitelist? table (Restrict the list of items that can be put in the inventory) <br>
+> └ x.item string (Name of the whitelisted item) <br>
+> └ x.limit integer (Stack limit of this item) <br>
 
 <!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:createInventory -->
 
@@ -517,7 +479,6 @@ Creates a custom inventory with configurable slots, weight limits, and item rest
 
 ```lua
 jo.framework:createInventory(invName, name, invConfig)
-
 ```
 
 #### Parameters
@@ -535,108 +496,10 @@ jo.framework:createInventory(invName, name, invConfig)
 > Configuration of the inventory
 >
 
-> `invConfig.maxSlots` : _integer_ - Max slot of the inventory
-> 
-> `invConfig.maxWeight` : _float_ - Max weight of the inventory
-> 
-> `invConfig.acceptWeapons` : _boolean_ - Whether the inventory accepts weapons <BadgeOptional />
-> 
-> `invConfig.shared` : _boolean_ - If the inventory is shared between players <BadgeOptional />
-> 
-> `invConfig.ignoreStackLimit` : _boolean_ - If the inventory can overcoming stack limits <BadgeOptional />
-> 
-> `invConfig.whitelist` : _table_ - Restrict the list of items that can be put in the inventory <BadgeOptional />
-> 
-> > > > `invConfig.whitelist[..].item` : _string_ - Name of the whitelisted item
-> > > > 
-> > > > `invConfig.whitelist[..].limit` : _integer_ - Stack limit of this item
-> > > > 
 
 <!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:createInventory -->
 
 <!-- @include: ./slots/footers.md#FrameworkClass|jo.framework:createInventory -->
-
----
-
-### jo.framework:createUser()
-
-<!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:createUser -->
-
-Creates a new player in the framework with specified data and spawn information <br>
-
-<!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:createUser -->
-
-#### Syntax
-
-```lua
-jo.framework:createUser(source, data, spawnCoordinate, isDead)
-
-```
-
-#### Parameters
-
-`source` : _integer_
-> The source ID of the player
->
-
-`data` : _table_
-
-> The user data to create
->
-
-
-`spawnCoordinate` : _vector_
-> The spawn location for the player
->
-
-`isDead` : _boolean_ <BadgeOptional />
-> Whether the player starts as dead
->
-
-#### Return Value
-
-Type : _table_
-
-> Return the newly created user data
-
-<!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:createUser -->
-
-<!-- @include: ./slots/footers.md#FrameworkClass|jo.framework:createUser -->
-
----
-
-### jo.framework:extractComponentHashIfAlone()
-
-<!-- @include: ./slots/headers.md#server|jo.framework:extractComponentHashIfAlone -->
-
-Extracts the component hash from a data table if it's the only property <br>
-
-<!-- @include: ./slots/descriptions.md#server|jo.framework:extractComponentHashIfAlone -->
-
-#### Syntax
-
-```lua
-jo.framework:extractComponentHashIfAlone(data)
-
-```
-
-#### Parameters
-
-`data` : _table_
-
-> The component data to process
->
-
-
-#### Return Value
-
-Type : _any_
-
-> Return the hash if it's the only property, otherwise return the original data
-
-<!-- @include: ./slots/examples.md#server|jo.framework:extractComponentHashIfAlone -->
-
-<!-- @include: ./slots/footers.md#server|jo.framework:extractComponentHashIfAlone -->
 
 ---
 
@@ -652,7 +515,6 @@ Returns the name of the current active framework being used <br>
 
 ```lua
 jo.framework:get()
-
 ```
 
 #### Return Value
@@ -679,7 +541,6 @@ Retrieves all items from a specific inventory with their quantities and metadata
 
 ```lua
 jo.framework:getItemsFromInventory(invId)
-
 ```
 
 #### Parameters
@@ -712,7 +573,6 @@ Returns the current job assigned to a player <br>
 
 ```lua
 jo.framework:getJob(source)
-
 ```
 
 #### Parameters
@@ -745,7 +605,6 @@ Returns the roleplay name (first and last name) of the player <br>
 
 ```lua
 jo.framework:getRPName(source)
-
 ```
 
 #### Parameters
@@ -778,7 +637,6 @@ Retrieves a player's full [UserClass](#userclass-methods) object containing all 
 
 ```lua
 jo.framework:getUser(source)
-
 ```
 
 #### Parameters
@@ -811,7 +669,6 @@ Retrieves a player's clothing data with standardized category names <br>
 
 ```lua
 jo.framework:getUserClothes(source)
-
 ```
 
 #### Parameters
@@ -844,7 +701,6 @@ Retrieves all identifiers associated with a player <br> Shortcut for [UserClass:
 
 ```lua
 jo.framework:getUserIdentifiers(source)
-
 ```
 
 #### Parameters
@@ -877,7 +733,6 @@ Retrieves a player's skin data with standardized properties and formatting <br>
 
 ```lua
 jo.framework:getUserSkin(source)
-
 ```
 
 #### Parameters
@@ -910,7 +765,6 @@ Adds an item to a player's inventory with optional metadata <br>
 
 ```lua
 jo.framework:giveItem(source, item, quantity, meta)
-
 ```
 
 #### Parameters
@@ -957,7 +811,6 @@ Compares the current framework with a specified framework name <br>
 
 ```lua
 jo.framework:is(name)
-
 ```
 
 #### Parameters
@@ -990,7 +843,6 @@ Callback when a character is selected <br>
 
 ```lua
 jo.framework:onCharacterSelected(cb)
-
 ```
 
 #### Parameters
@@ -1017,7 +869,6 @@ Opens a specific inventory <br>
 
 ```lua
 jo.framework:openInventory(source, invName)
-
 ```
 
 #### Parameters
@@ -1048,7 +899,6 @@ Registers an item as usable and attaches a callback function that executes when 
 
 ```lua
 jo.framework:registerUseItem(item, closeAfterUsed, callback)
-
 ```
 
 #### Parameters
@@ -1083,7 +933,6 @@ Removes an inventory from the *server cache*, useful for reloading inventory dat
 
 ```lua
 jo.framework:removeInventory(invName)
-
 ```
 
 #### Parameters
@@ -1110,7 +959,6 @@ Removes an item from a player's inventory if they have enough quantity <br>
 
 ```lua
 jo.framework:removeItem(source, item, quantity, meta)
-
 ```
 
 #### Parameters
@@ -1157,7 +1005,6 @@ Removes money from a player's account <br>
 
 ```lua
 jo.framework:removeMoney(source, amount, moneyType)
-
 ```
 
 #### Parameters
@@ -1198,7 +1045,6 @@ Converts standardized clothing data back to framework-specific format <br>
 
 ```lua
 jo.framework:revertClothes(standard)
-
 ```
 
 #### Parameters
@@ -1233,7 +1079,6 @@ Converts standardized skin data back to framework-specific format <br>
 
 ```lua
 jo.framework:revertSkin(standard)
-
 ```
 
 #### Parameters
@@ -1268,7 +1113,6 @@ Converts framework-specific clothing data to a standardized format <br>
 
 ```lua
 jo.framework:standardizeClothes(clothes)
-
 ```
 
 #### Parameters
@@ -1303,7 +1147,6 @@ Converts framework-specific skin data to a standardized format <br>
 
 ```lua
 jo.framework:standardizeSkin(skin)
-
 ```
 
 #### Parameters
@@ -1341,7 +1184,6 @@ The function has two ways to work: <br>
 
 ```lua
 jo.framework:updateUserClothes(source, _clothes, value)
-
 ```
 
 #### Parameters
@@ -1383,7 +1225,6 @@ The function has two ways to work: <br>
 
 ```lua
 jo.framework:updateUserSkin(...)
-
 ```
 
 #### Parameters

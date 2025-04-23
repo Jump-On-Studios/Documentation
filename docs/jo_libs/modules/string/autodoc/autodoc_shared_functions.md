@@ -13,7 +13,6 @@ Compare two version [string](#string-methods)s <br>
 
 ```lua
 string:compareVersionWith(version)
-
 ```
 
 #### Parameters
@@ -46,7 +45,6 @@ Convert a version [string](#string-methods) (like "1.2.3") to a numeric value <b
 
 ```lua
 string:convertVersion()
-
 ```
 
 #### Return Value
@@ -73,7 +71,6 @@ Return the [string](#string-methods) with the first letter in uppercase <br>
 
 ```lua
 string:firstToUpper()
-
 ```
 
 #### Return Value
@@ -100,7 +97,6 @@ Split a [string](#string-methods) into parts based on a delimiter <br>
 
 ```lua
 string:split(delimiter, pieces)
-
 ```
 
 #### Parameters
@@ -137,7 +133,6 @@ Convert a hexadecimal [string](#string-methods) to a number, handling signed val
 
 ```lua
 string:toHex()
-
 ```
 
 #### Return Value
@@ -164,7 +159,6 @@ Remove whitespace from both ends of a [string](#string-methods) <br>
 
 ```lua
 string:trim()
-
 ```
 
 #### Return Value

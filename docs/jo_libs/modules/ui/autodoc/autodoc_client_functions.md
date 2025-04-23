@@ -13,7 +13,6 @@ Terminates the Timer's UI and destroys associated resources <br>
 
 ```lua
 jo.ui.finishTimer()
-
 ```
 
 <!-- @include: ./slots/examples.md#client|jo.ui.finishTimer -->
@@ -34,7 +33,6 @@ Initializes the timer's UI <br>
 
 ```lua
 jo.ui.initTimer()
-
 ```
 
 #### Return Value
@@ -61,7 +59,6 @@ Starts the timer's UI <br>
 
 ```lua
 jo.ui.startTimer(time, low)
-
 ```
 
 #### Parameters
@@ -92,7 +89,6 @@ Stops the Timer's UI before it finishes naturally <br>
 
 ```lua
 jo.ui.stopTimer()
-
 ```
 
 <!-- @include: ./slots/examples.md#client|jo.ui.stopTimer -->
@@ -113,7 +109,6 @@ Updates the rank element on the top left of weapon wheel <br>
 
 ```lua
 jo.ui.updateRank(level, xp, xpRequired)
-
 ```
 
 #### Parameters

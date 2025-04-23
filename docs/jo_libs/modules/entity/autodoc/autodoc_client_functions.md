@@ -13,7 +13,6 @@ Create a new entity at specified location <br>
 
 ```lua
 jo.entity.create(model, coords, heading, networked, fadeDuration)
-
 ```
 
 #### Parameters
@@ -62,7 +61,6 @@ Create an entity that follows the mouse cursor for placement <br>
 
 ```lua
 jo.entity.createWithMouse(model, keepEntity, networked)
-
 ```
 
 #### Parameters
@@ -103,7 +101,6 @@ Delete an entity if it exists <br>
 
 ```lua
 jo.entity.delete(entity)
-
 ```
 
 #### Parameters
@@ -130,7 +127,6 @@ Fade out an entity and then delete it <br>
 
 ```lua
 jo.entity.fadeAndDelete(entity, duration)
-
 ```
 
 #### Parameters
@@ -161,7 +157,6 @@ Fade in an entity from transparent to fully visible <br>
 
 ```lua
 jo.entity.fadeIn(entity, duration)
-
 ```
 
 #### Parameters
@@ -192,7 +187,6 @@ Fade out an entity from visible to transparent <br>
 
 ```lua
 jo.entity.fadeOut(entity, duration)
-
 ```
 
 #### Parameters
@@ -225,7 +219,6 @@ Request control of an entity and wait until it's granted <br>
 
 ```lua
 jo.entity.requestControl(entity)
-
 ```
 
 #### Parameters
@@ -237,45 +230,4 @@ jo.entity.requestControl(entity)
 <!-- @include: ./slots/examples.md#client|jo.entity.requestControl -->
 
 <!-- @include: ./slots/footers.md#client|jo.entity.requestControl -->
-
----
-
-### jo.entity.selectWithMouse()
-
-<!-- @include: ./slots/headers.md#client|jo.entity.selectWithMouse -->
-
-Raycast from the camera through the mouse cursor position and return what was hit <br>
-Must be called each frames <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.entity.selectWithMouse -->
-
-#### Syntax
-
-```lua
-jo.entity.selectWithMouse(distance, flags, toIgnore)
-```
-
-#### Parameters
-
-`distance` : _number_ <BadgeOptional />
-> Maximum raycast distance <br> default:100
->
-
-`flags` : _integer_ <BadgeOptional />
-> Flags for the raycast <br> default:(1|2|8|16)
->
-
-`toIgnore` : _integer_ <BadgeOptional />
-> Entity to ignore in the raycast <br> default:PlayerPedId()
->
-
-#### Return Value
-
-Type : _boolean,vector3,integer_
-
-> Hit status, hit coordinates, hit entity
-
-<!-- @include: ./slots/examples.md#client|jo.entity.selectWithMouse -->
-
-<!-- @include: ./slots/footers.md#client|jo.entity.selectWithMouse -->
 

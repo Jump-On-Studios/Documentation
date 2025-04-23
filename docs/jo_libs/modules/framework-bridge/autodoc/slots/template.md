@@ -13,11 +13,6 @@
 <!-- #endregion FrameworkClass|jo.framework:createInventory -->
 
 
-<!-- #region FrameworkClass|jo.framework:createUser -->
-
-<!-- #endregion FrameworkClass|jo.framework:createUser -->
-
-
 <!-- #region FrameworkClass|jo.framework:getItemsFromInventory -->
 
 <!-- #endregion FrameworkClass|jo.framework:getItemsFromInventory -->
@@ -101,16 +96,6 @@
 <!-- #region server|jo.framework:canUserBuy -->
 
 <!-- #endregion server|jo.framework:canUserBuy -->
-
-
-<!-- #region server|jo.framework:convertToPercent -->
-
-<!-- #endregion server|jo.framework:convertToPercent -->
-
-
-<!-- #region server|jo.framework:extractComponentHashIfAlone -->
-
-<!-- #endregion server|jo.framework:extractComponentHashIfAlone -->
 
 
 <!-- #region server|jo.framework:get -->

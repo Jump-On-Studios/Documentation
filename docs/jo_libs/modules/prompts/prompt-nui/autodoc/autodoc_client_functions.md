@@ -13,7 +13,6 @@ Creates a new prompt group with a specified title and optional position. <br>
 
 ```lua
 jo.promptNui.createGroup(title, position)
-
 ```
 
 #### Parameters
@@ -50,7 +49,6 @@ Checks whether a specified key has been held for the required duration to trigge
 
 ```lua
 jo.promptNui.isCompleted(key, fireMultipleTimes)
-
 ```
 
 #### Parameters
@@ -88,7 +86,6 @@ Adds a new prompt to the group on a specified page. <br>Creates or initializes p
 
 ```lua
 GroupClass:addPrompt(key, label, holdTime, page)
-
 ```
 
 #### Parameters
@@ -133,7 +130,6 @@ Displays the prompt group on the NUI interface and sets up key listeners for the
 
 ```lua
 GroupClass:display(page)
-
 ```
 
 #### Parameters
@@ -160,7 +156,6 @@ Hides the prompt group from the NUI interface and removes its active key listene
 
 ```lua
 GroupClass:hide()
-
 ```
 
 <!-- @include: ./slots/examples.md#client|GroupClass:hide -->
@@ -181,7 +176,6 @@ Returns whether the group is currently visible. <br>
 
 ```lua
 GroupClass:isVisible()
-
 ```
 
 #### Return Value
@@ -208,7 +202,6 @@ Refreshes the NUI interface for the group by updating a specified property. This
 
 ```lua
 GroupClass:refreshNUI(property)
-
 ```
 
 #### Parameters
@@ -235,7 +228,6 @@ Sets the key used for navigating to the next page of prompts. <br>
 
 ```lua
 GroupClass:setNextPageKey(key)
-
 ```
 
 #### Parameters
@@ -262,7 +254,6 @@ Sets the display position for the prompt group. <br>
 
 ```lua
 GroupClass:setPosition(position)
-
 ```
 
 #### Parameters
@@ -289,7 +280,6 @@ Sets the title for the prompt group. <br>
 
 ```lua
 GroupClass:setTitle(title)
-
 ```
 
 #### Parameters
@@ -317,7 +307,6 @@ Refreshes the NUI interface for a prompt, updating a specific property. This upd
 
 ```lua
 PromptClass:refreshNUI(property)
-
 ```
 
 #### Parameters
@@ -344,7 +333,6 @@ Enables or disables the prompt and updates its associated key listeners. <br>
 
 ```lua
 PromptClass:setEnabled(enabled)
-
 ```
 
 #### Parameters
@@ -371,7 +359,6 @@ Sets the key hold duration for the prompt. <br>
 
 ```lua
 PromptClass:setHoldTime(holdTime)
-
 ```
 
 #### Parameters
@@ -398,7 +385,6 @@ Configures the keyboard keys for the prompt. Ensures that the keys are stored in
 
 ```lua
 PromptClass:setKeyboardKeys(keyboardKeys)
-
 ```
 
 #### Parameters
@@ -425,7 +411,6 @@ Sets the label text for the prompt. <br>
 
 ```lua
 PromptClass:setLabel(label)
-
 ```
 
 #### Parameters
@@ -452,7 +437,6 @@ Sets the visibility of the prompt and updates its enabled state accordingly. <br
 
 ```lua
 PromptClass:setVisible(visible)
-
 ```
 
 #### Parameters

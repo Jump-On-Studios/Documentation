@@ -13,7 +13,6 @@ Notification on the left with title, icon, color and sound <br>
 
 ```lua
 jo.notif.left(source, title, text, dict, icon, color, duration, soundset_ref, soundset_name)
-
 ```
 
 #### Parameters
@@ -72,7 +71,6 @@ A function to print in the client console from the server side <br>
 
 ```lua
 jo.notif.print(source, ...)
-
 ```
 
 #### Parameters
@@ -103,7 +101,6 @@ Notification on the right with icon, color and sound <br>
 
 ```lua
 jo.notif.right(source, text, dict, icon, color, duration, soundset_ref, soundset_name)
-
 ```
 
 #### Parameters
@@ -158,7 +155,6 @@ A function to display an error notification <br>
 
 ```lua
 jo.notif.rightError(source, text)
-
 ```
 
 #### Parameters
@@ -195,7 +191,6 @@ A function to display a successful notification <br>
 
 ```lua
 jo.notif.rightSuccess(source, text)
-
 ```
 
 #### Parameters
@@ -232,7 +227,6 @@ Notification on the top with big title and subtitle (native mission start/end) <
 
 ```lua
 jo.notif.simpleTop(source, title, subtitle, duration)
-
 ```
 
 #### Parameters

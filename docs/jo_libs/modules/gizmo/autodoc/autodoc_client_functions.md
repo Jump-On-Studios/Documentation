@@ -13,7 +13,6 @@ Cancels the currently active gizmo interface <br>
 
 ```lua
 jo.gizmo.cancel()
-
 ```
 
 <!-- @include: ./slots/examples.md#client|jo.gizmo.cancel -->
@@ -36,7 +35,6 @@ Uses a camera system for better manipulation when enabled <br>
 
 ```lua
 jo.gizmo.moveEntity(entity, cfg, allowPlace)
-
 ```
 
 #### Parameters

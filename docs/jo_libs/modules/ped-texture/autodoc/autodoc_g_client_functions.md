@@ -13,7 +13,6 @@ A function to apply texture on a specific ped <br>
 
 ```lua
 jo.pedTexture.apply(ped, layerName, _data)
-
 ```
 
 #### Parameters
@@ -68,7 +67,6 @@ Return the list of layers in all categories <br>
 
 ```lua
 jo.pedTexture.getAll(ped)
-
 ```
 
 #### Parameters
@@ -101,7 +99,6 @@ A function to get the hashname of a texture <br>
 
 ```lua
 jo.pedTexture.getOverlayAssetFromId(isMale, category, data)
-
 ```
 
 #### Parameters
@@ -148,7 +145,6 @@ A function to overwrite all the layers of a body part <br>
 
 ```lua
 jo.pedTexture.overwriteBodyPart(ped, category, overlays, forceRemove)
-
 ```
 
 #### Parameters
@@ -187,7 +183,6 @@ A function to refresh the ped texture <br>
 
 ```lua
 jo.pedTexture.refreshAll(ped)
-
 ```
 
 #### Parameters
@@ -214,7 +209,6 @@ A function to apply now the ped texture modification <br>
 
 ```lua
 jo.pedTexture.refreshNow(ped)
-
 ```
 
 <!-- @include: ./slots/examples.md#g_client|jo.pedTexture.refreshNow -->
@@ -235,7 +229,6 @@ A function to remove a texture <br>
 
 ```lua
 jo.pedTexture.remove(ped, layerName)
-
 ```
 
 #### Parameters

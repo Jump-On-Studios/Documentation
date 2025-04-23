@@ -13,7 +13,6 @@ Register a listener for a specific game event <br>
 
 ```lua
 jo.gameEvents.listen(eventName, callback)
-
 ```
 
 #### Parameters

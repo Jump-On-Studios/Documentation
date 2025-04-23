@@ -13,7 +13,6 @@ Delete an entity if it exists <br>
 
 ```lua
 jo.entity.delete(entity)
-
 ```
 
 #### Parameters

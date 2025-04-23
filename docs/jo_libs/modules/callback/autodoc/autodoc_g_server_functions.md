@@ -13,7 +13,6 @@ A function to register a server callback <br>
 
 ```lua
 jo.callback.register(name, cb)
-
 ```
 
 #### Parameters
@@ -44,7 +43,6 @@ A function to trigger a client callback <br>
 
 ```lua
 jo.callback.triggerClient(name, source, cb, ...)
-
 ```
 
 #### Parameters
@@ -57,7 +55,7 @@ jo.callback.triggerClient(name, source, cb, ...)
 > The source of the client to trigger
 >
 
-`cb` : _function_
+`cb` : _function_ <BadgeOptional />
 > Function to receive the result of the event
 >
 
@@ -83,7 +81,6 @@ A function to trigger a server callback <br>
 
 ```lua
 jo.callback.triggerServer(name, cb, ...)
-
 ```
 
 #### Parameters
@@ -92,7 +89,7 @@ jo.callback.triggerServer(name, cb, ...)
 > Name of the callback event
 >
 
-`cb` : _function_
+`cb` : _function_ <BadgeOptional />
 > Function to receive the result of the event
 >
 

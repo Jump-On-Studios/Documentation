@@ -13,7 +13,6 @@ A function to load a game file <br>
 
 ```lua
 jo.utils.loadGameData(name, waiter)
-
 ```
 
 #### Parameters
@@ -44,7 +43,6 @@ A function to release a game file <br>
 
 ```lua
 jo.utils.releaseGameData(name)
-
 ```
 
 #### Parameters
@@ -71,7 +69,6 @@ A function to wait after a satisfying condition with a waiting duration <br>
 
 ```lua
 jo.utils.waiter(cb, maxDuration, loopTimer)
-
 ```
 
 #### Parameters

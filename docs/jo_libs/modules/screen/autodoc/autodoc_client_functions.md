@@ -13,7 +13,6 @@ Fades the screen in with specified duration <br>
 
 ```lua
 jo.screen.fadeIn(duration, needWait)
-
 ```
 
 #### Parameters
@@ -44,7 +43,6 @@ Fades the screen out with specified duration <br>
 
 ```lua
 jo.screen.fadeOut(duration, needWait)
-
 ```
 
 #### Parameters

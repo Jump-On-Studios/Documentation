@@ -13,7 +13,6 @@ Draws a 3D sphere at the specified coordinates. <br>
 
 ```lua
 jo.debugger.drawSphere(coords, size, color)
-
 ```
 
 #### Parameters
@@ -58,7 +57,6 @@ Draws text on the screen with specified parameters. <br>
 
 ```lua
 jo.debugger.drawText(text, x, y)
-
 ```
 
 #### Parameters
@@ -93,7 +91,6 @@ Resets the text display offset to its starting position. <br>
 
 ```lua
 jo.debugger.resetText()
-
 ```
 
 <!-- @include: ./slots/examples.md#client|jo.debugger.resetText -->

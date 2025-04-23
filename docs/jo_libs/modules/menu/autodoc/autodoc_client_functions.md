@@ -13,7 +13,6 @@ Create a new menu <br>
 
 ```lua
 jo.menu.create(id, data)
-
 ```
 
 #### Parameters
@@ -67,7 +66,6 @@ Add an item to a menu <br>
 
 ```lua
 MenuClass:addItem(p, item)
-
 ```
 
 #### Parameters
@@ -153,7 +151,6 @@ Used when menu items have been modified <br>
 
 ```lua
 MenuClass:refresh()
-
 ```
 
 <!-- @include: ./slots/examples.md#client|MenuClass:refresh -->
@@ -175,7 +172,6 @@ Moves the cursor back to the first item <br>
 
 ```lua
 MenuClass:reset()
-
 ```
 
 <!-- @include: ./slots/examples.md#client|MenuClass:reset -->
@@ -196,7 +192,6 @@ Send the menu data to the NUI layer <br>
 
 ```lua
 MenuClass:send()
-
 ```
 
 <!-- @include: ./slots/examples.md#client|MenuClass:send -->
@@ -217,7 +212,6 @@ Change the current active item index <br>
 
 ```lua
 MenuClass:setCurrentIndex(index)
-
 ```
 
 #### Parameters
@@ -244,7 +238,6 @@ Sort menu items alphabetically by title <br>
 
 ```lua
 MenuClass:sort(first, last)
-
 ```
 
 #### Parameters
@@ -275,7 +268,6 @@ Update a specific property of a menu item <br>
 
 ```lua
 MenuClass:updateItem(index, key, value)
-
 ```
 
 #### Parameters
@@ -310,7 +302,6 @@ Set this menu as the current active menu <br>
 
 ```lua
 MenuClass:use(keepHistoric, resetMenu)
-
 ```
 
 #### Parameters
@@ -342,7 +333,6 @@ Add an item to a menu by its ID <br>
 
 ```lua
 jo.menu.addItem(id, p, item)
-
 ```
 
 #### Parameters
@@ -425,7 +415,6 @@ Delete a menu from memory <br>
 
 ```lua
 jo.menu.delete(id)
-
 ```
 
 #### Parameters
@@ -452,7 +441,6 @@ Check if the active button has changed since last update <br>
 
 ```lua
 jo.menu.doesActiveButtonChange()
-
 ```
 
 #### Return Value
@@ -479,7 +467,6 @@ Fire an event across all menu levels (current menu and current item) <br>
 
 ```lua
 jo.menu.fireAllLevelsEvent(eventName, ...)
-
 ```
 
 #### Parameters
@@ -510,7 +497,6 @@ Fire an event for a specific menu item <br>
 
 ```lua
 jo.menu.fireEvent(item, eventName, ...)
-
 ```
 
 #### Parameters
@@ -547,7 +533,6 @@ Force the menu to go back to the previous menu <br>
 
 ```lua
 jo.menu.forceBack()
-
 ```
 
 <!-- @include: ./slots/examples.md#client|jo.menu.forceBack -->
@@ -568,7 +553,6 @@ Get a menu instance by its ID <br>
 
 ```lua
 jo.menu.get(id)
-
 ```
 
 #### Parameters
@@ -601,7 +585,6 @@ Get data about the current menu state <br>
 
 ```lua
 jo.menu.getCurrentData()
-
 ```
 
 #### Return Value
@@ -628,7 +611,6 @@ Get the currently selected menu item <br>
 
 ```lua
 jo.menu.getCurrentItem()
-
 ```
 
 #### Return Value
@@ -655,7 +637,6 @@ Get the currently active menu <br>
 
 ```lua
 jo.menu.getCurrentMenu()
-
 ```
 
 #### Return Value
@@ -682,7 +663,6 @@ Get data about the previous menu state <br>
 
 ```lua
 jo.menu.getPreviousData()
-
 ```
 
 #### Return Value
@@ -709,7 +689,6 @@ Check if any menu is currently open <br>
 
 ```lua
 jo.menu.isOpen()
-
 ```
 
 #### Return Value
@@ -738,7 +717,6 @@ Register a callback function for menu change events <br>
 
 ```lua
 jo.menu.onChange(cb)
-
 ```
 
 #### Parameters
@@ -763,7 +741,6 @@ jo.menu.onChange(cb)
 
 ```lua
 jo.menu.playAudio(sound)
-
 ```
 
 <!-- @include: ./slots/examples.md#client|jo.menu.playAudio -->
@@ -784,7 +761,6 @@ Refresh a menu by its ID <br>
 
 ```lua
 jo.menu.refresh(id)
-
 ```
 
 #### Parameters
@@ -811,7 +787,6 @@ Reset a menu by its ID <br>
 
 ```lua
 jo.menu.reset(id)
-
 ```
 
 #### Parameters
@@ -838,7 +813,6 @@ Send a menu to the NUI layer by its ID <br>
 
 ```lua
 jo.menu.send(id)
-
 ```
 
 #### Parameters
@@ -865,7 +839,6 @@ Set or replace a menu instance <br>
 
 ```lua
 jo.menu.set(id, menu)
-
 ```
 
 #### Parameters
@@ -896,7 +869,6 @@ Set a menu as the current active menu <br>
 
 ```lua
 jo.menu.setCurrentMenu(id, keepHistoric, resetMenu)
-
 ```
 
 #### Parameters
@@ -931,7 +903,6 @@ Show or hide a menu <br>
 
 ```lua
 jo.menu.show(show, keepInput, hideRadar, animation, hideCursor)
-
 ```
 
 #### Parameters
@@ -974,7 +945,6 @@ Sort menu items alphabetically by title using menu ID <br>
 
 ```lua
 jo.menu.sort(id, first, last)
-
 ```
 
 #### Parameters
@@ -1009,7 +979,6 @@ Update a specific property of a menu item by menu ID <br>
 
 ```lua
 jo.menu.updateItem(id, index, key, value)
-
 ```
 
 #### Parameters
@@ -1048,7 +1017,6 @@ Update menu language text <br>
 
 ```lua
 jo.menu.updateLang(lang)
-
 ```
 
 #### Parameters
@@ -1089,7 +1057,6 @@ Set the volume level for menu sound effects <br>
 
 ```lua
 jo.menu.updateVolume(volume)
-
 ```
 
 #### Parameters

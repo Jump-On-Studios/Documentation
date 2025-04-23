@@ -13,7 +13,6 @@ Checks if a file exists <br>
 
 ```lua
 jo.file.isExist(...)
-
 ```
 
 #### Parameters
@@ -46,7 +45,6 @@ Loads and executes a Lua file <br>
 
 ```lua
 jo.file.load(modname)
-
 ```
 
 #### Parameters
@@ -81,7 +79,6 @@ Two argument: the resource AND the filepath <br>
 
 ```lua
 jo.file.read(...)
-
 ```
 
 #### Parameters
