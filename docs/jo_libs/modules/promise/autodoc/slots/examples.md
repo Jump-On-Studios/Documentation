@@ -18,5 +18,6 @@ end)
 
 -- Now 'result' contains the data directly, without needing a callback
 print("Fetched item: " .. result.name)
+
 ```
 <!-- #endregion shared|jo.promise.new -->

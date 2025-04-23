@@ -9,12 +9,14 @@ Notification is a module to offer functions to display various types of native-s
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the Notification module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'notification',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.notification` global variable.
 

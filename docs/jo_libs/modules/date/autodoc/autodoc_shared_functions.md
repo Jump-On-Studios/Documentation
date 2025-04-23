@@ -13,6 +13,7 @@ A function to convert a time in ms to a readable string <br>
 
 ```lua
 jo.date.convertMsToInterval(ms, lang)
+
 ```
 
 #### Parameters
@@ -55,6 +56,7 @@ A function to get the current time <br>
 
 ```lua
 jo.date.now()
+
 ```
 
 #### Return Value

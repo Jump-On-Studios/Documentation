@@ -13,6 +13,7 @@ A function to apply a component on the ped <br>
 
 ```lua
 jo.component.apply(ped, category, _data)
+
 ```
 
 #### Parameters
@@ -67,6 +68,7 @@ A function to apply multiple components to a ped <br>
 
 ```lua
 jo.component.applyComponents(ped, components)
+
 ```
 
 #### Parameters
@@ -99,6 +101,7 @@ A function to apply a complete skin configuration to a ped <br>
 
 ```lua
 jo.component.applySkin(ped, skin)
+
 ```
 
 #### Parameters
@@ -167,6 +170,7 @@ A function to know if the boots are under the pant <br>
 
 ```lua
 jo.component.bootsAreUnderPant(ped)
+
 ```
 
 #### Parameters
@@ -199,6 +203,7 @@ A function to close the collar <br>
 
 ```lua
 jo.component.collarClose(ped, data)
+
 ```
 
 #### Parameters
@@ -231,6 +236,7 @@ Return if the collar is opened <br>
 
 ```lua
 jo.component.collarIsOpened(ped)
+
 ```
 
 #### Parameters
@@ -263,6 +269,7 @@ A function to open the collar <br>
 
 ```lua
 jo.component.collarOpen(ped, data)
+
 ```
 
 #### Parameters
@@ -295,6 +302,7 @@ A function to get the lower body component hash from bodies index and skin tone 
 
 ```lua
 jo.component.getBodiesLowerFromSkinTone(ped, bodiesIndex, skinTone)
+
 ```
 
 #### Parameters
@@ -335,6 +343,7 @@ A function to get the upper body component hash from bodies index and skin tone 
 
 ```lua
 jo.component.getBodiesUpperFromSkinTone(ped, bodiesIndex, skinTone)
+
 ```
 
 #### Parameters
@@ -375,6 +384,7 @@ Return the list of component categories equiped on the ped <br>
 
 ```lua
 jo.component.getCategoriesEquiped(ped)
+
 ```
 
 #### Parameters
@@ -407,6 +417,7 @@ A function to get the category name from a hash value <br>
 
 ```lua
 jo.component.getCategoryNameFromHash(category)
+
 ```
 
 #### Parameters
@@ -439,6 +450,7 @@ A function to get the tints of a category <br>
 
 ```lua
 jo.component.getCategoryTint(ped, category, inTable)
+
 ```
 
 #### Parameters
@@ -479,6 +491,7 @@ Return the category hash of a component and if it's a MP component <br>
 
 ```lua
 jo.component.getComponentCategory(ped, hash)
+
 ```
 
 #### Parameters
@@ -515,6 +528,7 @@ A function to get the hash of the component equiped in a category <br>
 
 ```lua
 jo.component.getComponentEquiped(ped, category)
+
 ```
 
 #### Parameters
@@ -551,6 +565,7 @@ A function to get all components equiped <br>
 
 ```lua
 jo.component.getComponentsEquiped(ped)
+
 ```
 
 #### Parameters
@@ -583,6 +598,7 @@ A function to get the eyes component hash from an index <br>
 
 ```lua
 jo.component.getEyesFromIndex(ped, index)
+
 ```
 
 #### Parameters
@@ -619,6 +635,7 @@ A function to get the list of horse's components sorted by category <br>
 
 ```lua
 jo.component.getFullHorseComponentList()
+
 ```
 
 #### Return Value
@@ -644,6 +661,7 @@ A function to get the list of clothes sorted by sex and category <br>
 
 ```lua
 jo.component.getFullPedComponentList()
+
 ```
 
 #### Return Value
@@ -669,6 +687,7 @@ A function to get the head component hash from head index and skin tone <br>
 
 ```lua
 jo.component.getHeadFromSkinTone(ped, headIndex, skinTone)
+
 ```
 
 #### Parameters
@@ -709,6 +728,7 @@ A function to get the palette name from a hash value <br>
 
 ```lua
 jo.component.getPaletteNameFromHash(hash)
+
 ```
 
 #### Parameters
@@ -741,6 +761,7 @@ A function to get the teeth component hash from an index <br>
 
 ```lua
 jo.component.getTeethFromIndex(ped, index)
+
 ```
 
 #### Parameters
@@ -777,6 +798,7 @@ Get the wearable state of a category <br>
 
 ```lua
 jo.component.getWearableState(ped, category)
+
 ```
 
 #### Parameters
@@ -813,6 +835,7 @@ A function to know if the hair is pomaded <br>
 
 ```lua
 jo.component.hairIsPomade(ped)
+
 ```
 
 #### Parameters
@@ -845,6 +868,7 @@ A function to know if a specific category is equiped on the ped <br>
 
 ```lua
 jo.component.isCategoryEquiped(ped, category)
+
 ```
 
 #### Parameters
@@ -881,6 +905,7 @@ A function to check if a component is an MP component (multiplayer component) <b
 
 ```lua
 jo.component.isMpComponent(ped, hash)
+
 ```
 
 #### Parameters
@@ -917,6 +942,7 @@ A function to know if the loadout is on the right <br>
 
 ```lua
 jo.component.loadoutIsOnRight(ped)
+
 ```
 
 #### Parameters
@@ -949,6 +975,7 @@ Return if the neckwear is on the face of the player or not <br>
 
 ```lua
 jo.component.neckwearIsUp(ped)
+
 ```
 
 #### Parameters
@@ -981,6 +1008,7 @@ A function to refresh the ped components <br>
 
 ```lua
 jo.component.refreshPed(ped)
+
 ```
 
 #### Parameters
@@ -1007,6 +1035,7 @@ A function to remove a component component <br>
 
 ```lua
 jo.component.remove(ped, category)
+
 ```
 
 #### Parameters
@@ -1037,6 +1066,7 @@ A function to remove all clothing components from a ped <br>
 
 ```lua
 jo.component.removeAllClothes(ped)
+
 ```
 
 #### Parameters
@@ -1063,6 +1093,7 @@ A function to edit the wearable state of a category <br>
 
 ```lua
 jo.component.setWearableState(ped, category, hash, state)
+
 ```
 
 #### Parameters
@@ -1101,6 +1132,7 @@ Return if the sleeve are rolled <br>
 
 ```lua
 jo.component.sleeveIsRolled(ped)
+
 ```
 
 #### Parameters
@@ -1133,6 +1165,7 @@ A function to roll sleeve <br>
 
 ```lua
 jo.component.sleeveRoll(ped, hash)
+
 ```
 
 #### Parameters
@@ -1163,6 +1196,7 @@ A function to unroll sleeve <br>
 
 ```lua
 jo.component.sleeveUnroll(ped, hash)
+
 ```
 
 #### Parameters
@@ -1193,6 +1227,7 @@ A function to know if the vest is under the pant <br>
 
 ```lua
 jo.component.vestIsUnderPant(ped)
+
 ```
 
 #### Parameters
@@ -1225,6 +1260,7 @@ A function to wait the refresh of ped <br>
 
 ```lua
 jo.component.waitPedLoaded(ped)
+
 ```
 
 #### Parameters

@@ -1,8 +1,9 @@
 <!-- #region client|jo.utils.loadGameData -->
 #### Example
 ```lua
-local model = 'A_C_Horse_Morgan_Bay'
-jo.utils.loadGameData(model,true)
+local model = "A_C_Horse_Morgan_Bay"
+jo.utils.loadGameData(model, true)
+
 ```
 <!-- #endregion client|jo.utils.loadGameData -->
 
@@ -10,8 +11,9 @@ jo.utils.loadGameData(model,true)
 <!-- #region client|jo.utils.releaseGameData -->
 #### Example
 ```lua
-local model = 'A_C_Horse_Morgan_Bay'
+local model = "A_C_Horse_Morgan_Bay"
 jo.utils.releaseGameData(model)
+
 ```
 <!-- #endregion client|jo.utils.releaseGameData -->
 
@@ -21,18 +23,20 @@ jo.utils.releaseGameData(model)
 ```lua
 local value = 0
 local cb = function()
-  value = math.random(1,10)
+  value = math.random(1, 10)
   return value == 5
 end
 local maxDuration = 2000
 local timer = 10
 
 local startWait = GetGamerTimer()
-print killer = jo.utils.waiter(cb,maxDuration,timer)
-print("Killer: ",killer,"Value: ",value,"Duration: ",GetGamerTimer() - startWait)
---Expected output: Killer: true, Value : 5, Duration: (duration < 2000)
+print
+killer = jo.utils.waiter(cb, maxDuration, timer)
+print("Killer: ", killer, "Value: ", value, "Duration: ", GetGamerTimer() - startWait)
+-- Expected output: Killer: true, Value : 5, Duration: (duration < 2000)
 --OR
---Expected output: Killer: false, Value : (<> 5), Duration: 2000
+-- Expected output: Killer: false, Value : (<> 5), Duration: 2000
+
 ```
 <!-- #endregion client|jo.utils.waiter -->
 

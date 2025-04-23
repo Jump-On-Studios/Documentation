@@ -1,9 +1,10 @@
 <!-- #region shared|TimeoutClass:clear -->
 #### Example
 ```lua
-local timeout = jo.timeout.set(1000,function() print("Done") end)
+local timeout = jo.timeout.set(1000, function() print("Done") end)
 timeout:clear()
---Expected output : Nothing because the function was canceled
+-- Expected output : Nothing because the function was canceled
+
 ```
 <!-- #endregion shared|TimeoutClass:clear -->
 
@@ -13,7 +14,8 @@ timeout:clear()
 ```lua
 local timeout = TimeoutClass:set(1000, function() print('Done') end)
 timeout:execute()
---Expected output: 'Done' after 1000 ms
+-- Expected output: 'Done' after 1000 ms
+
 ```
 <!-- #endregion shared|TimeoutClass:execute -->
 
@@ -22,10 +24,10 @@ timeout:execute()
 #### Example
 ```lua
 local msec = 1000
-local function callback() 
+local function callback()
   print("Timeout completed")
 end
-local args = {name = "Test", value = 100}
+local args = { name = "Test", value = 100 }
 
 -- Initialize a new timeout without starting it
 local timeout = TimeoutClass:set(msec, callback, args)
@@ -33,6 +35,7 @@ print("Timeout created with ID: " .. timeout.id)
 
 -- The timeout has been created but won't execute until start() is called
 -- Expected output: Just prints the timeout ID, callback won't run automatically
+
 ```
 <!-- #endregion shared|TimeoutClass:set -->
 
@@ -44,7 +47,8 @@ local timeout = jo.timeout.set(1000, function() print('Done') end)
 timeout:setCb(function()
     print('Done overwrited')
 end)
---Expected output: "Done overwrited" printed after 1000ms
+-- Expected output: "Done overwrited" printed after 1000ms
+
 ```
 <!-- #endregion shared|TimeoutClass:setCb -->
 
@@ -63,7 +67,7 @@ timeout:setMsec(2000)
 #### Example
 ```lua
 -- Create a timeout without starting it
-local timeout = TimeoutClass:set(1500, function() 
+local timeout = TimeoutClass:set(1500, function()
   print("Timeout triggered after manual start")
 end)
 
@@ -71,9 +75,10 @@ end)
 print("Starting the timeout now...")
 timeout:start()
 
--- Expected output: 
+-- Expected output:
 -- "Starting the timeout now..." immediately
 -- "Timeout triggered after manual start" after 1500ms
+
 ```
 <!-- #endregion shared|TimeoutClass:start -->
 
@@ -84,8 +89,9 @@ timeout:start()
 local id = "TheUniqueID"
 local delay = jo.timeout.delay(id, 1000, function() print('Done') end)
 Wait(500)
-local delay2 = jo.timeout.delay(id,1000, function() print('Done 2') end)
---Expected output : "Done 2" printed after 1500ms (500 + 1000). delay function was canceled by delay2 because it's the same id
+local delay2 = jo.timeout.delay(id, 1000, function() print('Done 2') end)
+-- Expected output : "Done 2" printed after 1500ms (500 + 1000). delay function was canceled by delay2 because it's the same id
+
 ```
 <!-- #endregion shared|jo.timeout.delay -->
 
@@ -96,7 +102,8 @@ local delay2 = jo.timeout.delay(id,1000, function() print('Done 2') end)
 jo.timeout.loop(1000, function()
     print(GetGameTimer())
 end)
---Expected output: The GetGameTimer() will be printed every 1000 msec
+-- Expected output: The GetGameTimer() will be printed every 1000 msec
+
 ```
 <!-- #endregion shared|jo.timeout.loop -->
 
@@ -108,8 +115,9 @@ local waiter = 1000
 local cb = function()
     print('Fired')
 end
-jo.timeout.set(waiter,cb)
---Expected output: 'Fired' after 1000 ms
+jo.timeout.set(waiter, cb)
+-- Expected output: 'Fired' after 1000 ms
+
 ```
 <!-- #endregion shared|jo.timeout.set -->
 

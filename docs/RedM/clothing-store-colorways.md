@@ -33,7 +33,7 @@ Go in clothing stores to customize the colorways of clothes.
 Config = {}
 
 Config.keys = {
-  colorways = 'INPUT_CREATOR_RS'
+	colorways = 'INPUT_CREATOR_RS'
 }
 
 Config.palettes = {
@@ -44,6 +44,7 @@ Config.palettes = {
 	tint_leather = true,
 	tint_makeup = true
 }
+
 ```
 
 ### Filters
@@ -54,6 +55,7 @@ Manage who can open the custom color menu
 -- @param canAccess - boolean
 exports.kd_clothingstore_colorways:RegisterFilter('canOpenColorPalette', function(canAccess)
   --return false to disable the access of the menu
-	return canAccess
+  return canAccess
 end)
+
 ```

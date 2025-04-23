@@ -10,6 +10,7 @@ Prompt Nui is a module to implement a flexible NUI-based prompt system.
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 
 2. Add the Prompt Nui module inside the `fxmanifest.lua` (in lowercase)
@@ -18,6 +19,7 @@ shared_scripts {
 jo_libs {
   'prompt-nui',
 }
+
 ```
 
 You can now use the library inside of your resource with the `jo.promptNui` global variable.

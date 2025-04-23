@@ -9,12 +9,14 @@ Component is a module to offer tools for managing ped appearance, including appl
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the component module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'component',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.component` global variable.
 

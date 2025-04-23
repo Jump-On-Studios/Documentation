@@ -9,12 +9,14 @@ Game-events is a module to allow scripts to listen for and react to specific gam
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the game-events module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'game-events',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.gameEvents` global variable.
 

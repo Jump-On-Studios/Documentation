@@ -9,12 +9,14 @@ Debugger is a module to supply tools to help debug scripts.
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the Debugger module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'debugger',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.debugger` global variable.
 

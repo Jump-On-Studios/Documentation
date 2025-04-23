@@ -5,18 +5,6 @@ outline: [1,3]
 A client side library to use the JO Menu in your scripts.  
 JO Menu is a NUI menu fully optimized and mouse and keyboard ready.
 
-**Introducing The Jump On Menu: Revolutionizing Menu Creation for Your RedM Script!**
-
-The Jump On Menu offers a new way to build menus for your RedM script, seamlessly blending with the authentic design of Red Dead Redemption II. This new menu system is significantly more flexible and user-friendly compared to the MenuAPI in your current framework. Actions are now directly linked to individual buttons instead of the global menu, simplifying both setup and usage.  
-  
-Your players will love the innovative features, including the grid layout, color picker, and smooth menu animations. Enhance their gaming experience and rediscover the joy of development with The Jump On Menu.  
-
-# Previews
-<br>
-<img src="/images/previews/menu/menu_preview_1.jpg" class="data-zoomable preview" data-zoomable/>
-<br>
-<img src="/images/previews/menu/menu_preview_2.jpg" class="data-zoomable preview" data-zoomable/>
-
 # Usage
 
 [Download an example of menu resource](https://raw.githubusercontent.com/Jump-On-Studios/Documentation/main/docs/public/snippets/menu/snippet_menu.zip)
@@ -81,27 +69,28 @@ The default slider based on the original game design. Usefull to choose between 
   
 #### Example
 ```lua
-local menu = jo.menu.create('menu1',{})
+local menu = jo.menu.create('menu1', {})
 menu:addItem({
   title = "Item",
   sliders = {
-     {
+    {
       title = 'Variations',
       current = 2,
       values = {
         "value1",
-        {var = 4},
-        {yourKey = "your Value"},
+        { var = 4 },
+        { yourKey = "your Value" },
         'value2',
         5,
         10,
-      } 
+      }
     },
   }
 })
 menu:send()
 jo.menu.setCurrentMenu('menu1')
 jo.menu.show(true)
+
 ```
 
 ### Grid
@@ -141,16 +130,16 @@ To get the values of the slider, `.value` is a table with two arguments:
   
 #### Example
 ```lua
-local menu = jo.menu.create('menu1',{})
+local menu = jo.menu.create('menu1', {})
 menu:addItem({
   title = "Item",
   sliders = {
     {
       type = "grid",
-      labels = {'left','right','up','down'},
+      labels = { 'left', 'right', 'up', 'down' },
       values = {
-        {current = 0.5,max = 1.0, min = -1.0},
-        {current = 0.5,max = 10.0, min = 0.0}, --for two dimensions
+        { current = 0.5, max = 1.0,  min = -1.0 },
+        { current = 0.5, max = 10.0, min = 0.0 }, --for two dimensions
       }
     },
   }
@@ -158,6 +147,7 @@ menu:addItem({
 menu:send()
 jo.menu.setCurrentMenu('menu1')
 jo.menu.show(true)
+
 ```
 
 ### Palette
@@ -186,16 +176,17 @@ The palette slider is usefull to select a color.
   
 #### Example
 ```lua
-local menu = jo.menu.create('menu1',{})
+local menu = jo.menu.create('menu1', {})
 menu:addItem({
   title = "Item",
   sliders = {
-    {type = "palette", title = "tint", tint = "tint_makeup", max = 63, current = 14}
+    { type = "palette", title = "tint", tint = "tint_makeup", max = 63, current = 14 }
   }
 })
 menu:send()
 jo.menu.setCurrentMenu('menu1')
 jo.menu.show(true)
+
 ```
 
 ### Switch
@@ -265,16 +256,17 @@ A statistic with **10 bars**
 
 #### Example
 ```lua
-local menu = jo.menu.create('menu1',{})
+local menu = jo.menu.create('menu1', {})
 menu:addItem({
   title = "Item",
   statistics = {
-    {label = "The label", type = "bar", value = {3,8}}
+    { label = "The label", type = "bar", value = { 3, 8 } }
   }
 })
 menu:send()
 jo.menu.setCurrentMenu('menu1')
 jo.menu.show(true)
+
 ```
 ### Bar-style
 A statistic with unlimted bar defined with CSS classes
@@ -303,23 +295,28 @@ A statistic with unlimted bar defined with CSS classes
 
 #### Example
 ```lua
-local menu = jo.menu.create('menu1',{})
+local menu = jo.menu.create('menu1', {})
 menu:addItem({
   title = "Item",
   statistics = {
-    {label = "The label", type="bar-style", value = {
-      "active",       --the 1st bar: opacity = 1
-      "active fgold", --the 2nd bar: opacity = 1 + gold
-      "active fred",  --the 3rd bar: opacity = 1 + red
-      "possible fred",--the 4th bar: opacity = 0.5 + red
-      "possible",     --the 4th bar: opacity = 0.5
-      "",             --the 5th bar: opacity = 0.2
-    }},
+    {
+      label = "The label",
+      type = "bar-style",
+      value = {
+        "active",      --the 1st bar: opacity = 1
+        "active fgold", --the 2nd bar: opacity = 1 + gold
+        "active fred", --the 3rd bar: opacity = 1 + red
+        "possible fred", --the 4th bar: opacity = 0.5 + red
+        "possible",    --the 4th bar: opacity = 0.5
+        "",            --the 5th bar: opacity = 0.2
+      }
+    },
   }
 })
 menu:send()
 jo.menu.setCurrentMenu('menu1')
 jo.menu.show(true)
+
 ```
 
 ### Icon
@@ -343,20 +340,25 @@ A statistic with icons on the right
 
 #### Example
 ```lua
-local menu = jo.menu.create('menu1',{})
+local menu = jo.menu.create('menu1', {})
 menu:addItem({
   title = "Item",
   statistics = {
-    {label = "The label", type="icon", value = {
-      {icon = "player_health", opacity = 1},    --the 1st icon
-      {icon = "player_health", opacity = 0.75}, --the 2nd icon
-      {icon = "player_health", opacity = 0.3}   --the 3rd icon
-    }},
+    {
+      label = "The label",
+      type = "icon",
+      value = {
+        { icon = "player_health", opacity = 1 }, --the 1st icon
+        { icon = "player_health", opacity = 0.75 }, --the 2nd icon
+        { icon = "player_health", opacity = 0.3 } --the 3rd icon
+      }
+    },
   }
 })
 menu:send()
 jo.menu.setCurrentMenu('menu1')
 jo.menu.show(true)
+
 ```
 
 ### Texts
@@ -375,16 +377,17 @@ Basic statistic with two labels
   
 #### Example
 ```lua
-local menu = jo.menu.create('menu1',{})
+local menu = jo.menu.create('menu1', {})
 menu:addItem({
   title = "Item",
   statistics = {
-    {label = "The label", value = "The value"}
+    { label = "The label", value = "The value" }
   }
 })
 menu:send()
 jo.menu.setCurrentMenu('menu1')
 jo.menu.show(true)
+
 ```
 
 ### Weapon-bar
@@ -407,14 +410,15 @@ A statistic with the weapon bar design. Useful to display a percent of completio
   
 #### Example
 ```lua
-local menu = jo.menu.create('menu1',{})
+local menu = jo.menu.create('menu1', {})
 menu:addItem({
   title = "Item",
   statistics = {
-    {label = "The label", type="weapon-bar", value = {60,100}}
+    { label = "The label", type = "weapon-bar", value = { 60, 100 } }
   }
 })
 menu:send()
 jo.menu.setCurrentMenu('menu1')
 jo.menu.show(true)
+
 ```

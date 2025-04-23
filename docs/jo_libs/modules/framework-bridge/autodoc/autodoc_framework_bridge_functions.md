@@ -15,6 +15,7 @@ Creates and returns a new User instance for the specified player <br>
 
 ```lua
 UserClass:get(source)
+
 ```
 
 #### Parameters
@@ -50,6 +51,7 @@ Adds money to the player <br>
 
 ```lua
 UserClass:addMoney(amount, moneyType)
+
 ```
 
 #### Parameters
@@ -80,6 +82,7 @@ Checks if a player has sufficient funds of a specified currency type <br>
 
 ```lua
 UserClass:canBuy(price, moneyType, removeIfCan)
+
 ```
 
 #### Parameters
@@ -120,6 +123,7 @@ Retrieves all identifiers associated with the player <br>
 
 ```lua
 UserClass:getIdentifiers()
+
 ```
 
 #### Return Value
@@ -146,6 +150,7 @@ Returns the current job assigned to a player <br>
 
 ```lua
 UserClass:getJob()
+
 ```
 
 #### Return Value
@@ -172,6 +177,7 @@ Gets the amount of money a player has of the specified type <br>
 
 ```lua
 UserClass:getMoney(moneyType)
+
 ```
 
 #### Parameters
@@ -204,6 +210,7 @@ Returns the roleplay name (first and last name) of the player <br>
 
 ```lua
 UserClass:getRPName()
+
 ```
 
 #### Return Value
@@ -230,6 +237,7 @@ Adds gold to the player's account <br>
 
 ```lua
 UserClass:giveGold(amount)
+
 ```
 
 #### Parameters
@@ -256,6 +264,7 @@ Removes money from the player <br>
 
 ```lua
 UserClass:removeMoney(amount, moneyType)
+
 ```
 
 #### Parameters
@@ -289,6 +298,7 @@ Adds a specific item to a custom inventory with optional metadata and wait param
 
 ```lua
 jo.framework:addItemInInventory(source, invId, item, quantity, metadata, needWait)
+
 ```
 
 #### Parameters
@@ -337,6 +347,7 @@ Adds money to a player <br>
 
 ```lua
 jo.framework:addMoney(source, amount, moneyType)
+
 ```
 
 #### Parameters
@@ -377,6 +388,7 @@ Checks if a player has the required quantity of a specific item in their invento
 
 ```lua
 jo.framework:canUseItem(source, item, amount, meta, remove)
+
 ```
 
 #### Parameters
@@ -427,6 +439,7 @@ Checks if a player has sufficient funds of a specified currency type <br>
 
 ```lua
 jo.framework:canUserBuy(source, amount, moneyType, removeIfCan)
+
 ```
 
 #### Parameters
@@ -471,6 +484,7 @@ Converts a value to a percentage (between 0-1) whether input is in percentage or
 
 ```lua
 jo.framework:convertToPercent(value)
+
 ```
 
 #### Parameters
@@ -503,6 +517,7 @@ Creates a custom inventory with configurable slots, weight limits, and item rest
 
 ```lua
 jo.framework:createInventory(invName, name, invConfig)
+
 ```
 
 #### Parameters
@@ -555,6 +570,7 @@ Creates a new player in the framework with specified data and spawn information 
 
 ```lua
 jo.framework:createUser(source, data, spawnCoordinate, isDead)
+
 ```
 
 #### Parameters
@@ -601,6 +617,7 @@ Extracts the component hash from a data table if it's the only property <br>
 
 ```lua
 jo.framework:extractComponentHashIfAlone(data)
+
 ```
 
 #### Parameters
@@ -635,6 +652,7 @@ Returns the name of the current active framework being used <br>
 
 ```lua
 jo.framework:get()
+
 ```
 
 #### Return Value
@@ -661,6 +679,7 @@ Retrieves all items from a specific inventory with their quantities and metadata
 
 ```lua
 jo.framework:getItemsFromInventory(invId)
+
 ```
 
 #### Parameters
@@ -693,6 +712,7 @@ Returns the current job assigned to a player <br>
 
 ```lua
 jo.framework:getJob(source)
+
 ```
 
 #### Parameters
@@ -725,6 +745,7 @@ Returns the roleplay name (first and last name) of the player <br>
 
 ```lua
 jo.framework:getRPName(source)
+
 ```
 
 #### Parameters
@@ -757,6 +778,7 @@ Retrieves a player's full [UserClass](#userclass-methods) object containing all 
 
 ```lua
 jo.framework:getUser(source)
+
 ```
 
 #### Parameters
@@ -789,6 +811,7 @@ Retrieves a player's clothing data with standardized category names <br>
 
 ```lua
 jo.framework:getUserClothes(source)
+
 ```
 
 #### Parameters
@@ -821,6 +844,7 @@ Retrieves all identifiers associated with a player <br> Shortcut for [UserClass:
 
 ```lua
 jo.framework:getUserIdentifiers(source)
+
 ```
 
 #### Parameters
@@ -853,6 +877,7 @@ Retrieves a player's skin data with standardized properties and formatting <br>
 
 ```lua
 jo.framework:getUserSkin(source)
+
 ```
 
 #### Parameters
@@ -885,6 +910,7 @@ Adds an item to a player's inventory with optional metadata <br>
 
 ```lua
 jo.framework:giveItem(source, item, quantity, meta)
+
 ```
 
 #### Parameters
@@ -931,6 +957,7 @@ Compares the current framework with a specified framework name <br>
 
 ```lua
 jo.framework:is(name)
+
 ```
 
 #### Parameters
@@ -963,6 +990,7 @@ Callback when a character is selected <br>
 
 ```lua
 jo.framework:onCharacterSelected(cb)
+
 ```
 
 #### Parameters
@@ -989,6 +1017,7 @@ Opens a specific inventory <br>
 
 ```lua
 jo.framework:openInventory(source, invName)
+
 ```
 
 #### Parameters
@@ -1019,6 +1048,7 @@ Registers an item as usable and attaches a callback function that executes when 
 
 ```lua
 jo.framework:registerUseItem(item, closeAfterUsed, callback)
+
 ```
 
 #### Parameters
@@ -1053,6 +1083,7 @@ Removes an inventory from the *server cache*, useful for reloading inventory dat
 
 ```lua
 jo.framework:removeInventory(invName)
+
 ```
 
 #### Parameters
@@ -1079,6 +1110,7 @@ Removes an item from a player's inventory if they have enough quantity <br>
 
 ```lua
 jo.framework:removeItem(source, item, quantity, meta)
+
 ```
 
 #### Parameters
@@ -1125,6 +1157,7 @@ Removes money from a player's account <br>
 
 ```lua
 jo.framework:removeMoney(source, amount, moneyType)
+
 ```
 
 #### Parameters
@@ -1165,6 +1198,7 @@ Converts standardized clothing data back to framework-specific format <br>
 
 ```lua
 jo.framework:revertClothes(standard)
+
 ```
 
 #### Parameters
@@ -1199,6 +1233,7 @@ Converts standardized skin data back to framework-specific format <br>
 
 ```lua
 jo.framework:revertSkin(standard)
+
 ```
 
 #### Parameters
@@ -1233,6 +1268,7 @@ Converts framework-specific clothing data to a standardized format <br>
 
 ```lua
 jo.framework:standardizeClothes(clothes)
+
 ```
 
 #### Parameters
@@ -1267,6 +1303,7 @@ Converts framework-specific skin data to a standardized format <br>
 
 ```lua
 jo.framework:standardizeSkin(skin)
+
 ```
 
 #### Parameters
@@ -1304,6 +1341,7 @@ The function has two ways to work: <br>
 
 ```lua
 jo.framework:updateUserClothes(source, _clothes, value)
+
 ```
 
 #### Parameters
@@ -1345,6 +1383,7 @@ The function has two ways to work: <br>
 
 ```lua
 jo.framework:updateUserSkin(...)
+
 ```
 
 #### Parameters

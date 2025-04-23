@@ -14,6 +14,7 @@ This utility transforms callback-style functions into Promise-returning function
 
 ```lua
 jo.promise.new(cb, ...)
+
 ```
 
 #### Parameters

@@ -24,7 +24,9 @@ The example below will run when the `kd_stable:client:stableHorse` action is exe
 function action_stable_horse()
   -- Do something
 end
-exports.kd_stable:registerAction('kd_stable:client:stableHorse',action_stable_horse,10)
+
+exports.kd_stable:registerAction('kd_stable:client:stableHorse', action_stable_horse, 10)
+
 ```
 The `action_stable_horse` will be executed each time when the player stable his horse.
 

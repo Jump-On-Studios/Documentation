@@ -9,12 +9,14 @@ Entity is a module to simplify entity management with functions for creating, de
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the Entity module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'entity',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.entity` global variable.
 

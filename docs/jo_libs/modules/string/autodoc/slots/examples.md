@@ -18,6 +18,7 @@ print(currentVersion:compareVersionWith(sameVersion))
 local newerVersion = "1.3.0"
 print(currentVersion:compareVersionWith(newerVersion))
 -- Expected output: -1 (current version is older)
+
 ```
 <!-- #endregion shared|string:compareVersionWith -->
 
@@ -36,6 +37,7 @@ local newVersion = "1.3.0"
 if newVersion:convertVersion() > versionString:convertVersion() then
     print("New version is greater than current version")
 end
+
 ```
 <!-- #endregion shared|string:convertVersion -->
 
@@ -52,6 +54,7 @@ print(capitalized)
 local playerName = "john"
 print("Welcome, " .. playerName:firstToUpper() .. "!")
 -- Expected output: Welcome, John!
+
 ```
 <!-- #endregion shared|string:firstToUpper -->
 
@@ -78,6 +81,7 @@ end
 -- Expected output:
 -- 1: apple
 -- 2: banana,cherry,date
+
 ```
 <!-- #endregion shared|string:split -->
 
@@ -95,6 +99,7 @@ local signedHex = "0x80000000"
 local signedValue = signedHex:toHex()
 print("Signed hex " .. signedHex .. " converted to number: " .. signedValue)
 -- Expected output: Signed hex 0x80000000 converted to number: -2147483648
+
 ```
 <!-- #endregion shared|string:toHex -->
 
@@ -115,5 +120,6 @@ local userInput = "  search term   "
 local cleanInput = userInput:trim()
 print("Searching for: '" .. cleanInput .. "'")
 -- Expected output: Searching for: 'search term'
+
 ```
 <!-- #endregion shared|string:trim -->

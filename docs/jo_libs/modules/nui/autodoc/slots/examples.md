@@ -1,7 +1,8 @@
 <!-- #region client|jo.nui.forceFocus -->
 #### Example
 ```lua
--- todo
+jo.nuit.forceFocus('my_crew_hud')
+
 ```
 <!-- #endregion client|jo.nui.forceFocus -->
 
@@ -9,15 +10,14 @@
 <!-- #region client|jo.nui.load -->
 #### Example
 ```lua
--- todo
+local uiName = "my_crew_hud"
+local url = "nui://myResource/folder/index.html"
+jo.nui.load(uiName)
+
 ```
 <!-- #endregion client|jo.nui.load -->
 
 
 <!-- #region client|jo.nui.resetFocus -->
-#### Example
-```lua
--- todo
-```
 <!-- #endregion client|jo.nui.resetFocus -->
 

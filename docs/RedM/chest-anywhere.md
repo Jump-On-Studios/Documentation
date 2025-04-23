@@ -165,6 +165,7 @@ Fires before a player buys a chest
 jo.hook.addFilter('canBuyChest', function(canBuy, source, chestKey)
     return canBuy
 end)
+
 ```
 
 #### <Badge type="server" text="Server" /> canOpenShop
@@ -176,6 +177,7 @@ Fires before a player opens a shop
 jo.hook.addFilter('canOpenShop', function(canOpen, source, shop)
     return canOpen
 end)
+
 ```
 
 #### <Badge type="server" text="Server" /> canPlaceChest
@@ -189,6 +191,7 @@ Fires when a player tries to place a chest
 jo.hook.addFilter('canPlaceChest', function(canPlace, source, metadata, coords, heading)
     return canPlace
 end)
+
 ```
 
 #### <Badge type="server" text="Server" /> canRemoveChest
@@ -200,6 +203,7 @@ Fires when a player tries to remove a chest
 jo.hook.addFilter('canRemoveChest', function(isOwner, source, chest)
     return isOwner
 end)
+
 ```
 #### <Badge type="server" text="Server" /> canUseChest
 Fires when a player tries to use a chest item
@@ -210,6 +214,7 @@ Fires when a player tries to use a chest item
 jo.hook.addFilter('canUseChest', function(canUse, source, metadata)
     return canUse
 end)
+
 ```
 
 #### <Badge type="server" text="Server" /> isCheckCodeValid
@@ -222,6 +227,7 @@ Fires when checking if a code entered is valid for a chest
 jo.hook.addFilter('isCheckCodeValid', function(isValid, source, code, chest)
     return isValid
 end)
+
 ```
 
 

@@ -9,12 +9,14 @@ Gizmo is a module to implement an interactive 3D gizmo tool for precisely moving
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the Gizmo module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'gizmo',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.gizmo` global variable.
 

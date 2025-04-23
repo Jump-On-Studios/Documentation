@@ -14,6 +14,7 @@ This function adds a blip at the specified location with customizable properties
 
 ```lua
 jo.blip.create(location, name, sprite, blipHash, color)
+
 ```
 
 #### Parameters

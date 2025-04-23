@@ -13,6 +13,7 @@ Notification on the left with title, icon, color and sound <br>
 
 ```lua
 jo.notif.left(title, text, dict, icon, color, duration, soundset_ref, soundset_name)
+
 ```
 
 #### Parameters
@@ -67,6 +68,7 @@ Notification on the right with icon, color and sound <br>
 
 ```lua
 jo.notif.right(text, dict, icon, color, duration, soundset_ref, soundset_name)
+
 ```
 
 #### Parameters
@@ -117,6 +119,7 @@ A function to display an error notification <br>
 
 ```lua
 jo.notif.rightError(text)
+
 ```
 
 #### Parameters
@@ -149,6 +152,7 @@ A function to display a successful notification <br>
 
 ```lua
 jo.notif.rightSuccess(text)
+
 ```
 
 #### Parameters
@@ -181,6 +185,7 @@ Notification on the top with big title and subtitle (native mission start/end) <
 
 ```lua
 jo.notif.simpleTop(title, subtitle, duration)
+
 ```
 
 #### Parameters

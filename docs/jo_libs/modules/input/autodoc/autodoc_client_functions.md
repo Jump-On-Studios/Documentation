@@ -13,6 +13,7 @@ A function to open the native input <br>
 
 ```lua
 jo.input.native(label, placeholder, maxStringLength)
+
 ```
 
 #### Parameters

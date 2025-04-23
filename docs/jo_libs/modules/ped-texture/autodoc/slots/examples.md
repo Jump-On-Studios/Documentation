@@ -8,7 +8,8 @@ data.palette = "metaped_tint_makeup"
 data.tint0 = 5
 data.tint1 = 10
 data.tint2 = 40
-jo.pedTexture.apply(ped,layername,data)
+jo.pedTexture.apply(ped, layername, data)
+
 ```
 <!-- #endregion g_client|jo.pedTexture.apply -->
 
@@ -19,7 +20,8 @@ jo.pedTexture.apply(ped,layername,data)
 local ped = PlayerPedId()
 local textures = jo.pedTexture.getAll(ped)
 print(json.encode(textures))
---Expected output: {heads = {eyeshdow = {...}, foundation = {...}}}
+-- Expected output: {heads = {eyeshdow = {...}, foundation = {...}}}
+
 ```
 <!-- #endregion g_client|jo.pedTexture.getAll -->
 
@@ -30,9 +32,10 @@ print(json.encode(textures))
 local isMale = true
 local layername = "eyebrow"
 local id = 5
-local texture = jo.pedTexture.getOverlayAssetFromId(isMale,layername,id)
+local texture = jo.pedTexture.getOverlayAssetFromId(isMale, layername, id)
 print(texture)
---Expected output: mp_u_faov_eyebrow_005
+-- Expected output: mp_u_faov_eyebrow_005
+
 ```
 <!-- #endregion g_client|jo.pedTexture.getOverlayAssetFromId -->
 
@@ -43,10 +46,11 @@ print(texture)
 local ped = PlayerPedId()
 local category = "heads"
 local overlays = {
-    eyeshadow = {sheetGrid = 3, tint0 = 1, tint1 = 45, tint2 = 56},
-    foundation = {id = 0, palette = "metaped_tint_makeup", tint0 = 78}
+    eyeshadow = { sheetGrid = 3, tint0 = 1, tint1 = 45, tint2 = 56 },
+    foundation = { id = 0, palette = "metaped_tint_makeup", tint0 = 78 }
 }
-jo.pedTexture.overwriteCategory(ped,category,overlays)
+jo.pedTexture.overwriteCategory(ped, category, overlays)
+
 ```
 <!-- #endregion g_client|jo.pedTexture.overwriteCategory -->
 
@@ -56,6 +60,7 @@ jo.pedTexture.overwriteCategory(ped,category,overlays)
 ```lua
 local ped = PlayerPedId()
 jo.pedTexture.refreshAll(ped)
+
 ```
 <!-- #endregion g_client|jo.pedTexture.refreshAll -->
 
@@ -65,7 +70,8 @@ jo.pedTexture.refreshAll(ped)
 ```lua
 local ped = PlayerPedId()
 local layername = "eyeshadow"
-jo.pedTexture.remove(ped,layername)
+jo.pedTexture.remove(ped, layername)
+
 ```
 <!-- #endregion g_client|jo.pedTexture.remove -->
 

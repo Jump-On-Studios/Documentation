@@ -2,7 +2,7 @@
 #### Example
 ```lua
 -- Create a menu
-local menu = jo.menu.create('shopMenu', {
+local menu = jo.menu.create("shopMenu", {
   title = "General Store",
   subtitle = "Available Items"
 })
@@ -12,10 +12,10 @@ menu:addItem({
   title = "Hunting Knife",
   description = "A sharp knife for skinning animals",
   prefix = "knife", -- Icon before the title
-  price = {money = 12.50},
+  price = { money = 12.50 },
   statistics = {
-    {label = "Damage", type = "bar", value = {7, 10}},
-    {label = "Durability", type = "bar", value = {8, 10}}
+    { label = "Damage", type = "bar", value = { 7, 10 } },
+    { label = "Durability", type = "bar", value = { 8, 10 } }
   },
   onClick = function(currentData)
     print("Purchasing Hunting Knife")
@@ -27,8 +27,8 @@ menu:addItem({
 menu:addItem(1, {
   title = "Horse Brush",
   description = "Keep your horse clean and happy",
-  price = {money = 5.75},
-  icon = "brush", -- Left icon
+  price = { money = 5.75 },
+  icon = "brush",     -- Left icon
   disabled = false,
   textRight = "New!", -- Text shown on the right
   onClick = function(currentData)
@@ -41,12 +41,12 @@ menu:addItem(1, {
 menu:addItem({
   title = "Hunting Outfit",
   description = "Camouflage clothing for hunting",
-  price = {money = 45.00, gold = 5},
+  price = { money = 45.00, gold = 5 },
   sliders = {
     {
       title = "Colors",
       current = 1,
-      values = {"Brown", "Green", "Black"}
+      values = { "Brown", "Green", "Black" }
     }
   },
   onChange = function(currentData)
@@ -66,8 +66,9 @@ menu:addItem({
 menu:send()
 
 -- Set this menu as the current menu and show it
-jo.menu.setCurrentMenu('shopMenu')
+jo.menu.setCurrentMenu("shopMenu")
 jo.menu.show(true)
+
 ```
 <!-- #endregion client|MenuClass:addItem -->
 
@@ -75,11 +76,12 @@ jo.menu.show(true)
 <!-- #region client|MenuClass:refresh -->
 #### Example
 ```lua
-local menu = jo.menu.create(id,data)
-menu:addItem({title="Item 1"})
+local menu = jo.menu.create(id, data)
+menu:addItem({ title = "Item 1" })
 menu:send()
-menu:addItem({title="Item 2"})
+menu:addItem({ title = "Item 2" })
 menu:refresh()
+
 ```
 <!-- #endregion client|MenuClass:refresh -->
 
@@ -88,6 +90,7 @@ menu:refresh()
 #### Example
 ```lua
 menu:reset()
+
 ```
 <!-- #endregion client|MenuClass:reset -->
 
@@ -95,8 +98,9 @@ menu:reset()
 <!-- #region client|MenuClass:send -->
 #### Example
 ```lua
-local menu = jo.menu.create(id,data)
+local menu = jo.menu.create(id, data)
 menu:send()
+
 ```
 <!-- #endregion client|MenuClass:send -->
 
@@ -109,6 +113,7 @@ menu:sort()
 
 -- Sort only items 2 through 5
 menu:sort(2, 5)
+
 ```
 <!-- #endregion client|MenuClass:sort -->
 
@@ -121,6 +126,7 @@ menu:updateItem(2, "title", "New Title")
 
 -- Disable the third item
 menu:updateItem(3, "disabled", true)
+
 ```
 <!-- #endregion client|MenuClass:updateItem -->
 
@@ -135,6 +141,7 @@ menu:use(true, true)
 -- Set this menu as the current active menu
 -- Don't keep navigation history
 menu:use(false)
+
 ```
 <!-- #endregion client|MenuClass:use -->
 
@@ -157,6 +164,7 @@ jo.menu.addItem(menuId, 3, {
   title = "Insert at position 3",
   description = "This item will be inserted at position 3"
 })
+
 ```
 <!-- #endregion client|jo.menu.addItem -->
 
@@ -165,23 +173,24 @@ jo.menu.addItem(menuId, 3, {
 #### Example
 ```lua
 --The unique ID of the menu
-local id = 'UniqueId1'
+local id = "UniqueId1"
 --The menu data
 local data = {
-  title = 'Menu', --The big title of the menu
-  subtitle = 'Elements', --The subtitle of the menu
-  numberOnScreen = 8, --The number of item display before add a scroll
+  title = "Menu",        --The big title of the menu
+  subtitle = "Elements", --The subtitle of the menu
+  numberOnScreen = 8,    --The number of item display before add a scroll
   onEnter = function(currentData)
-    print('Enter in menu '..id)
+    print("Enter in menu " .. id)
   end,
   onBack = function(currentData)
-    print('Backspace/Esc pressed in menu '..id)
+    print("Backspace/Esc pressed in menu " .. id)
   end,
   onExit = function(currentData)
-    print('Exit menu '..id)
+    print("Exit menu " .. id)
   end,
 }
-local menu = jo.menu.create(id,data)
+local menu = jo.menu.create(id, data)
+
 ```
 <!-- #endregion client|jo.menu.create -->
 
@@ -191,6 +200,7 @@ local menu = jo.menu.create(id,data)
 ```lua
 local id = "UniqueId1"
 jo.menu.delete(id)
+
 ```
 <!-- #endregion client|jo.menu.delete -->
 
@@ -202,6 +212,7 @@ jo.menu.delete(id)
 if jo.menu.doesActiveButtonChange() then
   print("Player selected a different button")
 end
+
 ```
 <!-- #endregion client|jo.menu.doesActiveButtonChange -->
 
@@ -210,7 +221,8 @@ end
 #### Example
 ```lua
 -- Fire a custom event across all menu levels
-jo.menu.fireAllLevelsEvent("onCustomEvent", "Parameter 1", 42, {data = "Extra data"})
+jo.menu.fireAllLevelsEvent("onCustomEvent", "Parameter 1", 42, { data = "Extra data" })
+
 ```
 <!-- #endregion client|jo.menu.fireAllLevelsEvent -->
 
@@ -225,6 +237,7 @@ jo.menu.fireEvent(currentItem, "onClick")
 -- Fire a custom event on a specific menu
 local menu = jo.menu.get("mainMenu")
 jo.menu.fireEvent(menu, "onExit")
+
 ```
 <!-- #endregion client|jo.menu.fireEvent -->
 
@@ -234,6 +247,7 @@ jo.menu.fireEvent(menu, "onExit")
 ```lua
 -- Force the menu to go back to the previous menu
 jo.menu.forceBack()
+
 ```
 <!-- #endregion client|jo.menu.forceBack -->
 
@@ -250,6 +264,7 @@ if menu then
   print("Menu title: " .. menu.title)
   print("Number of items: " .. #menu.items)
 end
+
 ```
 <!-- #endregion client|jo.menu.get -->
 
@@ -261,6 +276,7 @@ end
 local currentData = jo.menu.getCurrentData()
 print("Current menu ID: " .. tostring(currentData.menu))
 print("Current item index: " .. tostring(currentData.index))
+
 ```
 <!-- #endregion client|jo.menu.getCurrentData -->
 
@@ -278,6 +294,7 @@ if currentItem then
     print("Description: " .. currentItem.description)
   end
 end
+
 ```
 <!-- #endregion client|jo.menu.getCurrentItem -->
 
@@ -293,6 +310,7 @@ if currentMenu then
   print("Active menu title: " .. currentMenu.title)
   print("Number of items: " .. #currentMenu.items)
 end
+
 ```
 <!-- #endregion client|jo.menu.getCurrentMenu -->
 
@@ -304,6 +322,7 @@ end
 local previousData = jo.menu.getPreviousData()
 print("Previous menu ID: " .. tostring(previousData.menu))
 print("Previous item index: " .. tostring(previousData.index))
+
 ```
 <!-- #endregion client|jo.menu.getPreviousData -->
 
@@ -313,6 +332,7 @@ print("Previous item index: " .. tostring(previousData.index))
 ```lua
 local isOpen = jo.menu.isOpen()
 print(isOpen)
+
 ```
 <!-- #endregion client|jo.menu.isOpen -->
 
@@ -324,7 +344,7 @@ print(isOpen)
 jo.menu.onChange(function(currentData)
   print("Menu changed to: " .. tostring(currentData.menu))
   print("Selected item: " .. tostring(currentData.item.title))
-  
+
   -- You can handle different menus here
   if currentData.menu == "mainMenu" then
     -- Do something specific for the main menu
@@ -332,6 +352,7 @@ jo.menu.onChange(function(currentData)
     -- Do something specific for the settings menu
   end
 end)
+
 ```
 <!-- #endregion client|jo.menu.onChange -->
 
@@ -342,6 +363,7 @@ end)
 -- Refresh a menu by its ID to update its display
 local menuId = "mainMenu"
 jo.menu.refresh(menuId)
+
 ```
 <!-- #endregion client|jo.menu.refresh -->
 
@@ -353,6 +375,7 @@ jo.menu.refresh(menuId)
 -- This moves the cursor back to the first item
 local menuId = "mainMenu"
 jo.menu.reset(menuId)
+
 ```
 <!-- #endregion client|jo.menu.reset -->
 
@@ -366,6 +389,7 @@ jo.menu.send(menuId)
 
 -- Send without resetting cursor position
 jo.menu.send(menuId, false)
+
 ```
 <!-- #endregion client|jo.menu.send -->
 
@@ -379,13 +403,14 @@ local newMenu = {
   title = "Custom Menu",
   subtitle = "Created with jo.menu.set",
   items = {
-    {title = "Option 1"},
-    {title = "Option 2"}
+    { title = "Option 1" },
+    { title = "Option 2" }
   }
 }
 
 -- Set this as a menu by its ID
 jo.menu.set("customMenu", newMenu)
+
 ```
 <!-- #endregion client|jo.menu.set -->
 
@@ -397,6 +422,7 @@ local id = "UniqueId1"
 local keepHistoric = true
 local resetMenu = true
 jo.menu.setCurrentMenu(id, keepHistoric, resetMenu)
+
 ```
 <!-- #endregion client|jo.menu.setCurrentMenu -->
 
@@ -407,7 +433,8 @@ jo.menu.setCurrentMenu(id, keepHistoric, resetMenu)
 local visible = true
 local keepInput = true
 local hideRadar = true
-jo.menu.show(visible,keepInput,hideRadar)
+jo.menu.show(visible, keepInput, hideRadar)
+
 ```
 <!-- #endregion client|jo.menu.show -->
 
@@ -421,6 +448,7 @@ jo.menu.sort(menuId)
 
 -- Sort only items 2 through 5
 jo.menu.sort(menuId, 2, 5)
+
 ```
 <!-- #endregion client|jo.menu.sort -->
 
@@ -434,6 +462,7 @@ jo.menu.updateItem(menuId, 2, "title", "New Title")
 
 -- Disable the third item
 jo.menu.updateItem(menuId, 3, "disabled", true)
+
 ```
 <!-- #endregion client|jo.menu.updateItem -->
 
@@ -450,6 +479,7 @@ jo.menu.updateLang({
   free = "Free",
   variation = "Variation"
 })
+
 ```
 <!-- #endregion client|jo.menu.updateLang -->
 
@@ -460,6 +490,7 @@ jo.menu.updateLang({
 -- Set the volume level for menu sound effects
 -- Volume range is 0.0 to 1.0
 jo.menu.updateVolume(0.8)
+
 ```
 <!-- #endregion client|jo.menu.updateVolume -->
 
@@ -468,7 +499,7 @@ jo.menu.updateVolume(0.8)
 <!-- #region client|MenuClass:setCurrentIndex -->
 #### Example
 ```lua
-local menu = jo.menu.create(id,data)
+local menu = jo.menu.create(id, data)
 
 menu:addItem({
   title = "Item 1",
@@ -483,5 +514,6 @@ menu:addItem({
 })
 
 menu:setCurrentIndex(2) -- set item 2 as active
+
 ```
 <!-- #endregion client|MenuClass:setCurrentIndex -->

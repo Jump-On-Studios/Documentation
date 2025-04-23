@@ -25,6 +25,7 @@ By default, press the key `B` to open the wheel.
 You can also open the wheel from other resource by using the server side event :
 ```lua
 TriggerServerEvent("kd_clotheswheel:server:getClothes")
+
 ```
 For shirt and neckwear, you have the possibility to put them up/down too.
 
@@ -34,6 +35,7 @@ AddEventHandler('kd_clotheswheel:client:bandanaUp', function(isUp)
     -- isUp = true if bandana up
     -- isUp = false if bandana down
 end)
+
 ```
 
 ## 3. Config.lua
@@ -46,14 +48,14 @@ Config.PlayAnim = true
 
 Config.commandReload = "refreshCW" --command to refresh the list of equiped clothes (use false to disable it)
 
-Config.Menus = {                                 -- Data that is passed to Javascript
-    style = {                               -- Wheel style settings
-        sizePx = 800,                       -- Wheel size in pixels
-        slices = {                          -- Slice style settings
+Config.Menus = {                   -- Data that is passed to Javascript
+    style = {                      -- Wheel style settings
+        sizePx = 800,              -- Wheel size in pixels
+        slices = {                 -- Slice style settings
             hover = { ['fill'] = '#ff0000', ['opacity'] = 0.90 },
             selected = { ['fill'] = '#ff0000', ['opacity'] = 0.80 }
         },
-        titles = {                          -- Text style settings
+        titles = { -- Text style settings
             default = { ['fill'] = '#ffffff', ['stroke'] = 'none', ['font-size'] = 16, ['font-weight'] = 'bold' },
             hover = { ['fill'] = '#ffffff', ['stroke'] = 'none', ['font-size'] = 16, ['font-weight'] = 'bold' },
             selected = { ['fill'] = '#ffffff', ['stroke'] = 'none', ['font-size'] = 16, ['font-weight'] = 'bold' }
@@ -63,16 +65,16 @@ Config.Menus = {                                 -- Data that is passed to Javas
             height = 100
         }
     },
-    wheels = {                              -- Array of wheels to display
+    wheels = {                      -- Array of wheels to display
         {
-            navAngle = 270,                 -- Oritentation of wheel
-            minRadiusPercent = 0.5,         -- Minimum radius of wheel in percentage
-            maxRadiusPercent = 0.8,         -- Maximum radius of wheel in percentage
+            navAngle = 270,         -- Oritentation of wheel
+            minRadiusPercent = 0.5, -- Minimum radius of wheel in percentage
+            maxRadiusPercent = 0.8, -- Maximum radius of wheel in percentage
             labels = {},
         },
         {
             minRadiusPercent = 0.8,
-            maxRadiusPercent = 1.0,     
+            maxRadiusPercent = 1.0,
             labels = {}
         },
         {
@@ -221,10 +223,11 @@ function PlayAnimation(category)
     while not HasAnimDictLoaded(dict) do
         Wait(0)
     end
-   
+
     TaskPlayAnim(PlayerPedId(), dict, anim, 4.0, -4.0, -1, flag, offset, false, false, false)
     Wait(timer)
 end
+
 ```
 ## 4. Custom Frameworks
 
@@ -232,7 +235,8 @@ It's possible to force the reload of the clothes equiped by using this client ev
 ```lua
 --Event to send custom data
 --@param category : category of clothes you need to reload. Set nil to reload all clothes
-TriggerClientEvent('kd_clotheswheel:updateClothes',source,category)
+TriggerClientEvent('kd_clotheswheel:updateClothes', source, category)
+
 ```
 
 ## 5. For developers
@@ -252,4 +256,5 @@ jo.hook.registerFilter('canOpenWheel', function(canOpen)
     --return false to cancel the opening of the clothes wheel
     return canOpen
 end)
+
 ```

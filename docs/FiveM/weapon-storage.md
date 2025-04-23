@@ -37,37 +37,37 @@ Config.distanceSpawnGunrack = 50.0
 Config.gunrackModels = {
   ["xm_prop_xm_gunlocker_01a"] = {
     racks = {
-      [1] = {offset = vec3(-0.32, -0.22, 0.36), rotation = vec3(-90, 0.0, 0.0), size = "small", autoAdjustDimension = "y"},
-      [2] = {offset = vec3(-0.03, -0.220, 0.36), rotation = vec3(-90, 0.0, 0.0), size = "small", autoAdjustDimension = "y"},
-      [3] = {offset = vec3(-0.396, 0.04, 0.796), rotation = vec3(0.0, -70, 90), size = "big", autoAdjustDimension = false},
-      [4] = {offset = vec3(-0.286, 0.04, 0.796), rotation = vec3(0.0, -70, 90), size = "big", autoAdjustDimension = false},
-      [5] = {offset = vec3(-0.175, 0.04, 0.796), rotation = vec3(0.0, -70, 90), size = "big", autoAdjustDimension = false},
-      [6] = {offset = vec3(-0.055, 0.04, 0.796), rotation = vec3(0.0, -70, 90), size = "big", autoAdjustDimension = false},
-      [7] = {offset = vec3(0.055, 0.04, 0.796), rotation = vec3(0.0, -70, 90), size = "big", autoAdjustDimension = false},
-      [8] = {offset = vec3(-0.25, 0.0, 1.325), rotation = vec3(-90,0,25), size = "small", autoAdjustDimension = "y"},
-      [9] = {offset = vec3(0.0, 0.0, 1.325), rotation = vec3(-90,0,25), size = "small", autoAdjustDimension = "y"},
-      [10] = {offset = vec3(0.25, 0.0, 1.325), rotation = vec3(-90,0,25), size = "small", autoAdjustDimension = "y"},
+      [1] = { offset = vec3(-0.32, -0.22, 0.36), rotation = vec3(-90, 0.0, 0.0), size = "small", autoAdjustDimension = "y" },
+      [2] = { offset = vec3(-0.03, -0.220, 0.36), rotation = vec3(-90, 0.0, 0.0), size = "small", autoAdjustDimension = "y" },
+      [3] = { offset = vec3(-0.396, 0.04, 0.796), rotation = vec3(0.0, -70, 90), size = "big", autoAdjustDimension = false },
+      [4] = { offset = vec3(-0.286, 0.04, 0.796), rotation = vec3(0.0, -70, 90), size = "big", autoAdjustDimension = false },
+      [5] = { offset = vec3(-0.175, 0.04, 0.796), rotation = vec3(0.0, -70, 90), size = "big", autoAdjustDimension = false },
+      [6] = { offset = vec3(-0.055, 0.04, 0.796), rotation = vec3(0.0, -70, 90), size = "big", autoAdjustDimension = false },
+      [7] = { offset = vec3(0.055, 0.04, 0.796), rotation = vec3(0.0, -70, 90), size = "big", autoAdjustDimension = false },
+      [8] = { offset = vec3(-0.25, 0.0, 1.325), rotation = vec3(-90, 0, 25), size = "small", autoAdjustDimension = "y" },
+      [9] = { offset = vec3(0.0, 0.0, 1.325), rotation = vec3(-90, 0, 25), size = "small", autoAdjustDimension = "y" },
+      [10] = { offset = vec3(0.25, 0.0, 1.325), rotation = vec3(-90, 0, 25), size = "small", autoAdjustDimension = "y" },
     },
     sizeLimits = {
-      {size='small',max = 0.4},
-      {size='big',max = 9999},
+      { size = 'small', max = 0.4 },
+      { size = 'big', max = 9999 },
     }
   },
   ['prop_cs_gunrack'] = {
     racks = {
-      [1] = {offset = vec3(-0.58,0.05,-0.3), rotation = vec3(0.0,-90,90), size="all", autoAdjustDimension = "x"},
-      [2] = {offset = vec3(-0.45,0.05,-0.3), rotation = vec3(0.0,-90,90), size="all", autoAdjustDimension = "x"},
-      [3] = {offset = vec3(-0.32,0.05,-0.3), rotation = vec3(0.0,-90,90), size="all", autoAdjustDimension = "x"},
-      [4] = {offset = vec3(-0.19,0.05,-0.3), rotation = vec3(0.0,-90,90), size="all", autoAdjustDimension = "x"},
-      [5] = {offset = vec3(-0.07,0.05,-0.3), rotation = vec3(0.0,-90,90), size="all", autoAdjustDimension = "x"},
-      [6] = {offset = vec3(0.06,0.05,-0.3), rotation = vec3(0.0,-90,90), size="all", autoAdjustDimension = "x"},
-      [7] = {offset = vec3(0.195,0.05,-0.3), rotation = vec3(0.0,-90,90), size="all", autoAdjustDimension = "x"},
-      [8] = {offset = vec3(0.325,0.05,-0.3), rotation = vec3(0.0,-90,90), size="all", autoAdjustDimension = "x"},
-      [9] = {offset = vec3(0.455,0.05,-0.3), rotation = vec3(0.0,-90,90), size="all", autoAdjustDimension = "x"},
-      [10] = {offset = vec3(0.58,0.05,-0.3), rotation = vec3(0.0,-90,90), size="all", autoAdjustDimension = "x"},
+      [1] = { offset = vec3(-0.58, 0.05, -0.3), rotation = vec3(0.0, -90, 90), size = "all", autoAdjustDimension = "x" },
+      [2] = { offset = vec3(-0.45, 0.05, -0.3), rotation = vec3(0.0, -90, 90), size = "all", autoAdjustDimension = "x" },
+      [3] = { offset = vec3(-0.32, 0.05, -0.3), rotation = vec3(0.0, -90, 90), size = "all", autoAdjustDimension = "x" },
+      [4] = { offset = vec3(-0.19, 0.05, -0.3), rotation = vec3(0.0, -90, 90), size = "all", autoAdjustDimension = "x" },
+      [5] = { offset = vec3(-0.07, 0.05, -0.3), rotation = vec3(0.0, -90, 90), size = "all", autoAdjustDimension = "x" },
+      [6] = { offset = vec3(0.06, 0.05, -0.3), rotation = vec3(0.0, -90, 90), size = "all", autoAdjustDimension = "x" },
+      [7] = { offset = vec3(0.195, 0.05, -0.3), rotation = vec3(0.0, -90, 90), size = "all", autoAdjustDimension = "x" },
+      [8] = { offset = vec3(0.325, 0.05, -0.3), rotation = vec3(0.0, -90, 90), size = "all", autoAdjustDimension = "x" },
+      [9] = { offset = vec3(0.455, 0.05, -0.3), rotation = vec3(0.0, -90, 90), size = "all", autoAdjustDimension = "x" },
+      [10] = { offset = vec3(0.58, 0.05, -0.3), rotation = vec3(0.0, -90, 90), size = "all", autoAdjustDimension = "x" },
     },
     sizeLimits = {
-      {size="all",max=9999}
+      { size = "all", max = 9999 }
     }
   }
 }
@@ -75,17 +75,18 @@ Config.gunrackModels = {
 Config.gunracks = {
   {
     model = "xm_prop_xm_gunlocker_01a", --"xm_prop_xm_gunlocker_01a"/"prop_cs_gunrack"
-    id = "police1", --must be unique
+    id = "police1",                     --must be unique
     location = vec3(461.9, -981.1, 29.69),
-    rotation = vec3(0,0,-90),
+    rotation = vec3(0, 0, -90),
   },
   {
     model = "prop_cs_gunrack", --"xm_prop_xm_gunlocker_01a"/"prop_cs_gunrack"
-    id = "police2", --must be unique
+    id = "police2",            --must be unique
     location = vec3(462.0, -982.677, 30.05),
-    rotation = vec3(0,0,-90),
+    rotation = vec3(0, 0, -90),
   }
 }
+
 ```
 :::
 
@@ -103,6 +104,7 @@ You can find the 3 lines I added here : [the pull request](https://github.com/ov
 exports to get the script configuration
 ```lua
 exports.jo_gunrack:getConfig()
+
 ```
 
 ### Filters
@@ -128,6 +130,7 @@ Fires before the player add a weapon into the weapon storage
 exports.jo_gunrack:RegisterFilter('canAddWeapon', function(canAdd, gunrackId, rackId)
 	return canAdd
 end)
+
 ```
 #### <Badge type="client" text="Client" /> Limits gun grabbing
 Fires before the player takes a weapon stored in the weapon storage
@@ -138,4 +141,5 @@ Fires before the player takes a weapon stored in the weapon storage
 exports.jo_gunrack:RegisterFilter('canTakeWeapon', function(isOwner, gunrackId, rackId)
 	return isOwner
 end)
+
 ```

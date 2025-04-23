@@ -26,6 +26,7 @@ RegisterNetEvent("redemrp_inventory:UpdateItems")
 AddEventHandler("redemrp_inventory:UpdateItems", function(_items)
     Config.Items = _items
 end)
+
 ```
 
 In redemrp_inventory > server > sv_main add : 
@@ -34,8 +35,9 @@ RegisterServerEvent("redemrp_inventory:CreateCustomItem")
 AddEventHandler("redemrp_inventory:CreateCustomItem", function(name, data)
     local source = source
     Config.Items[name] = data
-    TriggerClientEvent("redemrp_inventory:UpdateItems",source,Config.Items)
+    TriggerClientEvent("redemrp_inventory:UpdateItems", source, Config.Items)
 end)
+
 ```
 - Create the table in database
 ```sql
@@ -132,7 +134,7 @@ Config.shops = {
     },
     -- Configuraiton of the preview
     preview = {
-      spawn = vector4(2729.02,-930.6,43.24,210.75),
+      spawn = vector4(2729.02, -930.6, 43.24, 210.75),
       distance = 5.0,
     }
   },
@@ -140,24 +142,25 @@ Config.shops = {
 
 -- Camp available
 Config.items = {
-  ['Camp'] = { --Category name (can be edited)
+  ['Camp'] = {                                             --Category name (can be edited)
     {
-      label = "Campement 1", -- Name of the item
-      price = 500, -- Price of the camp
-      shops = {'shop1'}, -- List of shops where the camp can be buy
+      label = "Campement 1",                               -- Name of the item
+      price = 500,                                         -- Price of the camp
+      shops = { 'shop1' },                                 -- List of shops where the camp can be buy
       propsetModel = "pg_ambcamp01x_tent_canvas_leanto04", -- Propset model (https://github.com/femga/rdr3_discoveries/blob/master/objects/propsets_list.lua)
-      sizeVegModifier = 5.0, -- Size of the vegetation modifier
-      size = "small" -- type of boxes when build/unbuild (defined in Config.boxes)
+      sizeVegModifier = 5.0,                               -- Size of the vegetation modifier
+      size = "small"                                       -- type of boxes when build/unbuild (defined in Config.boxes)
     },
-    {label = "Campement 2", price = 500, shops = {'shop1'}, propsetModel = "pg_ambcamp01x_tent_plaid_lean01", sizeVegModifier = 5.0, size = "small"},
-    {label = "Campement 3", price = 500, shops = {'shop1'}, propsetModel = "pg_ambcamp01x_tent_plaid_lean02", sizeVegModifier = 5.0, size = "small"},
-    {label = "Campement 4", price = 500, shops = {'shop1'}, propsetModel = "pg_ambcamp01x_tent_sticks_tall", sizeVegModifier = 5.0, size = "small"},
-    {label = "Campement 5", price = 500, shops = {'shop1'}, propsetModel = "pg_ambcamp01x_tent_string_lean", sizeVegModifier = 2.0, size = "small"},
-    {label = "Campement 6", price = 500, shops = {'shop1'}, propsetModel = "pg_ambcamp01x_tent_string_tarp", sizeVegModifier = 5.0, size = "small"},
+    { label = "Campement 2", price = 500, shops = { 'shop1' }, propsetModel = "pg_ambcamp01x_tent_plaid_lean01", sizeVegModifier = 5.0, size = "small" },
+    { label = "Campement 3", price = 500, shops = { 'shop1' }, propsetModel = "pg_ambcamp01x_tent_plaid_lean02", sizeVegModifier = 5.0, size = "small" },
+    { label = "Campement 4", price = 500, shops = { 'shop1' }, propsetModel = "pg_ambcamp01x_tent_sticks_tall", sizeVegModifier = 5.0, size = "small" },
+    { label = "Campement 5", price = 500, shops = { 'shop1' }, propsetModel = "pg_ambcamp01x_tent_string_lean", sizeVegModifier = 2.0, size = "small" },
+    { label = "Campement 6", price = 500, shops = { 'shop1' }, propsetModel = "pg_ambcamp01x_tent_string_tarp", sizeVegModifier = 5.0, size = "small" },
   },
   -- ['New category'] = {
   --   {label = "feu 1", price = 100, shops = {'shop1'}},
   --   {label = "feu 2", price = 200, shops = {'shop2'}}
   -- }
 }
+
 ```

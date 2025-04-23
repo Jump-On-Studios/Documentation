@@ -27,9 +27,11 @@ The example below will run when the `kd_stable:client:menuTitle` filter is execu
 
 ```lua
 function filter_menu_title(title)
-  return "The "..title.." was filtered"
+  return "The " .. title .. " was filtered"
 end
-exports.kd_stable:registerFilter('kd_stable:client:menuTitle',filter_menu_title,10)
+
+exports.kd_stable:registerFilter('kd_stable:client:menuTitle', filter_menu_title, 10)
+
 ```
 Lets say we have a menu title, “My horses”, the above example will modify it to be “The My horses was filtered”.
 

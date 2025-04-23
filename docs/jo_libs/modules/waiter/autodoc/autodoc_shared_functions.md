@@ -13,6 +13,7 @@ Execute a function repeatedly until a condition is met or a timeout occurs. <br>
 
 ```lua
 jo.waiter.exec(condition, executable, loopSpeed, maxDuration)
+
 ```
 
 #### Parameters

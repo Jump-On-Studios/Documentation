@@ -32,19 +32,19 @@ You have twos way to put/remove the wheel lock on the car in front of you :
 Config = {}
 
 Config.command = "wheellock" --put false to disable it
-Config.maxTimeToMove = 7000 --max duration to go near the vehicle
-Config.debug = false --display debug message
+Config.maxTimeToMove = 7000  --max duration to go near the vehicle
+Config.debug = false         --display debug message
 
 -- Overwrite the default placement of the wheel lock
 Config.offsets = {
   [GetHashKey('adder')] = {
-    wheel_lr = vector4(-0.125,0.0,0.0,-180.0),
-    wheel_rr = vector4(-0.125,0.0,0.0,-180.0),
-    wheel_lf = vector4(-0.125,0.0,0.0,-180.0),
-    wheel_lr = vector4(-0.125,0.0,0.0,-180.0),
+    wheel_lr = vector4(-0.125, 0.0, 0.0, -180.0),
+    wheel_rr = vector4(-0.125, 0.0, 0.0, -180.0),
+    wheel_lf = vector4(-0.125, 0.0, 0.0, -180.0),
+    wheel_lr = vector4(-0.125, 0.0, 0.0, -180.0),
   }
   default = {
-    all = vector4(-0.125,0.0,0.0,-180.0)
+    all = vector4(-0.125, 0.0, 0.0, -180.0)
   },
 }
 
@@ -72,7 +72,7 @@ Config.takeWheellock = function(vehicle)
   Config.message(Lang.takeWheellock)
 
   --Make the vehicle driveable
-  SetVehicleUndriveable(vehicle,false)
+  SetVehicleUndriveable(vehicle, false)
 end
 
 -- Fire when player start putting the wheel lock
@@ -84,22 +84,23 @@ end
 -- @param vehicle The vehicle ID where the wheellock was put
 -- @param wheellockObj The wheel lock object
 -- @param bone The bone name where the wheellockObj was put
-Config.putWheellock = function(vehicle,wheellockObj, bone)
+Config.putWheellock = function(vehicle, wheellockObj, bone)
   Config.message(Lang.putWheellock)
 
   --Make the vehicle undriveable
-  SetVehicleUndriveable(vehicle,true)
+  SetVehicleUndriveable(vehicle, true)
 end
 
 ----------------------------------
 -- SERVER SIDE
 ----------------------------------
 
--- Use to restrick the script to specific players 
+-- Use to restrick the script to specific players
 -- return true if player can use wheellock, else return false
 Config.canUseWheellock = function(source)
   return true
 end
+
 ```
 ## 4. For developer
 Spawn the wheel lock on car without player animation :
@@ -108,13 +109,15 @@ Spawn the wheel lock on car without player animation :
 -- @param boneName : Name of the bone where the wheel lock is
 -- @side : Client side
 TriggerEvent("kd_wheellock:addLockedCars", vehNet, 0, boneName)
+
 ```
 Use event to put/remove the wheel lock :
 ```lua
 -- @side : Client side
-TriggerEvent('kd_wheellock:action') -- Put or remove the wheel lock
-TriggerEvent('kd_wheellock:actionPut') -- Only Put the wheel lock
+TriggerEvent('kd_wheellock:action')       -- Put or remove the wheel lock
+TriggerEvent('kd_wheellock:actionPut')    -- Only Put the wheel lock
 TriggerEvent('kd_wheellock:actionRemove') -- Only Remove the wheel lock
+
 ```
 
 ## 5. Snippets
@@ -126,6 +129,7 @@ Config.canUseWheellock = function(source)
     local xPlayer = ESX.GetPlayerFromId(source)
     return (xPlayer.getJob().name == "police")
 end
+
 ```
 ### <Badge type="qb" text="QBcore" /> Restrict the wheellock with job
 Use this canUseWheellock function in the configuration
@@ -135,4 +139,5 @@ Config.canUseWheellock = function(source)
     local Player = QBCore.Functions.GetPlayer(source)
     return (Player.PlayerData.job.type == "police" or Player.PlayerData.job.type == "mechanic")
 end
+
 ```

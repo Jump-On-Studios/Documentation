@@ -9,12 +9,14 @@ Me is a a module to provide optimized, cached access to common local player data
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the Me module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'me',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.me` global variable.
 

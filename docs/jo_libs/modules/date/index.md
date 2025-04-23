@@ -9,12 +9,14 @@ Date is a module to offer utility functions for handling dates and times.
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the Date module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'date',
 }
+
 ```
 You can now use the library inside of your resource with the `jo.date` global variable.
 

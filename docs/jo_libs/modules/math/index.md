@@ -9,12 +9,14 @@ Math is a module to extend Lua's standard mathematical library with additional u
 shared_scripts {
   '@jo_libs/init.lua'
 }
+
 ```
 2. Add the math module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
   'math',
 }
+
 ```
 You can now use the library inside of your resource with the `math` global variable.
 

@@ -16,6 +16,7 @@ An object to know the on each part of the ped the layername has to be apply
 #### Syntax
 ```lua
 jo.pedTexture.categories[layername]
+
 ```
 #### Parameters
 `layername` : *string*
@@ -25,7 +26,8 @@ jo.pedTexture.categories[layername]
 ```lua
 local part = jo.pedTexture.categories.eyeshadow
 print(part)
---Expected output: heads
+-- Expected output: heads
+
 ```
 
 ### jo.pedTexture.variations
@@ -33,6 +35,7 @@ A variable with the list of existing texture for peds. The key is the layername 
 #### Syntax
 ```lua
 jo.pedTexture.variations[layername] = variations
+
 ```
 #### Parameters
 `layername` : *string*
@@ -47,10 +50,11 @@ jo.pedTexture.variations[layername] = variations
 #### Example
 ```lua
 local listEyeshadow = jo.pedTexture.variations.eyeshadow
-for _,variation in pairs (listEyeshadow) do
+for _, variation in pairs(listEyeshadow) do
     print(variable.label)
     print(json.encode(variation.value))
 end
+
 ```
 
 
