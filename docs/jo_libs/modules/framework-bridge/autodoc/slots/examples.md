@@ -229,7 +229,11 @@ user:giveGold(goldAmount)
 <!-- #region server|jo.framework:addMoney -->
 #### Example
 ```lua
--- todo
+local source = 1
+local amount = 10.5
+local moneyType = 0
+local isAdded = jo.framework:addMoney(source,amount,moneyType)
+print(isAdded)
 
 ```
 <!-- #endregion server|jo.framework:addMoney -->
@@ -245,24 +249,6 @@ print(jo.framework:canUserBuy(source, 103))
 
 ```
 <!-- #endregion server|jo.framework:canUserBuy -->
-
-
-<!-- #region server|jo.framework:convertToPercent -->
-#### Example
-```lua
--- todo
-
-```
-<!-- #endregion server|jo.framework:convertToPercent -->
-
-
-<!-- #region server|jo.framework:extractComponentHashIfAlone -->
-#### Example
-```lua
--- todo
-
-```
-<!-- #endregion server|jo.framework:extractComponentHashIfAlone -->
 
 
 <!-- #region server|jo.framework:get -->
@@ -352,7 +338,12 @@ print(isVORP)
 <!-- #region server|jo.framework:removeItem -->
 #### Example
 ```lua
--- todo
+local source = 1
+local item = "water"
+local quantity = 2
+local meta = {}
+local isRemoved = jo.framework:removeItem(source, item, quantity, meta)
+print(isRemoved)
 
 ```
 <!-- #endregion server|jo.framework:removeItem -->
@@ -361,7 +352,11 @@ print(isVORP)
 <!-- #region server|jo.framework:removeMoney -->
 #### Example
 ```lua
--- todo
+local source = 1
+local amount = 10.5
+local moneyType = 0
+local isRemoved = jo.framework:removeMoney(source, amount, moneyType)
+print(isRemoved)
 
 ```
 <!-- #endregion server|jo.framework:removeMoney -->
@@ -370,7 +365,9 @@ print(isVORP)
 <!-- #region server|jo.framework:revertClothes -->
 #### Example
 ```lua
--- todo
+local clothes = {hats = {hash = 0x123455}}
+local frameworkData = jo.framework:revertClothes(clothes)
+log(frameworkData)
 
 ```
 <!-- #endregion server|jo.framework:revertClothes -->
@@ -379,7 +376,9 @@ print(isVORP)
 <!-- #region server|jo.framework:revertSkin -->
 #### Example
 ```lua
--- todo
+local skin = {headIndex = 1, skinTone = 2}
+local frameworkSkin = jo.framework:revertSkin(skin)
+log(frameworkSkin)
 
 ```
 <!-- #endregion server|jo.framework:revertSkin -->
@@ -388,7 +387,10 @@ print(isVORP)
 <!-- #region server|jo.framework:standardizeClothes -->
 #### Example
 ```lua
--- todo
+local clothes = { Hat = 0x12345}
+local standard = jo.framework:standardizeClothes(clothes)
+log(standard)
+-- Expected output: `{hat = {hash = 0x12345}}`
 
 ```
 <!-- #endregion server|jo.framework:standardizeClothes -->
@@ -397,7 +399,10 @@ print(isVORP)
 <!-- #region server|jo.framework:standardizeSkin -->
 #### Example
 ```lua
--- todo
+local skin = { eyes = 0x1234}
+local standard = jo.framework:standardizeSkin(skin)
+log(standard)
+-- Expected output: `{eyesIndex: 2}`
 
 ```
 <!-- #endregion server|jo.framework:standardizeSkin -->

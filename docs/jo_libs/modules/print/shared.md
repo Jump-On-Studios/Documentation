@@ -5,7 +5,7 @@ outline: 2
 
 Print module is a list of functions to print messages. This module is included by default in the jo_libs loader.
 
-## bprint
+## bprint()
 Print a blue message
 ### Syntax
 ```lua
@@ -22,8 +22,8 @@ bprint('This is a blue message')
 
 ```
 
-## dprint
-Print a debug message, only if `Config.debug = true`
+## dprint()
+Print a debug message, only if `jo.debug == true`
 ### Syntax
 ```lua
 dprint(text)
@@ -39,7 +39,7 @@ dprint('This is a debug message')
 
 ```
 
-## eprint
+## eprint()
 Print a red message
 ### Syntax
 ```lua
@@ -56,7 +56,7 @@ eprint('This is a red message')
 
 ```
 
-## gprint
+## gprint()
 Print a green message
 ### Syntax
 ```lua
@@ -73,7 +73,24 @@ gprint('This is a green message')
 
 ```
 
-## oprint
+## log()
+Print all kind of variable
+### Syntax
+```lua
+print(...)
+```
+#### Parameters
+`...` : *any*
+> variable to print
+  
+### Example
+```lua
+local value = { data = "test" }
+local value2 = "My second text"
+log("MyValue",value, value2)
+```
+
+## oprint()
 Print an orange message
 ### Syntax
 ```lua
@@ -90,7 +107,7 @@ oprint('This is an orange message')
 
 ```
 
-## sprint
+## sprint()
 Print a red message
 ### Syntax
 ```lua

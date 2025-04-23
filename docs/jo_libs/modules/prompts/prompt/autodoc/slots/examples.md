@@ -113,7 +113,8 @@ print(jo.prompt.get(group, key))
 
 #### Example
 ```lua
--- todo
+local groups = jo.prompt.getAll
+log(groups)
 
 ```
 <!-- #endregion client|jo.prompt.getAll -->
@@ -123,7 +124,9 @@ print(jo.prompt.get(group, key))
 
 #### Example
 ```lua
--- todo
+local groupName = "MyGroup"
+local group = jo.prompt.getGroup(groupName)
+log(group)
 
 ```
 <!-- #endregion client|jo.prompt.getGroup -->
@@ -133,7 +136,9 @@ print(jo.prompt.get(group, key))
 
 #### Example
 ```lua
--- todo
+local groupName = "MyGroup"
+local page = jo.prompt.getPage(groupName)
+log(page)
 
 ```
 <!-- #endregion client|jo.prompt.getPage -->
@@ -256,7 +261,10 @@ print(jo.prompt.isPressed(key))
 
 #### Example
 ```lua
--- todo
+local group = "shop"
+local key = "INPUT_JUMP"
+local isVisible = jo.prompt.isVisible(group, key)
+log(isVisible)
 
 ```
 <!-- #endregion client|jo.prompt.isVisible -->

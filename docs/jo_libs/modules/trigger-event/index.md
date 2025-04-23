@@ -1,6 +1,6 @@
 # Trigger-Event
 
-Trigger-event is a module to offer a simplified way to trigger events.
+Trigger-event is a module to offer a simplified way to trigger server event from server by keeping the source value.
 
 ## Include Trigger-Event in your script
 
