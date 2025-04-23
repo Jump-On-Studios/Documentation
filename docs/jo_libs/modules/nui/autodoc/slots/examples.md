@@ -1,7 +1,7 @@
 <!-- #region client|jo.nui.forceFocus -->
 #### Example
 ```lua
-jo.nuit.forceFocus('my_crew_hud')
+jo.nui.forceFocus('my_crew_hud')
 
 ```
 <!-- #endregion client|jo.nui.forceFocus -->
@@ -19,5 +19,11 @@ jo.nui.load(uiName)
 
 
 <!-- #region client|jo.nui.resetFocus -->
+#### Example
+```lua
+jo.nuit.forceFocus('my_crew_hud')
+Wait(10000)
+jo.nui.resetFocus()
+```
 <!-- #endregion client|jo.nui.resetFocus -->
 

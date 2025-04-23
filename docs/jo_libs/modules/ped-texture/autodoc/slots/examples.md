@@ -40,7 +40,7 @@ print(texture)
 <!-- #endregion g_client|jo.pedTexture.getOverlayAssetFromId -->
 
 
-<!-- #region g_client|jo.pedTexture.overwriteCategory -->
+<!-- #region g_client|jo.pedTexture.overwriteBodyPart -->
 #### Example
 ```lua
 local ped = PlayerPedId()
@@ -49,10 +49,10 @@ local overlays = {
     eyeshadow = { sheetGrid = 3, tint0 = 1, tint1 = 45, tint2 = 56 },
     foundation = { id = 0, palette = "metaped_tint_makeup", tint0 = 78 }
 }
-jo.pedTexture.overwriteCategory(ped, category, overlays)
+jo.pedTexture.overwriteBodyPart(ped, category, overlays)
 
 ```
-<!-- #endregion g_client|jo.pedTexture.overwriteCategory -->
+<!-- #endregion g_client|jo.pedTexture.overwriteBodyPart -->
 
 
 <!-- #region g_client|jo.pedTexture.refreshAll -->
@@ -75,3 +75,10 @@ jo.pedTexture.remove(ped, layername)
 ```
 <!-- #endregion g_client|jo.pedTexture.remove -->
 
+<!-- #region g_client|jo.pedTexture.refreshNow -->
+#### Example
+```lua
+local ped = PlayerPedId()
+jo.pedTexture.refreshNow(ped)
+```
+<!-- #endregion g_client|jo.pedTexture.refreshNow -->

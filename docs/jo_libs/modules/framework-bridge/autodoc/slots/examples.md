@@ -447,3 +447,11 @@ jo.framework:updateUserSkin(source, category, data, overwrite)
 ```
 <!-- #endregion server|jo.framework:updateUserSkin -->
 
+<!-- #region FrameworkClass|jo.framework:onCharacterSelected -->
+#### Example
+```lua
+jo.framework:onCharacterSelected(function(source)
+  print('A new player select his character', source)
+end)
+```
+<!-- #endregion FrameworkClass|jo.framework:onCharacterSelected -->

@@ -396,3 +396,24 @@ local isIn = jo.component.waitPedLoaded(ped)
 
 ```
 <!-- #endregion g_client|jo.component.waitPedLoaded -->
+
+<!-- #region g_client|jo.component.getFullHorseComponentList -->
+#### Example
+```lua
+local horseComponents = jo.component.getFullHorseComponentList()
+for category,datas in pairs (horseComponents) do
+  print(category, table.count(datas))
+end
+```
+<!-- #endregion g_client|jo.component.getFullHorseComponentList -->
+
+
+<!-- #region g_client|jo.component.getFullPedComponentList -->
+#### Example
+```lua
+local pedComponents = jo.component.getFullPedComponentList()
+for category,datas in pairs (pedComponents) do
+  print(category, table.count(datas))
+end
+```
+<!-- #endregion g_client|jo.component.getFullPedComponentList -->

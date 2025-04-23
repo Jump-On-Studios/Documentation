@@ -517,3 +517,10 @@ menu:setCurrentIndex(2) -- set item 2 as active
 
 ```
 <!-- #endregion client|MenuClass:setCurrentIndex -->
+
+<!-- #region client|jo.menu.playAudio -->
+#### Example
+```lua
+jo.menu.playAudio('coins')
+```
+<!-- #endregion client|jo.menu.playAudio -->
