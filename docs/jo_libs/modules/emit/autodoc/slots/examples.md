@@ -37,16 +37,44 @@ jo.emit.updateBps(3000)
 
 
 <!-- #region server|jo.emit.triggerClient -->
+#### Example
+```lua
+local source = 5
+local data = "MyData"
+jo.emit.triggerServer('YourEventName', source, data)
+--OR--
+local sources = {3,4,5,13} --list of players
+local data = "MyData"
+jo.emit.triggerServer('YourEventName',sources,data)
+```
 
 <!-- #endregion server|jo.emit.triggerClient -->
 
 
 <!-- #region server|jo.emit.triggerClient.latent -->
-
+#### Example
+```lua
+local source = 5
+local data = {}
+for i=1, 100000 do
+  data[i] = i
+end
+jo.emit.triggerServer.latent('YourEventName', source, data)
+--OR--
+local sources = {3,4,5,13} --list of players
+local data = {}
+for i=1, 100000 do
+  data[i] = i
+end
+jo.emit.triggerServer.latent('YourEventName',sources,data)
+```
 <!-- #endregion server|jo.emit.triggerClient.latent -->
 
 
 <!-- #region server|jo.emit.updateBps -->
-
+#### Example
+```lua
+jo.emit.updateBps(3000)
+```
 <!-- #endregion server|jo.emit.updateBps -->
 
