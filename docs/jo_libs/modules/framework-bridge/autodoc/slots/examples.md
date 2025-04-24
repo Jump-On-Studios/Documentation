@@ -45,15 +45,6 @@ jo.framework:createInventory(id, label, definition)
 <!-- #endregion FrameworkClass|jo.framework:createInventory -->
 
 
-<!-- #region FrameworkClass|jo.framework:createUser -->
-#### Example
-```lua
--- todo
-
-```
-<!-- #endregion FrameworkClass|jo.framework:createUser -->
-
-
 <!-- #region FrameworkClass|jo.framework:getItemsFromInventory -->
 #### Example
 ```lua
