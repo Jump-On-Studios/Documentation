@@ -434,7 +434,7 @@ jo.framework:getUser(source)
 
 #### Return Value
 
-Type : _jo.framework.UserClass_
+Type : _UserClass_
 
 > Return a User class object containing player data and methods
 
