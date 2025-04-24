@@ -3,26 +3,16 @@ outline: [2,3]
 ---
 # Framework Class
 
-A powerfull library to build a script compatible with all Frameworks.  
+A powerfull library to build a script compatible with all Frameworks. The module architecture is based on a folder structure, with one folder per framework.
+With this structure, the data from one framework can't intefere with date from another one. 
+
 ::: info
-The class is automatically initiated when you load the library under the `jo.framework` global variable.
+The framework is automatically detected once the module is started based on resource in the server.
 :::
 ::: tip
-If you have a custom framework, you can overwrite methods by added them in the overwrite-functions.lua file.  
-<!-- Read more about [OWFramework](./OWFramework.md). -->
-#### Syntax
-```lua
-function OWFramework.<MethodName>()
-```
-#### Example
-```lua
---Overwrite the getUser method
-function OWFramework.getUser(source)
-  return yourFramework:getUser(source)
-end
-
-```
+If you have a custom framework, you can overwrite methods by added the one you want edit inside `_custom` folder.
 :::
+
 :::details List of compatible frameworks
 * VORP
 * RedEM:RP old
