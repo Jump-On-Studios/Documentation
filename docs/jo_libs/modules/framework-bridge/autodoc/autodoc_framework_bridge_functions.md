@@ -537,6 +537,24 @@ Type : _string_
 
 ---
 
+### jo.framework:getFrameworkDetected()
+
+<!-- @include: ./slots/headers.md#shared|jo.framework:getFrameworkDetected -->
+
+<!-- @include: ./slots/descriptions.md#shared|jo.framework:getFrameworkDetected -->
+
+#### Syntax
+
+```lua
+jo.framework:getFrameworkDetected()
+```
+
+<!-- @include: ./slots/examples.md#shared|jo.framework:getFrameworkDetected -->
+
+<!-- @include: ./slots/footers.md#shared|jo.framework:getFrameworkDetected -->
+
+---
+
 ### jo.framework:getItemsFromInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:getItemsFromInventory -->
@@ -836,6 +854,24 @@ Type : _boolean_
 <!-- @include: ./slots/examples.md#server|jo.framework:is -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework:is -->
+
+---
+
+### jo.framework:loadFile()
+
+<!-- @include: ./slots/headers.md#shared|jo.framework:loadFile -->
+
+<!-- @include: ./slots/descriptions.md#shared|jo.framework:loadFile -->
+
+#### Syntax
+
+```lua
+jo.framework:loadFile(...)
+```
+
+<!-- @include: ./slots/examples.md#shared|jo.framework:loadFile -->
+
+<!-- @include: ./slots/footers.md#shared|jo.framework:loadFile -->
 
 ---
 
