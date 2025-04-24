@@ -114,116 +114,117 @@ jo.framework:removeInventory(id)
 <!-- #endregion FrameworkClass|jo.framework:removeInventory -->
 
 
-<!-- #region UserClass|UserClass:addMoney -->
+<!-- #region UserClass|jo.framework.UserClass:addMoney -->
 #### Example
 ```lua
 local source = 1
 local amount = 100.0
 local moneyType = 1
-local user = UserClass:get(source)
+local user = jo.framework:getUser(source)
 user:addMoney(amount, moneyType)
 
 ```
-<!-- #endregion UserClass|UserClass:addMoney -->
+<!-- #endregion UserClass|jo.framework.UserClass:addMoney -->
 
 
-<!-- #region UserClass|UserClass:get -->
+<!-- #region UserClass|jo.framework.UserClass:get -->
 #### Example
 ```lua
-local user = UserClass:get(source)
-print(user:getJob())
+local user = jo.framework.UserClass:get(source)
+-- OR --
+local user = jo.framework:getUser(source)
 
 ```
-<!-- #endregion UserClass|UserClass:get -->
+<!-- #endregion UserClass|jo.framework.UserClass:get -->
 
 
-<!-- #region UserClass|UserClass:getIdentifiers -->
+<!-- #region UserClass|jo.framework.UserClass:getIdentifiers -->
 #### Example
 ```lua
 local source = 1
-local user = UserClass:get(source)
+local user = jo.framework:getUser(source)
 local identifiers = user:getIdentifiers()
 print(identifiers.identifier)
 print(identifiers.charid)
 
 ```
-<!-- #endregion UserClass|UserClass:getIdentifiers -->
+<!-- #endregion UserClass|jo.framework.UserClass:getIdentifiers -->
 
 
-<!-- #region UserClass|UserClass:getJob -->
+<!-- #region UserClass|jo.framework.UserClass:getJob -->
 #### Example
 ```lua
 local source = 1
-local user = UserClass:get(source)
+local user = jo.framework:getUser(source)
 local job = user:getJob()
 print(job)
 
 ```
-<!-- #endregion UserClass|UserClass:getJob -->
+<!-- #endregion UserClass|jo.framework.UserClass:getJob -->
 
 
-<!-- #region UserClass|UserClass:getMoney -->
+<!-- #region UserClass|jo.framework.UserClass:getMoney -->
 #### Example
 ```lua
 local source = 1
-local user = UserClass:get(source)
+local user = jo.framework:getUser(source)
 local dollar = user:getMoney(1)
 local gold = user:getMoney(2)
 print(dollar, gold)
 
 ```
-<!-- #endregion UserClass|UserClass:getMoney -->
+<!-- #endregion UserClass|jo.framework.UserClass:getMoney -->
 
 
-<!-- #region UserClass|UserClass:getRPName -->
+<!-- #region UserClass|jo.framework.UserClass:getRPName -->
 #### Example
 ```lua
 local source = 1
-local user = UserClass:get(source)
+local user = jo.framework:getUser(source)
 local name = user:getRPName()
 print(name)
 
 ```
-<!-- #endregion UserClass|UserClass:getRPName -->
+<!-- #endregion UserClass|jo.framework.UserClass:getRPName -->
 
 
-<!-- #region UserClass|UserClass:removeMoney -->
+<!-- #region UserClass|jo.framework.UserClass:removeMoney -->
 #### Example
 ```lua
 local source = 1
 local amount = 100.0
 local moneyType = 1
-local user = UserClass:get(source)
+local user = jo.framework:getUser(source)
 user:removeMoney(amount, moneyType)
 
 ```
-<!-- #endregion UserClass|UserClass:removeMoney -->
+<!-- #endregion UserClass|jo.framework.UserClass:removeMoney -->
 
 
-<!-- #region server|UserClass:canBuy -->
+<!-- #region server|jo.framework.UserClass:canBuy -->
 #### Example
 ```lua
 local source = 1
 local price = 20.4
 local moneyType = 2
-local user = UserClass:get(source)
+local user = jo.framework:getUser(source)
 local hasEnoughGold = user:canBuy(price, moneyType)
 print(hasEnoughGold)
 
 ```
-<!-- #endregion server|UserClass:canBuy -->
+<!-- #endregion server|jo.framework.UserClass:canBuy -->
 
 
-<!-- #region server|UserClass:giveGold -->
+<!-- #region server|jo.framework.UserClass:giveGold -->
 #### Example
 ```lua
 local source = 1
 local goldAmount = 20.0
-local user = UserClass:get(source)
+local user = jo.framework:getUser(source)
 user:giveGold(goldAmount)
 
 ```
-<!-- #endregion server|UserClass:giveGold -->
+<!-- #endregion server|jo.framework.UserClass:giveGold -->
 
 
 <!-- #region server|jo.framework:addMoney -->
@@ -286,7 +287,7 @@ print(jo.framework:getRPName(source))
 ```lua
 local source = 1
 local user = jo.framework:getUser(source)
-print(user.data.firstname)
+print(user:getRPName())
 
 ```
 <!-- #endregion server|jo.framework:getUser -->
