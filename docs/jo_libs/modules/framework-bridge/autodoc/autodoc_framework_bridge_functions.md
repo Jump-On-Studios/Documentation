@@ -1,4 +1,41 @@
 <!-- #region group_1 -->
+## Constructor
+
+### jo.framework.UserClass:get()
+
+<!-- @include: ./slots/headers.md#UserClass|jo.framework.UserClass:get -->
+
+ <br>
+ <br>
+Creates and returns a new User instance for the specified player <br>
+
+<!-- @include: ./slots/descriptions.md#UserClass|jo.framework.UserClass:get -->
+
+#### Syntax
+
+```lua
+jo.framework.UserClass:get(source)
+```
+
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+#### Return Value
+
+Type : _jo.framework.UserClass_
+
+> Return a User class object containing player data and methods
+
+<!-- @include: ./slots/examples.md#UserClass|jo.framework.UserClass:get -->
+
+<!-- @include: ./slots/footers.md#UserClass|jo.framework.UserClass:get -->
+
+<!-- #endregion group_1 -->
+
+<!-- #region group_2 -->
 ## jo.framework Methods
 
 ### jo.framework:addItemInInventory()
@@ -1025,9 +1062,9 @@ jo.framework:updateUserSkin(...)
 
 <!-- @include: ./slots/footers.md#server|jo.framework:updateUserSkin -->
 
-<!-- #endregion group_1 -->
+<!-- #endregion group_2 -->
 
-<!-- #region group_2 -->
+<!-- #region group_3 -->
 ## jo.framework.UserClass Methods
 
 ### jo.framework.UserClass:addMoney()
@@ -1097,40 +1134,6 @@ Type : _boolean_
 <!-- @include: ./slots/examples.md#server|jo.framework.UserClass:canBuy -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework.UserClass:canBuy -->
-
----
-
-### jo.framework.UserClass:get()
-
-<!-- @include: ./slots/headers.md#UserClass|jo.framework.UserClass:get -->
-
- <br>
- <br>
-Creates and returns a new User instance for the specified player <br>
-
-<!-- @include: ./slots/descriptions.md#UserClass|jo.framework.UserClass:get -->
-
-#### Syntax
-
-```lua
-jo.framework.UserClass:get(source)
-```
-
-#### Parameters
-
-`source` : _integer_
-> The source ID of the player
->
-
-#### Return Value
-
-Type : _jo.framework.UserClass_
-
-> Return a User class object containing player data and methods
-
-<!-- @include: ./slots/examples.md#UserClass|jo.framework.UserClass:get -->
-
-<!-- @include: ./slots/footers.md#UserClass|jo.framework.UserClass:get -->
 
 ---
 
@@ -1298,4 +1301,4 @@ jo.framework.UserClass:removeMoney(amount, moneyType)
 
 <!-- @include: ./slots/footers.md#UserClass|jo.framework.UserClass:removeMoney -->
 
-<!-- #endregion group_2 -->
+<!-- #endregion group_3 -->
