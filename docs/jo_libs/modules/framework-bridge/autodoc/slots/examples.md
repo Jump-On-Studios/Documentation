@@ -114,7 +114,7 @@ jo.framework:removeInventory(id)
 <!-- #endregion FrameworkClass|jo.framework:removeInventory -->
 
 
-<!-- #region UserClass|jo.framework.UserClass:addMoney -->
+<!-- #region UserClass|UserClass:addMoney -->
 #### Example
 ```lua
 local source = 1
@@ -124,7 +124,7 @@ local user = jo.framework:getUser(source)
 user:addMoney(amount, moneyType)
 
 ```
-<!-- #endregion UserClass|jo.framework.UserClass:addMoney -->
+<!-- #endregion UserClass|UserClass:addMoney -->
 
 
 <!-- #region UserClass|jo.framework.UserClass:get -->
@@ -138,7 +138,7 @@ local user = jo.framework:getUser(source)
 <!-- #endregion UserClass|jo.framework.UserClass:get -->
 
 
-<!-- #region UserClass|jo.framework.UserClass:getIdentifiers -->
+<!-- #region UserClass|UserClass:getIdentifiers -->
 #### Example
 ```lua
 local source = 1
@@ -148,10 +148,10 @@ print(identifiers.identifier)
 print(identifiers.charid)
 
 ```
-<!-- #endregion UserClass|jo.framework.UserClass:getIdentifiers -->
+<!-- #endregion UserClass|UserClass:getIdentifiers -->
 
 
-<!-- #region UserClass|jo.framework.UserClass:getJob -->
+<!-- #region UserClass|UserClass:getJob -->
 #### Example
 ```lua
 local source = 1
@@ -160,10 +160,10 @@ local job = user:getJob()
 print(job)
 
 ```
-<!-- #endregion UserClass|jo.framework.UserClass:getJob -->
+<!-- #endregion UserClass|UserClass:getJob -->
 
 
-<!-- #region UserClass|jo.framework.UserClass:getMoney -->
+<!-- #region UserClass|UserClass:getMoney -->
 #### Example
 ```lua
 local source = 1
@@ -173,10 +173,10 @@ local gold = user:getMoney(2)
 print(dollar, gold)
 
 ```
-<!-- #endregion UserClass|jo.framework.UserClass:getMoney -->
+<!-- #endregion UserClass|UserClass:getMoney -->
 
 
-<!-- #region UserClass|jo.framework.UserClass:getRPName -->
+<!-- #region UserClass|UserClass:getRPName -->
 #### Example
 ```lua
 local source = 1
@@ -185,10 +185,10 @@ local name = user:getRPName()
 print(name)
 
 ```
-<!-- #endregion UserClass|jo.framework.UserClass:getRPName -->
+<!-- #endregion UserClass|UserClass:getRPName -->
 
 
-<!-- #region UserClass|jo.framework.UserClass:removeMoney -->
+<!-- #region UserClass|UserClass:removeMoney -->
 #### Example
 ```lua
 local source = 1
@@ -198,10 +198,10 @@ local user = jo.framework:getUser(source)
 user:removeMoney(amount, moneyType)
 
 ```
-<!-- #endregion UserClass|jo.framework.UserClass:removeMoney -->
+<!-- #endregion UserClass|UserClass:removeMoney -->
 
 
-<!-- #region server|jo.framework.UserClass:canBuy -->
+<!-- #region server|UserClass:canBuy -->
 #### Example
 ```lua
 local source = 1
@@ -212,10 +212,10 @@ local hasEnoughGold = user:canBuy(price, moneyType)
 print(hasEnoughGold)
 
 ```
-<!-- #endregion server|jo.framework.UserClass:canBuy -->
+<!-- #endregion server|UserClass:canBuy -->
 
 
-<!-- #region server|jo.framework.UserClass:giveGold -->
+<!-- #region server|UserClass:giveGold -->
 #### Example
 ```lua
 local source = 1
@@ -224,7 +224,7 @@ local user = jo.framework:getUser(source)
 user:giveGold(goldAmount)
 
 ```
-<!-- #endregion server|jo.framework.UserClass:giveGold -->
+<!-- #endregion server|UserClass:giveGold -->
 
 
 <!-- #region server|jo.framework:addMoney -->

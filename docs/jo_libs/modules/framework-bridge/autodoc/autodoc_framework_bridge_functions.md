@@ -434,7 +434,7 @@ jo.framework:getUser(source)
 
 #### Return Value
 
-Type : _UserClass_
+Type : _jo.framework.UserClass_
 
 > Return a User class object containing player data and methods
 
@@ -1067,18 +1067,18 @@ jo.framework:updateUserSkin(...)
 <!-- #region group_3 -->
 ## jo.framework.UserClass Methods
 
-### jo.framework.UserClass:addMoney()
+### UserClass:addMoney()
 
-<!-- @include: ./slots/headers.md#UserClass|jo.framework.UserClass:addMoney -->
+<!-- @include: ./slots/headers.md#UserClass|UserClass:addMoney -->
 
 Adds money to the player <br>
 
-<!-- @include: ./slots/descriptions.md#UserClass|jo.framework.UserClass:addMoney -->
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:addMoney -->
 
 #### Syntax
 
 ```lua
-jo.framework.UserClass:addMoney(amount, moneyType)
+UserClass:addMoney(amount, moneyType)
 ```
 
 #### Parameters
@@ -1091,24 +1091,24 @@ jo.framework.UserClass:addMoney(amount, moneyType)
 > The type of currency: `0`: dollar, `1`: gold, `2`: rol
 >
 
-<!-- @include: ./slots/examples.md#UserClass|jo.framework.UserClass:addMoney -->
+<!-- @include: ./slots/examples.md#UserClass|UserClass:addMoney -->
 
-<!-- @include: ./slots/footers.md#UserClass|jo.framework.UserClass:addMoney -->
+<!-- @include: ./slots/footers.md#UserClass|UserClass:addMoney -->
 
 ---
 
-### jo.framework.UserClass:canBuy()
+### UserClass:canBuy()
 
-<!-- @include: ./slots/headers.md#server|jo.framework.UserClass:canBuy -->
+<!-- @include: ./slots/headers.md#server|UserClass:canBuy -->
 
 Checks if a player has sufficient funds of a specified currency type <br>
 
-<!-- @include: ./slots/descriptions.md#server|jo.framework.UserClass:canBuy -->
+<!-- @include: ./slots/descriptions.md#server|UserClass:canBuy -->
 
 #### Syntax
 
 ```lua
-jo.framework.UserClass:canBuy(price, moneyType, removeIfCan)
+UserClass:canBuy(price, moneyType, removeIfCan)
 ```
 
 #### Parameters
@@ -1131,24 +1131,24 @@ Type : _boolean_
 
 > Return `true` if the player has more money than the amount
 
-<!-- @include: ./slots/examples.md#server|jo.framework.UserClass:canBuy -->
+<!-- @include: ./slots/examples.md#server|UserClass:canBuy -->
 
-<!-- @include: ./slots/footers.md#server|jo.framework.UserClass:canBuy -->
+<!-- @include: ./slots/footers.md#server|UserClass:canBuy -->
 
 ---
 
-### jo.framework.UserClass:getIdentifiers()
+### UserClass:getIdentifiers()
 
-<!-- @include: ./slots/headers.md#UserClass|jo.framework.UserClass:getIdentifiers -->
+<!-- @include: ./slots/headers.md#UserClass|UserClass:getIdentifiers -->
 
 Retrieves all identifiers associated with the player <br>
 
-<!-- @include: ./slots/descriptions.md#UserClass|jo.framework.UserClass:getIdentifiers -->
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:getIdentifiers -->
 
 #### Syntax
 
 ```lua
-jo.framework.UserClass:getIdentifiers()
+UserClass:getIdentifiers()
 ```
 
 #### Return Value
@@ -1157,24 +1157,24 @@ Type : _table_
 
 > Return the player's identifiers <br> `identifiers.identifier` - Unique identifier of the player <br> `identifiers.charid` - Unique id of the player
 
-<!-- @include: ./slots/examples.md#UserClass|jo.framework.UserClass:getIdentifiers -->
+<!-- @include: ./slots/examples.md#UserClass|UserClass:getIdentifiers -->
 
-<!-- @include: ./slots/footers.md#UserClass|jo.framework.UserClass:getIdentifiers -->
+<!-- @include: ./slots/footers.md#UserClass|UserClass:getIdentifiers -->
 
 ---
 
-### jo.framework.UserClass:getJob()
+### UserClass:getJob()
 
-<!-- @include: ./slots/headers.md#UserClass|jo.framework.UserClass:getJob -->
+<!-- @include: ./slots/headers.md#UserClass|UserClass:getJob -->
 
 Returns the current job assigned to a player <br>
 
-<!-- @include: ./slots/descriptions.md#UserClass|jo.framework.UserClass:getJob -->
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:getJob -->
 
 #### Syntax
 
 ```lua
-jo.framework.UserClass:getJob()
+UserClass:getJob()
 ```
 
 #### Return Value
@@ -1183,24 +1183,24 @@ Type : _string_
 
 > Returns the job name of the player
 
-<!-- @include: ./slots/examples.md#UserClass|jo.framework.UserClass:getJob -->
+<!-- @include: ./slots/examples.md#UserClass|UserClass:getJob -->
 
-<!-- @include: ./slots/footers.md#UserClass|jo.framework.UserClass:getJob -->
+<!-- @include: ./slots/footers.md#UserClass|UserClass:getJob -->
 
 ---
 
-### jo.framework.UserClass:getMoney()
+### UserClass:getMoney()
 
-<!-- @include: ./slots/headers.md#UserClass|jo.framework.UserClass:getMoney -->
+<!-- @include: ./slots/headers.md#UserClass|UserClass:getMoney -->
 
 Gets the amount of money a player has of the specified type <br>
 
-<!-- @include: ./slots/descriptions.md#UserClass|jo.framework.UserClass:getMoney -->
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:getMoney -->
 
 #### Syntax
 
 ```lua
-jo.framework.UserClass:getMoney(moneyType)
+UserClass:getMoney(moneyType)
 ```
 
 #### Parameters
@@ -1215,24 +1215,24 @@ Type : _number_
 
 > Return the amount for this kind of money
 
-<!-- @include: ./slots/examples.md#UserClass|jo.framework.UserClass:getMoney -->
+<!-- @include: ./slots/examples.md#UserClass|UserClass:getMoney -->
 
-<!-- @include: ./slots/footers.md#UserClass|jo.framework.UserClass:getMoney -->
+<!-- @include: ./slots/footers.md#UserClass|UserClass:getMoney -->
 
 ---
 
-### jo.framework.UserClass:getRPName()
+### UserClass:getRPName()
 
-<!-- @include: ./slots/headers.md#UserClass|jo.framework.UserClass:getRPName -->
+<!-- @include: ./slots/headers.md#UserClass|UserClass:getRPName -->
 
 Returns the roleplay name (first and last name) of the player <br>
 
-<!-- @include: ./slots/descriptions.md#UserClass|jo.framework.UserClass:getRPName -->
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:getRPName -->
 
 #### Syntax
 
 ```lua
-jo.framework.UserClass:getRPName()
+UserClass:getRPName()
 ```
 
 #### Return Value
@@ -1241,24 +1241,24 @@ Type : _string_
 
 > Returns the formatted first and last name of the player
 
-<!-- @include: ./slots/examples.md#UserClass|jo.framework.UserClass:getRPName -->
+<!-- @include: ./slots/examples.md#UserClass|UserClass:getRPName -->
 
-<!-- @include: ./slots/footers.md#UserClass|jo.framework.UserClass:getRPName -->
+<!-- @include: ./slots/footers.md#UserClass|UserClass:getRPName -->
 
 ---
 
-### jo.framework.UserClass:giveGold()
+### UserClass:giveGold()
 
-<!-- @include: ./slots/headers.md#server|jo.framework.UserClass:giveGold -->
+<!-- @include: ./slots/headers.md#server|UserClass:giveGold -->
 
 Adds gold to the player's account <br>
 
-<!-- @include: ./slots/descriptions.md#server|jo.framework.UserClass:giveGold -->
+<!-- @include: ./slots/descriptions.md#server|UserClass:giveGold -->
 
 #### Syntax
 
 ```lua
-jo.framework.UserClass:giveGold(amount)
+UserClass:giveGold(amount)
 ```
 
 #### Parameters
@@ -1267,24 +1267,24 @@ jo.framework.UserClass:giveGold(amount)
 > The amount of gold to add
 >
 
-<!-- @include: ./slots/examples.md#server|jo.framework.UserClass:giveGold -->
+<!-- @include: ./slots/examples.md#server|UserClass:giveGold -->
 
-<!-- @include: ./slots/footers.md#server|jo.framework.UserClass:giveGold -->
+<!-- @include: ./slots/footers.md#server|UserClass:giveGold -->
 
 ---
 
-### jo.framework.UserClass:removeMoney()
+### UserClass:removeMoney()
 
-<!-- @include: ./slots/headers.md#UserClass|jo.framework.UserClass:removeMoney -->
+<!-- @include: ./slots/headers.md#UserClass|UserClass:removeMoney -->
 
 Removes money from the player <br>
 
-<!-- @include: ./slots/descriptions.md#UserClass|jo.framework.UserClass:removeMoney -->
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:removeMoney -->
 
 #### Syntax
 
 ```lua
-jo.framework.UserClass:removeMoney(amount, moneyType)
+UserClass:removeMoney(amount, moneyType)
 ```
 
 #### Parameters
@@ -1297,8 +1297,8 @@ jo.framework.UserClass:removeMoney(amount, moneyType)
 > The type of currency: `0`: dollar, `1`: gold, `2`: rol
 >
 
-<!-- @include: ./slots/examples.md#UserClass|jo.framework.UserClass:removeMoney -->
+<!-- @include: ./slots/examples.md#UserClass|UserClass:removeMoney -->
 
-<!-- @include: ./slots/footers.md#UserClass|jo.framework.UserClass:removeMoney -->
+<!-- @include: ./slots/footers.md#UserClass|UserClass:removeMoney -->
 
 <!-- #endregion group_3 -->

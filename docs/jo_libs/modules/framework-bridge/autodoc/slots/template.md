@@ -43,9 +43,34 @@
 <!-- #endregion FrameworkClass|jo.framework:removeInventory -->
 
 
-<!-- #region UserClass|jo.framework.UserClass:addMoney -->
+<!-- #region UserClass|UserClass:addMoney -->
 
-<!-- #endregion UserClass|jo.framework.UserClass:addMoney -->
+<!-- #endregion UserClass|UserClass:addMoney -->
+
+
+<!-- #region UserClass|UserClass:getIdentifiers -->
+
+<!-- #endregion UserClass|UserClass:getIdentifiers -->
+
+
+<!-- #region UserClass|UserClass:getJob -->
+
+<!-- #endregion UserClass|UserClass:getJob -->
+
+
+<!-- #region UserClass|UserClass:getMoney -->
+
+<!-- #endregion UserClass|UserClass:getMoney -->
+
+
+<!-- #region UserClass|UserClass:getRPName -->
+
+<!-- #endregion UserClass|UserClass:getRPName -->
+
+
+<!-- #region UserClass|UserClass:removeMoney -->
+
+<!-- #endregion UserClass|UserClass:removeMoney -->
 
 
 <!-- #region UserClass|jo.framework.UserClass:get -->
@@ -53,39 +78,14 @@
 <!-- #endregion UserClass|jo.framework.UserClass:get -->
 
 
-<!-- #region UserClass|jo.framework.UserClass:getIdentifiers -->
+<!-- #region server|UserClass:canBuy -->
 
-<!-- #endregion UserClass|jo.framework.UserClass:getIdentifiers -->
-
-
-<!-- #region UserClass|jo.framework.UserClass:getJob -->
-
-<!-- #endregion UserClass|jo.framework.UserClass:getJob -->
+<!-- #endregion server|UserClass:canBuy -->
 
 
-<!-- #region UserClass|jo.framework.UserClass:getMoney -->
+<!-- #region server|UserClass:giveGold -->
 
-<!-- #endregion UserClass|jo.framework.UserClass:getMoney -->
-
-
-<!-- #region UserClass|jo.framework.UserClass:getRPName -->
-
-<!-- #endregion UserClass|jo.framework.UserClass:getRPName -->
-
-
-<!-- #region UserClass|jo.framework.UserClass:removeMoney -->
-
-<!-- #endregion UserClass|jo.framework.UserClass:removeMoney -->
-
-
-<!-- #region server|jo.framework.UserClass:canBuy -->
-
-<!-- #endregion server|jo.framework.UserClass:canBuy -->
-
-
-<!-- #region server|jo.framework.UserClass:giveGold -->
-
-<!-- #endregion server|jo.framework.UserClass:giveGold -->
+<!-- #endregion server|UserClass:giveGold -->
 
 
 <!-- #region server|jo.framework:addMoney -->
