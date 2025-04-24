@@ -23,6 +23,7 @@ If you have a custom framework, you can overwrite methods by added the one you w
 * RPX
 :::
 
+<!--@include: ./autodoc/convars/autodoc_shared_convars.md-->
 
 <!--@include: ./autodoc/autodoc_framework_bridge_functions.md#group_2-->
 
@@ -34,3 +35,6 @@ If you have a custom framework, you can overwrite methods by added the one you w
 
 # UserClass Methods
 Documentation for the [User](./user.md) 
+
+
+

@@ -14,7 +14,7 @@ Total convars: 22
 ### Framework-bridge
 | Convar | Side | Type | Default | Description |
 |--------|------|------|---------|-------------|
-| `jo_libs:framework` | Shared | String | `false` |  |
+| `jo_libs:framework` | Shared | String | `false` | Force the framework |
 
 ### Gizmo
 | Convar | Side | Type | Default | Description |
