@@ -177,13 +177,3 @@
 
 <!-- #endregion server|jo.framework:updateUserSkin -->
 
-
-<!-- #region shared|jo.framework:getFrameworkDetected -->
-
-<!-- #endregion shared|jo.framework:getFrameworkDetected -->
-
-
-<!-- #region shared|jo.framework:loadFile -->
-
-<!-- #endregion shared|jo.framework:loadFile -->
-
