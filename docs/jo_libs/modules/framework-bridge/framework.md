@@ -10,7 +10,7 @@ With this structure, the data from one framework can't intefere with date from a
 The framework is automatically detected once the module is started based on resource in the server.
 :::
 ::: tip
-If you have a custom framework, you can overwrite methods by added the one you want edit inside `_custom` folder.
+If you have a custom framework, you can overwrite methods by added the one you want edit inside `_custom/FrameworkClass.lua` file.
 :::
 
 :::details List of compatible frameworks
