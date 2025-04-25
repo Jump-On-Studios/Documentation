@@ -46,12 +46,12 @@ Deep copies a table. Unlike "=", it doesn't keep the link between both tables. <
 #### Syntax
 
 ```lua
-table.copy(orig)
+table.copy(t)
 ```
 
 #### Parameters
 
-`orig` : _table_
+`t` : _table_
 
 > The table you want to copy
 >
@@ -80,12 +80,12 @@ Counts the number of values inside a table. <br>
 #### Syntax
 
 ```lua
-table.count(_table)
+table.count(t)
 ```
 
 #### Parameters
 
-`_table` : _table_
+`t` : _table_
 
 > The table to count elements in
 >
@@ -284,12 +284,12 @@ Checks if a table is empty. <br>
 #### Syntax
 
 ```lua
-table.isEmpty(_table)
+table.isEmpty(t)
 ```
 
 #### Parameters
 
-`_table` : _table_
+`t` : _table_
 
 > The table to check
 >
