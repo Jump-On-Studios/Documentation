@@ -21,6 +21,10 @@ jo_libs {
 }
 
 ```
+3. Add the NUI inside the the `fxmanifest.lua`
+```lua
+ui_page "nui://jo_libs/nui/index.html"
+```
 
 You can now use the library inside of your resource with the `jo.promptNui` global variable.
 
