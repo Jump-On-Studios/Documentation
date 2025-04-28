@@ -143,6 +143,11 @@
 <!-- #endregion client|jo.menu.show -->
 
 
+<!-- #region client|jo.menu.softHide -->
+
+<!-- #endregion client|jo.menu.softHide -->
+
+
 <!-- #region client|jo.menu.sort -->
 
 <!-- #endregion client|jo.menu.sort -->

@@ -939,6 +939,36 @@ jo.menu.show(show, keepInput, hideRadar, animation, hideCursor)
 
 ---
 
+### jo.menu.softHide()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.softHide -->
+
+A function to hide temporary the menu and do action <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.softHide -->
+
+#### Syntax
+
+```lua
+jo.menu.softHide(cb, animation)
+```
+
+#### Parameters
+
+`cb` : _function_
+> Action executed before show again the menu
+>
+
+`animation` : _boolean_ <BadgeOptional />
+> Whether to use animation when showing/hiding the menu <br> default: `true`
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.softHide -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.softHide -->
+
+---
+
 ### jo.menu.sort()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.sort -->
