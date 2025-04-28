@@ -11,6 +11,8 @@ This document explains the differences between the two prompt modules provided b
 
 Prompt Native works well when you need basic prompt interactions without the need for extensive customization or advanced features.
 
+<img src="/images/previews/prompts/native-prompt.png" class="data-zoomable preview" data-zoomable/>
+
 ## Prompt NUI
 
 **Prompt NUI** is a more advanced module that leverages the NUI (Native UI) framework, offering enhanced functionality and greater flexibility. It is designed for modern applications where customization and optimization are critical. Prompt NUI provides several key advantages:
@@ -32,3 +34,5 @@ Prompt Native works well when you need basic prompt interactions without the nee
 
 - **HTML Integration:**  
   You can enhance the appearance of your prompts by adding HTML to both group labels and prompt labels. This feature allows for rich formatting, inclusion of icons, and overall improved visual customization.
+
+<img src="/images/previews/prompts/prompt-nui-bottom-right.png" class="data-zoomable preview" data-zoomable/>

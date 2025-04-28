@@ -2,6 +2,8 @@
 
 Gizmo is a module to implement an interactive 3D gizmo tool for precisely moving and rotating entities within the game world.
 
+<img src="/images/previews/gizmo/gizmo.jpg" class="data-zoomable preview" data-zoomable/>
+
 ## Include Gizmo in your script
 
 1. To use the Gizmo library, just add the initiator as a shared script inside of your `fxmanifest.lua` file.

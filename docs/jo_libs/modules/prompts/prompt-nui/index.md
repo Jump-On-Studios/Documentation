@@ -2,6 +2,8 @@
 
 Prompt Nui is a module to implement a flexible NUI-based prompt system.
 
+<img src="/images/previews/prompts/prompt-nui-all-corners.png" class="data-zoomable preview" data-zoomable/>
+
 ## Include Prompt Nui in your script
 
 1. To use the Prompt Nui library, just add the initiator as a shared script inside of your `fxmanifest.lua` file.
