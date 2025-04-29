@@ -21,7 +21,7 @@ jo.emit.triggerClient(eventName, source, ...)
 > The event name
 >
 
-`source` : _string|table_
+`source` : _integer|table_
 > The player ID or list of players ID
 >
 
@@ -55,7 +55,7 @@ jo.emit.triggerClient.latent(eventName, source, ...)
 > The event name
 >
 
-`source` : _string|table_
+`source` : _integer|table_
 > The player ID or list of players ID
 >
 
