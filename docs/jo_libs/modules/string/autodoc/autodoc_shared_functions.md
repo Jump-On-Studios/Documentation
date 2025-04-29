@@ -171,3 +171,34 @@ Type : _[string](#string-methods)_
 
 <!-- @include: ./slots/footers.md#shared|string:trim -->
 
+
+## Other Functions
+
+### string.spaceNumber()
+
+<!-- @include: ./slots/headers.md#shared|string.spaceNumber -->
+
+Convert a integer|number to a spaced number <br>
+
+<!-- @include: ./slots/descriptions.md#shared|string.spaceNumber -->
+
+#### Syntax
+
+```lua
+[string](#string-methods).spaceNumber(number, decimal)
+```
+
+#### Parameters
+
+`number` : _integer|number_
+> The number to convert
+>
+
+`decimal` : _integer_ <BadgeOptional />
+> The number of decimal <br> default: 0
+>
+
+<!-- @include: ./slots/examples.md#shared|string.spaceNumber -->
+
+<!-- @include: ./slots/footers.md#shared|string.spaceNumber -->
+
