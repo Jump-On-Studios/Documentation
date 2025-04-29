@@ -123,3 +123,12 @@ print("Searching for: '" .. cleanInput .. "'")
 
 ```
 <!-- #endregion shared|string:trim -->
+
+<!-- #region shared|string.spaceNumber -->
+#### Example
+```lua
+local number = 123456.123456
+local spaced = string.spaceNumber(number, 3)
+-- Expected output: "123 456.123"
+```
+<!-- #endregion shared|string.spaceNumber -->

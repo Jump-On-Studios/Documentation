@@ -524,3 +524,22 @@ menu:setCurrentIndex(2) -- set item 2 as active
 jo.menu.playAudio('coins')
 ```
 <!-- #endregion client|jo.menu.playAudio -->
+
+<!-- #region client|jo.menu.softHide -->
+#### Example
+```lua
+menu:addItem({
+  title = "Title",
+  onClick = function(currentData)
+    jo.menu.softHide(function()
+      local title = jo.input.native("Enter the new title", currentData.item.title, 100)
+      if title then
+        currentData.item.title = title
+        menu:refresh()
+      end
+    end)
+  end
+})
+
+```
+<!-- #endregion client|jo.menu.softHide -->
