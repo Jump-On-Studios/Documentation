@@ -6,13 +6,14 @@
 <!-- @include: ./slots/headers.md#client|jo.entity.create -->
 
 Create a new entity at specified location <br>
+- if coords is a vector4, heading is not required <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.entity.create -->
 
 #### Syntax
 
 ```lua
-jo.entity.create(model, coords, heading, networked, fadeDuration)
+jo.entity.create(model, coords, ...)
 ```
 
 #### Parameters
@@ -21,12 +22,12 @@ jo.entity.create(model, coords, heading, networked, fadeDuration)
 > The model name of the entity to create
 >
 
-`coords` : _vector3_
+`coords` : _vector3|vector4_
 > The coordinates where the entity will be created
 >
 
-`heading` : _number_
-> The heading direction for the entity
+`heading` : _number_ <BadgeOptional />
+> The heading direction for the entity if coords is vec3
 >
 
 `networked` : _boolean_ <BadgeOptional />
