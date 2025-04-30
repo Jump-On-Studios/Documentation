@@ -2,6 +2,11 @@
 outline: 2
 ---
 # Me <BadgeClient/>
+
+:::warning
+This module is now deprecated. Please use the [player module](/jo_libs/modules/player/) instead.
+:::
+
 A library to save in the client cache the value of PlayerPedId() and his location. These values are updated every 1000ms by default.
 Very helpfull to optimize the resource
 

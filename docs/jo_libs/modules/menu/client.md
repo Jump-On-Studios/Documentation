@@ -51,7 +51,7 @@ Here is an example of an item with sliders of the 4 types:
 <img src="/images/previews/menu/preview_sliders.jpg" class="data-zoomable" data-zoomable style="height:20em"/>
 
 ### Default
-The default slider based on the original game design. Usefull to choose between item variations like clothes.
+The default slider based on the original game design. Useful to choose between item variations like clothes.
 ![The default slider](/images/previews/menu/slider_default.jpg){data-zoomable}
 #### Syntax
 ```lua
@@ -94,7 +94,7 @@ jo.menu.show(true)
 ```
 
 ### Grid
-The grid slider is usefull to define a value between a min and max value.  
+The grid slider is useful to define a value between a min and max value.  
 You can use one or two dimensions of slider.  
 One dimension:
 ![The grid slider one dimension](/images/previews/menu/slider_grid.jpg){data-zoomable}
@@ -151,7 +151,7 @@ jo.menu.show(true)
 ```
 
 ### Palette
-The palette slider is usefull to select a color.  
+The palette slider is useful to select a color.  
 ![The palette slider](/images/previews/menu/slider_palette.jpg){data-zoomable}
 #### Syntax
 ```lua
