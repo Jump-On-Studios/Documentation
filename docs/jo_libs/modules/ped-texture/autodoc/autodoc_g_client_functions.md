@@ -111,15 +111,9 @@ jo.pedTexture.getOverlayAssetFromId(isMale, category, data)
 > The layername of the texture
 >
 
-`data` : _table_
-
+`data` : _table|integer_
 > The texture data <br> ⚠️ Can be either a `number` representing the texture ID or a `table` with detailed configuration
 >
-
-> `data.albedo` : _string_ - The albedo of the texture
-> 
-> `data.sexe` : _string_ - The sex of the texture, used for eyebrow category <br> default: based on isMale <BadgeOptional />
-> 
 
 #### Return Value
 
