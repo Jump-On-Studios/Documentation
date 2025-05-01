@@ -59,7 +59,7 @@ jo.callback.triggerClient(name, source, cb, ...)
 > Function to receive the result of the event
 >
 
-`...` : _mixed_ <BadgeOptional />
+`...` : _any_ <BadgeOptional />
 > The list of parameters to send to the callback event
 >
 
