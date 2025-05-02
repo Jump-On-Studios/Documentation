@@ -1,6 +1,32 @@
 
 ## JO Functions
 
+### jo.player.didMoveSinceLastCall()
+
+<!-- @include: ./slots/headers.md#client|jo.player.didMoveSinceLastCall -->
+
+A function to know if the player moved this the last call of it <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.player.didMoveSinceLastCall -->
+
+#### Syntax
+
+```lua
+jo.player.didMoveSinceLastCall()
+```
+
+#### Return Value
+
+Type : _boolean_
+
+> `true` if the player moved since the last call
+
+<!-- @include: ./slots/examples.md#client|jo.player.didMoveSinceLastCall -->
+
+<!-- @include: ./slots/footers.md#client|jo.player.didMoveSinceLastCall -->
+
+---
+
 ### jo.player.forceUpdate()
 
 <!-- @include: ./slots/headers.md#client|jo.player.forceUpdate -->
