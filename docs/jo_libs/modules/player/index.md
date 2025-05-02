@@ -1,6 +1,6 @@
 # Player
 
-Player is a a module to provide optimized, cached access to common local player data.
+Player is a module to provide optimized, cached access to common local player data.
 
 ## Include Player in your script
 
