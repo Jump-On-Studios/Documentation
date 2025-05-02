@@ -69,21 +69,4 @@ print(jo.pl.serverId)
 
 ```
 
-## JO Functions
-
-### jo.player.forceUpdate()
-Force the update of values
-#### Syntax
-```lua
-jo.player.forceUpdate()
--- OR --
-jo.pl.forceUpdate()
-```
-
-#### Example
-```lua
-print(jo.pl.coords)
-jo.pl.forceUpdate()
-print(jo.pl.coords)
-
-```
+<!--@include: ./autodoc/autodoc_client_functions.md-->
