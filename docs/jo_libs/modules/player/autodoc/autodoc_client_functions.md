@@ -42,7 +42,7 @@ jo.player.move(cb, interval)
 >
 
 `interval` : _integer_ <BadgeOptional />
-> minimal duration in ms during two execution. Can't be lower than 100ms
+> minimal duration in ms between two executions. Can't be lower than 100ms
 >
 
 <!-- @include: ./slots/examples.md#client|jo.player.move -->
