@@ -5,7 +5,7 @@
 
 <!-- @include: ./slots/headers.md#client|jo.player.didMoveSinceLastCall -->
 
-A function to know if the player moved this the last call of it <br>
+A function to know if the player moved since the last called of the function <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.player.didMoveSinceLastCall -->
 
