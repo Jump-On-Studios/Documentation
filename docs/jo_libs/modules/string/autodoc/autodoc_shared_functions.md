@@ -172,7 +172,7 @@ Type : _[string](#string-methods)_
 <!-- @include: ./slots/footers.md#shared|string:trim -->
 
 
-## Other Functions
+## String Functions
 
 ### string.spaceNumber()
 
@@ -185,7 +185,7 @@ Convert a integer|number to a spaced number <br>
 #### Syntax
 
 ```lua
-[string](#string-methods).spaceNumber(number, decimal)
+string.spaceNumber(number, decimal)
 ```
 
 #### Parameters
