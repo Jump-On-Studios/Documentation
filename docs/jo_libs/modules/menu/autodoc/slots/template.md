@@ -98,6 +98,11 @@
 <!-- #endregion client|jo.menu.getPreviousData -->
 
 
+<!-- #region client|jo.menu.isExist -->
+
+<!-- #endregion client|jo.menu.isExist -->
+
+
 <!-- #region client|jo.menu.isOpen -->
 
 <!-- #endregion client|jo.menu.isOpen -->

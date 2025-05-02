@@ -677,6 +677,38 @@ Type : _table_
 
 ---
 
+### jo.menu.isExist()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.isExist -->
+
+Check if a menu exist <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.isExist -->
+
+#### Syntax
+
+```lua
+jo.menu.isExist(id)
+```
+
+#### Parameters
+
+`id` : _string_
+> the menu ID
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> Returns `true` if the menu exists
+
+<!-- @include: ./slots/examples.md#client|jo.menu.isExist -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.isExist -->
+
+---
+
 ### jo.menu.isOpen()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.isOpen -->
