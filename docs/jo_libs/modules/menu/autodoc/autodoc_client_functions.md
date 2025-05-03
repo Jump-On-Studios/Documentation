@@ -735,12 +735,42 @@ Type : _boolean_
 
 ---
 
+### jo.menu.missingMenuHandler()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.missingMenuHandler -->
+
+ <br>
+ <br>
+Register a handler for missing menu error <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.missingMenuHandler -->
+
+#### Syntax
+
+```lua
+jo.menu.missingMenuHandler(id, callback)
+```
+
+#### Parameters
+
+`id` : _string_
+> The menu ID
+>
+
+`callback` : _function_
+> The handler function
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.missingMenuHandler -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.missingMenuHandler -->
+
+---
+
 ### jo.menu.onChange()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.onChange -->
 
- <br>
- <br>
 Register a callback function for menu change events <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.onChange -->
