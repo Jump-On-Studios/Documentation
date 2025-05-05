@@ -40,6 +40,8 @@ jo.menu.create(id, data)
 > 
 > `data.onExit` : _function_ - Fired when the menu is exited <BadgeOptional />
 > 
+> `data.onTick` : _function_ - Fired every tick <BadgeOptional />
+> 
 
 #### Return Value
 
@@ -124,6 +126,8 @@ MenuClass:addItem(p, item)
 > `item.onChange` : _function_ - Fired when a slider value changes <BadgeOptional />
 > 
 > `item.onExit` : _function_ - Fired when the item is exited <BadgeOptional />
+> 
+> `item.onTick` : _function_ - Fired every tick <BadgeOptional />
 > 
 
 #### Return Value
