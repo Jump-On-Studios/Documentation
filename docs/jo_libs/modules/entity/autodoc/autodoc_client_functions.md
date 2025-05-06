@@ -206,6 +206,48 @@ jo.entity.fadeOut(entity, duration)
 
 ---
 
+### jo.entity.getEntityInCrosshair()
+
+<!-- @include: ./slots/headers.md#client|jo.entity.getEntityInCrosshair -->
+
+Raycast from the camera through the screen center and return what was hit <br>
+Displays a small crosshair sprite at screen center <br>
+Must be called each frame to render the crosshair <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.entity.getEntityInCrosshair -->
+
+#### Syntax
+
+```lua
+jo.entity.getEntityInCrosshair(distance, flags, toIgnore)
+```
+
+#### Parameters
+
+`distance` : _number_ <BadgeOptional />
+> Maximum raycast distance <br> default:`100`
+>
+
+`flags` : _integer_ <BadgeOptional />
+> [Flags](https://docs.fivem.net/natives/?_0x7EE9F5D83DD4F90E) for the raycast <br> default:`16`
+>
+
+`toIgnore` : _integer_ <BadgeOptional />
+> Entity to ignore in the raycast <br> default:`PlayerPedId()`
+>
+
+#### Return Value
+
+Type : _boolean,vector3,integer_
+
+> Hit status, hit coordinates, hit entity
+
+<!-- @include: ./slots/examples.md#client|jo.entity.getEntityInCrosshair -->
+
+<!-- @include: ./slots/footers.md#client|jo.entity.getEntityInCrosshair -->
+
+---
+
 ### jo.entity.requestControl()
 
 <!-- @include: ./slots/headers.md#client|jo.entity.requestControl -->

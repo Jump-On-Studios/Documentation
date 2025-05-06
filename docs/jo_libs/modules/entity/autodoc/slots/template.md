@@ -28,6 +28,11 @@
 <!-- #endregion client|jo.entity.fadeOut -->
 
 
+<!-- #region client|jo.entity.getEntityInCrosshair -->
+
+<!-- #endregion client|jo.entity.getEntityInCrosshair -->
+
+
 <!-- #region client|jo.entity.requestControl -->
 
 <!-- #endregion client|jo.entity.requestControl -->
