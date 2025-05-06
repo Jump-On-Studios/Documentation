@@ -12,8 +12,14 @@ A function to know if the player moved since the last called of the function <br
 #### Syntax
 
 ```lua
-jo.player.didMoveSinceLastCall()
+jo.player.didMoveSinceLastCall(id)
 ```
+
+#### Parameters
+
+`id` : _string_
+> Unique ID of call
+>
 
 #### Return Value
 
