@@ -57,6 +57,55 @@ jo.utils.releaseGameData(name)
 
 ---
 
+### jo.utils.screenToWorld()
+
+<!-- @include: ./slots/headers.md#client|jo.utils.screenToWorld -->
+
+Converts screen coordinates to world coordinates using camera raycasting <br>
+This function casts a ray from the camera through the specified screen position and returns information about what it hits in the 3D world <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.utils.screenToWorld -->
+
+#### Syntax
+
+```lua
+jo.utils.screenToWorld(distance, flags, toIgnore, mouseX, mouseY)
+```
+
+#### Parameters
+
+`distance` : _number_ <BadgeOptional />
+> Maximum raycast distance in game units <br> default:`100`
+>
+
+`flags` : _integer_ <BadgeOptional />
+> [Flags](https://docs.fivem.net/natives/?_0x7EE9F5D83DD4F90E) for the raycast <br> default:`1|2|8|16`
+>
+
+`toIgnore` : _integer_ <BadgeOptional />
+> Entity to ignore in the raycast <br> default:`PlayerPedId()`
+>
+
+`mouseX` : _number_ <BadgeOptional />
+> X screen coordinate normalized between 0-1 <br> default:`0.5` screen center
+>
+
+`mouseY` : _number_ <BadgeOptional />
+> Y screen coordinate normalized between 0-1 <br> default:`0.5` screen center
+>
+
+#### Return Value
+
+Type : _boolean,vector3,vector3,integer_
+
+> hit, endCoords, surfaceNormal, entityHit
+
+<!-- @include: ./slots/examples.md#client|jo.utils.screenToWorld -->
+
+<!-- @include: ./slots/footers.md#client|jo.utils.screenToWorld -->
+
+---
+
 ### jo.utils.waiter()
 
 <!-- @include: ./slots/headers.md#client|jo.utils.waiter -->
