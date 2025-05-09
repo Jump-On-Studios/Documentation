@@ -417,3 +417,24 @@ for category,datas in pairs (pedComponents) do
 end
 ```
 <!-- #endregion g_client|jo.component.getFullPedComponentList -->
+
+<!-- #region server|jo.component.getFullHorseComponentList -->
+#### Example
+```lua
+local horseComponents = jo.component.getFullHorseComponentList()
+for category,datas in pairs (horseComponents) do
+  print(category, table.count(datas))
+end
+```
+<!-- #endregion server|jo.component.getFullHorseComponentList -->
+
+
+<!-- #region server|jo.component.getFullPedComponentList -->
+#### Example
+```lua
+local pedComponents = jo.component.getFullPedComponentList()
+for category,datas in pairs (pedComponents) do
+  print(category, table.count(datas))
+end
+```
+<!-- #endregion server|jo.component.getFullPedComponentList -->

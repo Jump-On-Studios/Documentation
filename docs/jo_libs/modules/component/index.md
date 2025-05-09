@@ -23,3 +23,4 @@ You can now use the library inside of your resource with the `jo.component` glob
 ## Functions
 
 Documentation for the [Client](./client.md) side.  
+Documentation for the [Server](./server.md) side.  
