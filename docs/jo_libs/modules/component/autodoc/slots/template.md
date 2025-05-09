@@ -177,3 +177,13 @@
 
 <!-- #endregion g_client|jo.component.waitPedLoaded -->
 
+
+<!-- #region server|jo.component.getFullHorseComponentList -->
+
+<!-- #endregion server|jo.component.getFullHorseComponentList -->
+
+
+<!-- #region server|jo.component.getFullPedComponentList -->
+
+<!-- #endregion server|jo.component.getFullPedComponentList -->
+
