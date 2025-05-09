@@ -1,3 +1,8 @@
+<!-- #region shared|string.compare -->
+
+<!-- #endregion shared|string.compare -->
+
+
 <!-- #region shared|string.spaceNumber -->
 
 <!-- #endregion shared|string.spaceNumber -->
@@ -16,6 +21,11 @@
 <!-- #region shared|string:firstToUpper -->
 
 <!-- #endregion shared|string:firstToUpper -->
+
+
+<!-- #region shared|string:removeAccent -->
+
+<!-- #endregion shared|string:removeAccent -->
 
 
 <!-- #region shared|string:split -->

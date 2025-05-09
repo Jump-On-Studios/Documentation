@@ -85,6 +85,32 @@ Type : _[string](#string-methods)_
 
 ---
 
+### string:removeAccent()
+
+<!-- @include: ./slots/headers.md#shared|string:removeAccent -->
+
+A function to remove all accent in a [string](#string-methods) <br>
+
+<!-- @include: ./slots/descriptions.md#shared|string:removeAccent -->
+
+#### Syntax
+
+```lua
+string:removeAccent()
+```
+
+#### Return Value
+
+Type : _[string](#string-methods)_
+
+> A [string](#string-methods) without accent
+
+<!-- @include: ./slots/examples.md#shared|string:removeAccent -->
+
+<!-- @include: ./slots/footers.md#shared|string:removeAccent -->
+
+---
+
 ### string:split()
 
 <!-- @include: ./slots/headers.md#shared|string:split -->
@@ -173,6 +199,46 @@ Type : _[string](#string-methods)_
 
 
 ## String Functions
+
+### string.compare()
+
+<!-- @include: ./slots/headers.md#shared|string.compare -->
+
+A function to compare two [string](#string-methods)s <br>
+
+<!-- @include: ./slots/descriptions.md#shared|string.compare -->
+
+#### Syntax
+
+```lua
+string.compare(a, b, caseSensitive)
+```
+
+#### Parameters
+
+`a` : _[string](#string-methods)_
+> The 1st [string](#string-methods)
+>
+
+`b` : _[string](#string-methods)_
+> The 2nd [string](#string-methods)
+>
+
+`caseSensitive` : _boolean_
+> If the compare is case sensitive<br>default: `false`
+>
+
+#### Return Value
+
+Type : _integer_
+
+> `-1` if `a` is previous, `0` if both are same and `1` if `a` is after
+
+<!-- @include: ./slots/examples.md#shared|string.compare -->
+
+<!-- @include: ./slots/footers.md#shared|string.compare -->
+
+---
 
 ### string.spaceNumber()
 
