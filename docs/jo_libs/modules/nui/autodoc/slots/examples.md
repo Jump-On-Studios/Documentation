@@ -12,7 +12,7 @@ jo.nui.forceFocus('my_crew_hud')
 ```lua
 local uiName = "my_crew_hud"
 local url = "nui://myResource/folder/index.html"
-jo.nui.load(uiName)
+jo.nui.load(uiName, url)
 
 ```
 <!-- #endregion client|jo.nui.load -->
