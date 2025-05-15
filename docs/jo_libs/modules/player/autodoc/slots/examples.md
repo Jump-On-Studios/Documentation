@@ -35,3 +35,13 @@ print(jo.pl.coords)
 ```
 <!-- #endregion g_client|jo.player.forceUpdate -->
 
+<!-- #region client|jo.player.didMoveSinceLastCall -->
+#### Example
+```lua
+local move = jo.player.didMoveSinceLastCall('moveId')
+print(move)
+Wait(2000)
+move = jo.player.didMoveSinceLastCall('moveId')
+print(move)
+```
+<!-- #endregion client|jo.player.didMoveSinceLastCall -->
