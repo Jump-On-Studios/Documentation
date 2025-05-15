@@ -5,6 +5,8 @@
 
 <!-- @include: ./slots/headers.md#client|jo.input.loadNUI -->
 
+A function to load the NUI. <br>
+
 <!-- @include: ./slots/descriptions.md#client|jo.input.loadNUI -->
 
 #### Syntax
@@ -63,6 +65,8 @@ Type : _string_
 
 <!-- @include: ./slots/headers.md#client|jo.input.nui -->
 
+A function to open the nui input <br>
+
 <!-- @include: ./slots/descriptions.md#client|jo.input.nui -->
 
 #### Syntax
@@ -70,6 +74,20 @@ Type : _string_
 ```lua
 jo.input.nui(options, cb)
 ```
+
+#### Parameters
+
+`options` : _table_
+
+> Options of the input
+>
+
+> `options.rows` : _table_ - The list of rows content
+> 
+
+`cb` : _function_ <BadgeOptional />
+> The return function. If missing, the function is syncrhonous
+>
 
 <!-- @include: ./slots/examples.md#client|jo.input.nui -->
 
