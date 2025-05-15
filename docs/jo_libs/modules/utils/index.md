@@ -23,3 +23,4 @@ You can now use the library inside of your resource with the `jo.utils` global v
 ## Functions
 
 Documentation for the [Client](./client.md) side.  
+Documentation for the [Both](./shared.md) side.  
