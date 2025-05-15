@@ -144,6 +144,42 @@ GroupClass:display(page)
 
 ---
 
+### GroupClass:forceDisplay()
+
+<!-- @include: ./slots/headers.md#client|GroupClass:forceDisplay -->
+
+<!-- @include: ./slots/descriptions.md#client|GroupClass:forceDisplay -->
+
+#### Syntax
+
+```lua
+GroupClass:forceDisplay()
+```
+
+<!-- @include: ./slots/examples.md#client|GroupClass:forceDisplay -->
+
+<!-- @include: ./slots/footers.md#client|GroupClass:forceDisplay -->
+
+---
+
+### GroupClass:forceHide()
+
+<!-- @include: ./slots/headers.md#client|GroupClass:forceHide -->
+
+<!-- @include: ./slots/descriptions.md#client|GroupClass:forceHide -->
+
+#### Syntax
+
+```lua
+GroupClass:forceHide()
+```
+
+<!-- @include: ./slots/examples.md#client|GroupClass:forceHide -->
+
+<!-- @include: ./slots/footers.md#client|GroupClass:forceHide -->
+
+---
+
 ### GroupClass:hide()
 
 <!-- @include: ./slots/headers.md#client|GroupClass:hide -->
