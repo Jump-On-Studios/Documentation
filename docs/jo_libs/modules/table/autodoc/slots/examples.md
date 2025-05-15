@@ -185,3 +185,18 @@ print(json.encode(mergeAfterResult))
 ```
 <!-- #endregion shared|table.mergeAfter -->
 
+<!-- #region shared|table.addMultiLevels -->
+#### Example
+```lua
+-- Injected inside a value
+local value = {x=1}
+table.addMultiLevels(value,"key","otherKey")
+log(value)
+-- Expected output: {"x":1,"key":{"otherKey": {}}}
+
+-- Create a new value
+local value = table.addMultiLevels("key","otherKey")
+log(value)
+-- Expected output: {"key":{"otherKey": {}}
+```
+<!-- #endregion shared|table.addMultiLevels -->
