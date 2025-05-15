@@ -5,6 +5,8 @@
 
 <!-- @include: ./slots/headers.md#shared|jo.utils.convertToTable -->
 
+A function to convert a value to table if it's not already a table <br>
+
 <!-- @include: ./slots/descriptions.md#shared|jo.utils.convertToTable -->
 
 #### Syntax
