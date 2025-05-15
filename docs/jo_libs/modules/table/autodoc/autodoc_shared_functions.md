@@ -1,6 +1,38 @@
 
 ## Table Functions
 
+### table.addMultiLevels()
+
+<!-- @include: ./slots/headers.md#shared|table.addMultiLevels -->
+
+A function to add a multiples table levels inside a variable if it not exists <br>
+
+<!-- @include: ./slots/descriptions.md#shared|table.addMultiLevels -->
+
+#### Syntax
+
+```lua
+table.addMultiLevels(...)
+```
+
+#### Parameters
+
+`...` : _table|string_
+> if the 1st argument is a table, keys will be injected in it. Else, a new table will be created
+>
+
+#### Return Value
+
+Type : _table_
+
+> The new table with multiples table levels
+
+<!-- @include: ./slots/examples.md#shared|table.addMultiLevels -->
+
+<!-- @include: ./slots/footers.md#shared|table.addMultiLevels -->
+
+---
+
 ### table.clearForNui()
 
 <!-- @include: ./slots/headers.md#shared|table.clearForNui -->
