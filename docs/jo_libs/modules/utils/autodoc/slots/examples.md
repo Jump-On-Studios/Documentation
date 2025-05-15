@@ -40,3 +40,12 @@ print("Killer: ", killer, "Value: ", value, "Duration: ", GetGamerTimer() - star
 ```
 <!-- #endregion client|jo.utils.waiter -->
 
+<!-- #region shared|jo.utils.convertToTable -->
+#### Example
+```lua
+local hash = 12345
+local data = jo.utils.convertToTable(hash,"myHash")
+print(json.encode(data))
+-- Expected ouput: {"myHash":12345}
+```
+<!-- #endregion shared|jo.utils.convertToTable -->

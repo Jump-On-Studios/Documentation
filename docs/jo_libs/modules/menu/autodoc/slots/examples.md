@@ -543,3 +543,27 @@ menu:addItem({
 
 ```
 <!-- #endregion client|jo.menu.softHide -->
+
+<!-- #region client|jo.menu.isExist -->
+#### Example
+```lua
+local menuId = "home"
+local isExist = jo.menu.isExist(menuId)
+-- Expected output: `true` if the menu was created before, else `false`
+```
+<!-- #endregion client|jo.menu.isExist -->
+
+<!-- #region client|jo.menu.missingMenuHandler -->
+#### Example
+```lua
+jo.menu.missingMenuHandler('home', function()
+  print('home menu is missing')
+  local menu = jo.menu.create('home', {
+    title = "home"
+  })
+  menu:addItem({title = "item"})
+  menu:send()
+  menu:use()
+end)
+```
+<!-- #endregion client|jo.menu.missingMenuHandler -->

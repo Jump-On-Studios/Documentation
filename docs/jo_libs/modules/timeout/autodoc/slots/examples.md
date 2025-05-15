@@ -58,7 +58,7 @@ end)
 ```lua
 local timeout = jo.timeout.set(1000, function(), print('Done') end)
 timeout:setMsec(2000)
---Executed output: 'Done' printed after 2000ms
+-- Executed output: 'Done' printed after 2000ms
 ```
 <!-- #endregion shared|TimeoutClass:setMsec -->
 

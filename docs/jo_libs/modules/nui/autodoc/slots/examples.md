@@ -27,3 +27,11 @@ jo.nui.resetFocus()
 ```
 <!-- #endregion client|jo.nui.resetFocus -->
 
+
+<!-- #region client|jo.nui.isLoaded -->
+#### Example
+```lua
+local isLoaded = jo.menu.isLoaded('my_crew_hud')
+-- Expected output: `true` is the nui is loaded, else `false`
+```
+<!-- #endregion client|jo.nui.isLoaded -->

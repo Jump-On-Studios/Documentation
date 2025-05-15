@@ -132,3 +132,25 @@ local spaced = string.spaceNumber(number, 3)
 -- Expected output: "123 456.123"
 ```
 <!-- #endregion shared|string.spaceNumber -->
+
+<!-- #region shared|string.compare -->
+#### Example
+```lua
+local a = "automobile"
+local b = "Automobile"
+print(a:compare(b, true))
+-- OR --
+print(string.compare(a,b, true))
+-- Expected output: -1 because uppercase is before lowercase
+```
+<!-- #endregion shared|string.compare -->
+
+<!-- #region shared|string:removeAccent -->
+#### Example
+```lua
+local value = "Liberté"
+local newValue = value:removeAccent()
+print(newValue)
+-- Expected output: Liberte
+```
+<!-- #endregion shared|string:removeAccent -->
