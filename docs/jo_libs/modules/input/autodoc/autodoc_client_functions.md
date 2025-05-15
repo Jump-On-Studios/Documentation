@@ -1,6 +1,24 @@
 
 ## JO Functions
 
+### jo.input.loadNUI()
+
+<!-- @include: ./slots/headers.md#client|jo.input.loadNUI -->
+
+<!-- @include: ./slots/descriptions.md#client|jo.input.loadNUI -->
+
+#### Syntax
+
+```lua
+jo.input.loadNUI()
+```
+
+<!-- @include: ./slots/examples.md#client|jo.input.loadNUI -->
+
+<!-- @include: ./slots/footers.md#client|jo.input.loadNUI -->
+
+---
+
 ### jo.input.native()
 
 <!-- @include: ./slots/headers.md#client|jo.input.native -->
@@ -38,4 +56,22 @@ Type : _string_
 <!-- @include: ./slots/examples.md#client|jo.input.native -->
 
 <!-- @include: ./slots/footers.md#client|jo.input.native -->
+
+---
+
+### jo.input.nui()
+
+<!-- @include: ./slots/headers.md#client|jo.input.nui -->
+
+<!-- @include: ./slots/descriptions.md#client|jo.input.nui -->
+
+#### Syntax
+
+```lua
+jo.input.nui(options, cb)
+```
+
+<!-- @include: ./slots/examples.md#client|jo.input.nui -->
+
+<!-- @include: ./slots/footers.md#client|jo.input.nui -->
 

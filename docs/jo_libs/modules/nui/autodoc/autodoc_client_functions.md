@@ -5,7 +5,7 @@
 
 <!-- @include: ./slots/headers.md#client|jo.nui.forceFocus -->
 
-Forces focus on a specific NUI interface <br>
+Forces focus on a specific NUI interface and don't spread events to other NUIs <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.nui.forceFocus -->
 
@@ -24,6 +24,38 @@ jo.nui.forceFocus(uiName)
 <!-- @include: ./slots/examples.md#client|jo.nui.forceFocus -->
 
 <!-- @include: ./slots/footers.md#client|jo.nui.forceFocus -->
+
+---
+
+### jo.nui.isLoaded()
+
+<!-- @include: ./slots/headers.md#client|jo.nui.isLoaded -->
+
+A function to know if a nui is loaded <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.nui.isLoaded -->
+
+#### Syntax
+
+```lua
+jo.nui.isLoaded(uiName)
+```
+
+#### Parameters
+
+`uiName` : _string_
+> The name of the NUI
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> `true` if the nui is already loaded
+
+<!-- @include: ./slots/examples.md#client|jo.nui.isLoaded -->
+
+<!-- @include: ./slots/footers.md#client|jo.nui.isLoaded -->
 
 ---
 
@@ -61,7 +93,7 @@ jo.nui.load(uiName, url)
 
 <!-- @include: ./slots/headers.md#client|jo.nui.resetFocus -->
 
-Resets the focus from any NUI interface <br>
+Resets the focus from any NUI interface and spread events <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.nui.resetFocus -->
 
