@@ -49,3 +49,20 @@ print(json.encode(data))
 -- Expected ouput: {"myHash":12345}
 ```
 <!-- #endregion shared|jo.utils.convertToTable -->
+
+<!-- #region client|jo.utils.screenToWorld -->
+#### Example
+```lua
+CreateThread(function()
+    local distance = 2.0
+    local flags = 0     -- Intersect with nothing
+    local toIgnore = jo.pl()
+    local screenX = 0.5 -- Center of the screen
+    local screenY = 0.5 -- Center of the screen
+    while true do
+        local hit, endCoords, surfaceNormal, entityHit = jo.utils.screenToWorld(distance, flags, toIgnore, screenX, screenY)
+        Wait(0)
+    end
+end)
+```
+<!-- #endregion client|jo.utils.screenToWorld -->

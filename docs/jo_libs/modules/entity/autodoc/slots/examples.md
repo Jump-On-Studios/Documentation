@@ -73,7 +73,17 @@ jo.entity.requestControl(entity)
 <!-- #endregion client|jo.entity.requestControl -->
 
 
-
+<!-- #region client|jo.entity.getEntityInCrosshair -->
+#### Example
+```lua
+CreateThread(function()
+    while true do
+        local hit, coords, entityHit = jo.entity.getEntityInCrosshair()
+        Wait(0)
+    end
+end)
+```
+<!-- #endregion client|jo.entity.getEntityInCrosshair -->
 
 
 <!-- #region server|jo.entity.delete -->
