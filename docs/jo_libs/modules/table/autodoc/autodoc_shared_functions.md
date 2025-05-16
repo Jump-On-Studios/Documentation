@@ -455,3 +455,45 @@ Type : _table_
 
 <!-- @include: ./slots/footers.md#shared|table.mergeAfter -->
 
+---
+
+### table.slice()
+
+<!-- @include: ./slots/headers.md#shared|table.slice -->
+
+Get a part of table with stard and end index <br>
+
+<!-- @include: ./slots/descriptions.md#shared|table.slice -->
+
+#### Syntax
+
+```lua
+table.slice(t, s, e)
+```
+
+#### Parameters
+
+`t` : _table_
+
+> The table to get from
+>
+
+
+`s` : _integer_ <BadgeOptional />
+> The start intex <br> default:`1`
+>
+
+`e` : _integer_ <BadgeOptional />
+> The end index <br> default:`s`
+>
+
+#### Return Value
+
+Type : _table_
+
+> The extracted table
+
+<!-- @include: ./slots/examples.md#shared|table.slice -->
+
+<!-- @include: ./slots/footers.md#shared|table.slice -->
+
