@@ -135,6 +135,43 @@ Type : _integer_
 
 ---
 
+### table.doesKeyExist()
+
+<!-- @include: ./slots/headers.md#shared|table.doesKeyExist -->
+
+A function to know if a deep key exists in a table <br>
+
+<!-- @include: ./slots/descriptions.md#shared|table.doesKeyExist -->
+
+#### Syntax
+
+```lua
+table.doesKeyExist(t, ...)
+```
+
+#### Parameters
+
+`t` : _table_
+
+> The table to check
+>
+
+
+`...` : _string_
+> The list of keys to deep
+>
+
+#### Return Value
+
+Type : _boolean,_
+
+
+<!-- @include: ./slots/examples.md#shared|table.doesKeyExist -->
+
+<!-- @include: ./slots/footers.md#shared|table.doesKeyExist -->
+
+---
+
 ### table.extract()
 
 <!-- @include: ./slots/headers.md#shared|table.extract -->
