@@ -83,9 +83,7 @@ let sideBarModules = GenerateMenu(libModules);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  ignoreDeadLinks:[
-    "./user"
-  ],
+  ignoreDeadLinks: ["./user"],
   sitemap: {
     hostname: "https://docs.jumpon-studios.com",
   },
@@ -227,6 +225,10 @@ export default defineConfig({
             link: "/RedM/horse-and-wagon-sharing",
           },
           {
+            text: "🏠 Housing",
+            link: "/RedM/housing",
+          },
+          {
             text: "🦌 Hunting wagon Storage",
             link: "/RedM/hunting-wagon-storage",
           },
@@ -265,7 +267,7 @@ export default defineConfig({
                 text: "Convars",
                 link: "/convars/",
                 collapsed: true,
-                items:[]
+                items: [],
               },
             ],
           },
