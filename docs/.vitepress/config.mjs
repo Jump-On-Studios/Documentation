@@ -83,7 +83,7 @@ let sideBarModules = GenerateMenu(libModules);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  ignoreDeadLinks:[
+  ignoreDeadLinks: [
     "./user"
   ],
   sitemap: {
@@ -201,6 +201,10 @@ export default defineConfig({
             text: "<img src='/images/cashregister.webp' /> Cash register Robbery",
             link: "/RedM/cash-register-robbery",
           },
+          {
+            text: "<img src='/images/chest.webp' /> Chest Anywhere",
+            link: "/RedM/chest-anywhere"
+          },
           { text: "🎩 Clothes Wheel", link: "/RedM/clothes-wheel" },
           {
             text: "👔 Clothing Store",
@@ -265,7 +269,7 @@ export default defineConfig({
                 text: "Convars",
                 link: "/convars/",
                 collapsed: true,
-                items:[]
+                items: []
               },
             ],
           },

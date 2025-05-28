@@ -3,11 +3,11 @@ Documentation relating to the jo_chest.
 
 :::: tabs
 ::: tab BUY
-[Buy the script](https://jumpon-studios.com/redm/chest)
+[Buy the script](https://jumpon-studios.com/redm/chest-anywhere)
 :::
 
 ::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jlHa0S7y9So" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
 ::::
 
