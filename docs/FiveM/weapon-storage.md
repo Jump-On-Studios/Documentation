@@ -13,7 +13,7 @@ Documentation relating to the jo_gunrack.
 
 ## 1. Installation
 Be sure you installed the required dependencies :
-- For ESX : [ox_target](https://github.com/KadDarem/ox_target/tree/isactive-export)
+- For ESX : [ox_target](https://github.com/overextended/ox_target/tree/main)
 - For QBCore : qb_target
 
 To install jo_gunrack:
