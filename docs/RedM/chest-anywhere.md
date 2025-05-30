@@ -158,7 +158,15 @@ Config.chests = {
 
 ## 4. For developers
 
+### Exports
 
+#### <Badge type="server" text="Server" /> giveChest
+Use this export to give a chest to a player
+```lua
+-- @param source - int : serverID of the player
+-- @param chestKey - string : key of the chest in Config.chests
+exports.jo_chest:giveChest(source, chestKey)
+```
 
 ### Filters
 
@@ -170,7 +178,7 @@ Fires before a player buys a chest
 -- @param canBuy - boolean
 -- @param source - int : serverID of the player
 -- @param chestKey - string : key of the chest in Config.chests
-jo.hook.addFilter('canBuyChest', function(canBuy, source, chestKey)
+exports.jo_chest:addFilter('canBuyChest', function(canBuy, source, chestKey)
     return canBuy
 end)
 
@@ -182,7 +190,7 @@ Fires before a player opens a shop
 -- @param canOpen - boolean
 -- @param source - int : serverID of the player
 -- @param shop - table : shop data
-jo.hook.addFilter('canOpenShop', function(canOpen, source, shop)
+exports.jo_chest:addFilter('canOpenShop', function(canOpen, source, shop)
     return canOpen
 end)
 
@@ -196,7 +204,7 @@ Fires when a player tries to place a chest
 -- @param metadata - table : chest metadata
 -- @param coords - vector3 : placement coordinates
 -- @param heading - float : chest heading
-jo.hook.addFilter('canPlaceChest', function(canPlace, source, metadata, coords, heading)
+exports.jo_chest:addFilter('canPlaceChest', function(canPlace, source, metadata, coords, heading)
     return canPlace
 end)
 
@@ -208,7 +216,7 @@ Fires when a player tries to remove a chest
 -- @param isOwner - boolean
 -- @param source - int : serverID of the player
 -- @param chest - table : chest data
-jo.hook.addFilter('canRemoveChest', function(isOwner, source, chest)
+exports.jo_chest:addFilter('canRemoveChest', function(isOwner, source, chest)
     return isOwner
 end)
 
@@ -219,7 +227,7 @@ Fires when a player tries to use a chest item
 -- @param canUse - boolean
 -- @param source - int : serverID of the player
 -- @param metadata - table : chest metadata
-jo.hook.addFilter('canUseChest', function(canUse, source, metadata)
+exports.jo_chest:addFilter('canUseChest', function(canUse, source, metadata)
     return canUse
 end)
 
@@ -232,7 +240,7 @@ Fires when checking if a code entered is valid for a chest
 -- @param source - int : serverID of the player
 -- @param code - int : code entered by the player
 -- @param chest - table : chest data
-jo.hook.addFilter('isCheckCodeValid', function(isValid, source, code, chest)
+exports.jo_chest:addFilter('isCheckCodeValid', function(isValid, source, code, chest)
     return isValid
 end)
 
