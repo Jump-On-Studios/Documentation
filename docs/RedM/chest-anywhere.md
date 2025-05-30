@@ -59,6 +59,10 @@ Congratulation, the **Chest** script is ready to be used!
 
 ## 3. Config.lua
 
+:::tip
+Chests `storage` config accepts the same parameters as [jo.framework:createInventory()](https://docs.jumpon-studios.com/jo_libs/modules/framework-bridge/framework#jo-framework-createinventory) `invConfig`. The whole `storage` object is passed to `jo.framework:createInventory()` so you can add any properties supported by your framework own storage resource.
+:::
+
 ```lua
 Config = {}
 
@@ -115,7 +119,11 @@ Config.chests = {
         model = `p_chestmedlog01x`,       -- 3D model hash
         storage = {                       -- Storage capacity
             maxWeight = 100,              -- Maximum weight capacity
-            maxSlot = 10                  -- Maximum item slots
+            maxSlots = 10,                 -- Maximum item slots
+            acceptWeapons = true,         -- Can accept weapons ?             
+            whitelist = {                 -- Items whitelist
+                { item = "mdt_report", limit = 1000 }
+            }
         }
     },
     basic = {
@@ -128,7 +136,7 @@ Config.chests = {
         model = `p_chestmedlog01x`,
         storage = {
             maxWeight = 100,
-            maxSlot = 10
+            maxSlots = 10
         }
     },
     big = {
@@ -141,7 +149,7 @@ Config.chests = {
         model = `s_lootablebedchest`, -- Different model for big chest
         storage = {
             maxWeight = 1000,         -- 10x the capacity of basic chest
-            maxSlot = 100             -- 10x the slots of basic chest
+            maxSlots = 100             -- 10x the slots of basic chest
         }
     }
 }
