@@ -60,7 +60,7 @@ Congratulation, the **Chest** script is ready to be used!
 ## 3. Config.lua
 
 :::tip
-Chests `storage` config accepts the same parameters as [jo.framework:createInventory()](https://docs.jumpon-studios.com/jo_libs/modules/framework-bridge/framework#jo-framework-createinventory) `invConfig`. The whole `storage` object is passed to `jo.framework:createInventory()` so you can add any properties supported by your framework own storage resource.
+Chests `storage` config accepts the same parameters as [jo.framework:createInventory()](https://docs.jumpon-studios.com/jo_libs/modules/framework-bridge/framework#jo-framework-createinventory) `invConfig`. The whole `storage` object is passed to `jo.framework:createInventory()` so you can add any properties supported by your framework own inventory resource.
 :::
 
 ```lua
