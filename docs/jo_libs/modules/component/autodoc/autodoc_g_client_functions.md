@@ -385,9 +385,9 @@ jo.component.getCategoriesEquiped(ped)
 
 #### Return Value
 
-Type : _object_
+Type : _table_
 
-> Return an object with the category in key and data in value <br> `categories[x].index` : integer - the index of the component on the ped <br> `categories[x].category` : string - the category name if the hash is known
+> Return an table with the category in key and data in value <br> `categories[x].index` : integer - the index of the component on the ped <br> `categories[x].category` : string - the category name if the hash is known
 
 <!-- @include: ./slots/examples.md#g_client|jo.component.getCategoriesEquiped -->
 
@@ -457,7 +457,7 @@ jo.component.getCategoryTint(ped, category, inTable)
 
 #### Return Value
 
-Type : _object|integer,integer,integer,integer_
+Type : _table|integer,integer,integer,integer_
 
 > When inTable is true: returns a table with {palette, tint0, tint1, tint2} <br> When inTable is false: 1st: color palette <br> 2nd: tint number 0 <br> 3rd: tint number 1 <br> 4th: tint number 2
 
@@ -529,9 +529,9 @@ jo.component.getComponentEquiped(ped, category)
 
 #### Return Value
 
-Type : _integer|boolean_
+Type : _table|boolean_
 
-> Return the hash of the component or `false` is not equiped
+> Return the component datas
 
 <!-- @include: ./slots/examples.md#g_client|jo.component.getComponentEquiped -->
 
@@ -791,13 +791,31 @@ jo.component.getWearableState(ped, category)
 
 #### Return Value
 
-Type : _string_
+Type : _boolean|integer_
 
-> Return the wearable state of the category
+> Return the wearable state hash of the category
 
 <!-- @include: ./slots/examples.md#g_client|jo.component.getWearableState -->
 
 <!-- @include: ./slots/footers.md#g_client|jo.component.getWearableState -->
+
+---
+
+### jo.component.getWearableStateNameFromHash()
+
+<!-- @include: ./slots/headers.md#g_client|jo.component.getWearableStateNameFromHash -->
+
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getWearableStateNameFromHash -->
+
+#### Syntax
+
+```lua
+jo.component.getWearableStateNameFromHash(state)
+```
+
+<!-- @include: ./slots/examples.md#g_client|jo.component.getWearableStateNameFromHash -->
+
+<!-- @include: ./slots/footers.md#g_client|jo.component.getWearableStateNameFromHash -->
 
 ---
 
@@ -1062,7 +1080,7 @@ A function to edit the wearable state of a category <br>
 #### Syntax
 
 ```lua
-jo.component.setWearableState(ped, category, hash, state)
+jo.component.setWearableState(ped, category, data, state)
 ```
 
 #### Parameters
@@ -1075,9 +1093,11 @@ jo.component.setWearableState(ped, category, hash, state)
 > The category of the component
 >
 
-`data` : _object_
+`data` : _table_
+
 > The component data, see the structure in [jo.component.apply()](#jo-component-apply)
 >
+
 
 `state` : _integer|string_
 > The wearable state to apply on the component <br>  The list of wearable state can be find in the `jo_libs>module>component>client.lua` file `line 76`
@@ -1132,7 +1152,7 @@ A function to roll sleeve <br>
 #### Syntax
 
 ```lua
-jo.component.sleeveRoll(ped, hash)
+jo.component.sleeveRoll(ped, data)
 ```
 
 #### Parameters
@@ -1141,9 +1161,11 @@ jo.component.sleeveRoll(ped, hash)
 > The entity ID
 >
 
-`data` : _object_
+`data` : _table_
+
 > The component data, see the structure in [jo.component.apply()](#jo-component-apply)
 >
+
 
 <!-- @include: ./slots/examples.md#g_client|jo.component.sleeveRoll -->
 
@@ -1171,9 +1193,11 @@ jo.component.sleeveUnroll(ped, hash)
 > The entity ID
 >
 
-`data` : _object_
+`data` : _table_
+
 > The component data, see the structure in [jo.component.apply()](#jo-component-apply)
 >
+
 
 <!-- @include: ./slots/examples.md#g_client|jo.component.sleeveUnroll -->
 

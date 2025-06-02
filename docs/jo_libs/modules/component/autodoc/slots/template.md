@@ -108,6 +108,11 @@
 <!-- #endregion g_client|jo.component.getWearableState -->
 
 
+<!-- #region g_client|jo.component.getWearableStateNameFromHash -->
+
+<!-- #endregion g_client|jo.component.getWearableStateNameFromHash -->
+
+
 <!-- #region g_client|jo.component.hairIsPomade -->
 
 <!-- #endregion g_client|jo.component.hairIsPomade -->
