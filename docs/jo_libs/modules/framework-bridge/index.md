@@ -22,11 +22,14 @@ You can now use the library inside of your resource with the `jo.framework` glob
 
 ## Compatible Frameworks
 The **framework bridge** module is compatible with these frameworks:
-* VORP  
-* RedEM:RP (old/new)  
-* RSG  
-* QBR  
-* QR  
+* VORP
+* RedEM:RP old
+* RedEM:RP 2023 (reboot)
+* QBR
+* QR
+* RSG
+* RPX
+* TPZ
   
 ## Functions
 
