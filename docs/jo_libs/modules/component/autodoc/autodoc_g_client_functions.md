@@ -5,6 +5,10 @@
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.apply -->
 
+ <br>
+ <br>
+ <br>
+ <br>
 A function to apply a component on the ped <br>
 
 <!-- @include: ./slots/descriptions.md#g_client|jo.component.apply -->
@@ -367,6 +371,10 @@ Type : _string_
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getCategoriesEquiped -->
 
+ <br>
+ <br>
+ <br>
+ <br>
 Return the list of component categories equiped on the ped <br>
 
 <!-- @include: ./slots/descriptions.md#g_client|jo.component.getCategoriesEquiped -->
@@ -529,7 +537,7 @@ jo.component.getComponentEquiped(ped, category)
 
 #### Return Value
 
-Type : _table|boolean_
+Type : _table_
 
 > Return the component datas
 
@@ -636,6 +644,10 @@ Type : _table_
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getFullPedComponentList -->
 
+ <br>
+ <br>
+ <br>
+ <br>
 A function to get the list of clothes sorted by sex and category <br>
 
 <!-- @include: ./slots/descriptions.md#g_client|jo.component.getFullPedComponentList -->
@@ -701,6 +713,10 @@ Type : _string_
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getPaletteNameFromHash -->
 
+ <br>
+ <br>
+ <br>
+ <br>
 A function to get the palette name from a hash value <br>
 
 <!-- @include: ./slots/descriptions.md#g_client|jo.component.getPaletteNameFromHash -->
@@ -791,7 +807,7 @@ jo.component.getWearableState(ped, category)
 
 #### Return Value
 
-Type : _boolean|integer_
+Type : _integer_
 
 > Return the wearable state hash of the category
 
@@ -877,9 +893,9 @@ jo.component.isCategoryEquiped(ped, category)
 
 #### Return Value
 
-Type : _boolean,integer_
+Type : _integer_
 
-> 1st: Return `true` if the category is equiped, `false` otherwise <br> 2nd: Return the index of the category
+> Return the index of the category
 
 <!-- @include: ./slots/examples.md#g_client|jo.component.isCategoryEquiped -->
 
@@ -991,6 +1007,10 @@ Type : _boolean_
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.refreshPed -->
 
+ <br>
+ <br>
+ <br>
+ <br>
 A function to refresh the ped components <br>
 
 <!-- @include: ./slots/descriptions.md#g_client|jo.component.refreshPed -->
@@ -1073,6 +1093,10 @@ jo.component.removeAllClothes(ped)
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.setWearableState -->
 
+ <br>
+ <br>
+ <br>
+ <br>
 A function to edit the wearable state of a category <br>
 
 <!-- @include: ./slots/descriptions.md#g_client|jo.component.setWearableState -->
