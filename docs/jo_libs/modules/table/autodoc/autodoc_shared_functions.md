@@ -290,6 +290,48 @@ Type : _any,any_
 
 ---
 
+### table.includes()
+
+<!-- @include: ./slots/headers.md#shared|table.includes -->
+
+A function to search a value inside an array <br>
+
+<!-- @include: ./slots/descriptions.md#shared|table.includes -->
+
+#### Syntax
+
+```lua
+table.includes(t, value, fromIndex)
+```
+
+#### Parameters
+
+`t` : _table_
+
+> The table
+>
+
+
+`value` : _any_
+> The value to search
+>
+
+`fromIndex` : _integer_ <BadgeOptional />
+> index at which to start searching <br> default: `1`
+>
+
+#### Return Value
+
+Type : _integer_
+
+> Returns the index of the found value or 0 if missing
+
+<!-- @include: ./slots/examples.md#shared|table.includes -->
+
+<!-- @include: ./slots/footers.md#shared|table.includes -->
+
+---
+
 ### table.isEgal()
 
 <!-- @include: ./slots/headers.md#shared|table.isEgal -->
