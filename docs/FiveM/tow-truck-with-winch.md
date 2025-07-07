@@ -1,3 +1,7 @@
+---
+outline: 2
+---
+
 # <img src='/images/towtruck.webp'/> Tow Truck with WINCH
 Documentation relating to the kd_towtruck.
 
@@ -85,13 +89,132 @@ Config.ValidModel = {
 }
 
 ```
-## 4. Add new vehicle
+## 4. Add a new vehicle
 
 **All tow trucks with movable bed are compatible with the script.**
 
 To add it, just copy the `flatbed3` array in the Config.ValidModel variable and change the modelname. Sometime, you will have to change the configuration of the vehicle to make it more usable. 
 
-[Video tutorial](https://youtu.be/fIqxunMiysM?si=XlnLo-6CRWjvettT)
+:::details Video Tutorial
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fIqxunMiysM?si=7FMDnCkC36rRvS8i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+:::
+
+:::details Writing tutorial
+
+### 1. Preparation
+
+* **Spawn** the truck you want to configure (example: `lgc9` flatbed).
+* **Open** the script's `overwriteConfig.lua` file.
+
+### 2. Enable Debug Mode
+
+* Add `Config.Debug = true` into the `overwriteConfig.lua` file.
+* This will show useful markers and values in-game to help with setup.
+
+### 3. Add Your Vehicle to the script's configuration
+
+* Add the default value into the `overwriteConfig.lua` file
+```lua
+[`lgc9`] = {
+  referenceBone = "bodyshell",                   -- Reference bone
+  ropeBone = "misc_bone",                           -- Bone where the rope is attached
+  attachVehBone = "misc_attach",                      -- Bone where the vehicle is attached
+  bedUp = 0.0,                                   -- Distance between bodyshell bone and attachVehBone when the bed is up
+  bedDown = 30.0,                                 -- Distance between bodyshell bone and attachVehBone when the bed is down
+  bedSpeed = 0.3,                                -- Speed of the bed movement 0.0 <> 1.0
+  ropeOffset = vector3(0, 0, 0.0),               -- offset from ropeBone to adjust the position of the rope
+  ropeDistancetake = 1.5,                        -- Max distance to take the winch
+  attachLocationOffset = vector3(0.0, 0.0, 0.0), --optional: offset from the attachVehBone bone
+  attachOffset = vector4(0.0, 0.0, 0.0, 0.0)     -- for the vehicle location when attach (w value is the tilt)
+},
+```
+
+### 4. Set the bones values
+
+* Restart the script with the server command: `ensure kd_towtruck`.
+* **In-game, you can see the vehicle's bones by aiming at it with right-click while standing outside.**
+1. Define the `referenceBone`: Use a bone at the front of the truck (like "engine").
+2. Define the `ropeBone`: Use a bone near the winch reel.
+3. Define the `attachVehBone`: The bone must be attached to the bed and follow its movement.
+
+### 5. Define the bedUp value
+
+1. Restart the script
+2. Go inside the truck
+3. Be sure the bed is at its normal position.
+4. (If not, respawn the truck)
+5. Get the `bedUp/bedDown` value displayed above the bed when the bed is at its normal position.
+6. Increase it by 0.01.
+  * Example: `bedUp/bedDown: 3.229874923`. Use `bedUp = 3.24`
+
+### 6. Define the bedDown value
+
+1. Restart the script
+2. Stay inside the truck
+3. Use the `Config.DefaultKeys.tow` key (**J** by default) to lower the bed.
+4. Get the new `bedUp/bedDown` value displayed above the bed.
+5. (If the bed doesn't move enough, increase the default value of bedDown)
+6. Decrease it by 0.01. 
+  * Example: `bedUp/bedDown: 7.78729384`. Use `bedDown = 7.77`
+
+Done ! You can restart the script and test the bed movement.
+It should move right from the start to the end. If not, adjust the `bedUp` and `bedDown` values.
+
+*You can adjust the bed movement speed by edit the `bedSpeed` value*
+
+#### 5. Configure Rope and Attachment Points
+
+* Exit the truck — debug markers will show up.
+* Use the `ropeOffset` to fine-tune the position of the rope.
+* Use the `attachLocationOffset` to fine-tune the position of the attachment — it should align with the surface of the bed.
+
+### 6. Test Your Setup
+
+**To tow a vehicle:**
+* Spawn the truck.
+* Go inside the vehicle.
+* Press `J` to lower the bed.
+* Go to the winch reel location.
+* Press `E` to take the rope.
+* Go near the vehicle you want tow.
+* Press `E` to attach the rope.
+* Go near the truck's rear wheels.
+* Press `H` to wind the winch and release when the vehicle is on the truck.
+* Press `E` to attach the vehicle to the bed. 
+   * If the `E` prompt is not show, reduce your `bedDown` value. The prompt is only displayed when the bed is fully down.
+* Go inside the truck.
+* Press `J` to upper the bed.
+* **Done, the vehicle is towed!**
+
+
+**To untow a vehicle:**
+* Go inside the vehicle.
+* Press `J` to lower the bed.
+* Go near the truck's rear wheels.
+* Press `E` to detach the vehicle.
+* Go to the winch reel location.
+* Press `E` to take the rope.
+* Go near the vehicle.
+* Press `E` to attach the rope.
+* Go near the truck's rear wheels.
+* Press `G` to unwind the rope and release `G` when the vehicle is fully off.
+* Go near the vehicle.
+* Press `E` to take the rope.
+* Go to the winch reel location.
+* Press `E` to store the rope.
+* Go inside the vehicle.
+* Press `J` to upper the bed.
+* **Done, the vehicle is untowed!**
+
+---
+
+### 7. Finalize
+
+* Once everything is working think to **Disable the debug mode** by setting `Config.Debug = false`.
+:::
+
+
 ## 5. For developer
 You can turn off the script for a specific player by using this client event
 ```lua
