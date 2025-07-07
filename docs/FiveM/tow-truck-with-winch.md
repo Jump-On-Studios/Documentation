@@ -100,7 +100,7 @@ To add it, just copy the `flatbed3` array in the Config.ValidModel variable and 
 clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::
 
-:::details Writing tutorial
+:::details Written tutorial
 
 ### 1. Preparation
 
