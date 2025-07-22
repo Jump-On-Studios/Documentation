@@ -33,7 +33,7 @@ Congratulations, the **Radial Menu** script is ready to be used\! 🥳
 
 ## 2\. Usage
 
-Using the radial menu is straightforward. Simply press the configured key (default is `B` -> `INPUT_SHOP_BOUNTY`) to open the wheel. From there, you can navigate through the different options with your mouse.
+Using the radial menu is straightforward. Simply press the configured key (default is `B` -> `INPUT_SHOP_BOUNTY`, find all the controls [here](https://github.com/femga/rdr3_discoveries/tree/master/Controls)) to open the wheel. From there, you can navigate through the different options with your mouse.
 
   - **Open/Close**: Press the configured `Config.OpenKey`.
   - **Navigate**: Move your mouse over an item to select it.
@@ -85,7 +85,7 @@ Here is the structure for a single menu item:
 #### Basic Configuration Example
 
 ```lua
-Config.OpenKey = GetHashKey("INPUT_SHOP_BOUNTY") -- Key to open the menu
+Config.OpenKey = GetHashKey("INPUT_SHOP_BOUNTY") -- Key to open the menu, find all the controls here :https://github.com/femga/rdr3_discoveries/tree/master/Controls
 
 Config.radialMenuItems = {
     {
