@@ -65,24 +65,44 @@ Config.radialConfig = {
 
 This is where you define the structure and actions of your radial menu. It's an array of tables, where each table represents an item on the wheel.
 
+Of course\! Here is the complete Markdown text in a single block for you to copy and paste.
+
+
 #### Item Structure
 
 Here is the structure for a single menu item:
 
-  - `label` (string): The text displayed on the menu item. If you want, you can use `▼` to indicate a submenu.
-  - `icon` (string, _optional_): The filename of an icon to display (e.g., `weapons.png`). Place images in `jo_radial/nui/img/`.
-  - `disabled` (boolean | function, _optional_): If `true`, the item is visible but cannot be interacted with. Can be a function that returns a boolean for dynamic conditions.
-  - `visible` (boolean | function, _optional_): If `false`, the item will not be shown. Can be a function for dynamic visibility.
-  - `shouldClose` (boolean, _optional_): If `true`, the menu will close after the item's action is performed. Defaults to `false` for submenus and `true` for actions.
-  - `onClick` (table, _optional_): Defines the action to take when the item is clicked.
-      - `type` (string): The type of action. Can be `clientEvent`, `serverEvent`, `command`, or `function`.
-      - `value` (string | function): The event name, command, or function to execute.
-      - `args` (table, _optional_): A table of arguments to pass to the event of type `clientEvent` or `serverEvent` .
-  - `submenu` (table, _optional_): Defines a submenu.
-      - `type` (string): Can be `submenu` (navigates to a new wheel) or `subitems` (displays items on an outer wheel).
-      - `items` (table): An array of item tables for the submenu.
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `label` | `string` | The text displayed on the menu item. Use `▼` to indicate a submenu. |
+| `icon` | `string` (optional) | The filename of an icon from `jo_radial/nui/img/` (e.g., `weapons.png`). |
+| `disabled` | `boolean` \| `function` (optional) | If `true`, the item is visible but cannot be clicked. A function returning a boolean can be used for dynamic conditions. |
+| `visible` | `boolean` \| `function` (optional) | If `false`, the item will not be shown. A function can be used for dynamic visibility. |
+| `shouldClose`| `boolean` (optional) | If `true`, the menu closes after the action. Defaults to `true` for actions and `false` for submenus. |
+| `onClick` | `table` (optional) | A table defining the action to take when the item is clicked. See details below. |
+| `submenu` | `table` (optional) | A table defining a submenu. See details below. |
 
-#### Basic Configuration Example
+---
+
+#### `onClick` Object
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `type` | `string` | The type of action. Valid options are:<br>- `clientEvent`: Triggers a client-side event.<br>- `serverEvent`: Triggers a server-side event.<br>- `command`: Executes a client command.<br>- `function`: Executes a Lua function. |
+| `value` | `string` \| `function` | The event name, command string, or function to be executed. |
+| `args` | `table` (optional) | An array of arguments to pass to a `clientEvent` or `serverEvent`. |
+
+---
+
+#### `submenu` Object
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `type` | `string` | The type of submenu to display. Valid options are:<br>- `submenu`: Navigates to a new, separate wheel.<br>- `subitems`: Displays items on an outer wheel for quick access. |
+| `items` | `table` | An array of item tables that make up the content of the submenu. |
+
+
+### Basic Configuration Example
 
 ```lua
 Config.OpenKey = GetHashKey("INPUT_SHOP_BOUNTY") -- Key to open the menu, find all the controls here :https://github.com/femga/rdr3_discoveries/tree/master/Controls
@@ -141,7 +161,7 @@ Config.radialMenuItems = {
 }
 ```
 
-#### Advanced Configuration Example
+### Advanced Configuration Example
 
 ```lua
 Config.OpenKey = GetHashKey("INPUT_SHOP_BOUNTY") -- Key to open the menu
