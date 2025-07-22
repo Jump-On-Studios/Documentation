@@ -83,9 +83,7 @@ let sideBarModules = GenerateMenu(libModules);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  ignoreDeadLinks: [
-    "./user"
-  ],
+  ignoreDeadLinks: ["./user"],
   sitemap: {
     hostname: "https://docs.jumpon-studios.com",
   },
@@ -203,7 +201,7 @@ export default defineConfig({
           },
           {
             text: "<img src='/images/chest.webp' /> Chest Anywhere",
-            link: "/RedM/chest-anywhere"
+            link: "/RedM/chest-anywhere",
           },
           { text: "🎩 Clothes Wheel", link: "/RedM/clothes-wheel" },
           {
@@ -238,6 +236,10 @@ export default defineConfig({
           { text: "🗒 MDT", link: "/RedM/mdt" },
           { text: "🖱️ Mouse selection", link: "/RedM/mouse-selection" },
           {
+            text: "<img src='/images/radial.png' /> Radial Menu",
+            link: "/RedM/radial-menu",
+          },
+          {
             text: "🐴 Stable",
             link: "/RedM/stable",
             items: [
@@ -269,7 +271,7 @@ export default defineConfig({
                 text: "Convars",
                 link: "/convars/",
                 collapsed: true,
-                items: []
+                items: [],
               },
             ],
           },
