@@ -33,7 +33,7 @@ Congratulations, the **Radial Menu** script is ready to be used\! 🥳
 
 ## 2\. Usage
 
-Using the radial menu is straightforward. Simply press the configured key (default is `B` -> `INPUT_SHOP_BOUNTY`, find all the controls [here](https://github.com/femga/rdr3_discoveries/tree/master/Controls)) to open the wheel. From there, you can navigate through the different options with your mouse.
+Using the radial menu is straightforward. Simply press the configured key (default is `F7`, find all the usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)) to open the wheel. From there, you can navigate through the different options with your mouse.
 
   - **Open/Close**: Press the configured `Config.OpenKey`.
   - **Navigate**: Move your mouse over an item to select it.
@@ -52,21 +52,27 @@ The main configuration is done in `jo_radial/shared/config.lua`. This file allow
 
 You can customize the overall look and feel of the radial menu using the `Config.radialConfig` table.
 
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `color` | `string` | Main color for highlights and hover effects (hex color code) |
+| `backText` | `string` | Text for the back button in submenus |
+| `closeText` | `string` | Text for the close button on the main menu |
+| `logo` | `string` (optional) | Your server's logo. Supports URL (`https://...`), local file (`logo.png` from `jo_radial/nui/img/`), or other script NUI (`nui://...`). Set to `nil` to disable. |
+
+Example :
+
 ```lua
 Config.radialConfig = {
-    color = "#07a3db",                 -- Main color for highlights and hover effects
-    backText = "Back",                 -- Text for the back button in submenus
-    closeText = "Close",               -- Text for the close button on the main menu
-    logo = "logo.png"                  -- Your server's logo (place in nui/img/). Set to nil to disable.
+    color = "#07a3db",
+    backText = "Back",
+    closeText = "Close",
+    logo = "https://jumpon-studios.com/images/logo_no_bg.png"
 }
 ```
 
 ### Menu Items (`Config.radialMenuItems`)
 
 This is where you define the structure and actions of your radial menu. It's an array of tables, where each table represents an item on the wheel.
-
-Of course\! Here is the complete Markdown text in a single block for you to copy and paste.
-
 
 #### Item Structure
 
@@ -75,7 +81,8 @@ Here is the structure for a single menu item:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `label` | `string` | The text displayed on the menu item. Use `▼` to indicate a submenu. |
-| `icon` | `string` (optional) | The filename of an icon from `jo_radial/nui/img/` (e.g., `weapons.png`). |
+| `icon` | `string` (optional) | The icon to display. Supports three formats:<br>- Local file: `weapons.png` (from `jo_radial/nui/img/`)<br>- Web URL: `https://example.com/icon.png`<br>- Other script NUI: `nui://script_name/icon.png` |
+| `hideLabel` | `boolean` (optional) | Show the label within each wheel slice. Defaults to `false`. |
 | `disabled` | `boolean` \| `function` (optional) | If `true`, the item is visible but cannot be clicked. A function returning a boolean can be used for dynamic conditions. |
 | `visible` | `boolean` \| `function` (optional) | If `false`, the item will not be shown. A function can be used for dynamic visibility. |
 | `shouldClose`| `boolean` (optional) | If `true`, the menu closes after the action. Defaults to `true` for actions and `false` for submenus. |
@@ -105,7 +112,7 @@ Here is the structure for a single menu item:
 ### Basic Configuration Example
 
 ```lua
-Config.OpenKey = GetHashKey("INPUT_SHOP_BOUNTY") -- Key to open the menu, find all the controls here :https://github.com/femga/rdr3_discoveries/tree/master/Controls
+Config.OpenKey = 'F7' -- Key to open the menu, find all the controls here : https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
 
 Config.radialMenuItems = {
     {
@@ -164,14 +171,14 @@ Config.radialMenuItems = {
 ### Advanced Configuration Example
 
 ```lua
-Config.OpenKey = GetHashKey("INPUT_SHOP_BOUNTY") -- Key to open the menu
+Config.OpenKey = "F7" -- Key to open the menu
 
 -- General configuration for the radial menu's appearance
 Config.radialConfig = {
     color = "#07a3db",                 -- Main color for highlights and hover effects
     backText = "Back",                 -- Text for the back button in submenus
     closeText = "Close",               -- Text for the close button on the main menu
-    logo = "logo.png"                  -- Your server's logo (place in nui/img/). Set to nil to disable.
+    logo = "https://jumpon-studios.com/images/logo_no_bg.png"  -- Your server's logo. Supports URL (https://...), local file (logo.png from jo_radial/nui/img/), or other script NUI (nui://...). Set to nil to disable.
 }
 
 -- An example of a dynamically generated menu from another file
@@ -182,7 +189,7 @@ Config.radialMenuItems = {
     -- 1. Simple Action Item: Executes a command and closes the menu.
     {
         label = "Map",
-        icon = "map.png", -- Assumes map.png is in nui/img/
+        icon = "map.png", -- Local file from jo_radial/nui/img/
         shouldClose = true,
         onClick = {
             type = "command",
@@ -193,7 +200,7 @@ Config.radialMenuItems = {
     -- 2. Submenu Example: Navigates to a new wheel for emotes.
     {
         label = "Emotes ▼",
-        icon = "emotes.png",
+        icon = "https://example.com/emotes.png", -- Web URL icon
         submenu = {
             type = "submenu",
             items = emotesMenu -- Items are loaded from the emotesMenu variable
@@ -203,23 +210,23 @@ Config.radialMenuItems = {
     -- 3. Subitems Example: Displays related actions on an outer wheel.
     {
         label = "Actions",
-        icon = "actions.png",
+        icon = "nui://another_script/actions.png", -- Icon from another script's NUI
         submenu = {
             type = "subitems", -- This creates the outer wheel
             items = {
                 {
                     label = "Hands Up",
-                    icon = "hands_up.png",
+                    icon = "hands_up.png", -- Local file
                     onClick = { type = "function", value = function() print("Hands are up!") end }
                 },
                 {
                     label = "Kneel",
-                    icon = "kneel.png",
+                    icon = "https://example.com/kneel.png", -- Web URL
                     onClick = { type = "function", value = function() print("Kneeling.") end }
                 },
                 {
                     label = "Admin Noclip",
-                    icon = "noclip.png",
+                    icon = "nui://admin_menu/noclip.png", -- Other script NUI
                     visible = function()
                         -- Only show this item if the player is an admin
                         return true -- TODO: Replace with your admin check, e.g., exports.my_admin:isAdmin(source)
