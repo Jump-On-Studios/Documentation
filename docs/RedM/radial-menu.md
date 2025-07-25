@@ -39,7 +39,6 @@ Using the radial menu is straightforward. Simply press the configured key (defau
   - **Navigate**: Move your mouse over an item to select it.
   - **Select**: Click on an item to trigger its action or open a submenu.
   - **Submenus**: Selecting an item with a `submenu` of type `submenu` will open a new set of options.
-  - **Subitems**: Selecting an item with a `submenu` of type `subitems` can also display related actions on an outer wheel for quick access.
   - **Back/Close**: Use the central button to go back to the previous menu or close the wheel entirely. You can also use `ESC` or `BACKSPACE` to close it.
 
 
@@ -105,12 +104,19 @@ Here is the structure for a single menu item:
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| `type` | `string` | The type of submenu to display. Valid options are:<br>- `submenu`: Navigates to a new, separate wheel.<br>- `subitems`: Displays items on an outer wheel for quick access. |
+| `type` | `string` | The type of submenu to display. Valid options are:<br>- `submenu`: Navigates to a new, separate wheel. |
 | `items` | `table` | An array of item tables that make up the content of the submenu. |
 
 
 
 ### Configuration Examples
+
+
+:::tip
+The preset configuration that comes with the script is provided 'as is'. It is up to you to customize it to fit your server's specific needs and own particularities.
+
+See examples below.
+:::
 
 :::: tabs
 ::: tab Preset Configuration
@@ -409,6 +415,13 @@ Config = {}
 
 Config.OpenKey = 'F7' -- Key to open the menu, find all the controls here : https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
 
+Config.radialConfig = {
+    color = "#ff0000",                 -- Main color for highlights and hover effects
+    backText = "Back",                 -- Text for the back button in submenus
+    closeText = "Close",               -- Text for the close button on the main menu
+    logo = nil                         -- Your server's logo. Supports URL (https://...), local file (logo.png from jo_radial/nui/img/), or other script NUI (nui://...). Set to nil to disable.
+}
+
 Config.radialMenuItems = {
     {
         label = "Emotes ▼",
@@ -504,12 +517,12 @@ Config.radialMenuItems = {
         }
     },
 
-    -- 3. Subitems Example: Displays related actions on an outer wheel.
+    -- 3. Submenu inline Example
     {
         label = "Actions",
         icon = "nui://another_script/actions.png", -- Icon from another script's NUI
         submenu = {
-            type = "subitems", -- This creates the outer wheel
+            type = "submenu", -- Navigate to submenu
             items = {
                 {
                     label = "Hands Up",
