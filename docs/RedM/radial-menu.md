@@ -109,9 +109,304 @@ Here is the structure for a single menu item:
 | `items` | `table` | An array of item tables that make up the content of the submenu. |
 
 
-### Basic Configuration Example
 
+### Configuration Examples
+
+:::: tabs
+::: tab Preset Configuration
 ```lua
+-- ==================================================================================
+-- SEE THE FULL DOCUMENTATION HERE : https://docs.jumpon-studios.com/RedM/radial-menu
+-- The preset configuration is provided 'as is'. It is up to you to customize it to fit your server's specific needs and own particularities.
+-- ==================================================================================
+
+
+Config = {}
+
+-- Keybind to open the radial menu
+Config.OpenKey = "F7"
+
+-- ===== MENU DEFINITIONS =====
+-- These are reusable menu definitions that can be referenced in the main menu structure
+
+-- Dynamically created emotes menu (creates 12 emote items)
+local emotesMenu = CreateEmotesMenu(12)
+
+-- UI Configuration for the radial menu appearance
+Config.radialConfig = {
+    color = "#ff0000",                                        -- Primary color for the radial menu (hex color)
+    backText = "Back",                                        -- Text displayed on the back button
+    closeText = "Close",                                      -- Text displayed on the close button
+    logo = "https://jumpon-studios.com/images/logo_no_bg.png" -- Logo URL displayed in center
+}
+
+-- Example menu demonstrating different item types and properties
+local exampleMenu = {
+    {
+        label = "Dynamic Disabled",
+        disabled = function()
+            return true -- Returns true to disable the item (greyed out but visible)
+        end
+    },
+    {
+        label = "Dynamic Visible",
+        visible = function()
+            return false -- Returns false to hide the item completely
+        end
+    },
+    {
+        label = "Client Event", -- Triggers a client-side event when clicked
+        onClick = {
+            type = "clientEvent",
+            value = "jo_radial:client:test",
+            args = { "arg1", { test = "arg2" } } -- Optional arguments to pass
+        }
+
+    },
+    {
+        label = "disabled",
+        disabled = true -- Static disabled state (always greyed out)
+    },
+
+    {
+        label = "Server Event", -- Triggers a server-side event when clicked
+        onClick = {
+            type = "serverEvent",
+            value = "jo_radial:server:test",
+            args = { "arg1", { test = "arg2" } } -- Optional arguments to pass
+        }
+    },
+    {
+        label = "Function", -- Executes a Lua function directly when clicked
+        onClick = {
+            type = "function",
+            value = function() print("hello") end
+        }
+    },
+    {
+        label = "Command", -- Executes a chat command when clicked
+        onClick = {
+            type = "command",
+            value = "openMap"
+        }
+    },
+}
+
+-- Admin-only menu items for staff functions
+-- ⚠️VORP ONLY
+local adminMenu = {
+    {
+        label = "Admin menu", -- Opens the main admin panel
+        onClick = {
+            type = "command",
+            value = "adminMenu"
+        }
+    },
+    {
+        label = "TPM", -- Teleport to marker command
+        onClick = {
+            type = "command",
+            value = "tpm"
+        }
+    },
+}
+
+-- Job-specific menu items that show based on player's current job
+local jobMenu = {
+    {
+        label = "Doctor menu",
+        visible = function() -- Only visible if player is a doctor
+            return LocalPlayer.state.Character.Job == "doctor"
+        end,
+        onClick = {
+            type = "command",
+            value = "doctormenu"
+        }
+    },
+    {
+        label = "Doctor Alert",
+        visible = function() -- Only visible if player is a doctor
+            return LocalPlayer.state.Character.Job == "doctor"
+        end,
+        onClick = {
+            type = "command",
+            value = "doctorAlert"
+        }
+    },
+    {
+        label = "Police menu",
+        visible = function() -- Only visible if player is police
+            return LocalPlayer.state.Character.Job == "police"
+        end,
+        onClick = {
+            type = "command",
+            value = "policeMenu"
+        }
+    }
+}
+
+-- Wagon management options
+-- ⚠️Works only if you have https://jumpon-studios.com/redm/horse-stable
+local wagonMenu = {
+    {
+        label = "Call Wagon",                                          -- Spawns the player's wagon nearby
+        icon = "nui://jo_libs/nui/menu/assets/images/icons/wagon.png", -- Local NUI resource icon
+        onClick = {
+            type = "command",
+            value = "callWagon"
+        }
+    },
+    {
+        label = "Flee Wagon",                                                                                   -- Dismisses the current wagon
+        icon = "https://femga.com/images/samples/ui_textures_no_bg/inventory_items/kit_upgrade_camp_wagon.png", -- External URL icon
+        onClick = {
+            type = "command",
+            value = "fleeWagon"
+        }
+    }
+}
+
+-- Horse management and interaction options
+-- ⚠️Works only if you have https://jumpon-studios.com/redm/horse-stable
+local horseMenu = {
+    {
+        label = "Call Horse", -- Whistles for the player's horse (simulates whistle key)
+        icon = "https://femga.com/images/samples/ui_textures_no_bg/inventory_items/generic_horse_equip_stirrup.png",
+        onClick = {
+            type = "function",                                    -- Direct function execution
+            value = function()
+                SetControlValueNextFrame(0, `INPUT_WHISTLE`, 1.0) -- Simulates whistle input
+            end
+        }
+    },
+    {
+        label = "Flee Horse", -- Dismisses the current horse
+        icon = "nui://jo_libs/nui/menu/assets/images/icons/transferStable.png",
+        onClick = {
+            type = "command",
+            value = "fleeHorse"
+        }
+    },
+    {
+        label = "Sidesaddle", -- Changes riding style to sidesaddle
+        icon = "https://femga.com/images/samples/ui_textures_no_bg/inventory_items/generic_horse_equip_saddle.png",
+        onClick = {
+            type = "command",
+            value = "sidesaddle"
+        }
+    }
+}
+
+-- ===== MAIN RADIAL MENU STRUCTURE =====
+-- This is the main menu that appears when the radial menu is opened
+-- Items are arranged in a circle and can have actions or submenus
+Config.radialMenuItems = {
+    {
+        label = "Emotes",                     -- Character animations and expressions
+        icon = "emote_dance_carefree_a.webp", -- Local file in nui/img/ directory
+        submenu = {
+            type = "submenu",                 -- Navigate to new wheel level with fade transition
+            items = emotesMenu                -- Reference to the dynamically created emotes menu
+        }
+    },
+    {
+        label = "Examples", -- Demonstration of different item types and properties
+        icon = "https://femga.com/images/samples/ui_textures_no_bg/ui_textures_mp/inventory_items_mp/generic_camp_flag.png",
+        submenu = {
+            type = "submenu",   -- Navigate to new wheel level
+            items = exampleMenu -- Reference to example menu defined above
+        }
+    },
+    {
+        label = "Clothes",                                                 -- Opens clothing customization system
+        --⚠️Works only if you have https://jumpon-studios.com/redm/clothes-wheel
+        icon = "nui://jo_libs/nui/menu/assets/images/icons/myclothes.png", -- NUI resource path
+        onClick = {
+            type = "serverEvent",                                          -- Triggers server-side event
+            value = "kd_clotheswheel:server:getClothes"                    -- Event name to trigger
+        }
+    },
+    {
+        label = "Admin",     -- Admin panel access (staff only)  ⚠️VORP ONLY
+        icon = "https://femga.com/images/samples/ui_textures_no_bg/ui_textures_mp/mp_online_options/online_options_defensive.png",
+        visible = function() -- Dynamic visibility based on admin permissions
+            local VORP = exports.vorp_core:GetCore()
+            return VORP.Callback.TriggerAwait("vorp_admin:CanOpenStaffMenu", "vorp.staff.OpenMenu")
+        end,
+        submenu = {
+            type = "submenu", -- Navigate to admin menu
+            items = adminMenu -- Reference to admin menu defined above
+        }
+    },
+    {
+        label = "Job", -- Job-specific actions and menus
+        icon = "https://femga.com/images/samples/ui_textures_no_bg/ui_textures_mp/inventory_items_mp/generic_bundle_crafting.png",
+        submenu = {
+            type = "submenu", -- Navigate to job menu
+            items = jobMenu   -- Reference to job menu defined above
+        }
+    },
+    {
+        label = "Call doctor", -- Emergency medical assistance request
+        icon = "https://femga.com/images/samples/ui_textures_no_bg/ui_textures_mp/inventory_items_mp/kit_role_naturalist_sample_kit.png",
+        onClick = {
+            type = "command",    -- Executes chat command
+            value = "callDoctor" -- Command to execute
+        }
+    },
+    {
+        label = "Call Police", -- Emergency law enforcement request
+        icon = "https://femga.com/images/samples/ui_textures_no_bg/inventory_items/provision_sheriff_star.png",
+        onClick = {
+            type = "command",    -- Executes chat command
+            value = "callPolice" -- Command to execute
+        }
+    },
+    {
+        label = "Walk style",               -- Change character walking animation ⚠️VORP ONLY
+        icon = "emote_dance_formal_a.webp", -- Local file in nui/img/ directory
+        onClick = {
+            type = "command",               -- Executes chat command
+            value = "walkanim"              -- Command to execute
+        }
+    },
+    {
+        label = "Wagon",                                               -- Wagon management options
+        -- ⚠️Works only if you have https://jumpon-studios.com/redm/horse-stable
+        icon = "nui://jo_libs/nui/menu/assets/images/icons/wagon.png", -- NUI resource path
+        submenu = {
+            type = "submenu",                                          -- Navigate to wagon menu
+            items = wagonMenu                                          -- Reference to wagon menu defined above
+        }
+    },
+    {
+        label = "Horse",                                                    -- Horse management and interaction options
+        -- ⚠️Works only if you have https://jumpon-studios.com/redm/horse-stable
+        icon = "nui://jo_libs/nui/menu/assets/images/icons/horse_coat.png", -- NUI resource path
+        submenu = {
+            type = "submenu",                                               -- Navigate to horse menu
+            items = horseMenu                                               -- Reference to horse menu defined above
+        }
+    },
+    {
+        label = "inventory",                                              -- Quick access to player inventory
+        icon = "nui://jo_libs/nui/menu/assets/images/icons/satchels.png", -- NUI resource path
+        onClick = {
+            type = "function",                                            -- Direct function execution
+            value = function()                                            -- Simulates the inventory key press
+                SetControlValueNextFrame(0, `INPUT_QUICK_USE_ITEM`, 1.0)
+            end
+        }
+    }
+}
+
+```
+:::
+::: tab Basic Configuration
+```lua
+
+Config = {}
+
 Config.OpenKey = 'F7' -- Key to open the menu, find all the controls here : https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
 
 Config.radialMenuItems = {
@@ -167,10 +462,12 @@ Config.radialMenuItems = {
     },
 }
 ```
-
-### Advanced Configuration Example
-
+:::
+::: tab Advanced Configuration
 ```lua
+
+Config = {}
+
 Config.OpenKey = "F7" -- Key to open the menu
 
 -- General configuration for the radial menu's appearance
@@ -297,3 +594,6 @@ Config.radialMenuItems = {
     }
 }
 ```
+:::
+::::
+
