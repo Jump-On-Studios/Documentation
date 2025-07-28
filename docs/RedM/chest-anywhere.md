@@ -79,6 +79,8 @@ Config.maxDistanceCreateChest = 10.0 -- Maximum distance allowed for placing a c
 Config.chestSpawnDistance = 100.0    -- Distance at which chest entities are spawned in the world
 Config.distanceShowChestPrompt = 1.5 -- Distance to show the prompt when near a placed chest
 
+Config.allowPayingInGold = true      -- Allow the player to pay in gold
+
 -- Keybind configuration for various actions
 Config.keys = {
     openShop = "E",   -- Key to open the chest shop
