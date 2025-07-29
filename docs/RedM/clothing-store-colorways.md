@@ -59,3 +59,13 @@ exports.kd_clothingstore_colorways:RegisterFilter('canOpenColorPalette', functio
 end)
 
 ```
+#### <Badge type="client" text="Client" /> paletteValues
+Manage the values of the palettes
+```lua
+-- @param values - table
+exports.kd_clothingstore_colorways:RegisterFilter('paletteValues', function(values)
+  --return false to disable the access of the menu
+  return values
+end)
+
+```
