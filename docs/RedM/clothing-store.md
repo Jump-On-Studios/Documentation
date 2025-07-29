@@ -448,7 +448,7 @@ TriggerServerEvent('kd_clothingstore:useOutfitId', id)
 ```lua
 -- @param <actionName> - name of the action
 -- @param <argumentList> - list of arguments which are passed
-exports.kd_clothingstore:RegisterFilter(<actionName>, function(variable)
+exports.kd_clothingstore:registerFilter(<actionName>, function(variable)
   -- Add your new data here
 	return variable -- Don't forget to return the value
 end)
@@ -456,7 +456,7 @@ end)
 
 - Example :
 ```lua
-kd_clothingstore:RegisterFilter('canAccessToSpecificClothes', function(canAccess, source, clothesData, moneyType)
+kd_clothingstore:registerFilter('canAccessToSpecificClothes', function(canAccess, source, clothesData, moneyType)
 	local job = GetJob(source)
 	if job ~= "tailor" then
 		return false, SendNotif("Only tailer can buy clothes")
@@ -470,7 +470,7 @@ end)
 Fires to disable the "New" & "Save" button in the outfit menu
 ```lua
 -- @param canSave - boolean : return false to disable buttons
-exports.kd_clothingstore:RegisterFilter('canSaveNewOutfit', function(canSave)
+exports.kd_clothingstore:registerFilter('canSaveNewOutfit', function(canSave)
 	return canSave
 end)
 
@@ -481,7 +481,7 @@ Fires before add the item in the player inventory
 -- @param metadata - table : metadata of the item
 -- @param source - int : serverID of the player
 -- @param item - string : item name
-exports.kd_clothingstore:RegisterFilter('editItemMeta', function(meta, source, item)
+exports.kd_clothingstore:registerFilter('editItemMeta', function(meta, source, item)
 	return canAccess
 end)
 
@@ -494,7 +494,7 @@ Fires before buy a new clothes
 -- @param clothesData - table : information about clothes
 -- @param clothesData.hash - int : hash of the clothes
 -- @param moneyType - int : devise of the order : 0 for normal & 1 for gold
-exports.kd_clothingstore:RegisterFilter('canAccessToSpecificClothes', function(canAccess, source, clothesData, moneyType)
+exports.kd_clothingstore:registerFilter('canAccessToSpecificClothes', function(canAccess, source, clothesData, moneyType)
 	return canAccess
 end)
 
@@ -505,7 +505,7 @@ Fires when a player use an item
 -- @param canUse - boolean : return false to not use the item
 -- @param source - int : serverID of the player
 -- @param metadata - table : item metadata
-exports.kd_clothingstore:RegisterFilter('canUseItem', function(canUse, source, metadata)
+exports.kd_clothingstore:registerFilter('canUseItem', function(canUse, source, metadata)
 	return canAccess
 end)
 
