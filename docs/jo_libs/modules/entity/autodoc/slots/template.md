@@ -13,6 +13,11 @@
 <!-- #endregion client|jo.entity.delete -->
 
 
+<!-- #region client|jo.entity.deleteScenariosFromEntity -->
+
+<!-- #endregion client|jo.entity.deleteScenariosFromEntity -->
+
+
 <!-- #region client|jo.entity.fadeAndDelete -->
 
 <!-- #endregion client|jo.entity.fadeAndDelete -->
