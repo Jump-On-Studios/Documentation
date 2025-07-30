@@ -116,6 +116,48 @@ jo.entity.delete(entity)
 
 ---
 
+### jo.entity.deleteScenariosFromEntity()
+
+<!-- @include: ./slots/headers.md#client|jo.entity.deleteScenariosFromEntity -->
+
+Delete all scenarios from an entity <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.entity.deleteScenariosFromEntity -->
+
+#### Syntax
+
+```lua
+jo.entity.deleteScenariosFromEntity(entity, size, maxScenario, maxAttempt, waitTime)
+```
+
+#### Parameters
+
+`entity` : _integer_
+> The entity ID to delete scenarios from
+>
+
+`size` : _number_ <BadgeOptional />
+> The size of the area to search for scenarios <br> default:2.0
+>
+
+`maxScenario` : _number_ <BadgeOptional />
+> The maximum number of scenarios to search for <br> default:8
+>
+
+`maxAttempt` : _number_ <BadgeOptional />
+> The maximum number of attempts to delete scenarios <br> default:10
+>
+
+`waitTime` : _number_ <BadgeOptional />
+> The time to wait between attempts to delete scenarios <br> default:100
+>
+
+<!-- @include: ./slots/examples.md#client|jo.entity.deleteScenariosFromEntity -->
+
+<!-- @include: ./slots/footers.md#client|jo.entity.deleteScenariosFromEntity -->
+
+---
+
 ### jo.entity.fadeAndDelete()
 
 <!-- @include: ./slots/headers.md#client|jo.entity.fadeAndDelete -->

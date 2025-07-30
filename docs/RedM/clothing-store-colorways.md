@@ -53,9 +53,19 @@ Config.palettes = {
 Manage who can open the custom color menu
 ```lua
 -- @param canAccess - boolean
-exports.kd_clothingstore_colorways:RegisterFilter('canOpenColorPalette', function(canAccess)
+exports.kd_clothingstore_colorways:registerFilter('canOpenColorPalette', function(canAccess)
   --return false to disable the access of the menu
   return canAccess
+end)
+
+```
+#### <Badge type="client" text="Client" /> paletteValues
+Manage the values of the palettes
+```lua
+-- @param values - table
+exports.kd_clothingstore_colorways:registerFilter('paletteValues', function(values)
+  --return false to disable the access of the menu
+  return values
 end)
 
 ```
