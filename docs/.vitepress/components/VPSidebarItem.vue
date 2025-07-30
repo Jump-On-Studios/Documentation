@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { DefaultTheme } from 'vitepress/theme'
 import { computed } from 'vue'
-import { useSidebarControl } from 'vitepress-fix-include/dist/client/theme-default/composables/sidebar.js'
-import VPLink from 'vitepress-fix-include/dist/client/theme-default/components/VPLink.vue'
+import { useSidebarControl } from 'vitepress/dist/client/theme-default/composables/sidebar.js'
+import VPLink from 'vitepress/dist/client/theme-default/components/VPLink.vue'
 
 import { useData } from 'vitepress'
 
