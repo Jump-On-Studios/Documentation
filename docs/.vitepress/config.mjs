@@ -176,7 +176,7 @@ export default defineConfig({
           { text: "📦 Movable chest", link: "/FiveM/movable-chest" },
           {
             text: "<img src='/images/towtruck.webp'/> Tow Truck with WINCH",
-            link: "/FiveM/tow-truck-with-winch",
+            link: "/FiveM/tow-truck-with-winch-v2",
           },
           {
             text: "<img src='/images/winch.webp'/> Vehicle WINCH",
