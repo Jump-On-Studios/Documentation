@@ -1,10 +1,25 @@
-# <img src='/images/radial.png' /> Radial Menu
-Documentation relating to the jo_radial script.
+# <img src='/images/radial.png' class="icon-light" /><img src='/images/radial-dark.png' class="icon-dark" /> Radial Menu
 
+<style>
+.icon-light {
+    display: none;
+}
+.icon-dark {
+    display: none;
+}
+.dark .icon-dark {
+    display: block;
+}
+html:not(.dark) .icon-light {
+    display: block;
+}
+</style>
+
+Documentation relating to the jo_radial script.
 
 :::: tabs
 ::: tab BUY
-[Buy the script](https://www.google.com/search?q=https://jumpon-studios.com/redm/radial-menu)
+[Buy the script](https://jumpon-studios.com/redm/radial-menu)
 :::
 
 ::: tab PREVIEW
@@ -15,13 +30,13 @@ Documentation relating to the jo_radial script.
 
 ## 1\. Installation
 
-The `jo_radial` script works on all frameworks compatible with `jo_libs`.
+The `jo_radial` script works on all frameworks.
 
 To install `jo_radial`:
 
   - Download the library: [jo\_libs](https://github.com/Jump-On-Studios/RedM-jo_libs/releases/latest/download/jo_libs.zip)
   - Unzip the folder and drop it in your `resources` folder.
-  - Download `jo_radial` from your [Keymaster account](https://www.google.com/search?q=https://keymaster.fivem.net/).
+  - Download `jo_radial` from your [account](https://jumpon-studios.com/account).
   - Unzip the folder and drop it in your `resources` folder.
   - Add these ensures in your `server.cfg`:
       - `ensure jo_libs`
@@ -51,12 +66,12 @@ The main configuration is done in `jo_radial/shared/config.lua`. This file allow
 
 You can customize the overall look and feel of the radial menu using the `Config.radialConfig` table.
 
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| `color` | `string` | Main color for highlights and hover effects (hex color code) |
-| `backText` | `string` | Text for the back button in submenus |
-| `closeText` | `string` | Text for the close button on the main menu |
-| `logo` | `string` (optional) | Your server's logo. Supports URL (`https://...`), local file (`logo.png` from `jo_radial/nui/img/`), or other script NUI (`nui://...`). Set to `nil` to disable. |
+| Parameter   | Type                | Description                                                                                                                                                      |
+| :---------- | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `color`     | `string`            | Main color for highlights and hover effects (hex color code)                                                                                                     |
+| `backText`  | `string`            | Text for the back button in submenus                                                                                                                             |
+| `closeText` | `string`            | Text for the close button on the main menu                                                                                                                       |
+| `logo`      | `string` (optional) | Your server's logo. Supports URL (`https://...`), local file (`logo.png` from `jo_radial/nui/img/`), or other script NUI (`nui://...`). Set to `nil` to disable. |
 
 Example :
 
@@ -77,35 +92,35 @@ This is where you define the structure and actions of your radial menu. It's an 
 
 Here is the structure for a single menu item:
 
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| `label` | `string` | The text displayed on the menu item. Use `▼` to indicate a submenu. |
-| `icon` | `string` (optional) | The icon to display. Supports three formats:<br>- Local file: `weapons.png` (from `jo_radial/nui/img/`)<br>- Web URL: `https://example.com/icon.png`<br>- Other script NUI: `nui://script_name/icon.png` |
-| `hideLabel` | `boolean` (optional) | Show the label within each wheel slice. Defaults to `false`. |
-| `disabled` | `boolean` \| `function` (optional) | If `true`, the item is visible but cannot be clicked. A function returning a boolean can be used for dynamic conditions. |
-| `visible` | `boolean` \| `function` (optional) | If `false`, the item will not be shown. A function can be used for dynamic visibility. |
-| `shouldClose`| `boolean` (optional) | If `true`, the menu closes after the action. Defaults to `true` for actions and `false` for submenus. |
-| `onClick` | `table` (optional) | A table defining the action to take when the item is clicked. See details below. |
-| `submenu` | `table` (optional) | A table defining a submenu. See details below. |
+| Parameter     | Type                               | Description                                                                                                                                                                                              |
+| :------------ | :--------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `label`       | `string`                           | The text displayed on the menu item. Use `▼` to indicate a submenu.                                                                                                                                      |
+| `icon`        | `string` (optional)                | The icon to display. Supports three formats:<br>- Local file: `weapons.png` (from `jo_radial/nui/img/`)<br>- Web URL: `https://example.com/icon.png`<br>- Other script NUI: `nui://script_name/icon.png` |
+| `hideLabel`   | `boolean` (optional)               | Show the label within each wheel slice. Defaults to `false`.                                                                                                                                             |
+| `disabled`    | `boolean` \| `function` (optional) | If `true`, the item is visible but cannot be clicked. A function returning a boolean can be used for dynamic conditions.                                                                                 |
+| `visible`     | `boolean` \| `function` (optional) | If `false`, the item will not be shown. A function can be used for dynamic visibility.                                                                                                                   |
+| `shouldClose` | `boolean` (optional)               | If `true`, the menu closes after the action. Defaults to `true` for actions and `false` for submenus.                                                                                                    |
+| `onClick`     | `table` (optional)                 | A table defining the action to take when the item is clicked. See details below.                                                                                                                         |
+| `submenu`     | `table` (optional)                 | A table defining a submenu. See details below.                                                                                                                                                           |
 
 ---
 
 #### `onClick` Object
 
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| `type` | `string` | The type of action. Valid options are:<br>- `clientEvent`: Triggers a client-side event.<br>- `serverEvent`: Triggers a server-side event.<br>- `command`: Executes a client command.<br>- `function`: Executes a Lua function. |
-| `value` | `string` \| `function` | The event name, command string, or function to be executed. |
-| `args` | `table` (optional) | An array of arguments to pass to a `clientEvent` or `serverEvent`. |
+| Parameter | Type                   | Description                                                                                                                                                                                                                     |
+| :-------- | :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `type`    | `string`               | The type of action. Valid options are:<br>- `clientEvent`: Triggers a client-side event.<br>- `serverEvent`: Triggers a server-side event.<br>- `command`: Executes a client command.<br>- `function`: Executes a Lua function. |
+| `value`   | `string` \| `function` | The event name, command string, or function to be executed.                                                                                                                                                                     |
+| `args`    | `table` (optional)     | An array of arguments to pass to a `clientEvent` or `serverEvent`.                                                                                                                                                              |
 
 ---
 
 #### `submenu` Object
 
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| `type` | `string` | The type of submenu to display. Valid options are:<br>- `submenu`: Navigates to a new, separate wheel. |
-| `items` | `table` | An array of item tables that make up the content of the submenu. |
+| Parameter | Type     | Description                                                                                            |
+| :-------- | :------- | :----------------------------------------------------------------------------------------------------- |
+| `type`    | `string` | The type of submenu to display. Valid options are:<br>- `submenu`: Navigates to a new, separate wheel. |
+| `items`   | `table`  | An array of item tables that make up the content of the submenu.                                       |
 
 
 
