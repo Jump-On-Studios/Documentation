@@ -83,9 +83,7 @@ let sideBarModules = GenerateMenu(libModules);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  ignoreDeadLinks: [
-    "./user"
-  ],
+  ignoreDeadLinks: ["./user"],
   sitemap: {
     hostname: "https://docs.jumpon-studios.com",
   },
@@ -101,6 +99,12 @@ export default defineConfig({
           find: /^.*\/VPDocOutlineItem\.vue$/,
           replacement: fileURLToPath(
             new URL("./components/VPDocOutlineItem.vue", import.meta.url)
+          ),
+        },
+        {
+          find: /^.*\/VPSidebarItem\.vue$/,
+          replacement: fileURLToPath(
+            new URL("./components/VPSidebarItem.vue", import.meta.url)
           ),
         },
         {
@@ -175,19 +179,23 @@ export default defineConfig({
           { text: "⛏️ Mining job", link: "/FiveM/mining-job" },
           { text: "📦 Movable chest", link: "/FiveM/movable-chest" },
           {
-            text: "<img src='/images/towtruck.webp'/> Tow Truck with WINCH",
-            link: "/FiveM/tow-truck-with-winch-v2",
+            icon: "/images/towtruck.webp",
+            text: " Tow Truck with WINCH",
+            link: "/FiveM/tow-truck-with-winch",
           },
           {
-            text: "<img src='/images/winch.webp'/> Vehicle WINCH",
+            icon: "/images/winch.webp",
+            text: " Vehicle WINCH",
             link: "/FiveM/vehicle-winch",
           },
           {
-            text: "<img src='/images/gunrack-16.webp'/> Weapon storage",
+            icon: "/images/gunrack-16.webp",
+            text: " Weapon storage",
             link: "/FiveM/weapon-storage",
           },
           {
-            text: "<img src='/images/wheelclamp.webp'/> Wheel lock",
+            icon: "/images/wheelclamp.webp",
+            text: " Wheel lock",
             link: "/FiveM/wheel-lock",
           },
         ],
@@ -198,12 +206,14 @@ export default defineConfig({
         items: [
           { text: "⛺ Camp builder", link: "/RedM/camp-builder" },
           {
-            text: "<img src='/images/cashregister.webp' /> Cash register Robbery",
+            icon: "/images/cashregister.webp",
+            text: "Cash register Robbery",
             link: "/RedM/cash-register-robbery",
           },
           {
-            text: "<img src='/images/chest.webp' /> Chest Anywhere",
-            link: "/RedM/chest-anywhere"
+            icon: "/images/chest.webp",
+            text: "Chest Anywhere",
+            link: "/RedM/chest-anywhere",
           },
           { text: "🎩 Clothes Wheel", link: "/RedM/clothes-wheel" },
           {
@@ -215,7 +225,8 @@ export default defineConfig({
             ],
           },
           {
-            text: "<img src='/images/gunduel.webp' /> Duel Gun",
+            icon: "/images/gunduel.webp",
+            text: " Duel Gun",
             link: "/RedM/duel-gun",
           },
           {
@@ -237,6 +248,12 @@ export default defineConfig({
           { text: "🔪 Knife game", link: "/RedM/knife-game" },
           { text: "🗒 MDT", link: "/RedM/mdt" },
           { text: "🖱️ Mouse selection", link: "/RedM/mouse-selection" },
+          // {
+          //   icon: "/images/radial.png",
+          //   iconDark: "/images/radial-dark.png",
+          //   text: " Radial Menu",
+          //   link: "/RedM/radial-menu",
+          // },
           {
             text: "🐴 Stable",
             link: "/RedM/stable",
@@ -269,7 +286,7 @@ export default defineConfig({
                 text: "Convars",
                 link: "/convars/",
                 collapsed: true,
-                items: []
+                items: [],
               },
             ],
           },
