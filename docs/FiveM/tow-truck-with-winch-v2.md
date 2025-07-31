@@ -99,7 +99,8 @@ Trucks[`flatbed3`] = {
   winchOffset = vector3(0.3, 0.0, 0.3),       -- <optional> The origin of the winch
   attachVehBone = "misc_a",                   -- The bone where the vehicle is attached
   attachOffset = vector4(0.0, 1.5, 0.0, 0.0), -- <optional> The origin of the attachment
-  maxBedMovement = 4.0,                       -- <optional> The max bed rollings
+  minBedPosition = 0.025,                     -- <optional> The min bed rollings
+  maxBedPosition = 14.0,                      -- <optional> The max bed rollings
   minWinchLength = 1.2                        -- <optional> The min winch length when wind it (default 1.0)
 }
 Trucks[`slamtruck`] = {
@@ -218,9 +219,15 @@ Trucks[`flatbed3`].bedSpeed = 2.0
 ```
 :::
 :::details The bed doesn't move enough.  
-You can edit the maximum of bed movement by adding the `maxBedMovement` value into your truck configuration.
+You can edit the maximum of bed movement by adding the `maxBedPosition` value into your truck configuration.
 ```lua
-Trucks[`flatbed3`].maxBedMovement = 6.0 
+Trucks[`flatbed3`].maxBedPosition = 6.0 
+```
+:::
+:::defails The bed move in the cab
+You can edit the minimum of bed position by adding the `minBedPosition` value into your truck configuration.
+```lua
+Trucks[`flatbed3`].minBedPosition = 0.025
 ```
 :::
 :::details The winch doesn't wind enough or wind too much.  
@@ -312,7 +319,69 @@ This list is not exhaustive. In most of case, if the bed is animated = the truck
 Trucks[`independent389`] = {
   winchBone = "attach_male",
   attachVehBone = "misc_z",
-  maxBedMovement = 3.5,
+  maxBedPosition = 16.0,
   wheelLift = { 5 },
+}
+```
+
+### [Maoam Fahrzeug Design](https://mfd.tebex.io/category/2147272)
+```lua
+Trucks[`389towmfd3`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  maxBedPosition = 12.5,
+  minBedPosition = 0.0001,
+  wheelLift = { 5 },
+}
+Trucks[`106towmfd1`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  maxBedPosition = 11.25,
+  wheelLift = { 5 }
+}
+Trucks[`106towmfd2`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  maxBedPosition = 11.,
+  wheelLift = { 5 }
+}
+Trucks[`106towmfd3`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  maxBedPosition = 11.5,
+  wheelLift = { 5 }
+}
+Trucks[`389towmfd6`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  minBedPosition = 0.04,
+  maxBedPosition = 11.75,
+  wheelLift = { 5 }
+}
+Trucks[`440towmfd2`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  maxBedPosition = 15.0,
+  wheelLift = { 5 }
+}
+Trucks[`440towmfd4`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  minBedPosition = 0.03,
+  maxBedPosition = 15.5,
+  wheelLift = { 5 }
+}
+Trucks[`cortowmfd4`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  minBedPosition = 0.03,
+  maxBedPosition = 11.5,
+  wheelLift = { 5 }
+}
+Trucks[`112towmfd3`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  maxBedPosition = 12.25,
+  wheelLift = { 5 }
 }
 ```
