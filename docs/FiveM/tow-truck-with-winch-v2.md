@@ -307,9 +307,8 @@ This list is not exhaustive. In most of case, if the bed is animated = the truck
 ```lua
 Trucks[`independent389`] = {
   winchBone = "attach_male",
-  winchOffset = vector3(0., 0., 0.),
   attachVehBone = "misc_z",
-  attachOffset = vector4(0.0, 0.0, 0.0, 0.0),
-  maxBedMovement = 3.5
+  maxBedMovement = 3.5,
+  wheelLift = { 5 },
 }
 ```
