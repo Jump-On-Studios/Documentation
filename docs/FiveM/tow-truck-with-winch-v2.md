@@ -297,3 +297,19 @@ if not IsDuplicityVersion() then
 end
 ```
 :::
+
+## 6. Some Tow trucks configuration
+:::warning
+This list is not exhaustive. In most of case, if the bed is animated = the truck is compatible with this script
+:::
+
+### independent389
+```lua
+Trucks[`independent389`] = {
+  winchBone = "attach_male",
+  winchOffset = vector3(0., 0., 0.),
+  attachVehBone = "misc_z",
+  attachOffset = vector4(0.0, 0.0, 0.0, 0.0),
+  maxBedMovement = 3.5
+}
+```

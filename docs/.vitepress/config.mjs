@@ -181,7 +181,7 @@ export default defineConfig({
           {
             icon: "/images/towtruck.webp",
             text: " Tow Truck with WINCH",
-            link: "/FiveM/tow-truck-with-winch",
+            link: "/FiveM/tow-truck-with-winch-v2",
           },
           {
             icon: "/images/winch.webp",
