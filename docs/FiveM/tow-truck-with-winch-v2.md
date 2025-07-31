@@ -326,13 +326,6 @@ Trucks[`independent389`] = {
 
 ### [Maoam Fahrzeug Design](https://mfd.tebex.io/category/2147272)
 ```lua
-Trucks[`389towmfd3`] = {
-  winchBone = "attach_male",
-  attachVehBone = "misc_z",
-  maxBedPosition = 12.5,
-  minBedPosition = 0.0001,
-  wheelLift = { 5 },
-}
 Trucks[`106towmfd1`] = {
   winchBone = "attach_male",
   attachVehBone = "misc_z",
@@ -350,6 +343,50 @@ Trucks[`106towmfd3`] = {
   attachVehBone = "misc_z",
   maxBedPosition = 11.5,
   wheelLift = { 5 }
+}
+Trucks[`112towmfd2`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  maxBedPosition = 11.25,
+  wheelLift = { 5 }
+}
+Trucks[`112towmfd3`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  maxBedPosition = 12.25,
+  wheelLift = { 5 }
+}
+Trucks[`112towmfd4`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  minBedPosition = 0.035,
+  maxBedPosition = 12.5,
+  wheelLift = { 5 }
+}
+Trucks[`112towmfd5`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  maxBedPosition = 12.5,
+  wheelLift = { 5 }
+}
+Trucks[`112towmfd6`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  maxBedPosition = 12.25,
+  wheelLift = { 5 }
+}
+Trucks[`389towmfd2`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  maxBedPosition = 11.75,
+  wheelLift = { 5 }
+}
+Trucks[`389towmfd3`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  maxBedPosition = 12.5,
+  minBedPosition = 0.0001,
+  wheelLift = { 5 },
 }
 Trucks[`389towmfd6`] = {
   winchBone = "attach_male",
@@ -378,10 +415,10 @@ Trucks[`cortowmfd4`] = {
   maxBedPosition = 11.5,
   wheelLift = { 5 }
 }
-Trucks[`112towmfd3`] = {
+Trucks[`biftowmfd2`] = {
   winchBone = "attach_male",
   attachVehBone = "misc_z",
-  maxBedPosition = 12.25,
+  maxBedPosition = 11.75,
   wheelLift = { 5 }
 }
 ```
