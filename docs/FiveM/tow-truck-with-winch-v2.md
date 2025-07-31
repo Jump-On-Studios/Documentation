@@ -209,28 +209,32 @@ Trucks[`lgc9`] = {
 
 ---
 
-### 7. Known issues
+### 7. Optional parameters
 
-> The bed movement is too slow or too fast.  
-
+:::details The bed movement is too slow or too fast.  
 You can increase/decrease the bed movement by adding the `bedSpeed` value into your truck configuration.
 ```lua
 Trucks[`flatbed3`].bedSpeed = 2.0 
 ```
-  
-> The bed doesn't move enough.  
-
+:::
+:::details The bed doesn't move enough.  
 You can edit the maximum of bed movement by adding the `maxBedMovement` value into your truck configuration.
 ```lua
 Trucks[`flatbed3`].maxBedMovement = 6.0 
 ```
-
-> The winch doesn't wind enough or wind too much.  
-
+:::
+:::details The winch doesn't wind enough or wind too much.  
 You can edit the minimum of winch length by adding the `minWinchLength` value into your truck configuration.
 ```lua
 Trucks[`flatbed3`].minWinchLength = 0.65
 ```
+:::
+:::details My truck has a wheel lift that I have to move down
+You can use the `wheelLift` key to move the wheel lift up/down when the bed move.
+```lua
+Trucks[`flatbed3`].wheelLift = { 5 } -- list of doors index
+```
+:::
 ### 8. Finalize
 
 * Once everything is working think to **Disable the debug mode** by setting `Config.debug = false`.
