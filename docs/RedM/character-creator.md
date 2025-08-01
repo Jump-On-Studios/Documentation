@@ -24,42 +24,54 @@ AddEventHandler("vorpcharacter:startCharacterCreator", function()
     TriggerEvent("jo_character_creator:client:open")
 end)
 ```
-* `vorp_character/client/client.lua` - line 211
-```lua:line-numbers=211
+To fixed clothes and skin, you have to edit two files :
+* `vorp_character/client/client.lua` - line 267
+```lua:line-numbers=267
 function LoadAll(gender, ped, pedskin, components, set)
-    RemoveMetaTags(ped)
-    IsPedReadyToRender(ped)
-    ResetPedComponents(ped)
-    local skin = SetDefaultSkin(gender, pedskin)
-    ApplyShopItemToPed(skin.HeadType, ped)
-    ApplyShopItemToPed(skin.BodyType, ped)
-    ApplyShopItemToPed(skin.LegsType, ped)
-    ApplyShopItemToPed(skin.Eyes, ped)
-    ApplyShopItemToPed(skin.Legs, ped)
-    ApplyShopItemToPed(skin.Hair, ped)
-    ApplyShopItemToPed(skin.Beard, ped)
-    ApplyShopItemToPed(skin.Torso, ped)
-    EquipMetaPedOutfit(skin.Waist, ped)
-    EquipMetaPedOutfit(skin.Body, ped)
-    Citizen.InvokeNative(0xAAB86462966168CE, ped, 1)
-    LoadFaceFeatures(ped, skin)
-    UpdatePedVariation(ped)
-    IsPedReadyToRender(ped)
-    LoadComps(ped, components, set)
-    SetPedScale(ped, skin.Scale)
-    UpdatePedVariation(ped)
-    TriggerServerEvent("jo_libs:server:applySkinAndClothes", ped, skin, components) -- [!code ++]
-    return skin
+	removeMetaTags(ped)
+	IsPedReadyToRender(ped)
+	ResetPedComponents(ped)
+	local skin = setDefaultSkin(gender, pedskin)
+	ApplyShopItemToPed(skin.HeadType, ped)
+	ApplyShopItemToPed(skin.BodyType, ped)
+	ApplyShopItemToPed(skin.LegsType, ped)
+	ApplyShopItemToPed(skin.Eyes, ped)
+	ApplyShopItemToPed(skin.Legs, ped)
+	ApplyShopItemToPed(skin.Hair, ped)
+	ApplyShopItemToPed(skin.Beard, ped)
+	ApplyShopItemToPed(skin.Torso, ped)
+	EquipMetaPedOutfit(skin.Waist, ped)
+	EquipMetaPedOutfit(skin.Body, ped)
+	Citizen.InvokeNative(0xAAB86462966168CE, ped, 1)
+	LoadFaceFeatures(ped, skin)
+	UpdatePedVariation(ped)
+	IsPedReadyToRender(ped)
+	LoadComps(ped, components, set)
+	SetPedScale(ped, skin.Scale)
+	UpdatePedVariation(ped)
+	TriggerServerEvent("jo_libs:server:applySkinAndClothes",ped,skin,components) -- [!code ++]
+	return skin
 end
 ```
-:::
+* `vorp_character/server/server.lua` - line 6
+```lua:line-numbers=6
+local function ConvertTable(comps, compTints)
+	local NewComps = {}
 
-::: details For RSG
-You have to link the character creator inside rsg-appearance:
-* `rsg-appearance/client/creator.lua` - line 260
-```lua:line-numbers=260
-RegisterNetEvent('rsg-appearance:client:OpenCreator', function(data, empty)
-  TriggerEvent("jo_character_creator:client:open")
-end)
+	for k, comp in pairs(comps) do
+		NewComps[k] = { comp = comp, tint0 = 0, tint1 = 0, tint2 = 0, palette = 0 }
+
+		if compTints and compTints[k] and compTints[k][tostring(comp)] then
+			local compTint = compTints[k][tostring(comp)]
+			NewComps[k].tint0 = compTint.tint0 or 0
+			NewComps[k].tint1 = compTint.tint1 or 0
+			NewComps[k].tint2 = compTint.tint2 or 0
+			NewComps[k].palette = compTint.palette or 0
+			NewComps[k].state = compTint.state or nil -- [!code ++]
+		end
+	end
+
+	return NewComps
+end
 ```
 :::

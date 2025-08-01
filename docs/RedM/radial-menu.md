@@ -24,11 +24,11 @@ Documentation relating to the jo_radial script.
 
 ::: tab PREVIEW
 
-\<iframe width="560" height="315" src="[invalid URL removed]" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen\>\</iframe\>
+Soon available
 :::
 ::::
 
-## 1\. Installation
+## 1. Installation
 
 The `jo_radial` script works on all frameworks.
 
@@ -46,7 +46,7 @@ Congratulations, the **Radial Menu** script is ready to be used\! 🥳
 
 
 
-## 2\. Usage
+## 2. Usage
 
 Using the radial menu is straightforward. Simply press the configured key (default is `F7`, find all the usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)) to open the wheel. From there, you can navigate through the different options with your mouse.
 
@@ -58,7 +58,7 @@ Using the radial menu is straightforward. Simply press the configured key (defau
 
 
 
-## 3\. Configuration
+## 3. Configuration
 
 The main configuration is done in `jo_radial/shared/config.lua`. This file allows you to define the menu's appearance, behavior, and content.
 

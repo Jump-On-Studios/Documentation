@@ -30,13 +30,13 @@ Be sure you have oxmysql ensure in your server.cfg
 
 ::: details For VORP
 To fixed clothes and skin, you have to edit two files :
-* `vorp_character/client/client.lua` - line 185
-```lua:line-numbers=185
+* `vorp_character/client/client.lua` - line 267
+```lua:line-numbers=267
 function LoadAll(gender, ped, pedskin, components, set)
-	RemoveMetaTags(ped)
+	removeMetaTags(ped)
 	IsPedReadyToRender(ped)
 	ResetPedComponents(ped)
-	local skin = SetDefaultSkin(gender, pedskin)
+	local skin = setDefaultSkin(gender, pedskin)
 	ApplyShopItemToPed(skin.HeadType, ped)
 	ApplyShopItemToPed(skin.BodyType, ped)
 	ApplyShopItemToPed(skin.LegsType, ped)
@@ -58,9 +58,9 @@ function LoadAll(gender, ped, pedskin, components, set)
 	return skin
 end
 ```
-* `vorp_character/server/server.lua` - line 8
-```lua:line-numbers=8
-function ConvertTable(comps, compTints)
+* `vorp_character/server/server.lua` - line 6
+```lua:line-numbers=6
+local function ConvertTable(comps, compTints)
 	local NewComps = {}
 
 	for k, comp in pairs(comps) do
