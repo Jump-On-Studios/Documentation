@@ -248,12 +248,12 @@ export default defineConfig({
           { text: "🔪 Knife game", link: "/RedM/knife-game" },
           { text: "🗒 MDT", link: "/RedM/mdt" },
           { text: "🖱️ Mouse selection", link: "/RedM/mouse-selection" },
-          // {
-          //   icon: "/images/radial.png",
-          //   iconDark: "/images/radial-dark.png",
-          //   text: " Radial Menu",
-          //   link: "/RedM/radial-menu",
-          // },
+          {
+            icon: "/images/radial.png",
+            iconDark: "/images/radial-dark.png",
+            text: " Radial Menu",
+            link: "/RedM/radial-menu",
+          },
           {
             text: "🐴 Stable",
             link: "/RedM/stable",
