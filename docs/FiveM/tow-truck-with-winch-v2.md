@@ -319,6 +319,7 @@ This list is not exhaustive. In most of case, if the bed is animated = the truck
 Trucks[`independent389`] = {
   winchBone = "attach_male",
   attachVehBone = "misc_z",
+  minBedPosition = 0.03,
   maxBedPosition = 16.0,
   wheelLift = { 5 },
 }
