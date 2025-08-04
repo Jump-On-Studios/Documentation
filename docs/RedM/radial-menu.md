@@ -552,7 +552,7 @@ Config.radialMenuItems = {
 
     -- 3. Submenu inline Example
     {
-        label = "Actions",
+        label = "Actions ▼",
         icon = "nui://another_script/actions.png", -- Icon from another script's NUI
         submenu = {
             type = "submenu", -- Navigate to submenu
