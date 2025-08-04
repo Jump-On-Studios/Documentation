@@ -80,6 +80,7 @@ You can customize the overall look and feel of the radial menu using the `Config
 | `color`     | `string`            | Main color for highlights and hover effects (hex color code)                                                                                                     |
 | `backText`  | `string`            | Text for the back button in submenus                                                                                                                             |
 | `closeText` | `string`            | Text for the close button on the main menu                                                                                                                       |
+| `centerOpacity` | `float`            | Opacity of the center background                                                                                               |
 | `logo`      | `string` (optional) | Your server's logo. Supports URL (`https://...`), local file (`logo.png` from `jo_radial/nui/img/`), or other script NUI (`nui://...`). Set to `nil` to disable. |
 
 Example :
@@ -89,6 +90,7 @@ Config.radialConfig = {
     color = "#07a3db",
     backText = "Back",
     closeText = "Close",
+    centerOpacity = 0.6, 
     logo = "https://jumpon-studios.com/images/logo_no_bg.png"
 }
 ```
@@ -170,6 +172,7 @@ Config.radialConfig = {
     color = "#ff0000",                                        -- Primary color for the radial menu (hex color)
     backText = "Back",                                        -- Text displayed on the back button
     closeText = "Close",                                      -- Text displayed on the close button
+    centerOpacity = 0.6,                                      -- Opacity of the center background
     logo = "https://jumpon-studios.com/images/logo_no_bg.png" -- Logo URL displayed in center
 }
 
@@ -449,6 +452,7 @@ Config.radialConfig = {
     color = "#ff0000",                 -- Main color for highlights and hover effects
     backText = "Back",                 -- Text for the back button in submenus
     closeText = "Close",               -- Text for the close button on the main menu
+    centerOpacity = 0.6,                                      -- Opacity of the center background
     logo = nil                         -- Your server's logo. Supports URL (https://...), local file (logo.png from jo_radial/nui/img/), or other script NUI (nui://...). Set to nil to disable.
 }
 
@@ -521,6 +525,7 @@ Config.radialConfig = {
     color = "#07a3db",                 -- Main color for highlights and hover effects
     backText = "Back",                 -- Text for the back button in submenus
     closeText = "Close",               -- Text for the close button on the main menu
+    centerOpacity = 0.6,                                      -- Opacity of the center background
     logo = "https://jumpon-studios.com/images/logo_no_bg.png"  -- Your server's logo. Supports URL (https://...), local file (logo.png from jo_radial/nui/img/), or other script NUI (nui://...). Set to nil to disable.
 }
 
