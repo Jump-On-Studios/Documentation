@@ -50,7 +50,7 @@ Congratulations, the **Radial Menu** script is ready to be used\! 🥳
 
 Using the radial menu is straightforward. Simply press the configured key (default is `F7`, find all the usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)) to open the wheel. From there, you can navigate through the different options with your mouse.
 
-  - **Open/Close**: Press the configured `Config.OpenKey`.
+  - **Open/Close**: Press the configured `Config.openKey`.
   - **Navigate**: Move your mouse over an item to select it.
   - **Select**: Click on an item to trigger its action or open a submenu.
   - **Submenus**: Selecting an item with a `submenu` of type `submenu` will open a new set of options.
@@ -63,6 +63,15 @@ Using the radial menu is straightforward. Simply press the configured key (defau
 The main configuration is done in `jo_radial/shared/config.lua`. This file allows you to define the menu's appearance, behavior, and content.
 
 ### General Configuration
+
+You can modify the menu open/close behavior by changing properties of the `Config` table.
+
+| Parameter   | Type                | Description                                                                                                                                                      |
+| :---------- | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Config.openKey`     | `string`            | Key to open the menu (default is `F7`, find all the usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys))                                               |
+| `Config.holdToOpen`  | `boolean`            |         Hold key to open menu (true) or toggle on/off ( `false`, default)                                                                                                         |
+
+
 
 You can customize the overall look and feel of the radial menu using the `Config.radialConfig` table.
 
@@ -127,7 +136,7 @@ Here is the structure for a single menu item:
 ### Configuration Examples
 
 
-:::tip
+:::warning
 The preset configuration that comes with the script is provided 'as is'. It is up to you to customize it to fit your server's specific needs and own particularities.
 
 See examples below.
@@ -145,7 +154,10 @@ See examples below.
 Config = {}
 
 -- Keybind to open the radial menu
-Config.OpenKey = "F7"
+Config.openKey = "F7"
+
+-- Hold key to open menu (true) or toggle on/off (false, default)
+Config.holdToOpen = false
 
 -- ===== MENU DEFINITIONS =====
 -- These are reusable menu definitions that can be referenced in the main menu structure
@@ -428,7 +440,10 @@ Config.radialMenuItems = {
 
 Config = {}
 
-Config.OpenKey = 'F7' -- Key to open the menu, find all the controls here : https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
+Config.openKey = 'F7' -- Key to open the menu, find all the controls here : https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
+
+-- Hold key to open menu (true) or toggle on/off (false, default)
+Config.holdToOpen = false
 
 Config.radialConfig = {
     color = "#ff0000",                 -- Main color for highlights and hover effects
@@ -496,7 +511,10 @@ Config.radialMenuItems = {
 
 Config = {}
 
-Config.OpenKey = "F7" -- Key to open the menu
+Config.openKey = "F7" -- Key to open the menu
+
+-- Hold key to open menu (true) or toggle on/off (false, default)
+Config.holdToOpen = false
 
 -- General configuration for the radial menu's appearance
 Config.radialConfig = {
