@@ -29,3 +29,7 @@ You can now use the library inside of your resource with the `jo.gizmo` global v
 ## Functions
 
 Documentation for the [Client](./client.md) side.  
+
+## Credits
+[DemiAutomatic](https://github.com/DemiAutomatic)
+[GlitchOo](https://github.com/GlitchOo)
