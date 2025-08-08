@@ -60,6 +60,18 @@ jo.gizmo.moveEntity(entity, cfg, allowPlace)
 > 
 > `cfg.movementSpeed` : _number_ - Movement speed for camera - default based on config
 > 
+> `cfg.allowTranslateX` : _boolean_ - Allow translation on X-axis - default `true`
+> 
+> `cfg.allowTranslateY` : _boolean_ - Allow translation on Y-axis - default `true`
+> 
+> `cfg.allowTranslateZ` : _boolean_ - Allow translation on Z-axis - default `true`
+> 
+> `cfg.allowRotateX` : _boolean_ - Allow rotation on X-axis - default `true`
+> 
+> `cfg.allowRotateY` : _boolean_ - Allow rotation on Y-axis - default `true`
+> 
+> `cfg.allowRotateZ` : _boolean_ - Allow rotation on Z-axis - default `true`
+> 
 
 `allowPlace` : _function_ <BadgeOptional />
 > Optional callback to validate placement - receives proposed position as parameter

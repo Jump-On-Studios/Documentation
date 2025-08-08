@@ -2,7 +2,7 @@
 
 This document lists all configuration variables used in jo_libs, grouped by module.
 
-Total convars: 22
+Total convars: 28
 
 ## Modules
 
@@ -19,6 +19,12 @@ Total convars: 22
 ### Gizmo
 | Convar | Side | Type | Default | Description |
 |--------|------|------|---------|-------------|
+| `jo_libs:gizmo:allowRotateX` | Client | Boolean | `true` | Allow rotation on X-axis |
+| `jo_libs:gizmo:allowRotateY` | Client | Boolean | `true` | Allow rotation on Y-axis |
+| `jo_libs:gizmo:allowRotateZ` | Client | Boolean | `true` | Allow rotation on Z-axis |
+| `jo_libs:gizmo:allowTranslateX` | Client | Boolean | `true` | Allow translation on X-axis |
+| `jo_libs:gizmo:allowTranslateY` | Client | Boolean | `true` | Allow translation on Y-axis |
+| `jo_libs:gizmo:allowTranslateZ` | Client | Boolean | `true` | Allow translation on Z-axis |
 | `jo_libs:gizmo:enableCam` | Client | Boolean | `true` | Enable/Disable camera feature |
 | `jo_libs:gizmo:keys:cameraSpeedDown` | Client | Integer | ``INPUT_SELECT_NEXT_WEAPON`` | Decrease camera speed |
 | `jo_libs:gizmo:keys:cameraSpeedUp` | Client | Integer | ``INPUT_SELECT_PREV_WEAPON`` | Increase camera speed |
