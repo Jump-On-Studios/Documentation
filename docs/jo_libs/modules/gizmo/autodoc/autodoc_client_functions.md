@@ -72,6 +72,8 @@ jo.gizmo.moveEntity(entity, cfg, allowPlace)
 > 
 > `cfg.allowRotateZ` : _boolean_ - Allow rotation on Z-axis - default `true`
 > 
+> `cfg.onMove` : _function_ - Optional function fired when the entity move with the gizmo
+> 
 
 `allowPlace` : _function_ <BadgeOptional />
 > Optional callback to validate placement - receives proposed position as parameter
