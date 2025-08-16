@@ -576,3 +576,35 @@ Type : _table_
 
 <!-- @include: ./slots/footers.md#shared|table.slice -->
 
+---
+
+### table.upsert()
+
+<!-- @include: ./slots/headers.md#shared|table.upsert -->
+
+A function to set/update a value in a table with multiple levels <br>
+
+<!-- @include: ./slots/descriptions.md#shared|table.upsert -->
+
+#### Syntax
+
+```lua
+table.upsert(...)
+```
+
+#### Parameters
+
+`...` : _table|string_
+> if the 1st argument is a table, keys will be injected in it. Else, a new table will be created. The last argument is the value to set
+>
+
+#### Return Value
+
+Type : _table_
+
+> The new table with multiples table levels
+
+<!-- @include: ./slots/examples.md#shared|table.upsert -->
+
+<!-- @include: ./slots/footers.md#shared|table.upsert -->
+
