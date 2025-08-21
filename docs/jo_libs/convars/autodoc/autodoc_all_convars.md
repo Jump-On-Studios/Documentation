@@ -2,7 +2,7 @@
 
 This document lists all configuration variables used in jo_libs, grouped by module.
 
-Total convars: 28
+Total convars: 30
 
 ## Modules
 
@@ -35,6 +35,7 @@ Total convars: 28
 | `jo_libs:gizmo:keys:moveUp` | Client | Integer | ``INPUT_FRONTEND_X`` | Move up |
 | `jo_libs:gizmo:keys:moveX` | Client | Integer | ``INPUT_SCRIPTED_FLY_LR`` | Move left/right |
 | `jo_libs:gizmo:keys:moveY` | Client | Integer | ``INPUT_SCRIPTED_FLY_UD`` | Move forward/backward |
+| `jo_libs:gizmo:keys:rotationSnap` | Client | Integer | ``INPUT_FRONTEND_Y`` | Rotation snap key |
 | `jo_libs:gizmo:keys:snapToGround` | Client | Integer | ``INPUT_INTERACT_OPTION1`` | Snap entity to ground |
 | `jo_libs:gizmo:keys:switchMode` | Client | Integer | ``INPUT_RELOAD`` | Switch between translate/rotate modes |
 | `jo_libs:gizmo:maxCamDistance` | Client | Integer | `80` | Maximum distance camera can be moved from player |
@@ -45,3 +46,4 @@ Total convars: 28
 | `jo_libs:gizmo:minY` | Client | Integer | `-40` | Minimum Y value for camera rotation |
 | `jo_libs:gizmo:movementSpeed` | Client | Float | `0.1` | Default movement speed for camera |
 | `jo_libs:gizmo:movementSpeedIncrement` | Client | Float | `0.01` | Increment value when adjusting camera speed |
+| `jo_libs:gizmo:rotationSnap` | Client | Integer | `5` | Rotation snap value |
