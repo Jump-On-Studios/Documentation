@@ -218,13 +218,13 @@ You can increase/decrease the bed movement by adding the `bedSpeed` value into y
 Trucks[`flatbed3`].bedSpeed = 2.0 
 ```
 :::
-:::details The bed doesn't move enough.  
+:::details The bed doesn't lower enough or lower too much.  
 You can edit the maximum of bed movement by adding the `maxBedPosition` value into your truck configuration.
 ```lua
 Trucks[`flatbed3`].maxBedPosition = 6.0 
 ```
 :::
-:::defails The bed move in the cab
+:::defails The bed move in the cab or doesn't raise enough.  
 You can edit the minimum of bed position by adding the `minBedPosition` value into your truck configuration.
 ```lua
 Trucks[`flatbed3`].minBedPosition = 0.025
@@ -236,7 +236,7 @@ You can edit the minimum of winch length by adding the `minWinchLength` value in
 Trucks[`flatbed3`].minWinchLength = 0.65
 ```
 :::
-:::details My truck has a wheel lift that I have to move down
+:::details My truck has a wheel lift that I have to move down  
 You can use the `wheelLift` key to move the wheel lift up/down when the bed move.
 ```lua
 Trucks[`flatbed3`].wheelLift = { 5 } -- list of doors index
