@@ -224,7 +224,7 @@ You can edit the maximum of bed movement by adding the `maxBedPosition` value in
 Trucks[`flatbed3`].maxBedPosition = 6.0 
 ```
 :::
-:::defails The bed move in the cab or doesn't raise enough.  
+:::details The bed move in the cab or doesn't raise enough.  
 You can edit the minimum of bed position by adding the `minBedPosition` value into your truck configuration.
 ```lua
 Trucks[`flatbed3`].minBedPosition = 0.025
