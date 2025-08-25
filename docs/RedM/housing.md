@@ -549,10 +549,11 @@ Controls who can buy furniture.
 ```lua
 -- @param canBuy - boolean indicating if the action is allowed by default
 -- @param source - serverID of the player
--- @param furnitureIndex - index of the furniture in Config.furnitures
+-- @param furniture - furniture model/object data
 -- @param houseId - ID of the house
 -- @param moneyType - payment type (0 for money, 1 for gold)
-exports.jo_housing:registerFilter('canBuyFurniture', function(canBuy, source, furnitureIndex, houseId, moneyType)
+-- @param categoryKey - category key of the furniture
+exports.jo_housing:registerFilter('canBuyFurniture', function(canBuy, source, furniture, houseId, moneyType, categoryKey)
     return canBuy
 end)
 ```
@@ -563,11 +564,13 @@ Controls who can place furniture in a house.
 ```lua
 -- @param canPlace - boolean indicating if the action is allowed by default
 -- @param source - serverID of the player
--- @param furnitureIndex - index of the furniture in Config.furnitures
+-- @param furniture - furniture model/object data
 -- @param houseId - ID of the house
--- @param coords - coordinates where furniture will be placed
+-- @param relPos - relative position where furniture will be placed
+-- @param relRot - relative rotation of the furniture
 -- @param moneyType - payment type (0 for money, 1 for gold)
-exports.jo_housing:registerFilter('canPlaceFurniture', function(canPlace, source, furnitureIndex, houseId, coords, moneyType)
+-- @param categoryKey - category key of the furniture
+exports.jo_housing:registerFilter('canPlaceFurniture', function(canPlace, source, furniture, houseId, relPos, relRot, moneyType, categoryKey)
     return canPlace
 end)
 ```
@@ -696,8 +699,9 @@ Controls who can move furniture in a house.
 -- @param source - serverID of the player
 -- @param furnitureId - ID of the furniture
 -- @param houseId - ID of the house
--- @param coords - new coordinates for the furniture
-exports.jo_housing:registerFilter('canMoveFurniture', function(canMove, source, furnitureId, houseId, coords)
+-- @param relPos - new relative position for the furniture
+-- @param relRot - new relative rotation for the furniture
+exports.jo_housing:registerFilter('canMoveFurniture', function(canMove, source, furnitureId, houseId, relPos, relRot)
     return canMove
 end)
 ```
