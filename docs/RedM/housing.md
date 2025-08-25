@@ -44,34 +44,55 @@ The housing system provides an admin interface to manage properties on your serv
 **Creating a House:**
 1. Use the command `/houseManager` to open the housing management menu
 2. Select "Create a new house"
-3. Fill in the house details:
-   - Name: Give your house a descriptive name
-   - Category: Choose size (small, medium, big)
-   - Interior: Select from available interiors for the chosen category
-   - Front Door Location: Place the marker at the desired entrance
-   - Contract Type: Choose between one-time sale or rent
-   - Price: Set the money and gold prices
-   - Features: Enable/disable and configure stable, storage, wagon, and dressing room
-4. For each enabled feature, place the required markers:
-   - Stable Location & Spawn Point (if stable enabled)
-   - Wagon Location & Spawn Point (if wagon enabled)
-   - Storage & Dressing Room capacity (if enabled)
-5. Click "Create House" to save
+3. Fill in the house details :
+   - **Name**: Give your house a descriptive name (press the designated key to input)
+   - **Category**: Choose from available interior categories (Houses, Shacks, Manors, etc.)
+   - **Rooms Amount**: Select the number of rooms for your chosen category
+   - **Interior**: Pick a specific interior from the filtered options based on category and rooms
+   - **Shell Location**: Place the interior shell in the world (use visit mode to preview)
+   - **Front Door Location**: Move the entrance marker (automatically set at your position when creating)
+   - **Contract Type**: Choose between one-time sale or rent
+     - If rent: Select daily or weekly rent periods
+   - **Price**: Set money and gold prices using the designated prompt keys
+   - **Features**: Configure available features:
+     - **Stable**: Enable/disable horse storage
+       - Stable Location: Place the stable interaction marker
+       - Stable Spawn Location: Place where horses will spawn
+     - **Storage**: Enable/disable item storage with weight/slot limits
+     - **Wagon**: Enable/disable wagon storage  
+       - Wagon Location: Place the wagon interaction marker
+       - Wagon Spawn Location: Place where wagons will spawn
+     - **Dressing Room**: Enable/disable wardrobe functionality
+
+4. **Visit Mode**: Press the visit mode key (default: R) to preview the interior before finalizing
+5. **Validation**: All required fields must be completed:
+   - House name cannot be empty
+   - Front door location must be set
+   - Valid interior must be selected
+   - Shell location must be placed
+   - If stable enabled: Both stable location and spawn location required
+   - If wagon enabled: Both wagon location and spawn location required
+   - Prices must be non-negative
+6. Press the "Create House" key when all requirements are met
 
 **Updating a House:**
 1. Use the command `/houseManager` to open the housing management menu
 2. Select "Manage houses"
 3. Choose the house you want to modify
 4. Press the "Edit House" prompt key (default: E)
-5. Update any house details as needed
-6. Click "Update House" to save your changes
+5. **Edit Mode Restrictions**:
+   - Category, rooms amount, and interior type cannot be changed
+   - All other properties can be modified
+   - Visit mode is available to preview changes
+6. Modify any editable house details as needed
+7. Press "Update House" to save your changes (only saves if changes were made)
 
 **Deleting a House:**
 1. Use the command `/houseManager` to open the housing management menu
 2. Select "Manage houses"
 3. Choose the house you want to delete
 4. Press the "Delete House" prompt key (default: X)
-5. The house will be permanently deleted
+5. The house will be permanently deleted along with all associated data
 
 ### Buying a house
 
