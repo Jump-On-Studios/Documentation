@@ -183,191 +183,255 @@ Rather than editing the original config files directly, you should make your cha
 - **Your translations**: `overwriteLang.lua` - Override only the specific translations you want to change
 
 
+:::: tabs
+::: tab Configuration properties
+
+#### General Settings
+
+| Property | Default Value | Description |
+|----------|---------------|-------------|
+| `Config.enableKeyMode` | `true` | Enable physical house keys that players must carry to access their houses |
+| `Config.allowPayingInGold` | `true` | Allow players to pay with gold in addition to money |
+| `Config.knockNotificationDuration` | `5000` | Duration (in ms) that knock notifications are displayed to house owners |
 
 #### Distance Settings
 
-```lua
--- Distance in meters at which to show interaction prompts
-Config.distanceShowHousePrompt = 2.5           -- Show house menu prompt
-Config.distanceShowStablePrompt = 2.0          -- Show stable prompt 
-Config.distanceShowWagonPrompt = 2.0           -- Show wagon prompt
+| Property | Default Value | Description |
+|----------|---------------|-------------|
+| `Config.distanceShowHousePrompt` | `2.5` | Distance (in meters) to show house interaction prompts |
+| `Config.distanceShowStablePrompt` | `2.0` | Distance (in meters) to show stable interaction prompts |
+| `Config.distanceShowWagonPrompt` | `2.0` | Distance (in meters) to show wagon interaction prompts |
+| `Config.distanceShowInteriorDoorPrompt` | `1.5` | Distance (in meters) to show interior door prompts |
+| `Config.distanceShowInteriorStoragePrompt` | `1.0` | Distance (in meters) to show storage interaction prompts |
+| `Config.distanceShowInteriorDressingPrompt` | `1.0` | Distance (in meters) to show dressing room prompts |
 
--- Interior interaction distances
-Config.distanceShowInteriorDoorPrompt = 1.0    -- Show interior door prompt
-Config.distanceShowInteriorStoragePrompt = 1.0 -- Show storage prompt
-Config.distanceShowInteriorDressingPrompt = 1.0 -- Show dressing prompt
-```
+#### Rent Configuration
 
-#### Feature Settings
+| Property | Default Value | Description |
+|----------|---------------|-------------|
+| `Config.rentMaxDays` | `10` | Maximum number of days players can rent at once (daily rent) |
+| `Config.rentMaxWeek` | `2` | Maximum number of weeks players can rent at once (weekly rent) |
+| `Config.extraDaysAllowedBeforeExpulsion` | `1.0` | Grace period (in days) after rent expires before eviction |
+| `Config.allowRentExtensionAnytime` | `false` | Allow players to extend rent before it expires |
 
-```lua
--- Knocking on doors
-Config.knockNotificationDuration = 5000  -- Duration of knock notification in ms
+#### Items and Pricing
 
--- Payment options
-Config.allowPayingInGold = true  -- Enable/disable gold as payment method
+| Property | Default Value | Description |
+|----------|---------------|-------------|
+| `Config.items.houseKey` | `"house_key"` | Item name for house keys in your inventory system |
+| `Config.newKeyPrice.money` | `100` | Cost in money to create a new house key |
+| `Config.newKeyPrice.gold` | `1` | Cost in gold to create a new house key |
 
--- Rent settings
-Config.rentMaxDays = 10          -- Maximum number of days for daily rent period
-Config.rentMaxWeek = 2           -- Maximum number of weeks for weekly rent period
-Config.extraDaysAllowedBeforeExpulsion = 1.0 -- Grace period after rent expires (in days)
-Config.allowRentExtensionAnytime = true   -- Allow rent extension before expiration
-```
+#### Key Bindings
 
-#### Hook Functions
+| Property | Default Value | Description |
+|----------|---------------|-------------|
+| `Config.keys.openHouseMenu` | `"E"` | Open house menu at front door |
+| `Config.keys.enterSubMenu` | `"E"` | Enter submenus |
+| `Config.keys.buyDollar` | `"E"` | Purchase house with money |
+| `Config.keys.buyGold` | `"G"` | Purchase house with gold |
+| `Config.keys.buyHouse` | `"ENTER"` | Confirm house purchase |
+| `Config.keys.knockOnHouse` | `"K"` | Knock on someone's door |
+| `Config.keys.enterHouse` | `"ENTER"` | Enter owned house |
+| `Config.keys.leaveHouse` | `"X"` | Exit house |
+| `Config.keys.manageHouse` | `"M"` | Open house management menu |
+| ... and many more |  | See the `Configuration file` tab above for an exhaustive list |
 
-These functions connect the housing script to other resources on your server:
+#### Interior Configuration
 
-
-
-```lua
-Config.openWardrobe = function()
-    -- Replace with your wardrobe resource
-    exports["kd_clothingstore"]:openWardrobe()
-end
-```
-
-
-
-```lua
-Config.openStable = function(stableLocation, stableSpawnLocation)
-    -- Replace with your stable resource
-    -- Parameters provide the coordinates for the stable and spawn locations
-    exports["your_stable_resource"]:openStable(stableLocation, stableSpawnLocation)
-end
-```
-
-
-
-```lua
-Config.openWagon = function(wagonLocation, wagonSpawnLocation)
-    -- Replace with your wagon resource
-    -- Parameters provide the coordinates for the wagon and spawn locations
-    exports["your_wagon_resource"]:openWagon(wagonLocation, wagonSpawnLocation)
-end
-```
-
-#### Keyboard Keys
-
-You can customize all key bindings used in the script:
-
-```lua
-Config.keys = {
-    openHouseMenu = "E",         -- Open house menu
-    buyHouse = "ENTER",          -- Buy a house
-    buyGold = "G",               -- Pay with gold
-    enterVisitMode = "R",        -- Enter visit mode
-    leaveHouse = "X",            -- Leave the house
-    
-    -- Building mode
-    addFurnitures = "A",         -- Add furniture
-    editFurnitures = "E",        -- Edit furniture
-    deleteFurniture = "DELETE",  -- Delete furniture
-    leaveBuildMode = "X",        -- Exit build mode
-    
-    -- Many more keys available in the config.lua file
-}
-```
-
-#### House Categories and Interiors
-
-##### Categories
-
-Define different types of houses with furniture limits:
-
-```lua
-Config.houseCategories = {
-    big = {
-        label = "Big Houses",
-        maxFurnitures = 200
-    },
-    medium = {
-        label = "Medium Houses",
-        maxFurnitures = 150
-    },
-    small = {
-        label = "Small Houses",
-        maxFurnitures = 100
-    },
-    -- Add your own categories here
-}
-```
-
-##### Interiors
-
-Define the available interior types with their locations:
-
-```lua
-Config.houseInteriors = {
-    int_1 = {
-        label = "Interior 1",          -- Display name
-        category = "big",              -- From houseCategories
-        doorLocation = vec4(-881.378, -1656.110, 67.890, 205.622)  -- Door coordinates (x,y,z,heading)
-    },
-    bakery = {
-        label = "Bakery",
-        category = "small",
-        doorLocation = vec4(-3721.501, -2515.817, -11.268, 92.513),
-        -- Optional: frozenDoors - doors that should be frozen in the interior
-        frozenDoors = {
-            {
-                model = "p_door13x",
-                location = vec3(-3720.73, -2516.28, -12.28)
-            }
-        },
-    },
-    -- Add your own interiors here
-}
-```
+| Property | Default Value | Description |
+|----------|---------------|-------------|
+| `Config.interiorsCategoriesMaxFurnitures.default` | `100` | Default furniture limit for interior categories |
+| `Config.interiorsCategoriesMaxFurnitures.manor` | `200` | Furniture limit for manor category interiors |
+| `Config.interiorsMaxFurnitures` | `{jo_pai_house = 100}` | Specific furniture limits per interior ID |
+| `Config.interiorsBlacklist` | `{}` | Interior IDs to hide from selection (commented examples included) |
 
 #### Furniture Configuration
 
-##### Furniture Categories
+| Property | Default Value | Description |
+|----------|---------------|-------------|
+| `Config.furnituresCategoriesPrices.default` | `{money = 100, gold = 1}` | Default pricing for furniture categories |
+| `Config.furnituresCategoriesPrices.beds` | `{money = 50, gold = 2}` | Pricing for bed category furniture |
+| `Config.furnituresPrices` | `{p_bath02x = {money = 200, gold = 10}}` | Specific pricing per furniture model |
 
-Create organization categories for furniture:
+:::
 
-```lua
-Config.furnituresCategories = {
-    chairs = {
-        name = "Chairs"
-    },
-    tables = {
-        name = "Tables"
-    },
-    storage = {
-        name = "Storage"
-    },
-    -- Add your own categories here
-}
-```
-
-#### Furniture Items
-
-Define the individual furniture pieces players can buy:
+::: tab Configuration file
 
 ```lua
-Config.furnitures = {
-    {
-        name = "Chaise 01",           -- Display name
-        category = "chairs",          -- From furnituresCategories
-        model = "p_chairwicker03x",   -- Game model
-        price = {
-            money = 100,              -- Price in dollars
-            gold = 1                  -- Price in gold
-        }
-    },
-    {
-        name = "Barrel 01",
-        category = "misc",
-        model = "p_chickenbarrel01x",
-        price = {
-            money = 100,
-            gold = 1
-        }
-    },
-    -- Add your own furniture here
+Config = {}
+
+-- ===================================
+-- External Handlers
+-- ===================================
+
+Config.openWardrobe = function()
+    -- Add your Wardrobe handling code here
+    -- This could call another resource's export for wardrobe management
+    -- ex : exports["kd_clothingstore"]:openWardrobe()
+    print("open dressing")
+end
+
+Config.openStable = function(stableLocation, stableSpawnLocation)
+    -- Add your stable handling code here
+    -- This could call another resource's export for stable management
+    -- TriggerEvent("your_stable_resource:openStable")
+    print("open stable")
+end
+
+Config.openWagon = function(wagonLocation, wagonSpawnLocation)
+    -- Add your wagon handling code here
+    -- This could call another resource's export for wagon management
+    -- TriggerEvent("your_wagon_resource:openWagon")
+    print("open wagon")
+end
+
+-- ===================================
+-- General Settings
+-- ===================================
+
+Config.enableKeyMode = true                     -- Enable physical house keys that players must carry to access their houses
+Config.allowPayingInGold = true                 -- Allow players to pay with gold in addition to money
+Config.knockNotificationDuration = 5000         -- Duration (in ms) that knock notifications are displayed to house owners
+
+-- ===================================
+-- Items and Prices
+-- ===================================
+
+Config.items = {
+    houseKey = "house_key" -- Item name for house key in your inventory
 }
+
+Config.newKeyPrice = {
+    money = 100,    -- Cost in money to create a new house key
+    gold = 1        -- Cost in gold to create a new house key
+}
+
+-- ===================================
+-- Distance Settings
+-- ===================================
+
+Config.distanceShowHousePrompt = 2.5            -- Distance (in meters) to show house interaction prompts
+Config.distanceShowStablePrompt = 2.0           -- Distance (in meters) to show stable interaction prompts
+Config.distanceShowWagonPrompt = 2.0            -- Distance (in meters) to show wagon interaction prompts
+
+Config.distanceShowInteriorDoorPrompt = 1.5     -- Distance (in meters) to show interior door prompts
+Config.distanceShowInteriorStoragePrompt = 1.0  -- Distance (in meters) to show storage interaction prompts
+Config.distanceShowInteriorDressingPrompt = 1.0 -- Distance (in meters) to show dressing room prompts
+
+-- ===================================
+-- Rent Configuration
+-- ===================================
+
+Config.rentMaxDays = 10                         -- Maximum number of days players can rent at once (daily rent)
+Config.rentMaxWeek = 2                          -- Maximum number of weeks players can rent at once (weekly rent)
+Config.extraDaysAllowedBeforeExpulsion = 1.0    -- Grace period (in days) after rent expires before eviction
+Config.allowRentExtensionAnytime = false        -- Allow players to extend rent before it expires
+
+-- ===================================
+-- Key Bindings
+-- ===================================
+
+Config.keys = {
+    -- House Management
+    openHouseMenu       = "E",        -- Open house menu at front door
+    enterSubMenu        = "E",        -- Enter submenus
+    buyDollar           = "E",        -- Purchase house with money
+    buyGold             = "G",        -- Purchase house with gold
+    buyHouse            = "ENTER",    -- Confirm house purchase
+    knockOnHouse        = "K",        -- Knock on someone's door
+    enterHouse          = "ENTER",    -- Enter owned house
+    leaveHouse          = "X",        -- Exit house
+    manageHouse         = "M",        -- Open house management menu
+    
+    -- Admin Tools
+    enterVisitMode      = "R",        -- Enter visit mode to preview interior
+    setHousePriceMoney  = "M",        -- Set money price prompt
+    setHousePriceGold   = "G",        -- Set gold price prompt
+    setHouseName        = "ENTER",    -- Set house name prompt
+    placeMarker         = "ENTER",    -- Place location markers
+    placeShell          = "ENTER",    -- Place interior shell
+    upsertHouse         = "ENTER",    -- Create/update house
+    editHouse           = "E",        -- Edit existing house (admin)
+    deleteHouse         = "X",        -- Delete house (admin)
+    
+    -- Storage & Features
+    setStorageMaxWeight = "ENTER",    -- Set storage weight limit prompt
+    setStorageMaxSlot   = "ENTER",    -- Set storage slot limit prompt
+    setStorageLocation  = "O",        -- Set storage location in build mode
+    setDressingLocation = "K",        -- Set dressing room location in build mode
+    openStorage         = "E",        -- Open house storage
+    openDressing        = "E",        -- Open dressing room
+    
+    -- Build Mode
+    addFurnitures       = "A",        -- Add furniture to house
+    editFurnitures      = "E",        -- Edit existing furniture
+    duplicateFurniture  = "C",        -- Duplicate selected furniture
+    deleteFurniture     = "DELETE",   -- Delete selected furniture
+    buyFurniture        = "ENTER",    -- Purchase furniture
+    leaveBuildMode      = "X",        -- Exit build mode
+    
+    -- Access Management
+    addPlayer           = "ENTER",    -- Add player to house access list
+    removePlayer        = "X",        -- Remove player from access list
+    enter               = "ENTER"     -- Generic enter/confirm key
+}
+
+-- ===================================
+-- Interior Configuration
+-- ===================================
+
+-- Default furniture limit for interior categories
+Config.interiorsCategoriesMaxFurnitures = {
+    default = 100,      -- Default furniture limit for interior categories
+    manor = 200         -- Furniture limit for manor category interiors
+}
+
+-- Specific furniture limits per interior ID
+Config.interiorsMaxFurnitures = {
+    jo_pai_house = 100,
+}
+
+-- Interior IDs to hide from selection (commented examples included)
+Config.interiorsBlacklist = {
+    -- jo_pai_house = true,
+    -- jo_new_gamble = true
+}
+
+-- ===================================
+-- Furniture Configuration
+-- ===================================
+
+-- Default pricing for furniture categories
+Config.furnituresCategoriesPrices = {
+    default = {         -- Default pricing for furniture categories
+        money = 100,
+        gold = 1
+    },
+    beds = {            -- Pricing for bed category furniture
+        money = 50,
+        gold = 2
+    }
+}
+
+-- Specific pricing per furniture model
+Config.furnituresPrices = {
+    p_bath02x = {       -- Specific pricing per furniture model
+        money = 200,
+        gold = 10
+    }
+}
+
 ```
+
+:::
+::::
+
+
+
+
+
+
 
 ### Language Configuration
 
