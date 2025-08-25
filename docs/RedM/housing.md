@@ -247,7 +247,11 @@ The `Config.enableKeyMode` setting affects how players access houses after creat
 This setting is configured in your server's `Config.enableKeyMode` and affects all houses on your server.
 :::
 
-## 3. Script Configuration
+## 3. Interiors Gallery
+
+<InteriorGallery />
+
+## 4. Script Configuration
 
 The Housing script is highly configurable to suit your server's needs. Configuration is split between the main settings and language translations.
 
@@ -543,7 +547,7 @@ Available translation categories include:
 You only need to include the specific keys you want to change in `overwriteLang.lua`. Don't copy the entire language file.
 :::
 
-## 4. For Developers
+## 5. For Developers
 
 ### Actions
 
