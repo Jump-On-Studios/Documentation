@@ -277,6 +277,7 @@ Rather than editing the original config files directly, you should make your cha
 | `Config.enableKeyMode` | `true` | Enable physical house keys that players must carry to access their houses. When `true`: players receive physical key items, can buy additional keys for other players, and can change locks (making existing keys obsolete). When `false`: no physical keys exist, but players can manage an access list of who can enter their house |
 | `Config.allowPayingInGold` | `true` | Allow players to pay with gold in addition to money |
 | `Config.knockNotificationDuration` | `5000` | Duration (in ms) that knock notifications are displayed to house owners |
+| `Config.showInsideDoorMarker` | `true` | Show a marker on the ground near the entrance door |
 
 #### Distance Settings
 
@@ -377,6 +378,7 @@ end
 Config.enableKeyMode = true                     -- Enable physical house keys that players must carry to access their houses
 Config.allowPayingInGold = true                 -- Allow players to pay with gold in addition to money
 Config.knockNotificationDuration = 5000         -- Duration (in ms) that knock notifications are displayed to house owners
+Config.showInsideDoorMarker = true      -- Show a marker on the ground near the entrance door
 
 -- ===================================
 -- Items and Prices
