@@ -41,6 +41,10 @@ The script automatically creates all necessary database tables during its first 
 
 The housing system provides an admin interface to manage properties on your server.
 
+
+:::: tabs
+
+::: tab 🔨 Creating a House
 **Creating a House:**
 1. Use the command `/houseManager` to open the housing management menu
 2. Select "Create a new house"
@@ -74,7 +78,9 @@ The housing system provides an admin interface to manage properties on your serv
    - If wagon enabled: Both wagon location and spawn location required
    - Prices must be non-negative
 6. Press the "Create House" key when all requirements are met
+:::
 
+::: tab ✏️ Updating a House
 **Updating a House:**
 1. Use the command `/houseManager` to open the housing management menu
 2. Select "Manage houses"
@@ -86,23 +92,34 @@ The housing system provides an admin interface to manage properties on your serv
    - Visit mode is available to preview changes
 6. Modify any editable house details as needed
 7. Press "Update House" to save your changes (only saves if changes were made)
+:::
 
+::: tab 🗑️ Deleting a House
 **Deleting a House:**
 1. Use the command `/houseManager` to open the housing management menu
 2. Select "Manage houses"
 3. Choose the house you want to delete
 4. Press the "Delete House" prompt key (default: X)
 5. The house will be permanently deleted along with all associated data
+:::
+
+::::
 
 
 ### Buying a house
 
 Players can purchase or rent available houses throughout your server.
 
+:::: tabs
+
+::: tab 🔍 Finding Available Houses
 **Finding Available Houses:**
 1. Approach a house door with the help of the map blips
 2. When in range, a prompt will appear
 3. Press the prompt key (default: E) to open the house menu
+:::
+
+::: tab 💰 Purchasing a House
 
 **Purchasing a House:**
 1. In the house menu, available properties will show their price
@@ -113,6 +130,9 @@ Players can purchase or rent available houses throughout your server.
    - Press the appropriate key to pay with money or gold
 5. Once purchased, you'll become the owner of the property
 
+:::
+
+::: tab 📅 Rental Information
 **Rental Information:**
 - Rentals must be renewed before they expire
 - The house menu shows your current rental status:
@@ -120,25 +140,42 @@ Players can purchase or rent available houses throughout your server.
   - 🟠 Orange: Rent due soon (warning period)
   - 🔴 Red: Grace period (overdue but not yet evicted)
 - If rent expires beyond the grace period, the house will return to the market
+:::
+
+
+::::
+
+
+
+
+
+
 
 ### Using a house
 
 Once you own a house, you can use its features and customize its interior.
 
+:::: tabs
+
+::: tab 🚪 Entering Your House
 **Entering Your House:**
 1. Approach your house's front door
 2. Press the "Enter House" prompt key (default: ENTER)
 3. You'll be teleported inside your property
+:::
 
+::: tab 🛠️ Build Mode
 **Build Mode:**
 1. Inside your house, open the house menu (near the entrance door)
 2. Select "Enter build mode"
 3. In build mode, you can:
    - Press the "Add Furnitures" key (default: A) to purchase and place furniture
-   - Press the "Edit Furnitures" key (default: E) to move or delete existing furniture
+   - Press the "Edit Furnitures" key (default: E) to move, duplicate or delete existing furniture
    - Set locations for dressing rooms and storage if your house has these features
 4. Press the "Leave Build Mode" key (default: X) to exit
+:::
 
+::: tab 🔐 Managing Access
 **Managing Access:**
 1. Inside your house, open the house menu
 2. Select "Manage my house"
@@ -148,25 +185,34 @@ Once you own a house, you can use its features and customize its interior.
    - "List": Only players you've added to the access list can enter
    - "Everyone": Any player can enter your house
 5. If using the "List" option, you can add or remove players from your access list
+:::
 
+::: tab 🏠 Using House Features
 **Using House Features:**
 - **Storage:** Approach your storage location and press the prompt key (default: E)
 - **Dressing Room:** Approach your dressing location and press the prompt key (default: E)
 - **Stable:** Approach the stable marker outside your house to access your horses
 - **Wagon:** Approach the wagon marker outside your house to access your wagons
+:::
 
+::: tab 👥 Inviting Players
 **Inviting Players:**
 1. Other players can knock on your door by approaching and pressing the knock key
 2. You'll receive a notification when someone knocks
 3. Press the designated key to allow them entry
-4. Alternatively, add them to your access list for permanent access
+4. Alternatively, add them to your access list for permanent access or give them a key if `Config.enableKeyMode` is `true`
+:::
 
+::: tab 📤 Transferring Ownership
 **Transferring Ownership:**
 1. Inside your house, open the house menu
 2. Select "Manage my house"
 3. Choose "Transfer House"
 4. Enter the player's server ID
 5. The house ownership will transfer to that player
+:::
+
+::::
 
 :::tip Key Mode Configuration
 The `Config.enableKeyMode` setting affects how players access houses after creation:
