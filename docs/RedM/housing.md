@@ -94,6 +94,7 @@ The housing system provides an admin interface to manage properties on your serv
 4. Press the "Delete House" prompt key (default: X)
 5. The house will be permanently deleted along with all associated data
 
+
 ### Buying a house
 
 Players can purchase or rent available houses throughout your server.
@@ -167,6 +168,24 @@ Once you own a house, you can use its features and customize its interior.
 4. Enter the player's server ID
 5. The house ownership will transfer to that player
 
+:::tip Key Mode Configuration
+The `Config.enableKeyMode` setting affects how players access houses after creation:
+
+**Key Mode Enabled (`enableKeyMode = true`):**
+- Players receive physical key items when they buy houses
+- House owners can purchase additional keys to give to other players
+- House owners can change locks, making all existing keys obsolete
+- Players must carry their key item to enter their house
+
+**Key Mode Disabled (`enableKeyMode = false`):**
+- No physical key items exist in the game
+- House owners manage an access list of players who can enter
+- Access is controlled through the house management menu
+- Players don't need to carry any items to enter their house
+
+This setting is configured in your server's `Config.enableKeyMode` and affects all houses on your server.
+:::
+
 ## 3. Script Configuration
 
 The Housing script is highly configurable to suit your server's needs. Configuration is split between the main settings and language translations.
@@ -190,7 +209,7 @@ Rather than editing the original config files directly, you should make your cha
 
 | Property | Default Value | Description |
 |----------|---------------|-------------|
-| `Config.enableKeyMode` | `true` | Enable physical house keys that players must carry to access their houses |
+| `Config.enableKeyMode` | `true` | Enable physical house keys that players must carry to access their houses. When `true`: players receive physical key items, can buy additional keys for other players, and can change locks (making existing keys obsolete). When `false`: no physical keys exist, but players can manage an access list of who can enter their house |
 | `Config.allowPayingInGold` | `true` | Allow players to pay with gold in addition to money |
 | `Config.knockNotificationDuration` | `5000` | Duration (in ms) that knock notifications are displayed to house owners |
 
@@ -242,7 +261,7 @@ Rather than editing the original config files directly, you should make your cha
 | Property | Default Value | Description |
 |----------|---------------|-------------|
 | `Config.interiorsCategoriesMaxFurnitures.default` | `100` | Default furniture limit for interior categories |
-| `Config.interiorsCategoriesMaxFurnitures.manor` | `200` | Furniture limit for manor category interiors |
+| `Config.interiorsCategoriesMaxFurnitures.X` | `200` | Furniture limit for specific interior categories. Replace X with: <br>• `shack`<br>• `rock_shack`<br>• `house`<br>• `flat`<br>• `manor`<br>• `worker` |
 | `Config.interiorsMaxFurnitures` | `{jo_pai_house = 100}` | Specific furniture limits per interior ID |
 | `Config.interiorsBlacklist` | `{}` | Interior IDs to hide from selection (commented examples included) |
 
@@ -251,7 +270,7 @@ Rather than editing the original config files directly, you should make your cha
 | Property | Default Value | Description |
 |----------|---------------|-------------|
 | `Config.furnituresCategoriesPrices.default` | `{money = 100, gold = 1}` | Default pricing for furniture categories |
-| `Config.furnituresCategoriesPrices.beds` | `{money = 50, gold = 2}` | Pricing for bed category furniture |
+| `Config.furnituresCategoriesPrices.X` | `{money = 50, gold = 2}` | Pricing for specific furniture categories. Replace X with: <br>• `beds`<br>• `carpets`<br>• `cabinets`<br>• `chairs`<br>• `tables`<br>• `desks`<br>• `fireplaces`<br>• `lamps`<br>• `plants`<br>• `sofas`<br>• `wall_decorations`<br>• `decorations`<br>• `bathroom`<br>• `kitchen`<br>• `food`<br>• `curtains` |
 | `Config.furnituresPrices` | `{p_bath02x = {money = 200, gold = 10}}` | Specific pricing per furniture model |
 
 :::
@@ -352,8 +371,8 @@ Config.keys = {
     placeMarker         = "ENTER",    -- Place location markers
     placeShell          = "ENTER",    -- Place interior shell
     upsertHouse         = "ENTER",    -- Create/update house
-    editHouse           = "E",        -- Edit existing house (admin)
-    deleteHouse         = "X",        -- Delete house (admin)
+    editHouse           = "E",        -- Edit existing house 
+    deleteHouse         = "X",        -- Delete house 
     
     -- Storage & Features
     setStorageMaxWeight = "ENTER",    -- Set storage weight limit prompt
@@ -381,6 +400,7 @@ Config.keys = {
 -- Interior Configuration
 -- ===================================
 
+-- Available interior categories: shack, rock_shack, house, flat, manor, worker
 -- Default furniture limit for interior categories
 Config.interiorsCategoriesMaxFurnitures = {
     default = 100,      -- Default furniture limit for interior categories
@@ -402,6 +422,8 @@ Config.interiorsBlacklist = {
 -- Furniture Configuration
 -- ===================================
 
+-- Available furniture categories: beds, carpets, cabinets, chairs, tables, desks,
+-- fireplaces, lamps, plants, sofas, wall_decorations, decorations, bathroom, kitchen, food, curtains
 -- Default pricing for furniture categories
 Config.furnituresCategoriesPrices = {
     default = {         -- Default pricing for furniture categories
@@ -461,6 +483,297 @@ You only need to include the specific keys you want to change in `overwriteLang.
 :::
 
 ## 4. For Developers
+
+### Actions
+
+Actions are one of the two types of Hooks. They provide a way for running a function at a specific point in the execution of scripts. Callback functions for an Action do not return anything back to the calling Action hook. They are the counterpart to Filters.
+
+#### Available Actions
+
+Below is a complete list of all available actions in the jo_housing script. All these actions are **server-side**.
+
+##### House Management Actions
+
+#### <Badge type="server" text="Server" /> server:houseManagerCommandUsed
+Triggered when a player uses the `/houseManager` command.
+
+```lua
+-- @param source - serverID of the player who used the command
+exports.jo_housing:registerAction('server:houseManagerCommandUsed', function(source)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:houseLocationMenuOpened
+Triggered when a player opens the house location menu.
+
+```lua
+-- @param source - serverID of the player
+-- @param houses - array of nearby houses
+exports.jo_housing:registerAction('server:houseLocationMenuOpened', function(source, houses)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:houseBought
+Triggered when a player successfully purchases a house.
+
+```lua
+-- @param source - serverID of the buyer
+-- @param house - the house object that was purchased
+exports.jo_housing:registerAction('server:houseBought', function(source, house)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:houseEntered
+Triggered when a player enters a house.
+
+```lua
+-- @param source - serverID of the player
+-- @param house - the house object being entered
+-- @param isVisiting - boolean indicating if the player is visiting
+exports.jo_housing:registerAction('server:houseEntered', function(source, house, isVisiting)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:houseLeft
+Triggered when a player leaves a house.
+
+```lua
+-- @param source - serverID of the player
+-- @param house - the house object being left
+exports.jo_housing:registerAction('server:houseLeft', function(source, house)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:houseCreated
+Triggered when a new house is created .
+
+```lua
+-- @param source - serverID of the player who created the house
+-- @param house - the newly created house object
+exports.jo_housing:registerAction('server:houseCreated', function(source, house)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:houseUpdated
+Triggered when an existing house is updated .
+
+```lua
+-- @param source - serverID of the player who updated the house
+-- @param house - the updated house object
+-- @param changeset - table containing the changes made
+exports.jo_housing:registerAction('server:houseUpdated', function(source, house, changeset)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:houseDeleted
+Triggered when a house is deleted .
+
+```lua
+-- @param source - serverID of the player who deleted the house
+-- @param house - the house object that was deleted
+exports.jo_housing:registerAction('server:houseDeleted', function(source, house)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:houseTransfered
+Triggered when house ownership is transferred to another player.
+
+```lua
+-- @param source - serverID of the current owner
+-- @param toPlayerSrc - serverID of the new owner
+-- @param house - the house object being transferred
+-- @param transferDone - boolean indicating if transfer was successful
+exports.jo_housing:registerAction('server:houseTransfered', function(source, toPlayerSrc, house, transferDone)
+    -- Your code here
+end)
+```
+
+##### Furniture Actions
+
+#### <Badge type="server" text="Server" /> server:buildModeEntered
+Triggered when a player enters build mode in their house.
+
+```lua
+-- @param source - serverID of the player
+exports.jo_housing:registerAction('server:buildModeEntered', function(source)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:furnitureBought
+Triggered when a player purchases furniture for their house.
+
+```lua
+-- @param source - serverID of the player
+-- @param house - the house object where furniture was bought
+-- @param furniture - the furniture object that was purchased
+exports.jo_housing:registerAction('server:furnitureBought', function(source, house, furniture)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:furnitureMoved
+Triggered when furniture is moved within a house.
+
+```lua
+-- @param source - serverID of the player
+-- @param house - the house object containing the furniture
+-- @param furnitureId - ID of the furniture that was moved
+exports.jo_housing:registerAction('server:furnitureMoved', function(source, house, furnitureId)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:furnitureDeleted
+Triggered when furniture is deleted from a house.
+
+```lua
+-- @param source - serverID of the player
+-- @param house - the house object containing the furniture
+-- @param furnitureId - ID of the furniture that was deleted
+exports.jo_housing:registerAction('server:furnitureDeleted', function(source, house, furnitureId)
+    -- Your code here
+end)
+```
+
+##### Storage & Features Actions
+
+#### <Badge type="server" text="Server" /> server:dressingLocationSet
+Triggered when a dressing room location is set in a house.
+
+```lua
+-- @param source - serverID of the player
+-- @param house - the house object
+-- @param coords - coordinates of the dressing location
+exports.jo_housing:registerAction('server:dressingLocationSet', function(source, house, coords)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:storageLocationSet
+Triggered when a storage location is set in a house.
+
+```lua
+-- @param source - serverID of the player
+-- @param house - the house object
+-- @param coords - coordinates of the storage location
+exports.jo_housing:registerAction('server:storageLocationSet', function(source, house, coords)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:houseStorageOpened
+Triggered when a player opens house storage.
+
+```lua
+-- @param source - serverID of the player
+-- @param house - the house object
+-- @param invId - inventory ID that was opened
+exports.jo_housing:registerAction('server:houseStorageOpened', function(source, house, invId)
+    -- Your code here
+end)
+```
+
+##### Access Management Actions
+
+#### <Badge type="server" text="Server" /> server:playerAddedToHouse
+Triggered when a player is added to a house's access list.
+
+```lua
+-- @param source - serverID of the house owner
+-- @param house - the house object
+-- @param playerSrc - serverID of the player being added
+-- @param playerName - name of the player being added
+exports.jo_housing:registerAction('server:playerAddedToHouse', function(source, house, playerSrc, playerName)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:playerRemovedFromHouse
+Triggered when a player is removed from a house's access list.
+
+```lua
+-- @param source - serverID of the house owner
+-- @param house - the house object
+-- @param accessibilityId - ID of the access entry that was removed
+-- @param success - boolean indicating if removal was successful
+exports.jo_housing:registerAction('server:playerRemovedFromHouse', function(source, house, accessibilityId, success)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:accessibilityChanged
+Triggered when house accessibility settings are changed.
+
+```lua
+-- @param source - serverID of the house owner
+-- @param house - the house object
+-- @param accessibilityType - new accessibility type ("everyone", "list", or "onlyMe")
+exports.jo_housing:registerAction('server:accessibilityChanged', function(source, house, accessibilityType)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:knockedOnHouse
+Triggered when someone knocks on a house door.
+
+```lua
+-- @param source - serverID of the player knocking
+-- @param house - the house object being knocked on
+-- @param foundSources - array of player sources inside the house who were notified
+exports.jo_housing:registerAction('server:knockedOnHouse', function(source, house, foundSources)
+    -- Your code here
+end)
+```
+
+##### Rental & Keys Actions
+
+#### <Badge type="server" text="Server" /> server:rentPaid
+Triggered when rent is paid for a house.
+
+```lua
+-- @param source - serverID of the player paying rent
+-- @param house - the house object
+-- @param numPeriods - number of periods paid for
+-- @param isDaily - boolean indicating if it's daily or weekly rent
+-- @param totalPrice - total amount paid
+-- @param moneyType - payment type (0 for money, 1 for gold)
+-- @param success - boolean indicating if payment was successful
+exports.jo_housing:registerAction('server:rentPaid', function(source, house, numPeriods, isDaily, totalPrice, moneyType, success)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:houseLockChanged
+Triggered when a house lock is changed.
+
+```lua
+-- @param source - serverID of the house owner
+-- @param house - the house object
+-- @param success - boolean indicating if lock change was successful
+exports.jo_housing:registerAction('server:houseLockChanged', function(source, house, success)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> server:houseKeyBought
+Triggered when a new house key is purchased.
+
+```lua
+-- @param source - serverID of the player buying the key
+-- @param house - the house object
+exports.jo_housing:registerAction('server:houseKeyBought', function(source, house)
+    -- Your code here
+end)
+```
 
 ### Filters
 
