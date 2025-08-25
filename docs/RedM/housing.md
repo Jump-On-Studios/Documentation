@@ -177,6 +177,10 @@ Once you own a house, you can use its features and customize its interior.
 
 ::: tab 🔐 Managing Access
 **Managing Access:**
+
+The access management options depend on your server's `Config.enableKeyMode` setting:
+
+**When Key Mode is Disabled (`Config.enableKeyMode = false`):**
 1. Inside your house, open the house menu
 2. Select "Manage my house"
 3. Choose "Manage Access"
@@ -185,6 +189,17 @@ Once you own a house, you can use its features and customize its interior.
    - "List": Only players you've added to the access list can enter
    - "Everyone": Any player can enter your house
 5. If using the "List" option, you can add or remove players from your access list
+
+**When Key Mode is Enabled (`Config.enableKeyMode = true`):**
+1. Inside your house, open the house menu
+2. Select "Manage my house"
+3. Choose "Manage Access"
+4. Set your access type:
+   - "Anyone with the key": Anyone who has a key to your house can enter
+   - "Everyone": Any player can enter your house
+5. Additional key management options:
+   - **Buy new key**: Purchase additional keys to give to other players
+   - **Change lock**: Change your house lock, making all existing keys obsolete (you'll receive a new key)
 :::
 
 ::: tab 🏠 Using House Features
