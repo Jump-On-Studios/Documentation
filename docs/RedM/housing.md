@@ -258,9 +258,14 @@ The access management options depend on your server's `Config.enableKeyMode` set
 ::: tab 🏠 Using House Features
 **Using House Features:**
 - **Storage:** Approach your storage location and press the prompt key (default: E)
-- **Dressing Room:** Approach your dressing location and press the prompt key (default: E)
-- **Stable:** Approach the stable marker outside your house to access your horses
-- **Wagon:** Approach the wagon marker outside your house to access your wagons
+- **Dressing Room\* :** Approach your dressing location and press the prompt key (default: E)
+- **Stable\* :** Approach the stable marker outside your house to access your horses
+- **Wagon\* :** Approach the wagon marker outside your house to access your wagons
+
+\* _Integration Required_ <br>
+_This script does not have built-in solutions for dressing, stable and wagon functionality. You need to integrate with your existing resources using the [external handler functions](#external-handlers)._
+
+
 :::
 
 ::: tab 👥 Inviting Players
@@ -322,6 +327,16 @@ Rather than editing the original config files directly, you should make your cha
 
 :::: tabs
 ::: tab Configuration properties
+
+#### External Handlers
+
+These functions allow you to integrate the housing system with your existing resources for wardrobe, stable, and wagon management.
+
+| Property | Default Behavior | Description |
+|----------|-----------------|-------------|
+| `Config.openWardrobe()` | `print("Config.openWardrobe must be configured to integrate with your wardrobe system")` | Called when a player uses a wardrobe. Customize this to open your wardrobe system. No parameters passed |
+| `Config.openStable(stableLocation, stableSpawnLocation)` | `print("Config.openStable must be configured to integrate with your stable system")` | Called when a player interacts with house stable. Parameters: `stableLocation` (vec3), `stableSpawnLocation` (vec3) |
+| `Config.openWagon(wagonLocation, wagonSpawnLocation)` | `print("Config.openWagon must be configured to integrate with your wagon system")` | Called when a player interacts with house wagon storage. Parameters: `wagonLocation` (vec3), `wagonSpawnLocation` (vec3) |
 
 #### General Settings
 
@@ -409,21 +424,21 @@ Config.openWardrobe = function()
     -- Add your Wardrobe handling code here
     -- This could call another resource's export for wardrobe management
     -- ex : exports["kd_clothingstore"]:openWardrobe()
-    print("open dressing")
+    print("Config.openWardrobe must be configured to integrate with your wardrobe system")
 end
 
 Config.openStable = function(stableLocation, stableSpawnLocation)
     -- Add your stable handling code here
     -- This could call another resource's export for stable management
     -- TriggerEvent("your_stable_resource:openStable")
-    print("open stable")
+    print("Config.openStable must be configured to integrate with your stable system")
 end
 
 Config.openWagon = function(wagonLocation, wagonSpawnLocation)
     -- Add your wagon handling code here
     -- This could call another resource's export for wagon management
     -- TriggerEvent("your_wagon_resource:openWagon")
-    print("open wagon")
+    print("Config.openWagon must be configured to integrate with your wagon system")
 end
 
 -- ===================================
