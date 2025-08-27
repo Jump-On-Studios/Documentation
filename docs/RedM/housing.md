@@ -26,6 +26,55 @@ To install jo_housing :
 - Add this ensure in your server.cfg
   - `ensure jo_libs`
   - `ensure jo_housing`
+- If you want to use `Config.enableKeyMode=true` ([see explainations here](#general-settings)), **you must add House Key Item**:<br> Configure the house key item in your framework's item system (referenced in [`Config.items.houseKey`](#items-and-pricing)) <br>
+Examples :
+
+:::: tabs
+
+::: tab VORP Framework
+Add this item configuration to your VORP database items table:
+
+```json
+{
+    "table": "items",
+    "rows": [
+        {
+            "item": "house_key",
+            "label": "House Key",
+            "limit": 10,
+            "can_remove": 1,
+            "type": "item_standard",
+            "usable": 0,
+            "groupId": 1,
+            "metadata": "{}",
+            "desc": "A house key",
+            "degradation": 0,
+            "weight": 0.10
+        }
+    ]
+}
+```
+:::
+
+::: tab RSG Framework V2
+Add this item configuration to your RSG items file:
+
+```lua
+house_key = { 
+    name = "house_key", 
+    label = "A house key", 
+    weight = 0, 
+    type = "item", 
+    image = "your_key_image.png", 
+    unique = true, 
+    useable = false, 
+    shouldClose = false, 
+    description = "" 
+}
+```
+:::
+
+::::
 
 Congratulation, the **Housing** script is ready to be used!
 :::warning
@@ -306,6 +355,8 @@ Rather than editing the original config files directly, you should make your cha
 | `Config.items.houseKey` | `"house_key"` | Item name for house keys in your inventory system |
 | `Config.newKeyPrice.money` | `100` | Cost in money to create a new house key |
 | `Config.newKeyPrice.gold` | `1` | Cost in gold to create a new house key |
+| `Config.changeLockPrice.money` | `150` | Cost in money to change the house lock |
+| `Config.changeLockPrice.gold` | `2` | Cost in gold to change the house lock |
 
 #### Key Bindings
 
@@ -391,6 +442,11 @@ Config.items = {
 Config.newKeyPrice = {
     money = 100,    -- Cost in money to create a new house key
     gold = 1        -- Cost in gold to create a new house key
+}
+
+Config.changeLockPrice = {
+    money = 150, -- Cost in money to change house lock
+    gold = 2     -- Cost in gold to change house lock
 }
 
 -- ===================================
