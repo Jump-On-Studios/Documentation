@@ -26,6 +26,7 @@ To install jo_housing :
 - Add this ensure in your server.cfg
   - `ensure jo_libs`
   - `ensure jo_housing`
+- This script uses the [raw keys](/jo_libs/modules/raw-keys/) module, if you have any problem with the prompts you should [set the keyboard layout](/jo_libs/modules/raw-keys/client#setting-keyboard-layout)
 - If you want to use `Config.enableKeyMode=true` ([see explainations here](#general-settings)), **you must add House Key Item**:<br> Configure the house key item in your framework's item system (referenced in [`Config.items.houseKey`](#items-and-pricing)) <br>
 Examples :
 
@@ -90,6 +91,9 @@ The script automatically creates all necessary database tables during its first 
 
 The housing system provides an admin interface to manage properties on your server.
 
+::: tip Permission Control
+By default, any player can use the `/houseManager` command to create and manage houses. You can restrict access by using the [`canUseHouseManagerCommand`](#canusehousemanagercommand) filter to implement your own permission system (admin-only, specific roles, etc.).
+:::
 
 :::: tabs
 
@@ -371,7 +375,7 @@ Rather than editing the original config files directly, you should make your cha
 | `Config.keys.enterHouse` | `"ENTER"` | Enter owned house |
 | `Config.keys.leaveHouse` | `"X"` | Exit house |
 | `Config.keys.manageHouse` | `"M"` | Open house management menu |
-| ... and many more |  | See the `Configuration file` tab above for an exhaustive list |
+| ... and many more |  | See the `Configuration file` tab above for an exhaustive list, and see [Keyboard keys mapping](/jo_libs/modules/raw-keys/client#keyboard-keys-mapping) for a list of all available keys. This script uses the [raw keys](/jo_libs/modules/raw-keys/) module, if you have any problem with the prompts you should [set the keyboard layout](/jo_libs/modules/raw-keys/client#setting-keyboard-layout) |
 
 #### Interior Configuration
 
