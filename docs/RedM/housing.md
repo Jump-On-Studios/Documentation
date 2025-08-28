@@ -307,6 +307,8 @@ This setting is configured in your server's `Config.enableKeyMode` and affects a
 
 ## 3. Interiors Gallery
 
+Browse through all available interior options for your housing system. This gallery showcases the complete collection of interiors you can choose from when creating houses using the `/houseManager` command. Use the category filter to narrow down options by interior type (Houses, Shacks, Manors, Flats, Rock Shacks, or Worker buildings) and the rooms filter to find interiors with your desired number of rooms. 
+
 <InteriorGallery />
 
 ## 4. Script Configuration
