@@ -53,7 +53,10 @@
     </div>
 
     <!-- Gallery Grid -->
-    <div v-if="showGallery && filteredInteriors.length > 0" class="gallery-grid">
+    <div
+      v-if="showGallery && filteredInteriors.length > 0"
+      class="gallery-grid"
+    >
       <div
         v-for="interior in filteredInteriors"
         :key="interior.id"
@@ -393,7 +396,7 @@ const interiorsData = [
   },
   {
     id: "jo_cal_tobacco",
-    category: "rock_shack",
+    category: "worker",
     rooms: 1,
   },
   {
