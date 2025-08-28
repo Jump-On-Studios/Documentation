@@ -564,6 +564,11 @@ const interiorsData = [
     category: "manor",
     rooms: 12,
   },
+  {
+    id: "jo_mp006_moonshine01",
+    category: "worker",
+    rooms: 5,
+  },
 ];
 
 // Reactive state
