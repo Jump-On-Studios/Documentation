@@ -31,17 +31,29 @@
           </option>
         </select>
       </div>
+
+      <div class="filter-group">
+        <label for="show-gallery">
+          <input
+            id="show-gallery"
+            v-model="showGallery"
+            type="checkbox"
+            class="gallery-checkbox"
+          />
+          Show gallery
+        </label>
+      </div>
     </div>
 
     <!-- Results Count -->
-    <div class="results-info">
+    <div v-if="showGallery" class="results-info">
       Showing {{ filteredInteriors.length }} interior{{
         filteredInteriors.length !== 1 ? "s" : ""
       }}
     </div>
 
     <!-- Gallery Grid -->
-    <div class="gallery-grid" v-if="filteredInteriors.length > 0">
+    <div v-if="showGallery && filteredInteriors.length > 0" class="gallery-grid">
       <div
         v-for="interior in filteredInteriors"
         :key="interior.id"
@@ -68,7 +80,7 @@
     </div>
 
     <!-- Empty State -->
-    <div v-else class="empty-state">
+    <div v-else-if="showGallery" class="empty-state">
       <p>No interiors match the selected filters.</p>
     </div>
   </div>
@@ -554,6 +566,7 @@ const interiorsData = [
 // Reactive state
 const selectedCategory = ref("all");
 const selectedRooms = ref("all");
+const showGallery = ref(false);
 
 // Category options
 const categoryOptions = [
@@ -594,6 +607,7 @@ const availableRoomOptions = computed(() => {
 
 // Watch for category changes and reset room filter if needed
 watch(selectedCategory, (newCategory) => {
+  showGallery.value = true;
   const availableRooms = getRoomCountsForCategory(newCategory);
   if (
     selectedRooms.value !== "all" &&
@@ -601,6 +615,11 @@ watch(selectedCategory, (newCategory) => {
   ) {
     selectedRooms.value = "all";
   }
+});
+
+// Watch for room filter changes to show gallery
+watch(selectedRooms, () => {
+  showGallery.value = true;
 });
 
 // Filtered interiors based on selected filters
@@ -693,6 +712,20 @@ onMounted(() => {
 .filter-select:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.gallery-checkbox {
+  margin-right: 0.5rem;
+  accent-color: var(--vp-c-brand);
+}
+
+.filter-group label[for="show-gallery"] {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--vp-c-text-1);
 }
 
 .results-info {
