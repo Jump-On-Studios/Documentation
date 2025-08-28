@@ -626,7 +626,175 @@ Available translation categories include:
 You only need to include the specific keys you want to change in `overwriteLang.lua`. Don't copy the entire language file.
 :::
 
-## 5. For Developers
+## 5. FAQ
+
+:::details It's raining in my house !
+Weather effects (rain, snow) can appear inside interiors due to your framework's weather synchronization system. To fix this, you need to disable weather sync when players enter houses and re-enable it when they leave.
+
+**Solution:**
+Use the housing script's server actions to control your framework's weather sync:
+
+```lua
+-- Disable weather sync when entering a house
+exports.jo_housing:registerAction('server:houseEntered', function(source, house, isVisiting)
+    -- Example for different frameworks:
+    
+    -- VORP Framework
+    TriggerClientEvent('vorp:updateWeatherSync', source, false)
+    
+    -- RSG Framework
+    TriggerClientEvent('rsg-weathersync:client:DisableWeather', source)
+    
+    -- Custom framework - adjust to your weather sync resource
+    TriggerClientEvent('your_weather_resource:disable', source)
+end)
+
+-- Re-enable weather sync when leaving a house  
+exports.jo_housing:registerAction('server:houseLeft', function(source, house)
+    -- Example for different frameworks:
+    
+    -- VORP Framework
+    TriggerClientEvent('vorp:updateWeatherSync', source, true)
+    
+    -- RSG Framework  
+    TriggerClientEvent('rsg-weathersync:client:EnableWeather', source)
+    
+    -- Custom framework - adjust to your weather sync resource
+    TriggerClientEvent('your_weather_resource:enable', source)
+end)
+```
+
+Reference: [server:houseEntered action](#server-houseentered) and [server:houseLeft action](#server-houseleft)
+:::
+
+:::details Can I add custom interiors ?
+Yes! You can add your own custom interiors using the `customInteriors` filter. This allows you to integrate custom MLO interiors or propsets into the housing system.
+
+**How to add custom interiors:**
+
+```lua
+-- In your server-side resource or in jo_housing itself
+exports.jo_housing:registerFilter('customInteriors', function(customInteriors)
+    -- Add your custom interiors
+    customInteriors.my_custom_cabin = {
+        entries = {
+            vec4(2.022125, -0.556265, 1.696404, 91.094)  -- Main door spawn point (relative to interior origin)
+        },
+        propset = "my_custom_cabin",     -- Interior propset/MLO name
+        category = "shack",              -- Interior category (house, shack, manor, flat, rock_shack, worker)
+        numberRoom = 2,                  -- Number of rooms in the interior
+        insideDoors = {                  -- Optional: Interior working doors configuration
+            { 
+                model = "p_door04x", 
+                position = vec3(0.062589, -4.6552873, 0.738253) 
+            }
+        }
+    }
+    
+    customInteriors.luxury_penthouse = {
+        entries = {
+            vec4(0.0, 0.0, 2.0, 180.0)  -- Main door spawn point
+        },
+        propset = "luxury_penthouse_mlo",
+        category = "manor",
+        numberRoom = 8
+        -- insideDoors is optional - omit if no working interior doors needed
+    }
+    
+    return customInteriors
+end)
+```
+
+**Configuration Tips:**
+- Set furniture limits for your custom interiors in [`Config.interiorsMaxFurnitures`](#interior-configuration)
+- Use `/houseManager` visit mode to test and preview your interior placement
+- Interior categories affect available furniture limits and UI organization
+
+Reference: [customInteriors filter](#custominteriors) in the Developer section
+:::
+
+:::details Can I add custom furnitures (props) ?
+Yes! You can add custom furniture categories and props using the `customFurnitures` filter. This allows you to expand the available furniture options beyond the default categories.
+
+**How to add custom furniture:**
+
+```lua
+-- In your server-side resource or in jo_housing itself
+exports.jo_housing:registerFilter('customFurnitures', function(customFurnitures)
+    -- Add your custom furniture categories
+    customFurnitures.custom_electronics = {
+        "p_tv01x",
+        "p_radio01x", 
+        "p_lamp_handheld01x",
+        "p_phonograph01x"
+    }
+    
+    customFurnitures.outdoor_furniture = {
+        "p_bench05x",
+        "p_campfire01x",
+        "p_tent01x",
+        "p_waterbarrel01x"
+    }
+    
+    customFurnitures.western_decor = {
+        "p_spittoon01x",
+        "p_horseshoe01x",
+        "p_banjo01x"
+    }
+    
+    return customFurnitures
+end)
+```
+
+**Don't forget to configure pricing:**
+Add pricing for your custom categories in your `overwriteConfig.lua`:
+
+```lua
+-- Configure pricing for custom furniture categories
+Config.furnituresCategoriesPrices.custom_electronics = {
+    money = 250,
+    gold = 3
+}
+
+Config.furnituresCategoriesPrices.outdoor_furniture = {
+    money = 75,
+    gold = 1
+}
+
+-- You can also set specific prices for individual props
+Config.furnituresPrices.p_tv01x = {
+    money = 500,
+    gold = 5
+}
+```
+
+Reference: [customFurnitures filter](#customfurnitures) and [Furniture Configuration](#furniture-configuration) in the Developer section
+:::
+
+:::details The prompts are not working !
+If prompts aren't appearing or responding, this is usually related to key binding or keyboard layout issues. Here are the most common solutions:
+
+**Primary Solution - Keyboard Layout:**
+This script uses the [raw keys](/jo_libs/modules/raw-keys/) module. If you have problems with prompts, [set the keyboard layout](/jo_libs/modules/raw-keys/client#setting-keyboard-layout) properly.
+
+**Additional Troubleshooting Steps:**
+
+1. **Check for Key Conflicts:**
+   - Other resources might be using the same keys
+   - Review your [`Config.keys`](#key-bindings) settings in `overwriteConfig.lua`
+   - Try changing conflicting keys to different bindings
+
+2. **Verify Distance Settings:**
+   - Make sure you're close enough to interact with objects
+   - Check [`Config.distanceShowHousePrompt`](#distance-settings) and related distance settings
+   - Default house prompt distance is 2.5 meters
+
+3. **Framework Compatibility:**
+   - Ensure your framework is [compatible with jo_libs](/jo_libs/modules/framework-bridge/#compatible-frameworks)
+   - Check that jo_libs is properly installed and started before jo_housing
+:::
+
+## 6. For Developers
 
 ### Actions
 
@@ -1232,7 +1400,7 @@ exports.jo_housing:registerFilter('customInteriors', function(customInteriors)
         propset = "my_custom_cabin",     -- Interior propset/MLO name
         category = "shack",              -- Interior category (house, shack, manor, flat, rock_shack, worker)
         numberRoom = 2,                  -- Number of rooms in the interior
-        insideDoors = {                  -- Optional: Interior doors configuration
+        insideDoors = {                  -- Optional: Interior working doors configuration
             { 
                 model = "p_door04x", 
                 position = vec3(0.062589, -4.6552873, 0.738253) 
@@ -1251,7 +1419,7 @@ exports.jo_housing:registerFilter('customInteriors', function(customInteriors)
         propset = "luxury_penthouse_mlo",
         category = "manor",
         numberRoom = 8
-        -- insideDoors is optional - omit if no interior doors needed
+        -- insideDoors is optional - omit if no working interior doors needed
     }
     
     return customInteriors
