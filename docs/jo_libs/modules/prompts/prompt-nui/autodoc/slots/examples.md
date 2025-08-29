@@ -240,3 +240,22 @@ end)
 ```
 <!-- #endregion client|jo.promptNui.isCompleted -->
 
+
+<!-- #region client|GroupClass:forceDisplay -->
+#### Example
+```lua
+local group = jo.promptNui.createGroup("Main Menu", "bottom-right")
+group:forceDisplay()
+
+```
+<!-- #endregion client|GroupClass:forceDisplay -->
+
+
+<!-- #region client|GroupClass:forceHide -->
+#### Example
+```lua
+local group = jo.promptNui.createGroup("Main Menu", "bottom-right")
+group:forceHide()
+
+```
+<!-- #endregion client|GroupClass:forceHide -->

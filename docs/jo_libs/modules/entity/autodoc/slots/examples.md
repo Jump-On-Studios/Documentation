@@ -94,3 +94,13 @@ jo.entity.delete(entity)
 
 ```
 <!-- #endregion server|jo.entity.delete -->
+
+
+<!-- #region client|jo.entity.deleteScenariosFromEntity -->
+#### Example
+```lua
+local entity = 23494
+jo.entity.deleteScenariosFromEntity(entity)
+
+```
+<!-- #endregion client|jo.entity.deleteScenariosFromEntity -->
