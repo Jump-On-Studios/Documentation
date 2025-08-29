@@ -200,3 +200,54 @@ log(value)
 -- Expected output: {"key":{"otherKey": {}}
 ```
 <!-- #endregion shared|table.addMultiLevels -->
+
+<!-- #region shared|table.doesKeyExist -->
+#### Example
+```lua
+local tbl = { a = 1, b = { c = 2 } }
+----
+-- Simple table
+----
+print(table.doesKeyExist(tbl, "a")) -- Expected output: true
+print(table.doesKeyExist(tbl, "f")) -- Expected output: false
+----
+-- Deep table
+----
+print(table.doesKeyExist(tbl, "b", "c")) -- Expected output: true
+print(table.doesKeyExist(tbl, "b", "d")) -- Expected output: false
+print(table.doesKeyExist(tbl, "b", "c", "d")) -- Expected output: false
+```
+<!-- #endregion shared|table.doesKeyExist -->
+
+<!-- #region shared|table.includes -->
+#### Example
+```lua
+local tbl = { 1, 2, 3, 4, 5 }
+print(table.includes(tbl, 3)) -- Expected output: true
+print(table.includes(tbl, 3, 4)) -- Expected output: false because the index of `3` is lower than `fromIndex` (4) value
+print(table.includes(tbl, 6)) -- Expected output: false
+```
+<!-- #endregion shared|table.includes -->
+
+<!-- #region shared|table.slice -->
+#### Example
+```lua
+local tbl = { 1, 2, 3, 4, 5 }
+local tbl2 = table.slice(tbl, 2, 4)
+print(json.encode(tbl2))
+-- Expected output : tbl2 = {2,3,4}
+```
+<!-- #endregion shared|table.slice -->
+
+<!-- #region shared|table.upsert -->
+#### Example
+```lua
+local tbl = { a = 1, b = 2 }
+table.upsert(tbl, "a", 10)
+print(json.encode(tbl))
+-- Expected output: {a = 10, b = 2}
+table.upsert(tbl, "c", 3)
+print(json.encode(tbl))
+-- Expected output: {a = 10, b = 2, c = 3}
+```
+<!-- #endregion shared|table.upsert -->

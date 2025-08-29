@@ -438,3 +438,13 @@ for category,datas in pairs (pedComponents) do
 end
 ```
 <!-- #endregion server|jo.component.getFullPedComponentList -->
+
+<!-- #region g_client|jo.component.getWearableStateNameFromHash -->
+#### Example
+```lua
+local hash = -1539589426
+local stateName = jo.component.getWearableStateNameFromHash(hash)
+print(stateName)
+-- Expected output: `closed_collar_rolled_sleeve`
+```
+<!-- #endregion g_client|jo.component.getWearableStateNameFromHash -->
