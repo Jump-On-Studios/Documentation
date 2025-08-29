@@ -1,7 +1,7 @@
-
+<!-- #region group_1 -->
 ## Constructor
 
-### jo.menu.create()
+### <Badge type="client" text="Client" /> jo.menu.create()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.create -->
 
@@ -53,10 +53,12 @@ Type : _[MenuClass](#menuclass-methods)_
 
 <!-- @include: ./slots/footers.md#client|jo.menu.create -->
 
+<!-- #endregion group_1 -->
 
+<!-- #region group_2 -->
 ## MenuClass Methods
 
-### MenuClass:addItem()
+### <Badge type="client" text="Client" /> MenuClass:addItem()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:addItem -->
 
@@ -142,7 +144,7 @@ Type : _table_
 
 ---
 
-### MenuClass:deleteValue()
+### <Badge type="client" text="Client" /> MenuClass:deleteValue()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:deleteValue -->
 
@@ -160,7 +162,7 @@ MenuClass:deleteValue(keys)
 
 ---
 
-### MenuClass:push()
+### <Badge type="client" text="Client" /> MenuClass:push()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:push -->
 
@@ -178,7 +180,7 @@ MenuClass:push()
 
 ---
 
-### MenuClass:refresh()
+### <Badge type="client" text="Client" /> MenuClass:refresh()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:refresh -->
 
@@ -199,7 +201,7 @@ MenuClass:refresh()
 
 ---
 
-### MenuClass:removeItem()
+### <Badge type="client" text="Client" /> MenuClass:removeItem()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:removeItem -->
 
@@ -217,7 +219,7 @@ MenuClass:removeItem(index)
 
 ---
 
-### MenuClass:reset()
+### <Badge type="client" text="Client" /> MenuClass:reset()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:reset -->
 
@@ -238,7 +240,7 @@ MenuClass:reset()
 
 ---
 
-### MenuClass:send()
+### <Badge type="client" text="Client" /> MenuClass:send()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:send -->
 
@@ -258,7 +260,7 @@ MenuClass:send()
 
 ---
 
-### MenuClass:setCurrentIndex()
+### <Badge type="client" text="Client" /> MenuClass:setCurrentIndex()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:setCurrentIndex -->
 
@@ -284,7 +286,7 @@ MenuClass:setCurrentIndex(index)
 
 ---
 
-### MenuClass:sort()
+### <Badge type="client" text="Client" /> MenuClass:sort()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:sort -->
 
@@ -314,7 +316,7 @@ MenuClass:sort(first, last)
 
 ---
 
-### MenuClass:updateItem()
+### <Badge type="client" text="Client" /> MenuClass:updateItem()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:updateItem -->
 
@@ -348,7 +350,7 @@ MenuClass:updateItem(index, key, value)
 
 ---
 
-### MenuClass:updateValue()
+### <Badge type="client" text="Client" /> MenuClass:updateValue()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:updateValue -->
 
@@ -366,7 +368,7 @@ MenuClass:updateValue(keys, value)
 
 ---
 
-### MenuClass:use()
+### <Badge type="client" text="Client" /> MenuClass:use()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:use -->
 
@@ -394,10 +396,12 @@ MenuClass:use(keepHistoric, resetMenu)
 
 <!-- @include: ./slots/footers.md#client|MenuClass:use -->
 
+<!-- #endregion group_2 -->
 
+<!-- #region group_3 -->
 ## MenuItem Methods
 
-### MenuItem:deleteValue()
+### <Badge type="client" text="Client" /> MenuItem:deleteValue()
 
 <!-- @include: ./slots/headers.md#client|MenuItem:deleteValue -->
 
@@ -415,7 +419,7 @@ MenuItem:deleteValue(keys)
 
 ---
 
-### MenuItem:formatPrice()
+### <Badge type="client" text="Client" /> MenuItem:formatPrice()
 
 <!-- @include: ./slots/headers.md#client|MenuItem:formatPrice -->
 
@@ -433,7 +437,7 @@ MenuItem:formatPrice()
 
 ---
 
-### MenuItem:update()
+### <Badge type="client" text="Client" /> MenuItem:update()
 
 <!-- @include: ./slots/headers.md#client|MenuItem:update -->
 
@@ -451,7 +455,7 @@ MenuItem:update(key, value)
 
 ---
 
-### MenuItem:updateValue()
+### <Badge type="client" text="Client" /> MenuItem:updateValue()
 
 <!-- @include: ./slots/headers.md#client|MenuItem:updateValue -->
 
@@ -467,10 +471,12 @@ MenuItem:updateValue(keys, value)
 
 <!-- @include: ./slots/footers.md#client|MenuItem:updateValue -->
 
+<!-- #endregion group_3 -->
 
+<!-- #region group_4 -->
 ## JO Functions
 
-### jo.menu.addItem()
+### <Badge type="client" text="Client" /> jo.menu.addItem()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.addItem -->
 
@@ -552,7 +558,7 @@ jo.menu.addItem(id, p, item)
 
 ---
 
-### jo.menu.delete()
+### <Badge type="client" text="Client" /> jo.menu.delete()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.delete -->
 
@@ -578,7 +584,7 @@ jo.menu.delete(id)
 
 ---
 
-### jo.menu.displayLoader()
+### <Badge type="client" text="Client" /> jo.menu.displayLoader()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.displayLoader -->
 
@@ -604,7 +610,7 @@ jo.menu.displayLoader(value)
 
 ---
 
-### jo.menu.doesActiveButtonChange()
+### <Badge type="client" text="Client" /> jo.menu.doesActiveButtonChange()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.doesActiveButtonChange -->
 
@@ -630,7 +636,7 @@ Type : _boolean_
 
 ---
 
-### jo.menu.fireAllLevelsEvent()
+### <Badge type="client" text="Client" /> jo.menu.fireAllLevelsEvent()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.fireAllLevelsEvent -->
 
@@ -660,7 +666,7 @@ jo.menu.fireAllLevelsEvent(eventName, ...)
 
 ---
 
-### jo.menu.fireEvent()
+### <Badge type="client" text="Client" /> jo.menu.fireEvent()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.fireEvent -->
 
@@ -696,7 +702,7 @@ jo.menu.fireEvent(item, eventName, ...)
 
 ---
 
-### jo.menu.forceBack()
+### <Badge type="client" text="Client" /> jo.menu.forceBack()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.forceBack -->
 
@@ -716,7 +722,7 @@ jo.menu.forceBack()
 
 ---
 
-### jo.menu.get()
+### <Badge type="client" text="Client" /> jo.menu.get()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.get -->
 
@@ -748,7 +754,7 @@ Type : _[MenuClass](#menuclass-methods)_
 
 ---
 
-### jo.menu.getCurrentData()
+### <Badge type="client" text="Client" /> jo.menu.getCurrentData()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentData -->
 
@@ -774,7 +780,7 @@ Type : _table_
 
 ---
 
-### jo.menu.getCurrentIndex()
+### <Badge type="client" text="Client" /> jo.menu.getCurrentIndex()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentIndex -->
 
@@ -800,7 +806,7 @@ Type : _integer_
 
 ---
 
-### jo.menu.getCurrentItem()
+### <Badge type="client" text="Client" /> jo.menu.getCurrentItem()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentItem -->
 
@@ -826,7 +832,7 @@ Type : _table_
 
 ---
 
-### jo.menu.getCurrentMenu()
+### <Badge type="client" text="Client" /> jo.menu.getCurrentMenu()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentMenu -->
 
@@ -852,7 +858,7 @@ Type : _[MenuClass](#menuclass-methods)_
 
 ---
 
-### jo.menu.getCurrentMenuId()
+### <Badge type="client" text="Client" /> jo.menu.getCurrentMenuId()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentMenuId -->
 
@@ -878,7 +884,7 @@ Type : _string_
 
 ---
 
-### jo.menu.getPreviousData()
+### <Badge type="client" text="Client" /> jo.menu.getPreviousData()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getPreviousData -->
 
@@ -904,7 +910,7 @@ Type : _table_
 
 ---
 
-### jo.menu.hideLoader()
+### <Badge type="client" text="Client" /> jo.menu.hideLoader()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.hideLoader -->
 
@@ -924,7 +930,7 @@ jo.menu.hideLoader()
 
 ---
 
-### jo.menu.isCurrentMenu()
+### <Badge type="client" text="Client" /> jo.menu.isCurrentMenu()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.isCurrentMenu -->
 
@@ -955,7 +961,7 @@ Type : _boolean_
 
 ---
 
-### jo.menu.isExist()
+### <Badge type="client" text="Client" /> jo.menu.isExist()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.isExist -->
 
@@ -987,7 +993,7 @@ Type : _boolean_
 
 ---
 
-### jo.menu.isOpen()
+### <Badge type="client" text="Client" /> jo.menu.isOpen()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.isOpen -->
 
@@ -1013,7 +1019,7 @@ Type : _boolean_
 
 ---
 
-### jo.menu.missingMenuHandler()
+### <Badge type="client" text="Client" /> jo.menu.missingMenuHandler()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.missingMenuHandler -->
 
@@ -1045,7 +1051,7 @@ jo.menu.missingMenuHandler(id, callback)
 
 ---
 
-### jo.menu.onChange()
+### <Badge type="client" text="Client" /> jo.menu.onChange()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.onChange -->
 
@@ -1071,7 +1077,7 @@ jo.menu.onChange(cb)
 
 ---
 
-### jo.menu.playAudio()
+### <Badge type="client" text="Client" /> jo.menu.playAudio()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.playAudio -->
 
@@ -1095,7 +1101,7 @@ jo.menu.playAudio(sound)
 
 ---
 
-### jo.menu.refresh()
+### <Badge type="client" text="Client" /> jo.menu.refresh()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.refresh -->
 
@@ -1121,7 +1127,7 @@ jo.menu.refresh(id)
 
 ---
 
-### jo.menu.reset()
+### <Badge type="client" text="Client" /> jo.menu.reset()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.reset -->
 
@@ -1147,7 +1153,7 @@ jo.menu.reset(id)
 
 ---
 
-### jo.menu.runRefreshEvents()
+### <Badge type="client" text="Client" /> jo.menu.runRefreshEvents()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.runRefreshEvents -->
 
@@ -1177,7 +1183,7 @@ jo.menu.runRefreshEvents(menuEvent, itemEvent)
 
 ---
 
-### jo.menu.send()
+### <Badge type="client" text="Client" /> jo.menu.send()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.send -->
 
@@ -1203,7 +1209,7 @@ jo.menu.send(id)
 
 ---
 
-### jo.menu.set()
+### <Badge type="client" text="Client" /> jo.menu.set()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.set -->
 
@@ -1233,7 +1239,7 @@ jo.menu.set(id, menu)
 
 ---
 
-### jo.menu.setCurrentMenu()
+### <Badge type="client" text="Client" /> jo.menu.setCurrentMenu()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.setCurrentMenu -->
 
@@ -1267,7 +1273,7 @@ jo.menu.setCurrentMenu(id, keepHistoric, resetMenu)
 
 ---
 
-### jo.menu.show()
+### <Badge type="client" text="Client" /> jo.menu.show()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.show -->
 
@@ -1309,7 +1315,7 @@ jo.menu.show(show, keepInput, hideRadar, animation, hideCursor)
 
 ---
 
-### jo.menu.softHide()
+### <Badge type="client" text="Client" /> jo.menu.softHide()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.softHide -->
 
@@ -1339,7 +1345,7 @@ jo.menu.softHide(cb, animation)
 
 ---
 
-### jo.menu.sort()
+### <Badge type="client" text="Client" /> jo.menu.sort()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.sort -->
 
@@ -1373,7 +1379,7 @@ jo.menu.sort(id, first, last)
 
 ---
 
-### jo.menu.updateItem()
+### <Badge type="client" text="Client" /> jo.menu.updateItem()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.updateItem -->
 
@@ -1411,7 +1417,7 @@ jo.menu.updateItem(id, index, key, value)
 
 ---
 
-### jo.menu.updateLang()
+### <Badge type="client" text="Client" /> jo.menu.updateLang()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.updateLang -->
 
@@ -1451,7 +1457,7 @@ jo.menu.updateLang(lang)
 
 ---
 
-### jo.menu.updateVolume()
+### <Badge type="client" text="Client" /> jo.menu.updateVolume()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.updateVolume -->
 
@@ -1475,10 +1481,108 @@ jo.menu.updateVolume(volume)
 
 <!-- @include: ./slots/footers.md#client|jo.menu.updateVolume -->
 
+---
 
+### <Badge type="shared" text="Shared" /> jo.menu.formatPrice()
+
+<!-- @include: ./slots/headers.md#shared|jo.menu.formatPrice -->
+
+A function to format a single price <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.menu.formatPrice -->
+
+#### Syntax
+
+```lua
+jo.menu.formatPrice(price)
+```
+
+#### Parameters
+
+`price` : _table|integer|number_
+> The price to format
+>
+
+#### Return Value
+
+Type : _table_
+
+> The formatted price
+
+<!-- @include: ./slots/examples.md#shared|jo.menu.formatPrice -->
+
+<!-- @include: ./slots/footers.md#shared|jo.menu.formatPrice -->
+
+---
+
+### <Badge type="shared" text="Shared" /> jo.menu.formatPrices()
+
+<!-- @include: ./slots/headers.md#shared|jo.menu.formatPrices -->
+
+A function to format price variations <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.menu.formatPrices -->
+
+#### Syntax
+
+```lua
+jo.menu.formatPrices(prices)
+```
+
+#### Parameters
+
+`prices` : _table|integer|number_
+> The prices to format
+>
+
+#### Return Value
+
+Type : _table_
+
+> The formatted prices
+
+<!-- @include: ./slots/examples.md#shared|jo.menu.formatPrices -->
+
+<!-- @include: ./slots/footers.md#shared|jo.menu.formatPrices -->
+
+---
+
+### <Badge type="shared" text="Shared" /> jo.menu.isPriceFree()
+
+<!-- @include: ./slots/headers.md#shared|jo.menu.isPriceFree -->
+
+Checks if a price is free <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.menu.isPriceFree -->
+
+#### Syntax
+
+```lua
+jo.menu.isPriceFree(price)
+```
+
+#### Parameters
+
+`price` : _table|integer|number_
+> The price to check
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> Return `true` if the price is free
+
+<!-- @include: ./slots/examples.md#shared|jo.menu.isPriceFree -->
+
+<!-- @include: ./slots/footers.md#shared|jo.menu.isPriceFree -->
+
+<!-- #endregion group_4 -->
+
+<!-- #region group_5 -->
 ## Other Functions
 
-### item.getParentMenu()
+### <Badge type="client" text="Client" /> item.getParentMenu()
 
 <!-- @include: ./slots/headers.md#client|item.getParentMenu -->
 
@@ -1494,3 +1598,4 @@ item.getParentMenu()
 
 <!-- @include: ./slots/footers.md#client|item.getParentMenu -->
 
+<!-- #endregion group_5 -->

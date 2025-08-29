@@ -40,4 +40,4 @@ You can now use the library inside of your resource with the `jo.menu` global va
 
 ## Functions
 
-Documentation for the [Client](./client.md) side.  
+Documentation for the [Functions](./functions.md) side.  
