@@ -135,6 +135,43 @@ Type : _integer_
 
 ---
 
+### table.deleteDeepValue()
+
+<!-- @include: ./slots/headers.md#shared|table.deleteDeepValue -->
+
+A function to delete a deep value in a table <br>
+
+<!-- @include: ./slots/descriptions.md#shared|table.deleteDeepValue -->
+
+#### Syntax
+
+```lua
+table.deleteDeepValue(t, keys)
+```
+
+#### Parameters
+
+`t` : _table_
+
+> The table
+>
+
+
+`keys` : _any_
+> The keys to deep
+>
+
+#### Return Value
+
+Type : _table,_
+
+
+<!-- @include: ./slots/examples.md#shared|table.deleteDeepValue -->
+
+<!-- @include: ./slots/footers.md#shared|table.deleteDeepValue -->
+
+---
+
 ### table.doesKeyExist()
 
 <!-- @include: ./slots/headers.md#shared|table.doesKeyExist -->
@@ -575,6 +612,48 @@ Type : _table_
 <!-- @include: ./slots/examples.md#shared|table.slice -->
 
 <!-- @include: ./slots/footers.md#shared|table.slice -->
+
+---
+
+### table.updateDeepValue()
+
+<!-- @include: ./slots/headers.md#shared|table.updateDeepValue -->
+
+A function to update a deep value in a table <br>
+
+<!-- @include: ./slots/descriptions.md#shared|table.updateDeepValue -->
+
+#### Syntax
+
+```lua
+table.updateDeepValue(t, keys, value)
+```
+
+#### Parameters
+
+`t` : _table_
+
+> The table
+>
+
+
+`keys` : _any_
+> The keys to deep and the value to update
+>
+
+`value` : _any_
+> The updated value
+>
+
+#### Return Value
+
+Type : _table_
+
+> The updated table
+
+<!-- @include: ./slots/examples.md#shared|table.updateDeepValue -->
+
+<!-- @include: ./slots/footers.md#shared|table.updateDeepValue -->
 
 ---
 

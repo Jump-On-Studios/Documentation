@@ -3,9 +3,24 @@
 <!-- #endregion client|MenuClass:addItem -->
 
 
+<!-- #region client|MenuClass:deleteValue -->
+
+<!-- #endregion client|MenuClass:deleteValue -->
+
+
+<!-- #region client|MenuClass:push -->
+
+<!-- #endregion client|MenuClass:push -->
+
+
 <!-- #region client|MenuClass:refresh -->
 
 <!-- #endregion client|MenuClass:refresh -->
+
+
+<!-- #region client|MenuClass:removeItem -->
+
+<!-- #endregion client|MenuClass:removeItem -->
 
 
 <!-- #region client|MenuClass:reset -->
@@ -33,9 +48,39 @@
 <!-- #endregion client|MenuClass:updateItem -->
 
 
+<!-- #region client|MenuClass:updateValue -->
+
+<!-- #endregion client|MenuClass:updateValue -->
+
+
 <!-- #region client|MenuClass:use -->
 
 <!-- #endregion client|MenuClass:use -->
+
+
+<!-- #region client|MenuItem:deleteValue -->
+
+<!-- #endregion client|MenuItem:deleteValue -->
+
+
+<!-- #region client|MenuItem:formatPrice -->
+
+<!-- #endregion client|MenuItem:formatPrice -->
+
+
+<!-- #region client|MenuItem:update -->
+
+<!-- #endregion client|MenuItem:update -->
+
+
+<!-- #region client|MenuItem:updateValue -->
+
+<!-- #endregion client|MenuItem:updateValue -->
+
+
+<!-- #region client|item.getParentMenu -->
+
+<!-- #endregion client|item.getParentMenu -->
 
 
 <!-- #region client|jo.menu.addItem -->
@@ -51,6 +96,11 @@
 <!-- #region client|jo.menu.delete -->
 
 <!-- #endregion client|jo.menu.delete -->
+
+
+<!-- #region client|jo.menu.displayLoader -->
+
+<!-- #endregion client|jo.menu.displayLoader -->
 
 
 <!-- #region client|jo.menu.doesActiveButtonChange -->
@@ -83,6 +133,11 @@
 <!-- #endregion client|jo.menu.getCurrentData -->
 
 
+<!-- #region client|jo.menu.getCurrentIndex -->
+
+<!-- #endregion client|jo.menu.getCurrentIndex -->
+
+
 <!-- #region client|jo.menu.getCurrentItem -->
 
 <!-- #endregion client|jo.menu.getCurrentItem -->
@@ -93,9 +148,24 @@
 <!-- #endregion client|jo.menu.getCurrentMenu -->
 
 
+<!-- #region client|jo.menu.getCurrentMenuId -->
+
+<!-- #endregion client|jo.menu.getCurrentMenuId -->
+
+
 <!-- #region client|jo.menu.getPreviousData -->
 
 <!-- #endregion client|jo.menu.getPreviousData -->
+
+
+<!-- #region client|jo.menu.hideLoader -->
+
+<!-- #endregion client|jo.menu.hideLoader -->
+
+
+<!-- #region client|jo.menu.isCurrentMenu -->
+
+<!-- #endregion client|jo.menu.isCurrentMenu -->
 
 
 <!-- #region client|jo.menu.isExist -->
@@ -131,6 +201,11 @@
 <!-- #region client|jo.menu.reset -->
 
 <!-- #endregion client|jo.menu.reset -->
+
+
+<!-- #region client|jo.menu.runRefreshEvents -->
+
+<!-- #endregion client|jo.menu.runRefreshEvents -->
 
 
 <!-- #region client|jo.menu.send -->
@@ -176,4 +251,19 @@
 <!-- #region client|jo.menu.updateVolume -->
 
 <!-- #endregion client|jo.menu.updateVolume -->
+
+
+<!-- #region shared|jo.menu.formatPrice -->
+
+<!-- #endregion shared|jo.menu.formatPrice -->
+
+
+<!-- #region shared|jo.menu.formatPrices -->
+
+<!-- #endregion shared|jo.menu.formatPrices -->
+
+
+<!-- #region shared|jo.menu.isPriceFree -->
+
+<!-- #endregion shared|jo.menu.isPriceFree -->
 

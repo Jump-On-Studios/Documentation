@@ -67,12 +67,12 @@ Add an item to a menu <br>
 #### Syntax
 
 ```lua
-MenuClass:addItem(p, item)
+MenuClass:addItem(index, item)
 ```
 
 #### Parameters
 
-`p` : _integer|table_
+`index` : _integer|table_
 > Position index or item table if used as single parameter
 >
 
@@ -142,12 +142,48 @@ Type : _table_
 
 ---
 
+### MenuClass:deleteValue()
+
+<!-- @include: ./slots/headers.md#client|MenuClass:deleteValue -->
+
+<!-- @include: ./slots/descriptions.md#client|MenuClass:deleteValue -->
+
+#### Syntax
+
+```lua
+MenuClass:deleteValue(keys)
+```
+
+<!-- @include: ./slots/examples.md#client|MenuClass:deleteValue -->
+
+<!-- @include: ./slots/footers.md#client|MenuClass:deleteValue -->
+
+---
+
+### MenuClass:push()
+
+<!-- @include: ./slots/headers.md#client|MenuClass:push -->
+
+<!-- @include: ./slots/descriptions.md#client|MenuClass:push -->
+
+#### Syntax
+
+```lua
+MenuClass:push()
+```
+
+<!-- @include: ./slots/examples.md#client|MenuClass:push -->
+
+<!-- @include: ./slots/footers.md#client|MenuClass:push -->
+
+---
+
 ### MenuClass:refresh()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:refresh -->
 
-Refresh the menu display without changing the current state <br>
-Used when menu items have been modified <br>
+Refresh all the menu without changing the current state <br>
+Used when you want rebuild the menu <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:refresh -->
 
@@ -160,6 +196,24 @@ MenuClass:refresh()
 <!-- @include: ./slots/examples.md#client|MenuClass:refresh -->
 
 <!-- @include: ./slots/footers.md#client|MenuClass:refresh -->
+
+---
+
+### MenuClass:removeItem()
+
+<!-- @include: ./slots/headers.md#client|MenuClass:removeItem -->
+
+<!-- @include: ./slots/descriptions.md#client|MenuClass:removeItem -->
+
+#### Syntax
+
+```lua
+MenuClass:removeItem(index)
+```
+
+<!-- @include: ./slots/examples.md#client|MenuClass:removeItem -->
+
+<!-- @include: ./slots/footers.md#client|MenuClass:removeItem -->
 
 ---
 
@@ -294,6 +348,24 @@ MenuClass:updateItem(index, key, value)
 
 ---
 
+### MenuClass:updateValue()
+
+<!-- @include: ./slots/headers.md#client|MenuClass:updateValue -->
+
+<!-- @include: ./slots/descriptions.md#client|MenuClass:updateValue -->
+
+#### Syntax
+
+```lua
+MenuClass:updateValue(keys, value)
+```
+
+<!-- @include: ./slots/examples.md#client|MenuClass:updateValue -->
+
+<!-- @include: ./slots/footers.md#client|MenuClass:updateValue -->
+
+---
+
 ### MenuClass:use()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:use -->
@@ -321,6 +393,79 @@ MenuClass:use(keepHistoric, resetMenu)
 <!-- @include: ./slots/examples.md#client|MenuClass:use -->
 
 <!-- @include: ./slots/footers.md#client|MenuClass:use -->
+
+
+## MenuItem Methods
+
+### MenuItem:deleteValue()
+
+<!-- @include: ./slots/headers.md#client|MenuItem:deleteValue -->
+
+<!-- @include: ./slots/descriptions.md#client|MenuItem:deleteValue -->
+
+#### Syntax
+
+```lua
+MenuItem:deleteValue(keys)
+```
+
+<!-- @include: ./slots/examples.md#client|MenuItem:deleteValue -->
+
+<!-- @include: ./slots/footers.md#client|MenuItem:deleteValue -->
+
+---
+
+### MenuItem:formatPrice()
+
+<!-- @include: ./slots/headers.md#client|MenuItem:formatPrice -->
+
+<!-- @include: ./slots/descriptions.md#client|MenuItem:formatPrice -->
+
+#### Syntax
+
+```lua
+MenuItem:formatPrice()
+```
+
+<!-- @include: ./slots/examples.md#client|MenuItem:formatPrice -->
+
+<!-- @include: ./slots/footers.md#client|MenuItem:formatPrice -->
+
+---
+
+### MenuItem:update()
+
+<!-- @include: ./slots/headers.md#client|MenuItem:update -->
+
+<!-- @include: ./slots/descriptions.md#client|MenuItem:update -->
+
+#### Syntax
+
+```lua
+MenuItem:update(key, value)
+```
+
+<!-- @include: ./slots/examples.md#client|MenuItem:update -->
+
+<!-- @include: ./slots/footers.md#client|MenuItem:update -->
+
+---
+
+### MenuItem:updateValue()
+
+<!-- @include: ./slots/headers.md#client|MenuItem:updateValue -->
+
+<!-- @include: ./slots/descriptions.md#client|MenuItem:updateValue -->
+
+#### Syntax
+
+```lua
+MenuItem:updateValue(keys, value)
+```
+
+<!-- @include: ./slots/examples.md#client|MenuItem:updateValue -->
+
+<!-- @include: ./slots/footers.md#client|MenuItem:updateValue -->
 
 
 ## JO Functions
@@ -430,6 +575,32 @@ jo.menu.delete(id)
 <!-- @include: ./slots/examples.md#client|jo.menu.delete -->
 
 <!-- @include: ./slots/footers.md#client|jo.menu.delete -->
+
+---
+
+### jo.menu.displayLoader()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.displayLoader -->
+
+A function to display the loader <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.displayLoader -->
+
+#### Syntax
+
+```lua
+jo.menu.displayLoader(value)
+```
+
+#### Parameters
+
+`value` : _boolean_ <BadgeOptional />
+> Whether to display the loader <br> default: `true`
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.displayLoader -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.displayLoader -->
 
 ---
 
@@ -603,6 +774,32 @@ Type : _table_
 
 ---
 
+### jo.menu.getCurrentIndex()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentIndex -->
+
+A function to get the current index <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentIndex -->
+
+#### Syntax
+
+```lua
+jo.menu.getCurrentIndex()
+```
+
+#### Return Value
+
+Type : _integer_
+
+> The index of the current item
+
+<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentIndex -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentIndex -->
+
+---
+
 ### jo.menu.getCurrentItem()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentItem -->
@@ -655,6 +852,32 @@ Type : _[MenuClass](#menuclass-methods)_
 
 ---
 
+### jo.menu.getCurrentMenuId()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentMenuId -->
+
+A function to get the current menu id <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentMenuId -->
+
+#### Syntax
+
+```lua
+jo.menu.getCurrentMenuId()
+```
+
+#### Return Value
+
+Type : _string_
+
+> The id of the current menu
+
+<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentMenuId -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentMenuId -->
+
+---
+
 ### jo.menu.getPreviousData()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getPreviousData -->
@@ -678,6 +901,57 @@ Type : _table_
 <!-- @include: ./slots/examples.md#client|jo.menu.getPreviousData -->
 
 <!-- @include: ./slots/footers.md#client|jo.menu.getPreviousData -->
+
+---
+
+### jo.menu.hideLoader()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.hideLoader -->
+
+A function to hide the loader <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.hideLoader -->
+
+#### Syntax
+
+```lua
+jo.menu.hideLoader()
+```
+
+<!-- @include: ./slots/examples.md#client|jo.menu.hideLoader -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.hideLoader -->
+
+---
+
+### jo.menu.isCurrentMenu()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.isCurrentMenu -->
+
+A function to know if the menu is the current one <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.isCurrentMenu -->
+
+#### Syntax
+
+```lua
+jo.menu.isCurrentMenu(id)
+```
+
+#### Parameters
+
+`id` : _string_
+> The menu id
+>
+
+#### Return Value
+
+Type : _boolean_
+
+
+<!-- @include: ./slots/examples.md#client|jo.menu.isCurrentMenu -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.isCurrentMenu -->
 
 ---
 
@@ -870,6 +1144,36 @@ jo.menu.reset(id)
 <!-- @include: ./slots/examples.md#client|jo.menu.reset -->
 
 <!-- @include: ./slots/footers.md#client|jo.menu.reset -->
+
+---
+
+### jo.menu.runRefreshEvents()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.runRefreshEvents -->
+
+A function to run refresh events <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.runRefreshEvents -->
+
+#### Syntax
+
+```lua
+jo.menu.runRefreshEvents(menuEvent, itemEvent)
+```
+
+#### Parameters
+
+`menuEvent` : _boolean_ <BadgeOptional />
+> Whether to run menu events
+>
+
+`itemEvent` : _boolean_ <BadgeOptional />
+> Whether to run item events
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.runRefreshEvents -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.runRefreshEvents -->
 
 ---
 
@@ -1170,4 +1474,23 @@ jo.menu.updateVolume(volume)
 <!-- @include: ./slots/examples.md#client|jo.menu.updateVolume -->
 
 <!-- @include: ./slots/footers.md#client|jo.menu.updateVolume -->
+
+
+## Other Functions
+
+### item.getParentMenu()
+
+<!-- @include: ./slots/headers.md#client|item.getParentMenu -->
+
+<!-- @include: ./slots/descriptions.md#client|item.getParentMenu -->
+
+#### Syntax
+
+```lua
+item.getParentMenu()
+```
+
+<!-- @include: ./slots/examples.md#client|item.getParentMenu -->
+
+<!-- @include: ./slots/footers.md#client|item.getParentMenu -->
 

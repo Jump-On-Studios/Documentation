@@ -1,7 +1,7 @@
 <!-- #region group_1 -->
 ## Constructor
 
-### jo.framework.UserClass:get()
+### <Badge type="server" text="Server" /> jo.framework.UserClass:get()
 
 <!-- @include: ./slots/headers.md#UserClass|jo.framework.UserClass:get -->
 
@@ -38,7 +38,7 @@ Type : _[UserClass](#userclass-methods)_
 <!-- #region group_2 -->
 ## UserClass Methods
 
-### UserClass:addMoney()
+### <Badge type="server" text="Server" /> UserClass:addMoney()
 
 <!-- @include: ./slots/headers.md#UserClass|UserClass:addMoney -->
 
@@ -68,7 +68,7 @@ UserClass:addMoney(amount, moneyType)
 
 ---
 
-### UserClass:canBuy()
+### <Badge type="server" text="Server" /> UserClass:canBuy()
 
 <!-- @include: ./slots/headers.md#server|UserClass:canBuy -->
 
@@ -84,8 +84,8 @@ UserClass:canBuy(price, moneyType, removeIfCan)
 
 #### Parameters
 
-`price` : _number_
-> The amount of money the player needs to have
+`price` : _number|table_
+> The amount of money the player needs to have <br> if table: {money = 1, gold = 1, rol = 1}
 >
 
 `moneyType` : _integer_ <BadgeOptional />
@@ -108,7 +108,7 @@ Type : _boolean_
 
 ---
 
-### UserClass:getIdentifiers()
+### <Badge type="server" text="Server" /> UserClass:getIdentifiers()
 
 <!-- @include: ./slots/headers.md#UserClass|UserClass:getIdentifiers -->
 
@@ -134,7 +134,7 @@ Type : _table_
 
 ---
 
-### UserClass:getJob()
+### <Badge type="server" text="Server" /> UserClass:getJob()
 
 <!-- @include: ./slots/headers.md#UserClass|UserClass:getJob -->
 
@@ -160,7 +160,7 @@ Type : _string_
 
 ---
 
-### UserClass:getMoney()
+### <Badge type="server" text="Server" /> UserClass:getMoney()
 
 <!-- @include: ./slots/headers.md#UserClass|UserClass:getMoney -->
 
@@ -192,7 +192,7 @@ Type : _number_
 
 ---
 
-### UserClass:getRPName()
+### <Badge type="server" text="Server" /> UserClass:getRPName()
 
 <!-- @include: ./slots/headers.md#UserClass|UserClass:getRPName -->
 
@@ -218,7 +218,7 @@ Type : _string_
 
 ---
 
-### UserClass:giveGold()
+### <Badge type="server" text="Server" /> UserClass:giveGold()
 
 <!-- @include: ./slots/headers.md#server|UserClass:giveGold -->
 
@@ -244,7 +244,7 @@ UserClass:giveGold(amount)
 
 ---
 
-### UserClass:removeMoney()
+### <Badge type="server" text="Server" /> UserClass:removeMoney()
 
 <!-- @include: ./slots/headers.md#UserClass|UserClass:removeMoney -->
 
@@ -277,7 +277,7 @@ UserClass:removeMoney(amount, moneyType)
 <!-- #region group_3 -->
 ## jo.framework Methods
 
-### jo.framework:addItemInInventory()
+### <Badge type="server" text="Server" /> jo.framework:addItemInInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:addItemInInventory -->
 
@@ -325,11 +325,11 @@ jo.framework:addItemInInventory(source, invId, item, quantity, metadata, needWai
 
 ---
 
-### jo.framework:addMoney()
+### <Badge type="server" text="Server" /> jo.framework:addMoney()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:addMoney -->
 
-Adds money to a player <br>
+A function to give money to a player <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:addMoney -->
 
@@ -365,7 +365,7 @@ Type : _boolean_
 
 ---
 
-### jo.framework:canUseItem()
+### <Badge type="server" text="Server" /> jo.framework:canUseItem()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:canUseItem -->
 
@@ -415,7 +415,7 @@ Type : _boolean_
 
 ---
 
-### jo.framework:canUserBuy()
+### <Badge type="server" text="Server" /> jo.framework:canUserBuy()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:canUserBuy -->
 
@@ -436,10 +436,10 @@ jo.framework:canUserBuy(source, amount, moneyType, removeIfCan)
 >
 
 `amount` : _number_
-> The amount of money the player needs to have
+> The amount of money the player needs to have <br> {money = 10.5, gold = 3, rol = 1.5}
 >
 
-`moneyType` : _integer_ <BadgeOptional />
+`moneyType` : _integer|string_ <BadgeOptional />
 > `0`: dollar, `1`: gold, `2`: rol <br> default:`1`
 >
 
@@ -451,7 +451,7 @@ jo.framework:canUserBuy(source, amount, moneyType, removeIfCan)
 
 Type : _boolean_
 
-> Return `true` if the player has more money than the amount
+> Returns `true` if the player has more money than the amount
 
 <!-- @include: ./slots/examples.md#server|jo.framework:canUserBuy -->
 
@@ -459,7 +459,49 @@ Type : _boolean_
 
 ---
 
-### jo.framework:createInventory()
+### <Badge type="server" text="Server" /> jo.framework:canUserPayWith()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:canUserPayWith -->
+
+A function that checks if a player can pay multiple prices <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:canUserPayWith -->
+
+#### Syntax
+
+```lua
+jo.framework:canUserPayWith(source, prices, removeIfCan)
+```
+
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+`prices` : _table_
+
+> The prices to check
+>
+
+
+`removeIfCan` : _boolean_ <BadgeOptional />
+> Remove the prices if the player can pay
+>
+
+#### Return Value
+
+Type : _number_
+
+> Return the index of the price that the player can't pay
+
+<!-- @include: ./slots/examples.md#server|jo.framework:canUserPayWith -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:canUserPayWith -->
+
+---
+
+### <Badge type="server" text="Server" /> jo.framework:createInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:createInventory -->
 
@@ -511,7 +553,7 @@ jo.framework:createInventory(invName, name, invConfig)
 
 ---
 
-### jo.framework:get()
+### <Badge type="server" text="Server" /> jo.framework:get()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:get -->
 
@@ -537,7 +579,7 @@ Type : _string_
 
 ---
 
-### jo.framework:getItemsFromInventory()
+### <Badge type="server" text="Server" /> jo.framework:getItemsFromInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:getItemsFromInventory -->
 
@@ -569,7 +611,7 @@ Type : _table_
 
 ---
 
-### jo.framework:getJob()
+### <Badge type="server" text="Server" /> jo.framework:getJob()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getJob -->
 
@@ -601,7 +643,7 @@ Type : _string_
 
 ---
 
-### jo.framework:getRPName()
+### <Badge type="server" text="Server" /> jo.framework:getRPName()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getRPName -->
 
@@ -633,7 +675,7 @@ Type : _string_
 
 ---
 
-### jo.framework:getUser()
+### <Badge type="server" text="Server" /> jo.framework:getUser()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getUser -->
 
@@ -665,7 +707,7 @@ Type : _[UserClass](#userclass-methods)_
 
 ---
 
-### jo.framework:getUserClothes()
+### <Badge type="server" text="Server" /> jo.framework:getUserClothes()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getUserClothes -->
 
@@ -697,7 +739,7 @@ Type : _table_
 
 ---
 
-### jo.framework:getUserIdentifiers()
+### <Badge type="server" text="Server" /> jo.framework:getUserIdentifiers()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getUserIdentifiers -->
 
@@ -729,7 +771,7 @@ Type : _table_
 
 ---
 
-### jo.framework:getUserSkin()
+### <Badge type="server" text="Server" /> jo.framework:getUserSkin()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getUserSkin -->
 
@@ -761,7 +803,7 @@ Type : _table_
 
 ---
 
-### jo.framework:giveItem()
+### <Badge type="server" text="Server" /> jo.framework:giveItem()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:giveItem -->
 
@@ -807,7 +849,7 @@ Type : _boolean_
 
 ---
 
-### jo.framework:is()
+### <Badge type="server" text="Server" /> jo.framework:is()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:is -->
 
@@ -839,7 +881,7 @@ Type : _boolean_
 
 ---
 
-### jo.framework:onCharacterSelected()
+### <Badge type="server" text="Server" /> jo.framework:onCharacterSelected()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:onCharacterSelected -->
 
@@ -865,7 +907,7 @@ jo.framework:onCharacterSelected(cb)
 
 ---
 
-### jo.framework:openInventory()
+### <Badge type="server" text="Server" /> jo.framework:openInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:openInventory -->
 
@@ -895,7 +937,7 @@ jo.framework:openInventory(source, invName)
 
 ---
 
-### jo.framework:registerUseItem()
+### <Badge type="server" text="Server" /> jo.framework:registerUseItem()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:registerUseItem -->
 
@@ -929,7 +971,7 @@ jo.framework:registerUseItem(item, closeAfterUsed, callback)
 
 ---
 
-### jo.framework:removeInventory()
+### <Badge type="server" text="Server" /> jo.framework:removeInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:removeInventory -->
 
@@ -955,11 +997,11 @@ jo.framework:removeInventory(invName)
 
 ---
 
-### jo.framework:removeItem()
+### <Badge type="server" text="Server" /> jo.framework:removeItem()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:removeItem -->
 
-Removes an item from a player's inventory if they have enough quantity <br>
+A function to remove an item from a player's inventory if they have enough quantity <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:removeItem -->
 
@@ -1001,11 +1043,11 @@ Type : _boolean_
 
 ---
 
-### jo.framework:removeMoney()
+### <Badge type="server" text="Server" /> jo.framework:removeMoney()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:removeMoney -->
 
-Removes money from a player's account <br>
+A function to remove money from a player's account <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:removeMoney -->
 
@@ -1041,7 +1083,7 @@ Type : _boolean_
 
 ---
 
-### jo.framework:revertClothes()
+### <Badge type="server" text="Server" /> jo.framework:revertClothes()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:revertClothes -->
 
@@ -1075,7 +1117,7 @@ Type : _table_
 
 ---
 
-### jo.framework:revertSkin()
+### <Badge type="server" text="Server" /> jo.framework:revertSkin()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:revertSkin -->
 
@@ -1109,7 +1151,7 @@ Type : _table_
 
 ---
 
-### jo.framework:standardizeClothes()
+### <Badge type="server" text="Server" /> jo.framework:standardizeClothes()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:standardizeClothes -->
 
@@ -1143,7 +1185,7 @@ Type : _table_
 
 ---
 
-### jo.framework:standardizeSkin()
+### <Badge type="server" text="Server" /> jo.framework:standardizeSkin()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:standardizeSkin -->
 
@@ -1177,7 +1219,7 @@ Type : _table_
 
 ---
 
-### jo.framework:updateUserClothes()
+### <Badge type="server" text="Server" /> jo.framework:updateUserClothes()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:updateUserClothes -->
 
@@ -1218,7 +1260,7 @@ jo.framework:updateUserClothes(source, _clothes, value)
 
 ---
 
-### jo.framework:updateUserSkin()
+### <Badge type="server" text="Server" /> jo.framework:updateUserSkin()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:updateUserSkin -->
 
@@ -1264,5 +1306,63 @@ jo.framework:updateUserSkin(...)
 <!-- @include: ./slots/examples.md#server|jo.framework:updateUserSkin -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework:updateUserSkin -->
+
+---
+
+### <Badge type="shared" text="Shared" /> jo.framework:getItemData()
+
+<!-- @include: ./slots/headers.md#shared|jo.framework:getItemData -->
+
+A function to get an item data <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.framework:getItemData -->
+
+#### Syntax
+
+```lua
+jo.framework:getItemData(item)
+```
+
+#### Parameters
+
+`item` : _string_
+> The name of the item
+>
+
+#### Return Value
+
+Type : _table|false_
+
+> The item data or false if not found
+
+<!-- @include: ./slots/examples.md#shared|jo.framework:getItemData -->
+
+<!-- @include: ./slots/footers.md#shared|jo.framework:getItemData -->
+
+---
+
+### <Badge type="shared" text="Shared" /> jo.framework:getItems()
+
+<!-- @include: ./slots/headers.md#shared|jo.framework:getItems -->
+
+A function to get the list of items <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.framework:getItems -->
+
+#### Syntax
+
+```lua
+jo.framework:getItems()
+```
+
+#### Return Value
+
+Type : _table_
+
+> The list of items
+
+<!-- @include: ./slots/examples.md#shared|jo.framework:getItems -->
+
+<!-- @include: ./slots/footers.md#shared|jo.framework:getItems -->
 
 <!-- #endregion group_3 -->

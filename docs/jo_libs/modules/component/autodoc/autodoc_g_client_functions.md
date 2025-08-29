@@ -5,10 +5,6 @@
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.apply -->
 
- <br>
- <br>
- <br>
- <br>
 A function to apply a component on the ped <br>
 
 <!-- @include: ./slots/descriptions.md#g_client|jo.component.apply -->
@@ -287,6 +283,46 @@ jo.component.collarOpen(ped, data)
 
 ---
 
+### jo.component.getBaseLayer()
+
+<!-- @include: ./slots/headers.md#g_client|jo.component.getBaseLayer -->
+
+A function to get the base layer of a component <br>
+
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getBaseLayer -->
+
+#### Syntax
+
+```lua
+jo.component.getBaseLayer(ped, hash, inTable)
+```
+
+#### Parameters
+
+`ped` : _integer_
+> The entity ID or the metaped type
+>
+
+`hash` : _string|integer_
+> The component hash
+>
+
+`inTable` : _boolean_ <BadgeOptional />
+> `true` to get the result as a table, `false` to get the result as separate values<br> Default: `false`
+>
+
+#### Return Value
+
+Type : _table|integer,integer,integer,integer,integer,integer,integer,integer_
+
+> When inTable is true: returns a table with {drawable, albedo, normal, material, palette, tint0, tint1, tint2} <br> When inTable is false: 1st: drawable <br> 2nd: albedo <br> 3rd: normal <br> 4th: material <br> 5th: palette <br> 6th: tint0 <br> 7th: tint1 <br> 8th: tint2
+
+<!-- @include: ./slots/examples.md#g_client|jo.component.getBaseLayer -->
+
+<!-- @include: ./slots/footers.md#g_client|jo.component.getBaseLayer -->
+
+---
+
 ### jo.component.getBodiesLowerFromSkinTone()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getBodiesLowerFromSkinTone -->
@@ -400,6 +436,38 @@ Type : _table_
 <!-- @include: ./slots/examples.md#g_client|jo.component.getCategoriesEquiped -->
 
 <!-- @include: ./slots/footers.md#g_client|jo.component.getCategoriesEquiped -->
+
+---
+
+### jo.component.getCategoryHash()
+
+<!-- @include: ./slots/headers.md#g_client|jo.component.getCategoryHash -->
+
+A fonction to get the category hash from its stringAdd commentMore actions <br>
+
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.getCategoryHash -->
+
+#### Syntax
+
+```lua
+jo.component.getCategoryHash(category)
+```
+
+#### Parameters
+
+`category` : _string|integer_
+> The category string
+>
+
+#### Return Value
+
+Type : _integer_
+
+> The category hash
+
+<!-- @include: ./slots/examples.md#g_client|jo.component.getCategoryHash -->
+
+<!-- @include: ./slots/footers.md#g_client|jo.component.getCategoryHash -->
 
 ---
 
@@ -612,60 +680,6 @@ Type : _string_
 <!-- @include: ./slots/examples.md#g_client|jo.component.getEyesFromIndex -->
 
 <!-- @include: ./slots/footers.md#g_client|jo.component.getEyesFromIndex -->
-
----
-
-### jo.component.getFullHorseComponentList()
-
-<!-- @include: ./slots/headers.md#g_client|jo.component.getFullHorseComponentList -->
-
-A function to get the list of horse's components sorted by category <br>
-
-<!-- @include: ./slots/descriptions.md#g_client|jo.component.getFullHorseComponentList -->
-
-#### Syntax
-
-```lua
-jo.component.getFullHorseComponentList()
-```
-
-#### Return Value
-
-Type : _table_
-
-
-<!-- @include: ./slots/examples.md#g_client|jo.component.getFullHorseComponentList -->
-
-<!-- @include: ./slots/footers.md#g_client|jo.component.getFullHorseComponentList -->
-
----
-
-### jo.component.getFullPedComponentList()
-
-<!-- @include: ./slots/headers.md#g_client|jo.component.getFullPedComponentList -->
-
- <br>
- <br>
- <br>
- <br>
-A function to get the list of clothes sorted by sex and category <br>
-
-<!-- @include: ./slots/descriptions.md#g_client|jo.component.getFullPedComponentList -->
-
-#### Syntax
-
-```lua
-jo.component.getFullPedComponentList()
-```
-
-#### Return Value
-
-Type : _table_
-
-
-<!-- @include: ./slots/examples.md#g_client|jo.component.getFullPedComponentList -->
-
-<!-- @include: ./slots/footers.md#g_client|jo.component.getFullPedComponentList -->
 
 ---
 
@@ -920,7 +934,7 @@ jo.component.isMpComponent(ped, hash)
 #### Parameters
 
 `ped` : _integer_
-> The entity ID
+> The entity ID OR the metapedType
 >
 
 `hash` : _integer_

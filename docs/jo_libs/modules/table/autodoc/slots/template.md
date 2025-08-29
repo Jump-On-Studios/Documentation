@@ -18,6 +18,11 @@
 <!-- #endregion shared|table.count -->
 
 
+<!-- #region shared|table.deleteDeepValue -->
+
+<!-- #endregion shared|table.deleteDeepValue -->
+
+
 <!-- #region shared|table.doesKeyExist -->
 
 <!-- #endregion shared|table.doesKeyExist -->
@@ -71,6 +76,11 @@
 <!-- #region shared|table.slice -->
 
 <!-- #endregion shared|table.slice -->
+
+
+<!-- #region shared|table.updateDeepValue -->
+
+<!-- #endregion shared|table.updateDeepValue -->
 
 
 <!-- #region shared|table.upsert -->
