@@ -81,7 +81,7 @@ Congratulation, the **Housing** script is ready to be used!
 :::warning
 Be sure you have oxmysql ensure in your server.cfg
 :::
-:::tip
+:::tip 💡 Tables creation
 The script automatically creates all necessary database tables during its first startup
 :::
 
@@ -91,7 +91,7 @@ The script automatically creates all necessary database tables during its first 
 
 The housing system provides an admin interface to manage properties on your server.
 
-::: tip Permission Control
+:::tip 💡 Permission Control
 By default, any player can use the `/houseManager` command to create and manage houses. You can restrict access by using the [`canUseHouseManagerCommand`](#canusehousemanagercommand) filter to implement your own permission system (admin-only, specific roles, etc.).
 :::
 
@@ -131,6 +131,11 @@ By default, any player can use the `/houseManager` command to create and manage 
    - If wagon enabled: Both wagon location and spawn location required
    - Prices must be non-negative
 6. Press the "Create House" key when all requirements are met
+
+:::tip 💡TIP : Multiple houses on the same location
+If you create multiple houses with the same front door location, then when players open the house location menu, they will see all the houses available at that location. This allows you to virtually create 'buildings' with multiple flats on each floor!
+
+
 :::
 
 ::: tab ✏️ Updating a House
@@ -287,7 +292,7 @@ _This script does not have built-in solutions for dressing, stable and wagon fun
 
 ::::
 
-:::tip Key Mode Configuration
+:::tip 💡 Key Mode Configuration
 The `Config.enableKeyMode` setting affects how players access houses after creation:
 
 **Key Mode Enabled (`enableKeyMode = true`):**
@@ -618,7 +623,7 @@ Available translation categories include:
 - Input Prompts
 - Notifications & Messages (success and error messages)
 
-:::tip
+:::tip 💡Only change the key you need to translate
 You only need to include the specific keys you want to change in `overwriteLang.lua`. Don't copy the entire language file.
 :::
 
@@ -1364,7 +1369,7 @@ exports.jo_housing:registerFilter('customFurnitures', function(customFurnitures)
 end)
 ```
 
-:::tip Custom Furniture Pricing
+:::tip 💡 Custom Furniture Pricing
 Don't forget to configure pricing for your custom categories in [`Config.furnituresCategoriesPrices`](#furniture-configuration) or specific items in [`Config.furnituresPrices`](#furniture-configuration).
 
 ```lua
@@ -1432,7 +1437,7 @@ end)
 | `numberRoom` | `number` | ✅ | Number of rooms in the interior |
 | `insideDoors` | `table` | ❌ | Optional array of interior doors with `model` and `position` properties |
 
-:::tip Interior Configuration
+:::tip 💡 Interior Configuration
 - Configure furniture limits for your custom interiors using [`Config.interiorsMaxFurnitures`](#interior-configuration) or category limits with [`Config.interiorsCategoriesMaxFurnitures`](#interior-configuration)
 - Test your interior coordinates thoroughly - use `/houseManager` visit mode to preview placement
 - Interior categories affect available furniture limits and UI organization
