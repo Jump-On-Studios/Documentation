@@ -498,48 +498,42 @@ Config.allowRentExtensionAnytime = false        -- Allow players to extend rent 
 -- ===================================
 
 Config.keys = {
-    -- House Management
-    openHouseMenu       = "E",        -- Open house menu at front door
-    enterSubMenu        = "E",        -- Enter submenus
-    buyDollar           = "E",        -- Purchase house with money
-    buyGold             = "G",        -- Purchase house with gold
-    buyHouse            = "ENTER",    -- Confirm house purchase
-    knockOnHouse        = "K",        -- Knock on someone's door
-    enterHouse          = "ENTER",    -- Enter owned house
-    leaveHouse          = "X",        -- Exit house
-    manageHouse         = "M",        -- Open house management menu
-    
-    -- Admin Tools
-    enterVisitMode      = "R",        -- Enter visit mode to preview interior
-    setHousePriceMoney  = "M",        -- Set money price prompt
-    setHousePriceGold   = "G",        -- Set gold price prompt
-    setHouseName        = "ENTER",    -- Set house name prompt
-    placeMarker         = "ENTER",    -- Place location markers
-    placeShell          = "ENTER",    -- Place interior shell
-    upsertHouse         = "ENTER",    -- Create/update house
-    editHouse           = "E",        -- Edit existing house 
-    deleteHouse         = "X",        -- Delete house 
-    
-    -- Storage & Features
-    setStorageMaxWeight = "ENTER",    -- Set storage weight limit prompt
-    setStorageMaxSlot   = "ENTER",    -- Set storage slot limit prompt
-    setStorageLocation  = "O",        -- Set storage location in build mode
-    setDressingLocation = "K",        -- Set dressing room location in build mode
-    openStorage         = "E",        -- Open house storage
-    openDressing        = "E",        -- Open dressing room
-    
-    -- Build Mode
-    addFurnitures       = "A",        -- Add furniture to house
-    editFurnitures      = "E",        -- Edit existing furniture
-    duplicateFurniture  = "C",        -- Duplicate selected furniture
-    deleteFurniture     = "DELETE",   -- Delete selected furniture
-    buyFurniture        = "ENTER",    -- Purchase furniture
-    leaveBuildMode      = "X",        -- Exit build mode
-    
-    -- Access Management
-    addPlayer           = "ENTER",    -- Add player to house access list
-    removePlayer        = "X",        -- Remove player from access list
-    enter               = "ENTER"     -- Generic enter/confirm key
+
+    openHouseMenu = "E",     -- Open house menu at front door
+    enterSubMenu  = "E",     -- Enter submenus
+    buyDollar     = "E",     -- Purchase house with money
+    buyGold       = "G",     -- Purchase house with gold
+    buyHouse      = "ENTER", -- Confirm house purchase
+    knockOnHouse  = "K",     -- Knock on someone's door
+    enterHouse    = "ENTER", -- Enter owned house
+    leaveHouse    = "X",     -- Exit house
+    manageHouse   = "M",     -- Open house management menu
+
+
+    enterVisitMode     = "R", -- Enter visit mode to preview interior
+    setHousePriceMoney = "M", -- Set money price prompt
+    setHousePriceGold  = "G", -- Set gold price prompt
+    editHouse          = "E", -- Edit existing house
+    deleteHouse        = "X", -- Delete house
+
+
+    setStorageLocation  = "O", -- Set storage location in build mode
+    setDressingLocation = "K", -- Set dressing room location in build mode
+    openStorage         = "E", -- Open house storage
+    openDressing        = "E", -- Open dressing room
+
+
+    addFurnitures      = "A",      -- Add furniture to house
+    editFurnitures     = "E",      -- Edit existing furniture
+    duplicateFurniture = "C",      -- Duplicate selected furniture
+    deleteFurniture    = "DELETE", -- Delete selected furniture
+    buyFurniture       = "ENTER",  -- Purchase furniture
+    leaveBuildMode     = "X",      -- Exit build mode
+
+
+    addPlayer    = "ENTER", -- Add player to house access list
+    removePlayer = "X",     -- Remove player from access list
+    enter        = "ENTER"  -- Generic enter/confirm key
 }
 
 -- ===================================
