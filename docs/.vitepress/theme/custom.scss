@@ -1,5 +1,6 @@
 :root {
   --vp-layout-max-width: 100%;
+  --aside-width: 350px !important;
 }
 
 body {
@@ -12,7 +13,11 @@ body {
 }
 
 .aside {
-  max-width: 350px !important;
+  max-width: var(--aside-width) !important;
+
+  .content {
+    max-width: calc(var(--aside-width) - 32px);
+  }
 }
 
 .aside-container {
@@ -206,11 +211,6 @@ a.box-button {
     min-width: var(--aside-width) !important;
     max-width: var(--aside-width) !important;
   }
-}
-
-// Variable CSS pour la largeur de l'aside (pas de valeur par défaut)
-:root {
-  --aside-width: auto;
 }
 
 // Styles pour forcer le redimensionnement seulement si une largeur personnalisée est définie
