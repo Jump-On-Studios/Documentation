@@ -19,6 +19,10 @@ body {
   width: fit-content !important;
 }
 
+.aside-curtain {
+  width: 100% !important;
+}
+
 img.preview {
   border-radius: 0.5em;
   margin: auto;
@@ -166,5 +170,81 @@ a.box-button {
   .preview-img {
     display: flex;
     flex-direction: column;
+  }
+}
+
+// Styles pour le redimensionnement de l'aside (outline)
+.resize-handle {
+  position: absolute;
+  top: 0;
+  left: -3px;
+  width: 6px;
+  height: 100%;
+  cursor: ew-resize;
+  background: transparent;
+  z-index: 100;
+  transition: background-color 0.2s ease;
+
+  &:hover,
+  &.resizing {
+    background-color: var(--vp-c-brand);
+    opacity: 0.5;
+  }
+}
+
+// Force le redimensionnement sur tous les éléments de l'aside
+.VPDocAside,
+.VPDocAsideOutline,
+.aside-container {
+  position: relative;
+  transition: width 0.1s ease;
+
+  // Force la largeur personnalisée avec !important
+  &[style*="width"] {
+    width: var(--aside-width) !important;
+    min-width: var(--aside-width) !important;
+    max-width: var(--aside-width) !important;
+  }
+}
+
+// Variable CSS pour la largeur de l'aside (pas de valeur par défaut)
+:root {
+  --aside-width: auto;
+}
+
+// Styles pour forcer le redimensionnement seulement si une largeur personnalisée est définie
+.VPDoc .aside {
+  &.resized {
+    width: var(--aside-width) !important;
+    min-width: var(--aside-width) !important;
+    max-width: var(--aside-width) !important;
+  }
+}
+
+.VPDocAside .aside-content {
+  width: 100% !important;
+}
+
+// Désactiver le drag et la sélection dans l'aside
+.VPDocAside,
+.VPDocAsideOutline,
+.aside-container,
+.VPDoc .aside {
+  * {
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: auto; // Garder les événements de clic
+  }
+
+  // Permettre la sélection du texte seulement au hover pour la lisibilité
+  a {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
   }
 }
