@@ -1,7 +1,7 @@
 <!-- #region group_1 -->
 ## Constructor
 
-### <Badge type="client" text="Client" /> jo.menu.create()
+### <BadgeClient /> jo.menu.create()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.create -->
 
@@ -58,7 +58,7 @@ Type : _[MenuClass](#menuclass-methods)_
 <!-- #region group_2 -->
 ## MenuClass Methods
 
-### <Badge type="client" text="Client" /> MenuClass:addItem()
+### <BadgeClient /> MenuClass:addItem()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:addItem -->
 
@@ -144,7 +144,7 @@ Type : _table_
 
 ---
 
-### <Badge type="client" text="Client" /> MenuClass:deleteValue()
+### <BadgeClient /> MenuClass:deleteValue()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:deleteValue -->
 
@@ -162,7 +162,7 @@ MenuClass:deleteValue(keys)
 
 ---
 
-### <Badge type="client" text="Client" /> MenuClass:push()
+### <BadgeClient /> MenuClass:push()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:push -->
 
@@ -180,7 +180,7 @@ MenuClass:push()
 
 ---
 
-### <Badge type="client" text="Client" /> MenuClass:refresh()
+### <BadgeClient /> MenuClass:refresh()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:refresh -->
 
@@ -201,7 +201,7 @@ MenuClass:refresh()
 
 ---
 
-### <Badge type="client" text="Client" /> MenuClass:removeItem()
+### <BadgeClient /> MenuClass:removeItem()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:removeItem -->
 
@@ -219,7 +219,7 @@ MenuClass:removeItem(index)
 
 ---
 
-### <Badge type="client" text="Client" /> MenuClass:reset()
+### <BadgeClient /> MenuClass:reset()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:reset -->
 
@@ -240,7 +240,7 @@ MenuClass:reset()
 
 ---
 
-### <Badge type="client" text="Client" /> MenuClass:send()
+### <BadgeClient /> MenuClass:send()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:send -->
 
@@ -260,7 +260,7 @@ MenuClass:send()
 
 ---
 
-### <Badge type="client" text="Client" /> MenuClass:setCurrentIndex()
+### <BadgeClient /> MenuClass:setCurrentIndex()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:setCurrentIndex -->
 
@@ -286,7 +286,7 @@ MenuClass:setCurrentIndex(index)
 
 ---
 
-### <Badge type="client" text="Client" /> MenuClass:sort()
+### <BadgeClient /> MenuClass:sort()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:sort -->
 
@@ -316,7 +316,7 @@ MenuClass:sort(first, last)
 
 ---
 
-### <Badge type="client" text="Client" /> MenuClass:updateItem()
+### <BadgeClient /> MenuClass:updateItem()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:updateItem -->
 
@@ -350,7 +350,7 @@ MenuClass:updateItem(index, key, value)
 
 ---
 
-### <Badge type="client" text="Client" /> MenuClass:updateValue()
+### <BadgeClient /> MenuClass:updateValue()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:updateValue -->
 
@@ -368,7 +368,7 @@ MenuClass:updateValue(keys, value)
 
 ---
 
-### <Badge type="client" text="Client" /> MenuClass:use()
+### <BadgeClient /> MenuClass:use()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:use -->
 
@@ -401,7 +401,7 @@ MenuClass:use(keepHistoric, resetMenu)
 <!-- #region group_3 -->
 ## MenuItem Methods
 
-### <Badge type="client" text="Client" /> MenuItem:deleteValue()
+### <BadgeClient /> MenuItem:deleteValue()
 
 <!-- @include: ./slots/headers.md#client|MenuItem:deleteValue -->
 
@@ -419,7 +419,7 @@ MenuItem:deleteValue(keys)
 
 ---
 
-### <Badge type="client" text="Client" /> MenuItem:formatPrice()
+### <BadgeClient /> MenuItem:formatPrice()
 
 <!-- @include: ./slots/headers.md#client|MenuItem:formatPrice -->
 
@@ -437,7 +437,7 @@ MenuItem:formatPrice()
 
 ---
 
-### <Badge type="client" text="Client" /> MenuItem:update()
+### <BadgeClient /> MenuItem:update()
 
 <!-- @include: ./slots/headers.md#client|MenuItem:update -->
 
@@ -455,7 +455,7 @@ MenuItem:update(key, value)
 
 ---
 
-### <Badge type="client" text="Client" /> MenuItem:updateValue()
+### <BadgeClient /> MenuItem:updateValue()
 
 <!-- @include: ./slots/headers.md#client|MenuItem:updateValue -->
 
@@ -476,7 +476,7 @@ MenuItem:updateValue(keys, value)
 <!-- #region group_4 -->
 ## JO Functions
 
-### <Badge type="client" text="Client" /> jo.menu.addItem()
+### <BadgeClient /> jo.menu.addItem()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.addItem -->
 
@@ -558,7 +558,7 @@ jo.menu.addItem(id, p, item)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.delete()
+### <BadgeClient /> jo.menu.delete()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.delete -->
 
@@ -584,7 +584,7 @@ jo.menu.delete(id)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.displayLoader()
+### <BadgeClient /> jo.menu.displayLoader()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.displayLoader -->
 
@@ -610,7 +610,7 @@ jo.menu.displayLoader(value)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.doesActiveButtonChange()
+### <BadgeClient /> jo.menu.doesActiveButtonChange()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.doesActiveButtonChange -->
 
@@ -636,7 +636,7 @@ Type : _boolean_
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.fireAllLevelsEvent()
+### <BadgeClient /> jo.menu.fireAllLevelsEvent()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.fireAllLevelsEvent -->
 
@@ -666,7 +666,7 @@ jo.menu.fireAllLevelsEvent(eventName, ...)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.fireEvent()
+### <BadgeClient /> jo.menu.fireEvent()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.fireEvent -->
 
@@ -702,7 +702,7 @@ jo.menu.fireEvent(item, eventName, ...)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.forceBack()
+### <BadgeClient /> jo.menu.forceBack()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.forceBack -->
 
@@ -722,7 +722,7 @@ jo.menu.forceBack()
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.get()
+### <BadgeClient /> jo.menu.get()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.get -->
 
@@ -754,7 +754,7 @@ Type : _[MenuClass](#menuclass-methods)_
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.getCurrentData()
+### <BadgeClient /> jo.menu.getCurrentData()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentData -->
 
@@ -780,7 +780,7 @@ Type : _table_
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.getCurrentIndex()
+### <BadgeClient /> jo.menu.getCurrentIndex()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentIndex -->
 
@@ -806,7 +806,7 @@ Type : _integer_
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.getCurrentItem()
+### <BadgeClient /> jo.menu.getCurrentItem()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentItem -->
 
@@ -832,7 +832,7 @@ Type : _table_
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.getCurrentMenu()
+### <BadgeClient /> jo.menu.getCurrentMenu()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentMenu -->
 
@@ -858,7 +858,7 @@ Type : _[MenuClass](#menuclass-methods)_
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.getCurrentMenuId()
+### <BadgeClient /> jo.menu.getCurrentMenuId()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentMenuId -->
 
@@ -884,7 +884,7 @@ Type : _string_
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.getPreviousData()
+### <BadgeClient /> jo.menu.getPreviousData()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getPreviousData -->
 
@@ -910,7 +910,7 @@ Type : _table_
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.hideLoader()
+### <BadgeClient /> jo.menu.hideLoader()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.hideLoader -->
 
@@ -930,7 +930,7 @@ jo.menu.hideLoader()
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.isCurrentMenu()
+### <BadgeClient /> jo.menu.isCurrentMenu()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.isCurrentMenu -->
 
@@ -961,7 +961,7 @@ Type : _boolean_
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.isExist()
+### <BadgeClient /> jo.menu.isExist()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.isExist -->
 
@@ -993,7 +993,7 @@ Type : _boolean_
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.isOpen()
+### <BadgeClient /> jo.menu.isOpen()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.isOpen -->
 
@@ -1019,7 +1019,7 @@ Type : _boolean_
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.missingMenuHandler()
+### <BadgeClient /> jo.menu.missingMenuHandler()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.missingMenuHandler -->
 
@@ -1051,7 +1051,7 @@ jo.menu.missingMenuHandler(id, callback)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.onChange()
+### <BadgeClient /> jo.menu.onChange()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.onChange -->
 
@@ -1077,7 +1077,7 @@ jo.menu.onChange(cb)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.playAudio()
+### <BadgeClient /> jo.menu.playAudio()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.playAudio -->
 
@@ -1101,7 +1101,7 @@ jo.menu.playAudio(sound)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.refresh()
+### <BadgeClient /> jo.menu.refresh()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.refresh -->
 
@@ -1127,7 +1127,7 @@ jo.menu.refresh(id)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.reset()
+### <BadgeClient /> jo.menu.reset()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.reset -->
 
@@ -1153,7 +1153,7 @@ jo.menu.reset(id)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.runRefreshEvents()
+### <BadgeClient /> jo.menu.runRefreshEvents()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.runRefreshEvents -->
 
@@ -1183,7 +1183,7 @@ jo.menu.runRefreshEvents(menuEvent, itemEvent)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.send()
+### <BadgeClient /> jo.menu.send()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.send -->
 
@@ -1209,7 +1209,7 @@ jo.menu.send(id)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.set()
+### <BadgeClient /> jo.menu.set()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.set -->
 
@@ -1239,7 +1239,7 @@ jo.menu.set(id, menu)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.setCurrentMenu()
+### <BadgeClient /> jo.menu.setCurrentMenu()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.setCurrentMenu -->
 
@@ -1273,7 +1273,7 @@ jo.menu.setCurrentMenu(id, keepHistoric, resetMenu)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.show()
+### <BadgeClient /> jo.menu.show()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.show -->
 
@@ -1315,7 +1315,7 @@ jo.menu.show(show, keepInput, hideRadar, animation, hideCursor)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.softHide()
+### <BadgeClient /> jo.menu.softHide()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.softHide -->
 
@@ -1345,7 +1345,7 @@ jo.menu.softHide(cb, animation)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.sort()
+### <BadgeClient /> jo.menu.sort()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.sort -->
 
@@ -1379,7 +1379,7 @@ jo.menu.sort(id, first, last)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.updateItem()
+### <BadgeClient /> jo.menu.updateItem()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.updateItem -->
 
@@ -1417,7 +1417,7 @@ jo.menu.updateItem(id, index, key, value)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.updateLang()
+### <BadgeClient /> jo.menu.updateLang()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.updateLang -->
 
@@ -1457,7 +1457,7 @@ jo.menu.updateLang(lang)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.updateVolume()
+### <BadgeClient /> jo.menu.updateVolume()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.updateVolume -->
 
@@ -1483,7 +1483,7 @@ jo.menu.updateVolume(volume)
 
 ---
 
-### <Badge type="shared" text="Shared" /> jo.menu.formatPrice()
+### <BadgeShared /> jo.menu.formatPrice()
 
 <!-- @include: ./slots/headers.md#shared|jo.menu.formatPrice -->
 
@@ -1515,7 +1515,7 @@ Type : _table_
 
 ---
 
-### <Badge type="shared" text="Shared" /> jo.menu.formatPrices()
+### <BadgeShared /> jo.menu.formatPrices()
 
 <!-- @include: ./slots/headers.md#shared|jo.menu.formatPrices -->
 
@@ -1547,7 +1547,7 @@ Type : _table_
 
 ---
 
-### <Badge type="shared" text="Shared" /> jo.menu.isPriceFree()
+### <BadgeShared /> jo.menu.isPriceFree()
 
 <!-- @include: ./slots/headers.md#shared|jo.menu.isPriceFree -->
 
@@ -1582,7 +1582,7 @@ Type : _boolean_
 <!-- #region group_5 -->
 ## Other Functions
 
-### <Badge type="client" text="Client" /> item.getParentMenu()
+### <BadgeClient /> item.getParentMenu()
 
 <!-- @include: ./slots/headers.md#client|item.getParentMenu -->
 

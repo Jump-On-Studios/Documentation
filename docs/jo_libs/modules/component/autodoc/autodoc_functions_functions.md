@@ -1,7 +1,7 @@
-
+<!-- #region group_1 -->
 ## JO Functions
 
-### jo.component.apply()
+### <BadgeClient /> jo.component.apply()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.apply -->
 
@@ -55,7 +55,7 @@ jo.component.apply(ped, category, _data)
 
 ---
 
-### jo.component.applyComponents()
+### <BadgeClient /> jo.component.applyComponents()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.applyComponents -->
 
@@ -87,7 +87,7 @@ jo.component.applyComponents(ped, components)
 
 ---
 
-### jo.component.applySkin()
+### <BadgeClient /> jo.component.applySkin()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.applySkin -->
 
@@ -155,7 +155,7 @@ jo.component.applySkin(ped, skin)
 
 ---
 
-### jo.component.bootsAreUnderPant()
+### <BadgeClient /> jo.component.bootsAreUnderPant()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.bootsAreUnderPant -->
 
@@ -187,7 +187,7 @@ Type : _boolean_
 
 ---
 
-### jo.component.collarClose()
+### <BadgeClient /> jo.component.collarClose()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.collarClose -->
 
@@ -219,7 +219,7 @@ jo.component.collarClose(ped, data)
 
 ---
 
-### jo.component.collarIsOpened()
+### <BadgeClient /> jo.component.collarIsOpened()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.collarIsOpened -->
 
@@ -251,7 +251,7 @@ Type : _boolean_
 
 ---
 
-### jo.component.collarOpen()
+### <BadgeClient /> jo.component.collarOpen()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.collarOpen -->
 
@@ -283,7 +283,7 @@ jo.component.collarOpen(ped, data)
 
 ---
 
-### jo.component.getBaseLayer()
+### <BadgeClient /> jo.component.getBaseLayer()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getBaseLayer -->
 
@@ -323,7 +323,7 @@ Type : _table|integer,integer,integer,integer,integer,integer,integer,integer_
 
 ---
 
-### jo.component.getBodiesLowerFromSkinTone()
+### <BadgeClient /> jo.component.getBodiesLowerFromSkinTone()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getBodiesLowerFromSkinTone -->
 
@@ -363,7 +363,7 @@ Type : _string_
 
 ---
 
-### jo.component.getBodiesUpperFromSkinTone()
+### <BadgeClient /> jo.component.getBodiesUpperFromSkinTone()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getBodiesUpperFromSkinTone -->
 
@@ -403,7 +403,7 @@ Type : _string_
 
 ---
 
-### jo.component.getCategoriesEquiped()
+### <BadgeClient /> jo.component.getCategoriesEquiped()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getCategoriesEquiped -->
 
@@ -439,7 +439,7 @@ Type : _table_
 
 ---
 
-### jo.component.getCategoryHash()
+### <BadgeClient /> jo.component.getCategoryHash()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getCategoryHash -->
 
@@ -471,7 +471,7 @@ Type : _integer_
 
 ---
 
-### jo.component.getCategoryNameFromHash()
+### <BadgeClient /> jo.component.getCategoryNameFromHash()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getCategoryNameFromHash -->
 
@@ -503,7 +503,7 @@ Type : _string_
 
 ---
 
-### jo.component.getCategoryTint()
+### <BadgeClient /> jo.component.getCategoryTint()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getCategoryTint -->
 
@@ -543,7 +543,7 @@ Type : _table|integer,integer,integer,integer_
 
 ---
 
-### jo.component.getComponentCategory()
+### <BadgeClient /> jo.component.getComponentCategory()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getComponentCategory -->
 
@@ -579,7 +579,7 @@ Type : _integer,boolean_
 
 ---
 
-### jo.component.getComponentEquiped()
+### <BadgeClient /> jo.component.getComponentEquiped()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getComponentEquiped -->
 
@@ -615,7 +615,7 @@ Type : _table_
 
 ---
 
-### jo.component.getComponentsEquiped()
+### <BadgeClient /> jo.component.getComponentsEquiped()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getComponentsEquiped -->
 
@@ -647,7 +647,7 @@ Type : _table_
 
 ---
 
-### jo.component.getEyesFromIndex()
+### <BadgeClient /> jo.component.getEyesFromIndex()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getEyesFromIndex -->
 
@@ -683,7 +683,7 @@ Type : _string_
 
 ---
 
-### jo.component.getHeadFromSkinTone()
+### <BadgeClient /> jo.component.getHeadFromSkinTone()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getHeadFromSkinTone -->
 
@@ -723,7 +723,7 @@ Type : _string_
 
 ---
 
-### jo.component.getPaletteNameFromHash()
+### <BadgeClient /> jo.component.getPaletteNameFromHash()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getPaletteNameFromHash -->
 
@@ -759,7 +759,7 @@ Type : _string_
 
 ---
 
-### jo.component.getTeethFromIndex()
+### <BadgeClient /> jo.component.getTeethFromIndex()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getTeethFromIndex -->
 
@@ -795,7 +795,7 @@ Type : _string_
 
 ---
 
-### jo.component.getWearableState()
+### <BadgeClient /> jo.component.getWearableState()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getWearableState -->
 
@@ -831,7 +831,7 @@ Type : _integer_
 
 ---
 
-### jo.component.getWearableStateNameFromHash()
+### <BadgeClient /> jo.component.getWearableStateNameFromHash()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getWearableStateNameFromHash -->
 
@@ -849,7 +849,7 @@ jo.component.getWearableStateNameFromHash(state)
 
 ---
 
-### jo.component.hairIsPomade()
+### <BadgeClient /> jo.component.hairIsPomade()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.hairIsPomade -->
 
@@ -881,7 +881,7 @@ Type : _boolean_
 
 ---
 
-### jo.component.isCategoryEquiped()
+### <BadgeClient /> jo.component.isCategoryEquiped()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.isCategoryEquiped -->
 
@@ -917,7 +917,7 @@ Type : _integer_
 
 ---
 
-### jo.component.isMpComponent()
+### <BadgeClient /> jo.component.isMpComponent()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.isMpComponent -->
 
@@ -953,7 +953,7 @@ Type : _boolean_
 
 ---
 
-### jo.component.loadoutIsOnRight()
+### <BadgeClient /> jo.component.loadoutIsOnRight()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.loadoutIsOnRight -->
 
@@ -985,7 +985,7 @@ Type : _boolean_
 
 ---
 
-### jo.component.neckwearIsUp()
+### <BadgeClient /> jo.component.neckwearIsUp()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.neckwearIsUp -->
 
@@ -1017,7 +1017,7 @@ Type : _boolean_
 
 ---
 
-### jo.component.refreshPed()
+### <BadgeClient /> jo.component.refreshPed()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.refreshPed -->
 
@@ -1047,7 +1047,7 @@ jo.component.refreshPed(ped)
 
 ---
 
-### jo.component.remove()
+### <BadgeClient /> jo.component.remove()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.remove -->
 
@@ -1077,7 +1077,7 @@ jo.component.remove(ped, category)
 
 ---
 
-### jo.component.removeAllClothes()
+### <BadgeClient /> jo.component.removeAllClothes()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.removeAllClothes -->
 
@@ -1103,7 +1103,7 @@ jo.component.removeAllClothes(ped)
 
 ---
 
-### jo.component.setWearableState()
+### <BadgeClient /> jo.component.setWearableState()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.setWearableState -->
 
@@ -1147,7 +1147,7 @@ jo.component.setWearableState(ped, category, data, state)
 
 ---
 
-### jo.component.sleeveIsRolled()
+### <BadgeClient /> jo.component.sleeveIsRolled()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.sleeveIsRolled -->
 
@@ -1179,7 +1179,7 @@ Type : _boolean_
 
 ---
 
-### jo.component.sleeveRoll()
+### <BadgeClient /> jo.component.sleeveRoll()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.sleeveRoll -->
 
@@ -1211,7 +1211,7 @@ jo.component.sleeveRoll(ped, data)
 
 ---
 
-### jo.component.sleeveUnroll()
+### <BadgeClient /> jo.component.sleeveUnroll()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.sleeveUnroll -->
 
@@ -1243,7 +1243,7 @@ jo.component.sleeveUnroll(ped, hash)
 
 ---
 
-### jo.component.vestIsUnderPant()
+### <BadgeClient /> jo.component.vestIsUnderPant()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.vestIsUnderPant -->
 
@@ -1275,7 +1275,7 @@ Type : _boolean_
 
 ---
 
-### jo.component.waitPedLoaded()
+### <BadgeClient /> jo.component.waitPedLoaded()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.waitPedLoaded -->
 
@@ -1299,3 +1299,127 @@ jo.component.waitPedLoaded(ped)
 
 <!-- @include: ./slots/footers.md#g_client|jo.component.waitPedLoaded -->
 
+---
+
+### <BadgeShared /> jo.component.formatComponentData()
+
+<!-- @include: ./slots/headers.md#g_shared|jo.component.formatComponentData -->
+
+ <br>
+ <br>
+ <br>
+ <br>
+A function to format component data <br>
+
+<!-- @include: ./slots/descriptions.md#g_shared|jo.component.formatComponentData -->
+
+#### Syntax
+
+```lua
+jo.component.formatComponentData(_data, hashData)
+```
+
+#### Parameters
+
+`_data` : _string|number|table_
+> The component data
+>
+
+`hashData` : _boolean_
+> Hash the value is true
+>
+
+#### Return Value
+
+Type : _any_
+
+
+<!-- @include: ./slots/examples.md#g_shared|jo.component.formatComponentData -->
+
+<!-- @include: ./slots/footers.md#g_shared|jo.component.formatComponentData -->
+
+---
+
+### <BadgeShared /> jo.component.getCategoryHash()
+
+<!-- @include: ./slots/headers.md#g_shared|jo.component.getCategoryHash -->
+
+A fonction to get the category hash from its string <br>
+
+<!-- @include: ./slots/descriptions.md#g_shared|jo.component.getCategoryHash -->
+
+#### Syntax
+
+```lua
+jo.component.getCategoryHash(category)
+```
+
+#### Parameters
+
+`category` : _string|integer_
+> The category string
+>
+
+#### Return Value
+
+Type : _integer_
+
+> The category hash
+
+<!-- @include: ./slots/examples.md#g_shared|jo.component.getCategoryHash -->
+
+<!-- @include: ./slots/footers.md#g_shared|jo.component.getCategoryHash -->
+
+---
+
+### <BadgeShared /> jo.component.getFullHorseComponentList()
+
+<!-- @include: ./slots/headers.md#g_shared|jo.component.getFullHorseComponentList -->
+
+A function to get the list of horse's components sorted by category <br>
+
+<!-- @include: ./slots/descriptions.md#g_shared|jo.component.getFullHorseComponentList -->
+
+#### Syntax
+
+```lua
+jo.component.getFullHorseComponentList()
+```
+
+#### Return Value
+
+Type : _table_
+
+
+<!-- @include: ./slots/examples.md#g_shared|jo.component.getFullHorseComponentList -->
+
+<!-- @include: ./slots/footers.md#g_shared|jo.component.getFullHorseComponentList -->
+
+---
+
+### <BadgeShared /> jo.component.getFullPedComponentList()
+
+<!-- @include: ./slots/headers.md#g_shared|jo.component.getFullPedComponentList -->
+
+ <br>
+ <br>
+A function to get the list of clothes sorted by sex and category <br>
+
+<!-- @include: ./slots/descriptions.md#g_shared|jo.component.getFullPedComponentList -->
+
+#### Syntax
+
+```lua
+jo.component.getFullPedComponentList()
+```
+
+#### Return Value
+
+Type : _table_
+
+
+<!-- @include: ./slots/examples.md#g_shared|jo.component.getFullPedComponentList -->
+
+<!-- @include: ./slots/footers.md#g_shared|jo.component.getFullPedComponentList -->
+
+<!-- #endregion group_1 -->

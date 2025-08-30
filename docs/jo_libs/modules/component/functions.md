@@ -2,28 +2,28 @@
 outline: [2,3]
 ---
 
-# Component <BadgeClient/>
+# Component
 
 Component is a very useful module to manage entity component. The module is designed to create a persistence of component colors if you defined a custom colorway.
 
 ## JO Variables
 
-### jo.component.categoryName
+### <BadgeClient/> jo.component.categoryName
 Type : *table*  
 > Links between the hash and name of a category.  
 >> key: category hash  
 >> value: category name
 
-### jo.component.order
+### <BadgeClient/> jo.component.order
 Type : *table*  
 > The order to apply the component  
 >> key: order to apply the component  
 >> value: category name
 
-### jo.component.wearableStates
+### <BadgeClient/> jo.component.wearableStates
 Type : *table*  
 > The list of available wearable state by category  
 >> key: category name  
 >> value: table of wearable states
 
-<!--@include: ./autodoc/autodoc_g_client_functions.md-->
+<!--@include: ./autodoc/autodoc_functions_functions.md-->
