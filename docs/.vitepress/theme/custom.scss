@@ -1,6 +1,6 @@
 :root {
   --vp-layout-max-width: 100%;
-  --aside-width: 350px !important;
+  --aside-width: 350px;
 }
 
 body {
@@ -26,7 +26,6 @@ body {
 
 .aside-curtain {
   width: 100% !important;
-  display: none;
 }
 
 img.preview {
@@ -203,7 +202,9 @@ a.box-button {
 .VPDocAsideOutline,
 .aside-container {
   position: relative;
-  transition: width 0.1s ease;
+  width: var(--aside-width) !important;
+  min-width: var(--aside-width) !important;
+  max-width: var(--aside-width) !important;
 
   // Force la largeur personnalisée avec !important
   &[style*="width"] {

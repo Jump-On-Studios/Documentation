@@ -9,6 +9,7 @@
   // Redimensionnement de l'aside
   const isResizing = ref(false)
   const asideWidth = ref(null) // Pas de largeur par défaut
+  let animationFrame = null
 
   const { sidebar } = useSidebar()
   const { Layout } = DefaultTheme
@@ -78,11 +79,18 @@
     
     const onMouseMove = (e) => {
       if (!isResizing.value) return
-      const newWidth = window.innerWidth - e.clientX
-      if (newWidth >= 200 && newWidth <= 600) {
-        asideWidth.value = newWidth
-        updateAsideWidth()
+      
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame)
       }
+      
+      animationFrame = requestAnimationFrame(() => {
+        const newWidth = window.innerWidth - e.clientX
+        if (newWidth >= 200 && newWidth <= 800) {
+          asideWidth.value = newWidth
+          updateAsideWidth()
+        }
+      })
     }
     
     const onMouseUp = () => {
@@ -100,26 +108,8 @@
   const updateAsideWidth = () => {
     if (!asideWidth.value) return // Ne rien faire si pas de largeur définie
     
-    // Mettre à jour la variable CSS globale
+    // Mettre à jour uniquement la variable CSS globale
     document.documentElement.style.setProperty('--aside-width', `${asideWidth.value}px`)
-    
-    // Appliquer sur tous les éléments possibles de l'aside et ajouter la classe 'resized'
-    const selectors = [
-      '.VPDocAside',
-      '.VPDocAsideOutline', 
-      '.aside-container',
-      '.VPDoc .aside'
-    ]
-    
-    selectors.forEach(selector => {
-      const elements = document.querySelectorAll(selector)
-      elements.forEach(element => {
-        element.classList.add('resized')
-        element.style.width = `${asideWidth.value}px`
-        element.style.minWidth = `${asideWidth.value}px`
-        element.style.maxWidth = `${asideWidth.value}px`
-      })
-    })
   }
   
   onMounted(() => {
