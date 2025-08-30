@@ -16,25 +16,28 @@ export function getHeaders(range) {
     ]
         .filter((el) => el.id && el.hasChildNodes())
         .map((el) => {
-        const level = Number(el.tagName[1]);
-        return {
-            title: serializeHeader(el),
-            link: '#' + el.id,
-            badge: getBadge(el),
-            level
-        };
-    });
+            const level = Number(el.tagName[1]);
+            return {
+                title: serializeHeader(el),
+                link: '#' + el.id,
+                badge: getBadge(el),
+                level
+            };
+        });
     return resolveHeaders(headers, range);
 }
 function getBadge(h) {
-  for (const node of h.childNodes) {
-    if (node.nodeType === 1) {
-      if (node.classList.contains('VPBadge')) {
-        return node.outerHTML
-      }
+    for (const node of h.childNodes) {
+        if (node.nodeType === 1) {
+            if (node.classList.contains('VPBadge')) {
+                return {
+                    classList: node.classList,
+                    textContent: node.textContent
+                }
+            }
+        }
     }
-  }
-  return false;
+    return false;
 }
 function serializeHeader(h) {
     let ret = '';
@@ -108,10 +111,10 @@ export function useActiveAnchor(container, marker) {
         const anchors = [].slice
             .call(document.querySelectorAll('.content .header-anchor'))
             .filter((anchor) => {
-            return links.some((link) => {
-                return link.hash === anchor.hash && anchor.offsetParent !== null;
+                return links.some((link) => {
+                    return link.hash === anchor.hash && anchor.offsetParent !== null;
+                });
             });
-        });
         const scrollY = window.scrollY;
         const innerHeight = window.innerHeight;
         const offsetHeight = document.body.offsetHeight;

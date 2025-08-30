@@ -16,11 +16,14 @@ function onClick({ target: el }: Event) {
 <template>
   <ul :class="root ? 'root' : 'nested'">
     <li v-for="{ children, link, title, badge } in headers">
-      
+
       <a class="outline-link" :href="link" @click="onClick" :title="title">
-        <span v-if="badge" v-html="badge">
-        </span>
-        {{ title }}
+        <div>
+          <span v-if="badge" :class="badge.classList.toString()">
+            {{ badge.textContent }}
+          </span>
+          {{ title }}
+        </div>
       </a>
       <template v-if="children?.length">
         <VPDocOutlineItem :headers="children" />
