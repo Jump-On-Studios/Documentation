@@ -9,7 +9,7 @@ JO Menu is a NUI menu fully optimized and mouse and keyboard ready.
 
 [Download an example of menu resource](https://raw.githubusercontent.com/Jump-On-Studios/Documentation/main/docs/public/snippets/menu/snippet_menu.zip)
 
-<!--@include: ./autodoc/autodoc_global_functions.md-->
+<!--@include: ./autodoc/autodoc_functions_functions.md-->
 
 
 # Variables

@@ -134,7 +134,7 @@ MenuClass:addItem(index, item)
 
 #### Return Value
 
-Type : _table_
+Type : _[MenuItem](#menuitem-methods)Class_
 
 > The added item
 
@@ -148,6 +148,8 @@ Type : _table_
 
 <!-- @include: ./slots/headers.md#client|MenuClass:deleteValue -->
 
+Delete a specific property of a menu. Requires MenuClass:push() to be called to apply the changes <br>
+
 <!-- @include: ./slots/descriptions.md#client|MenuClass:deleteValue -->
 
 #### Syntax
@@ -155,6 +157,12 @@ Type : _table_
 ```lua
 MenuClass:deleteValue(keys)
 ```
+
+#### Parameters
+
+`keys` : _string|table_
+> The list of property name to access to the value
+>
 
 <!-- @include: ./slots/examples.md#client|MenuClass:deleteValue -->
 
@@ -165,6 +173,8 @@ MenuClass:deleteValue(keys)
 ### <BadgeClient /> MenuClass:push()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:push -->
+
+Push the updated values to the NUI layer <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:push -->
 
@@ -205,6 +215,8 @@ MenuClass:refresh()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:removeItem -->
 
+Remove an item from a menu by its index. Requires MenuClass:push() to be called to apply the changes <br>
+
 <!-- @include: ./slots/descriptions.md#client|MenuClass:removeItem -->
 
 #### Syntax
@@ -212,6 +224,12 @@ MenuClass:refresh()
 ```lua
 MenuClass:removeItem(index)
 ```
+
+#### Parameters
+
+`index` : _integer_
+> The index of the item to remove
+>
 
 <!-- @include: ./slots/examples.md#client|MenuClass:removeItem -->
 
@@ -320,6 +338,8 @@ MenuClass:sort(first, last)
 
 <!-- @include: ./slots/headers.md#client|MenuClass:updateValue -->
 
+Update a specific property of a menu. Requires MenuClass:push() to be called to apply the changes <br>
+
 <!-- @include: ./slots/descriptions.md#client|MenuClass:updateValue -->
 
 #### Syntax
@@ -327,6 +347,16 @@ MenuClass:sort(first, last)
 ```lua
 MenuClass:updateValue(keys, value)
 ```
+
+#### Parameters
+
+`keys` : _string|table_
+> The list of property name to access to the value
+>
+
+`value` : _any_
+> The new value
+>
 
 <!-- @include: ./slots/examples.md#client|MenuClass:updateValue -->
 
@@ -409,6 +439,8 @@ MenuClass:updateItem(index, key, value)
 
 <!-- @include: ./slots/headers.md#client|MenuItem:deleteValue -->
 
+Delete a specific property of a menu item. Requires MenuClass:push() to be called to apply the changes <br>
+
 <!-- @include: ./slots/descriptions.md#client|MenuItem:deleteValue -->
 
 #### Syntax
@@ -417,51 +449,51 @@ MenuClass:updateItem(index, key, value)
 MenuItem:deleteValue(keys)
 ```
 
+#### Parameters
+
+`keys` : _table_
+
+> The list of property name to access to the value
+>
+
+
 <!-- @include: ./slots/examples.md#client|MenuItem:deleteValue -->
 
 <!-- @include: ./slots/footers.md#client|MenuItem:deleteValue -->
 
 ---
 
-### <BadgeClient /> MenuItem:formatPrice()
+### <BadgeClient /> MenuItem:getParentMenu()
 
-<!-- @include: ./slots/headers.md#client|MenuItem:formatPrice -->
+<!-- @include: ./slots/headers.md#client|MenuItem:getParentMenu -->
 
-<!-- @include: ./slots/descriptions.md#client|MenuItem:formatPrice -->
+Get the parent menu of the item <br>
 
-#### Syntax
-
-```lua
-MenuItem:formatPrice()
-```
-
-<!-- @include: ./slots/examples.md#client|MenuItem:formatPrice -->
-
-<!-- @include: ./slots/footers.md#client|MenuItem:formatPrice -->
-
----
-
-### <BadgeClient /> MenuItem:update()
-
-<!-- @include: ./slots/headers.md#client|MenuItem:update -->
-
-<!-- @include: ./slots/descriptions.md#client|MenuItem:update -->
+<!-- @include: ./slots/descriptions.md#client|MenuItem:getParentMenu -->
 
 #### Syntax
 
 ```lua
-MenuItem:update(key, value)
+MenuItem:getParentMenu()
 ```
 
-<!-- @include: ./slots/examples.md#client|MenuItem:update -->
+#### Return Value
 
-<!-- @include: ./slots/footers.md#client|MenuItem:update -->
+Type : _[MenuClass](#menuclass-methods)_
+
+> The parent menu
+
+<!-- @include: ./slots/examples.md#client|MenuItem:getParentMenu -->
+
+<!-- @include: ./slots/footers.md#client|MenuItem:getParentMenu -->
 
 ---
 
 ### <BadgeClient /> MenuItem:updateValue()
 
 <!-- @include: ./slots/headers.md#client|MenuItem:updateValue -->
+
+Update a specific property of a menu item. Requires MenuClass:push() to be called to apply the changes <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuItem:updateValue -->
 
@@ -470,6 +502,16 @@ MenuItem:update(key, value)
 ```lua
 MenuItem:updateValue(keys, value)
 ```
+
+#### Parameters
+
+`keys` : _string|table_
+> The property name to update
+>
+
+`value` : _any_
+> The new value for the property
+>
 
 <!-- @include: ./slots/examples.md#client|MenuItem:updateValue -->
 
@@ -1582,24 +1624,3 @@ Type : _boolean_
 <!-- @include: ./slots/footers.md#shared|jo.menu.isPriceFree -->
 
 <!-- #endregion group_4 -->
-
-<!-- #region group_5 -->
-## Other Functions
-
-### <BadgeClient /> item.getParentMenu()
-
-<!-- @include: ./slots/headers.md#client|item.getParentMenu -->
-
-<!-- @include: ./slots/descriptions.md#client|item.getParentMenu -->
-
-#### Syntax
-
-```lua
-item.getParentMenu()
-```
-
-<!-- @include: ./slots/examples.md#client|item.getParentMenu -->
-
-<!-- @include: ./slots/footers.md#client|item.getParentMenu -->
-
-<!-- #endregion group_5 -->

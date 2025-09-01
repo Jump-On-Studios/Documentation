@@ -503,3 +503,14 @@ for category,datas in pairs (pedComponents) do
 end
 ```
 <!-- #endregion g_shared|jo.component.getFullPedComponentList -->
+
+
+<!-- #region g_shared|jo.component.getCategoryHash -->
+#### Example
+```lua
+local category = "hats"
+local hash = jo.component.getCategoryHash(category)
+print(hash)
+-- Expected output: -1725579161
+```
+<!-- #endregion g_shared|jo.component.getCategoryHash -->
