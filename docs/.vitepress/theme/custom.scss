@@ -97,6 +97,12 @@ h1 .VPBadge {
   h1 {
     display: flex;
     align-items: center;
+
+    &:not(:first-child) {
+      margin-top: 48px;
+      padding-top: 16px;
+      border-top: 1px solid var(--vp-c-brand-1);
+    }
   }
 
   h1 img {

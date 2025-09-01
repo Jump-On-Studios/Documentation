@@ -11,7 +11,7 @@ JO Menu is a NUI menu fully optimized and mouse and keyboard ready.
 
 <!--@include: ./autodoc/autodoc_functions_functions.md-->
 
-
+---
 # Variables
 
 ## CurrentData
