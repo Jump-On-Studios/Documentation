@@ -1,18 +1,18 @@
 
 ## JO Functions
 
-### jo.callback.registerCallback()
+### jo.callback.register()
 
-<!-- @include: ./slots/headers.md#g_server|jo.callback.registerCallback -->
+<!-- @include: ./slots/headers.md#g_server|jo.callback.register -->
 
 A function to register a server callback <br>
 
-<!-- @include: ./slots/descriptions.md#g_server|jo.callback.registerCallback -->
+<!-- @include: ./slots/descriptions.md#g_server|jo.callback.register -->
 
 #### Syntax
 
 ```lua
-jo.callback.registerCallback(name, cb, latent)
+jo.callback.register(name, cb, latent)
 ```
 
 #### Parameters
@@ -25,24 +25,24 @@ jo.callback.registerCallback(name, cb, latent)
 > The function executed when the callback is triggered <br> ⚠️ `source` is always the first argument
 >
 
-<!-- @include: ./slots/examples.md#g_server|jo.callback.registerCallback -->
+<!-- @include: ./slots/examples.md#g_server|jo.callback.register -->
 
-<!-- @include: ./slots/footers.md#g_server|jo.callback.registerCallback -->
+<!-- @include: ./slots/footers.md#g_server|jo.callback.register -->
 
 ---
 
-### jo.callback.registerLatentCallback()
+### jo.callback.registerLatent()
 
-<!-- @include: ./slots/headers.md#g_server|jo.callback.registerLatentCallback -->
+<!-- @include: ./slots/headers.md#g_server|jo.callback.registerLatent -->
 
 A function to register a latent server callback <br>
 
-<!-- @include: ./slots/descriptions.md#g_server|jo.callback.registerLatentCallback -->
+<!-- @include: ./slots/descriptions.md#g_server|jo.callback.registerLatent -->
 
 #### Syntax
 
 ```lua
-jo.callback.registerLatentCallback(name, cb)
+jo.callback.registerLatent(name, cb)
 ```
 
 #### Parameters
@@ -55,9 +55,9 @@ jo.callback.registerLatentCallback(name, cb)
 > The function executed when the callback is triggered <br> ⚠️ `source` is always the first argument
 >
 
-<!-- @include: ./slots/examples.md#g_server|jo.callback.registerLatentCallback -->
+<!-- @include: ./slots/examples.md#g_server|jo.callback.registerLatent -->
 
-<!-- @include: ./slots/footers.md#g_server|jo.callback.registerLatentCallback -->
+<!-- @include: ./slots/footers.md#g_server|jo.callback.registerLatent -->
 
 ---
 

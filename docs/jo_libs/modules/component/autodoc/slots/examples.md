@@ -448,3 +448,58 @@ print(stateName)
 -- Expected output: `closed_collar_rolled_sleeve`
 ```
 <!-- #endregion g_client|jo.component.getWearableStateNameFromHash -->
+
+<!-- #region g_client|jo.component.getBaseLayer -->
+#### Example
+```lua
+local ped = PlayerPedId()
+local componentHash = -1108325521
+local baseLayer = jo.component.getBaseLayer(ped, componentHash, true)
+log(baseLayer)
+--expected output: {drawable = -2020229219, albedo = -1921859074, normal = 1163305928, material = 1671174462, palette = 1090645383, tint0 = 44, tint1 =  44, tint2 = 44}
+local drawable, albedo, normal, mterial, palette, tint0, tint1, tint2 = jo.component.getBaseLayer(ped, componentHash, false)
+print(drawable, albedo, normal, mterial, palette, tint0, tint1, tint2)
+--expected output: -2020229219 -1921859074 1163305928 1671174462 1090645383 44 44 44
+```
+<!-- #endregion g_client|jo.component.getBaseLayer -->
+
+<!-- #region g_client|jo.component.getCategoryHash -->
+#### Example
+```lua
+local category = "hats"
+local hash = jo.component.getCategoryHash(category)
+print(hash)
+-- Expected output: -1725579161
+```
+<!-- #endregion g_client|jo.component.getCategoryHash -->
+
+<!-- #region g_shared|jo.component.formatComponentData -->
+#### Example
+```lua
+local hash = "CLOTHING_ITEM_F_HAT_241_PANTHER_VAR_001"
+local formattedData = jo.component.formatComponentData(hash)
+log(formattedData)
+--expected output: {hash = "CLOTHING_ITEM_F_HAT_241_PANTHER_VAR_001"}
+```
+<!-- #endregion g_shared|jo.component.formatComponentData -->
+
+
+<!-- #region g_shared|jo.component.getFullHorseComponentList -->
+#### Example
+```lua
+local horseComponents = jo.component.getFullHorseComponentList()
+for category,datas in pairs (horseComponents) do
+  print(category, table.count(datas))
+end
+```
+<!-- #endregion g_shared|jo.component.getFullHorseComponentList -->
+
+<!-- #region g_shared|jo.component.getFullPedComponentList -->
+#### Example
+```lua
+local pedComponents = jo.component.getFullPedComponentList()
+for category,datas in pairs (pedComponents) do
+  print(category, table.count(datas))
+end
+```
+<!-- #endregion g_shared|jo.component.getFullPedComponentList -->
