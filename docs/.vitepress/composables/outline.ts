@@ -47,7 +47,8 @@ function serializeHeader(h) {
                 node.classList.contains('header-anchor')) {
                 continue;
             }
-            ret += node.textContent;
+            ret += node.outerHTML || node.innerHTML || '';
+            break;
         }
         else if (node.nodeType === 3) {
             ret += node.textContent;

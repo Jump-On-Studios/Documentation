@@ -63,7 +63,6 @@
   })
 
   let a = computed(() => {
-    console.log('a')
     return Math.random()
   })
 

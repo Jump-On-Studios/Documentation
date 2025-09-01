@@ -439,38 +439,6 @@ Type : _table_
 
 ---
 
-### <BadgeClient /> jo.component.getCategoryHash()
-
-<!-- @include: ./slots/headers.md#g_client|jo.component.getCategoryHash -->
-
-A fonction to get the category hash from its stringAdd commentMore actions <br>
-
-<!-- @include: ./slots/descriptions.md#g_client|jo.component.getCategoryHash -->
-
-#### Syntax
-
-```lua
-jo.component.getCategoryHash(category)
-```
-
-#### Parameters
-
-`category` : _string|integer_
-> The category string
->
-
-#### Return Value
-
-Type : _integer_
-
-> The category hash
-
-<!-- @include: ./slots/examples.md#g_client|jo.component.getCategoryHash -->
-
-<!-- @include: ./slots/footers.md#g_client|jo.component.getCategoryHash -->
-
----
-
 ### <BadgeClient /> jo.component.getCategoryNameFromHash()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getCategoryNameFromHash -->

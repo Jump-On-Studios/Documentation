@@ -21,7 +21,7 @@ function onClick({ target: el }: Event) {
         <span v-if="badge" :class="badge.classList.toString()">
           {{ badge.textContent }}
         </span>
-        {{ title }}
+        <span v-html="title"></span>
       </a>
       <template v-if="children?.length">
         <VPDocOutlineItem :headers="children" />
@@ -41,14 +41,21 @@ function onClick({ target: el }: Event) {
 }
 
 .outline-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   line-height: 28px;
   color: var(--vp-c-text-2);
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   transition: color 0.5s;
   font-weight: 400;
+
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+  }
 }
 
 .outline-link:hover,

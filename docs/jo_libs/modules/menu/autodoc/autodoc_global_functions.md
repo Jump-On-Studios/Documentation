@@ -316,40 +316,6 @@ MenuClass:sort(first, last)
 
 ---
 
-### <BadgeClient /> MenuClass:updateItem()
-
-<!-- @include: ./slots/headers.md#client|MenuClass:updateItem -->
-
-Update a specific property of a menu item <br>
-
-<!-- @include: ./slots/descriptions.md#client|MenuClass:updateItem -->
-
-#### Syntax
-
-```lua
-MenuClass:updateItem(index, key, value)
-```
-
-#### Parameters
-
-`index` : _integer_
-> The index of the item to update
->
-
-`key` : _string_
-> The property name to update
->
-
-`value` : _any_
-> The new value for the property
->
-
-<!-- @include: ./slots/examples.md#client|MenuClass:updateItem -->
-
-<!-- @include: ./slots/footers.md#client|MenuClass:updateItem -->
-
----
-
 ### <BadgeClient /> MenuClass:updateValue()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:updateValue -->
@@ -395,6 +361,44 @@ MenuClass:use(keepHistoric, resetMenu)
 <!-- @include: ./slots/examples.md#client|MenuClass:use -->
 
 <!-- @include: ./slots/footers.md#client|MenuClass:use -->
+
+---
+
+### <BadgeClient /> ~~MenuClass:updateItem()~~
+
+:::danger Deprecated
+since v2.3.0. Use MenuClass:updateValue or MenuClass:deleteValue instead
+:::
+
+<!-- @include: ./slots/headers.md#client|MenuClass:updateItem -->
+
+Update a specific property of a menu item <br>
+
+<!-- @include: ./slots/descriptions.md#client|MenuClass:updateItem -->
+
+#### Syntax
+
+```lua
+MenuClass:updateItem(index, key, value)
+```
+
+#### Parameters
+
+`index` : _integer_
+> The index of the item to update
+>
+
+`key` : _string_
+> The property name to update
+>
+
+`value` : _any_
+> The new value for the property
+>
+
+<!-- @include: ./slots/examples.md#client|MenuClass:updateItem -->
+
+<!-- @include: ./slots/footers.md#client|MenuClass:updateItem -->
 
 <!-- #endregion group_2 -->
 

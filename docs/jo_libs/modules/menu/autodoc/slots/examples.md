@@ -567,3 +567,10 @@ jo.menu.missingMenuHandler('home', function()
 end)
 ```
 <!-- #endregion client|jo.menu.missingMenuHandler -->
+
+<!-- #region client|MenuClass:deleteValue -->
+#### Example
+```lua
+menu:deleteValue("key")
+```
+<!-- #endregion client|MenuClass:deleteValue -->
