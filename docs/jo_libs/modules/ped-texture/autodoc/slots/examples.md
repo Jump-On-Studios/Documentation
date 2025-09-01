@@ -19,7 +19,7 @@ jo.pedTexture.apply(ped, layername, data)
 ```lua
 local ped = PlayerPedId()
 local textures = jo.pedTexture.getAll(ped)
-print(json.encode(textures))
+log(textures)
 -- Expected output: {heads = {eyeshdow = {...}, foundation = {...}}}
 
 ```

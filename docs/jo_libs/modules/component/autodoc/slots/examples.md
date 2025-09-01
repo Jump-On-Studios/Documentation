@@ -115,7 +115,7 @@ print(hash)
 ```lua
 local ped = PlayerPedId()
 local categories = jo.component.getCategoriesEquiped(ped)
-print(json.encode(categories))
+log(categories)
 -- Expected output: categories = { 539411565 = {index = 1, category = "shirts_full"}, 491541130 = { index = 2, category = "pants"} }
 
 ```
@@ -176,7 +176,7 @@ print(component)
 ```lua
 local ped = PlayerPedId()
 local components = jo.component.getComponentsEquiped(ped)
-print(json.encode(components))
+log(components)
 
 ```
 <!-- #endregion g_client|jo.component.getComponentsEquiped -->
