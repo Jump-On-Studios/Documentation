@@ -574,3 +574,157 @@ end)
 menu:deleteValue("key")
 ```
 <!-- #endregion client|MenuClass:deleteValue -->
+
+<!-- #region client|MenuClass:push -->
+#### Example
+```lua
+-- Update the title of the 3rd item in a menu
+menu:updateValue({"items",3, "title"}, "New Title")
+-- Update the NUI
+menu:push()
+```
+<!-- #endregion client|MenuClass:push -->
+
+<!-- #region client|MenuClass:removeItem -->
+#### Example
+```lua
+-- Remove the 2nd slider from the 1st item
+menu:removeItem({"items", 1, "sliders", 2})
+-- Update the NUI
+menu:push()
+```
+<!-- #endregion client|MenuClass:removeItem -->
+
+<!-- #region client|MenuClass:updateValue -->
+#### Example
+```lua
+-- Update the title of the 3rd item in a menu
+menu:updateValue({"items",3, "title"}, "New Title")
+-- Update the NUI
+menu:push()
+```
+<!-- #endregion client|MenuClass:updateValue -->
+
+<!-- #region client|MenuItem:deleteValue -->
+#### Example
+```lua
+-- Remove the 2nd slider of the item
+item:deleteValue({"sliders", 2})
+-- Update the NUI
+menu:push()
+```
+<!-- #endregion client|MenuItem:deleteValue -->
+
+<!-- #region client|MenuItem:getParentMenu -->
+#### Example
+```lua
+local parentMenu = item:getParentMenu()
+print(parentMenu.title)
+```
+<!-- #endregion client|MenuItem:getParentMenu -->
+
+
+<!-- #region client|MenuItem:updateValue -->
+#### Example
+```lua
+-- Update the title of the 3rd slider of the item
+item:updateValue({"sliders",3, "title"}, "New Title")
+-- Update the NUI
+menu:push()
+```
+<!-- #endregion client|MenuItem:updateValue -->
+
+<!-- #region client|MenuItem:deleteValue -->
+#### Example
+```lua
+-- Remove the 2nd slider of the item
+item:deleteValue({"sliders", 2})
+-- Update the NUI
+menu:push()
+```
+<!-- #endregion client|MenuItem:deleteValue -->
+
+<!-- #region client|jo.menu.displayLoader -->
+#### Example
+```lua
+jo.menu.displayLoader()
+Wait(3000)
+jo.menu.hideLoader()
+```
+<!-- #endregion client|jo.menu.displayLoader -->
+
+<!-- #region client|jo.menu.getCurrentIndex -->
+#### Example
+```lua
+local currentIndex = jo.menu.getCurrentIndex()
+print(currentIndex)
+```
+<!-- #endregion client|jo.menu.getCurrentIndex -->
+
+<!-- #region client|jo.menu.getCurrentMenuId -->
+#### Example
+```lua
+local currentMenuId = jo.menu.getCurrentMenuId()
+print(currentMenuId)
+```
+<!-- #endregion client|jo.menu.getCurrentMenuId -->
+
+<!-- #region client|jo.menu.hideLoader -->
+#### Example
+```lua
+jo.menu.displayLoader()
+Wait(3000)
+jo.menu.hideLoader()
+```
+<!-- #endregion client|jo.menu.hideLoader -->
+
+<!-- #region client|jo.menu.isCurrentMenu -->
+#### Example
+```lua
+local menuId = "home"
+local isCurrentMenu = jo.menu.isCurrentMenu(menuId)
+print(isCurrentMenu)
+-- Expected output: `true` if the "home" menu is active, else `false`
+```
+<!-- #endregion client|jo.menu.isCurrentMenu -->
+
+<!-- #region client|jo.menu.runRefreshEvents -->
+#### Example
+```lua
+local fireMenuEvents = false
+local fireItemEvents = true
+jo.menu.runRefreshEvents(fireMenuEvents, fireItemEvents)
+```
+<!-- #endregion client|jo.menu.runRefreshEvents -->
+
+<!-- #region shared|jo.menu.formatPrice -->
+#### Example
+```lua
+local price = 10
+local formattedPrice = jo.menu.formatPrice(price)
+log(formattedPrice) -- Expected output: `{money = 10}`
+```
+<!-- #endregion shared|jo.menu.formatPrice -->
+
+
+<!-- #region shared|jo.menu.formatPrices -->
+#### Example
+```lua
+local prices = {money = 10, operator = "and", gold = 20}
+local formattedPrices = jo.menu.formatPrices(prices)
+log(formattedPrices) -- Expected output: `{money = 10, gold = 20}`
+```
+<!-- #endregion shared|jo.menu.formatPrices -->
+
+
+<!-- #region shared|jo.menu.isPriceFree -->
+#### Example
+```lua
+local price = 10
+local isFree = jo.menu.isPriceFree(price)
+print(isFree) -- Expected output: `false`
+price = {money = 0, bank = 0}
+isFree = jo.menu.isPriceFree(price)
+print(isFree) -- Expected output: `true`
+```
+<!-- #endregion shared|jo.menu.isPriceFree -->
