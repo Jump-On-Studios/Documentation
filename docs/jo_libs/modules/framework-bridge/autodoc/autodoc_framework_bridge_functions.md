@@ -459,48 +459,6 @@ Type : _boolean_
 
 ---
 
-### <BadgeServer /> jo.framework:canUserPayWith()
-
-<!-- @include: ./slots/headers.md#server|jo.framework:canUserPayWith -->
-
-A function that checks if a player can pay multiple prices <br>
-
-<!-- @include: ./slots/descriptions.md#server|jo.framework:canUserPayWith -->
-
-#### Syntax
-
-```lua
-jo.framework:canUserPayWith(source, prices, removeIfCan)
-```
-
-#### Parameters
-
-`source` : _integer_
-> The source ID of the player
->
-
-`prices` : _table_
-
-> The prices to check
->
-
-
-`removeIfCan` : _boolean_ <BadgeOptional />
-> Remove the prices if the player can pay
->
-
-#### Return Value
-
-Type : _number_
-
-> Return the index of the price that the player can't pay
-
-<!-- @include: ./slots/examples.md#server|jo.framework:canUserPayWith -->
-
-<!-- @include: ./slots/footers.md#server|jo.framework:canUserPayWith -->
-
----
-
 ### <BadgeServer /> jo.framework:createInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:createInventory -->
@@ -1306,63 +1264,5 @@ jo.framework:updateUserSkin(...)
 <!-- @include: ./slots/examples.md#server|jo.framework:updateUserSkin -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework:updateUserSkin -->
-
----
-
-### <BadgeShared /> jo.framework:getItemData()
-
-<!-- @include: ./slots/headers.md#shared|jo.framework:getItemData -->
-
-A function to get an item data <br>
-
-<!-- @include: ./slots/descriptions.md#shared|jo.framework:getItemData -->
-
-#### Syntax
-
-```lua
-jo.framework:getItemData(item)
-```
-
-#### Parameters
-
-`item` : _string_
-> The name of the item
->
-
-#### Return Value
-
-Type : _table|false_
-
-> The item data or false if not found
-
-<!-- @include: ./slots/examples.md#shared|jo.framework:getItemData -->
-
-<!-- @include: ./slots/footers.md#shared|jo.framework:getItemData -->
-
----
-
-### <BadgeShared /> jo.framework:getItems()
-
-<!-- @include: ./slots/headers.md#shared|jo.framework:getItems -->
-
-A function to get the list of items <br>
-
-<!-- @include: ./slots/descriptions.md#shared|jo.framework:getItems -->
-
-#### Syntax
-
-```lua
-jo.framework:getItems()
-```
-
-#### Return Value
-
-Type : _table_
-
-> The list of items
-
-<!-- @include: ./slots/examples.md#shared|jo.framework:getItems -->
-
-<!-- @include: ./slots/footers.md#shared|jo.framework:getItems -->
 
 <!-- #endregion group_3 -->
