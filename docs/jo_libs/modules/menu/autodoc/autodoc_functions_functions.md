@@ -451,11 +451,9 @@ MenuItem:deleteValue(keys)
 
 #### Parameters
 
-`keys` : _table_
-
+`keys` : _string|table_
 > The list of property name to access to the value
 >
-
 
 <!-- @include: ./slots/examples.md#client|MenuItem:deleteValue -->
 

@@ -43,11 +43,6 @@
 <!-- #endregion client|MenuClass:sort -->
 
 
-<!-- #region client|MenuClass:updateItem -->
-
-<!-- #endregion client|MenuClass:updateItem -->
-
-
 <!-- #region client|MenuClass:updateValue -->
 
 <!-- #endregion client|MenuClass:updateValue -->
@@ -63,24 +58,14 @@
 <!-- #endregion client|MenuItem:deleteValue -->
 
 
-<!-- #region client|MenuItem:formatPrice -->
+<!-- #region client|MenuItem:getParentMenu -->
 
-<!-- #endregion client|MenuItem:formatPrice -->
-
-
-<!-- #region client|MenuItem:update -->
-
-<!-- #endregion client|MenuItem:update -->
+<!-- #endregion client|MenuItem:getParentMenu -->
 
 
 <!-- #region client|MenuItem:updateValue -->
 
 <!-- #endregion client|MenuItem:updateValue -->
-
-
-<!-- #region client|item.getParentMenu -->
-
-<!-- #endregion client|item.getParentMenu -->
 
 
 <!-- #region client|jo.menu.addItem -->

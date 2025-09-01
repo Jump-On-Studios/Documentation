@@ -98,6 +98,11 @@
 <!-- #endregion server|jo.framework:canUserBuy -->
 
 
+<!-- #region server|jo.framework:canUserPayWith -->
+
+<!-- #endregion server|jo.framework:canUserPayWith -->
+
+
 <!-- #region server|jo.framework:get -->
 
 <!-- #endregion server|jo.framework:get -->
@@ -176,4 +181,14 @@
 <!-- #region server|jo.framework:updateUserSkin -->
 
 <!-- #endregion server|jo.framework:updateUserSkin -->
+
+
+<!-- #region shared|jo.framework:getItemData -->
+
+<!-- #endregion shared|jo.framework:getItemData -->
+
+
+<!-- #region shared|jo.framework:getItems -->
+
+<!-- #endregion shared|jo.framework:getItems -->
 

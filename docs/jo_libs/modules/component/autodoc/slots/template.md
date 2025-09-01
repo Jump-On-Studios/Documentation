@@ -53,11 +53,6 @@
 <!-- #endregion g_client|jo.component.getCategoriesEquiped -->
 
 
-<!-- #region g_client|jo.component.getCategoryHash -->
-
-<!-- #endregion g_client|jo.component.getCategoryHash -->
-
-
 <!-- #region g_client|jo.component.getCategoryNameFromHash -->
 
 <!-- #endregion g_client|jo.component.getCategoryNameFromHash -->
