@@ -615,48 +615,6 @@ Type : _table_
 
 ---
 
-### table.updateDeepValue()
-
-<!-- @include: ./slots/headers.md#shared|table.updateDeepValue -->
-
-A function to update a deep value in a table <br>
-
-<!-- @include: ./slots/descriptions.md#shared|table.updateDeepValue -->
-
-#### Syntax
-
-```lua
-table.updateDeepValue(t, keys, value)
-```
-
-#### Parameters
-
-`t` : _table_
-
-> The table
->
-
-
-`keys` : _any_
-> The keys to deep and the value to update
->
-
-`value` : _any_
-> The updated value
->
-
-#### Return Value
-
-Type : _table_
-
-> The updated table
-
-<!-- @include: ./slots/examples.md#shared|table.updateDeepValue -->
-
-<!-- @include: ./slots/footers.md#shared|table.updateDeepValue -->
-
----
-
 ### table.upsert()
 
 <!-- @include: ./slots/headers.md#shared|table.upsert -->

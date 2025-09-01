@@ -1201,7 +1201,7 @@ jo.menu.reset(id)
 
 <!-- @include: ./slots/headers.md#client|jo.menu.runRefreshEvents -->
 
-A function to run refresh events <br>
+A function to fire menu and items events <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.runRefreshEvents -->
 

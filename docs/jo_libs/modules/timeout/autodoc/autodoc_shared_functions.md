@@ -89,7 +89,7 @@ Type : _[TimeoutClass](#timeoutclass-methods)_
 
 <!-- @include: ./slots/headers.md#shared|jo.timeout.noSpam -->
 
-A function to delay the second exeuction. If another delay is created with the same id, the previous one is canceled <br>
+A function to delay the second execution. If another delay is created with the same id, the previous one is canceled <br>
 
 <!-- @include: ./slots/descriptions.md#shared|jo.timeout.noSpam -->
 
