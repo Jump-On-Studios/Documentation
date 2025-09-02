@@ -244,6 +244,13 @@ export default defineConfig({
           {
             text: "🏠 Housing",
             link: "/RedM/housing",
+            items: [
+              { text: "Main script", link: "/RedM/housing" },
+              {
+                text: "More Interiors",
+                link: "/RedM/housing-more-interiors",
+              },
+            ],
           },
           {
             text: "🦌 Hunting wagon Storage",

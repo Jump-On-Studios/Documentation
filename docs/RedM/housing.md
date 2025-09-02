@@ -810,15 +810,6 @@ Below is a complete list of all available actions in the jo_housing script. All 
 
 ##### House Management Actions
 
-#### <Badge type="server" text="Server" /> server:houseManagerCommandUsed
-Triggered when a player uses the `/houseManager` command.
-
-```lua
--- @param source - serverID of the player who used the command
-exports.jo_housing:registerAction('server:houseManagerCommandUsed', function(source)
-    -- Your code here
-end)
-```
 
 #### <Badge type="server" text="Server" /> server:houseLocationMenuOpened
 Triggered when a player opens the house location menu.
