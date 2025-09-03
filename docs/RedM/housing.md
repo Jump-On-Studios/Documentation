@@ -32,7 +32,7 @@ Examples :
 
 :::: tabs
 
-::: tab VORP Framework
+::: tab Example : VORP Framework
 Add this item configuration to your VORP database items table:
 
 ```json
@@ -57,7 +57,7 @@ Add this item configuration to your VORP database items table:
 ```
 :::
 
-::: tab RSG Framework V2
+::: tab Example : RSG Framework V2
 Add this item configuration to your RSG items file:
 
 ```lua
