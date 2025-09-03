@@ -33,10 +33,10 @@
       </div>
 
       <div class="filter-group">
-        <label for="pack-filter">Pack:</label>
-        <select id="pack-filter" v-model="selectedPack" class="filter-select">
+        <label for="addon-filter">Addon:</label>
+        <select id="addon-filter" v-model="selectedAddon" class="filter-select">
           <option
-            v-for="option in packOptions"
+            v-for="option in addonOptions"
             :key="option.value"
             :value="option.value"
           >
@@ -88,11 +88,11 @@
               {{ formatCategory(interior.category) }}
             </span>
             <span
-              v-if="interior.pack !== 'main'"
-              class="pack-badge"
-              :class="`pack-${interior.pack}`"
+              v-if="interior.addon !== 'main'"
+              class="addon-badge"
+              :class="`addon-${interior.addon}`"
             >
-              {{ packMapping[interior.pack] }}
+              {{ addonMapping[interior.addon] }}
             </span>
             <span class="rooms">
               {{ interior.rooms }} room{{ interior.rooms !== 1 ? "s" : "" }}
@@ -117,586 +117,586 @@ import { ref, computed, watch, onMounted } from "vue";
 const interiorsData = [
   {
     id: "jo_tum_genstore",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "flat",
     rooms: 1,
   },
   {
     id: "jo_tum_gunsmith",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "flat",
     rooms: 1,
   },
   {
     id: "jo_val_res_01_f",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "flat",
     rooms: 1,
   },
   {
     id: "jo_val_res_a",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "flat",
     rooms: 1,
   },
   {
     id: "jo_mac_house01",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "flat",
     rooms: 1,
   },
   {
     id: "jo_rad_house_01",
-    pack: "main",
+    addon: "main",
     category: "flat",
     rooms: 4,
   },
   {
     id: "jo_new_barber",
-    pack: "main",
+    addon: "main",
     category: "flat",
     rooms: 1,
   },
   {
     id: "jo_rho_genstore",
-    pack: "main",
+    addon: "main",
     category: "flat",
     rooms: 1,
   },
   {
     id: "jo_dow_house",
-    pack: "main",
+    addon: "main",
     category: "flat",
     rooms: 2,
   },
   {
     id: "jo_new_gamble",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_ple_house01",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_pro_worker_house",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_rdl_house_01",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_shack_sk2",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_sil_house",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_the_ticketoffice",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_adl_cabin01",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_ben_shack",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_bpl_swampcabin",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_brb_dockhouse",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_van_farmhouse01",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_ven_shack01",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_ldj_shack01",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_maco_shack01",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_man_cabin01",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 1,
   },
   {
     id: "jo_rho_gunsmith",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 2,
   },
   {
     id: "jo_shack_rarefish",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 2,
   },
   {
     id: "jo_str_doctor",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 2,
   },
   {
     id: "jo_str_genst",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 2,
   },
   {
     id: "jo_tum_saloon",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 2,
   },
   {
     id: "jo_van_saloon",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 2,
   },
   {
     id: "jo_din_house",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 2,
   },
   {
     id: "jo_lnn_lonnie_shack",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 2,
   },
   {
     id: "jo_mfr_cottage01",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 2,
   },
   {
     id: "jo_pai_house",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 3,
   },
   {
     id: "jo_shack_b_b",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 3,
   },
   {
     id: "jo_shack_b_c",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 3,
   },
   {
     id: "jo_tax_house",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 3,
   },
   {
     id: "jo_val_doctor",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 3,
   },
   {
     id: "jo_car_house",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 3,
   },
   {
     id: "jo_dai_farmhouse01",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 3,
   },
   {
     id: "jo_shack_b_a",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 4,
   },
   {
     id: "jo_che_cabin1",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 4,
   },
   {
     id: "jo_cro_house",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 4,
   },
   {
     id: "jo_han_house",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 4,
   },
   {
     id: "jo_str_whore",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 5,
   },
   {
     id: "jo_abe_farmhouse",
-    pack: "main",
+    addon: "main",
     category: "house",
     rooms: 5,
   },
   {
     id: "jo_cat_house_01",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 5,
   },
   {
     id: "jo_bee_house",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "house",
     rooms: 6,
   },
   {
     id: "jo_new_man_bronte",
-    pack: "main",
+    addon: "main",
     category: "manor",
     rooms: 10,
   },
   {
     id: "jo_bra_mansion",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "manor",
     rooms: 12,
   },
   {
     id: "jo_new_man_gala",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "manor",
     rooms: 12,
   },
   {
     id: "jo_sod_house",
-    pack: "main",
+    addon: "main",
     category: "rock_shack",
     rooms: 1,
   },
   {
     id: "jo_agu_hut01",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "rock_shack",
     rooms: 1,
   },
   {
     id: "jo_bur_calaboose",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "rock_shack",
     rooms: 1,
   },
   {
     id: "jo_lar_house",
-    pack: "main",
+    addon: "main",
     category: "rock_shack",
     rooms: 1,
   },
   {
     id: "jo_mic_hideout",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "rock_shack",
     rooms: 1,
   },
   {
     id: "jo_twi_shack01",
-    pack: "main",
+    addon: "main",
     category: "rock_shack",
     rooms: 3,
   },
   {
     id: "jo_aur_shack01",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_qua_shack01",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_qua_shack02",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_shack_ai",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_shack_bv",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_shack_dr",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_shack_it_01",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_shack_it_02",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_shack_lt",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_shack_pl",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_shack_rc",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_shack_sc",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_shack_sw",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_six_cabin",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_swc_shack01",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_tan_house",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_but_shack",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_cat_shack01",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_che_shack1",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_col_bunkhouse",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_grh_house",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_gri_g2_shack",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 1,
   },
   {
     id: "jo_shack_cwb",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 2,
   },
   {
     id: "jo_vet_house",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 2,
   },
   {
     id: "jo_eme_genstore",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "shack",
     rooms: 2,
   },
   {
     id: "jo_roc_house",
-    pack: "main",
+    addon: "main",
     category: "shack",
     rooms: 3,
   },
   {
     id: "jo_wat_cabin",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "shack",
     rooms: 3,
   },
   {
     id: "jo_new_carriagehouse",
-    pack: "main",
+    addon: "main",
     category: "worker",
     rooms: 1,
   },
   {
     id: "jo_cal_tobacco",
-    pack: "main",
+    addon: "main",
     category: "worker",
     rooms: 1,
   },
   {
     id: "jo_cin_tor",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "worker",
     rooms: 1,
   },
   {
     id: "jo_van_fenceshop",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "worker",
     rooms: 1,
   },
   {
     id: "jo_mfr_blacksmith01",
-    pack: "main",
+    addon: "main",
     category: "worker",
     rooms: 1,
   },
   {
     id: "jo_agu_boiler",
-    pack: "main",
+    addon: "main",
     category: "worker",
     rooms: 2,
   },
   {
     id: "jo_bra_cornmill",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "worker",
     rooms: 2,
   },
   {
     id: "jo_swa_depot01",
-    pack: "main",
+    addon: "main",
     category: "worker",
     rooms: 3,
   },
   {
     id: "jo_dov_lab",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "worker",
     rooms: 3,
   },
   {
     id: "jo_mp006_moonshine01",
-    pack: "more_interiors",
+    addon: "more_interiors",
     category: "worker",
     rooms: 5,
   },
 ];
 
-// Pack mapping for human-readable names
-const packMapping = {
+// Addon mapping for human-readable names
+const addonMapping = {
   main: "Main",
-  more_interiors: "DLC : More Interiors",
+  more_interiors: "Addon : More Interiors",
 };
 
 // Reactive state
 const selectedCategory = ref("all");
 const selectedRooms = ref("all");
-const selectedPack = ref("all");
+const selectedAddon = ref("all");
 const showGallery = ref(false);
 
 // Category options
@@ -710,11 +710,11 @@ const categoryOptions = [
   { label: "Worker", value: "worker" },
 ];
 
-// Pack options
-const packOptions = [
-  { label: "All Packs", value: "all" },
+// Addon options
+const addonOptions = [
+  { label: "All Addons", value: "all" },
   { label: "Main", value: "main" },
-  { label: "DLC : More Interiors", value: "more_interiors" },
+  { label: "Addon : More Interiors", value: "more_interiors" },
 ];
 
 // Get unique room counts for a specific category
@@ -760,8 +760,8 @@ watch(selectedRooms, () => {
   showGallery.value = true;
 });
 
-// Watch for pack filter changes to show gallery
-watch(selectedPack, () => {
+// Watch for addon filter changes to show gallery
+watch(selectedAddon, () => {
   showGallery.value = true;
 });
 
@@ -773,9 +773,9 @@ const filteredInteriors = computed(() => {
       interior.category === selectedCategory.value;
     const matchesRooms =
       selectedRooms.value === "all" || interior.rooms === selectedRooms.value;
-    const matchesPack =
-      selectedPack.value === "all" || interior.pack === selectedPack.value;
-    return matchesCategory && matchesRooms && matchesPack;
+    const matchesAddon =
+      selectedAddon.value === "all" || interior.addon === selectedAddon.value;
+    return matchesCategory && matchesRooms && matchesAddon;
   });
 });
 
@@ -787,9 +787,33 @@ const formatCategory = (category) => {
     .join(" ");
 };
 
-// Initialize medium-zoom on mount
+// Initialize medium-zoom and handle URL parameters on mount
 onMounted(() => {
   if (typeof window !== "undefined") {
+    // Handle URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const addonParam = urlParams.get("addon");
+
+    if (
+      addonParam &&
+      (addonParam === "main" || addonParam === "more_interiors")
+    ) {
+      selectedAddon.value = addonParam;
+      showGallery.value = true;
+
+      // Scroll to hash fragment after a delay if present in URL
+      if (window.location.hash) {
+        setTimeout(() => {
+          const elementId = window.location.hash.substring(1); // Remove # prefix
+          const targetElement = document.getElementById(elementId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      }
+    }
+
+    // Initialize medium-zoom
     import("medium-zoom").then(({ default: mediumZoom }) => {
       mediumZoom(".data-zoomable", {
         background: "rgba(0, 0, 0, 0.8)",
@@ -952,7 +976,7 @@ onMounted(() => {
   line-height: 2.3;
 }
 
-.pack-badge {
+.addon-badge {
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-weight: 500;
@@ -960,11 +984,11 @@ onMounted(() => {
   color: white;
 }
 
-.pack-main {
+.addon-main {
   background: var(--vp-c-brand);
 }
 
-.pack-more_interiors {
+.addon-more_interiors {
   background: #e16308;
 }
 
