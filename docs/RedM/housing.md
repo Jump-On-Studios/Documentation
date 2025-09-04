@@ -664,13 +664,13 @@ Reference: [houseEntered action](#server-houseentered) and [houseLeft action](#s
 :::
 
 :::details Can I add custom interiors ?
-Yes! You can add your own custom interiors using the `customInteriors` filter. This allows you to integrate custom MLO interiors or propsets into the housing system.
+Yes! You can add your own custom interiors using the `addInteriors` filter. This allows you to integrate custom MLO interiors or propsets into the housing system.
 
 **How to add custom interiors:**
 
 ```lua
 -- In your server-side resource or in jo_housing itself
-exports.jo_housing:registerFilter('customInteriors', function(customInteriors)
+exports.jo_housing:registerFilter('addInteriors', function(customInteriors)
     -- Add your custom interiors
     customInteriors.my_custom_cabin = {
         entries = {
@@ -706,17 +706,17 @@ end)
 - Use `/houseManager` visit mode to test and preview your interior placement
 - Interior categories affect available furniture limits and UI organization
 
-Reference: [customInteriors filter](#custominteriors) in the Developer section
+Reference: [addInteriors filter](#addinteriors) in the Developer section
 :::
 
 :::details Can I add custom furnitures (props) ?
-Yes! You can add custom furniture categories and props using the `customFurnitures` filter. This allows you to expand the available furniture options beyond the default categories.
+Yes! You can add custom furniture categories and props using the `addFurnitures` filter. This allows you to expand the available furniture options beyond the default categories.
 
 **How to add custom furniture:**
 
 ```lua
 -- In your server-side resource or in jo_housing itself
-exports.jo_housing:registerFilter('customFurnitures', function(customFurnitures)
+exports.jo_housing:registerFilter('addFurnitures', function(customFurnitures)
     -- Add your custom furniture categories
     customFurnitures.custom_electronics = {
         "p_tv01x",
@@ -764,7 +764,7 @@ Config.furnituresPrices.p_tv01x = {
 }
 ```
 
-Reference: [customFurnitures filter](#customfurnitures) and [Furniture Configuration](#furniture-configuration) in the Developer section
+Reference: [addFurnitures filter](#addfurnitures) and [Furniture Configuration](#furniture-configuration) in the Developer section
 :::
 
 :::details The prompts are not working !
