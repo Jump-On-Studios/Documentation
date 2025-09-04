@@ -326,22 +326,22 @@ Rather than editing the original config files directly, you should make your cha
 
 These functions allow you to integrate the housing system with your existing resources for wardrobe, stable, and wagon management.
 
-| Property                                                 | Default Behavior                                                                         | Description                                                                                                              |
-| -------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `Config.openWardrobe()`                                  | `print("Config.openWardrobe must be configured to integrate with your wardrobe system")` | Called when a player uses a wardrobe. Customize this to open your wardrobe system. No parameters passed                  |
-| `Config.openStable(stableLocation, stableSpawnLocation)` | `print("Config.openStable must be configured to integrate with your stable system")`     | Called when a player interacts with house stable. Parameters: `stableLocation` (vec3), `stableSpawnLocation` (vec3)      |
-| `Config.openWagon(wagonLocation, wagonSpawnLocation)`    | `print("Config.openWagon must be configured to integrate with your wagon system")`       | Called when a player interacts with house wagon storage. Parameters: `wagonLocation` (vec3), `wagonSpawnLocation` (vec3) |
+| Property                                                 | Default Behavior | Description                                                                                                                 |
+| -------------------------------------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `Config.openWardrobe()`                                  | Not linked       | Called when a player uses a wardrobe. Customize this to open your wardrobe system.                                          |
+| `Config.openStable(stableLocation, stableSpawnLocation)` | Not linked       | Called when a player interacts with house stable.<br>Parameters: `stableLocation` (vec3), `stableSpawnLocation` (vec3)      |
+| `Config.openWagon(wagonLocation, wagonSpawnLocation)`    | Not linked       | Called when a player interacts with house wagon storage.<br>Parameters: `wagonLocation` (vec3), `wagonSpawnLocation` (vec3) |
 
 #### General Settings
 
-| Property                           | Default Value  | Description                                                                                                                                                                                                                                                                                                                           |
-| ---------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Config.enableKeyMode`             | `true`         | Enable physical house keys that players must carry to access their houses. When `true`: players receive physical key items, can buy additional keys for other players, and can change locks (making existing keys obsolete). When `false`: no physical keys exist, but players can manage an access list of who can enter their house |
-| `Config.allowPayingInGold`         | `false`        | Allow players to pay with gold in addition to money                                                                                                                                                                                                                                                                                   |
-| `Config.knockNotificationDuration` | `5000`         | Duration (in ms) that knock notifications are displayed to house owners                                                                                                                                                                                                                                                               |
-| `Config.showInsideDoorMarker`      | `true`         | While inside a house, show a marker on the ground near the entrance door                                                                                                                                                                                                                                                              |
-| `Config.showOutsideDoorMarker`     | `true`         | Show a marker on the ground for each house near you (outside)                                                                                                                                                                                                                                                                         |
-| `Config.openManagerCommandName`    | `houseManager` | The name of the command to open the house manager (ex: /houseManager)                                                                                                                                                                                                                                                                 |
+| Property                           | Default Value  | Description                                                                                                                                                                                                                                                                                                |
+| ---------------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Config.enableKeyMode`             | `true`         | Enable physical house keys that players must carry to access their houses.<br>- `true`: players receive physical key items, can buy additional keys for other players, and can change locks (making existing keys obsolete).<br> - `false`: Players can manage an access list of who can enter their house |
+| `Config.allowPayingInGold`         | `false`        | Allow players to pay with gold in addition to money                                                                                                                                                                                                                                                        |
+| `Config.knockNotificationDuration` | `5000`         | Duration (in ms) that knock notifications are displayed to house owners                                                                                                                                                                                                                                    |
+| `Config.showInsideDoorMarker`      | `true`         | While inside a house, show a marker on the ground near the entrance door                                                                                                                                                                                                                                   |
+| `Config.showOutsideDoorMarker`     | `true`         | Show a marker on the ground for each house near you (outside)                                                                                                                                                                                                                                              |
+| `Config.openManagerCommandName`    | `houseManager` | The name of the command to open the house manager (ex: /houseManager)                                                                                                                                                                                                                                      |
 
 #### Distance Settings
 
@@ -791,104 +791,19 @@ This script uses the [raw keys](/jo_libs/modules/raw-keys/) module. If you have 
 
 Actions are one of the two types of Hooks. They provide a way for running a function at a specific point in the execution of scripts. Callback functions for an Action do not return anything back to the calling Action hook. They are the counterpart to Filters.
   
-Below is a complete list of all available actions in the jo_housing script. All these actions are **server-side**.
+Below is a complete list of all available actions in the jo_housing script.
 
-##### House Management Actions
-
-
-#### <Badge type="server" text="Server" /> houseLocationMenuOpened
-Triggered when a player opens the house location menu.
+#### <Badge type="server" text="Server" /> accessibilityChanged
+Triggered when house accessibility settings are changed.
 
 ```lua
--- @param source - serverID of the player
--- @param houses - array of nearby houses
-exports.jo_housing:registerAction('houseLocationMenuOpened', function(source, houses)
+-- @param source - serverID of the house owner
+-- @param house - the house object
+-- @param accessibilityType - new accessibility type ("everyone", "list", or "onlyMe")
+exports.jo_housing:registerAction('accessibilityChanged', function(source, house, accessibilityType)
     -- Your code here
 end)
 ```
-
-#### <Badge type="server" text="Server" /> houseBought
-Triggered when a player successfully purchases a house.
-
-```lua
--- @param source - serverID of the buyer
--- @param house - the house object that was purchased
-exports.jo_housing:registerAction('houseBought', function(source, house)
-    -- Your code here
-end)
-```
-
-#### <Badge type="server" text="Server" /> houseEntered
-Triggered when a player enters a house.
-
-```lua
--- @param source - serverID of the player
--- @param house - the house object being entered
--- @param isVisiting - boolean indicating if the player is visiting
-exports.jo_housing:registerAction('houseEntered', function(source, house, isVisiting)
-    -- Your code here
-end)
-```
-
-#### <Badge type="server" text="Server" /> houseLeft
-Triggered when a player leaves a house.
-
-```lua
--- @param source - serverID of the player
--- @param house - the house object being left
-exports.jo_housing:registerAction('houseLeft', function(source, house)
-    -- Your code here
-end)
-```
-
-#### <Badge type="server" text="Server" /> houseCreated
-Triggered when a new house is created .
-
-```lua
--- @param source - serverID of the player who created the house
--- @param house - the newly created house object
-exports.jo_housing:registerAction('houseCreated', function(source, house)
-    -- Your code here
-end)
-```
-
-#### <Badge type="server" text="Server" /> houseUpdated
-Triggered when an existing house is updated .
-
-```lua
--- @param source - serverID of the player who updated the house
--- @param house - the updated house object
--- @param changeset - table containing the changes made
-exports.jo_housing:registerAction('houseUpdated', function(source, house, changeset)
-    -- Your code here
-end)
-```
-
-#### <Badge type="server" text="Server" /> houseDeleted
-Triggered when a house is deleted .
-
-```lua
--- @param source - serverID of the player who deleted the house
--- @param house - the house object that was deleted
-exports.jo_housing:registerAction('houseDeleted', function(source, house)
-    -- Your code here
-end)
-```
-
-#### <Badge type="server" text="Server" /> houseTransfered
-Triggered when house ownership is transferred to another player.
-
-```lua
--- @param source - serverID of the current owner
--- @param toPlayerSrc - serverID of the new owner
--- @param house - the house object being transferred
--- @param transferDone - boolean indicating if transfer was successful
-exports.jo_housing:registerAction('houseTransfered', function(source, toPlayerSrc, house, transferDone)
-    -- Your code here
-end)
-```
-
-##### Furniture Actions
 
 #### <Badge type="server" text="Server" /> buildModeEntered
 Triggered when a player enters build mode in their house.
@@ -896,6 +811,18 @@ Triggered when a player enters build mode in their house.
 ```lua
 -- @param source - serverID of the player
 exports.jo_housing:registerAction('buildModeEntered', function(source)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> dressingLocationSet
+Triggered when a dressing room location is set in a house.
+
+```lua
+-- @param source - serverID of the player
+-- @param house - the house object
+-- @param coords - coordinates of the dressing location
+exports.jo_housing:registerAction('dressingLocationSet', function(source, house, coords)
     -- Your code here
 end)
 ```
@@ -924,40 +851,93 @@ exports.jo_housing:registerAction('furnitureMoved', function(source, house, furn
 end)
 ```
 
-#### <Badge type="server" text="Server" /> furnitureDeleted
-Triggered when furniture is deleted from a house.
+#### <Badge type="server" text="Server" /> houseBought
+Triggered when a player successfully purchases a house.
 
 ```lua
--- @param source - serverID of the player
--- @param house - the house object containing the furniture
--- @param furnitureId - ID of the furniture that was deleted
-exports.jo_housing:registerAction('furnitureDeleted', function(source, house, furnitureId)
+-- @param source - serverID of the buyer
+-- @param house - the house object that was purchased
+exports.jo_housing:registerAction('houseBought', function(source, house)
     -- Your code here
 end)
 ```
 
-##### Storage & Features Actions
-
-#### <Badge type="server" text="Server" /> dressingLocationSet
-Triggered when a dressing room location is set in a house.
+#### <Badge type="server" text="Server" /> houseCreated
+Triggered when a new house is created .
 
 ```lua
--- @param source - serverID of the player
--- @param house - the house object
--- @param coords - coordinates of the dressing location
-exports.jo_housing:registerAction('dressingLocationSet', function(source, house, coords)
+-- @param source - serverID of the player who created the house
+-- @param house - the newly created house object
+exports.jo_housing:registerAction('houseCreated', function(source, house)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> storageLocationSet
-Triggered when a storage location is set in a house.
+#### <Badge type="server" text="Server" /> houseDeleted
+Triggered when a house is deleted .
+
+```lua
+-- @param source - serverID of the player who deleted the house
+-- @param house - the house object that was deleted
+exports.jo_housing:registerAction('houseDeleted', function(source, house)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> houseEntered
+Triggered when a player enters a house.
 
 ```lua
 -- @param source - serverID of the player
+-- @param house - the house object being entered
+-- @param isVisiting - boolean indicating if the player is visiting
+exports.jo_housing:registerAction('houseEntered', function(source, house, isVisiting)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> houseKeyBought
+Triggered when a new house key is purchased.
+
+```lua
+-- @param source - serverID of the player buying the key
 -- @param house - the house object
--- @param coords - coordinates of the storage location
-exports.jo_housing:registerAction('storageLocationSet', function(source, house, coords)
+exports.jo_housing:registerAction('houseKeyBought', function(source, house)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> houseLeft
+Triggered when a player leaves a house.
+
+```lua
+-- @param source - serverID of the player
+-- @param house - the house object being left
+exports.jo_housing:registerAction('houseLeft', function(source, house)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> houseLocationMenuOpened
+Triggered when a player opens the house location menu.
+
+```lua
+-- @param source - serverID of the player
+-- @param houses - array of nearby houses
+exports.jo_housing:registerAction('houseLocationMenuOpened', function(source, houses)
+    -- Your code here
+end)
+```
+
+
+#### <Badge type="server" text="Server" /> houseLockChanged
+Triggered when a house lock is changed.
+
+```lua
+-- @param source - serverID of the house owner
+-- @param house - the house object
+-- @param success - boolean indicating if lock change was successful
+exports.jo_housing:registerAction('houseLockChanged', function(source, house, success)
     -- Your code here
 end)
 ```
@@ -974,7 +954,52 @@ exports.jo_housing:registerAction('houseStorageOpened', function(source, house, 
 end)
 ```
 
-##### Access Management Actions
+#### <Badge type="server" text="Server" /> houseTransfered
+Triggered when house ownership is transferred to another player.
+
+```lua
+-- @param source - serverID of the current owner
+-- @param toPlayerSrc - serverID of the new owner
+-- @param house - the house object being transferred
+-- @param transferDone - boolean indicating if transfer was successful
+exports.jo_housing:registerAction('houseTransfered', function(source, toPlayerSrc, house, transferDone)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> houseUpdated
+Triggered when an existing house is updated .
+
+```lua
+-- @param source - serverID of the player who updated the house
+-- @param house - the updated house object
+-- @param changeset - table containing the changes made
+exports.jo_housing:registerAction('houseUpdated', function(source, house, changeset)
+    -- Your code here
+end)
+```
+
+
+
+
+
+
+
+
+
+#### <Badge type="server" text="Server" /> knockedOnHouse
+Triggered when someone knocks on a house door.
+
+```lua
+-- @param source - serverID of the player knocking
+-- @param house - the house object being knocked on
+-- @param foundSources - array of player sources inside the house who were notified
+exports.jo_housing:registerAction('knockedOnHouse', function(source, house, foundSources)
+    -- Your code here
+end)
+```
+
+##### Rental & Keys Actions
 
 #### <Badge type="server" text="Server" /> playerAddedToHouse
 Triggered when a player is added to a house's access list.
@@ -1002,31 +1027,19 @@ exports.jo_housing:registerAction('playerRemovedFromHouse', function(source, hou
 end)
 ```
 
-#### <Badge type="server" text="Server" /> accessibilityChanged
-Triggered when house accessibility settings are changed.
+#### <Badge type="server" text="Server" /> storageLocationSet
+Triggered when a storage location is set in a house.
 
 ```lua
--- @param source - serverID of the house owner
+-- @param source - serverID of the player
 -- @param house - the house object
--- @param accessibilityType - new accessibility type ("everyone", "list", or "onlyMe")
-exports.jo_housing:registerAction('accessibilityChanged', function(source, house, accessibilityType)
+-- @param coords - coordinates of the storage location
+exports.jo_housing:registerAction('storageLocationSet', function(source, house, coords)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> knockedOnHouse
-Triggered when someone knocks on a house door.
-
-```lua
--- @param source - serverID of the player knocking
--- @param house - the house object being knocked on
--- @param foundSources - array of player sources inside the house who were notified
-exports.jo_housing:registerAction('knockedOnHouse', function(source, house, foundSources)
-    -- Your code here
-end)
-```
-
-##### Rental & Keys Actions
+##### Access Management Actions
 
 #### <Badge type="server" text="Server" /> rentPaid
 Triggered when rent is paid for a house.
@@ -1044,95 +1057,26 @@ exports.jo_housing:registerAction('rentPaid', function(source, house, numPeriods
 end)
 ```
 
-#### <Badge type="server" text="Server" /> houseLockChanged
-Triggered when a house lock is changed.
 
-```lua
--- @param source - serverID of the house owner
--- @param house - the house object
--- @param success - boolean indicating if lock change was successful
-exports.jo_housing:registerAction('houseLockChanged', function(source, house, success)
-    -- Your code here
-end)
-```
 
-#### <Badge type="server" text="Server" /> houseKeyBought
-Triggered when a new house key is purchased.
-
-```lua
--- @param source - serverID of the player buying the key
--- @param house - the house object
-exports.jo_housing:registerAction('houseKeyBought', function(source, house)
-    -- Your code here
-end)
-```
 
 ### Filters
 
 [Filters](/DeveloperResources/filters) allow you to modify data or control permissions during script execution. Introduced in `v1.2.0`, filters provide a **synchronous** way to intercept and modify script behavior at specific points, unlike events which are asynchronous.
   
-Below is a complete list of all available filters in the jo_housing script. All these filters are **server-side**.
+Below is a complete list of all available filters in the jo_housing script.
 
-#### <Badge type="server" text="Server" /> canUseHouseManagerCommand
-Controls who can use the `/houseManager` command to create and manage houses.
-
-```lua
--- @param canUse - boolean indicating if the action is allowed by default
--- @param source - serverID of the player
-exports.jo_housing:registerFilter('canUseHouseManagerCommand', function(canUse, source)
-    -- Example: Only allow admins
-    local isAdmin = exports.your_permission_system:isAdmin(source)
-    return isAdmin
-end)
-```
-
-#### <Badge type="server" text="Server" /> canOpenHouseLocationMenu
-Controls who can open the house location menu.
+#### <Badge type="server" text="Server" /> canAddPlayerToHouse
+Controls who can add players to a house's access list.
 
 ```lua
--- @param canOpen - boolean indicating if the action is allowed by default
--- @param source - serverID of the player
--- @param houses - array of nearby houses
-exports.jo_housing:registerFilter('canOpenHouseLocationMenu', function(canOpen, source, houses)
-    return canOpen
-end)
-```
-
-#### <Badge type="server" text="Server" /> canBuyHouse
-Controls who can buy a house.
-
-```lua
--- @param canBuy - boolean indicating if the action is allowed by default
--- @param source - serverID of the player
--- @param houseId - ID of the house being purchased
--- @param moneyType - payment type (0 for money, 1 for gold)
--- @param period - for rentals, number of periods the player is paying for
-exports.jo_housing:registerFilter('canBuyHouse', function(canBuy, source, houseId, moneyType, period)
-    return canBuy
-end)
-```
-
-#### <Badge type="server" text="Server" /> canEnterHouse
-Controls who can enter a house.
-
-```lua
--- @param canEnter - boolean indicating if the action is allowed by default
--- @param source - serverID of the player
--- @param houseId - ID of the house being entered
-exports.jo_housing:registerFilter('canEnterHouse', function(canEnter, source, houseId)
-    return canEnter
-end)
-```
-
-#### <Badge type="server" text="Server" /> canEnterBuildMode
-Controls who can enter build mode in a house.
-
-```lua
--- @param canEnter - boolean indicating if the action is allowed by default
--- @param source - serverID of the player
+-- @param canAdd - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player adding someone
 -- @param houseId - ID of the house
-exports.jo_housing:registerFilter('canEnterBuildMode', function(canEnter, source, houseId)
-    return canEnter
+-- @param playerSrc - serverID of the player being added
+-- @param playerName - name of the player being added
+exports.jo_housing:registerFilter('canAddPlayerToHouse', function(canAdd, source, houseId, playerSrc, playerName)
+    return canAdd
 end)
 ```
 
@@ -1151,6 +1095,108 @@ exports.jo_housing:registerFilter('canBuyFurniture', function(canBuy, source, fu
 end)
 ```
 
+#### <Badge type="server" text="Server" /> canBuyHouse
+Controls who can buy a house.
+
+```lua
+-- @param canBuy - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param houseId - ID of the house being purchased
+-- @param moneyType - payment type (0 for money, 1 for gold)
+-- @param period - for rentals, number of periods the player is paying for
+exports.jo_housing:registerFilter('canBuyHouse', function(canBuy, source, houseId, moneyType, period)
+    return canBuy
+end)
+```
+
+#### <Badge type="server" text="Server" /> canDeleteFurniture
+Controls who can delete furniture from a house.
+
+```lua
+-- @param canDelete - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param furnitureId - ID of the furniture
+-- @param houseId - ID of the house
+exports.jo_housing:registerFilter('canDeleteFurniture', function(canDelete, source, furnitureId, houseId)
+    return canDelete
+end)
+```
+
+#### <Badge type="server" text="Server" /> canDeleteHouse
+Controls who can delete houses.
+
+```lua
+-- @param canDelete - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param houseData - table containing house data
+exports.jo_housing:registerFilter('canDeleteHouse', function(canDelete, source, houseData)
+    return canDelete
+end)
+```
+
+#### <Badge type="server" text="Server" /> canEnterBuildMode
+Controls who can enter build mode in a house.
+
+```lua
+-- @param canEnter - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param houseId - ID of the house
+exports.jo_housing:registerFilter('canEnterBuildMode', function(canEnter, source, houseId)
+    return canEnter
+end)
+```
+
+#### <Badge type="server" text="Server" /> canEnterHouse
+Controls who can enter a house.
+
+```lua
+-- @param canEnter - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param houseId - ID of the house being entered
+exports.jo_housing:registerFilter('canEnterHouse', function(canEnter, source, houseId)
+    return canEnter
+end)
+```
+
+#### <Badge type="server" text="Server" /> canMoveFurniture
+Controls who can move furniture in a house.
+
+```lua
+-- @param canMove - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param furnitureId - ID of the furniture
+-- @param houseId - ID of the house
+-- @param relPos - new relative position for the furniture
+-- @param relRot - new relative rotation for the furniture
+exports.jo_housing:registerFilter('canMoveFurniture', function(canMove, source, furnitureId, houseId, relPos, relRot)
+    return canMove
+end)
+```
+
+#### <Badge type="server" text="Server" /> canOpenHouseLocationMenu
+Controls who can open the house location menu.
+
+```lua
+-- @param canOpen - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param houses - array of nearby houses
+exports.jo_housing:registerFilter('canOpenHouseLocationMenu', function(canOpen, source, houses)
+    return canOpen
+end)
+```
+
+#### <Badge type="server" text="Server" /> canOpenHouseStorage
+Controls who can open a house's storage.
+
+```lua
+-- @param canOpenStorage - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param houseId - ID of the house
+exports.jo_housing:registerFilter('canOpenHouseStorage', function(canOpenStorage, source, houseId)
+    return canOpenStorage
+end)
+```
+
 #### <Badge type="server" text="Server" /> canPlaceFurniture
 Controls who can place furniture in a house.
 
@@ -1165,6 +1211,19 @@ Controls who can place furniture in a house.
 -- @param categoryKey - category key of the furniture
 exports.jo_housing:registerFilter('canPlaceFurniture', function(canPlace, source, furniture, houseId, relPos, relRot, moneyType, categoryKey)
     return canPlace
+end)
+```
+
+#### <Badge type="server" text="Server" /> canRemovePlayerFromHouse
+Controls who can remove players from a house's access list.
+
+```lua
+-- @param canRemove - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param houseId - ID of the house
+-- @param accessibilityId - ID of the access entry to remove
+exports.jo_housing:registerFilter('canRemovePlayerFromHouse', function(canRemove, source, houseId, accessibilityId)
+    return canRemove
 end)
 ```
 
@@ -1207,45 +1266,6 @@ exports.jo_housing:registerFilter('canTransferHouse', function(canTransfer, sour
 end)
 ```
 
-#### <Badge type="server" text="Server" /> canOpenHouseStorage
-Controls who can open a house's storage.
-
-```lua
--- @param canOpenStorage - boolean indicating if the action is allowed by default
--- @param source - serverID of the player
--- @param houseId - ID of the house
-exports.jo_housing:registerFilter('canOpenHouseStorage', function(canOpenStorage, source, houseId)
-    return canOpenStorage
-end)
-```
-
-#### <Badge type="server" text="Server" /> canAddPlayerToHouse
-Controls who can add players to a house's access list.
-
-```lua
--- @param canAdd - boolean indicating if the action is allowed by default
--- @param source - serverID of the player adding someone
--- @param houseId - ID of the house
--- @param playerSrc - serverID of the player being added
--- @param playerName - name of the player being added
-exports.jo_housing:registerFilter('canAddPlayerToHouse', function(canAdd, source, houseId, playerSrc, playerName)
-    return canAdd
-end)
-```
-
-#### <Badge type="server" text="Server" /> canRemovePlayerFromHouse
-Controls who can remove players from a house's access list.
-
-```lua
--- @param canRemove - boolean indicating if the action is allowed by default
--- @param source - serverID of the player
--- @param houseId - ID of the house
--- @param accessibilityId - ID of the access entry to remove
-exports.jo_housing:registerFilter('canRemovePlayerFromHouse', function(canRemove, source, houseId, accessibilityId)
-    return canRemove
-end)
-```
-
 #### <Badge type="server" text="Server" /> canUpdateAccessibility
 Controls who can update a house's accessibility settings.
 
@@ -1272,45 +1292,47 @@ exports.jo_housing:registerFilter('canUpsertHouse', function(canUpsert, source, 
 end)
 ```
 
-#### <Badge type="server" text="Server" /> canDeleteHouse
-Controls who can delete houses.
+#### <Badge type="server" text="Server" /> canUseHouseManagerCommand
+Controls who can use the `/houseManager` command to create and manage houses.
 
 ```lua
--- @param canDelete - boolean indicating if the action is allowed by default
+-- @param canUse - boolean indicating if the action is allowed by default
 -- @param source - serverID of the player
--- @param houseData - table containing house data
-exports.jo_housing:registerFilter('canDeleteHouse', function(canDelete, source, houseData)
-    return canDelete
+exports.jo_housing:registerFilter('canUseHouseManagerCommand', function(canUse, source)
+    -- Example: Only allow admins
+    local isAdmin = exports.your_permission_system:isAdmin(source)
+    return isAdmin
 end)
 ```
 
-#### <Badge type="server" text="Server" /> canMoveFurniture
-Controls who can move furniture in a house.
-
+:::details Example of job lock for VORP
 ```lua
--- @param canMove - boolean indicating if the action is allowed by default
--- @param source - serverID of the player
--- @param furnitureId - ID of the furniture
--- @param houseId - ID of the house
--- @param relPos - new relative position for the furniture
--- @param relRot - new relative rotation for the furniture
-exports.jo_housing:registerFilter('canMoveFurniture', function(canMove, source, furnitureId, houseId, relPos, relRot)
-    return canMove
+AllowedJobs = {
+    houser = true,
+    houseManager = true,
+}
+
+exports.jo_housing:registerFilter('canUseHouseManagerCommand', function(canUse, source)
+    local job = jo.framework:getJob(source)
+    if AllowedJobs[job] then
+      return canUse
+    else
+      jo.notif.rightError("You don't have the right job to use the house manager")
+      return false
+    end
 end)
 ```
+:::
 
-#### <Badge type="server" text="Server" /> canDeleteFurniture
-Controls who can delete furniture from a house.
 
-```lua
--- @param canDelete - boolean indicating if the action is allowed by default
--- @param source - serverID of the player
--- @param furnitureId - ID of the furniture
--- @param houseId - ID of the house
-exports.jo_housing:registerFilter('canDeleteFurniture', function(canDelete, source, furnitureId, houseId)
-    return canDelete
-end)
-```
+
+
+
+
+
+
+
+
 
 #### <Badge type="server" text="Server" /> customFurnitures
 Allows you to add custom furniture categories and items to the housing system.

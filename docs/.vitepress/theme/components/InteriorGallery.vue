@@ -21,7 +21,7 @@
       </div>
 
       <div class="filter-group">
-        <label for="addon-filter">Addon:</label>
+        <label for="addon-filter">Script:</label>
         <select id="addon-filter" v-model="selectedAddon" class="filter-select">
           <option v-for="option in addonOptions" :key="option.value" :value="option.value">
             {{ option.label }}
@@ -29,12 +29,12 @@
         </select>
       </div>
 
-      <div class="filter-group">
+      <!-- <div class="filter-group">
         <label for="show-gallery">
           <input id="show-gallery" v-model="showGallery" type="checkbox" class="gallery-checkbox" />
           Show gallery
         </label>
-      </div>
+      </div> -->
     </div>
 
     <!-- Results Count -->
@@ -675,7 +675,7 @@ const categoryOptions = [
 
 // Addon options
 const addonOptions = [
-  { label: "All Addons", value: "all" },
+  { label: "Main + Addons", value: "all" },
   { label: "Main", value: "main" },
   { label: "Addon : More Interiors", value: "more_interiors" },
 ];
