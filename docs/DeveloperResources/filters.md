@@ -23,14 +23,14 @@ You will use the registerFilter() function, passing at least two parameters:
 2. `callable $callback` the name of your callback function.
 3. `(optional) int $priority` the priority of the filter (default value is 10)
 
-The example below will run when the `kd_stable:client:menuTitle` filter is executed in *kd_stable* script with a priority = 10.
+The example below will run when the `menuTitle` filter is executed in *kd_stable* script with a priority = 10.
 
 ```lua
 function filter_menu_title(title)
   return "The " .. title .. " was filtered"
 end
 
-exports.kd_stable:registerFilter('kd_stable:client:menuTitle', filter_menu_title, 10)
+exports.kd_stable:registerFilter('menuTitle', filter_menu_title, 10)
 
 ```
 Lets say we have a menu title, “My horses”, the above example will modify it to be “The My horses was filtered”.

@@ -241,6 +241,17 @@ export default defineConfig({
             text: "🐎 Horse and Wagon sharing",
             link: "/RedM/horse-and-wagon-sharing",
           },
+          // {
+          //   text: "🏠 Housing",
+          //   link: "/RedM/housing",
+          //   items: [
+          //     { text: "Main script", link: "/RedM/housing" },
+          //     {
+          //       text: "More Interiors",
+          //       link: "/RedM/housing-more-interiors",
+          //     },
+          //   ],
+          // },
           {
             text: "🦌 Hunting wagon Storage",
             link: "/RedM/hunting-wagon-storage",
