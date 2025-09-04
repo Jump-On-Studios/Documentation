@@ -397,6 +397,11 @@ These functions allow you to integrate the housing system with your existing res
 | `Config.interiorsMaxFurnitures`                   | `{jo_pai_house = 100}` | Specific furniture limits per interior ID                                                                                                             |
 | `Config.interiorsBlacklist`                       | `{}`                   | Interior IDs to hide from selection (commented examples included)                                                                                     |
 
+:::tip 💡Disable Build Mode
+If you set the interior’s max furniture to `0` (zero), players won’t be able to add any furniture inside, effectively disabling build mode for that interior.
+:::
+
+
 #### Furniture Configuration
 
 | Property                                    | Default Value                            | Description                                                                                                                                                                                                                                                                                                     |
