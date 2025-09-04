@@ -1334,13 +1334,13 @@ end)
 
 
 
-#### <Badge type="server" text="Server" /> customFurnitures
+#### <Badge type="server" text="Server" /> addFurnitures
 Allows you to add custom furniture categories and items to the housing system.
 
 ```lua
 -- @param customFurnitures - empty table by default
 -- @return table - table with custom furniture categories
-exports.jo_housing:registerFilter('customFurnitures', function(customFurnitures)
+exports.jo_housing:registerFilter('addFurnitures', function(customFurnitures)
     -- Add your custom furniture categories
     customFurnitures.custom_electronics = {
         "p_tv01x",
@@ -1375,13 +1375,13 @@ Config.furnituresCategoriesPrices.outdoor_furniture = {
 ```
 :::
 
-#### <Badge type="server" text="Server" /> customInteriors
+#### <Badge type="server" text="Server" /> addInteriors
 Allows you to add custom interior configurations to the housing system.
 
 ```lua
 -- @param customInteriors - empty table by default
 -- @return table - table with custom interior configurations
-exports.jo_housing:registerFilter('customInteriors', function(customInteriors)
+exports.jo_housing:registerFilter('addInteriors', function(customInteriors)
     -- Add your custom interiors
     customInteriors.my_custom_cabin = {
         entries = {
