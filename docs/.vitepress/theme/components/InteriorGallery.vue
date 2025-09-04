@@ -4,16 +4,8 @@
     <div class="filters">
       <div class="filter-group">
         <label for="category-filter">Category:</label>
-        <select
-          id="category-filter"
-          v-model="selectedCategory"
-          class="filter-select"
-        >
-          <option
-            v-for="option in categoryOptions"
-            :key="option.value"
-            :value="option.value"
-          >
+        <select id="category-filter" v-model="selectedCategory" class="filter-select">
+          <option v-for="option in categoryOptions" :key="option.value" :value="option.value">
             {{ option.label }}
           </option>
         </select>
@@ -22,11 +14,7 @@
       <div class="filter-group">
         <label for="room-filter">Rooms:</label>
         <select id="room-filter" v-model="selectedRooms" class="filter-select">
-          <option
-            v-for="option in availableRoomOptions"
-            :key="option.value"
-            :value="option.value"
-          >
+          <option v-for="option in availableRoomOptions" :key="option.value" :value="option.value">
             {{ option.label }}
           </option>
         </select>
@@ -35,11 +23,7 @@
       <div class="filter-group">
         <label for="addon-filter">Addon:</label>
         <select id="addon-filter" v-model="selectedAddon" class="filter-select">
-          <option
-            v-for="option in addonOptions"
-            :key="option.value"
-            :value="option.value"
-          >
+          <option v-for="option in addonOptions" :key="option.value" :value="option.value">
             {{ option.label }}
           </option>
         </select>
@@ -47,12 +31,7 @@
 
       <div class="filter-group">
         <label for="show-gallery">
-          <input
-            id="show-gallery"
-            v-model="showGallery"
-            type="checkbox"
-            class="gallery-checkbox"
-          />
+          <input id="show-gallery" v-model="showGallery" type="checkbox" class="gallery-checkbox" />
           Show gallery
         </label>
       </div>
@@ -66,32 +45,16 @@
     </div>
 
     <!-- Gallery Grid -->
-    <div
-      v-if="showGallery && filteredInteriors.length > 0"
-      class="gallery-grid"
-    >
-      <div
-        v-for="interior in filteredInteriors"
-        :key="interior.id"
-        class="gallery-item"
-      >
-        <img
-          :src="`/images/interiors/${interior.id}.webp`"
-          :alt="interior.id"
-          class="data-zoomable preview"
-          data-zoomable
-        />
+    <div v-if="showGallery && filteredInteriors.length > 0" class="gallery-grid">
+      <div v-for="interior in filteredInteriors" :key="interior.id" class="gallery-item">
+        <img :src="`/images/interiors/${interior.id}.webp`" :alt="interior.id" class="data-zoomable preview" data-zoomable loading="lazy" />
         <div class="interior-info">
           <h4>{{ interior.id }}</h4>
           <div class="interior-meta">
             <span class="category">
               {{ formatCategory(interior.category) }}
             </span>
-            <span
-              v-if="interior.addon !== 'main'"
-              class="addon-badge"
-              :class="`addon-${interior.addon}`"
-            >
+            <span v-if="interior.addon !== 'main'" class="addon-badge" :class="`addon-${interior.addon}`">
               {{ addonMapping[interior.addon] }}
             </span>
             <span class="rooms">
@@ -697,7 +660,7 @@ const addonMapping = {
 const selectedCategory = ref("all");
 const selectedRooms = ref("all");
 const selectedAddon = ref("all");
-const showGallery = ref(false);
+const showGallery = ref(true);
 
 // Category options
 const categoryOptions = [

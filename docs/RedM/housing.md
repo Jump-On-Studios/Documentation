@@ -11,7 +11,7 @@ Documentation related to the jo_housing script.
 :::
 
 ::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LUgGS5I5FjM?si=wIuK5RGZWczm_twX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1A_ubufvh80?si=Vrw1RxNKarTFS2_6" title="RedM - Housing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
 ::::
 
@@ -21,45 +21,26 @@ jo_housing works on all frameworks compatible with jo_libs ([the list](/jo_libs/
 To install jo_housing :
 - Download the library: [jo_libs](https://github.com/Jump-On-Studios/RedM-jo_libs/releases/latest/download/jo_libs.zip)
 - Unzip the folder and drop it in your resource folder
-- Download jo_housing from your [keymaster](https://keymaster.fivem.net/asset-grants?search=stable)
+- Download jo_housing from your [account](https://jumpon-studios.com/account)
 - Unzip the folder and drop it in your resource folder
 - Add this ensure in your server.cfg
   - `ensure jo_libs`
   - `ensure jo_housing`
 - This script uses the [raw keys](/jo_libs/modules/raw-keys/) module, if you have any problem with the prompts you should [set the keyboard layout](/jo_libs/modules/raw-keys/client#setting-keyboard-layout)
-- If you want to use `Config.enableKeyMode=true` ([see explainations here](#general-settings)), **you must add House Key Item**:<br> Configure the house key item in your framework's item system (referenced in [`Config.items.houseKey`](#items-and-pricing)) <br>
-Examples :
+- If you want to use [house key item](#items-and-pricing), **you must add House Key Item** in your inventory: 
 
 :::: tabs
 
 ::: tab Example : VORP Framework
-Add this item configuration to your VORP database items table:
-
-```json
-{
-    "table": "items",
-    "rows": [
-        {
-            "item": "house_key",
-            "label": "House Key",
-            "limit": 10,
-            "can_remove": 1,
-            "type": "item_standard",
-            "usable": 0,
-            "groupId": 1,
-            "metadata": "{}",
-            "desc": "A house key",
-            "degradation": 0,
-            "weight": 0.10
-        }
-    ]
-}
+Add this item configuration into your `items` database table:
+```SQL
+INSERT INTO `items` (`item`, `label`, `limit`, `can_remove`, `type`, `usable`, `groupId`, `desc`, `weight`)
+VALUES ('house_key', 'House key', '10', '1', 'item_standard', '0', '1', 'A house key', '0.10');
 ```
 :::
 
 ::: tab Example : RSG Framework V2
-Add this item configuration to your RSG items file:
-
+Add this item configuration to your RSG `items` file:
 ```lua
 house_key = { 
     name = "house_key", 
@@ -70,7 +51,7 @@ house_key = {
     unique = true, 
     useable = false, 
     shouldClose = false, 
-    description = "" 
+    description = "A house key" 
 }
 ```
 :::
@@ -79,10 +60,13 @@ house_key = {
 
 Congratulation, the **Housing** script is ready to be used!
 :::warning
-Be sure you have oxmysql ensure in your server.cfg
+Be sure you have [oxmysql](https://overextended.dev/oxmysql) ensure in your server.cfg
 :::
-:::tip 💡 Tables creation
+:::tip 💡 No SQL File
 The script automatically creates all necessary database tables during its first startup
+:::
+:::danger 🔗 Script requirements
+**Stable, Wagon and Wardrobe** are not included. You have to link them with your other scripts.
 :::
 
 ## 2. Usage
@@ -91,8 +75,9 @@ The script automatically creates all necessary database tables during its first 
 
 The housing system provides an admin interface to manage properties on your server.
 
-:::tip 💡 Permission Control
-By default, any player can use the `/houseManager` command to create and manage houses. You can restrict access by using the [`canUseHouseManagerCommand`](#canusehousemanagercommand) filter to implement your own permission system (admin-only, specific roles, etc.).
+:::tip 🔒 Permission Control (By job, grade,etc.)
+By default, any player can use the `/houseManager` command to create and manage houses.  
+You can restrict access by using the [`canUseHouseManagerCommand`](#canusehousemanagercommand) filter to implement your own permission system.
 :::
 
 :::: tabs
@@ -102,16 +87,16 @@ By default, any player can use the `/houseManager` command to create and manage 
 1. Use the command `/houseManager` to open the housing management menu
 2. Select "Create a new house"
 3. Fill in the house details :
-   - **Name**: Give your house a descriptive name (press the designated key to input)
+   - **Name**: Give your house a descriptive name
    - **Category**: Choose from available interior categories (Houses, Shacks, Manors, etc.)
    - **Rooms Amount**: Select the number of rooms for your chosen category
-   - **Interior**: Pick a specific interior from the filtered options based on category and rooms
-   - **Shell Location**: Place the interior shell in the world (use visit mode to preview)
-   - **Front Door Location**: Move the entrance marker (automatically set at your position when creating)
+   - **Interior**: Pick a specific interior
+   - **Shell Location**: Place the interior shell in the world
+   - **Front Door Location**: Move the entrance marker
    - **Contract Type**: Choose between one-time sale or rent
      - If rent: Select daily or weekly rent periods
-   - **Price**: Set money and gold prices using the designated prompt keys
-   - **Features**: Configure available features:
+   - **Price**: Set money and gold prices
+   - **Features**:
      - **Stable**: Enable/disable horse storage
        - Stable Location: Place the stable interaction marker
        - Stable Spawn Location: Place where horses will spawn
@@ -121,7 +106,7 @@ By default, any player can use the `/houseManager` command to create and manage 
        - Wagon Spawn Location: Place where wagons will spawn
      - **Dressing Room**: Enable/disable wardrobe functionality
 
-4. **Visit Mode**: Press the visit mode key (default: R) to preview the interior before finalizing
+4. **Visit Mode**: Press the visit mode key (default: R) to preview the interiorg
 5. **Validation**: All required fields must be completed:
    - House name cannot be empty
    - Front door location must be set
@@ -132,10 +117,10 @@ By default, any player can use the `/houseManager` command to create and manage 
    - Prices must be non-negative
 6. Press the "Create House" key when all requirements are met
 
-:::tip 💡TIP : Multiple houses on the same location
-If you create multiple houses with the same front door location, then when players open the house location menu, they will see all the houses available at that location. This allows you to virtually create 'buildings' with multiple flats on each floor!
 
 
+:::tip TIP : Multiple houses on the same location
+If you create multiple houses with the same front door location, all will be merged into one location menu. This allows you to virtually create 'buildings' with multiple flats with only one entry!
 :::
 
 ::: tab ✏️ Updating a House
@@ -173,8 +158,7 @@ Players can purchase or rent available houses throughout your server.
 ::: tab 🔍 Finding Available Houses
 **Finding Available Houses:**
 1. Approach a house door with the help of the map blips
-2. When in range, a prompt will appear
-3. Press the prompt key (default: E) to open the house menu
+2. Press the prompt key (default: E) to open the house menu
 :::
 
 ::: tab 💰 Purchasing a House
@@ -312,9 +296,12 @@ This setting is configured in your server's `Config.enableKeyMode` and affects a
 
 ## 3. Interiors Gallery
 
-Browse through all available interior options for your housing system. This gallery showcases the complete collection of interiors you can choose from when creating houses using the `/houseManager` command. Use the category filter to narrow down options by interior type (Houses, Shacks, Manors, Flats, Rock Shacks, or Worker buildings) and the rooms filter to find interiors with your desired number of rooms. 
+Browse through all available interior options for your housing system.  
+This gallery showcases the complete collection of interiors you can choose from when creating houses using the `/houseManager` command.
 
+:::details The gallery
 <InteriorGallery />
+:::
 
 ## 4. Script Configuration
 
@@ -339,84 +326,84 @@ Rather than editing the original config files directly, you should make your cha
 
 These functions allow you to integrate the housing system with your existing resources for wardrobe, stable, and wagon management.
 
-| Property | Default Behavior | Description |
-|----------|-----------------|-------------|
-| `Config.openWardrobe()` | `print("Config.openWardrobe must be configured to integrate with your wardrobe system")` | Called when a player uses a wardrobe. Customize this to open your wardrobe system. No parameters passed |
-| `Config.openStable(stableLocation, stableSpawnLocation)` | `print("Config.openStable must be configured to integrate with your stable system")` | Called when a player interacts with house stable. Parameters: `stableLocation` (vec3), `stableSpawnLocation` (vec3) |
-| `Config.openWagon(wagonLocation, wagonSpawnLocation)` | `print("Config.openWagon must be configured to integrate with your wagon system")` | Called when a player interacts with house wagon storage. Parameters: `wagonLocation` (vec3), `wagonSpawnLocation` (vec3) |
+| Property                                                 | Default Behavior                                                                         | Description                                                                                                              |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `Config.openWardrobe()`                                  | `print("Config.openWardrobe must be configured to integrate with your wardrobe system")` | Called when a player uses a wardrobe. Customize this to open your wardrobe system. No parameters passed                  |
+| `Config.openStable(stableLocation, stableSpawnLocation)` | `print("Config.openStable must be configured to integrate with your stable system")`     | Called when a player interacts with house stable. Parameters: `stableLocation` (vec3), `stableSpawnLocation` (vec3)      |
+| `Config.openWagon(wagonLocation, wagonSpawnLocation)`    | `print("Config.openWagon must be configured to integrate with your wagon system")`       | Called when a player interacts with house wagon storage. Parameters: `wagonLocation` (vec3), `wagonSpawnLocation` (vec3) |
 
 #### General Settings
 
-| Property | Default Value | Description |
-|----------|---------------|-------------|
-| `Config.enableKeyMode` | `true` | Enable physical house keys that players must carry to access their houses. When `true`: players receive physical key items, can buy additional keys for other players, and can change locks (making existing keys obsolete). When `false`: no physical keys exist, but players can manage an access list of who can enter their house |
-| `Config.allowPayingInGold` | `false` | Allow players to pay with gold in addition to money |
-| `Config.knockNotificationDuration` | `5000` | Duration (in ms) that knock notifications are displayed to house owners |
-| `Config.showInsideDoorMarker` | `true` | While inside a house, show a marker on the ground near the entrance door |
-| `Config.showOutsideDoorMarker` | `true` | Show a marker on the ground for each house near you (outside) |
-| `Config.openManagerCommandName` | `houseManager` | The name of the command to open the house manager (ex: /houseManager) |
+| Property                           | Default Value  | Description                                                                                                                                                                                                                                                                                                                           |
+| ---------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Config.enableKeyMode`             | `true`         | Enable physical house keys that players must carry to access their houses. When `true`: players receive physical key items, can buy additional keys for other players, and can change locks (making existing keys obsolete). When `false`: no physical keys exist, but players can manage an access list of who can enter their house |
+| `Config.allowPayingInGold`         | `false`        | Allow players to pay with gold in addition to money                                                                                                                                                                                                                                                                                   |
+| `Config.knockNotificationDuration` | `5000`         | Duration (in ms) that knock notifications are displayed to house owners                                                                                                                                                                                                                                                               |
+| `Config.showInsideDoorMarker`      | `true`         | While inside a house, show a marker on the ground near the entrance door                                                                                                                                                                                                                                                              |
+| `Config.showOutsideDoorMarker`     | `true`         | Show a marker on the ground for each house near you (outside)                                                                                                                                                                                                                                                                         |
+| `Config.openManagerCommandName`    | `houseManager` | The name of the command to open the house manager (ex: /houseManager)                                                                                                                                                                                                                                                                 |
 
 #### Distance Settings
 
-| Property | Default Value | Description |
-|----------|---------------|-------------|
-| `Config.distanceShowHousePrompt` | `2.5` | Distance (in meters) to show house interaction prompts |
-| `Config.distanceShowStablePrompt` | `2.0` | Distance (in meters) to show stable interaction prompts |
-| `Config.distanceShowWagonPrompt` | `2.0` | Distance (in meters) to show wagon interaction prompts |
-| `Config.distanceShowInteriorDoorPrompt` | `1.5` | Distance (in meters) to show interior door prompts |
-| `Config.distanceShowInteriorStoragePrompt` | `1.0` | Distance (in meters) to show storage interaction prompts |
-| `Config.distanceShowInteriorDressingPrompt` | `1.0` | Distance (in meters) to show dressing room prompts |
+| Property                                    | Default Value | Description                                              |
+| ------------------------------------------- | ------------- | -------------------------------------------------------- |
+| `Config.distanceShowHousePrompt`            | `2.5`         | Distance (in meters) to show house interaction prompts   |
+| `Config.distanceShowStablePrompt`           | `2.0`         | Distance (in meters) to show stable interaction prompts  |
+| `Config.distanceShowWagonPrompt`            | `2.0`         | Distance (in meters) to show wagon interaction prompts   |
+| `Config.distanceShowInteriorDoorPrompt`     | `1.5`         | Distance (in meters) to show interior door prompts       |
+| `Config.distanceShowInteriorStoragePrompt`  | `1.0`         | Distance (in meters) to show storage interaction prompts |
+| `Config.distanceShowInteriorDressingPrompt` | `1.0`         | Distance (in meters) to show dressing room prompts       |
 
 #### Rent Configuration
 
-| Property | Default Value | Description |
-|----------|---------------|-------------|
-| `Config.rentMaxDays` | `10` | Maximum number of days players can rent at once (daily rent) |
-| `Config.rentMaxWeek` | `2` | Maximum number of weeks players can rent at once (weekly rent) |
-| `Config.extraDaysAllowedBeforeExpulsion` | `1.0` | Grace period (in days) after rent expires before eviction |
-| `Config.allowRentExtensionAnytime` | `false` | Allow players to extend rent before it expires |
+| Property                                 | Default Value | Description                                                    |
+| ---------------------------------------- | ------------- | -------------------------------------------------------------- |
+| `Config.rentMaxDays`                     | `10`          | Maximum number of days players can rent at once (daily rent)   |
+| `Config.rentMaxWeek`                     | `2`           | Maximum number of weeks players can rent at once (weekly rent) |
+| `Config.extraDaysAllowedBeforeExpulsion` | `1.0`         | Grace period (in days) after rent expires before eviction      |
+| `Config.allowRentExtensionAnytime`       | `false`       | Allow players to extend rent before it expires                 |
 
 #### Items and Pricing
 
-| Property | Default Value | Description |
-|----------|---------------|-------------|
-| `Config.items.houseKey` | `"house_key"` | Item name for house keys in your inventory system |
-| `Config.newKeyPrice.money` | `100` | Cost in money to create a new house key |
-| `Config.newKeyPrice.gold` | `1` | Cost in gold to create a new house key |
-| `Config.changeLockPrice.money` | `150` | Cost in money to change the house lock |
-| `Config.changeLockPrice.gold` | `2` | Cost in gold to change the house lock |
+| Property                       | Default Value | Description                                       |
+| ------------------------------ | ------------- | ------------------------------------------------- |
+| `Config.items.houseKey`        | `"house_key"` | Item name for house keys in your inventory system |
+| `Config.newKeyPrice.money`     | `100`         | Cost in money to create a new house key           |
+| `Config.newKeyPrice.gold`      | `1`           | Cost in gold to create a new house key            |
+| `Config.changeLockPrice.money` | `150`         | Cost in money to change the house lock            |
+| `Config.changeLockPrice.gold`  | `2`           | Cost in gold to change the house lock             |
 
 #### Key Bindings
 
-| Property | Default Value | Description |
-|----------|---------------|-------------|
-| `Config.keys.openHouseMenu` | `"E"` | Open house menu at front door |
-| `Config.keys.enterSubMenu` | `"E"` | Enter submenus |
-| `Config.keys.buyDollar` | `"E"` | Purchase house with money |
-| `Config.keys.buyGold` | `"G"` | Purchase house with gold |
-| `Config.keys.buyHouse` | `"ENTER"` | Confirm house purchase |
-| `Config.keys.knockOnHouse` | `"K"` | Knock on someone's door |
-| `Config.keys.enterHouse` | `"ENTER"` | Enter owned house |
-| `Config.keys.leaveHouse` | `"X"` | Exit house |
-| `Config.keys.manageHouse` | `"M"` | Open house management menu |
-| ... and many more |  | See the `Configuration file` tab above for an exhaustive list, and see [Keyboard keys mapping](/jo_libs/modules/raw-keys/client#keyboard-keys-mapping) for a list of all available keys. This script uses the [raw keys](/jo_libs/modules/raw-keys/) module, if you have any problem with the prompts you should [set the keyboard layout](/jo_libs/modules/raw-keys/client#setting-keyboard-layout) |
+| Property                    | Default Value | Description                                                                                                                                                                                                                                                                                                                                                                                          |
+| --------------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Config.keys.openHouseMenu` | `"E"`         | Open house menu at front door                                                                                                                                                                                                                                                                                                                                                                        |
+| `Config.keys.enterSubMenu`  | `"E"`         | Enter submenus                                                                                                                                                                                                                                                                                                                                                                                       |
+| `Config.keys.buyDollar`     | `"E"`         | Purchase house with money                                                                                                                                                                                                                                                                                                                                                                            |
+| `Config.keys.buyGold`       | `"G"`         | Purchase house with gold                                                                                                                                                                                                                                                                                                                                                                             |
+| `Config.keys.buyHouse`      | `"ENTER"`     | Confirm house purchase                                                                                                                                                                                                                                                                                                                                                                               |
+| `Config.keys.knockOnHouse`  | `"K"`         | Knock on someone's door                                                                                                                                                                                                                                                                                                                                                                              |
+| `Config.keys.enterHouse`    | `"ENTER"`     | Enter owned house                                                                                                                                                                                                                                                                                                                                                                                    |
+| `Config.keys.leaveHouse`    | `"X"`         | Exit house                                                                                                                                                                                                                                                                                                                                                                                           |
+| `Config.keys.manageHouse`   | `"M"`         | Open house management menu                                                                                                                                                                                                                                                                                                                                                                           |
+| ... and many more           |               | See the `Configuration file` tab above for an exhaustive list, and see [Keyboard keys mapping](/jo_libs/modules/raw-keys/client#keyboard-keys-mapping) for a list of all available keys. This script uses the [raw keys](/jo_libs/modules/raw-keys/) module, if you have any problem with the prompts you should [set the keyboard layout](/jo_libs/modules/raw-keys/client#setting-keyboard-layout) |
 
 #### Interior Configuration
 
-| Property | Default Value | Description |
-|----------|---------------|-------------|
-| `Config.interiorsCategoriesMaxFurnitures.default` | `100` | Default furniture limit for interior categories |
-| `Config.interiorsCategoriesMaxFurnitures.X` | `200` | Furniture limit for specific interior categories. Replace X with: <br>• `shack`<br>• `rock_shack`<br>• `house`<br>• `flat`<br>• `manor`<br>• `worker` |
-| `Config.interiorsMaxFurnitures` | `{jo_pai_house = 100}` | Specific furniture limits per interior ID |
-| `Config.interiorsBlacklist` | `{}` | Interior IDs to hide from selection (commented examples included) |
+| Property                                          | Default Value          | Description                                                                                                                                           |
+| ------------------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Config.interiorsCategoriesMaxFurnitures.default` | `100`                  | Default furniture limit for interior categories                                                                                                       |
+| `Config.interiorsCategoriesMaxFurnitures.X`       | `200`                  | Furniture limit for specific interior categories. Replace X with: <br>• `shack`<br>• `rock_shack`<br>• `house`<br>• `flat`<br>• `manor`<br>• `worker` |
+| `Config.interiorsMaxFurnitures`                   | `{jo_pai_house = 100}` | Specific furniture limits per interior ID                                                                                                             |
+| `Config.interiorsBlacklist`                       | `{}`                   | Interior IDs to hide from selection (commented examples included)                                                                                     |
 
 #### Furniture Configuration
 
-| Property | Default Value | Description |
-|----------|---------------|-------------|
-| `Config.furnituresCategoriesPrices.default` | `{money = 100, gold = 1}` | Default pricing for furniture categories |
-| `Config.furnituresCategoriesPrices.X` | `{money = 50, gold = 2}` | Pricing for specific furniture categories. Replace X with: <br>• `beds`<br>• `carpets`<br>• `cabinets`<br>• `chairs`<br>• `tables`<br>• `desks`<br>• `fireplaces`<br>• `lamps`<br>• `plants`<br>• `sofas`<br>• `wall_decorations`<br>• `decorations`<br>• `bathroom`<br>• `kitchen`<br>• `food`<br>• `curtains` |
-| `Config.furnituresPrices` | `{p_bath02x = {money = 200, gold = 10}}` | Specific pricing per furniture model |
+| Property                                    | Default Value                            | Description                                                                                                                                                                                                                                                                                                     |
+| ------------------------------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Config.furnituresCategoriesPrices.default` | `{money = 100, gold = 1}`                | Default pricing for furniture categories                                                                                                                                                                                                                                                                        |
+| `Config.furnituresCategoriesPrices.X`       | `{money = 50, gold = 2}`                 | Pricing for specific furniture categories. Replace X with: <br>• `beds`<br>• `carpets`<br>• `cabinets`<br>• `chairs`<br>• `tables`<br>• `desks`<br>• `fireplaces`<br>• `lamps`<br>• `plants`<br>• `sofas`<br>• `wall_decorations`<br>• `decorations`<br>• `bathroom`<br>• `kitchen`<br>• `food`<br>• `curtains` |
+| `Config.furnituresPrices`                   | `{p_bath02x = {money = 200, gold = 10}}` | Specific pricing per furniture model                                                                                                                                                                                                                                                                            |
 
 :::
 
@@ -640,7 +627,7 @@ Use the housing script's server actions to control your framework's weather sync
 
 ```lua
 -- Disable weather sync when entering a house
-exports.jo_housing:registerAction('server:houseEntered', function(source, house, isVisiting)
+exports.jo_housing:registerAction('houseEntered', function(source, house, isVisiting)
     -- Example for different frameworks:
     
     -- VORP Framework
@@ -654,7 +641,7 @@ exports.jo_housing:registerAction('server:houseEntered', function(source, house,
 end)
 
 -- Re-enable weather sync when leaving a house  
-exports.jo_housing:registerAction('server:houseLeft', function(source, house)
+exports.jo_housing:registerAction('houseLeft', function(source, house)
     -- Example for different frameworks:
     
     -- VORP Framework
@@ -668,7 +655,7 @@ exports.jo_housing:registerAction('server:houseLeft', function(source, house)
 end)
 ```
 
-Reference: [server:houseEntered action](#server-houseentered) and [server:houseLeft action](#server-houseleft)
+Reference: [houseEntered action](#server-houseentered) and [houseLeft action](#server-houseleft)
 :::
 
 :::details Can I add custom interiors ?
@@ -803,94 +790,92 @@ This script uses the [raw keys](/jo_libs/modules/raw-keys/) module. If you have 
 ### Actions
 
 Actions are one of the two types of Hooks. They provide a way for running a function at a specific point in the execution of scripts. Callback functions for an Action do not return anything back to the calling Action hook. They are the counterpart to Filters.
-
-#### Available Actions
-
+  
 Below is a complete list of all available actions in the jo_housing script. All these actions are **server-side**.
 
 ##### House Management Actions
 
 
-#### <Badge type="server" text="Server" /> server:houseLocationMenuOpened
+#### <Badge type="server" text="Server" /> houseLocationMenuOpened
 Triggered when a player opens the house location menu.
 
 ```lua
 -- @param source - serverID of the player
 -- @param houses - array of nearby houses
-exports.jo_housing:registerAction('server:houseLocationMenuOpened', function(source, houses)
+exports.jo_housing:registerAction('houseLocationMenuOpened', function(source, houses)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:houseBought
+#### <Badge type="server" text="Server" /> houseBought
 Triggered when a player successfully purchases a house.
 
 ```lua
 -- @param source - serverID of the buyer
 -- @param house - the house object that was purchased
-exports.jo_housing:registerAction('server:houseBought', function(source, house)
+exports.jo_housing:registerAction('houseBought', function(source, house)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:houseEntered
+#### <Badge type="server" text="Server" /> houseEntered
 Triggered when a player enters a house.
 
 ```lua
 -- @param source - serverID of the player
 -- @param house - the house object being entered
 -- @param isVisiting - boolean indicating if the player is visiting
-exports.jo_housing:registerAction('server:houseEntered', function(source, house, isVisiting)
+exports.jo_housing:registerAction('houseEntered', function(source, house, isVisiting)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:houseLeft
+#### <Badge type="server" text="Server" /> houseLeft
 Triggered when a player leaves a house.
 
 ```lua
 -- @param source - serverID of the player
 -- @param house - the house object being left
-exports.jo_housing:registerAction('server:houseLeft', function(source, house)
+exports.jo_housing:registerAction('houseLeft', function(source, house)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:houseCreated
+#### <Badge type="server" text="Server" /> houseCreated
 Triggered when a new house is created .
 
 ```lua
 -- @param source - serverID of the player who created the house
 -- @param house - the newly created house object
-exports.jo_housing:registerAction('server:houseCreated', function(source, house)
+exports.jo_housing:registerAction('houseCreated', function(source, house)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:houseUpdated
+#### <Badge type="server" text="Server" /> houseUpdated
 Triggered when an existing house is updated .
 
 ```lua
 -- @param source - serverID of the player who updated the house
 -- @param house - the updated house object
 -- @param changeset - table containing the changes made
-exports.jo_housing:registerAction('server:houseUpdated', function(source, house, changeset)
+exports.jo_housing:registerAction('houseUpdated', function(source, house, changeset)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:houseDeleted
+#### <Badge type="server" text="Server" /> houseDeleted
 Triggered when a house is deleted .
 
 ```lua
 -- @param source - serverID of the player who deleted the house
 -- @param house - the house object that was deleted
-exports.jo_housing:registerAction('server:houseDeleted', function(source, house)
+exports.jo_housing:registerAction('houseDeleted', function(source, house)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:houseTransfered
+#### <Badge type="server" text="Server" /> houseTransfered
 Triggered when house ownership is transferred to another player.
 
 ```lua
@@ -898,100 +883,100 @@ Triggered when house ownership is transferred to another player.
 -- @param toPlayerSrc - serverID of the new owner
 -- @param house - the house object being transferred
 -- @param transferDone - boolean indicating if transfer was successful
-exports.jo_housing:registerAction('server:houseTransfered', function(source, toPlayerSrc, house, transferDone)
+exports.jo_housing:registerAction('houseTransfered', function(source, toPlayerSrc, house, transferDone)
     -- Your code here
 end)
 ```
 
 ##### Furniture Actions
 
-#### <Badge type="server" text="Server" /> server:buildModeEntered
+#### <Badge type="server" text="Server" /> buildModeEntered
 Triggered when a player enters build mode in their house.
 
 ```lua
 -- @param source - serverID of the player
-exports.jo_housing:registerAction('server:buildModeEntered', function(source)
+exports.jo_housing:registerAction('buildModeEntered', function(source)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:furnitureBought
+#### <Badge type="server" text="Server" /> furnitureBought
 Triggered when a player purchases furniture for their house.
 
 ```lua
 -- @param source - serverID of the player
 -- @param house - the house object where furniture was bought
 -- @param furniture - the furniture object that was purchased
-exports.jo_housing:registerAction('server:furnitureBought', function(source, house, furniture)
+exports.jo_housing:registerAction('furnitureBought', function(source, house, furniture)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:furnitureMoved
+#### <Badge type="server" text="Server" /> furnitureMoved
 Triggered when furniture is moved within a house.
 
 ```lua
 -- @param source - serverID of the player
 -- @param house - the house object containing the furniture
 -- @param furnitureId - ID of the furniture that was moved
-exports.jo_housing:registerAction('server:furnitureMoved', function(source, house, furnitureId)
+exports.jo_housing:registerAction('furnitureMoved', function(source, house, furnitureId)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:furnitureDeleted
+#### <Badge type="server" text="Server" /> furnitureDeleted
 Triggered when furniture is deleted from a house.
 
 ```lua
 -- @param source - serverID of the player
 -- @param house - the house object containing the furniture
 -- @param furnitureId - ID of the furniture that was deleted
-exports.jo_housing:registerAction('server:furnitureDeleted', function(source, house, furnitureId)
+exports.jo_housing:registerAction('furnitureDeleted', function(source, house, furnitureId)
     -- Your code here
 end)
 ```
 
 ##### Storage & Features Actions
 
-#### <Badge type="server" text="Server" /> server:dressingLocationSet
+#### <Badge type="server" text="Server" /> dressingLocationSet
 Triggered when a dressing room location is set in a house.
 
 ```lua
 -- @param source - serverID of the player
 -- @param house - the house object
 -- @param coords - coordinates of the dressing location
-exports.jo_housing:registerAction('server:dressingLocationSet', function(source, house, coords)
+exports.jo_housing:registerAction('dressingLocationSet', function(source, house, coords)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:storageLocationSet
+#### <Badge type="server" text="Server" /> storageLocationSet
 Triggered when a storage location is set in a house.
 
 ```lua
 -- @param source - serverID of the player
 -- @param house - the house object
 -- @param coords - coordinates of the storage location
-exports.jo_housing:registerAction('server:storageLocationSet', function(source, house, coords)
+exports.jo_housing:registerAction('storageLocationSet', function(source, house, coords)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:houseStorageOpened
+#### <Badge type="server" text="Server" /> houseStorageOpened
 Triggered when a player opens house storage.
 
 ```lua
 -- @param source - serverID of the player
 -- @param house - the house object
 -- @param invId - inventory ID that was opened
-exports.jo_housing:registerAction('server:houseStorageOpened', function(source, house, invId)
+exports.jo_housing:registerAction('houseStorageOpened', function(source, house, invId)
     -- Your code here
 end)
 ```
 
 ##### Access Management Actions
 
-#### <Badge type="server" text="Server" /> server:playerAddedToHouse
+#### <Badge type="server" text="Server" /> playerAddedToHouse
 Triggered when a player is added to a house's access list.
 
 ```lua
@@ -999,12 +984,12 @@ Triggered when a player is added to a house's access list.
 -- @param house - the house object
 -- @param playerSrc - serverID of the player being added
 -- @param playerName - name of the player being added
-exports.jo_housing:registerAction('server:playerAddedToHouse', function(source, house, playerSrc, playerName)
+exports.jo_housing:registerAction('playerAddedToHouse', function(source, house, playerSrc, playerName)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:playerRemovedFromHouse
+#### <Badge type="server" text="Server" /> playerRemovedFromHouse
 Triggered when a player is removed from a house's access list.
 
 ```lua
@@ -1012,38 +997,38 @@ Triggered when a player is removed from a house's access list.
 -- @param house - the house object
 -- @param accessibilityId - ID of the access entry that was removed
 -- @param success - boolean indicating if removal was successful
-exports.jo_housing:registerAction('server:playerRemovedFromHouse', function(source, house, accessibilityId, success)
+exports.jo_housing:registerAction('playerRemovedFromHouse', function(source, house, accessibilityId, success)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:accessibilityChanged
+#### <Badge type="server" text="Server" /> accessibilityChanged
 Triggered when house accessibility settings are changed.
 
 ```lua
 -- @param source - serverID of the house owner
 -- @param house - the house object
 -- @param accessibilityType - new accessibility type ("everyone", "list", or "onlyMe")
-exports.jo_housing:registerAction('server:accessibilityChanged', function(source, house, accessibilityType)
+exports.jo_housing:registerAction('accessibilityChanged', function(source, house, accessibilityType)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:knockedOnHouse
+#### <Badge type="server" text="Server" /> knockedOnHouse
 Triggered when someone knocks on a house door.
 
 ```lua
 -- @param source - serverID of the player knocking
 -- @param house - the house object being knocked on
 -- @param foundSources - array of player sources inside the house who were notified
-exports.jo_housing:registerAction('server:knockedOnHouse', function(source, house, foundSources)
+exports.jo_housing:registerAction('knockedOnHouse', function(source, house, foundSources)
     -- Your code here
 end)
 ```
 
 ##### Rental & Keys Actions
 
-#### <Badge type="server" text="Server" /> server:rentPaid
+#### <Badge type="server" text="Server" /> rentPaid
 Triggered when rent is paid for a house.
 
 ```lua
@@ -1054,30 +1039,30 @@ Triggered when rent is paid for a house.
 -- @param totalPrice - total amount paid
 -- @param moneyType - payment type (0 for money, 1 for gold)
 -- @param success - boolean indicating if payment was successful
-exports.jo_housing:registerAction('server:rentPaid', function(source, house, numPeriods, isDaily, totalPrice, moneyType, success)
+exports.jo_housing:registerAction('rentPaid', function(source, house, numPeriods, isDaily, totalPrice, moneyType, success)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:houseLockChanged
+#### <Badge type="server" text="Server" /> houseLockChanged
 Triggered when a house lock is changed.
 
 ```lua
 -- @param source - serverID of the house owner
 -- @param house - the house object
 -- @param success - boolean indicating if lock change was successful
-exports.jo_housing:registerAction('server:houseLockChanged', function(source, house, success)
+exports.jo_housing:registerAction('houseLockChanged', function(source, house, success)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> server:houseKeyBought
+#### <Badge type="server" text="Server" /> houseKeyBought
 Triggered when a new house key is purchased.
 
 ```lua
 -- @param source - serverID of the player buying the key
 -- @param house - the house object
-exports.jo_housing:registerAction('server:houseKeyBought', function(source, house)
+exports.jo_housing:registerAction('houseKeyBought', function(source, house)
     -- Your code here
 end)
 ```
@@ -1085,19 +1070,7 @@ end)
 ### Filters
 
 [Filters](/DeveloperResources/filters) allow you to modify data or control permissions during script execution. Introduced in `v1.2.0`, filters provide a **synchronous** way to intercept and modify script behavior at specific points, unlike events which are asynchronous.
-
-#### Using Filters
-
-```lua
--- Register a filter that intercepts and potentially modifies a value
-exports.jo_housing:registerFilter('filterName', function(value, otherParams)
-    -- Modify the value or check permissions
-    return value -- Must return the modified/original value
-end)
-```
-
-#### Available Filters
-
+  
 Below is a complete list of all available filters in the jo_housing script. All these filters are **server-side**.
 
 #### <Badge type="server" text="Server" /> canUseHouseManagerCommand
@@ -1423,13 +1396,13 @@ end)
 
 **Interior Properties:**
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `entries` | `table` | ✅ | Array containing the main door spawn point (vec4 with heading). Only the first entry is used, coordinates are relative to interior origin |
-| `propset` | `string` | ✅ | Interior propset/MLO resource name |
-| `category` | `string` | ✅ | Interior category: `house`, `shack`, `manor`, `flat`, `rock_shack`, `worker` |
-| `numberRoom` | `number` | ✅ | Number of rooms in the interior |
-| `insideDoors` | `table` | ❌ | Optional array of interior doors with `model` and `position` properties |
+| Property      | Type     | Required | Description                                                                                                                               |
+| ------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `entries`     | `table`  | ✅        | Array containing the main door spawn point (vec4 with heading). Only the first entry is used, coordinates are relative to interior origin |
+| `propset`     | `string` | ✅        | Interior propset/MLO resource name                                                                                                        |
+| `category`    | `string` | ✅        | Interior category: `house`, `shack`, `manor`, `flat`, `rock_shack`, `worker`                                                              |
+| `numberRoom`  | `number` | ✅        | Number of rooms in the interior                                                                                                           |
+| `insideDoors` | `table`  | ❌        | Optional array of interior doors with `model` and `position` properties                                                                   |
 
 :::tip 💡 Interior Configuration
 - Configure furniture limits for your custom interiors using [`Config.interiorsMaxFurnitures`](#interior-configuration) or category limits with [`Config.interiorsCategoriesMaxFurnitures`](#interior-configuration)
