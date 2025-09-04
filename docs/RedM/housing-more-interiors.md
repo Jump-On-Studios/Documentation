@@ -7,9 +7,6 @@ Documentation relating to the **jo_housing_more_interiors** add-on for the [Hous
 [Buy the add-on](hhttps://jumpon-studios.com/redm/housing-more-interiors)
 :::
 
-::: tab PREVIEW
-todo
-:::
 ::::
 
 
