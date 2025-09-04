@@ -1066,6 +1066,112 @@ end)
   
 Below is a complete list of all available filters in the jo_housing script.
 
+
+#### <Badge type="server" text="Server" /> addFurnitures
+Allows you to add custom furniture categories and items to the housing system.
+
+```lua
+-- @param customFurnitures - empty table by default
+-- @return table - table with custom furniture categories
+exports.jo_housing:registerFilter('addFurnitures', function(customFurnitures)
+    -- Add your custom furniture categories
+    customFurnitures.custom_electronics = {
+        "p_tv01x",
+        "p_radio01x", 
+        "p_lamp_handheld01x"
+    }
+    
+    customFurnitures.outdoor_furniture = {
+        "p_bench05x",
+        "p_campfire01x",
+        "p_tent01x"
+    }
+    
+    return customFurnitures
+end)
+```
+
+:::tip 💡 Custom Furniture Pricing
+Don't forget to configure pricing for your custom categories in [`Config.furnituresCategoriesPrices`](#furniture-configuration) or specific items in [`Config.furnituresPrices`](#furniture-configuration).
+
+```lua
+-- In your overwriteConfig.lua
+Config.furnituresCategoriesPrices.custom_electronics = {
+    money = 250,
+    gold = 3
+}
+
+Config.furnituresCategoriesPrices.outdoor_furniture = {
+    money = 75,
+    gold = 1
+}
+```
+:::
+
+#### <Badge type="server" text="Server" /> addInteriors
+Allows you to add custom interior configurations to the housing system.
+
+```lua
+-- @param customInteriors - empty table by default
+-- @return table - table with custom interior configurations
+exports.jo_housing:registerFilter('addInteriors', function(customInteriors)
+    -- Add your custom interiors
+    customInteriors.my_custom_cabin = {
+        entries = {
+            vec4(2.022125, -0.556265, 1.696404, 91.094)  -- Main door spawn point (relative to interior origin)
+        },
+        propset = "my_custom_cabin",     -- Interior propset/MLO name
+        category = "shack",              -- Interior category (house, shack, manor, flat, rock_shack, worker)
+        numberRoom = 2,                  -- Number of rooms in the interior
+        insideDoors = {                  -- Optional: Interior working doors configuration
+            { 
+                model = "p_door04x", 
+                position = vec3(0.062589, -4.6552873, 0.738253) 
+            },
+            { 
+                model = "p_door04x", 
+                position = vec3(-1.473662, -4.661302, 0.738253) 
+            },
+        }
+    }
+    
+    customInteriors.luxury_penthouse = {
+        entries = {
+            vec4(0.0, 0.0, 2.0, 180.0)  -- Main door spawn point (relative to interior origin)
+        },
+        propset = "luxury_penthouse_mlo",
+        category = "manor",
+        numberRoom = 8
+        -- insideDoors is optional - omit if no working interior doors needed
+    }
+    
+    return customInteriors
+end)
+```
+
+**Interior Properties:**
+
+| Property      | Type     | Required | Description                                                                                                                               |
+| ------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `entries`     | `table`  | ✅        | Array containing the main door spawn point (vec4 with heading). Only the first entry is used, coordinates are relative to interior origin |
+| `propset`     | `string` | ✅        | Interior propset/MLO resource name                                                                                                        |
+| `category`    | `string` | ✅        | Interior category: `house`, `shack`, `manor`, `flat`, `rock_shack`, `worker`                                                              |
+| `numberRoom`  | `number` | ✅        | Number of rooms in the interior                                                                                                           |
+| `insideDoors` | `table`  | ❌        | Optional array of interior doors with `model` and `position` properties                                                                   |
+
+:::tip 💡 Interior Configuration
+- Configure furniture limits for your custom interiors using [`Config.interiorsMaxFurnitures`](#interior-configuration) or category limits with [`Config.interiorsCategoriesMaxFurnitures`](#interior-configuration)
+- Test your interior coordinates thoroughly - use `/houseManager` visit mode to preview placement
+- Interior categories affect available furniture limits and UI organization
+
+```lua
+-- In your overwriteConfig.lua
+Config.interiorsMaxFurnitures.my_custom_cabin = 150
+Config.interiorsCategoriesMaxFurnitures.luxury = 300  -- If you add a custom category
+```
+:::
+
+
 #### <Badge type="server" text="Server" /> canAddPlayerToHouse
 Controls who can add players to a house's access list.
 
@@ -1334,106 +1440,3 @@ end)
 
 
 
-#### <Badge type="server" text="Server" /> addFurnitures
-Allows you to add custom furniture categories and items to the housing system.
-
-```lua
--- @param customFurnitures - empty table by default
--- @return table - table with custom furniture categories
-exports.jo_housing:registerFilter('addFurnitures', function(customFurnitures)
-    -- Add your custom furniture categories
-    customFurnitures.custom_electronics = {
-        "p_tv01x",
-        "p_radio01x", 
-        "p_lamp_handheld01x"
-    }
-    
-    customFurnitures.outdoor_furniture = {
-        "p_bench05x",
-        "p_campfire01x",
-        "p_tent01x"
-    }
-    
-    return customFurnitures
-end)
-```
-
-:::tip 💡 Custom Furniture Pricing
-Don't forget to configure pricing for your custom categories in [`Config.furnituresCategoriesPrices`](#furniture-configuration) or specific items in [`Config.furnituresPrices`](#furniture-configuration).
-
-```lua
--- In your overwriteConfig.lua
-Config.furnituresCategoriesPrices.custom_electronics = {
-    money = 250,
-    gold = 3
-}
-
-Config.furnituresCategoriesPrices.outdoor_furniture = {
-    money = 75,
-    gold = 1
-}
-```
-:::
-
-#### <Badge type="server" text="Server" /> addInteriors
-Allows you to add custom interior configurations to the housing system.
-
-```lua
--- @param customInteriors - empty table by default
--- @return table - table with custom interior configurations
-exports.jo_housing:registerFilter('addInteriors', function(customInteriors)
-    -- Add your custom interiors
-    customInteriors.my_custom_cabin = {
-        entries = {
-            vec4(2.022125, -0.556265, 1.696404, 91.094)  -- Main door spawn point (relative to interior origin)
-        },
-        propset = "my_custom_cabin",     -- Interior propset/MLO name
-        category = "shack",              -- Interior category (house, shack, manor, flat, rock_shack, worker)
-        numberRoom = 2,                  -- Number of rooms in the interior
-        insideDoors = {                  -- Optional: Interior working doors configuration
-            { 
-                model = "p_door04x", 
-                position = vec3(0.062589, -4.6552873, 0.738253) 
-            },
-            { 
-                model = "p_door04x", 
-                position = vec3(-1.473662, -4.661302, 0.738253) 
-            },
-        }
-    }
-    
-    customInteriors.luxury_penthouse = {
-        entries = {
-            vec4(0.0, 0.0, 2.0, 180.0)  -- Main door spawn point (relative to interior origin)
-        },
-        propset = "luxury_penthouse_mlo",
-        category = "manor",
-        numberRoom = 8
-        -- insideDoors is optional - omit if no working interior doors needed
-    }
-    
-    return customInteriors
-end)
-```
-
-**Interior Properties:**
-
-| Property      | Type     | Required | Description                                                                                                                               |
-| ------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `entries`     | `table`  | ✅        | Array containing the main door spawn point (vec4 with heading). Only the first entry is used, coordinates are relative to interior origin |
-| `propset`     | `string` | ✅        | Interior propset/MLO resource name                                                                                                        |
-| `category`    | `string` | ✅        | Interior category: `house`, `shack`, `manor`, `flat`, `rock_shack`, `worker`                                                              |
-| `numberRoom`  | `number` | ✅        | Number of rooms in the interior                                                                                                           |
-| `insideDoors` | `table`  | ❌        | Optional array of interior doors with `model` and `position` properties                                                                   |
-
-:::tip 💡 Interior Configuration
-- Configure furniture limits for your custom interiors using [`Config.interiorsMaxFurnitures`](#interior-configuration) or category limits with [`Config.interiorsCategoriesMaxFurnitures`](#interior-configuration)
-- Test your interior coordinates thoroughly - use `/houseManager` visit mode to preview placement
-- Interior categories affect available furniture limits and UI organization
-
-```lua
--- In your overwriteConfig.lua
-Config.interiorsMaxFurnitures.my_custom_cabin = 150
-Config.interiorsCategoriesMaxFurnitures.luxury = 300  -- If you add a custom category
-```
-:::
