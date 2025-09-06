@@ -423,3 +423,16 @@ Trucks[`biftowmfd2`] = {
   wheelLift = { 5 }
 }
 ```
+
+### [20ramrbc](https://www.redneckmods.com/products/2020-5500-crew-single-cab-rollback-tow-trucks)
+```lua
+Trucks[`20ramrbc`] = {
+  winchBone = "attach_male",
+  winchOffset = vector3(0.0, 0.0, 0.0),
+  attachVehBone = "misc_z",
+  attachOffset = vector4(0.0, 0.75, 0.0, 0.0),
+  minBedPosition = 0.015,
+  maxBedPosition = 13.0,
+  minWinchLength = 1.0
+}
+```
