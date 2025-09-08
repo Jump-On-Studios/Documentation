@@ -4,16 +4,8 @@
     <div class="filters">
       <div class="filter-group">
         <label for="category-filter">Category:</label>
-        <select
-          id="category-filter"
-          v-model="selectedCategory"
-          class="filter-select"
-        >
-          <option
-            v-for="option in categoryOptions"
-            :key="option.value"
-            :value="option.value"
-          >
+        <select id="category-filter" v-model="selectedCategory" class="filter-select">
+          <option v-for="option in categoryOptions" :key="option.value" :value="option.value">
             {{ option.label }}
           </option>
         </select>
@@ -22,11 +14,7 @@
       <div class="filter-group">
         <label for="room-filter">Rooms:</label>
         <select id="room-filter" v-model="selectedRooms" class="filter-select">
-          <option
-            v-for="option in availableRoomOptions"
-            :key="option.value"
-            :value="option.value"
-          >
+          <option v-for="option in availableRoomOptions" :key="option.value" :value="option.value">
             {{ option.label }}
           </option>
         </select>
@@ -35,11 +23,7 @@
       <div class="filter-group">
         <label for="addon-filter">Script:</label>
         <select id="addon-filter" v-model="selectedAddon" class="filter-select">
-          <option
-            v-for="option in addonOptions"
-            :key="option.value"
-            :value="option.value"
-          >
+          <option v-for="option in addonOptions" :key="option.value" :value="option.value">
             {{ option.label }}
           </option>
         </select>
@@ -61,33 +45,16 @@
     </div>
 
     <!-- Gallery Grid -->
-    <div
-      v-if="showGallery && filteredInteriors.length > 0"
-      class="gallery-grid"
-    >
-      <div
-        v-for="interior in filteredInteriors"
-        :key="interior.id"
-        class="gallery-item"
-      >
-        <img
-          :src="`/images/interiors/${interior.id}.webp`"
-          :alt="interior.id"
-          class="data-zoomable preview"
-          data-zoomable
-          loading="lazy"
-        />
+    <div v-if="showGallery && filteredInteriors.length > 0" class="gallery-grid">
+      <div v-for="interior in filteredInteriors" :key="interior.id" class="gallery-item">
+        <img :src="`/images/interiors/${interior.id}.webp`" :alt="interior.id" class="data-zoomable preview" data-zoomable loading="lazy" />
         <div class="interior-info">
           <h4>{{ interior.id }}</h4>
           <div class="interior-meta">
             <span class="category">
               {{ formatCategory(interior.category) }}
             </span>
-            <span
-              v-if="interior.addon !== 'main'"
-              class="addon-badge"
-              :class="`addon-${interior.addon}`"
-            >
+            <span v-if="interior.addon !== 'main'" class="addon-badge" :class="`addon-${interior.addon}`">
               {{ addonMapping[interior.addon] }}
             </span>
             <span class="rooms">
@@ -789,10 +756,11 @@ onMounted(() => {
     // Handle URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const addonParam = urlParams.get("addon");
+    console.log(addonParam)
 
     if (
       addonParam &&
-      (addonParam === "main" || addonParam === "more_interiors")
+      addonOptions.find((option) => option.value === addonParam)
     ) {
       selectedAddon.value = addonParam;
       showGallery.value = true;
@@ -804,23 +772,23 @@ onMounted(() => {
           const targetElement = document.getElementById(elementId);
           if (targetElement) {
             targetElement.scrollIntoView({ behavior: "smooth" });
-            
+
             // Find and open the next <details> tag after the target element
-            const nextDetails = targetElement.parentElement?.querySelector('details:not([open])') || 
-                              document.querySelector(`#${elementId} ~ details:not([open])`) ||
-                              (() => {
-                                let current = targetElement;
-                                while (current && current.nextElementSibling) {
-                                  current = current.nextElementSibling;
-                                  if (current.tagName === 'DETAILS' && !current.hasAttribute('open')) {
-                                    return current;
-                                  }
-                                  const nestedDetails = current.querySelector('details:not([open])');
-                                  if (nestedDetails) return nestedDetails;
-                                }
-                                return null;
-                              })();
-            
+            const nextDetails = targetElement.parentElement?.querySelector('details:not([open])') ||
+              document.querySelector(`#${elementId} ~ details:not([open])`) ||
+              (() => {
+                let current = targetElement;
+                while (current && current.nextElementSibling) {
+                  current = current.nextElementSibling;
+                  if (current.tagName === 'DETAILS' && !current.hasAttribute('open')) {
+                    return current;
+                  }
+                  const nestedDetails = current.querySelector('details:not([open])');
+                  if (nestedDetails) return nestedDetails;
+                }
+                return null;
+              })();
+
             if (nextDetails) {
               nextDetails.setAttribute('open', '');
             }
