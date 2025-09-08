@@ -113,6 +113,11 @@
 <!-- #endregion g_client|jo.component.hairIsPomade -->
 
 
+<!-- #region g_client|jo.component.isCategoryAClothes -->
+
+<!-- #endregion g_client|jo.component.isCategoryAClothes -->
+
+
 <!-- #region g_client|jo.component.isCategoryEquiped -->
 
 <!-- #endregion g_client|jo.component.isCategoryEquiped -->

@@ -849,6 +849,27 @@ Type : _boolean_
 
 ---
 
+### jo.component.isCategoryAClothes()
+
+<!-- @include: ./slots/headers.md#g_client|jo.component.isCategoryAClothes -->
+
+ <br>
+ <br>
+
+<!-- @include: ./slots/descriptions.md#g_client|jo.component.isCategoryAClothes -->
+
+#### Syntax
+
+```lua
+jo.component.isCategoryAClothes(category)
+```
+
+<!-- @include: ./slots/examples.md#g_client|jo.component.isCategoryAClothes -->
+
+<!-- @include: ./slots/footers.md#g_client|jo.component.isCategoryAClothes -->
+
+---
+
 ### jo.component.isCategoryEquiped()
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.isCategoryEquiped -->
