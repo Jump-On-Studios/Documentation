@@ -38,16 +38,6 @@
 <!-- #endregion g_client|jo.component.getBaseLayer -->
 
 
-<!-- #region g_client|jo.component.getBodiesLowerFromSkinTone -->
-
-<!-- #endregion g_client|jo.component.getBodiesLowerFromSkinTone -->
-
-
-<!-- #region g_client|jo.component.getBodiesUpperFromSkinTone -->
-
-<!-- #endregion g_client|jo.component.getBodiesUpperFromSkinTone -->
-
-
 <!-- #region g_client|jo.component.getCategoriesEquiped -->
 
 <!-- #endregion g_client|jo.component.getCategoriesEquiped -->
@@ -78,24 +68,9 @@
 <!-- #endregion g_client|jo.component.getComponentsEquiped -->
 
 
-<!-- #region g_client|jo.component.getEyesFromIndex -->
-
-<!-- #endregion g_client|jo.component.getEyesFromIndex -->
-
-
-<!-- #region g_client|jo.component.getHeadFromSkinTone -->
-
-<!-- #endregion g_client|jo.component.getHeadFromSkinTone -->
-
-
 <!-- #region g_client|jo.component.getPaletteNameFromHash -->
 
 <!-- #endregion g_client|jo.component.getPaletteNameFromHash -->
-
-
-<!-- #region g_client|jo.component.getTeethFromIndex -->
-
-<!-- #endregion g_client|jo.component.getTeethFromIndex -->
 
 
 <!-- #region g_client|jo.component.getWearableState -->
@@ -188,9 +163,24 @@
 <!-- #endregion g_shared|jo.component.formatComponentData -->
 
 
+<!-- #region g_shared|jo.component.getBodiesLowerFromSkinTone -->
+
+<!-- #endregion g_shared|jo.component.getBodiesLowerFromSkinTone -->
+
+
+<!-- #region g_shared|jo.component.getBodiesUpperFromSkinTone -->
+
+<!-- #endregion g_shared|jo.component.getBodiesUpperFromSkinTone -->
+
+
 <!-- #region g_shared|jo.component.getCategoryHash -->
 
 <!-- #endregion g_shared|jo.component.getCategoryHash -->
+
+
+<!-- #region g_shared|jo.component.getEyesFromIndex -->
+
+<!-- #endregion g_shared|jo.component.getEyesFromIndex -->
 
 
 <!-- #region g_shared|jo.component.getFullHorseComponentList -->
@@ -201,4 +191,14 @@
 <!-- #region g_shared|jo.component.getFullPedComponentList -->
 
 <!-- #endregion g_shared|jo.component.getFullPedComponentList -->
+
+
+<!-- #region g_shared|jo.component.getHeadFromSkinTone -->
+
+<!-- #endregion g_shared|jo.component.getHeadFromSkinTone -->
+
+
+<!-- #region g_shared|jo.component.getTeethFromIndex -->
+
+<!-- #endregion g_shared|jo.component.getTeethFromIndex -->
 
