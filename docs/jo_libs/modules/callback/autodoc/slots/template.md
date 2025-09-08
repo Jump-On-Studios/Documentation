@@ -13,14 +13,14 @@
 <!-- #endregion g_client|jo.callback.triggerServer -->
 
 
-<!-- #region g_server|jo.callback.register -->
+<!-- #region g_server|jo.callback.registerCallback -->
 
-<!-- #endregion g_server|jo.callback.register -->
+<!-- #endregion g_server|jo.callback.registerCallback -->
 
 
-<!-- #region g_server|jo.callback.registerLatent -->
+<!-- #region g_server|jo.callback.registerLatentCallback -->
 
-<!-- #endregion g_server|jo.callback.registerLatent -->
+<!-- #endregion g_server|jo.callback.registerLatentCallback -->
 
 
 <!-- #region g_server|jo.callback.triggerClient -->
