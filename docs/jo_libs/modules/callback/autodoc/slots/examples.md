@@ -55,6 +55,15 @@ end)
 ```
 <!-- #endregion g_server|jo.callback.register -->
 
+<!-- #region g_server|jo.callback.registerLatent -->
+#### Example
+```lua
+jo.callback.registerLatent('testServerCallback', function(source, value1, value2)
+  print(source, value1, value2)
+end)
+
+```
+<!-- #endregion g_server|jo.callback.registerLatent -->
 
 <!-- #region g_server|jo.callback.triggerClient -->
 #### Example

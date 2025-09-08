@@ -9,7 +9,7 @@ local tbl = {
   c = 10
 }
 local tbl2 = table.clearForNui(tbl)
-print(json.encode(tbl2))
+log(tbl2)
 -- Expected output: tbl2 = {a = 4, c = 10}
 
 ```
@@ -51,9 +51,9 @@ local tbl = {
   city = "New York"
 }
 local name = table.extract(tbl, "name")
-print(name)
+log(name)
 -- Expected output: "John"
-print(json.encode(tbl))
+log(tbl)
 -- Expected output: {age = 30, city = "New York"}
 
 ```
@@ -78,7 +78,7 @@ local filter = function(element, key, tble)
   return true
 end
 local tbl2 = table.filter(tbl, filter)
-print(json.encode(tbl2))
+log(tbl2)
 -- Expected output : tbl = {b=2}
 
 ```
@@ -141,7 +141,7 @@ local cb = function(element)
   return element * 2
 end
 local tbl2 = table.map(tbl, cb)
-print(json.encode(tbl2))
+log(tbl2)
 -- Expected output : tbl2 = {2,8,18,32}
 
 ```
@@ -172,14 +172,14 @@ local tbl3 = table.merge(tbl1, tbl2)
 local array1 = { 1, 2, 3 }
 local array2 = { 4, 5, 6 }
 local result = table.mergeAfter(array1, array2)
-print(json.encode(result))
+log(result)
 -- Expected output: [1, 2, 3, 4, 5, 6]
 
 -- Unlike table.merge which merges by keys
 local tbl1 = { a = 1, b = 2 }
 local tbl2 = { c = 3, d = 4 }
 local mergeAfterResult = table.mergeAfter(tbl1, tbl2)
-print(json.encode(mergeAfterResult))
+log(mergeAfterResult)
 -- Expected output: {a = 1, b = 2, 1 = 3, 2 = 4}
 
 ```
@@ -234,7 +234,7 @@ print(table.includes(tbl, 6)) -- Expected output: false
 ```lua
 local tbl = { 1, 2, 3, 4, 5 }
 local tbl2 = table.slice(tbl, 2, 4)
-print(json.encode(tbl2))
+log(tbl2)
 -- Expected output : tbl2 = {2,3,4}
 ```
 <!-- #endregion shared|table.slice -->
@@ -244,10 +244,21 @@ print(json.encode(tbl2))
 ```lua
 local tbl = { a = 1, b = 2 }
 table.upsert(tbl, "a", 10)
-print(json.encode(tbl))
+log(tbl)
 -- Expected output: {a = 10, b = 2}
 table.upsert(tbl, "c", 3)
-print(json.encode(tbl))
+log(tbl)
 -- Expected output: {a = 10, b = 2, c = 3}
 ```
 <!-- #endregion shared|table.upsert -->
+
+<!-- #region shared|table.deleteDeepValue -->
+#### Example
+```lua
+local tbl = { a = 1, b = { c = 2, d = 3 } }
+table.deleteDeepValue(tbl, "b", "c")
+log(tbl)
+-- Expected output: {a = 1, b = {d = 3}}
+```
+<!-- #endregion shared|table.deleteDeepValue -->
+

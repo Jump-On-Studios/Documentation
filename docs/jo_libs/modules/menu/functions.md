@@ -1,7 +1,7 @@
 ---
 outline: [1,3]
 ---
-# JO Menu  <BadgeClient/>
+# JO Menu
 A client side library to use the JO Menu in your scripts.  
 JO Menu is a NUI menu fully optimized and mouse and keyboard ready.
 
@@ -9,9 +9,9 @@ JO Menu is a NUI menu fully optimized and mouse and keyboard ready.
 
 [Download an example of menu resource](https://raw.githubusercontent.com/Jump-On-Studios/Documentation/main/docs/public/snippets/menu/snippet_menu.zip)
 
-<!--@include: ./autodoc/autodoc_client_functions.md-->
+<!--@include: ./autodoc/autodoc_functions_functions.md-->
 
-
+---
 # Variables
 
 ## CurrentData
@@ -22,19 +22,6 @@ The argument pass on each function
   
 `CurrentData.item` : *table*
 > The item active in the menu
-
-# Replace your old menu
-
-By default, the library is released with resource to replace the old framework menu.  
-
-### VORP
-Replace the `vorp_menu` resource by the one delivered with the library  
-  
-### RSG
-Replace the `rsg-menubase` resource by the one delivered with the library  
-  
-### RedEM:RP
-Replace the `redemrp_menu_base` resource by the one delivered with the library  
 
 # New assets
 

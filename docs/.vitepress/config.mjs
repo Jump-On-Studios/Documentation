@@ -83,6 +83,7 @@ let sideBarModules = GenerateMenu(libModules);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  srcExclude: ['**/autodoc/**'],
   ignoreDeadLinks: ["./user"],
   sitemap: {
     hostname: "https://docs.jumpon-studios.com",
@@ -322,7 +323,7 @@ export default defineConfig({
       { icon: "discord", link: "https://discord.com/invite/8rqVHnSb2K" },
     ],
     footer: {
-      copyright: "Copyright © 2025 Jump On",
+      copyright: "Copyright © 2017-2025 Jump On",
     },
     docFooter: {
       prev: false,

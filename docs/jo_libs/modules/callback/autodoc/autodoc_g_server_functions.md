@@ -12,7 +12,7 @@ A function to register a server callback <br>
 #### Syntax
 
 ```lua
-jo.callback.register(name, cb)
+jo.callback.register(name, cb, latent)
 ```
 
 #### Parameters
@@ -28,6 +28,36 @@ jo.callback.register(name, cb)
 <!-- @include: ./slots/examples.md#g_server|jo.callback.register -->
 
 <!-- @include: ./slots/footers.md#g_server|jo.callback.register -->
+
+---
+
+### jo.callback.registerLatent()
+
+<!-- @include: ./slots/headers.md#g_server|jo.callback.registerLatent -->
+
+A function to register a latent server callback <br>
+
+<!-- @include: ./slots/descriptions.md#g_server|jo.callback.registerLatent -->
+
+#### Syntax
+
+```lua
+jo.callback.registerLatent(name, cb)
+```
+
+#### Parameters
+
+`name` : _string_
+> The name of the callback event
+>
+
+`cb` : _function_
+> The function executed when the callback is triggered <br> ⚠️ `source` is always the first argument
+>
+
+<!-- @include: ./slots/examples.md#g_server|jo.callback.registerLatent -->
+
+<!-- @include: ./slots/footers.md#g_server|jo.callback.registerLatent -->
 
 ---
 
@@ -93,7 +123,7 @@ jo.callback.triggerServer(name, cb, ...)
 > Function to receive the result of the event
 >
 
-`...` : _mixed_ <BadgeOptional />
+`...` : _any_ <BadgeOptional />
 > The list of parameters to send to the callback event
 >
 

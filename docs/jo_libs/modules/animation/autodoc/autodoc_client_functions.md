@@ -1,6 +1,40 @@
 
 ## JO Functions
 
+### jo.animation.faceEntity()
+
+<!-- @include: ./slots/headers.md#client|jo.animation.faceEntity -->
+
+Turn the ped to face the target <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.animation.faceEntity -->
+
+#### Syntax
+
+```lua
+jo.animation.faceEntity(ped, target, waiter)
+```
+
+#### Parameters
+
+`ped` : _integer_
+> The ped to turn
+>
+
+`target` : _integer_
+> The target to face
+>
+
+`waiter` : _boolean_ <BadgeOptional />
+> If need to reach the heading to end the function - default:true
+>
+
+<!-- @include: ./slots/examples.md#client|jo.animation.faceEntity -->
+
+<!-- @include: ./slots/footers.md#client|jo.animation.faceEntity -->
+
+---
+
 ### jo.animation.goToCoords()
 
 <!-- @include: ./slots/headers.md#client|jo.animation.goToCoords -->
@@ -155,4 +189,22 @@ jo.animation.setDesiredHeading(ped, heading, waiter)
 <!-- @include: ./slots/examples.md#client|jo.animation.setDesiredHeading -->
 
 <!-- @include: ./slots/footers.md#client|jo.animation.setDesiredHeading -->
+
+---
+
+### jo.animation.waitTaskEnd()
+
+<!-- @include: ./slots/headers.md#client|jo.animation.waitTaskEnd -->
+
+<!-- @include: ./slots/descriptions.md#client|jo.animation.waitTaskEnd -->
+
+#### Syntax
+
+```lua
+jo.animation.waitTaskEnd(ped, task)
+```
+
+<!-- @include: ./slots/examples.md#client|jo.animation.waitTaskEnd -->
+
+<!-- @include: ./slots/footers.md#client|jo.animation.waitTaskEnd -->
 

@@ -1,10 +1,15 @@
 <script setup>
   import DefaultTheme from 'vitepress/theme'
   import { useRoute, useRouter } from 'vitepress'
-  import { computed, watch, onMounted, nextTick } from "vue";
+  import { computed, watch, onMounted, nextTick, ref } from "vue";
   import { useSidebar } from 'vitepress/theme'
   import mediumZoom from 'medium-zoom/dist/pure/medium-zoom.umd.js'
   const route = useRoute()
+  
+  // Redimensionnement de l'aside
+  const isResizing = ref(false)
+  const asideWidth = ref(null) // Pas de largeur par défaut
+  let animationFrame = null
 
   const { sidebar } = useSidebar()
   const { Layout } = DefaultTheme
@@ -58,15 +63,57 @@
   })
 
   let a = computed(() => {
-    console.log('a')
     return Math.random()
   })
 
   const initZoom = () => {
     mediumZoom('[data-zoomable]', { background: 'var(--zoom-bg)' });
   };
+  
+  // Fonctions de redimensionnement
+  const startResize = (event) => {
+    isResizing.value = true
+    document.body.style.cursor = 'ew-resize'
+    document.body.style.userSelect = 'none'
+    
+    const onMouseMove = (e) => {
+      if (!isResizing.value) return
+      
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame)
+      }
+      
+      animationFrame = requestAnimationFrame(() => {
+        const newWidth = window.innerWidth - e.clientX
+        if (newWidth >= 200 && newWidth <= 800) {
+          asideWidth.value = newWidth
+          updateAsideWidth()
+        }
+      })
+    }
+    
+    const onMouseUp = () => {
+      isResizing.value = false
+      document.body.style.cursor = ''
+      document.body.style.userSelect = ''
+      document.removeEventListener('mousemove', onMouseMove)
+      document.removeEventListener('mouseup', onMouseUp)
+    }
+    
+    document.addEventListener('mousemove', onMouseMove)
+    document.addEventListener('mouseup', onMouseUp)
+  }
+  
+  const updateAsideWidth = () => {
+    if (!asideWidth.value) return // Ne rien faire si pas de largeur définie
+    
+    // Mettre à jour uniquement la variable CSS globale
+    document.documentElement.style.setProperty('--aside-width', `${asideWidth.value}px`)
+  }
+  
   onMounted(() => {
     initZoom();
+    // Ne pas appliquer de largeur au démarrage
   });
   watch(
     () => route.path,
@@ -85,6 +132,14 @@
             </a>
           </template>
       </Breadcrumb>
+    </template>
+    
+    <template #aside-outline-before>
+      <div 
+        class="resize-handle" 
+        @mousedown="startResize"
+        :class="{ 'resizing': isResizing }"
+      ></div>
     </template>
   </Layout>
 </template>

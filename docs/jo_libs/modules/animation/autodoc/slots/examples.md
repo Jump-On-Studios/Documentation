@@ -41,7 +41,34 @@ local ped = PlayerPedId()
 local heading = 180.0
 local waiter = true
 jo.animation.setDesiredHeading(ped, heading, waiter)
-
 ```
 <!-- #endregion client|jo.animation.setDesiredHeading -->
 
+
+<!-- #region client|jo.animation.faceEntity -->
+#### Example
+```lua
+local ped = PlayerPedId()
+local targetSource = 5
+local targetEntity = GetPlayerPed(GetPlayerFromServerId(targetSource))
+local waiter = true
+jo.animation.faceEntity(ped, targetSource, targetEntity, waiter)
+```
+<!-- #endregion client|jo.animation.faceEntity -->
+
+<!-- #region client|jo.animation.waitTaskEnd -->
+#### Example
+```lua
+local ped = PlayerPedId()
+local coordinates = vec3(1324.0, 234.0, 50.0)
+local speed = 1.0
+local maxTime = -1
+local radiusEnd = 2.0
+local flags = 2 -- Slide at end
+local finalHeading = 180.0
+TaskFollowNavMeshToCoord(ped, coordinates, speed, maxTime, radiusEnd, flags, finalHeading)
+local task = `SCRIPT_TASK_FOLLOW_NAV_MESH_TO_COORD`
+jo.animation.waitTaskEnd(ped, task)
+print('Task ended. Player reached the coordinates')
+```
+<!-- #endregion client|jo.animation.waitTaskEnd -->

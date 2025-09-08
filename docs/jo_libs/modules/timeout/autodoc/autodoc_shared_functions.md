@@ -29,7 +29,7 @@ jo.timeout.delay(id, msec, cb, ...)
 > The function executed after msec
 >
 
-`...` : _mixed_
+`...` : _any_
 > Additional arguments to pass to the callback function
 >
 
@@ -69,7 +69,7 @@ jo.timeout.loop(msec, cb, ...)
 > The function executed every msec ms
 >
 
-`...` : _mixed_
+`...` : _any_
 > Additional arguments to pass to the callback function
 >
 
@@ -82,6 +82,50 @@ Type : _[TimeoutClass](#timeoutclass-methods)_
 <!-- @include: ./slots/examples.md#shared|jo.timeout.loop -->
 
 <!-- @include: ./slots/footers.md#shared|jo.timeout.loop -->
+
+---
+
+### jo.timeout.noSpam()
+
+<!-- @include: ./slots/headers.md#shared|jo.timeout.noSpam -->
+
+A function to delay the second execution. If another delay is created with the same id, the previous one is canceled <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.timeout.noSpam -->
+
+#### Syntax
+
+```lua
+jo.timeout.noSpam(id, msec, cb, ...)
+```
+
+#### Parameters
+
+`id` : _string_
+> The unique ID of the delay
+>
+
+`msec` : _integer|function_
+> The duration before execute cb or a waiter function
+>
+
+`cb` : _function_
+> The function executed after msec
+>
+
+`...` : _any_
+> Additional arguments to pass to the callback function
+>
+
+#### Return Value
+
+Type : _[TimeoutClass](#timeoutclass-methods)_
+
+> Return the timeout instance
+
+<!-- @include: ./slots/examples.md#shared|jo.timeout.noSpam -->
+
+<!-- @include: ./slots/footers.md#shared|jo.timeout.noSpam -->
 
 ---
 
@@ -109,7 +153,7 @@ jo.timeout.set(msec, cb, ...)
 > The function executed when waiter is done
 >
 
-`...` : _mixed_
+`...` : _any_
 > Additional arguments to pass to the callback function
 >
 

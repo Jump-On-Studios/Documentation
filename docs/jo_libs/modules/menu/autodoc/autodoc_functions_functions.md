@@ -1,7 +1,7 @@
-
+<!-- #region group_1 -->
 ## Constructor
 
-### jo.menu.create()
+### <BadgeClient /> jo.menu.create()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.create -->
 
@@ -53,10 +53,12 @@ Type : _[MenuClass](#menuclass-methods)_
 
 <!-- @include: ./slots/footers.md#client|jo.menu.create -->
 
+<!-- #endregion group_1 -->
 
+<!-- #region group_2 -->
 ## MenuClass Methods
 
-### MenuClass:addItem()
+### <BadgeClient /> MenuClass:addItem()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:addItem -->
 
@@ -67,12 +69,12 @@ Add an item to a menu <br>
 #### Syntax
 
 ```lua
-MenuClass:addItem(p, item)
+MenuClass:addItem(index, item)
 ```
 
 #### Parameters
 
-`p` : _integer|table_
+`index` : _integer|table_
 > Position index or item table if used as single parameter
 >
 
@@ -132,7 +134,7 @@ MenuClass:addItem(p, item)
 
 #### Return Value
 
-Type : _table_
+Type : _[MenuItem](#menuitem-methods)Class_
 
 > The added item
 
@@ -142,12 +144,58 @@ Type : _table_
 
 ---
 
-### MenuClass:refresh()
+### <BadgeClient /> MenuClass:deleteValue()
+
+<!-- @include: ./slots/headers.md#client|MenuClass:deleteValue -->
+
+Delete a specific property of a menu. Requires MenuClass:push() to be called to apply the changes <br>
+
+<!-- @include: ./slots/descriptions.md#client|MenuClass:deleteValue -->
+
+#### Syntax
+
+```lua
+MenuClass:deleteValue(keys)
+```
+
+#### Parameters
+
+`keys` : _string|table_
+> The list of property name to access to the value
+>
+
+<!-- @include: ./slots/examples.md#client|MenuClass:deleteValue -->
+
+<!-- @include: ./slots/footers.md#client|MenuClass:deleteValue -->
+
+---
+
+### <BadgeClient /> MenuClass:push()
+
+<!-- @include: ./slots/headers.md#client|MenuClass:push -->
+
+Push the updated values to the NUI layer <br>
+
+<!-- @include: ./slots/descriptions.md#client|MenuClass:push -->
+
+#### Syntax
+
+```lua
+MenuClass:push()
+```
+
+<!-- @include: ./slots/examples.md#client|MenuClass:push -->
+
+<!-- @include: ./slots/footers.md#client|MenuClass:push -->
+
+---
+
+### <BadgeClient /> MenuClass:refresh()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:refresh -->
 
-Refresh the menu display without changing the current state <br>
-Used when menu items have been modified <br>
+Refresh all the menu without changing the current state <br>
+Used when you want rebuild the menu <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:refresh -->
 
@@ -163,7 +211,33 @@ MenuClass:refresh()
 
 ---
 
-### MenuClass:reset()
+### <BadgeClient /> MenuClass:removeItem()
+
+<!-- @include: ./slots/headers.md#client|MenuClass:removeItem -->
+
+Remove an item from a menu by its index. Requires MenuClass:push() to be called to apply the changes <br>
+
+<!-- @include: ./slots/descriptions.md#client|MenuClass:removeItem -->
+
+#### Syntax
+
+```lua
+MenuClass:removeItem(index)
+```
+
+#### Parameters
+
+`index` : _integer_
+> The index of the item to remove
+>
+
+<!-- @include: ./slots/examples.md#client|MenuClass:removeItem -->
+
+<!-- @include: ./slots/footers.md#client|MenuClass:removeItem -->
+
+---
+
+### <BadgeClient /> MenuClass:reset()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:reset -->
 
@@ -184,7 +258,7 @@ MenuClass:reset()
 
 ---
 
-### MenuClass:send()
+### <BadgeClient /> MenuClass:send()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:send -->
 
@@ -204,7 +278,7 @@ MenuClass:send()
 
 ---
 
-### MenuClass:setCurrentIndex()
+### <BadgeClient /> MenuClass:setCurrentIndex()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:setCurrentIndex -->
 
@@ -230,7 +304,7 @@ MenuClass:setCurrentIndex(index)
 
 ---
 
-### MenuClass:sort()
+### <BadgeClient /> MenuClass:sort()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:sort -->
 
@@ -260,7 +334,71 @@ MenuClass:sort(first, last)
 
 ---
 
-### MenuClass:updateItem()
+### <BadgeClient /> MenuClass:updateValue()
+
+<!-- @include: ./slots/headers.md#client|MenuClass:updateValue -->
+
+Update a specific property of a menu. Requires MenuClass:push() to be called to apply the changes <br>
+
+<!-- @include: ./slots/descriptions.md#client|MenuClass:updateValue -->
+
+#### Syntax
+
+```lua
+MenuClass:updateValue(keys, value)
+```
+
+#### Parameters
+
+`keys` : _string|table_
+> The list of property name to access to the value
+>
+
+`value` : _any_
+> The new value
+>
+
+<!-- @include: ./slots/examples.md#client|MenuClass:updateValue -->
+
+<!-- @include: ./slots/footers.md#client|MenuClass:updateValue -->
+
+---
+
+### <BadgeClient /> MenuClass:use()
+
+<!-- @include: ./slots/headers.md#client|MenuClass:use -->
+
+Set this menu as the current active menu <br>
+
+<!-- @include: ./slots/descriptions.md#client|MenuClass:use -->
+
+#### Syntax
+
+```lua
+MenuClass:use(keepHistoric, resetMenu)
+```
+
+#### Parameters
+
+`keepHistoric` : _boolean_ <BadgeOptional />
+> Whether to keep navigation history <br> default: `true`
+>
+
+`resetMenu` : _boolean_ <BadgeOptional />
+> Whether to reset the menu state <br> default: `true`
+>
+
+<!-- @include: ./slots/examples.md#client|MenuClass:use -->
+
+<!-- @include: ./slots/footers.md#client|MenuClass:use -->
+
+---
+
+### <BadgeClient /> ~~MenuClass:updateItem()~~
+
+:::danger Deprecated
+since v2.3.0. Use MenuClass:updateValue or MenuClass:deleteValue instead
+:::
 
 <!-- @include: ./slots/headers.md#client|MenuClass:updateItem -->
 
@@ -292,40 +430,97 @@ MenuClass:updateItem(index, key, value)
 
 <!-- @include: ./slots/footers.md#client|MenuClass:updateItem -->
 
----
+<!-- #endregion group_2 -->
 
-### MenuClass:use()
+<!-- #region group_3 -->
+## MenuItem Methods
 
-<!-- @include: ./slots/headers.md#client|MenuClass:use -->
+### <BadgeClient /> MenuItem:deleteValue()
 
-Set this menu as the current active menu <br>
+<!-- @include: ./slots/headers.md#client|MenuItem:deleteValue -->
 
-<!-- @include: ./slots/descriptions.md#client|MenuClass:use -->
+Delete a specific property of a menu item. Requires MenuClass:push() to be called to apply the changes <br>
+
+<!-- @include: ./slots/descriptions.md#client|MenuItem:deleteValue -->
 
 #### Syntax
 
 ```lua
-MenuClass:use(keepHistoric, resetMenu)
+MenuItem:deleteValue(keys)
 ```
 
 #### Parameters
 
-`keepHistoric` : _boolean_ <BadgeOptional />
-> Whether to keep navigation history <br> default: `true`
+`keys` : _string|table_
+> The list of property name to access to the value
 >
 
-`resetMenu` : _boolean_ <BadgeOptional />
-> Whether to reset the menu state <br> default: `true`
+<!-- @include: ./slots/examples.md#client|MenuItem:deleteValue -->
+
+<!-- @include: ./slots/footers.md#client|MenuItem:deleteValue -->
+
+---
+
+### <BadgeClient /> MenuItem:getParentMenu()
+
+<!-- @include: ./slots/headers.md#client|MenuItem:getParentMenu -->
+
+Get the parent menu of the item <br>
+
+<!-- @include: ./slots/descriptions.md#client|MenuItem:getParentMenu -->
+
+#### Syntax
+
+```lua
+MenuItem:getParentMenu()
+```
+
+#### Return Value
+
+Type : _[MenuClass](#menuclass-methods)_
+
+> The parent menu
+
+<!-- @include: ./slots/examples.md#client|MenuItem:getParentMenu -->
+
+<!-- @include: ./slots/footers.md#client|MenuItem:getParentMenu -->
+
+---
+
+### <BadgeClient /> MenuItem:updateValue()
+
+<!-- @include: ./slots/headers.md#client|MenuItem:updateValue -->
+
+Update a specific property of a menu item. Requires MenuClass:push() to be called to apply the changes <br>
+
+<!-- @include: ./slots/descriptions.md#client|MenuItem:updateValue -->
+
+#### Syntax
+
+```lua
+MenuItem:updateValue(keys, value)
+```
+
+#### Parameters
+
+`keys` : _string|table_
+> The property name to update
 >
 
-<!-- @include: ./slots/examples.md#client|MenuClass:use -->
+`value` : _any_
+> The new value for the property
+>
 
-<!-- @include: ./slots/footers.md#client|MenuClass:use -->
+<!-- @include: ./slots/examples.md#client|MenuItem:updateValue -->
 
+<!-- @include: ./slots/footers.md#client|MenuItem:updateValue -->
 
+<!-- #endregion group_3 -->
+
+<!-- #region group_4 -->
 ## JO Functions
 
-### jo.menu.addItem()
+### <BadgeClient /> jo.menu.addItem()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.addItem -->
 
@@ -407,7 +602,7 @@ jo.menu.addItem(id, p, item)
 
 ---
 
-### jo.menu.delete()
+### <BadgeClient /> jo.menu.delete()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.delete -->
 
@@ -433,7 +628,33 @@ jo.menu.delete(id)
 
 ---
 
-### jo.menu.doesActiveButtonChange()
+### <BadgeClient /> jo.menu.displayLoader()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.displayLoader -->
+
+A function to display the loader <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.displayLoader -->
+
+#### Syntax
+
+```lua
+jo.menu.displayLoader(value)
+```
+
+#### Parameters
+
+`value` : _boolean_ <BadgeOptional />
+> Whether to display the loader <br> default: `true`
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.displayLoader -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.displayLoader -->
+
+---
+
+### <BadgeClient /> jo.menu.doesActiveButtonChange()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.doesActiveButtonChange -->
 
@@ -459,7 +680,7 @@ Type : _boolean_
 
 ---
 
-### jo.menu.fireAllLevelsEvent()
+### <BadgeClient /> jo.menu.fireAllLevelsEvent()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.fireAllLevelsEvent -->
 
@@ -489,7 +710,7 @@ jo.menu.fireAllLevelsEvent(eventName, ...)
 
 ---
 
-### jo.menu.fireEvent()
+### <BadgeClient /> jo.menu.fireEvent()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.fireEvent -->
 
@@ -525,7 +746,7 @@ jo.menu.fireEvent(item, eventName, ...)
 
 ---
 
-### jo.menu.forceBack()
+### <BadgeClient /> jo.menu.forceBack()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.forceBack -->
 
@@ -545,7 +766,7 @@ jo.menu.forceBack()
 
 ---
 
-### jo.menu.get()
+### <BadgeClient /> jo.menu.get()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.get -->
 
@@ -577,7 +798,7 @@ Type : _[MenuClass](#menuclass-methods)_
 
 ---
 
-### jo.menu.getCurrentData()
+### <BadgeClient /> jo.menu.getCurrentData()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentData -->
 
@@ -603,7 +824,33 @@ Type : _table_
 
 ---
 
-### jo.menu.getCurrentItem()
+### <BadgeClient /> jo.menu.getCurrentIndex()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentIndex -->
+
+A function to get the current index <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentIndex -->
+
+#### Syntax
+
+```lua
+jo.menu.getCurrentIndex()
+```
+
+#### Return Value
+
+Type : _integer_
+
+> The index of the current item
+
+<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentIndex -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentIndex -->
+
+---
+
+### <BadgeClient /> jo.menu.getCurrentItem()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentItem -->
 
@@ -629,7 +876,7 @@ Type : _table_
 
 ---
 
-### jo.menu.getCurrentMenu()
+### <BadgeClient /> jo.menu.getCurrentMenu()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getCurrentMenu -->
 
@@ -655,7 +902,33 @@ Type : _[MenuClass](#menuclass-methods)_
 
 ---
 
-### jo.menu.getPreviousData()
+### <BadgeClient /> jo.menu.getCurrentMenuId()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentMenuId -->
+
+A function to get the current menu id <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentMenuId -->
+
+#### Syntax
+
+```lua
+jo.menu.getCurrentMenuId()
+```
+
+#### Return Value
+
+Type : _string_
+
+> The id of the current menu
+
+<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentMenuId -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentMenuId -->
+
+---
+
+### <BadgeClient /> jo.menu.getPreviousData()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.getPreviousData -->
 
@@ -681,7 +954,58 @@ Type : _table_
 
 ---
 
-### jo.menu.isExist()
+### <BadgeClient /> jo.menu.hideLoader()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.hideLoader -->
+
+A function to hide the loader <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.hideLoader -->
+
+#### Syntax
+
+```lua
+jo.menu.hideLoader()
+```
+
+<!-- @include: ./slots/examples.md#client|jo.menu.hideLoader -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.hideLoader -->
+
+---
+
+### <BadgeClient /> jo.menu.isCurrentMenu()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.isCurrentMenu -->
+
+A function to know if the menu is the current one <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.isCurrentMenu -->
+
+#### Syntax
+
+```lua
+jo.menu.isCurrentMenu(id)
+```
+
+#### Parameters
+
+`id` : _string_
+> The menu id
+>
+
+#### Return Value
+
+Type : _boolean_
+
+
+<!-- @include: ./slots/examples.md#client|jo.menu.isCurrentMenu -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.isCurrentMenu -->
+
+---
+
+### <BadgeClient /> jo.menu.isExist()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.isExist -->
 
@@ -713,7 +1037,7 @@ Type : _boolean_
 
 ---
 
-### jo.menu.isOpen()
+### <BadgeClient /> jo.menu.isOpen()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.isOpen -->
 
@@ -739,7 +1063,7 @@ Type : _boolean_
 
 ---
 
-### jo.menu.missingMenuHandler()
+### <BadgeClient /> jo.menu.missingMenuHandler()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.missingMenuHandler -->
 
@@ -771,7 +1095,7 @@ jo.menu.missingMenuHandler(id, callback)
 
 ---
 
-### jo.menu.onChange()
+### <BadgeClient /> jo.menu.onChange()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.onChange -->
 
@@ -797,7 +1121,7 @@ jo.menu.onChange(cb)
 
 ---
 
-### jo.menu.playAudio()
+### <BadgeClient /> jo.menu.playAudio()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.playAudio -->
 
@@ -821,7 +1145,7 @@ jo.menu.playAudio(sound)
 
 ---
 
-### jo.menu.refresh()
+### <BadgeClient /> jo.menu.refresh()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.refresh -->
 
@@ -847,7 +1171,7 @@ jo.menu.refresh(id)
 
 ---
 
-### jo.menu.reset()
+### <BadgeClient /> jo.menu.reset()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.reset -->
 
@@ -873,7 +1197,37 @@ jo.menu.reset(id)
 
 ---
 
-### jo.menu.send()
+### <BadgeClient /> jo.menu.runRefreshEvents()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.runRefreshEvents -->
+
+A function to fire menu and items events <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.runRefreshEvents -->
+
+#### Syntax
+
+```lua
+jo.menu.runRefreshEvents(menuEvent, itemEvent)
+```
+
+#### Parameters
+
+`menuEvent` : _boolean_ <BadgeOptional />
+> Whether to run menu events
+>
+
+`itemEvent` : _boolean_ <BadgeOptional />
+> Whether to run item events
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.runRefreshEvents -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.runRefreshEvents -->
+
+---
+
+### <BadgeClient /> jo.menu.send()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.send -->
 
@@ -899,7 +1253,7 @@ jo.menu.send(id)
 
 ---
 
-### jo.menu.set()
+### <BadgeClient /> jo.menu.set()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.set -->
 
@@ -929,7 +1283,7 @@ jo.menu.set(id, menu)
 
 ---
 
-### jo.menu.setCurrentMenu()
+### <BadgeClient /> jo.menu.setCurrentMenu()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.setCurrentMenu -->
 
@@ -963,7 +1317,7 @@ jo.menu.setCurrentMenu(id, keepHistoric, resetMenu)
 
 ---
 
-### jo.menu.show()
+### <BadgeClient /> jo.menu.show()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.show -->
 
@@ -1005,7 +1359,7 @@ jo.menu.show(show, keepInput, hideRadar, animation, hideCursor)
 
 ---
 
-### jo.menu.softHide()
+### <BadgeClient /> jo.menu.softHide()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.softHide -->
 
@@ -1035,7 +1389,7 @@ jo.menu.softHide(cb, animation)
 
 ---
 
-### jo.menu.sort()
+### <BadgeClient /> jo.menu.sort()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.sort -->
 
@@ -1069,7 +1423,7 @@ jo.menu.sort(id, first, last)
 
 ---
 
-### jo.menu.updateItem()
+### <BadgeClient /> jo.menu.updateItem()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.updateItem -->
 
@@ -1107,7 +1461,7 @@ jo.menu.updateItem(id, index, key, value)
 
 ---
 
-### jo.menu.updateLang()
+### <BadgeClient /> jo.menu.updateLang()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.updateLang -->
 
@@ -1147,7 +1501,7 @@ jo.menu.updateLang(lang)
 
 ---
 
-### jo.menu.updateVolume()
+### <BadgeClient /> jo.menu.updateVolume()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.updateVolume -->
 
@@ -1171,3 +1525,100 @@ jo.menu.updateVolume(volume)
 
 <!-- @include: ./slots/footers.md#client|jo.menu.updateVolume -->
 
+---
+
+### <BadgeShared /> jo.menu.formatPrice()
+
+<!-- @include: ./slots/headers.md#shared|jo.menu.formatPrice -->
+
+A function to format a single price <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.menu.formatPrice -->
+
+#### Syntax
+
+```lua
+jo.menu.formatPrice(price)
+```
+
+#### Parameters
+
+`price` : _table|integer|number_
+> The price to format
+>
+
+#### Return Value
+
+Type : _table_
+
+> The formatted price
+
+<!-- @include: ./slots/examples.md#shared|jo.menu.formatPrice -->
+
+<!-- @include: ./slots/footers.md#shared|jo.menu.formatPrice -->
+
+---
+
+### <BadgeShared /> jo.menu.formatPrices()
+
+<!-- @include: ./slots/headers.md#shared|jo.menu.formatPrices -->
+
+A function to format price variations <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.menu.formatPrices -->
+
+#### Syntax
+
+```lua
+jo.menu.formatPrices(prices)
+```
+
+#### Parameters
+
+`prices` : _table|integer|number_
+> The prices to format
+>
+
+#### Return Value
+
+Type : _table_
+
+> The formatted prices
+
+<!-- @include: ./slots/examples.md#shared|jo.menu.formatPrices -->
+
+<!-- @include: ./slots/footers.md#shared|jo.menu.formatPrices -->
+
+---
+
+### <BadgeShared /> jo.menu.isPriceFree()
+
+<!-- @include: ./slots/headers.md#shared|jo.menu.isPriceFree -->
+
+Checks if a price is free <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.menu.isPriceFree -->
+
+#### Syntax
+
+```lua
+jo.menu.isPriceFree(price)
+```
+
+#### Parameters
+
+`price` : _table|integer|number_
+> The price to check
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> Return `true` if the price is free
+
+<!-- @include: ./slots/examples.md#shared|jo.menu.isPriceFree -->
+
+<!-- @include: ./slots/footers.md#shared|jo.menu.isPriceFree -->
+
+<!-- #endregion group_4 -->

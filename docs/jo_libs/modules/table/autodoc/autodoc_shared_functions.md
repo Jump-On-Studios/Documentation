@@ -135,6 +135,43 @@ Type : _integer_
 
 ---
 
+### table.deleteDeepValue()
+
+<!-- @include: ./slots/headers.md#shared|table.deleteDeepValue -->
+
+A function to delete a deep value in a table <br>
+
+<!-- @include: ./slots/descriptions.md#shared|table.deleteDeepValue -->
+
+#### Syntax
+
+```lua
+table.deleteDeepValue(t, keys)
+```
+
+#### Parameters
+
+`t` : _table_
+
+> The table
+>
+
+
+`keys` : _any_
+> The keys to deep
+>
+
+#### Return Value
+
+Type : _table,_
+
+
+<!-- @include: ./slots/examples.md#shared|table.deleteDeepValue -->
+
+<!-- @include: ./slots/footers.md#shared|table.deleteDeepValue -->
+
+---
+
 ### table.doesKeyExist()
 
 <!-- @include: ./slots/headers.md#shared|table.doesKeyExist -->

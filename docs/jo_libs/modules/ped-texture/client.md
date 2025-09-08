@@ -51,8 +51,7 @@ jo.pedTexture.variations[layername] = variations
 ```lua
 local listEyeshadow = jo.pedTexture.variations.eyeshadow
 for _, variation in pairs(listEyeshadow) do
-    print(variable.label)
-    print(json.encode(variation.value))
+    log(variation)
 end
 
 ```

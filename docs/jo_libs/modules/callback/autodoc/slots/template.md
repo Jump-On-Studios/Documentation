@@ -18,6 +18,11 @@
 <!-- #endregion g_server|jo.callback.register -->
 
 
+<!-- #region g_server|jo.callback.registerLatent -->
+
+<!-- #endregion g_server|jo.callback.registerLatent -->
+
+
 <!-- #region g_server|jo.callback.triggerClient -->
 
 <!-- #endregion g_server|jo.callback.triggerClient -->

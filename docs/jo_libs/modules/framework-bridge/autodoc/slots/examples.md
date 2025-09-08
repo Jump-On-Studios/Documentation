@@ -289,7 +289,7 @@ print(user:getRPName())
 ```lua
 local source = 1
 local clothes = jo.framework:getUserClothes(source)
-print(json.encode(clothes))
+log(clothes)
 
 ```
 <!-- #endregion server|jo.framework:getUserClothes -->
@@ -311,7 +311,7 @@ print(identifiers.charid)
 ```lua
 local source = 1
 local skin = jo.framework:getUserSkin(source)
-print(json.encode(skin))
+log(skin)
 
 ```
 <!-- #endregion server|jo.framework:getUserSkin -->

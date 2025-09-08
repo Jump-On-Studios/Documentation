@@ -33,6 +33,11 @@
 <!-- #endregion g_client|jo.component.collarOpen -->
 
 
+<!-- #region g_client|jo.component.getBaseLayer -->
+
+<!-- #endregion g_client|jo.component.getBaseLayer -->
+
+
 <!-- #region g_client|jo.component.getBodiesLowerFromSkinTone -->
 
 <!-- #endregion g_client|jo.component.getBodiesLowerFromSkinTone -->
@@ -76,16 +81,6 @@
 <!-- #region g_client|jo.component.getEyesFromIndex -->
 
 <!-- #endregion g_client|jo.component.getEyesFromIndex -->
-
-
-<!-- #region g_client|jo.component.getFullHorseComponentList -->
-
-<!-- #endregion g_client|jo.component.getFullHorseComponentList -->
-
-
-<!-- #region g_client|jo.component.getFullPedComponentList -->
-
-<!-- #endregion g_client|jo.component.getFullPedComponentList -->
 
 
 <!-- #region g_client|jo.component.getHeadFromSkinTone -->
@@ -183,12 +178,22 @@
 <!-- #endregion g_client|jo.component.waitPedLoaded -->
 
 
-<!-- #region server|jo.component.getFullHorseComponentList -->
+<!-- #region g_shared|jo.component.formatComponentData -->
 
-<!-- #endregion server|jo.component.getFullHorseComponentList -->
+<!-- #endregion g_shared|jo.component.formatComponentData -->
 
 
-<!-- #region server|jo.component.getFullPedComponentList -->
+<!-- #region g_shared|jo.component.getCategoryHash -->
 
-<!-- #endregion server|jo.component.getFullPedComponentList -->
+<!-- #endregion g_shared|jo.component.getCategoryHash -->
+
+
+<!-- #region g_shared|jo.component.getFullHorseComponentList -->
+
+<!-- #endregion g_shared|jo.component.getFullHorseComponentList -->
+
+
+<!-- #region g_shared|jo.component.getFullPedComponentList -->
+
+<!-- #endregion g_shared|jo.component.getFullPedComponentList -->
 

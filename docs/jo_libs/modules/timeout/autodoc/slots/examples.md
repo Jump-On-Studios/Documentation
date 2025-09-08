@@ -95,6 +95,18 @@ local delay2 = jo.timeout.delay(id, 1000, function() print('Done 2') end)
 ```
 <!-- #endregion shared|jo.timeout.delay -->
 
+<!-- #region shared|jo.timeout.noSpam -->
+#### Example
+```lua
+local id = "TheUniqueID"
+local noSpam = jo.timeout.noSpam(id, 1000, function() print('Done') end)
+Wait(500)
+local noSpam2 = jo.timeout.noSpam(id, 1000, function() print('Done 2') end)
+local noSpam3 = jo.timeout.noSpam(id, 1000, function() print('Done 3') end)
+-- Expected output : "Done" printed after 1000ms and "Done 3" printed after 1500ms (500 + 1000). noSpam2 is canceled by noSpam3 because it's the same id
+```
+<!-- #endregion shared|jo.timeout.noSpam -->
+
 
 <!-- #region shared|jo.timeout.loop -->
 #### Example
