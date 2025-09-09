@@ -7,7 +7,7 @@ Documentation related to the jo_housing script.
 
 :::: tabs
 ::: tab BUY
-Available tuesday 9th September 
+[Buy it on the shop](https://jumpon-studios.com/redm/housing)
 :::
 
 ::: tab PREVIEW
