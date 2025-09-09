@@ -392,14 +392,13 @@ These functions allow you to integrate the housing system with your existing res
 
 | Property                                          | Default Value          | Description                                                                                                                                           |
 | ------------------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Config.interiorsCategoriesMaxFurnitures.default` | `100`                  | Default furniture limit for interior categories                                                                                                       |
+| `Config.interiorsCategoriesMaxFurnitures.default` | `100`                  | Default furniture limit for interior categories|
 | `Config.interiorsCategoriesMaxFurnitures.X`       | `200`                  | Furniture limit for specific interior categories. Replace X with: <br>• `shack`<br>• `rock_shack`<br>• `house`<br>• `flat`<br>• `manor`<br>• `worker` |
 | `Config.interiorsMaxFurnitures`                   | `{jo_pai_house = 100}` | Specific furniture limits per interior ID                                                                                                             |
 | `Config.interiorsBlacklist`                       | `{}`                   | Interior IDs to hide from selection (commented examples included)                                                                                     |
 
-:::tip 💡Disable Build Mode
-If you set the interior’s max furniture to `0` (zero), players won’t be able to add any furniture inside, effectively disabling build mode for that interior.
-:::
+
+
 
 
 #### Furniture Configuration
@@ -587,6 +586,7 @@ Config.furnituresPrices = {
 ```
 
 :::
+
 ::::
 
 
@@ -765,6 +765,28 @@ Config.furnituresPrices.p_tv01x = {
 ```
 
 Reference: [addFurnitures filter](#addfurnitures) and [Furniture Configuration](#furniture-configuration) in the Developer section
+:::
+
+
+:::details Can I disable the Build Mode ?
+If you set the interior’s max furniture to `0` (zero), players won’t be able to add any furniture inside, effectively disabling build mode for that interior.
+
+**Example:**
+
+```lua
+-- Available interior categories: shack, rock_shack, house, flat, manor, worker
+-- Default furniture limit for interior categories
+Config.interiorsCategoriesMaxFurnitures = {
+    default = 0,      -- Disable build mode for all interiors
+    manor = 200         -- Except for the manor category
+}
+
+-- Specific furniture limits per interior ID
+Config.interiorsMaxFurnitures = {
+    jo_pai_house = 0, -- Disable build mode only for jo_pai_house
+}
+```
+
 :::
 
 :::details The prompts are not working !
