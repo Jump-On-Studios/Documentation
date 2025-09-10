@@ -22,7 +22,7 @@ To install jo_housing :
 - Download the library: [jo_libs](https://github.com/Jump-On-Studios/RedM-jo_libs/releases/latest/download/jo_libs.zip)
 - Unzip the folder and drop it in your resource folder
 - Download jo_housing from your [account](https://jumpon-studios.com/account)
-- Unzip the folder and drop it in your resource folder
+- Unzip the folder and drop both `jo_housing` **AND** `jo_housing_interiors` in your resource folder
 - Add this ensure in your server.cfg
   - `ensure jo_libs`
   - `ensure jo_housing`
