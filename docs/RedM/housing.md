@@ -336,7 +336,7 @@ These functions allow you to integrate the housing system with your existing res
 
 | Property                           | Default Value  | Description                                                                                                                                                                                                                                                                                                |
 | ---------------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Config.enableKeyMode`             | `true`         | Enable physical house keys that players must carry to access their houses.<br>- `true`: players receive physical key items, can buy additional keys for other players, and can change locks (making existing keys obsolete).<br> - `false`: Players can manage an access list of who can enter their house |
+| `Config.enableKeyMode`             | `false`         | Enable physical house keys that players must carry to access their houses.<br>- `true`: players receive physical key items, can buy additional keys for other players, and can change locks (making existing keys obsolete).<br> - `false`: Players can manage an access list of who can enter their house |
 | `Config.allowPayingInGold`         | `false`        | Allow players to pay with gold in addition to money                                                                                                                                                                                                                                                        |
 | `Config.knockNotificationDuration` | `5000`         | Duration (in ms) that knock notifications are displayed to house owners                                                                                                                                                                                                                                    |
 | `Config.showInsideDoorMarker`      | `true`         | While inside a house, show a marker on the ground near the entrance door                                                                                                                                                                                                                                   |
@@ -445,7 +445,7 @@ end
 -- General Settings
 -- ===================================
 
-Config.enableKeyMode = true                     -- Enable physical house keys that players must carry to access their houses
+Config.enableKeyMode = false                     -- Enable physical house keys that players must carry to access their houses
 Config.allowPayingInGold = false                 -- Allow players to pay with gold in addition to money
 Config.knockNotificationDuration = 5000         -- Duration (in ms) that knock notifications are displayed to house owners
 Config.showInsideDoorMarker = true      -- While inside a house, show a marker on the ground near the entrance door
