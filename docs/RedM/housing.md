@@ -336,7 +336,7 @@ These functions allow you to integrate the housing system with your existing res
 
 | Property                           | Default Value  | Description                                                                                                                                                                                                                                                                                                |
 | ---------------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Config.enableKeyMode`             | `false`         | Enable physical house keys that players must carry to access their houses.<br>- `true`: players receive physical key items, can buy additional keys for other players, and can change locks (making existing keys obsolete).<br> - `false`: Players can manage an access list of who can enter their house |
+| `Config.enableKeyMode`             | `false`        | Enable physical house keys that players must carry to access their houses.<br>- `true`: players receive physical key items, can buy additional keys for other players, and can change locks (making existing keys obsolete).<br> - `false`: Players can manage an access list of who can enter their house |
 | `Config.allowPayingInGold`         | `false`        | Allow players to pay with gold in addition to money                                                                                                                                                                                                                                                        |
 | `Config.knockNotificationDuration` | `5000`         | Duration (in ms) that knock notifications are displayed to house owners                                                                                                                                                                                                                                    |
 | `Config.showInsideDoorMarker`      | `true`         | While inside a house, show a marker on the ground near the entrance door                                                                                                                                                                                                                                   |
@@ -392,7 +392,7 @@ These functions allow you to integrate the housing system with your existing res
 
 | Property                                          | Default Value          | Description                                                                                                                                           |
 | ------------------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Config.interiorsCategoriesMaxFurnitures.default` | `100`                  | Default furniture limit for interior categories|
+| `Config.interiorsCategoriesMaxFurnitures.default` | `100`                  | Default furniture limit for interior categories                                                                                                       |
 | `Config.interiorsCategoriesMaxFurnitures.X`       | `200`                  | Furniture limit for specific interior categories. Replace X with: <br>• `shack`<br>• `rock_shack`<br>• `house`<br>• `flat`<br>• `manor`<br>• `worker` |
 | `Config.interiorsMaxFurnitures`                   | `{jo_pai_house = 100}` | Specific furniture limits per interior ID                                                                                                             |
 | `Config.interiorsBlacklist`                       | `{}`                   | Interior IDs to hide from selection (commented examples included)                                                                                     |
@@ -633,30 +633,14 @@ Use the housing script's server actions to control your framework's weather sync
 ```lua
 -- Disable weather sync when entering a house
 exports.jo_housing:registerAction('houseEntered', function(source, house, isVisiting)
-    -- Example for different frameworks:
-    
-    -- VORP Framework
-    TriggerClientEvent('vorp:updateWeatherSync', source, false)
-    
-    -- RSG Framework
-    TriggerClientEvent('rsg-weathersync:client:DisableWeather', source)
-    
-    -- Custom framework - adjust to your weather sync resource
-    TriggerClientEvent('your_weather_resource:disable', source)
+    -- Weather sync from kibook
+    TriggerClientEvent('weathersync:setSyncEnabled', source, false)
 end)
 
 -- Re-enable weather sync when leaving a house  
 exports.jo_housing:registerAction('houseLeft', function(source, house)
-    -- Example for different frameworks:
-    
-    -- VORP Framework
-    TriggerClientEvent('vorp:updateWeatherSync', source, true)
-    
-    -- RSG Framework  
-    TriggerClientEvent('rsg-weathersync:client:EnableWeather', source)
-    
-    -- Custom framework - adjust to your weather sync resource
-    TriggerClientEvent('your_weather_resource:enable', source)
+    -- Weather sync from kibook
+    TriggerClientEvent('weathersync:setSyncEnabled', source, true)
 end)
 ```
 
