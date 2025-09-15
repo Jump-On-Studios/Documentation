@@ -40,7 +40,7 @@ You can now use the libraries inside of your resource with the `jo` global varia
 Since **jo\_libs** is file-based, keeping old or deprecated files in your folder can cause issues. To update it correctly, follow these steps:
 
 1. Download the [latest release](https://github.com/Jump-On-Studios/RedM-jo_libs/releases/latest/download/jo_libs.zip) of the library.
-2. Delete your existing `jo_libs` folder from your `resources` directory.
+2. **Delete** your existing `jo_libs` folder from your `resources` directory.
 3. Extract the contents of `jo_libs.zip`.
 4. Place the new `jo_libs` folder into your `resources` directory.
 5. Clear your server cache.
