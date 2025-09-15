@@ -46,6 +46,9 @@ Since **jo\_libs** is file-based, keeping old or deprecated files in your folder
 5. Clear your server cache.
 6. Restart your server.
 
+:::danger
+**Don't drag and drop** the update over the old `jo_libs` folder!
+:::
 
 ## Functions
 Some functions are automatically added when you use jo_libs in your script.
