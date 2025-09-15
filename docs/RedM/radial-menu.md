@@ -544,7 +544,7 @@ local jobMenu = {
     {
         label = "Doctor menu",
         visible = function() -- Only visible if player is a doctor
-            return LocalPlayer.state.Character.Job == "doctor"
+            return RSGCore.Functions.GetPlayerData().citizenid.job.name == "doctor"
         end,
         onClick = {
             type = "command",
@@ -554,7 +554,7 @@ local jobMenu = {
     {
         label = "Doctor Alert",
         visible = function() -- Only visible if player is a doctor
-            return LocalPlayer.state.Character.Job == "doctor"
+            return RSGCore.Functions.GetPlayerData().citizenid.job.name == "doctor"
         end,
         onClick = {
             type = "command",
@@ -564,7 +564,7 @@ local jobMenu = {
     {
         label = "Police menu",
         visible = function() -- Only visible if player is police
-            return LocalPlayer.state.Character.Job == "police"
+            return RSGCore.Functions.GetPlayerData().citizenid.job.name == "police"
         end,
         onClick = {
             type = "command",
