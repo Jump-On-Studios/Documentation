@@ -144,16 +144,11 @@ The preset configuration that comes with the script is provided 'as is'. It is u
 See examples below.
 :::
 
-:::: tabs
-::: tab VORP Configuration
-```lua
+::: code-group
+```lua [VORP]
 -- ==================================================================================
--- SEE THE FULL DOCUMENTATION HERE : https://docs.jumpon-studios.com/RedM/radial-menu
--- The preset configuration is provided 'as is'. It is up to you to customize it to fit your server's specific needs and own particularities.
+-- Add inside the ./overwriteConfig.lua file
 -- ==================================================================================
-
-
-Config = {}
 
 -- Keybind to open the radial menu
 Config.openKey = "F7"
@@ -436,16 +431,11 @@ Config.radialMenuItems = {
 }
 
 ```
-:::
-::: tab RSG Configuration
-```lua
--- ==================================================================================
--- SEE THE FULL DOCUMENTATION HERE : https://docs.jumpon-studios.com/RedM/radial-menu
--- The preset configuration is provided 'as is'. It is up to you to customize it to fit your server's specific needs and own particularities.
--- ==================================================================================
 
-
-Config = {}
+```lua [RSG]
+-- ==================================================================================
+-- Add inside the ./overwriteConfig.lua file
+-- ==================================================================================
 
 -- Keybind to open the radial menu
 Config.openKey = "F7"
@@ -728,11 +718,11 @@ Config.radialMenuItems = {
 }
 
 ```
-:::
-::: tab Basic Configuration
-```lua
 
-Config = {}
+```lua [Basic Configuration]
+-- ==================================================================================
+-- Add inside the ./overwriteConfig.lua file
+-- ==================================================================================
 
 Config.openKey = 'F7' -- Key to open the menu, find all the controls here : https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
 
@@ -800,11 +790,11 @@ Config.radialMenuItems = {
     },
 }
 ```
-:::
-::: tab Advanced Configuration
-```lua
 
-Config = {}
+```lua [Advanced Configuration]
+-- ==================================================================================
+-- Add inside the ./overwriteConfig.lua file
+-- ==================================================================================
 
 Config.openKey = "F7" -- Key to open the menu
 
@@ -936,6 +926,4 @@ Config.radialMenuItems = {
     }
 }
 ```
-:::
-::::
 

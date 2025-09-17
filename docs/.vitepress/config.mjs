@@ -125,6 +125,9 @@ export default defineConfig({
     config(md) {
       tabsPlugin(md);
     },
+    languageAlias: {
+      'cfg': 'bash' // cfg va réutiliser la coloration bash
+    },
     // codeTransformers: [transformerLuaComment()],
   },
   base: "/",
@@ -243,15 +246,15 @@ export default defineConfig({
             link: "/RedM/horse-and-wagon-sharing",
           },
           {
-             text: "🏠 Housing",
-             link: "/RedM/housing",
-             items: [
+            text: "🏠 Housing",
+            link: "/RedM/housing",
+            items: [
               { text: "Main script", link: "/RedM/housing" },
-               {
-                 text: "More Interiors",
-                 link: "/RedM/housing-more-interiors",
-               },
-             ],
+              {
+                text: "More Interiors",
+                link: "/RedM/housing-more-interiors",
+              },
+            ],
           },
           {
             text: "🦌 Hunting wagon Storage",
