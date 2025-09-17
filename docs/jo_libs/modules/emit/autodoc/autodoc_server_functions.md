@@ -69,6 +69,40 @@ jo.emit.triggerClient.latent(eventName, source, ...)
 
 ---
 
+### jo.emit.triggerServerWithSource()
+
+<!-- @include: ./slots/headers.md#server|jo.emit.triggerServerWithSource -->
+
+Trigger an event on the server side and keep the source injection <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.emit.triggerServerWithSource -->
+
+#### Syntax
+
+```lua
+jo.emit.triggerServerWithSource(source, event, ...)
+```
+
+#### Parameters
+
+`source` : _integer_
+> The source player ID to send the event to
+>
+
+`event` : _string_
+> The name of the event to trigger
+>
+
+`...` : _any_
+> Additional parameters to pass to the event
+>
+
+<!-- @include: ./slots/examples.md#server|jo.emit.triggerServerWithSource -->
+
+<!-- @include: ./slots/footers.md#server|jo.emit.triggerServerWithSource -->
+
+---
+
 ### jo.emit.updateBps()
 
 <!-- @include: ./slots/headers.md#server|jo.emit.updateBps -->
