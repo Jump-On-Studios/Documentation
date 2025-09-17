@@ -45,11 +45,11 @@ jo.emit.updateBps(3000)
 ```lua
 local source = 5
 local data = "MyData"
-jo.emit.triggerServer('YourEventName', source, data)
+jo.emit.triggerClient('YourEventName', source, data)
 --OR--
 local sources = { 3, 4, 5, 13 } --list of players
 local data = "MyData"
-jo.emit.triggerServer('YourEventName', sources, data)
+jo.emit.triggerClient('YourEventName', sources, data)
 
 ```
 
@@ -64,14 +64,14 @@ local data = {}
 for i = 1, 100000 do
   data[i] = i
 end
-jo.emit.triggerServer.latent('YourEventName', source, data)
+jo.emit.triggerClient.latent('YourEventName', source, data)
 --OR--
 local sources = { 3, 4, 5, 13 } --list of players
 local data = {}
 for i = 1, 100000 do
   data[i] = i
 end
-jo.emit.triggerServer.latent('YourEventName', sources, data)
+jo.emit.triggerClient.latent('YourEventName', sources, data)
 
 ```
 <!-- #endregion server|jo.emit.triggerClient.latent -->
