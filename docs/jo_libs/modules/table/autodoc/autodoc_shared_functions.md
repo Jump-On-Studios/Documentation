@@ -135,6 +135,44 @@ Type : _integer_
 
 ---
 
+### table.deleteAndClear()
+
+<!-- @include: ./slots/headers.md#shared|table.deleteAndClear -->
+
+A function to delete a deep value in a table and clear the table if it's empty <br>
+
+<!-- @include: ./slots/descriptions.md#shared|table.deleteAndClear -->
+
+#### Syntax
+
+```lua
+table.deleteAndClear(t, keys)
+```
+
+#### Parameters
+
+`t` : _table_
+
+> The table
+>
+
+
+`keys` : _any_
+> The keys to deep
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> Returns `true` if the value was deleted
+
+<!-- @include: ./slots/examples.md#shared|table.deleteAndClear -->
+
+<!-- @include: ./slots/footers.md#shared|table.deleteAndClear -->
+
+---
+
 ### table.deleteDeepValue()
 
 <!-- @include: ./slots/headers.md#shared|table.deleteDeepValue -->
@@ -324,6 +362,24 @@ Type : _any,any_
 <!-- @include: ./slots/examples.md#shared|table.find -->
 
 <!-- @include: ./slots/footers.md#shared|table.find -->
+
+---
+
+### table.getDeep()
+
+<!-- @include: ./slots/headers.md#shared|table.getDeep -->
+
+<!-- @include: ./slots/descriptions.md#shared|table.getDeep -->
+
+#### Syntax
+
+```lua
+table.getDeep(t, keys)
+```
+
+<!-- @include: ./slots/examples.md#shared|table.getDeep -->
+
+<!-- @include: ./slots/footers.md#shared|table.getDeep -->
 
 ---
 

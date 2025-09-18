@@ -18,6 +18,11 @@
 <!-- #endregion shared|table.count -->
 
 
+<!-- #region shared|table.deleteAndClear -->
+
+<!-- #endregion shared|table.deleteAndClear -->
+
+
 <!-- #region shared|table.deleteDeepValue -->
 
 <!-- #endregion shared|table.deleteDeepValue -->
@@ -41,6 +46,11 @@
 <!-- #region shared|table.find -->
 
 <!-- #endregion shared|table.find -->
+
+
+<!-- #region shared|table.getDeep -->
+
+<!-- #endregion shared|table.getDeep -->
 
 
 <!-- #region shared|table.includes -->
