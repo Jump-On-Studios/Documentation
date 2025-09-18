@@ -144,6 +144,24 @@ Type : _[MenuItem](#menu[item](#item-methods)-methods)Class_
 
 ---
 
+### <Badge type="client" text="Client" /> MenuClass:deleteItem()
+
+<!-- @include: ./slots/headers.md#client|MenuClass:deleteItem -->
+
+<!-- @include: ./slots/descriptions.md#client|MenuClass:deleteItem -->
+
+#### Syntax
+
+```lua
+MenuClass:deleteItem(index)
+```
+
+<!-- @include: ./slots/examples.md#client|MenuClass:deleteItem -->
+
+<!-- @include: ./slots/footers.md#client|MenuClass:deleteItem -->
+
+---
+
 ### <Badge type="client" text="Client" /> MenuClass:deleteValue()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:deleteValue -->
@@ -338,6 +356,8 @@ MenuClass:sort(first, last)
 
 <!-- @include: ./slots/headers.md#client|MenuClass:updateItem -->
 
+ <br>
+ <br>
 Update a specific property of a menu [item](#item-methods) <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:updateItem -->
