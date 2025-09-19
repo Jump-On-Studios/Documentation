@@ -412,6 +412,12 @@ MenuClass:updateValue(keys, value)
 > The new value
 >
 
+#### Return Value
+
+Type : _boolean_
+
+> true if the update was successful, false otherwise
+
 <!-- @include: ./slots/examples.md#client|MenuClass:updateValue -->
 
 <!-- @include: ./slots/footers.md#client|MenuClass:updateValue -->
