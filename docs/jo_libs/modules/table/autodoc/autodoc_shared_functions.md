@@ -369,6 +369,8 @@ Type : _any,any_
 
 <!-- @include: ./slots/headers.md#shared|table.getDeep -->
 
+A function to get a deep value in a table <br>
+
 <!-- @include: ./slots/descriptions.md#shared|table.getDeep -->
 
 #### Syntax
@@ -376,6 +378,23 @@ Type : _any,any_
 ```lua
 table.getDeep(t, keys)
 ```
+
+#### Parameters
+
+`t` : _table_
+
+> The table
+>
+
+
+`keys` : _any_
+> The keys to deep
+>
+
+#### Return Value
+
+Type : _any,_
+
 
 <!-- @include: ./slots/examples.md#shared|table.getDeep -->
 
