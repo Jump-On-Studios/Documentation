@@ -231,6 +231,13 @@ The access management options depend on your server's `Config.enableKeyMode` set
    - "List": Only players you've added to the access list can enter
    - "Everyone": Any player can enter your house
 5. If using the "List" option, you can add or remove players from your access list
+6.  After adding a player, you can select them to manage their specific permissions:
+    * Can access storage
+    * Can access wardrobe
+    * Can add furniture
+    * Can edit furniture
+
+---
 
 **When Key Mode is Enabled (`Config.enableKeyMode = true`):**
 1. Inside your house, open the house menu
@@ -277,21 +284,30 @@ _This script does not have built-in solutions for dressing, stable and wagon fun
 ::::
 
 :::tip 💡 Key Mode Configuration
-The `Config.enableKeyMode` setting affects how players access houses after creation:
+The `Config.enableKeyMode` setting fundamentally changes how house access is managed. Choose the mode that best fits your server's desired gameplay style.
 
-**Key Mode Enabled (`enableKeyMode = true`):**
-- Players receive physical key items when they buy houses
-- House owners can purchase additional keys to give to other players
-- House owners can change locks, making all existing keys obsolete
-- Players must carry their key item to enter their house
+##### 🔑 Key Mode Enabled
+When `Config.enableKeyMode = true`, house access is tied to a **physical key item**, creating a more immersive experience.
 
-**Key Mode Disabled (`enableKeyMode = false`):**
-- No physical key items exist in the game
-- House owners manage an access list of players who can enter
-- Access is controlled through the house management menu
-- Players don't need to carry any items to enter their house
+-   **Ownership:** Players receive a key in their inventory upon purchasing a house.
+-   **Sharing:** Owners can buy additional keys to give to friends or other players.
+-   **Security:** An owner can **change the locks** at any time. This action makes all previously issued keys for that house obsolete and provides the owner with a new one.
+-   **Requirement:** A player **must** have the corresponding key in their inventory to enter the house.
 
-This setting is configured in your server's `Config.enableKeyMode` and affects all houses on your server.
+---
+
+##### 👤 Access List Mode
+When `Config.enableKeyMode = false`, access is managed digitally through an in-game menu, offering a simpler, hassle-free system.
+
+-   **No Items:** This mode does not use physical key items.
+-   **Management:** Owners manage a digital **access list** for their property via the house menu.
+-   **Permissions:** The owner can instantly grant or revoke access to any player.
+-   **Granular Controls:** For each player on the list, the owner can set specific permissions:
+    -   Can access storage
+    -   Can access wardrobe
+    -   Can add furniture
+    -   Can edit furniture
+-   **Requirement:** Players on the access list can enter without needing any specific item.
 :::
 
 ## 3. Interiors Gallery
