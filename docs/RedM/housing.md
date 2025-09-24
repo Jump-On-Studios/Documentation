@@ -23,9 +23,9 @@ To install jo_housing :
 - Unzip the folder and drop it in your resource folder
 - Download jo_housing from your [account](https://jumpon-studios.com/account)
 - Unzip the folder and drop both `jo_housing` **AND** `jo_housing_interiors` in your resource folder
-- Add this ensure in your server.cfg
+- Add those two ensure in your server.cfg :
   - `ensure jo_libs`
-  - `ensure jo_housing`
+  - `ensure jo_housing` (`jo_housing_interiors` will be automatically ensured)
 - This script uses the [raw keys](/jo_libs/modules/raw-keys/) module, if you have any problem with the prompts you should [set the keyboard layout](/jo_libs/modules/raw-keys/client#setting-keyboard-layout)
 - If you want to use [house key item](#items-and-pricing), **you must add House Key Item** in your inventory: 
 
@@ -231,6 +231,13 @@ The access management options depend on your server's `Config.enableKeyMode` set
    - "List": Only players you've added to the access list can enter
    - "Everyone": Any player can enter your house
 5. If using the "List" option, you can add or remove players from your access list
+6.  After adding a player, you can select them to manage their specific permissions:
+    * Can access storage
+    * Can access wardrobe
+    * Can add furniture
+    * Can edit furniture
+
+---
 
 **When Key Mode is Enabled (`Config.enableKeyMode = true`):**
 1. Inside your house, open the house menu
@@ -277,21 +284,30 @@ _This script does not have built-in solutions for dressing, stable and wagon fun
 ::::
 
 :::tip 💡 Key Mode Configuration
-The `Config.enableKeyMode` setting affects how players access houses after creation:
+The `Config.enableKeyMode` setting fundamentally changes how house access is managed. Choose the mode that best fits your server's desired gameplay style.
 
-**Key Mode Enabled (`enableKeyMode = true`):**
-- Players receive physical key items when they buy houses
-- House owners can purchase additional keys to give to other players
-- House owners can change locks, making all existing keys obsolete
-- Players must carry their key item to enter their house
+##### 🔑 Key Mode Enabled
+When `Config.enableKeyMode = true`, house access is tied to a **physical key item**, creating a more immersive experience.
 
-**Key Mode Disabled (`enableKeyMode = false`):**
-- No physical key items exist in the game
-- House owners manage an access list of players who can enter
-- Access is controlled through the house management menu
-- Players don't need to carry any items to enter their house
+-   **Ownership:** Players receive a key in their inventory upon purchasing a house.
+-   **Sharing:** Owners can buy additional keys to give to friends or other players.
+-   **Security:** An owner can **change the locks** at any time. This action makes all previously issued keys for that house obsolete and provides the owner with a new one.
+-   **Requirement:** A player **must** have the corresponding key in their inventory to enter the house.
 
-This setting is configured in your server's `Config.enableKeyMode` and affects all houses on your server.
+---
+
+##### 👤 Access List Mode
+When `Config.enableKeyMode = false`, access is managed digitally through an in-game menu, offering a simpler, hassle-free system.
+
+-   **No Items:** This mode does not use physical key items.
+-   **Management:** Owners manage a digital **access list** for their property via the house menu.
+-   **Permissions:** The owner can instantly grant or revoke access to any player.
+-   **Granular Controls:** For each player on the list, the owner can set specific permissions:
+    -   Can access storage
+    -   Can access wardrobe
+    -   Can add furniture
+    -   Can edit furniture
+-   **Requirement:** Players on the access list can enter without needing any specific item.
 :::
 
 ## 3. Interiors Gallery
@@ -343,6 +359,15 @@ These functions allow you to integrate the housing system with your existing res
 | `Config.showOutsideDoorMarker`     | `true`         | Show a marker on the ground for each house near you (outside)                                                                                                                                                                                                                                              |
 | `Config.openManagerCommandName`    | `houseManager` | The name of the command to open the house manager (ex: /houseManager)                                                                                                                                                                                                                                      |
 
+#### Blip Configuration
+
+| Property                       | Default Value                  | Description                              |
+| ------------------------------ | ------------------------------ | ---------------------------------------- |
+| `Config.blips.forSale.sprite`  | `"blip_proc_home"`             | Blip icon sprite for houses for sale on the map |
+| `Config.blips.forSale.color`   | `"BLIP_MODIFIER_DEBUG_BLUE"`   | Blip color for houses for sale           |
+| `Config.blips.forRent.sprite`  | `"blip_proc_home"`             | Blip icon sprite for houses for rent on the map |
+| `Config.blips.forRent.color`   | `"BLIP_MODIFIER_DEBUG_GREEN"`  | Blip color for houses for rent           |
+
 #### Distance Settings
 
 | Property                                    | Default Value | Description                                              |
@@ -384,7 +409,7 @@ These functions allow you to integrate the housing system with your existing res
 | `Config.keys.buyHouse`      | `"ENTER"`     | Confirm house purchase                                                                                                                                                                                                                                                                                                                                                                               |
 | `Config.keys.knockOnHouse`  | `"K"`         | Knock on someone's door                                                                                                                                                                                                                                                                                                                                                                              |
 | `Config.keys.enterHouse`    | `"ENTER"`     | Enter owned house                                                                                                                                                                                                                                                                                                                                                                                    |
-| `Config.keys.leaveHouse`    | `"X"`         | Exit house                                                                                                                                                                                                                                                                                                                                                                                           |
+| `Config.keys.leaveHouse`    | `"R"`         | Exit house                                                                                                                                                                                                                                                                                                                                                                                           |
 | `Config.keys.manageHouse`   | `"M"`         | Open house management menu                                                                                                                                                                                                                                                                                                                                                                           |
 | ... and many more           |               | See the `Configuration file` tab above for an exhaustive list, and see [Keyboard keys mapping](/jo_libs/modules/raw-keys/client#keyboard-keys-mapping) for a list of all available keys. This script uses the [raw keys](/jo_libs/modules/raw-keys/) module, if you have any problem with the prompts you should [set the keyboard layout](/jo_libs/modules/raw-keys/client#setting-keyboard-layout) |
 
@@ -452,6 +477,16 @@ Config.showInsideDoorMarker = true      -- While inside a house, show a marker o
 Config.showOutsideDoorMarker = true     -- Show a marker on the ground for each house near you (outside)
 Config.openManagerCommandName = "houseManager"     -- The name of the command to open the house manager (ex: /houseManager)
 
+Config.blips = { -- Blip icons for houses on the map
+    forSale = {
+        sprite = "blip_proc_home",
+        color = "BLIP_MODIFIER_DEBUG_BLUE"
+    },
+    forRent = {
+        sprite = "blip_proc_home",
+        color = "BLIP_MODIFIER_DEBUG_GREEN"
+    }
+}
 
 -- ===================================
 -- Items and Prices
@@ -850,6 +885,18 @@ exports.jo_housing:registerAction('furnitureBought', function(source, house, fur
 end)
 ```
 
+#### <Badge type="server" text="Server" /> furnitureDeleted
+Triggered when furniture is deleted from a house.
+```lua
+-- @param source - serverID of the player deleting the furniture
+-- @param house - the house object containing the furniture
+-- @param furnitureId - ID of the furniture that was deleted
+exports.jo_housing:registerAction('furnitureDeleted', function(source, house, furnitureId)
+    -- Your code here
+end)
+```
+
+
 #### <Badge type="server" text="Server" /> furnitureMoved
 Triggered when furniture is moved within a house.
 
@@ -991,10 +1038,15 @@ end)
 ```
 
 
+#### <Badge type="server" text="Server" /> houseWardrobeOpened
+Triggered when a player opens house wardrobe.
 
-
-
-
+```lua
+-- @param source - serverID of the player
+-- @param house - the house object
+exports.jo_housing:registerAction('houseWardrobeOpened', function(source, house)
+    -- Your code here
+end)
 
 
 
@@ -1021,6 +1073,19 @@ Triggered when a player is added to a house's access list.
 -- @param playerSrc - serverID of the player being added
 -- @param playerName - name of the player being added
 exports.jo_housing:registerAction('playerAddedToHouse', function(source, house, playerSrc, playerName)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> playerPermissionsChanged
+Triggered when the permissions for a player on the access list are changed.
+
+```lua
+-- @param source - serverID of the house owner
+-- @param house - the house object
+-- @param accessibilityId - ID of the access entry being changed
+-- @param permissions - table containing the new permissions
+exports.jo_housing:registerAction('playerPermissionsChanged', function(source, house, accessibilityId, permissions)
     -- Your code here
 end)
 ```
@@ -1275,6 +1340,18 @@ exports.jo_housing:registerFilter('canEnterHouse', function(canEnter, source, ho
 end)
 ```
 
+#### <Badge type="server" text="Server" /> canGetPlayersAccessibilityList
+Controls who can retrieve the list of players with access to a house.
+
+```lua
+-- @param canGet - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player requesting the list
+-- @param houseId - ID of the house
+exports.jo_housing:registerFilter('canGetPlayersAccessibilityList', function(canGet, source, houseId)
+    return canGet
+end)
+```
+
 #### <Badge type="server" text="Server" /> canMoveFurniture
 Controls who can move furniture in a house.
 
@@ -1311,6 +1388,18 @@ Controls who can open a house's storage.
 -- @param houseId - ID of the house
 exports.jo_housing:registerFilter('canOpenHouseStorage', function(canOpenStorage, source, houseId)
     return canOpenStorage
+end)
+```
+
+#### <Badge type="server" text="Server" /> canOpenHouseWardrobe
+Controls who can open a house's wardrobe.
+
+```lua
+-- @param canOpen - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param houseId - ID of the house
+exports.jo_housing:registerFilter('canOpenHouseWardrobe', function(canOpen, source, houseId)
+    return canOpen
 end)
 ```
 
@@ -1392,6 +1481,21 @@ Controls who can update a house's accessibility settings.
 -- @param accessibilityType - type of access ("everyone", "list", or "onlyMe")
 -- @param houseId - ID of the house
 exports.jo_housing:registerFilter('canUpdateAccessibility', function(canUpdate, source, accessibilityType, houseId)
+    return canUpdate
+end)
+```
+
+
+#### <Badge type="server" text="Server" /> canUpdatePlayerPermissions
+Controls who can update permissions for a player on a house's access list.
+
+```lua
+-- @param canUpdate - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player making the changes
+-- @param houseId - ID of the house
+-- @param accessibilityId - ID of the access entry being changed
+-- @param permissions - table of the new permissions
+exports.jo_housing:registerFilter('canUpdatePlayerPermissions', function(canUpdate, source, houseId, accessibilityId, permissions)
     return canUpdate
 end)
 ```
