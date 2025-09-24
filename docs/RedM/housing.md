@@ -343,6 +343,15 @@ These functions allow you to integrate the housing system with your existing res
 | `Config.showOutsideDoorMarker`     | `true`         | Show a marker on the ground for each house near you (outside)                                                                                                                                                                                                                                              |
 | `Config.openManagerCommandName`    | `houseManager` | The name of the command to open the house manager (ex: /houseManager)                                                                                                                                                                                                                                      |
 
+#### Blip Configuration
+
+| Property                       | Default Value                  | Description                              |
+| ------------------------------ | ------------------------------ | ---------------------------------------- |
+| `Config.blips.forSale.sprite`  | `"blip_proc_home"`             | Blip icon sprite for houses for sale on the map |
+| `Config.blips.forSale.color`   | `"BLIP_MODIFIER_DEBUG_BLUE"`   | Blip color for houses for sale           |
+| `Config.blips.forRent.sprite`  | `"blip_proc_home"`             | Blip icon sprite for houses for rent on the map |
+| `Config.blips.forRent.color`   | `"BLIP_MODIFIER_DEBUG_GREEN"`  | Blip color for houses for rent           |
+
 #### Distance Settings
 
 | Property                                    | Default Value | Description                                              |
@@ -384,7 +393,7 @@ These functions allow you to integrate the housing system with your existing res
 | `Config.keys.buyHouse`      | `"ENTER"`     | Confirm house purchase                                                                                                                                                                                                                                                                                                                                                                               |
 | `Config.keys.knockOnHouse`  | `"K"`         | Knock on someone's door                                                                                                                                                                                                                                                                                                                                                                              |
 | `Config.keys.enterHouse`    | `"ENTER"`     | Enter owned house                                                                                                                                                                                                                                                                                                                                                                                    |
-| `Config.keys.leaveHouse`    | `"X"`         | Exit house                                                                                                                                                                                                                                                                                                                                                                                           |
+| `Config.keys.leaveHouse`    | `"R"`         | Exit house                                                                                                                                                                                                                                                                                                                                                                                           |
 | `Config.keys.manageHouse`   | `"M"`         | Open house management menu                                                                                                                                                                                                                                                                                                                                                                           |
 | ... and many more           |               | See the `Configuration file` tab above for an exhaustive list, and see [Keyboard keys mapping](/jo_libs/modules/raw-keys/client#keyboard-keys-mapping) for a list of all available keys. This script uses the [raw keys](/jo_libs/modules/raw-keys/) module, if you have any problem with the prompts you should [set the keyboard layout](/jo_libs/modules/raw-keys/client#setting-keyboard-layout) |
 
@@ -452,6 +461,16 @@ Config.showInsideDoorMarker = true      -- While inside a house, show a marker o
 Config.showOutsideDoorMarker = true     -- Show a marker on the ground for each house near you (outside)
 Config.openManagerCommandName = "houseManager"     -- The name of the command to open the house manager (ex: /houseManager)
 
+Config.blips = { -- Blip icons for houses on the map
+    forSale = {
+        sprite = "blip_proc_home",
+        color = "BLIP_MODIFIER_DEBUG_BLUE"
+    },
+    forRent = {
+        sprite = "blip_proc_home",
+        color = "BLIP_MODIFIER_DEBUG_GREEN"
+    }
+}
 
 -- ===================================
 -- Items and Prices
