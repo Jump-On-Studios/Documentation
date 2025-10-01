@@ -361,12 +361,22 @@ These functions allow you to integrate the housing system with your existing res
 
 #### Blip Configuration
 
-| Property                       | Default Value                  | Description                              |
-| ------------------------------ | ------------------------------ | ---------------------------------------- |
-| `Config.blips.forSale.sprite`  | `"blip_proc_home"`             | Blip icon sprite for houses for sale on the map |
-| `Config.blips.forSale.color`   | `"BLIP_MODIFIER_DEBUG_BLUE"`   | Blip color for houses for sale           |
-| `Config.blips.forRent.sprite`  | `"blip_proc_home"`             | Blip icon sprite for houses for rent on the map |
-| `Config.blips.forRent.color`   | `"BLIP_MODIFIER_DEBUG_GREEN"`  | Blip color for houses for rent           |
+| Property                                    | Default Value                  | Description                                           |
+| ------------------------------------------- | ------------------------------ | ----------------------------------------------------- |
+| `Config.blips.forSale.sprite`               | `"blip_proc_home"`             | Blip icon sprite for houses available for sale        |
+| `Config.blips.forSale.color`                | `"BLIP_MODIFIER_DEBUG_BLUE"`   | Blip color for houses available for sale              |
+| `Config.blips.forRent.sprite`               | `"blip_proc_home"`             | Blip icon sprite for houses available for rent        |
+| `Config.blips.forRent.color`                | `"BLIP_MODIFIER_DEBUG_YELLOW"` | Blip color for houses available for rent              |
+| `Config.blips.boughtByMe.sprite`            | `"blip_proc_home_locked"`      | Blip icon sprite for houses you own                   |
+| `Config.blips.boughtByMe.color`             | `"BLIP_MODIFIER_DEBUG_GREEN"`  | Blip color for houses you own                         |
+| `Config.blips.boughtBySomeoneElse.sprite`   | `"blip_proc_home_locked"`      | Blip icon sprite for houses owned by other players    |
+| `Config.blips.boughtBySomeoneElse.color`    | `"BLIP_MODIFIER_DEBUG_RED"`    | Blip color for houses owned by other players          |
+| `Config.blips.rentedByMe.sprite`            | `"blip_proc_home_locked"`      | Blip icon sprite for houses you are renting           |
+| `Config.blips.rentedByMe.color`             | `"BLIP_MODIFIER_DEBUG_GREEN"`  | Blip color for houses you are renting                 |
+| `Config.blips.rentedBySomeoneElse.sprite`   | `"blip_proc_home_locked"`      | Blip icon sprite for houses rented by other players   |
+| `Config.blips.rentedBySomeoneElse.color`    | `"BLIP_MODIFIER_DEBUG_RED"`    | Blip color for houses rented by other players         |
+
+> **Note:** Set any blip category to `false` to disable blips for that state (e.g., `Config.blips.boughtBySomeoneElse = false`)
 
 #### Distance Settings
 
@@ -478,13 +488,29 @@ Config.distanceOutsideMarker = 10.0     -- Show a marker on the ground for each 
 Config.openManagerCommandName = "houseManager"     -- The name of the command to open the house manager (ex: /houseManager)
 
 Config.blips = { -- Blip icons for houses on the map
-    forSale = { -- set this to false to disable
+    forSale = {  -- Houses available for purchase (no owner) - set to false to disable
         sprite = "blip_proc_home",
         color = "BLIP_MODIFIER_DEBUG_BLUE"
     },
-    forRent = { -- set this to false to disable
+    forRent = { -- Houses available for rent (no owner) - set to false to disable
         sprite = "blip_proc_home",
+        color = "BLIP_MODIFIER_DEBUG_YELLOW"
+    },
+    boughtByMe = { -- Houses you own - set to false to disable
+        sprite = "blip_proc_home_locked",
         color = "BLIP_MODIFIER_DEBUG_GREEN"
+    },
+    boughtBySomeoneElse = { -- Houses owned by other players - set to false to disable
+        sprite = "blip_proc_home_locked",
+        color = "BLIP_MODIFIER_DEBUG_RED"
+    },
+    rentedByMe = { -- Houses you are renting - set to false to disable
+        sprite = "blip_proc_home_locked",
+        color = "BLIP_MODIFIER_DEBUG_GREEN"
+    },
+    rentedBySomeoneElse = { -- Houses rented by other players - set to false to disable
+        sprite = "blip_proc_home_locked",
+        color = "BLIP_MODIFIER_DEBUG_RED"
     }
 }
 
