@@ -356,7 +356,7 @@ These functions allow you to integrate the housing system with your existing res
 | `Config.allowPayingInGold`         | `false`        | Allow players to pay with gold in addition to money                                                                                                                                                                                                                                                        |
 | `Config.knockNotificationDuration` | `5000`         | Duration (in ms) that knock notifications are displayed to house owners                                                                                                                                                                                                                                    |
 | `Config.showInsideDoorMarker`      | `true`         | While inside a house, show a marker on the ground near the entrance door                                                                                                                                                                                                                                   |
-| `Config.showOutsideDoorMarker`     | `true`         | Show a marker on the ground for each house near you (outside)                                                                                                                                                                                                                                              |
+| `Config.distanceOutsideMarker`     | `10.0`         | Show a marker on the ground for each house near you (outside). Use 0 to turn OFF                                                        |
 | `Config.openManagerCommandName`    | `houseManager` | The name of the command to open the house manager (ex: /houseManager)                                                                                                                                                                                                                                      |
 
 #### Blip Configuration
@@ -474,15 +474,15 @@ Config.enableKeyMode = false                     -- Enable physical house keys t
 Config.allowPayingInGold = false                 -- Allow players to pay with gold in addition to money
 Config.knockNotificationDuration = 5000         -- Duration (in ms) that knock notifications are displayed to house owners
 Config.showInsideDoorMarker = true      -- While inside a house, show a marker on the ground near the entrance door
-Config.showOutsideDoorMarker = true     -- Show a marker on the ground for each house near you (outside)
+Config.distanceOutsideMarker = 10.0     -- Show a marker on the ground for each house near you (outside) (use 0 to turn OFF)
 Config.openManagerCommandName = "houseManager"     -- The name of the command to open the house manager (ex: /houseManager)
 
 Config.blips = { -- Blip icons for houses on the map
-    forSale = {
+    forSale = { -- set this to false to disable
         sprite = "blip_proc_home",
         color = "BLIP_MODIFIER_DEBUG_BLUE"
     },
-    forRent = {
+    forRent = { -- set this to false to disable
         sprite = "blip_proc_home",
         color = "BLIP_MODIFIER_DEBUG_GREEN"
     }
