@@ -157,3 +157,42 @@ Available translation categories include:
 :::tip 💡Only change the key you need to translate
 You only need to include the specific keys you want to change in `overwriteLang.lua`. Don't copy the entire language file.
 :::
+
+## 4. For Developers
+
+### Filters
+
+[Filters](/DeveloperResources/filters) allow you to modify data or control permissions during script execution. Introduced in `v1.2.0`, filters provide a **synchronous** way to intercept and modify script behavior at specific points, unlike events which are asynchronous.
+  
+Below is a complete list of all available filters in the jo_advanced_camera script.
+
+#### <Badge type="client" text="Client" /> canOpenAdvancedCamera
+Controls who can open the advanced camera script.
+
+```lua
+-- @param canUse - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+exports.jo_advanced_camera:registerFilter('canOpenAdvancedCamera', function(canUse, source)
+    -- Example: Only allow admins
+    local isAdmin = exports.your_permission_system:isAdmin(source)
+    return isAdmin
+end)
+```
+
+:::details Example of job lock for VORP
+```lua
+AllowedJobs = {
+    photograph = true,
+    admin = true,
+}
+
+exports.jo_advanced_camera:registerFilter('canOpenAdvancedCamera', function(canUse, source)
+    local job = jo.framework:getJob(source)
+    if AllowedJobs[job] then
+      return canUse
+    else
+      jo.notif.rightError("You don't have the right job to use the camera script")
+      return false
+    end
+end)
+```
