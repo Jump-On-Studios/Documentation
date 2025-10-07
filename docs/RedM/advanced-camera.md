@@ -171,7 +171,7 @@ You only need to include the specific keys you want to change in `overwriteLang.
   
 Below is a complete list of all available filters in the jo_advanced_camera script.
 
-#### <Badge type="client" text="Client" /> canOpenAdvancedCamera
+#### <Badge type="server" text="Server" /> canOpenAdvancedCamera
 Controls who can open the advanced camera script.
 
 ```lua
