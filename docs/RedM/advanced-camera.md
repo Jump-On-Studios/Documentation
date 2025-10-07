@@ -87,7 +87,12 @@ The **Presets** tab allows you to save and load your configurations. Presets for
 You can also share your work easily:
 * **Export**: Select a saved preset and click "Export". The preset's code will be copied to your clipboard.
 * **Import**: Click "Import" and paste a shared code to add a new preset to your list.
+
+Presets are saved locally on your client using RedM's Key-Value Pair (KVP) system. This means your presets are unique to you on the server and are not shared with other players by default.
+
 :::
+
+
 
 ::::
 
@@ -114,7 +119,7 @@ Rather than editing the original config files directly, you should make your cha
 | ------------------------------------------- | --------------- | -------------------------------------------------------- |
 | `Config.openKey`                            | `F6`            | Keybind to open the advanced camera, [find all the controls here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys). Set it to `false` to disable it.  |
 | `Config.openFromPauseMenu`                  | `true`          | Can the camera mode be opened via the native prompt inside the game pause menu. Set it to `false` to disable it.  |
-| `Config.openCommandName`                    | `openPhotoMode` |The name of the command to open the script (ex: /openPhotoMode)   |                                   
+| `Config.openCommandName`                    | `openPhotoMode` |The name of the command to open the script (ex: /openPhotoMode). Set it to `false` to disable it.   |                                   
 :::
 
 ::: tab Configuration file
