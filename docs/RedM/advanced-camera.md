@@ -136,7 +136,7 @@ Config.openCommandName = "openPhotoMode" -- set it to false to disabled
 
 ::::
 
-### Language Configuration
+### Language File
 
 The script supports full translation through the language system. To override any text in the script:
 
