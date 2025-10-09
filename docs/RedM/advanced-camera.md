@@ -97,6 +97,39 @@ Presets are saved locally on your client using RedM's Key-Value Pair (KVP) syste
 ::::
 
 
+:::details Smoothing Functions Reference
+
+#### Smoothing Functions Reference
+
+The smoothing function determines how the camera accelerates and decelerates along the path between waypoints. Choose the appropriate function based on the cinematic effect you want to achieve:
+
+| Name | Spline Name | Description | Curve Visualization |
+|------|-----------------|-------------|---------------------|
+| No smoothing | NO_SMOOTH | Linear movement with no acceleration or deceleration | ![No smoothing](/images/smoothing-functions/0.png) |
+| Smooth lead-in | SLOW_IN_SMOOTH | Gradual acceleration at the start | ![Smooth lead-in](/images/smoothing-functions/1.png) |
+| Smooth lead-out | SLOW_OUT_SMOOTH | Gradual deceleration at the end | ![Smooth lead-out](/images/smoothing-functions/2.png) |
+| Smooth both | SLOW_IN_OUT_SMOOTH | Gentle acceleration and deceleration | ![Smooth both](/images/smoothing-functions/3.png) |
+| Long lead-in | VERY_SLOW_IN | Extended acceleration period | ![Long lead-in](/images/smoothing-functions/4.png) |
+| Long lead-out | VERY_SLOW_OUT | Extended deceleration period | ![Long lead-out](/images/smoothing-functions/5.png) |
+| Mixed smooth | SLOW_IN_VERY_SLOW_OUT | Short lead-in with long lead-out | ![Mixed smooth](/images/smoothing-functions/7.png) |
+| Long both | VERY_SLOW_IN_VERY_SLOW_OUT | Extended acceleration and deceleration | ![Long both](/images/smoothing-functions/8.png) |
+| Constant acceleration | EASE_IN | Linear acceleration throughout | ![Constant acceleration](/images/smoothing-functions/9.png) |
+| Slow deceleration | QUADRATIC_EASE_OUT | Quadratic ease-out motion | ![Slow deceleration](/images/smoothing-functions/12.png) |
+| Enhanced smooth | QUADRATIC_EASE_IN_OUT | Quadratic ease-in and ease-out | ![Enhanced smooth](/images/smoothing-functions/13.png) |
+| Smooth deceleration | CUBIC_EASE_OUT | Cubic ease-out for smooth stops | ![Smooth deceleration](/images/smoothing-functions/15.png) |
+| Slow acceleration | QUARTIC_EASE_IN | Quartic ease-in for gradual starts | ![Slow acceleration](/images/smoothing-functions/17.png) |
+| Slow linger | QUARTIC_EASE_OUT | Quartic ease-out with prolonged end | ![Slow linger](/images/smoothing-functions/18.png) |
+| Very long | QUARTIC_EASE_IN_OUT | Quartic ease-in-out for dramatic motion | ![Very long](/images/smoothing-functions/19.png) |
+| Gradual acceleration | QUINTIC_EASE_IN | Quintic ease-in for subtle starts | ![Gradual acceleration](/images/smoothing-functions/20.png) |
+| Gradual deceleration | QUINTIC_EASE_OUT | Quintic ease-out for subtle stops | ![Gradual deceleration](/images/smoothing-functions/21.png) |
+| Fast deceleration | CIRCULAR_EASE_OUT | Circular ease-out for quick stops | ![Fast deceleration](/images/smoothing-functions/24.png) |
+| Fast combined | CIRCULAR_EASE_IN_OUT | Circular ease-in-out for dynamic motion | ![Fast combined](/images/smoothing-functions/25.png) |
+
+
+
+:::
+
+
 ## 3. Configuration
 
 The Advanced Camera script is highly configurable to suit your server's needs. Configuration is split between the main settings and language translations.
