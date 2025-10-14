@@ -25,6 +25,40 @@ jo.emit.isEventInProgress(eventName)
 
 ---
 
+### jo.emit.triggerClient()
+
+<!-- @include: ./slots/headers.md#client|jo.emit.triggerClient -->
+
+A function to trigger client(s) <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.emit.triggerClient -->
+
+#### Syntax
+
+```lua
+jo.emit.triggerClient(eventName, source, ...)
+```
+
+#### Parameters
+
+`eventName` : _string_
+> The event name
+>
+
+`source` : _integer|table_
+> The player ID or list of players ID
+>
+
+`...` : _any_
+> Other arguments
+>
+
+<!-- @include: ./slots/examples.md#client|jo.emit.triggerClient -->
+
+<!-- @include: ./slots/footers.md#client|jo.emit.triggerClient -->
+
+---
+
 ### jo.emit.triggerServer()
 
 <!-- @include: ./slots/headers.md#client|jo.emit.triggerServer -->
