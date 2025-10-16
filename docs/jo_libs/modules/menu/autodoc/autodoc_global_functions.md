@@ -645,6 +645,44 @@ jo.menu.addItem(id, p, item)
 
 ---
 
+### <Badge type="client" text="Client" /> jo.menu.createIfNotExist()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.createIfNotExist -->
+
+Create a new menu if it doesn't exist <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.createIfNotExist -->
+
+#### Syntax
+
+```lua
+jo.menu.createIfNotExist(id, data)
+```
+
+#### Parameters
+
+`id` : _string_
+> Unique ID of the menu
+>
+
+`data` : _table_ <BadgeOptional />
+
+> Menu configuration data
+>
+
+
+#### Return Value
+
+Type : _boolean_
+
+> Returns `true` if the menu was created
+
+<!-- @include: ./slots/examples.md#client|jo.menu.createIfNotExist -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.createIfNotExist -->
+
+---
+
 ### <Badge type="client" text="Client" /> jo.menu.delete()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.delete -->
