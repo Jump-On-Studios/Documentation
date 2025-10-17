@@ -674,6 +674,42 @@ Type : _string_
 
 ---
 
+### <Badge type="server" text="Server" /> jo.framework:getSourceFromIdentifiers()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:getSourceFromIdentifiers -->
+
+Retrieves the source ID from identifiers <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:getSourceFromIdentifiers -->
+
+#### Syntax
+
+```lua
+jo.framework:getSourceFromIdentifiers(identifier, charid)
+```
+
+#### Parameters
+
+`identifier` : _string_
+> The identifier to search for
+>
+
+`charid` : _string_
+> The character ID to search for
+>
+
+#### Return Value
+
+Type : _integer|boolean_
+
+> Return the source ID if found, otherwise return false
+
+<!-- @include: ./slots/examples.md#server|jo.framework:getSourceFromIdentifiers -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:getSourceFromIdentifiers -->
+
+---
+
 ### <Badge type="server" text="Server" /> jo.framework:getUser()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getUser -->
