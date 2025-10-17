@@ -14,6 +14,7 @@ shared_scripts {
 2. Add the Framework module inside the `fxmanifest.lua` (in lowercase)
 ```lua
 jo_libs {
+  'callback', -- required
   'framework',
 }
 
