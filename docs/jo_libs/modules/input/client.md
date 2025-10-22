@@ -229,7 +229,8 @@ Preview:
 }
 ```
 ### Return
-The return value is a table with the following structure:
+If closed with ESC, the return value is `false`.  
+If closed with a button, the return value is a **table** with the following structure:
 ```lua
 {
   action = "action_id", -- the id of the button pressed
