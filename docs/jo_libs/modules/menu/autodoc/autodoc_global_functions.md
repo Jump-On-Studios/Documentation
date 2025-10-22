@@ -1702,4 +1702,38 @@ Type : _boolean_
 
 <!-- @include: ./slots/footers.md#shared|jo.menu.isPriceFree -->
 
+---
+
+### <Badge type="shared" text="Shared" /> jo.menu.mergePrices()
+
+<!-- @include: ./slots/headers.md#shared|jo.menu.mergePrices -->
+
+Merge prices <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.menu.mergePrices -->
+
+#### Syntax
+
+```lua
+jo.menu.mergePrices(...)
+```
+
+#### Parameters
+
+`...` : _table_
+
+> The prices to merge
+>
+
+
+#### Return Value
+
+Type : _table_
+
+> The merged prices
+
+<!-- @include: ./slots/examples.md#shared|jo.menu.mergePrices -->
+
+<!-- @include: ./slots/footers.md#shared|jo.menu.mergePrices -->
+
 <!-- #endregion group_5 -->
