@@ -83,8 +83,9 @@ jo.input.nui(options, cb)
 
 Type : _table_
 
-> Return the table of the input if no `cb` is provided
->
+> Return the table of the input if no `cb` is provided  
+> `result.action` : _string_ - The id of the button pressed  
+> `result.result` : _table_ - The table of the values  
 
 **Example**
 ```lua
@@ -101,19 +102,20 @@ local options = {
       { type= "date", id= "birthday", placeholder= "Select a date", yearRange= {1800, 1900}, value= '', format= 'dd/MM/yyyy', required= true } -- 2nd column
     },
     { --4th line
-      { type= "action", value= "Confirm", id= "confirm", }, -- 1st column
-      { type= "action", class= "bg-green", value= "Delete", id= 'delete', ignoreRequired= true }, -- 2nd column
-      { type= "action", id= "close", value= "X", width= 5, ignoreRequired= true } -- 3rd column
+      { type= "button", value= "Confirm", id= "confirm", }, -- 1st column
+      { type= "button", class= "bg-green", value= "Delete", id= 'delete', ignoreRequired= true }, -- 2nd column
+      { type= "button", id= "close", value= "X", width= 5, ignoreRequired= true } -- 3rd column
     },
   }
 }
 -- Open the input synchronously
 local input = jo.input.nui(options)
-log(input?.result)
+log("Button pressed:", input?.action)
+log(input)
 
 -- Open the input asynchronously
 jo.input.nui(options, function(input)
-  log(input?.result)
+  log(input)
 end)
 ```
 Preview:
@@ -218,7 +220,7 @@ Preview:
 #### Button
 ```lua
 {
-  type = "action",       -- type of the entry
+  type = "button",       -- type of the entry
   id = 'input',          -- unique id of the input
   value = "Confirm",     -- text to display
   class = "",            -- css class (optional)
@@ -226,4 +228,13 @@ Preview:
   ignoreRequired = true, -- if the button should be ignored if the required inputs are not filled
 }
 ```
-
+### Return
+The return value is a table with the following structure:
+```lua
+{
+  action = "action_id", -- the id of the button pressed
+  result = {
+    -- the values of the inputs
+  }
+}
+```
