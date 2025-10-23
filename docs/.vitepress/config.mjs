@@ -292,16 +292,20 @@ export default defineConfig({
             collapsed: true,
             items: [
               {
-                text: "Modules",
-                base: "/jo_libs/modules",
-                collapsed: true,
-                items: sideBarModules.items,
-              },
-              {
                 text: "Convars",
                 link: "/convars/",
                 collapsed: true,
                 items: [],
+              },
+              {
+                text: "Global functions",
+                link: "/global-functions",
+              },
+              {
+                text: "Modules",
+                base: "/jo_libs/modules",
+                collapsed: true,
+                items: sideBarModules.items,
               },
             ],
           },
