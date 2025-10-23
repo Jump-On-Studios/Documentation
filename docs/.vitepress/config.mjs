@@ -317,6 +317,14 @@ export default defineConfig({
               { text: "Filters", link: "/DeveloperResources/filters" },
             ],
           },
+          {
+            text: "OverwriteConfig.lua",
+            link: "/DeveloperResources/overwrite-config",
+          },
+          {
+            text: "OverwriteLang.lua",
+            link: "/DeveloperResources/overwrite-lang",
+          },
         ],
       },
       {
