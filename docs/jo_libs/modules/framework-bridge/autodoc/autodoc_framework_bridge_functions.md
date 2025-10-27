@@ -916,6 +916,36 @@ Type : _boolean_
 
 ---
 
+### <Badge type="server" text="Server" /> jo.framework:listenItemRemoved()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:listenItemRemoved -->
+
+Listen when an item is removed of the player inventory <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:listenItemRemoved -->
+
+#### Syntax
+
+```lua
+jo.framework:listenItemRemoved(...)
+```
+
+#### Parameters
+
+`item` : _string|function_
+> The name of the item
+>
+
+`callback` : _function_
+> The function fired after remove the item <br> 1st argument: source <br> 2nd argument: the quantity removed <br> 3rd argument: metadata of the item <br> 4th argument: reason of the removal
+>
+
+<!-- @include: ./slots/examples.md#server|jo.framework:listenItemRemoved -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:listenItemRemoved -->
+
+---
+
 ### <Badge type="server" text="Server" /> jo.framework:onCharacterSelected()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:onCharacterSelected -->
