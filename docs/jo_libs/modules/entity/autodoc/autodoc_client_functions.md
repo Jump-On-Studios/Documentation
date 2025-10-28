@@ -80,9 +80,9 @@ jo.entity.createWithMouse(model, keepEntity, networked)
 
 #### Return Value
 
-Type : _integer,vector3,number_
+Type : _integer,vector3,number,boolean_
 
-> The created entity ID, final position, final heading
+> The created entity ID, final position, final heading, is canceled
 
 <!-- @include: ./slots/examples.md#client|jo.entity.createWithMouse -->
 
