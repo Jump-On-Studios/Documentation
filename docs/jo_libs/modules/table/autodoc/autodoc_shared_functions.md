@@ -572,27 +572,21 @@ Type : _table_
 
 <!-- @include: ./slots/headers.md#shared|table.merge -->
 
-Merges two tables together. <br>
+Merges multiple tables together. <br>
 
 <!-- @include: ./slots/descriptions.md#shared|table.merge -->
 
 #### Syntax
 
 ```lua
-table.merge(t1, t2)
+table.merge(...)
 ```
 
 #### Parameters
 
-`t1` : _table_
+`...` : _table_
 
-> The main table
->
-
-
-`t2` : _table_
-
-> The table to merge
+> The tables to merge
 >
 
 
@@ -619,20 +613,14 @@ Merges the values of the second table sequentially into the first table. <br>
 #### Syntax
 
 ```lua
-table.mergeAfter(t1, t2)
+table.mergeAfter(...)
 ```
 
 #### Parameters
 
-`t1` : _table_
+`...` : _table_
 
-> The target table to merge into
->
-
-
-`t2` : _table_
-
-> The table whose values will be appended
+> The tables to merge
 >
 
 
