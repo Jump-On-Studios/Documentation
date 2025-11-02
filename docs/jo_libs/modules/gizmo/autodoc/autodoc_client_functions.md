@@ -72,6 +72,8 @@ jo.gizmo.moveEntity(entity, cfg, allowPlace)
 > 
 > `cfg.allowRotateZ` : _boolean_ - Allow rotation on Z-axis - default `true`
 > 
+> `cfg.allowSnapToGround` : _boolean_ - Allow snapping to ground - default `true`
+> 
 > `cfg.rotationSnap` : _number_ - Rotation snap value - default `5`
 > 
 > `cfg.onMove` : _function_ - Optional function fired when the entity move with the gizmo

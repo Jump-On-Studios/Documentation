@@ -2,7 +2,7 @@
 
 This document lists all configuration variables used in jo_libs, grouped by module.
 
-Total convars: 30
+Total convars: 31
 
 ## Modules
 
@@ -22,6 +22,7 @@ Total convars: 30
 | `jo_libs:gizmo:allowRotateX` | Client | Boolean | `true` | Allow rotation on X-axis |
 | `jo_libs:gizmo:allowRotateY` | Client | Boolean | `true` | Allow rotation on Y-axis |
 | `jo_libs:gizmo:allowRotateZ` | Client | Boolean | `true` | Allow rotation on Z-axis |
+| `jo_libs:gizmo:allowSnapToGround` | Client | Boolean | `true` | Allow snapping to ground |
 | `jo_libs:gizmo:allowTranslateX` | Client | Boolean | `true` | Allow translation on X-axis |
 | `jo_libs:gizmo:allowTranslateY` | Client | Boolean | `true` | Allow translation on Y-axis |
 | `jo_libs:gizmo:allowTranslateZ` | Client | Boolean | `true` | Allow translation on Z-axis |
