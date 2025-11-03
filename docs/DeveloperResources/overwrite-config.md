@@ -45,11 +45,10 @@ The file already contains a header explaining its purpose:
 -- CONFIG LOCATION : shared/config.lua
 -- Copy ONLY values you want edit, NOT ALL the config file
 -------------
-Config = Config or {}
 
 -- Customize only the values you want to modify
-Config.MyParameter = "my_value"
-Config.MaxPlayers = 32
+Config.myParameter = "my_value"
+Config.maxPlayers = 32
 ```
 
 ### Concrete Example
@@ -57,23 +56,31 @@ Config.MaxPlayers = 32
 Imagine that the `config.lua` file contains:
 
 ```lua
+-------------------------------------------
+-- DON'T EDIT THIS FILE
+-- TO OVERWRITE CONFIG VALUE, USE overwriteConfig.lua file instead
+-------------------------------------------
 Config = {}
 
-Config.Framework = "redemrp"
-Config.Language = "en"
-Config.MaxDistance = 10.0
-Config.EnableNotifications = true
-Config.NotificationDuration = 5000
+Config.framework = "redemrp"
+Config.language = "en"
+Config.maxDistance = 10.0
+Config.enableNotifications = true
+Config.notificationDuration = 5000
 ```
 
 If you only want to change the language and maximum distance, edit the `overwriteConfig.lua` file:
 
 ```lua
-Config = Config or {}
+-------------
+-- USE THIS FILE TO EDIT THE CONFIGURATION OF THE SCRIPT
+-- CONFIG LOCATION : shared/config.lua
+-- Copy ONLY values you want edit, NOT ALL the config file
+-------------
 
 -- Modify only the desired parameters
-Config.Language = "fr"
-Config.MaxDistance = 15.0
+Config.language = "fr"
+Config.maxDistance = 15.0
 
 -- Other parameters (Framework, EnableNotifications, NotificationDuration)
 -- keep their default values from config.lua
@@ -104,13 +111,11 @@ shared_scripts {
 - Backup your `overwriteConfig.lua` during updates
 
 ```lua
-Config = Config or {}
-
 -- Switch to French for our FR server
-Config.Language = "fr"
+Config.language = "fr"
 
 -- Distance increased for better visibility in our game mode
-Config.MaxDistance = 20.0
+Config.maxDistance = 20.0
 ```
 
 ### Don't
@@ -123,21 +128,30 @@ Config.MaxDistance = 20.0
 
 ### config.lua (original file, do not modify)
 ```lua
+-------------------------------------------
+-- DON'T EDIT THIS FILE
+-- TO OVERWRITE CONFIG VALUE, USE overwriteConfig.lua file instead
+-------------------------------------------
 Config = {}
 
-Config.Framework = "redemrp"
-Config.Language = "en"
-Config.Currency = "dollar"
+Config.framework = "redemrp"
+Config.language = "en"
+Config.currency = "dollar"
 
-Config.Shops = {
+Config.shops = {
     {
         name = "General Store",
         coords = vector3(100.0, 200.0, 300.0),
         blip = true
+    },
+    {
+        name = "North Store",
+        coords = vector3(400.0, 500.0, 600.0),
+        blip = true
     }
 }
 
-Config.Prices = {
+Config.prices = {
     apple = 1.0,
     bread = 2.0,
     water = 0.5
@@ -146,24 +160,21 @@ Config.Prices = {
 
 ### overwriteConfig.lua (your customizations)
 ```lua
-Config = Config or {}
+-------------
+-- USE THIS FILE TO EDIT THE CONFIGURATION OF THE SCRIPT
+-- CONFIG LOCATION : shared/config.lua
+-- Copy ONLY values you want edit, NOT ALL the config file
+-------------
 
 -- Language configuration
-Config.Language = "fr"
+Config.language = "fr"
 
--- Price modifications
-Config.Prices = {
-    apple = 1.5,
-    bread = 3.0,
-    water = 1.0
-}
+-- Update the bread price
+Config.prices.bread = 3.0
 
--- Add an additional shop
-Config.Shops[2] = {
-    name = "North Store",
-    coords = vector3(400.0, 500.0, 600.0),
-    blip = true
-}
+-- Rename shops
+Config.shops[1].name = "Magasin Général"
+Config.shops[2].name = "Magasin Nord"
 ```
 
 ## Summary

@@ -45,7 +45,6 @@ The file already contains a header explaining its purpose:
 -- LANG LOCATION : shared/lang.lua
 -- Copy ONLY values you want edit, NOT ALL the Lang file
 -------------
-Lang = Lang or {}
 
 -- Customize only the strings you want to translate
 Lang.myString = "My custom translation"
@@ -74,8 +73,6 @@ Lang.buy = "Buy"
 If you only want to translate the script to French, edit the `overwriteLang.lua` file:
 
 ```lua
-Lang = Lang or {}
-
 -- French translation
 Lang.blipStoreName = "Écurie"
 Lang.promptTitle = "Écurie"
@@ -112,8 +109,6 @@ shared_scripts {
 - Add comments to group related strings together
 
 ```lua
-Lang = Lang or {}
-
 -- Prompts
 Lang.enter = "Entrer"
 Lang.select = "Sélectionner"
@@ -185,8 +180,6 @@ Lang.releaseHorseDesc = "Vous allez perdre ce cheval.<br><span style='font-style
 -- TO TRANSLATE THE SCRIPT, USE overwriteLang.lua file instead
 -------------------------------------------
 
-Lang = {}
-
 -- Prompts
 Lang.promptTitle = "Stable"
 Lang.enter = "Enter"
@@ -210,7 +203,6 @@ Lang.newHorseBought = "New horse bought"
 -- LANG LOCATION : shared/lang.lua
 -- Copy ONLY values you want edit, NOT ALL the Lang file
 -------------
-Lang = Lang or {}
 
 -- Prompts (French translation)
 Lang.promptTitle = "Écurie"
