@@ -43,9 +43,9 @@ jo.camera.freeCamera.getPromptGroup()
 
 #### Return Value
 
-Type : _integer_
+Type : _string_
 
-> The prompt group
+> The prompt group name
 
 <!-- @include: ./slots/examples.md#client|jo.camera.freeCamera.getPromptGroup -->
 
