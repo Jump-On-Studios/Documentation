@@ -130,9 +130,6 @@ jo.camera.freeCamera.lockRotate()
 <!-- @include: ./slots/headers.md#client|jo.camera.freeCamera.start -->
 
 A function to start the freecam <br>
-options?.interpolate? number (The interpolate time - default `0`) <br>
-options?.showPrompts? boolean (Whether to show prompts - default `true`) <br>
-options?.range? number (The range of the freecam - default `10000`) <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.camera.freeCamera.start -->
 
@@ -149,6 +146,12 @@ jo.camera.freeCamera.start(options)
 > The freecam option options
 >
 
+> `options.interpolate` : _number_ - The interpolate time - default `0`
+> 
+> `options.showPrompts` : _boolean_ - Whether to show prompts - default `true`
+> 
+> `options.range` : _number_ - The range of the freecam - default `10000`
+> 
 
 <!-- @include: ./slots/examples.md#client|jo.camera.freeCamera.start -->
 
