@@ -1,6 +1,46 @@
 
 ## Math Functions
 
+### math.clamp()
+
+<!-- @include: ./slots/headers.md#shared|math.clamp -->
+
+Clamps a number between a minimum and maximum value. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|math.clamp -->
+
+#### Syntax
+
+```lua
+math.clamp(x, min, max)
+```
+
+#### Parameters
+
+`x` : _number_
+> The number to clamp
+>
+
+`min` : _number_
+> The minimum value
+>
+
+`max` : _number_
+> The maximum value
+>
+
+#### Return Value
+
+Type : _number_
+
+> The clamped number
+
+<!-- @include: ./slots/examples.md#shared|math.clamp -->
+
+<!-- @include: ./slots/footers.md#shared|math.clamp -->
+
+---
+
 ### math.lerp()
 
 <!-- @include: ./slots/headers.md#shared|math.lerp -->
