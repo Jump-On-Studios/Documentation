@@ -19,6 +19,7 @@ jo_libs {
 
 ```
 You can now use the library inside of your resource with the `camera` global variable.
+This module has an alias: `jo.cam`.
 
 ## Functions
 
