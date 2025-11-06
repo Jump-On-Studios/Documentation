@@ -26,11 +26,17 @@ jo.menu.create(id, data)
 > Menu configuration data
 >
 
-> `data.title` : _string_ - The big title of the menu  ![The menu title](https://docs.jumpon-studios.com/images/previews/menu/bigTitle.jpg)
+> `data.type` : _string_ - The type of menu `tile` or `list` <br> default `tile`
+> 
+> `data.title` : _string_ - The big title of the menu  ![The menu title](https://docs.jumpon-studios.com/images/previews/menu/bigTitle.jpg) <BadgeOptional />
 > 
 > `data.subtitle` : _string_ - The subtitle of the menu  ![The subtitle](https://docs.jumpon-studios.com/images/previews/menu/subtitle.jpg)
 > 
-> `data.numberOnScreen` : _integer_ - Maximum number of [item](#item-methods)s visibles at the same time <br> default : `8` <BadgeOptional />
+> `data.numberOnScreen` : _integer_ - Only for list menu, Maximum number of [item](#item-methods)s visibles at the same time <br> default : `8` <BadgeOptional />
+> 
+> `data.numberOnLine` : _integer_ - Only for tile menu, Maximum number of [item](#item-methods)s visibles at the same time <br> default : `4` <BadgeOptional />
+> 
+> `data.numberLineOnScreen` : _integer_ - Only for tile menu, Maximum number of lines visibles at the same time <br> default : `6` <BadgeOptional />
 > 
 > `data.distanceToClose` : _float_ - Distance at which the menu will self close if the player is moving away <br> default: `false`
 > 
