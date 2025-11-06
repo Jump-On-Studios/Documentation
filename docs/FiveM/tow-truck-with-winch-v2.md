@@ -442,3 +442,25 @@ Trucks[`20ramrbc`] = {
   minWinchLength = 1.0
 }
 ```
+
+### [Lenand's shop](https://tebex.lenand.com/)
+```lua
+Trucks[`actschlepu1`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  attachOffset = vector4(0.0, 0.0, -0.5, 0.0),
+  maxBedPosition = 10.0
+}
+Trucks[`actschlepu2`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  attachOffset = vector4(0.0, 0.0, -0.5, 0.0),
+  maxBedPosition = 10.0
+}
+Trucks[`actschlepp`] = {
+  winchBone = "attach_male",
+  attachVehBone = "misc_z",
+  attachOffset = vector4(0.0, 0.0, -0.5, 0.0),
+  maxBedPosition = 10.0
+}
+```
