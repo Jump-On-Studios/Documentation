@@ -53,7 +53,7 @@ Config.maxPlayers = 32
 
 ### Concrete Example
 
-Imagine that the `config.lua` file contains:
+Imagine that the `config.lua` file contains the following configuration and you want edit the language and maximum distance:
 
 ```lua
 -------------------------------------------
@@ -69,7 +69,7 @@ Config.enableNotifications = true
 Config.notificationDuration = 5000
 ```
 
-If you only want to change the language and maximum distance, edit the `overwriteConfig.lua` file:
+1. Copy the two lines from the `config.lua` file and paste them in the `overwriteConfig.lua` file:
 
 ```lua
 -------------
@@ -77,14 +77,22 @@ If you only want to change the language and maximum distance, edit the `overwrit
 -- CONFIG LOCATION : shared/config.lua
 -- Copy ONLY values you want edit, NOT ALL the config file
 -------------
+Config.language = "en"
+Config.maxDistance = 10.0
+```
 
--- Modify only the desired parameters
+2. Edit these values to your liking:
+```lua
+-------------
+-- USE THIS FILE TO EDIT THE CONFIGURATION OF THE SCRIPT
+-- CONFIG LOCATION : shared/config.lua
+-- Copy ONLY values you want edit, NOT ALL the config file
+-------------
 Config.language = "fr"
 Config.maxDistance = 15.0
-
--- Other parameters (Framework, EnableNotifications, NotificationDuration)
--- keep their default values from config.lua
 ```
+
+:clap: **You're done!** You can now use the script with your custom configuration.
 
 ## Loading Order
 
