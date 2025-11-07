@@ -70,6 +70,7 @@ Config.notificationDuration = 5000
 ```
 
 1. Copy the two lines from the `config.lua` file and paste them in the `overwriteConfig.lua` file:
+You don't need to copy the entire file, only the values you want to change are enough.
 
 ```lua
 -------------

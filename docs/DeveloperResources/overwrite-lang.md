@@ -70,7 +70,8 @@ Lang.back = "Back"
 Lang.buy = "Buy"
 ```
 
-1. Copy the strings you want to translate from the `lang.lua` file and paste them in the `overwriteLang.lua` file:
+1. Copy the strings you want to translate from the `lang.lua` file and paste them into the `overwriteLang.lua` file:
+You don't need to copy the entire file, only the strings you want to translate are enough.
 
 ```lua
 -------------
