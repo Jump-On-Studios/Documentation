@@ -52,7 +52,7 @@ Lang.myString = "My custom translation"
 
 ### Concrete Example
 
-Imagine that the `lang.lua` file contains:
+Imagine that the `lang.lua` file contains the following language strings and you want to translate it to French:
 
 ```lua
 -------------------------------------------
@@ -70,19 +70,33 @@ Lang.back = "Back"
 Lang.buy = "Buy"
 ```
 
-If you only want to translate the script to French, edit the `overwriteLang.lua` file:
+1. Copy the strings you want to translate from the `lang.lua` file and paste them in the `overwriteLang.lua` file:
 
 ```lua
--- French translation
-Lang.blipStoreName = "Écurie"
-Lang.promptTitle = "Écurie"
-Lang.enter = "Entrer"
-Lang.select = "Sélectionner"
+-------------
+-- USE THIS FILE TO TRANSLATE THE SCRIPT
+-- LANG LOCATION : shared/lang.lua
+-- Copy ONLY values you want edit, NOT ALL the Lang file
+-------------
+Lang.select = "Select"
+Lang.back = "Back"
+Lang.buy = "Buy"
+```
+
+2. Edit these values to your language:
+
+```lua
+-------------
+-- USE THIS FILE TO TRANSLATE THE SCRIPT
+-- LANG LOCATION : shared/lang.lua
+-- Copy ONLY values you want edit, NOT ALL the Lang file
+-------------
+Lang.select = "Selectionner"
 Lang.back = "Retour"
 Lang.buy = "Acheter"
-
--- Other strings (blipHorse, manage, etc.) keep their default values from lang.lua
 ```
+
+:clap: **You're done!** You can now use the script with your custom translations.
 
 ## Loading Order
 
