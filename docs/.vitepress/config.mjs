@@ -83,7 +83,7 @@ let sideBarModules = GenerateMenu(libModules);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  srcExclude: ['**/autodoc/**'],
+  srcExclude: ["**/autodoc/**"],
   ignoreDeadLinks: ["./user"],
   sitemap: {
     hostname: "https://docs.jumpon-studios.com",
@@ -126,7 +126,7 @@ export default defineConfig({
       tabsPlugin(md);
     },
     languageAlias: {
-      'cfg': 'bash' // cfg va réutiliser la coloration bash
+      cfg: "bash", // cfg va réutiliser la coloration bash
     },
     // codeTransformers: [transformerLuaComment()],
   },
@@ -208,6 +208,7 @@ export default defineConfig({
         text: "RedM",
         collapsed: true,
         items: [
+          { text: "📷 Camera Kit", link: "/RedM/camera-kit" },
           { text: "⛺ Camp builder", link: "/RedM/camp-builder" },
           {
             icon: "/images/cashregister.webp",
@@ -260,6 +261,7 @@ export default defineConfig({
             text: "🦌 Hunting wagon Storage",
             link: "/RedM/hunting-wagon-storage",
           },
+
           { text: "🔪 Knife game", link: "/RedM/knife-game" },
           { text: "🗒 MDT", link: "/RedM/mdt" },
           { text: "🖱️ Mouse selection", link: "/RedM/mouse-selection" },
