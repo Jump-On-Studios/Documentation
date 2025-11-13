@@ -208,7 +208,7 @@ export default defineConfig({
         text: "RedM",
         collapsed: true,
         items: [
-          { text: "📷 Advanced Camera", link: "/RedM/advanced-camera" },
+          { text: "🎥 Cinematic Camera", link: "/RedM/cinematic-camera" },
           { text: "⛺ Camp builder", link: "/RedM/camp-builder" },
           {
             icon: "/images/cashregister.webp",

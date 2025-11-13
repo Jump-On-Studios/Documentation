@@ -1,5 +1,5 @@
-# 📷 Advanced Camera
-Documentation relating to the jo_advanced_camera script.
+# 🎥 Cinematic Camera
+Documentation relating to the jo_cinematic_camera script.
 
 :::: tabs
 ::: tab BUY
@@ -12,33 +12,33 @@ todo
 ::::
 
 ## 1. Installation
- The `jo_advanced_camera` script works on all frameworks.
+ The `jo_cinematic_camera` script works on all frameworks.
 
-To install `jo_advanced_camera`:
+To install `jo_cinematic_camera`:
 - Download the library: [jo_libs](https://github.com/Jump-On-Studios/RedM-jo_libs/releases/latest/download/jo_libs.zip)
 - Unzip the folder and drop it in your resource folder
-- Download `jo_advanced_camera` from your [account](https://jumpon-studios.com/account).
+- Download `jo_cinematic_camera` from your [account](https://jumpon-studios.com/account).
 - Unzip the folder and drop it in your resource folder
 - Add these ensures in your server.cfg
   - `ensure jo_libs`
-  - `ensure jo_advanced_camera`
+  - `ensure jo_cinematic_camera`
 
-Congratulation, the **Advanced Camera** script is ready to be used!
+Congratulation, the **Cinematic Camera** script is ready to be used!
 
 
 ## 2. Usage
 
-You can access the advanced camera in three different ways, giving you flexibility in how you launch the tool.
+You can access the cinematic camera in three different ways, giving you flexibility in how you launch the tool.
 
 * **Hotkey**: Press the default key, `F6`, to instantly open the camera interface.
 * **Pause Menu**: Open the game's pause menu and select the "Photo Mode" option.
-* **Command**: Type the `/openPhotoMode` command into the chat.
+* **Command**: Type the `/openCinematicCamera` command into the chat.
 
 ### Basic Controls
 
 These are the fundamental controls for operating the camera in any mode.
 
-* **Move Camera**: Use `Z`, `Q`, `S`, `D` for horizontal movement, `SPACE` to move up, and `L CTRL` to move down.
+* **Move Camera**: Use `Z`, `Q`, `S`, `D` for horizontal movement, `LEFT SHIFT` to move up, and `LEFT CTRL` to move down.
 * **Adjust Speed**: Scroll the **mouse wheel** to increase or decrease the camera's movement speed.
 * **Toggle UI**: Press `C` to hide or show the user interface. This is perfect for taking clean screenshots in Photo Mode or recording footage in Video Mode.
 * **Switch Mode**: Press `TAB` to switch between **Photo Mode** and **Video Mode**.
@@ -56,8 +56,8 @@ Pressing `A` opens a menu with detailed controls, allowing you to fine-tune ever
 ::: tab 📷 Lens
 The **Lens** tab allows you to adjust the camera's optical properties.
 
-* **In Photo Mode**, you have full control over the **Field of View (FOV)**, **Exposure**, **Focus Distance**, and **Depth of Field (DOF)** to create cinematic, professional-looking stills.
-* **In Video Mode**, due to a `SPLINE_CAMERA` limitation, you can only adjust the **FOV**.
+You have full control over the **Field of View (FOV)**, **Focus Distance**, and **Blur Strength** to create cinematic, professional-looking stills.
+
 :::
 
 ::: tab ✨ Filters
@@ -65,17 +65,57 @@ In both Photo and Video modes, the **Filters** tab lets you apply a visual filte
 :::
 
 ::: tab 🎥 Traveling
-The **Traveling** tab is exclusive to **Video Mode** and is used to create smooth, pre-programmed camera movements.
+The **Traveling** tab is exclusive to **Video Mode** and configures how the camera moves along your waypoint path.
 
-First, you must add waypoints to define the camera's path. While in Video Mode, two new prompts will appear:
+**Prerequisites:** You must first add waypoints to define the camera's path. While in Video Mode, two new prompts appear:
 * **Add Waypoint (`N`)**: Adds a new point to the camera's path at its current position.
 * **Preview Traveling (`J`)**: Plays the camera movement along the defined waypoint track.
 
-Once you have at least two waypoints, a **timeline** will appear at the top of the screen. The Traveling tab allows you to:
-* Set the **smoothing function** used by the spline camera for fluid transitions.
-* Define the total **traveling time** (in milliseconds) for the entire sequence.
-* Toggle a **letterbox** effect for a cinematic aspect ratio.
-* View, reorder, view, edit, or delete waypoints from the waypoint list.
+**Available Options:**
+
+* **Smooth Function**: Choose the interpolation algorithm for transitions between waypoints (various easing functions available, see [Smoothing Functions Reference](#smoothing-functions-reference)).
+* **Spline Mode**: Select how the camera follows the path:
+  - **Spline**: Standard smooth spline interpolation
+  - **Coaster**: Roller-coaster style movement
+  - **Target Entity**: Camera aims at a selected entity while moving (requires entity selection)
+  - **Keep Angle**: Maintains camera angle throughout the path
+  - **Target Coordinates**: Camera aims at specific coordinates while moving (requires coordinate selection)
+  - **Attach to Entity**: Camera attaches to and follows a selected entity (requires entity selection)
+* **Traveling Time (ms)**: Set the total duration of the entire camera sequence in milliseconds.
+* **Spline Tension**: Adjust the tightness of the curve between waypoints (0-100%).
+* **Time Scale**: Control the time scale (0.0x - 1.0x), useful to do slow motion !
+
+> **Note:** Spline Mode, Traveling Time, and Spline Tension are disabled during preview playback.
+:::
+
+::: tab 🔴 Waypoints
+The **Waypoints** tab is exclusive to **Video Mode** and manages the list of waypoints that define your camera path.
+
+**Prerequisites:** You must first add waypoints to define the camera's path. While in Video Mode, two new prompts appear:
+* **Add Waypoint (`N`)**: Adds a new point to the camera's path at its current position.
+* **Preview Traveling (`J`)**: Plays the camera movement along the defined waypoint track.
+
+**Waypoint Management:**
+
+Each waypoint in the list displays:
+* **Number indicator**: Shows the waypoint's position in the sequence
+* **Coordinates**: The 3D position of the waypoint
+* **Drag handle** (☰): Click and drag to reorder waypoints in the sequence
+
+**Actions available for each waypoint:**
+* **👁 View**: Moves the camera to this waypoint's position and rotation
+* **✏ Edit**: Enters edit mode to reposition the waypoint according to the camera (💡*You can also edit a waypoint by clicking its sphere in the 3D world - a gizmo will appear to reposition it visually*)
+* **🗑 Delete**: Remove the waypoint
+
+
+
+**Active Waypoint Selection:**
+* Click the numbered circle to select/highlight a waypoint (turns blue when active)
+* Click again to deselect
+* Active waypoints are highlighted both in the list and in the 3D world
+
+> **Tip:** You need at least **two waypoints** to preview camera traveling. If you have fewer than two, a message will prompt you to add more.
+
 :::
 
 ::: tab 💾 Presets
@@ -132,7 +172,7 @@ The smoothing function determines how the camera accelerates and decelerates alo
 
 ## 3. Configuration
 
-The Advanced Camera script is highly configurable to suit your server's needs. Configuration is split between the main settings and language translations.
+The Cinematic Camera script is highly configurable to suit your server's needs. Configuration is split between the main settings and language translations.
 
 - **Base configuration**: `config.lua` - Contains all default settings
 - **Your customizations**: `overwriteConfig.lua` - Override only the specific settings you want to change
@@ -150,9 +190,9 @@ Rather than editing the original config files directly, you should make your cha
 
 | Property                                    | Default Value   | Description                                                |
 | ------------------------------------------- | --------------- | -------------------------------------------------------- |
-| `Config.openKey`                            | `F6`            | Keybind to open the advanced camera, [find all the controls here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys). Set it to `false` to disable it.  |
+| `Config.openKey`                            | `F6`            | Keybind to open the cinematic camera, [find all the controls here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys). Set it to `false` to disable it.  |
 | `Config.openFromPauseMenu`                  | `true`          | Can the camera mode be opened via the native prompt inside the game pause menu. Set it to `false` to disable it.  |
-| `Config.openCommandName`                    | `openPhotoMode` |The name of the command to open the script (ex: /openPhotoMode). Set it to `false` to disable it.   |                                   
+| `Config.openCommandName`                    | `openCinematicCamera` |The name of the command to open the script (ex: /openCinematicCamera). Set it to `false` to disable it.   |                                   
 :::
 
 ::: tab Configuration file
@@ -162,7 +202,7 @@ Config = {}
 
 Config.openKey = "F6" -- set it to false to disabled
 Config.openFromPauseMenu = true -- set it to false to disabled
-Config.openCommandName = "openPhotoMode" -- set it to false to disabled
+Config.openCommandName = "openCinematicCamera" -- set it to false to disabled
 ```
 
 :::
@@ -202,15 +242,15 @@ You only need to include the specific keys you want to change in `overwriteLang.
 
 [Filters](/DeveloperResources/filters) allow you to modify data or control permissions during script execution. Introduced in `v1.2.0`, filters provide a **synchronous** way to intercept and modify script behavior at specific points, unlike events which are asynchronous.
   
-Below is a complete list of all available filters in the jo_advanced_camera script.
+Below is a complete list of all available filters in the jo_cinematic_camera script.
 
-#### <Badge type="server" text="Server" /> canOpenAdvancedCamera
-Controls who can open the advanced camera script.
+#### <Badge type="server" text="Server" /> canOpenCinematicCamera
+Controls who can open the cinematic camera script.
 
 ```lua
 -- @param canUse - boolean indicating if the action is allowed by default
 -- @param source - serverID of the player
-exports.jo_advanced_camera:registerFilter('canOpenAdvancedCamera', function(canUse, source)
+exports.jo_cinematic_camera:registerFilter('canOpenCinematicCamera', function(canUse, source)
     -- Example: Only allow admins
     local isAdmin = exports.your_permission_system:isAdmin(source)
     return isAdmin
@@ -224,7 +264,7 @@ AllowedJobs = {
     admin = true,
 }
 
-exports.jo_advanced_camera:registerFilter('canOpenAdvancedCamera', function(canUse, source)
+exports.jo_cinematic_camera:registerFilter('canOpenCinematicCamera', function(canUse, source)
     local job = jo.framework:getJob(source)
     if AllowedJobs[job] then
       return canUse
