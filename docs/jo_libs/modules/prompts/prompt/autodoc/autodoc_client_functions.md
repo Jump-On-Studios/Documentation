@@ -336,6 +336,24 @@ Type : _integer|boolean_
 
 ---
 
+### jo.prompt.getKeyLabel()
+
+<!-- @include: ./slots/headers.md#client|jo.prompt.getKeyLabel -->
+
+<!-- @include: ./slots/descriptions.md#client|jo.prompt.getKeyLabel -->
+
+#### Syntax
+
+```lua
+jo.prompt.getKeyLabel(group, key, page)
+```
+
+<!-- @include: ./slots/examples.md#client|jo.prompt.getKeyLabel -->
+
+<!-- @include: ./slots/footers.md#client|jo.prompt.getKeyLabel -->
+
+---
+
 ### jo.prompt.getPage()
 
 <!-- @include: ./slots/headers.md#client|jo.prompt.getPage -->

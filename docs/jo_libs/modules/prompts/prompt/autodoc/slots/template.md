@@ -48,6 +48,11 @@
 <!-- #endregion client|jo.prompt.getGroup -->
 
 
+<!-- #region client|jo.prompt.getKeyLabel -->
+
+<!-- #endregion client|jo.prompt.getKeyLabel -->
+
+
 <!-- #region client|jo.prompt.getPage -->
 
 <!-- #endregion client|jo.prompt.getPage -->
