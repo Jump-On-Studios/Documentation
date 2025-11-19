@@ -61,7 +61,7 @@ Create an entity that follows the mouse cursor for placement <br>
 #### Syntax
 
 ```lua
-jo.entity.createWithMouse(model, keepEntity, networked)
+jo.entity.createWithMouse(model, keepEntity, networked, mouse)
 ```
 
 #### Parameters
@@ -76,6 +76,10 @@ jo.entity.createWithMouse(model, keepEntity, networked)
 
 `networked` : _boolean_ <BadgeOptional />
 > Whether the entity should be networked <br> default:false
+>
+
+`mouse` : _vector2_ <BadgeOptional />
+> Mouse coordinates normalized between 0-1 <br> default:`vec2(0.5, 0.5)`
 >
 
 #### Return Value
