@@ -76,7 +76,7 @@ The script automatically creates all necessary database tables during its first 
 The housing system provides an admin interface to manage properties on your server.
 
 > [!NOTE] 
-> `jo_housing` supports two distinct types of properties: MLOs and Shells. MLO houses are interiors that are physically part of the game world, allowing for a smooth and seamless transition as players can often just walk through the door. In contrast, Shell houses utilize pre-defined interior layouts, that exist separately from the main map. When a player enters a Shell house, they are teleported from the front door to an instance of the interior, which the script spawns on demand.
+> `jo_housing` supports three distinct types of properties: MLOs, Zones and Shells. MLO and Zone houses are interiors that are physically part of the game world, allowing for a smooth and seamless transition as players can often just walk through the door. In contrast, Shell houses utilize pre-defined interior layouts, that exist separately from the main map. When a player enters a Shell house, they are teleported from the front door to an instance of the interior, which the script spawns on demand.
 
 :::tip 🔒 Permission Control (By job, grade,etc.)
 By default, any player can use the `/houseManager` command to create and manage houses.  
@@ -88,7 +88,7 @@ You can restrict access by using the [`canUseHouseManagerCommand`](#canusehousem
 ::: tab 🔨 Creating a Shell House
 
 1. Use the command `/houseManager` to open the housing management menu
-2. Select **Create a new house**, then change the `House Type` to `Shell` (default)
+2. Select **Create a new house**, then choose the `Shell` type
 3. Fill in the house details :
    - **Name**: Give your house a descriptive name
    - **Category**: Choose from available interior categories (Houses, Shacks, Manors, etc.)
@@ -129,7 +129,7 @@ You can restrict access by using the [`canUseHouseManagerCommand`](#canusehousem
 
 ::: tab 🔨 Creating a MLO House
 1. Use the command `/houseManager` to open the housing management menu
-2. Select **Create a new house**, then change the `House Type` to `MLO`
+2. Select **Create a new house**, then choose the `MLO` type
 3. Fill in the house details :
    - **Name**: Give your house a descriptive name
    - **Interior**: Go inside the house you want to create and press `Enter` to set the interior
@@ -157,7 +157,35 @@ You can restrict access by using the [`canUseHouseManagerCommand`](#canusehousem
 5. Press the "Create House" key when all requirements are met (you'll need to go outside the house first)
 :::
 
+::: tab 🔨 Creating a Zone House
+1. Use the command `/houseManager` to open the housing management menu
+2. Select **Create a new house**, then choose the `Zone` type
+3. Fill in the house details :
+   - **Name**: Give your house a descriptive name
+   - **Zone**: Use the zone creator to add points and define the "inside" zone.
+   - **Add doors**: While hovering this item, you can walk around the house and register the various doors. Each door you add will be treated as an access point for the property, showing the interaction prompt and marker (if enabled) when a player gets close.
+   - **Contract Type**: Choose between one-time sale or rent
+     - If rent: Select daily or weekly rent periods
+   - **Price**: Set money and gold prices
+   - **Features**:
+     - **Stable**: Enable/disable horse storage
+       - Stable Location: Place the stable interaction marker
+       - Stable Spawn Location: Place where horses will spawn
+     - **Storage**: Enable/disable item storage with weight/slot limits
+     - **Wagon**: Enable/disable wagon storage  
+       - Wagon Location: Place the wagon interaction marker
+       - Wagon Spawn Location: Place where wagons will spawn
+     - **Dressing Room**: Enable/disable wardrobe functionality
 
+4. **Validation**: All required fields must be completed:
+   - House name cannot be empty
+   - House zone must be set
+   - At least one door must be registered
+   - If stable enabled: Both stable location and spawn location required
+   - If wagon enabled: Both wagon location and spawn location required
+   - Prices must be non-negative
+5. Press the "Create House" key when all requirements are met (you'll need to go outside the house first)
+:::
 
 
 ::: tab ✏️ Updating a House
@@ -169,6 +197,7 @@ You can restrict access by using the [`canUseHouseManagerCommand`](#canusehousem
 5. **Edit Mode Restrictions**:
    -   <Badge type="tip" text="Shell houses" /> : Category, rooms amount, interior type and house type cannot be changed
    - <Badge type="tip" text="MLO houses" /> : House type and interior cannot be changed
+   - <Badge type="tip" text="Zone houses" /> : House type cannot be changed
    - All other properties can be modified
    - Visit mode is available to preview changes
 6. Modify any editable house details as needed
@@ -247,7 +276,7 @@ Once you own a house, you can use its features and customize its interior.
 3. You'll be teleported inside your property
 
 
-**For <Badge type="tip" text="MLO houses" /> :**
+**For <Badge type="tip" text="MLO houses" /> and <Badge type="tip" text="Zone houses" />:**
 
 2. Press the "Open door" prompt key (default: ENTER)
 3. The door will unlock and you'll be able to enter your house (doors states are synchronized between players, so don't forget to close the doors !)
@@ -405,7 +434,7 @@ These functions allow you to integrate the housing system with your existing res
 | `Config.showInsideDoorMarker`      | `true`         | While inside a house, show a marker on the ground near the entrance door                                                                                                                                                                                                                                   |
 | `Config.distanceOutsideMarker`     | `10.0`         | Show a marker on the ground for each house near you (outside). Use 0 to turn OFF                                                        |
 | `Config.openManagerCommandName`    | `houseManager` | The name of the command to open the house manager (ex: /houseManager) |
-| `Config.closeAllDoorsOnRestart`    | `false` | Wether to close all MLO houses doors on server or script restart. If `true`, all doors will be closed. If `false`, doors will stay in the state they were before restart. |
+| `Config.closeAllDoorsOnRestart`    | `false` | Wether to close all MLO and Zone houses doors on server or script restart. If `true`, all doors will be closed. If `false`, doors will stay in the state they were before restart. |
 
 #### Blip Configuration
 
@@ -479,7 +508,7 @@ These functions allow you to integrate the housing system with your existing res
 | `Config.interiorsCategoriesMaxFurnitures.X`       | `200`                  | Furniture limit for specific interior categories. Replace X with: <br>• `shack`<br>• `rock_shack`<br>• `house`<br>• `flat`<br>• `manor`<br>• `worker` |
 | `Config.interiorsMaxFurnitures`                   | `{jo_pai_house = 100}` | Specific furniture limits per interior ID                                                                                                             |
 | `Config.interiorsBlacklist`                       | `{}`                   | Interior IDs to hide from selection (commented examples included)    |
-| `Config.mloMaxFurnitures`                       | `100`                   | MLO Houses max furnitures inside   |
+| `Config.mloMaxFurnitures`                       | `100`                   | MLO and Zone Houses max furnitures inside   |
 
 
 
@@ -535,7 +564,7 @@ Config.knockNotificationDuration = 5000         -- Duration (in ms) that knock n
 Config.showInsideDoorMarker = true      -- While inside a house, show a marker on the ground near the entrance door
 Config.distanceOutsideMarker = 10.0     -- Show a marker on the ground for each house near you (outside) (use 0 to turn OFF)
 Config.openManagerCommandName = "houseManager"     -- The name of the command to open the house manager (ex: /houseManager)
-Config.closeAllDoorsOnRestart = false -- Wether to close all MLO houses doors on server or script restart. If true, all doors will be closed. If false, doors will stay in the state they were before restart.
+Config.closeAllDoorsOnRestart = false -- Wether to close all MLO and Zone houses doors on server or script restart. If true, all doors will be closed. If false, doors will stay in the state they were before restart.
 
 
 Config.blips = { -- Blip icons for houses on the map
@@ -651,7 +680,7 @@ Config.keys = {
 -- Interior Configuration
 -- ===================================
 
-Config.mloMaxFurnitures = 100 -- MLO Houses max furnitures inside
+Config.mloMaxFurnitures = 100 -- MLO and Zone Houses max furnitures inside
 
 -- Available interior categories: shack, rock_shack, house, flat, manor, worker
 -- Default furniture limit for interior categories
