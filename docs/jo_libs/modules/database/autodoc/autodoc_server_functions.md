@@ -111,3 +111,35 @@ Type : _boolean_
 
 <!-- @include: ./slots/footers.md#server|jo.database.addTrigger -->
 
+---
+
+### jo.database.doesTableExist()
+
+<!-- @include: ./slots/headers.md#server|jo.database.doesTableExist -->
+
+A function to check if a table exists <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.database.doesTableExist -->
+
+#### Syntax
+
+```lua
+jo.database.doesTableExist(tableName)
+```
+
+#### Parameters
+
+`tableName` : _string_
+> The name of the table
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> Return `true` if the table exists, `false` otherwise
+
+<!-- @include: ./slots/examples.md#server|jo.database.doesTableExist -->
+
+<!-- @include: ./slots/footers.md#server|jo.database.doesTableExist -->
+

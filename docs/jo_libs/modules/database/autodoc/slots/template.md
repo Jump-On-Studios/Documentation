@@ -12,3 +12,8 @@
 
 <!-- #endregion server|jo.database.addTrigger -->
 
+
+<!-- #region server|jo.database.doesTableExist -->
+
+<!-- #endregion server|jo.database.doesTableExist -->
+
