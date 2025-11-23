@@ -41,6 +41,38 @@ Type : _number_
 
 ---
 
+### math.fromHex()
+
+<!-- @include: ./slots/headers.md#shared|math.fromHex -->
+
+Converts a hexadecimal string to an integer. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|math.fromHex -->
+
+#### Syntax
+
+```lua
+math.fromHex(hex)
+```
+
+#### Parameters
+
+`hex` : _string_
+> The hexadecimal string to convert, with or without "0x" prefix
+>
+
+#### Return Value
+
+Type : _integer_
+
+> The integer representation
+
+<!-- @include: ./slots/examples.md#shared|math.fromHex -->
+
+<!-- @include: ./slots/footers.md#shared|math.fromHex -->
+
+---
+
 ### math.lerp()
 
 <!-- @include: ./slots/headers.md#shared|math.lerp -->
@@ -114,4 +146,58 @@ Type : _number_
 <!-- @include: ./slots/examples.md#shared|math.round -->
 
 <!-- @include: ./slots/footers.md#shared|math.round -->
+
+---
+
+### math.toHex()
+
+<!-- @include: ./slots/headers.md#shared|math.toHex -->
+
+Converts a number to hexadecimal string representation. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|math.toHex -->
+
+#### Syntax
+
+```lua
+math.toHex(n, prefix)
+```
+
+#### Parameters
+
+`n` : _integer_
+> The integer to convert
+>
+
+`prefix` : _boolean_ <BadgeOptional />
+> Add "0x" prefix, default: false
+>
+
+#### Return Value
+
+Type : _string_
+
+> The hexadecimal string representation
+
+<!-- @include: ./slots/examples.md#shared|math.toHex -->
+
+<!-- @include: ./slots/footers.md#shared|math.toHex -->
+
+---
+
+### math.toSigned()
+
+<!-- @include: ./slots/headers.md#shared|math.toSigned -->
+
+<!-- @include: ./slots/descriptions.md#shared|math.toSigned -->
+
+#### Syntax
+
+```lua
+math.toSigned(n)
+```
+
+<!-- @include: ./slots/examples.md#shared|math.toSigned -->
+
+<!-- @include: ./slots/footers.md#shared|math.toSigned -->
 
