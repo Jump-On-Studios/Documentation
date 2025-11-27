@@ -11,7 +11,7 @@ Documentation related to the jo_camera_kit script.
 :::
 
 ::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1A_ubufvh80?si=Vrw1RxNKarTFS2_6" title="RedM - Housing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WBCINAeSkNQ?si=5SwlgLed77a8k1wE" title="RedM - Camera Kit" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::
 ::::
 
