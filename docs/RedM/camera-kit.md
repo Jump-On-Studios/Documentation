@@ -114,7 +114,7 @@ Controls who can move a camera
 -- @param canMoveCamera - boolean indicating if the action is allowed by default
 -- @param source - serverID of the player
 -- @param camera - the camera object
-exports.jo_housing:registerFilter('canMoveCamera', function(canMoveCamera, source, camera)
+exports.jo_camera_kit:registerFilter('canMoveCamera', function(canMoveCamera, source, camera)
     return canMoveCamera
 end)
 ```
@@ -126,7 +126,7 @@ Controls who can place a camera
 -- @param source - serverID of the player
 -- @param position - Coords of the camera
 -- @param heading - Heading of the camera
-exports.jo_housing:registerFilter('canPlaceCamera', function(canPlaceCamera, source, position,heading)
+exports.jo_camera_kit:registerFilter('canPlaceCamera', function(canPlaceCamera, source, position,heading)
     return canPlaceCamera
 end)
 ```
@@ -137,7 +137,7 @@ Controls who can remove a camera
 -- @param canRemoveCamera - boolean indicating if the action is allowed by default
 -- @param source - serverID of the player
 -- @param camera - the camera object
-exports.jo_housing:registerFilter('canRemoveCamera', function(canRemoveCamera, source, camera)
+exports.jo_camera_kit:registerFilter('canRemoveCamera', function(canRemoveCamera, source, camera)
     return canRemoveCamera
 end)
 ```
@@ -149,7 +149,7 @@ Controls who can use a camera
 -- @param canUseCamera - boolean indicating if the action is allowed by default
 -- @param source - serverID of the player
 -- @param camera - the camera object
-exports.jo_housing:registerFilter('canUseCamera', function(canUseCamera, source, camera)
+exports.jo_camera_kit:registerFilter('canUseCamera', function(canUseCamera, source, camera)
     return canUseCamera
 end)
 ```
@@ -167,7 +167,7 @@ Triggered when a camera is exited
 ```lua
 -- @param source - serverID of the player
 -- @param cameraId - the camera id
-exports.jo_housing:registerAction('cameraExited', function(source, cameraId)
+exports.jo_camera_kit:registerAction('cameraExited', function(source, cameraId)
     -- Your code here
 end)
 ```
@@ -179,7 +179,7 @@ Triggered when a camera is moved
 ```lua
 -- @param source - serverID of the player
 -- @param cameraId - the camera id
-exports.jo_housing:registerAction('cameraMoved', function(source, cameraId)
+exports.jo_camera_kit:registerAction('cameraMoved', function(source, cameraId)
     -- Your code here
 end)
 ```
@@ -191,7 +191,7 @@ Triggered when a camera is placed on the ground
 ```lua
 -- @param source - serverID of the player
 -- @param camera - the camera object
-exports.jo_housing:registerAction('cameraPlaced', function(source, camera)
+exports.jo_camera_kit:registerAction('cameraPlaced', function(source, camera)
     -- Your code here
 end)
 ```
@@ -202,7 +202,7 @@ Triggered when a camera is removed
 ```lua
 -- @param source - serverID of the player
 -- @param cameraId - the camera id
-exports.jo_housing:registerAction('cameraRemoved', function(source, cameraId)
+exports.jo_camera_kit:registerAction('cameraRemoved', function(source, cameraId)
     -- Your code here
 end)
 ```
@@ -213,7 +213,7 @@ Triggered when a camera is used
 ```lua
 -- @param source - serverID of the player
 -- @param camera - the camera object
-exports.jo_housing:registerAction('cameraUsed', function(source, camera)
+exports.jo_camera_kit:registerAction('cameraUsed', function(source, camera)
     -- Your code here
 end)
 ```
