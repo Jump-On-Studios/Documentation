@@ -1,5 +1,5 @@
 ---
-outline: [2,3]
+outline: [2,4]
 ---
 
 # :horse: Stable
@@ -382,26 +382,40 @@ table.insert(trainingTracks,{
 Points required to reach all levels:
 
 #### Acceleration
+Determines how ling it takes the horse to reach its top speed
 | Level:  | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7    | 8    | 9    |
 | ------- | --- | --- | --- | --- | --- | --- | --- | ---- | ---- | ---- |
 | Points: | 0   | 50  | 100 | 200 | 350 | 550 | 800 | 1100 | 1400 | 1700 |
 
 #### Agility
+Determines how fast the horse can turn.
 | Level:  | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7    | 8    | 9    |
 | ------- | --- | --- | --- | --- | --- | --- | --- | ---- | ---- | ---- |
 | Points: | 0   | 50  | 100 | 200 | 350 | 550 | 800 | 1100 | 1400 | 1700 |
 
 #### Body Heat
+Determines the heat of the horse body. The affect in the game in unknown
 | Level:  | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 | ------- | --- | --- | --- | --- | --- | --- | --- |
 | Points: | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 
 #### Body Weight
+Weight affects the top speed. The neutral value is level 50. 
 | Level:  | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 | ------- | --- | --- | --- | --- | --- | --- | --- |
 | Points: | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 
 #### Bonding
+As you level up your horse, you will gain more ability with your horse:
+* Travel through difficult area and deeper water
+* New horse tricks
+
+| Level | Functions              |	Controls For XBOX                                          |
+| ----- | ---------------------- | ----------------------------------------------------------- |
+| 1     | -                      | -                                                           |
+| 2     | Rear                   | When stationary press **RB + tap X**                        |
+| 3     | Skid Turn<br>Skid Stop |	When moving hold **RB + A**<br>When moving hold **RB + X** |
+| 4     | Piaffe<br>Drift        | When stationary hold **X**<br>When moving hold**X**         |
   
 Bonding level progression depending on the horse model:  
   
@@ -564,37 +578,44 @@ a_c_horse_turkoman_silver
 | Points: | 0   | 50  | 400 | 1150 | 2450 |
 
 #### Courage
+Determines how your horse react to danger.
 | Level:  | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7    | 8    | 9    |
 | ------- | --- | --- | --- | --- | --- | --- | --- | ---- | ---- | ---- |
 | Points: | 0   | 50  | 100 | 200 | 350 | 550 | 800 | 1100 | 1400 | 1700 |
 
 
 #### Dirtiness
+Dirtiness is a value that is reset when the horse is cleaned.
 | Level:  | 0   | 1   | 2   | ..  | 50     | ..  | 100    |
 | ------- | --- | --- | --- | --- | ------ | --- | ------ |
 | Points: | 0   | 100 | 200 | ..  | 50.000 | ..  | 10.000 |
 
 #### Dirtiness Hat
+Dirtiness Hat is a value that is reset when the horse is cleaned.
 | Level:  | 0   | 1   | 2   | ..  | 50     | ..  | 100    |
 | ------- | --- | --- | --- | --- | ------ | --- | ------ |
 | Points: | 0   | 100 | 200 | ..  | 50.000 | ..  | 10.000 |
 
 #### Dirtiness Skin
+Dirtiness Skin is a value that is reset when the horse is cleaned.
 | Level:  | 0   | 1   | 2   | ..  | 50     | ..  | 100    |
 | ------- | --- | --- | --- | --- | ------ | --- | ------ |
 | Points: | 0   | 100 | 200 | ..  | 50.000 | ..  | 10.000 |
 
 #### Fatigued
+Affect the top speed of the horse.
 | Level:  | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 | ------- | --- | --- | --- | --- | --- | --- | --- |
 | Points: | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 
 #### Grit
+Unknwon affect in the game
 | Level:  | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 | ------- | --- | --- | --- | --- | --- | --- | --- |
 | Points: | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 
 #### Health
+Determines how much damage the horse can take.
 | Level:  | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7    |
 | ------- | --- | --- | --- | --- | --- | --- | --- | ---- |
 | Points: | 0   | 50  | 100 | 200 | 350 | 550 | 800 | 1100 |
@@ -604,56 +625,67 @@ a_c_horse_turkoman_silver
 | Points: | 0   | 50  | 100 | 200 | 350 | 550 | 800 | 1100 | 1400 | 1700 |
 
 #### Hunger
+Unknwon affect in the game
 | Level:  | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 | ------- | --- | --- | --- | --- | --- | --- | --- |
 | Points: | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 
 #### Inebriated
+Unknwon affect in the game
 | Level:  | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 | ------- | --- | --- | --- | --- | --- | --- | --- |
 | Points: | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 
 #### Instinct
+Unknwon affect in the game
 | Level:  | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 | ------- | --- | --- | --- | --- | --- | --- | --- |
 | Points: | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 
 #### Poisoned
+Unknwon affect in the game
 | Level:  | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 | ------- | --- | --- | --- | --- | --- | --- | --- |
 | Points: | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 
 #### Overfed
+Unknwon affect in the game
 | Level:  | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 | ------- | --- | --- | --- | --- | --- | --- | --- |
 | Points: | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 
 #### Sickness
+Unknwon affect in the game
 | Level:  | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 | ------- | --- | --- | --- | --- | --- | --- | --- |
 | Points: | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 
 #### Special Ability
+Unknwon affect in the game
 | Level:  | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7    |
 | ------- | --- | --- | --- | --- | --- | --- | --- | ---- |
 | Points: | 0   | 50  | 100 | 200 | 350 | 550 | 800 | 1100 |
 
 #### Speed
+Determines the top speed of the horse
 | Level:  | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7    | 8    | 9    |
 | ------- | --- | --- | --- | --- | --- | --- | --- | ---- | ---- | ---- |
 | Points: | 0   | 50  | 100 | 200 | 350 | 550 | 800 | 1100 | 1400 | 1700 |
 
 #### Stamina
+Determines how long the horse can gallop or swim.
 | Level:  | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7    |
 | ------- | --- | --- | --- | --- | --- | --- | --- | ---- |
 | Points: | 0   | 50  | 100 | 200 | 350 | 550 | 800 | 1100 |
 
 #### Strength
+Unknwon affect in the game
 | Level:  | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 | ------- | --- | --- | --- | --- | --- | --- | --- |
 | Points: | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 
 #### Unruliness
+Determines the frequency of the horse to play its idle animation. More the value is high, more it will play it.
 | Level:  | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
 | ------- | --- | --- | --- | --- | --- | --- | --- |
 | Points: | 0   | 1   | 2   | ..  | 50  | ..  | 100 |
