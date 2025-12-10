@@ -415,7 +415,7 @@ As you level up your horse, you will gain more ability with your horse:
 | 1     | -                      | -                                                           |
 | 2     | Rear                   | When stationary press **RB + tap X**                        |
 | 3     | Skid Turn<br>Skid Stop |	When moving hold **RB + A**<br>When moving hold **RB + X** |
-| 4     | Piaffe<br>Drift        | When stationary hold **X**<br>When moving hold**X**         |
+| 4     | Piaffe<br>Drift        | When stationary hold **X**<br>When moving hold **X**         |
   
 Bonding level progression depending on the horse model:  
   
