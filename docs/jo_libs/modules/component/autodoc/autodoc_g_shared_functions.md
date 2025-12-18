@@ -219,6 +219,10 @@ Type : _table_
 
  <br>
  <br>
+ <br>
+ <br>
+ <br>
+ <br>
 A function to get the list of clothes sorted by sex and category <br>
 
 <!-- @include: ./slots/descriptions.md#g_shared|jo.component.getFullPedComponentList -->
