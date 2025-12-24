@@ -1002,6 +1002,43 @@ jo.framework:openInventory(source, invName)
 
 ---
 
+### <Badge type="server" text="Server" /> jo.framework:refundUserWith()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:refundUserWith -->
+
+A function to refund a player with multiple prices <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:refundUserWith -->
+
+#### Syntax
+
+```lua
+jo.framework:refundUserWith(source, prices)
+```
+
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+`prices` : _table_
+
+> The prices to refund
+>
+
+
+#### Return Value
+
+Type : _nil_
+
+
+<!-- @include: ./slots/examples.md#server|jo.framework:refundUserWith -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:refundUserWith -->
+
+---
+
 ### <Badge type="server" text="Server" /> jo.framework:registerUseItem()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:registerUseItem -->
