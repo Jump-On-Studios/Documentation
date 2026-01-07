@@ -579,10 +579,14 @@ Merges multiple tables together. <br>
 #### Syntax
 
 ```lua
-table.merge(...)
+table.merge(deepMerge, ...)
 ```
 
 #### Parameters
+
+`deepMerge` : _boolean_ <BadgeOptional />
+> Whether to deep merge tables
+>
 
 `...` : _table_
 
