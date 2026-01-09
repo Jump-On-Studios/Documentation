@@ -90,8 +90,8 @@ GroupClass:addPrompt(key, label, holdTime, page)
 
 #### Parameters
 
-`key` : _string|table_
-> A key string or table of key strings for the prompt.
+`key` : _string_
+> A key string for the prompt.
 >
 
 `label` : _string_
