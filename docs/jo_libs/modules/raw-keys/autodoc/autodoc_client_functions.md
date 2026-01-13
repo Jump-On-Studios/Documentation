@@ -18,7 +18,7 @@ jo.rawKeys.listen(key, callback)
 #### Parameters
 
 `key` : _string_
-> The identifier of the key to listen for. This should correspond to one of the keys defined in the [keyboard mappings](#keyboard-keys-mapping) (e.g., "A", "B", "F1", etc.).
+> The identifier of the key to listen for. This should correspond to one of the keys defined in the [keyboard mappings](#keyboard-keys-mapping) (e.g., "A", "B", "F1", etc.) or the numerical key code
 >
 
 `callback` : _function_
