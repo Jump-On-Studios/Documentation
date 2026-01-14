@@ -70,35 +70,36 @@ The main configuration is done in `jo_radial/shared/config.lua`. This file allow
 
 You can modify the menu open/close behavior by changing properties of the `Config` table.
 
-| Parameter           | Type      | Description                                                                                                                                       |
-| :------------------ | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Config.openKey`    | `string`  | Key to open the menu (default is `F7`, find all the usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)) |
-| `Config.holdToOpen` | `boolean` | Hold key to open menu (true) or toggle on/off ( `false`, default)                                                                                 |
+| Parameter           | Type      | Default value | Description                                                                                                                        |
+| :------------------ | :-------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| `Config.openKey`    | `string`  | `F7`           | Key to open the menu (find all usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)).      |
+| `Config.holdToOpen` | `boolean` | `false`        | Hold key to open menu (`true`) or toggle on/off (`false`).                                                                          |
+| `Config.postFX`     | `string`\|`boolean` | `"WheelHUDIn"` | Post-processing effect to play when opening the menu. Set `false` to disable.                                                       |
 
 
 
 You can customize the overall look and feel of the radial menu using the `Config.radialConfig` table.
 
-| Parameter       | Type                | Description                                                                                                                                                      |
-| :-------------- | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `color`         | `string`            | Main color for highlights and hover effects (hex color code)                                                                                                     |
-| `backText`      | `string`            | Text for the back button in submenus                                                                                                                             |
-| `closeText`     | `string`            | Text for the close button on the main menu                                                                                                                       |
-| `centerOpacity` | `float`             | Opacity of the center background                                                                                                                                 |
-| `logo`          | `string` (optional) | Your server's logo. Supports URL (`https://...`), local file (`logo.png` from `jo_radial/nui/img/`), or other script NUI (`nui://...`). Set to `nil` to disable. |
-| `hotkeysConfig`         | `table`            | The hotkeys system configuration (see below)                                                                                                     |
+| Parameter       | Type                | Default value | Description                                                                                                                                          |
+| :-------------- | :------------------ | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `color`         | `string`            | `"#ff0000"`    | Main color for highlights and hover effects (hex color code).                                                                                        |
+| `backText`      | `string`            | `"Back"`       | Text for the back button in submenus.                                                                                                                |
+| `closeText`     | `string`            | `"Close"`      | Text for the close button on the main menu.                                                                                                          |
+| `centerOpacity` | `float`             | `0.6`          | Opacity of the center background.                                                                                                                    |
+| `logo`          | `string` (optional) | `nil`          | Your server's logo. Supports URL (`https://...`), local file (`logo.png` from `jo_radial/nui/img/`), or other script NUI (`nui://...`). Set `nil` to disable. |
+| `hotkeysConfig` | `table`             | See below      | The hotkeys system configuration (see below).                                                                                                        |
 
 
 ### Hotkeys / Hotbar
 
 The radial menu can expose a hotkey/hotbar layer. Players can bind actions from the wheel to keys and trigger them later without opening the wheel.
 
-| Parameter                                | Type                  | Description                                                                                                                                                                    |
-| :--------------------------------------- | :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hotkeysConfig.enabled`                  | `boolean`             | Enable/disable the hotkey system. Default in the shipped config is `true`.                                                                                                     |
-| `hotkeysConfig.mode`                     | `"hotbar"` \| `"hotkeys"` | `hotbar`: only `0-9` keys are allowed and a bottom hotbar is shown while the wheel is open. `hotkeys`: any key can be bound (no hotbar overlay, badges still show on slices). |
-| `hotkeysConfig.activationKey`            | `string`              | Modifier key to hold when triggering a hotkey while the wheel is closed (default `L SHIFT`, find all the usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)).                                                                                       |
-| `hotkeysConfig.disableAllControlActions` | `boolean`             | When `true`, disables all control actions while the activation key is held to avoid conflicts.                                                                                 |
+| Parameter                                | Type                      | Default value  | Description                                                                                                                                                              |
+| :--------------------------------------- | :------------------------ | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hotkeysConfig.enabled`                  | `boolean`                 | `true`         | Enable/disable the hotkey system.                                                                                                                                        |
+| `hotkeysConfig.mode`                     | `"hotbar"` \| `"hotkeys"` | `"hotbar"`     | `hotbar`: only `0-9` keys are allowed and a bottom hotbar is shown while the wheel is open. `hotkeys`: any key can be bound (no hotbar overlay, badges still show on slices). |
+| `hotkeysConfig.activationKey`            | `string`                  | `"L SHIFT"`    | Modifier key to hold when triggering a hotkey while the wheel is closed (find usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)). |
+| `hotkeysConfig.disableAllControlActions` | `boolean`                 | `true`         | When `true`, disables all control actions while the activation key is held to avoid conflicts.                                                                           |
 
 
 
