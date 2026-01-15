@@ -117,6 +117,22 @@ Config.radialConfig = {
 }
 ```
 
+### Commands (`Config.commands`)
+
+You can customize the command names used by the radial menu.
+
+| Parameter                       | Type     | Default value       | Description                                                    |
+| :------------------------------ | :------- | :------------------ | :------------------------------------------------------------- |
+| `Config.commands.clearAllHotkeys` | `string` | `"clearAllHotkeys"` | Command to clear all hotkey bindings for the current player.   |
+
+Example:
+
+```lua
+Config.commands = {
+    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
+}
+```
+
 ### Menu Items (`Config.radialMenuItems`)
 
 This is where you define the structure and actions of your radial menu. It's an array of tables, where each table represents an item on the wheel.
@@ -157,7 +173,7 @@ Here is the structure for a single menu item:
 
 
 
-### Configuration Examples
+### Full Configuration Examples
 
 
 :::warning
@@ -172,6 +188,8 @@ See examples below.
 -- ==================================================================================
 -- Add inside the ./overwriteConfig.lua file
 -- ==================================================================================
+
+
 
 Config.openKey = 'F7' -- Key to open the menu, find all the controls here : https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
 
@@ -188,6 +206,10 @@ Config.radialConfig = {
         activationKey = "L ALT",                             -- Modifier key required to trigger (CTRL, ALT, SHIFT), , find all the usable controls here :https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
         disableAllControlActions = true                        -- When `true`, disables all control actions while the activation key is held to avoid conflicts
     }
+}
+
+Config.commands = {
+    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
 }
 
 Config.radialMenuItems = {
@@ -273,6 +295,10 @@ Config.radialConfig = {
         activationKey = "L ALT",                             -- Modifier key required to trigger (CTRL, ALT, SHIFT), , find all the usable controls here :https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
         disableAllControlActions = true                        -- When `true`, disables all control actions while the activation key is held to avoid conflicts
     }
+}
+
+Config.commands = {
+    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
 }
 
 -- Example menu demonstrating different item types and properties
@@ -431,6 +457,8 @@ local horseMenu = {
     }
 }
 
+
+
 -- ===== MAIN RADIAL MENU STRUCTURE =====
 -- This is the main menu that appears when the radial menu is opened
 -- Items are arranged in a circle and can have actions or submenus
@@ -565,6 +593,10 @@ Config.radialConfig = {
         activationKey = "L ALT",                             -- Modifier key required to trigger (CTRL, ALT, SHIFT), , find all the usable controls here :https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
         disableAllControlActions = true                        -- When `true`, disables all control actions while the activation key is held to avoid conflicts
     }
+}
+
+Config.commands = {
+    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
 }
 
 -- Example menu demonstrating different item types and properties
@@ -850,6 +882,10 @@ Config.radialConfig = {
         activationKey = "L ALT",                             -- Modifier key required to trigger (CTRL, ALT, SHIFT), , find all the usable controls here :https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
         disableAllControlActions = true                        -- When `true`, disables all control actions while the activation key is held to avoid conflicts
     }
+}
+
+Config.commands = {
+    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
 }
 
 -- An example of a dynamically generated menu from another file
