@@ -580,13 +580,15 @@ end)
 
 ```
 #### <Badge type="client" text="Client" /> Open the store
-Event to open the store
+Call from your own scripts (NPC, quest, interior, etc.) to open the clothing store UI.
 ```lua
---@param needInstance = true/false : Define if the wardrobe need personnal instance
-TriggerEvent('jo_clothingstore:openStore', needInstance)
---Or
-exports['jo_clothingstore']:openStore(needInstance)
-
+local customStore = {
+  useOutfitMenu = true,
+  needInstance = true
+}
+TriggerEvent("jo_clothingstore:openStore", customStore)
+-- or export
+exports["jo_clothingstore"]:openStore(customStore)
 ```
 #### <Badge type="client" text="Client" /> Open the wardrobe
 Event to open the wardrobe
