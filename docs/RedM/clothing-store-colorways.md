@@ -1,5 +1,5 @@
 # :necktie: Colorways
-Documentation relating to the **kd_clothingstore_colorways** add-on for [Clothing store script](clothing-store).
+Documentation relating to the **jo_clothingstore_colorways** add-on for [Clothing store script](clothing-store).
 
 :::: tabs
 ::: tab BUY
@@ -16,11 +16,11 @@ Documentation relating to the **kd_clothingstore_colorways** add-on for [Clothin
 [Clothing store script](clothing-store) is required to use this add-on
 :::
 
-To install kd_clothingstore_colorways:
+To install jo_clothingstore_colorways:
 - Drag and drop the resource into your resources folder
-  - kd_clothingstore_colorways 
-- Add this ensure in your server.cfg after `ensure kd_clothingstore`
-  - `ensure kd_clothingstore_colorways`
+  - jo_clothingstore_colorways 
+- Add this ensure in your server.cfg after `ensure jo_clothingstore`
+  - `ensure jo_clothingstore_colorways`
 
 Congratulation, the **Colorways** add-on is ready to be used!
 
@@ -53,7 +53,7 @@ Config.palettes = {
 Manage who can open the custom color menu
 ```lua
 -- @param canAccess - boolean
-exports.kd_clothingstore_colorways:registerFilter('canOpenColorPalette', function(canAccess)
+exports.jo_clothingstore_colorways:registerFilter('canOpenColorPalette', function(canAccess)
   --return false to disable the access of the menu
   return canAccess
 end)
@@ -63,7 +63,7 @@ end)
 Manage the values of the palettes
 ```lua
 -- @param values - table
-exports.kd_clothingstore_colorways:registerFilter('paletteValues', function(values)
+exports.jo_clothingstore_colorways:registerFilter('paletteValues', function(values)
   --return false to disable the access of the menu
   return values
 end)
