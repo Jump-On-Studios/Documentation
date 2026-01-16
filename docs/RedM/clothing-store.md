@@ -614,74 +614,123 @@ TriggerServerEvent('jo_clothingstore:useOutfitId', id)
 
 ### Filters
 
-[Filters](/DeveloperResources/filters) are the new way to modify data used by the script added in the `v2.4.8`. These filters are fired at a specific point in time during the execution of the script. But contrary to events, filters are **synchronous**. 
+[Filters](/DeveloperResources/filters) allow you to modify data or permissions synchronously at specific points in the script. Below is the complete list of `jo_clothingstore` filters and how to use them.
 
-- Syntax: 
+#### <Badge type="shared" text="Shared" /> updateLangForNUI
+Customize or translate the Lang table before it is sent to the NUI.
 ```lua
--- @param <actionName> - name of the action
--- @param <argumentList> - list of arguments which are passed
-exports.jo_clothingstore:registerFilter(<actionName>, function(variable)
-  -- Add your new data here
-	return variable -- Don't forget to return the value
+-- @param lang - table of localization keys
+exports.jo_clothingstore:registerFilter("updateLangForNUI", function(lang)
+    -- lang.myClothes = "My Custom Label"
+    return lang
 end)
 ```
 
-- Example :
+#### <Badge type="server" text="Server" /> canAccessToSpecificClothes
+Gate purchase of a specific cloth variation.
 ```lua
-jo_clothingstore:registerFilter('canAccessToSpecificClothes', function(canAccess, source, clothesData, moneyType)
-	local job = GetJob(source)
-	if job ~= "tailor" then
-		return false, SendNotif("Only tailer can buy clothes")
-	end
-	return canAccess
+-- @param canAccess - boolean (default true)
+-- @param source - serverID of the buyer
+-- @param hashpreview - table containing menu/category/index/variation/data
+-- @param price - price table currently selected
+exports.jo_clothingstore:registerFilter("canAccessToSpecificClothes", function(canAccess, source, hashpreview, price)
+    return canAccess
 end)
-
 ```
 
-#### <Badge type="client" text="Client" /> Restrict the saving of new outfit
-Fires to disable the "New" & "Save" button in the outfit menu
+#### <Badge type="server" text="Server" /> canUseItem
+Control whether a clothes/outfit item can be used.
 ```lua
--- @param canSave - boolean : return false to disable buttons
-exports.jo_clothingstore:registerFilter('canSaveNewOutfit', function(canSave)
-	return canSave
+-- @param canUse - boolean (default true)
+-- @param source - serverID of the player
+-- @param metadata - table metadata on the item
+exports.jo_clothingstore:registerFilter("canUseItem", function(canUse, source, metadata)
+    return canUse
 end)
-
 ```
-#### <Badge type="server" text="Server" /> Edit metadata of clothes item
-Fires before add the item in the player inventory
+
+#### <Badge type="server" text="Server" /> updateListClothesInItem
+Alter the list of item names used for clothes-in-item mode before registration.
 ```lua
--- @param metadata - table : metadata of the item
--- @param source - int : serverID of the player
--- @param item - string : item name
-exports.jo_clothingstore:registerFilter('editItemMeta', function(meta, source, item)
-	return canAccess
+-- @param clothesItem - table mapping category -> item name
+exports.jo_clothingstore:registerFilter("updateListClothesInItem", function(clothesItem)
+    return clothesItem
 end)
-
 ```
-#### <Badge type="server" text="Server" /> Restrict specific clothes
-Fires before buy a new clothes
+
+#### <Badge type="client" text="Client" /> canAccessToStore
+Control whether the player can open a store prompt.
 ```lua
--- @param canAccess - boolean : return false to disable the buying
--- @param source - int : serverID of the player
--- @param clothesData - table : information about clothes
--- @param clothesData.hash - int : hash of the clothes
--- @param moneyType - int : devise of the order : 0 for normal & 1 for gold
-exports.jo_clothingstore:registerFilter('canAccessToSpecificClothes', function(canAccess, source, clothesData, moneyType)
-	return canAccess
+-- @param canAccess - boolean (default true)
+-- @param store - table store config (book, ped, needInstance, etc.)
+exports.jo_clothingstore:registerFilter("canAccessToStore", function(canAccess, store)
+    return canAccess
 end)
-
 ```
-#### <Badge type="server" text="Server" /> Restrict the using of clothes/outfit item
-Fires when a player use an item
+
+#### <Badge type="client" text="Client" /> canAccessToWardrobe
+Control whether the player can open a wardrobe prompt.
 ```lua
--- @param canUse - boolean : return false to not use the item
--- @param source - int : serverID of the player
--- @param metadata - table : item metadata
-exports.jo_clothingstore:registerFilter('canUseItem', function(canUse, source, metadata)
-	return canAccess
+-- @param canAccess - boolean (default true)
+-- @param wardrobe - table wardrobe config (location, needInstance, etc.)
+exports.jo_clothingstore:registerFilter("canAccessToWardrobe", function(canAccess, wardrobe)
+    return canAccess
 end)
-
 ```
+
+#### <Badge type="client" text="Client" /> canSaveNewOutfit
+Enable/disable saving or creating outfits from the menus.
+```lua
+-- @param canSave - boolean (default true)
+exports.jo_clothingstore:registerFilter("canSaveNewOutfit", function(canSave)
+    return canSave
+end)
+```
+
+#### <Badge type="client" text="Client" /> hideOrDisableClothes
+Hide or disable specific catalogue entries.
+```lua
+-- @param state - number (1 show, 0 disable entry, -1 hide entry)
+-- @param sexe - "male"/"female"
+-- @param category - string category key
+-- @param index - integer item index
+-- @param variations - table of variations for that item
+-- @param formattedPrices - formatted prices table
+exports.jo_clothingstore:registerFilter("hideOrDisableClothes", function(state, sexe, category, index, variations, formattedPrices)
+    return state
+end)
+```
+
+#### <Badge type="client" text="Client" /> setCategoryName
+Rename categories in the menu list.
+```lua
+-- @param title - string (default localized category name)
+-- @param category - string category key
+exports.jo_clothingstore:registerFilter("setCategoryName", function(title, category)
+    return title
+end)
+```
+
+#### <Badge type="client" text="Client" /> updateHashpreviewBeforeBuy
+Adjust the payload sent to the server before buying.
+```lua
+-- @param hashpreview - table containing menu/index/variation/data
+-- @param currentData - current menu context/item
+exports.jo_clothingstore:registerFilter("updateHashpreviewBeforeBuy", function(hashpreview, currentData)
+    return hashpreview
+end)
+```
+
+#### <Badge type="client" text="Client" /> updateMenuPrompt
+Override which prompt group is displayed while navigating menus.
+```lua
+-- @param promptType - string ("buy", "select", "outfit", ...)
+-- @param data - current menu item data
+exports.jo_clothingstore:registerFilter("updateMenuPrompt", function(promptType, data)
+    return promptType
+end)
+```
+
 
 ## 5. Compatibility issues
 
