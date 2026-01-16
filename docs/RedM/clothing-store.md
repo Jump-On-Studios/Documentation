@@ -203,46 +203,6 @@ Config.keysDisabled = { --Controls disabled while in the clothing store menu
 	`INPUT_PREV_WEAPON`,
 }
 
-Config.allowClothesOnPed = { -- todo
-	ponchos = false,
-	hair_accessories = false,
-	skirts = false,
-	gloves = false,
-	vests = false,
-	coats = false,
-	coats_closed = false,
-	pants = false,
-	boots = false,
-	shirts_full = false,
-	spats = false,
-	belts = false,
-	belt_buckles = false,
-	boot_accessories = false,
-	gunbelts = false,
-	gauntlets = false,
-	holsters_left = false,
-	loadouts = false,
-	suspenders = false,
-	dresses = false,
-	neckties = false,
-	neckwear = false,
-	accessories = false,
-	satchels = false,
-	jewelry_rings_right = false,
-	jewelry_rings_left = false,
-	jewelry_bracelets = false,
-	aprons = false,
-	chaps = false,
-	badges = false,
-	gunbelt_accs = false,
-	eyewear = false,
-	cloaks = false,
-	armor = false,
-	masks = false,
-	masks_large = false,
-	hats = false,
-}
-
 ```
 
 ```lua [commands.lua]
