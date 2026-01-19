@@ -29,7 +29,7 @@ Congratulation, the **Colorways** add-on is ready to be used!
 - Go in a clothing store and press `Config.keys.colorways` (default : `C`) to open the colorways menu
 - New color variations will be added to the current item variations slider
 
-## 3. Configuration files
+## 3. Configuration
 
 ### How to customize the configuration
 

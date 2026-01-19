@@ -28,7 +28,7 @@ Congratulation, the **NPC Clothes** add-on is ready to be used!
 
 The scripts add a new intermediate menu in the store which allow you to choose between `Classic Clothes` or `NPC Clothes`. NPC clothing categories share some categories with classic clothes, but there are also many new categories.
 
-## 3. Configuration files
+## 3. Configuration
 
 ### How to customize the configuration
 
