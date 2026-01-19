@@ -145,3 +145,21 @@ Available translation categories include:
 :::tip 💡Only change the key you need to translate
 You only need to include the specific keys you want to change in `config/custom/lang.lua`. Don't copy the entire language file if you don't need to.
 :::
+
+## 4. For developers
+
+### Actions
+
+
+Actions are one of the two types of Hooks. They provide a way for running a function at a specific point in the execution of scripts. Callback functions for an Action do not return anything back to the calling Action hook. They are the counterpart to Filters.
+
+Below is a complete list of all available actions in the jo_clothingstore script.
+
+#### <Badge type="shared" text="Shared" /> init
+Triggered when the addon is initialized
+
+```lua
+exports.jo_clothingstore_npc:registerAction('init', function()
+    -- Your code here
+end)
+```
