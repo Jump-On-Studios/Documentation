@@ -552,7 +552,7 @@ table.map(t, func)
 >
 
 
-`func` : _function_
+`func` : _function|any_
 > A function to transform each element. Called with (element, key, originalTable)
 >
 
