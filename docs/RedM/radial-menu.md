@@ -55,6 +55,10 @@ Using the radial menu is straightforward. Simply press the configured key (defau
   - **Select**: Click on an item to trigger its action or open a submenu.
   - **Submenus**: Selecting an item with a `submenu` of type `submenu` will open a new set of options.
   - **Back/Close**: Use the central button to go back to the previous menu or close the wheel entirely. You can also use `ESC` or `BACKSPACE` to close it.
+  - **Hotkeys (if enabled)**:
+      - With the wheel open, hover an actionable item (must have `onClick`, no submenu, not disabled/hidden) and long-press an allowed key (~1s) to bind it. Long-pressing the same key on the same item removes the binding. A circular loader shows progress.
+      - In `hotbar` mode, only `0-9` are allowed and a bottom hotbar appears while the wheel is open; clicking a filled slot triggers the bound action.
+      - To execute a bound action with the wheel closed, hold the `activationKey` (default `L ALT`) and tap the bound key. Badges on slices (and the hotbar in `hotbar` mode) show current bindings.
 
 
 
@@ -66,32 +70,66 @@ The main configuration is done in `jo_radial/shared/config.lua`. This file allow
 
 You can modify the menu open/close behavior by changing properties of the `Config` table.
 
-| Parameter           | Type      | Description                                                                                                                                       |
-| :------------------ | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Config.openKey`    | `string`  | Key to open the menu (default is `F7`, find all the usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)) |
-| `Config.holdToOpen` | `boolean` | Hold key to open menu (true) or toggle on/off ( `false`, default)                                                                                 |
+| Parameter           | Type      | Default value | Description                                                                                                                        |
+| :------------------ | :-------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| `Config.openKey`    | `string`  | `F7`           | Key to open the menu (find all usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)).      |
+| `Config.holdToOpen` | `boolean` | `false`        | Hold key to open menu (`true`) or toggle on/off (`false`).                                                                          |
+| `Config.postFX`     | `string`\|`boolean` | `"WheelHUDIn"` | Post-processing effect to play when opening the menu. Set `false` to disable.                                                       |
 
 
 
 You can customize the overall look and feel of the radial menu using the `Config.radialConfig` table.
 
-| Parameter       | Type                | Description                                                                                                                                                      |
-| :-------------- | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `color`         | `string`            | Main color for highlights and hover effects (hex color code)                                                                                                     |
-| `backText`      | `string`            | Text for the back button in submenus                                                                                                                             |
-| `closeText`     | `string`            | Text for the close button on the main menu                                                                                                                       |
-| `centerOpacity` | `float`             | Opacity of the center background                                                                                                                                 |
-| `logo`          | `string` (optional) | Your server's logo. Supports URL (`https://...`), local file (`logo.png` from `jo_radial/nui/img/`), or other script NUI (`nui://...`). Set to `nil` to disable. |
+| Parameter       | Type                | Default value | Description                                                                                                                                          |
+| :-------------- | :------------------ | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `color`         | `string`            | `"#ff0000"`    | Main color for highlights and hover effects (hex color code).                                                                                        |
+| `centerOpacity` | `float`             | `0.6`          | Opacity of the center background.                                                                                                                    |
+| `logo`          | `string` (optional) | `nil`          | Your server's logo. Supports URL (`https://...`), local file (`logo.png` from `jo_radial/nui/img/`), or other script NUI (`nui://...`). Set `nil` to disable. |
+| `hotkeysConfig` | `table`             | See below      | The hotkeys system configuration (see below).                                                                                                        |
 
-Example :
+
+### Hotkeys / Hotbar
+
+The radial menu can expose a hotkey/hotbar layer. Players can bind actions from the wheel to keys and trigger them later without opening the wheel.
+
+| Parameter                                | Type                      | Default value  | Description                                                                                                                                                              |
+| :--------------------------------------- | :------------------------ | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hotkeysConfig.enabled`                  | `boolean`                 | `true`         | Enable/disable the hotkey system.                                                                                                                                        |
+| `hotkeysConfig.mode`                     | `"hotbar"` or `"hotkeys"` | `"hotbar"`     | `hotbar`: only `0-9` keys are allowed and a bottom hotbar is shown while the wheel is open. <br>`hotkeys`: any key can be bound (no hotbar overlay, badges still show on slices). |
+| `hotkeysConfig.activationKey`            | `string`                  | `"L ALT"`    | Modifier key to hold when triggering a hotkey while the wheel is closed (find usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)). |
+| `hotkeysConfig.disableAllControlActions` | `boolean`                 | `true`         | When `true`, disables all control actions while the activation key is held to avoid conflicts.                                                                           |
+
+
+
+Full Example:
 
 ```lua
 Config.radialConfig = {
-    color = "#07a3db",
-    backText = "Back",
-    closeText = "Close",
-    centerOpacity = 0.6, 
-    logo = "https://jumpon-studios.com/images/logo_no_bg.png"
+    color = "#ff0000",                                         -- Primary color for the radial menu (hex color)
+    centerOpacity = 0.6,                                       -- Opacity of the center background
+    logo = "https://jumpon-studios.com/images/logo_no_bg.png", -- Logo URL displayed in center
+    hotkeysConfig = {
+        enabled = true,                                        -- Enable/disable hotkey binding feature
+        mode = "hotbar",                                       -- "hotbar" (0-9 keys) or "hotkeys" (Any key)
+        activationKey = "L ALT",                               -- Modifier key required to trigger (CTRL, ALT, SHIFT), , find all the usable controls here :https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
+        disableAllControlActions = true                        -- When `true`, disables all control actions while the activation key is held to avoid conflicts
+    }
+}
+```
+
+### Commands (`Config.commands`)
+
+You can customize the command names used by the radial menu.
+
+| Parameter                       | Type     | Default value       | Description                                                    |
+| :------------------------------ | :------- | :------------------ | :------------------------------------------------------------- |
+| `Config.commands.clearAllHotkeys` | `string` | `"clearAllHotkeys"` | Command to clear all hotkey bindings for the current player.   |
+
+Example:
+
+```lua
+Config.commands = {
+    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
 }
 ```
 
@@ -135,7 +173,7 @@ Here is the structure for a single menu item:
 
 
 
-### Configuration Examples
+### Full Configuration Examples
 
 
 :::warning
@@ -145,6 +183,90 @@ See examples below.
 :::
 
 ::: code-group
+
+```lua [Basic Configuration]
+-- ==================================================================================
+-- Add inside the ./overwriteConfig.lua file
+-- ==================================================================================
+
+
+
+Config.openKey = 'F7' -- Key to open the menu, find all the controls here : https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
+
+-- Hold key to open menu (true) or toggle on/off (false, default)
+Config.holdToOpen = false
+
+Config.radialConfig = {
+    color = "#ff0000",                                         -- Primary color for the radial menu (hex color)
+    centerOpacity = 0.6,                                       -- Opacity of the center background
+    logo = "https://jumpon-studios.com/images/logo_no_bg.png", -- Logo URL displayed in center
+    hotkeysConfig = {
+        enabled = true,                                        -- Enable/disable hotkey binding feature
+        mode = "hotbar",                                       -- "hotbar" (0-9 keys) or "hotkeys" (Any key)
+        activationKey = "L ALT",                             -- Modifier key required to trigger (CTRL, ALT, SHIFT), , find all the usable controls here :https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
+        disableAllControlActions = true                        -- When `true`, disables all control actions while the activation key is held to avoid conflicts
+    }
+}
+
+Config.commands = {
+    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
+}
+
+Config.radialMenuItems = {
+    {
+        label = "Emotes ▼",
+        submenu = {
+            type = "submenu",
+            items = CreateEmotesMenu(12) -- Dynamically generated from emotes.lua
+        }
+    },
+    {
+        label = "Dynamic Disabled",
+        disabled = function()
+            return true -- This item will always be disabled
+        end
+    },
+    {
+        label = "Dynamic Visible",
+        visible = function()
+            return false -- This item will never be visible
+        end
+    },
+    {
+        label = "Client Event",
+        onClick = {
+            type = "clientEvent",
+            value = "jo_radial:client:test",
+            args = { "arg1", { test = "arg2" } }
+        }
+    },
+    {
+        label = "Server Event",
+        onClick = {
+            type = "serverEvent",
+            value = "jo_radial:server:test",
+            args = { "arg1", { test = "arg2" } }
+        }
+    },
+    {
+        label = "Function",
+        onClick = {
+            type = "function",
+            value = function() print("hello") end
+        }
+    },
+    {
+        label = "Command",
+        shouldClose = false, -- Dont't close menu after executing
+        onClick = {
+            type = "command",
+            value = "openMap"
+        }
+    },
+}
+```
+
+
 ```lua [VORP]
 -- ==================================================================================
 -- Add inside the ./overwriteConfig.lua file
@@ -164,11 +286,19 @@ local emotesMenu = CreateEmotesMenu(12)
 
 -- UI Configuration for the radial menu appearance
 Config.radialConfig = {
-    color = "#ff0000",                                        -- Primary color for the radial menu (hex color)
-    backText = "Back",                                        -- Text displayed on the back button
-    closeText = "Close",                                      -- Text displayed on the close button
-    centerOpacity = 0.6,                                      -- Opacity of the center background
-    logo = "https://jumpon-studios.com/images/logo_no_bg.png" -- Logo URL displayed in center
+    color = "#ff0000",                                         -- Primary color for the radial menu (hex color)
+    centerOpacity = 0.6,                                       -- Opacity of the center background
+    logo = "https://jumpon-studios.com/images/logo_no_bg.png", -- Logo URL displayed in center
+    hotkeysConfig = {
+        enabled = true,                                        -- Enable/disable hotkey binding feature
+        mode = "hotbar",                                       -- "hotbar" (0-9 keys) or "hotkeys" (Any key)
+        activationKey = "L ALT",                             -- Modifier key required to trigger (CTRL, ALT, SHIFT), , find all the usable controls here :https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
+        disableAllControlActions = true                        -- When `true`, disables all control actions while the activation key is held to avoid conflicts
+    }
+}
+
+Config.commands = {
+    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
 }
 
 -- Example menu demonstrating different item types and properties
@@ -327,6 +457,8 @@ local horseMenu = {
     }
 }
 
+
+
 -- ===== MAIN RADIAL MENU STRUCTURE =====
 -- This is the main menu that appears when the radial menu is opened
 -- Items are arranged in a circle and can have actions or submenus
@@ -452,11 +584,19 @@ local RSG = exports['rsg-core']:GetCoreObject()
 
 -- UI Configuration for the radial menu appearance
 Config.radialConfig = {
-    color = "#ff0000",                                        -- Primary color for the radial menu (hex color)
-    backText = "Back",                                        -- Text displayed on the back button
-    closeText = "Close",                                      -- Text displayed on the close button
-    centerOpacity = 0.6,                                      -- Opacity of the center background
-    logo = "https://jumpon-studios.com/images/logo_no_bg.png" -- Logo URL displayed in center
+    color = "#ff0000",                                         -- Primary color for the radial menu (hex color)
+    centerOpacity = 0.6,                                       -- Opacity of the center background
+    logo = "https://jumpon-studios.com/images/logo_no_bg.png", -- Logo URL displayed in center
+    hotkeysConfig = {
+        enabled = true,                                        -- Enable/disable hotkey binding feature
+        mode = "hotbar",                                       -- "hotbar" (0-9 keys) or "hotkeys" (Any key)
+        activationKey = "L ALT",                             -- Modifier key required to trigger (CTRL, ALT, SHIFT), , find all the usable controls here :https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
+        disableAllControlActions = true                        -- When `true`, disables all control actions while the activation key is held to avoid conflicts
+    }
+}
+
+Config.commands = {
+    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
 }
 
 -- Example menu demonstrating different item types and properties
@@ -719,77 +859,7 @@ Config.radialMenuItems = {
 
 ```
 
-```lua [Basic Configuration]
--- ==================================================================================
--- Add inside the ./overwriteConfig.lua file
--- ==================================================================================
 
-Config.openKey = 'F7' -- Key to open the menu, find all the controls here : https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
-
--- Hold key to open menu (true) or toggle on/off (false, default)
-Config.holdToOpen = false
-
-Config.radialConfig = {
-    color = "#ff0000",                 -- Main color for highlights and hover effects
-    backText = "Back",                 -- Text for the back button in submenus
-    closeText = "Close",               -- Text for the close button on the main menu
-    centerOpacity = 0.6,                                      -- Opacity of the center background
-    logo = nil                         -- Your server's logo. Supports URL (https://...), local file (logo.png from jo_radial/nui/img/), or other script NUI (nui://...). Set to nil to disable.
-}
-
-Config.radialMenuItems = {
-    {
-        label = "Emotes ▼",
-        submenu = {
-            type = "submenu",
-            items = CreateEmotesMenu(12) -- Dynamically generated from emotes.lua
-        }
-    },
-    {
-        label = "Dynamic Disabled",
-        disabled = function()
-            return true -- This item will always be disabled
-        end
-    },
-    {
-        label = "Dynamic Visible",
-        visible = function()
-            return false -- This item will never be visible
-        end
-    },
-    {
-        label = "Client Event",
-        onClick = {
-            type = "clientEvent",
-            value = "jo_radial:client:test",
-            args = { "arg1", { test = "arg2" } }
-        }
-    },
-    {
-        label = "Server Event",
-        onClick = {
-            type = "serverEvent",
-            value = "jo_radial:server:test",
-            args = { "arg1", { test = "arg2" } }
-        }
-    },
-    {
-        label = "Function",
-        onClick = {
-            type = "function",
-            value = function() print("hello") end
-        }
-    },
-    {
-        label = "Command",
-        shouldClose = false, -- Dont't close menu after executing
-        onClick = {
-            type = "command",
-            value = "openMap"
-        }
-    },
-}
-```
 
 ```lua [Advanced Configuration]
 -- ==================================================================================
@@ -803,11 +873,19 @@ Config.holdToOpen = false
 
 -- General configuration for the radial menu's appearance
 Config.radialConfig = {
-    color = "#07a3db",                 -- Main color for highlights and hover effects
-    backText = "Back",                 -- Text for the back button in submenus
-    closeText = "Close",               -- Text for the close button on the main menu
-    centerOpacity = 0.6,                                      -- Opacity of the center background
-    logo = "https://jumpon-studios.com/images/logo_no_bg.png"  -- Your server's logo. Supports URL (https://...), local file (logo.png from jo_radial/nui/img/), or other script NUI (nui://...). Set to nil to disable.
+    color = "#ff0000",                                         -- Primary color for the radial menu (hex color)
+    centerOpacity = 0.6,                                       -- Opacity of the center background
+    logo = "https://jumpon-studios.com/images/logo_no_bg.png", -- Logo URL displayed in center
+    hotkeysConfig = {
+        enabled = true,                                        -- Enable/disable hotkey binding feature
+        mode = "hotbar",                                       -- "hotbar" (0-9 keys) or "hotkeys" (Any key)
+        activationKey = "L ALT",                             -- Modifier key required to trigger (CTRL, ALT, SHIFT), , find all the usable controls here :https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
+        disableAllControlActions = true                        -- When `true`, disables all control actions while the activation key is held to avoid conflicts
+    }
+}
+
+Config.commands = {
+    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
 }
 
 -- An example of a dynamically generated menu from another file
@@ -926,4 +1004,29 @@ Config.radialMenuItems = {
     }
 }
 ```
+:::
 
+### Language Configuration
+
+The script supports full translation through the language system. To override any text in the script:
+
+1. Find the key you want to change in `shared/lang.lua`
+2. Add only that key to `overwriteLang.lua` with your new text
+
+Example:
+
+```lua
+-- In overwriteLang.lua
+Lang.backText = "Назад"
+Lang.closeText = "Закрыть"
+Lang.invalidHotkeyRegistration = "Неверные данные регистрации горячей клавиши"
+```
+
+Available translation categories include:
+- General UI & Common Terms
+- Notifications & Messages (success and error messages)
+- Emotes names
+
+:::tip 💡Only change the key you need to translate
+You only need to include the specific keys you want to change in `overwriteLang.lua`. Don't copy the entire language file.
+:::
