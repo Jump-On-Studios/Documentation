@@ -1,0 +1,165 @@
+# :necktie: NPC Clothes
+Documentation relating to the **jo_clothingstore_npc** add-on for [Clothing store script](clothing-store).
+
+:::: tabs
+::: tab BUY
+[Buy the add-on](https://jumpon-studios.com/redm/clothes-colorways)
+:::
+
+::: tab PREVIEW
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GR9xSUI8GC4?si=Lrqr9_NxGr0R86RB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+:::
+::::
+
+## 1. Installation
+::: warning
+[Clothing store script](clothing-store) is required to use this add-on
+:::
+
+To install jo_clothingstore_npc:
+- Drag and drop the resource into your resources folder
+  - jo_clothingstore_npc 
+- Add this ensure in your server.cfg after `ensure jo_clothingstore`
+  - `ensure jo_clothingstore_npc`
+
+Congratulation, the **NPC Clothes** add-on is ready to be used!
+
+## 2. Usage
+
+The scripts add a new intermediate menu in the store which allow you to choose between `Classic Clothes` or `NPC Clothes`. NPC clothing categories share some categories with classic clothes, but there are also many new categories.
+
+## 3. Configuration
+
+### How to customize the configuration
+
+1. Navigate to `jo_clothingstore_npc/config/_default.lock/`
+2. Copy the file you want to modify (e.g., `prices.lua`)
+3. Paste it into `jo_clothingstore_npc/config/custom/`
+4. Edit the copied file in the `custom` folder
+
+The script automatically loads files from `custom/` first, and only uses `_default.lock/` as a fallback. This system ensures your customizations are preserved when updating the script.
+
+### Default configuration files
+
+::: code-group
+```lua [global.lua]
+Config.keys = {
+    fixBodyParts = "INPUT_INTERACT_ANIMAL" -- Fix body parts menu prompt
+}
+```
+
+```lua [commands.lua]
+Config.commands = {                 -- Command name for opening the fix body parts menu
+  openFixBodyParts = "fixBodyParts" --use `false` to disable the command
+}
+
+```
+
+```lua [items.lua]
+Config.clothesItem = { --Inventory item names for each clothing category, only used if Config.clothesInItem = true in the main script
+    aprons = "aprons",
+    ankle_bindings = "ankle_bindings",
+    coat_accessories = "coat_accessories",
+    coats_heavy = "coats_heavy",
+    hat_accessories = "hat_accessories",
+    headwear = "headwear",
+    holsters_center = "holsters",
+    holsters_crossdraw = "holsters",
+    holsters_knife = "holsters",
+    holsters_quivers = "holsters",
+    holsters_right = "holsters",
+    jewelry_necklaces = "jewelry",
+    jewelry_rings = "jewelry",
+    neckerchiefs = "neckerchiefs",
+    outfits = "outfits",
+    overalls_full = "overalls",
+    overalls_modular_lowers = "overalls",
+    overalls_modular_uppers = "overalls",
+    pants_accessories = "pants_accessories",
+    satchel_straps = "satchel_straps",
+    shirts_full_overpants = "shirts_full_overpants",
+    unionsuit_legs = "unionsuit_legs",
+    unionsuits_full = "unionsuits_full",
+    vest_accessories = "vest_accessories",
+    wrist_bindings = "wrist_bindings",
+    masks_large = "mask_large",
+}
+
+
+```
+
+```lua [prices.lua]
+Config.prices = { -- NPC clothes categories pricing
+    aprons = 2,
+    ankle_bindings = 2,
+    coat_accessories = 2,
+    coats_heavy = 2,
+    hat_accessories = 2,
+    headwear = 2,
+    holsters_center = 2,
+    holsters_crossdraw = 2,
+    holsters_knife = 2,
+    holsters_quivers = 2,
+    holsters_right = 2,
+    jewelry_necklaces = 2,
+    jewelry_rings = 2,
+    neckerchiefs = 2,
+    outfits = 2,
+    overalls_full = 2,
+    overalls_modular_lowers = 2,
+    overalls_modular_uppers = 2,
+    pants_accessories = 2,
+    satchel_straps = 2,
+    shirts_full_overpants = 2,
+    unionsuit_legs = 2,
+    unionsuits_full = 2,
+    vest_accessories = 2,
+    wrist_bindings = 2,
+    masks_large = 2,
+}
+
+```
+
+:::
+
+### Language Configuration
+
+The script supports full translation through the language system. To override any text:
+
+1. Find the key you want to change in `config/_default.lock/lang.lua`
+2. Copy `lang.lua` to `config/custom/` and add only the keys you want to override
+
+Example:
+
+```lua
+Lang.npcCategoryName = "Одежда NPC"
+Lang.bodyPartsMenuTitle = "Исправить части телa"
+Lang.upperBody = "Верхняя часть тела"
+```
+
+Available translation categories include:
+- General UI & Common Terms
+- NPC clothes categories names
+
+
+:::tip 💡Only change the key you need to translate
+You only need to include the specific keys you want to change in `config/custom/lang.lua`. Don't copy the entire language file if you don't need to.
+:::
+
+## 4. For developers
+
+### Actions
+
+
+Actions are one of the two types of Hooks. They provide a way for running a function at a specific point in the execution of scripts. Callback functions for an Action do not return anything back to the calling Action hook. They are the counterpart to Filters.
+
+Below is a complete list of all available actions in the jo_clothingstore script.
+
+#### <Badge type="shared" text="Shared" /> init
+Triggered when the addon is initialized
+
+```lua
+exports.jo_clothingstore_npc:registerAction('init', function()
+    -- Your code here
+end)
+```

@@ -536,7 +536,7 @@ Config = {}
 Config.openWardrobe = function()
     -- Add your Wardrobe handling code here
     -- This could call another resource's export for wardrobe management
-    -- ex : exports["kd_clothingstore"]:openWardrobe()
+    -- ex : exports["jo_clothingstore"]:openWardrobe()
     print("Config.openWardrobe must be configured to integrate with your wardrobe system")
 end
 

@@ -34,8 +34,8 @@ setr jo_libs:gizmo:keys:cancel "INPUT_FRONTEND_CANCEL"
 # Enable the debug of all modules in kd_stable resource
 setr kd_stable:debug on 
 
-# Enable the debug of the component module in the kd_clothingstore resource
-setr kd_clothingstore:debug:component on 
+# Enable the debug of the component module in the jo_clothingstore resource
+setr jo_clothingstore:debug:component on 
 
 # Enable the debug of all modules in the framework-bridge resource
 setr all:debug:framework-bridge on 
