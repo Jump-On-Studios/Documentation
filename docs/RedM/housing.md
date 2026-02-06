@@ -767,6 +767,27 @@ You only need to include the specific keys you want to change in `overwriteLang.
 
 ## 5. FAQ
 
+:::details Zone house is not working properly
+The zone creator is designed to trace the **walls** of the house, not the entire plot of land around it. This is how the script determines whether a player is **inside** or **outside** the house.
+
+A common mistake is trying to create a zone that covers the full property or land area. Instead, you must place your zone points along the **walls of the building itself**.
+
+**How to create a correct zone:**
+- If the house has **4 walls**, the zone should have **4 points** — one in each **corner** of the house.
+- Each point must follow the wall line so the zone accurately represents the interior space.
+- Walk along the walls and place a point at every corner where the wall changes direction.
+
+<video controls>
+  <source src="/videos/jo_housing_zone.mp4" type="video/mp4">
+</video>
+
+:::tip
+Think of it as drawing the floor plan of the house: trace the walls, not the yard.
+
+An improved zone creator is planned for a future update. Until then, tracing the walls is the only way to create a properly working house zone.
+:::
+
+
 :::details It's raining in my house !
 Weather effects (rain, snow) can appear inside interiors due to your framework's weather synchronization system. To fix this, you need to disable weather sync when players enter houses and re-enable it when they leave.
 
