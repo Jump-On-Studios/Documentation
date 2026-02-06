@@ -182,6 +182,8 @@ Config.maxFailLoadClothesData = 5                 --Maximum retry attempts when 
 
 Config.canEquipOutfit = true                      --Allow players to directly equip saved outfits
 
+Config.useGameClotheNames = true                  --Use in-game clothing names if available instead of Number X
+
 Config.keys = {                                   --Keybinds for store interactions (see https://github.com/femga/rdr3_discoveries/tree/master/Controls)
 	enter = "INPUT_FRONTEND_ACCEPT",
 	turn = "INPUT_AIM_IN_AIR",
