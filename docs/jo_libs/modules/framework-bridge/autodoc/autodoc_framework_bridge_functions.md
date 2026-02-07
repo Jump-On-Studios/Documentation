@@ -1335,7 +1335,7 @@ The function has two ways to work: <br>
 #### Syntax
 
 ```lua
-jo.framework:updateUserClothes(source, _clothes, value)
+jo.framework:updateUserClothes(...)
 ```
 
 #### Parameters
@@ -1344,7 +1344,7 @@ jo.framework:updateUserClothes(source, _clothes, value)
 > The source ID of the player
 >
 
-`_clothes` : _table_
+`clothes` : _table_
 
 > The list of clothes to apply or the category name
 >
@@ -1355,6 +1355,10 @@ jo.framework:updateUserClothes(source, _clothes, value)
 > The clothing data if updating a single category
 >
 
+
+`overwrite` : _boolean_ <BadgeOptional />
+> If `true`, the new value overwrites the previous clothes. Else, it's merged
+>
 
 <!-- @include: ./slots/examples.md#server|jo.framework:updateUserClothes -->
 
