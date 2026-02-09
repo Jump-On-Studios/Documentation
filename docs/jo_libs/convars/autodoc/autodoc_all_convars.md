@@ -75,5 +75,5 @@ Total convars: 52
 | Convar | Side | Type | Default | Description |
 |--------|------|------|---------|-------------|
 | `jo_libs:i18n:allowSwitchLocale` | Client | String | `true` |  |
-| `jo_libs:i18n:locale` | Shared | String | `en` |  |
+| `jo_libs:i18n:locale` | Shared | String | `en` | Default locale |
 | `jo_libs:i18n:localeCommand` | Client | String | `setLocale` |  |
