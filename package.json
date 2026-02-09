@@ -6,7 +6,7 @@
     "postinstall": "node ./scripts/postinstall.js"
   },
   "dependencies": {
-    "@primeuix/themes": "^4.5.4",
+    "@primeuix/themes": "^2.0.3",
     "chart.js": "^4.5.1",
     "medium-zoom": "^1.1.0",
     "primeicons": "^7.0.0",
