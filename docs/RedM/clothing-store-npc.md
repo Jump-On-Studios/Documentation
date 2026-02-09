@@ -1,33 +1,58 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Chart from 'primevue/chart';
-const chartData = ref();
+const variationChartData = ref();
+const modelChartData = ref();
 const chartOptions = ref();
 
-const totalMale = ref();
-const totalFemale = ref();
-const total = ref();
+const totalMaleVariations = ref();
+const totalFemaleVariations = ref();
+const totalVariations = ref();
+const totalMaleModels = ref();
+const totalFemaleModels = ref();
+const totalModels = ref();
 
 onMounted(async () => {
   const res = await fetch('/data/charts/npc_category_no_mp.json');
-  const data = await res.json();
+  const variations = await res.json();
 
-  totalMale.value = Intl.NumberFormat().format(data.series.male.reduce((a, b) => a + b, 0))
-  totalFemale.value = Intl.NumberFormat().format(data.series.female.reduce((a, b) => a + b, 0))
-  total.value = Intl.NumberFormat().format(data.series.male.reduce((a, b) => a + b, 0) + data.series.female.reduce((a, b) => a + b, 0))
-    chartData.value = {
-        labels: data.categories,
+  const res2 = await fetch('/data/charts/npc_clothes_no_mp_model.json');
+  const models = await res2.json();
+
+  totalMaleVariations.value = variations.series.male.reduce((a, b) => a + b, 0)
+  totalFemaleVariations.value = variations.series.female.reduce((a, b) => a + b, 0)
+  totalVariations.value = totalMaleVariations.value + totalFemaleVariations.value
+
+  totalMaleModels.value = models.series.male.reduce((a, b) => a + b, 0)
+  totalFemaleModels.value = models.series.female.reduce((a, b) => a + b, 0)
+  totalModels.value = totalMaleModels.value + totalFemaleModels.value
+
+    variationChartData.value = {
+        labels: variations.categories,
         datasets: [
             {
                 label: 'Male',
-                data: data.series.male,
+                data: variations.series.male,
             },
             {
                 label: 'Female',
-                data: data.series.female,
+                data: variations.series.female,
             },
         ]
-    };;
+    };
+    modelChartData.value = {
+        labels: models.categories,
+        datasets: [
+            {
+                label: 'Male',
+                data: models.series.male,
+            },
+            {
+                label: 'Female',
+                data: models.series.female,
+            },
+        ]
+    };
     chartOptions.value = setChartOptions();
 });
 
@@ -102,14 +127,16 @@ The scripts add a new intermediate menu in the store which allow you to choose b
 
 ## 3. Number of clothes
 
-The add-on adds a lot of clothes:
-* {{ total }} total clothes
-* {{ totalMale }} clothes for male
-* {{ totalFemale }} clothes for female
+The add-on adds {{ Intl.NumberFormat().format(totalModels) }} unique clothes ({{ Intl.NumberFormat().format(totalVariations) }} variations):
+* {{ Intl.NumberFormat().format(totalMaleModels) }} unique clothes for male ({{ Intl.NumberFormat().format(totalMaleVariations) }} variations)
+* {{ Intl.NumberFormat().format(totalFemaleModels) }} unique clothes for female ({{ Intl.NumberFormat().format(totalFemaleVariations) }} variations)
 
-Here is a comparison of the number of clothes by categories and sexe.
-:::details Chart by categories and sexe
-<Chart type="bar" :data="chartData" :options="chartOptions" style="height: 70rem" />
+Here are charts of the number of clothes by categories:
+:::details Unique clothes by categories ({{ Intl.NumberFormat().format(totalModels) }})
+<Chart type="bar" :data="modelChartData" :options="chartOptions" style="height: 100rem" />
+:::
+:::details All colors variations by categories ({{ Intl.NumberFormat().format(totalVariations) }})
+<Chart type="bar" :data="variationChartData" :options="chartOptions" style="height: 100rem" />
 :::
 
 ## 4. Configuration
@@ -229,21 +256,3 @@ Available translation categories include:
 :::tip 💡Only change the key you need to translate
 You only need to include the specific keys you want to change in `config/custom/lang.lua`. Don't copy the entire language file if you don't need to.
 :::
-
-## 5. For developers
-
-### Actions
-
-
-Actions are one of the two types of Hooks. They provide a way for running a function at a specific point in the execution of scripts. Callback functions for an Action do not return anything back to the calling Action hook. They are the counterpart to Filters.
-
-Below is a complete list of all available actions in the jo_clothingstore script.
-
-#### <Badge type="shared" text="Shared" /> init
-Triggered when the addon is initialized
-
-```lua
-exports.jo_clothingstore_npc:registerAction('init', function()
-    -- Your code here
-end)
-```
