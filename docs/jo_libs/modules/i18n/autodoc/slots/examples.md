@@ -16,6 +16,11 @@ jo.i18n.addEntries({
   "buy" = "Buy",
   "sell" = "Sell"
 })
+-- OR --
+exports.<scriptName>:addEntries({
+  "buy" = "Buy",
+  "sell" = "Sell"
+})
 ```
 <!-- #endregion shared|jo.i18n.addEntries -->
 
@@ -24,6 +29,8 @@ jo.i18n.addEntries({
 #### Example
 ```lua
 jo.i18n.addEntry("buyHorse", "Buy a horse")
+-- OR --
+exports.<scriptName>:addEntry("buyHorse", "Buy a horse")
 ```
 <!-- #endregion shared|jo.i18n.addEntry -->
 
