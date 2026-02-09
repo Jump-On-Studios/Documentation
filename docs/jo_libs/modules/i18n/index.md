@@ -26,4 +26,4 @@ You can now use the library inside of your resource with the `jo.i18n` global va
 
 ## Functions
 
-Documentation for the [Client](./client.md) side.  
+Documentation for the [Both Sides](./shared.md) side.  
