@@ -117,6 +117,32 @@ jo.i18n.findMissingKeys(locale)
 
 ---
 
+### jo.i18n.getEntries()
+
+<!-- @include: ./slots/headers.md#shared|jo.i18n.getEntries -->
+
+Get all entries <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.i18n.getEntries -->
+
+#### Syntax
+
+```lua
+jo.i18n.getEntries()
+```
+
+#### Return Value
+
+Type : _table_
+
+> The entries
+
+<!-- @include: ./slots/examples.md#shared|jo.i18n.getEntries -->
+
+<!-- @include: ./slots/footers.md#shared|jo.i18n.getEntries -->
+
+---
+
 ### jo.i18n.getLocale()
 
 <!-- @include: ./slots/headers.md#shared|jo.i18n.getLocale -->

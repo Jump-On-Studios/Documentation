@@ -18,6 +18,11 @@
 <!-- #endregion shared|jo.i18n.findMissingKeys -->
 
 
+<!-- #region shared|jo.i18n.getEntries -->
+
+<!-- #endregion shared|jo.i18n.getEntries -->
+
+
 <!-- #region shared|jo.i18n.getLocale -->
 
 <!-- #endregion shared|jo.i18n.getLocale -->
