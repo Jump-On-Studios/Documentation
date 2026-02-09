@@ -6,10 +6,11 @@
     "postinstall": "node ./scripts/postinstall.js"
   },
   "dependencies": {
+    "@primeuix/themes": "^4.5.4",
     "chart.js": "^4.5.1",
     "medium-zoom": "^1.1.0",
     "primeicons": "^7.0.0",
-    "primevue": "^3.51.0",
+    "primevue": "^4.5.4",
     "vitepress-fix-include": "^1.0.1-bricefix"
   },
   "devDependencies": {
