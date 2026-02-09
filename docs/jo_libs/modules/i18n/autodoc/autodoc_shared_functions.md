@@ -226,13 +226,17 @@ Register a callback to be called when the locale changes <br>
 #### Syntax
 
 ```lua
-jo.i18n.onLocaleChanged(callback)
+jo.i18n.onLocaleChanged(callback, priority)
 ```
 
 #### Parameters
 
 `callback` : _function_
 > The callback to register
+>
+
+`priority` : _number_
+> The priority of the callback
 >
 
 <!-- @include: ./slots/examples.md#shared|jo.i18n.onLocaleChanged -->
