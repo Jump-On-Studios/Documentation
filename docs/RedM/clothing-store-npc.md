@@ -1,3 +1,75 @@
+<script setup>
+import { ref, onMounted } from "vue";
+import Chart from 'primevue/chart';
+const chartData = ref();
+const chartOptions = ref();
+
+const totalMale = ref();
+const totalFemale = ref();
+const total = ref();
+
+onMounted(async () => {
+  const res = await fetch('/data/charts/npc_category_no_mp.json');
+  const data = await res.json();
+
+  totalMale.value = Intl.NumberFormat().format(data.series.male.reduce((a, b) => a + b, 0))
+  totalFemale.value = Intl.NumberFormat().format(data.series.female.reduce((a, b) => a + b, 0))
+  total.value = Intl.NumberFormat().format(data.series.male.reduce((a, b) => a + b, 0) + data.series.female.reduce((a, b) => a + b, 0))
+    chartData.value = {
+        labels: data.categories,
+        datasets: [
+            {
+                label: 'Male',
+                data: data.series.male,
+            },
+            {
+                label: 'Female',
+                data: data.series.female,
+            },
+        ]
+    };;
+    chartOptions.value = setChartOptions();
+});
+
+const setChartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--vp-c-text-1');
+    const textColorSecondary = documentStyle.getPropertyValue('--vp-c-text-2');
+    const surfaceBorder = documentStyle.getPropertyValue('--vp-c-border-1');
+
+    return {
+        indexAxis: 'y',
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                    color: textColor
+                }
+            }
+        },
+        scales: {
+            x: {
+                position: 'top',
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            },
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: textColorSecondary
+                },
+            }
+        }
+    };
+}
+</script>
+
 # :necktie: NPC Clothes
 Documentation relating to the **jo_clothingstore_npc** add-on for [Clothing store script](clothing-store).
 
@@ -28,7 +100,19 @@ Congratulation, the **NPC Clothes** add-on is ready to be used!
 
 The scripts add a new intermediate menu in the store which allow you to choose between `Classic Clothes` or `NPC Clothes`. NPC clothing categories share some categories with classic clothes, but there are also many new categories.
 
-## 3. Configuration
+## 3. Number of clothes
+
+The add-on adds a lot of clothes:
+* {{ total }} total clothes
+* {{ totalMale }} clothes for male
+* {{ totalFemale }} clothes for female
+
+Here is a comparison of the number of clothes by categories and sexe.
+:::details Chart by categories and sexe
+<Chart type="bar" :data="chartData" :options="chartOptions" style="height: 70rem" />
+:::
+
+## 4. Configuration
 
 ### How to customize the configuration
 
@@ -146,7 +230,7 @@ Available translation categories include:
 You only need to include the specific keys you want to change in `config/custom/lang.lua`. Don't copy the entire language file if you don't need to.
 :::
 
-## 4. For developers
+## 5. For developers
 
 ### Actions
 
