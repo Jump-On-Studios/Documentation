@@ -34,8 +34,7 @@ files {
 Done, you're all set!
 :::
 
-<!--@include: ./autodoc/convars/autodoc_shared_convars.md-->
-<!--@include: ./autodoc/convars/autodoc_g_client_convars.md-->
+<!--@include: ./autodoc/convars/autodoc_mixed_convars.md-->
 
 <!--@include: ./autodoc/autodoc_shared_functions.md-->
 

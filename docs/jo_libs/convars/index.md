@@ -9,9 +9,9 @@ You can turn on/off the debug prints on all libraries or on a specific module wi
 
 | Convar                      | Side   | Type   | Default | Values     | Description                                                                 |
 | --------------------------- | ------ | ------ | ------- | ---------- | --------------------------------------------------------------------------- |
-| `<resource>:debug:<module>` | Shared | String | `off`   | `on`/`off` | Enable/Disable debug prints for **one module** running **in the resource**  |
-| `<resource>:debug`          | Shared | String | `off`   | `on`/`off` | Enable/Disable debug prints for **all modules** running **in the resource** |
-| `all:debug:<module>`        | Shared | String | `off`   | `on`/`off` | Enable/Disable debug prints for **all modules** running **in all resource** |
+| `<resource>:debug:<module>` | <BadgeShared/> | String | `off`   | `on`/`off` | Enable/Disable debug prints for **one module** running **in the resource**  |
+| `<resource>:debug`          | <BadgeShared/> | String | `off`   | `on`/`off` | Enable/Disable debug prints for **all modules** running **in the resource** |
+| `all:debug:<module>`        | <BadgeShared/> | String | `off`   | `on`/`off` | Enable/Disable debug prints for **all modules** running **in all resource** |
 
 
 
