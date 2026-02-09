@@ -2,7 +2,7 @@
 
 This document lists all configuration variables used in jo_libs, grouped by module.
 
-Total convars: 49
+Total convars: 52
 
 ## Modules
 
@@ -70,3 +70,10 @@ Total convars: 49
 | `jo_libs:gizmo:movementSpeed` | Client | Float | `0.1` | Default movement speed for camera |
 | `jo_libs:gizmo:movementSpeedIncrement` | Client | Float | `0.01` | Increment value when adjusting camera speed |
 | `jo_libs:gizmo:rotationSnap` | Client | Integer | `5` | Rotation snap value |
+
+### I18n
+| Convar | Side | Type | Default | Description |
+|--------|------|------|---------|-------------|
+| `jo_libs:i18n:allowSwitchLocale` | Client | String | `true` |  |
+| `jo_libs:i18n:locale` | Shared | String | `en` |  |
+| `jo_libs:i18n:localeCommand` | Client | String | `setLocale` |  |
