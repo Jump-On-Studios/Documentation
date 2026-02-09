@@ -1,9 +1,11 @@
 import DefaultTheme from "vitepress/theme";
 
 import "./custom.scss";
-import "primevue/resources/themes/aura-light-green/theme.css";
 import "@red-asuka/vitepress-plugin-tabs/dist/style.css";
 import "primeicons/primeicons.css";
+
+import PrimeVue from "primevue/config";
+import Aura from "@primeuix/themes/aura";
 
 import MyLayout from "./MyLayout.vue";
 import { Tab, Tabs } from "vue3-tabs-component";
@@ -21,6 +23,11 @@ export default {
   extends: DefaultTheme,
   Layout: MyLayout,
   async enhanceApp({ app }) {
+    app.use(PrimeVue, {
+      theme: {
+        preset: Aura,
+      },
+    });
     app.component("Tab", Tab);
     app.component("Tabs", Tabs);
     if (!import.meta.env.SSR) {

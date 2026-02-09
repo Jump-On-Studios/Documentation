@@ -94,6 +94,9 @@ export default defineConfig({
     },
   },
   vite: {
+    ssr: {
+      noExternal: ['primevue'],
+    },
     resolve: {
       alias: [
         {
