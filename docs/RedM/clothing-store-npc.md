@@ -13,43 +13,60 @@ const totalFemaleModels = ref();
 const totalModels = ref();
 
 onMounted(async () => {
-  const res = await fetch('/data/charts/npc_category_no_mp.json');
-  const variations = await res.json();
+    const res = await fetch('/data/charts/npc_category_no_mp.json');
+    const variations = await res.json();
 
-  const res2 = await fetch('/data/charts/npc_clothes_no_mp_model.json');
-  const models = await res2.json();
+    const res2 = await fetch('/data/charts/npc_clothes_no_mp_model.json');
+    const models = await res2.json();
 
-  totalMaleVariations.value = variations.series.male.reduce((a, b) => a + b, 0)
-  totalFemaleVariations.value = variations.series.female.reduce((a, b) => a + b, 0)
-  totalVariations.value = totalMaleVariations.value + totalFemaleVariations.value
+    const variationMale = variations.datasets.find(d => d.label === 'male');
+    const variationFemale = variations.datasets.find(d => d.label === 'female');
+    const modelMale = models.datasets.find(d => d.label === 'male');
+    const modelFemale = models.datasets.find(d => d.label === 'female');
 
-  totalMaleModels.value = models.series.male.reduce((a, b) => a + b, 0)
-  totalFemaleModels.value = models.series.female.reduce((a, b) => a + b, 0)
-  totalModels.value = totalMaleModels.value + totalFemaleModels.value
+    totalMaleVariations.value = variationMale.data.reduce((a, b) => a + b, 0)
+    totalFemaleVariations.value = variationFemale.data.reduce((a, b) => a + b, 0)
+    totalVariations.value = totalMaleVariations.value + totalFemaleVariations.value
 
+    totalMaleModels.value = modelMale.data.reduce((a, b) => a + b, 0)
+    totalFemaleModels.value = modelFemale.data.reduce((a, b) => a + b, 0)
+    totalModels.value = totalMaleModels.value + totalFemaleModels.value
+
+    const sortDesc = (labels, maleData, femaleData) => {
+        const indices = labels.map((_, i) => i);
+        indices.sort((a, b) => (maleData[b] + femaleData[b]) - (maleData[a] + femaleData[a]));
+        return {
+            labels: indices.map(i => labels[i]),
+            male: indices.map(i => maleData[i]),
+            female: indices.map(i => femaleData[i]),
+        };
+    };
+
+    const sortedVariations = sortDesc(variations.labels, variationMale.data, variationFemale.data);
     variationChartData.value = {
-        labels: variations.categories,
+        labels: sortedVariations.labels,
         datasets: [
             {
                 label: 'Male',
-                data: variations.series.male,
+                data: sortedVariations.male,
             },
             {
                 label: 'Female',
-                data: variations.series.female,
+                data: sortedVariations.female,
             },
         ]
     };
+    const sortedModels = sortDesc(models.labels, modelMale.data, modelFemale.data);
     modelChartData.value = {
-        labels: models.categories,
+        labels: sortedModels.labels,
         datasets: [
             {
                 label: 'Male',
-                data: models.series.male,
+                data: sortedModels.male,
             },
             {
                 label: 'Female',
-                data: models.series.female,
+                data: sortedModels.female,
             },
         ]
     };
