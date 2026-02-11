@@ -230,7 +230,7 @@ export default defineConfig({
             items: [
               { text: "Main script", link: "/RedM/clothing-store" },
               { text: "Colorways", link: "/RedM/clothing-store-colorways" },
-              // { text: "NPC Clothes", link: "/RedM/clothing-store-npc" },
+              { text: "NPC Clothes", link: "/RedM/npc-clothes" },
             ],
           },
           {
