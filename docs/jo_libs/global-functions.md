@@ -116,3 +116,24 @@ jo.stopped(function()
 end)
 
 ```
+## jo.onResourceStart()
+A function fired when a resource is fully started
+### Syntax
+```lua
+jo.onResourceStart(resourceName, cb)
+
+```
+### Parameters
+`resourceName` : *string*
+> The name of the resource to listen for
+
+`cb` : *function*
+> The function to execute
+
+### Example
+```lua
+jo.onResourceStart('myResource', function()
+  print('myResource has been started')
+end)
+
+```
