@@ -170,18 +170,6 @@ The script automatically loads files from `custom/` first, and only uses `_defau
 ### Default configuration files
 
 ::: code-group
-```lua [global.lua]
-Config.keys = {
-    fixBodyParts = "INPUT_INTERACT_ANIMAL" -- Fix body parts menu prompt
-}
-```
-
-```lua [commands.lua]
-Config.commands = {                 -- Command name for opening the fix body parts menu
-  openFixBodyParts = "fixBodyParts" --use `false` to disable the command
-}
-
-```
 
 ```lua [items.lua]
 Config.clothesItem = { --Inventory item names for each clothing category, only used if Config.clothesInItem = true in the main script
@@ -212,7 +200,6 @@ Config.clothesItem = { --Inventory item names for each clothing category, only u
     wrist_bindings = "wrist_bindings",
     masks_large = "mask_large",
 }
-
 
 ```
 
