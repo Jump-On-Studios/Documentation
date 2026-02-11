@@ -578,13 +578,37 @@ TriggerServerEvent('jo_clothingstore:useOutfitId', id)
 
 [Filters](/DeveloperResources/filters) allow you to modify data or permissions synchronously at specific points in the script. Below is the complete list of `jo_clothingstore` filters and how to use them.
 
-#### <Badge type="shared" text="Shared" /> updateLangForNUI
-Customize or translate the Lang table before it is sent to the NUI.
+#### <Badge type="server" text="Server" /> categoriesAccessible
+Control which clothing categories are accessible to the player.
 ```lua
--- @param lang - table of localization keys
-exports.jo_clothingstore:registerFilter("updateLangForNUI", function(lang)
-    -- lang.myClothes = "My Custom Label"
-    return lang
+-- @param categories - table of category booleans
+-- @param source - serverID of the player
+exports.jo_clothingstore:registerFilter("categoriesAccessible", function(categories, source)
+    -- Example: Disable accessories for all players
+    -- categories['accessories'] = false
+    return categories
+end)
+```
+
+#### <Badge type="server" text="Server" /> canAccessToNPCMenu
+Control access to the NPC menu (require the NPC addon).
+```lua
+-- @param canAccess - boolean (default true)
+-- @param source - serverID of the player
+exports.jo_clothingstore:registerFilter("canAccessToNPCMenu", function(canAccess, source)
+    return canAccess
+end)
+```
+
+#### <Badge type="server" text="Server" /> canAccessToSpecificClothes
+Gate purchase of a specific cloth variation.
+```lua
+-- @param canAccess - boolean (default true)
+-- @param source - serverID of the buyer
+-- @param hashpreview - table containing menu/category/index/variation/data
+-- @param price - price table currently selected
+exports.jo_clothingstore:registerFilter("canAccessToSpecificClothes", function(canAccess, source, hashpreview, price)
+    return canAccess
 end)
 ```
 
