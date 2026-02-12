@@ -169,7 +169,7 @@ Here is the structure for a single menu item:
 | Parameter | Type     | Description                                                                                            |
 | :-------- | :------- | :----------------------------------------------------------------------------------------------------- |
 | `type`    | `string` | The type of submenu to display. Valid options are:<br>- `submenu`: Navigates to a new, separate wheel. |
-| `items`   | `table`  | An array of item tables that make up the content of the submenu.                                       |
+| `items`   | `table\|function`  | * table: list of item tables that make up the content of the submenu.<br>* function: fire everytime the menu is opened: it should returns a list of item tables.                                       |
 
 
 
@@ -217,9 +217,30 @@ Config.radialMenuItems = {
         label = "Emotes ▼",
         submenu = {
             type = "submenu",
-            items = CreateEmotesMenu(12) -- Dynamically generated from emotes.lua
+            creator = function()
+                --Only fire the first time the submenu is opened
+                return CreateEmotesMenu(12) -- Dynamically generated from emotes.lua
+            end
         }
     },
+    { 
+        label = "Dynamic submenu",
+        submenu = {
+            type = "submenu",
+            items = function()
+                -- Fire everytime the submenu is opened
+                return {
+                    label = math.random(1, 100),
+                    onClick = {
+                        type = "clientEvent",
+                        value = "jo_radial:client:test",
+                        args = { "arg1", { test = "arg2" } }
+                    }
+                },
+            end
+            }
+        }
+    }
     {
         label = "Dynamic Disabled",
         disabled = function()
