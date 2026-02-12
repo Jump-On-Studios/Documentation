@@ -612,6 +612,20 @@ exports.jo_clothingstore:registerFilter("canAccessToSpecificClothes", function(c
 end)
 ```
 
+#### <Badge type="server" text="Server" /> canBuyOutfitItem
+Control who can buy an outfit item.
+```lua
+-- @param canBuy - boolean (default true)
+-- @param source - serverID of the player
+-- @param outfit - table outfit data
+-- @param sexe - "male"/"female"
+-- @param name - string outfit name
+-- @param price - table price data
+exports.jo_clothingstore:registerFilter("canBuyOutfitItem", function(canBuy, source, outfit, sexe, name, price)
+    return canBuy
+end)
+```
+
 #### <Badge type="server" text="Server" /> canUseItem
 Control whether a clothes/outfit item can be used.
 ```lua
@@ -672,16 +686,6 @@ Hide or disable specific catalogue entries.
 -- @param formattedPrices - formatted prices table
 exports.jo_clothingstore:registerFilter("hideOrDisableClothes", function(state, sexe, category, index, variations, formattedPrices)
     return state
-end)
-```
-
-#### <Badge type="client" text="Client" /> setCategoryName
-Rename categories in the menu list.
-```lua
--- @param title - string (default localized category name)
--- @param category - string category key
-exports.jo_clothingstore:registerFilter("setCategoryName", function(title, category)
-    return title
 end)
 ```
 
