@@ -612,18 +612,6 @@ exports.jo_clothingstore:registerFilter("canAccessToSpecificClothes", function(c
 end)
 ```
 
-#### <Badge type="server" text="Server" /> canAccessToSpecificClothes
-Gate purchase of a specific cloth variation.
-```lua
--- @param canAccess - boolean (default true)
--- @param source - serverID of the buyer
--- @param hashpreview - table containing menu/category/index/variation/data
--- @param price - price table currently selected
-exports.jo_clothingstore:registerFilter("canAccessToSpecificClothes", function(canAccess, source, hashpreview, price)
-    return canAccess
-end)
-```
-
 #### <Badge type="server" text="Server" /> canUseItem
 Control whether a clothes/outfit item can be used.
 ```lua
