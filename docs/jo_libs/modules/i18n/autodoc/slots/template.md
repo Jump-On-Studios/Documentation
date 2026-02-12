@@ -38,9 +38,9 @@
 <!-- #endregion shared|jo.i18n.loadLocale -->
 
 
-<!-- #region shared|jo.i18n.onLocaleChanged -->
+<!-- #region shared|jo.i18n.onLocaleChange -->
 
-<!-- #endregion shared|jo.i18n.onLocaleChanged -->
+<!-- #endregion shared|jo.i18n.onLocaleChange -->
 
 
 <!-- #region shared|jo.i18n.setLocale -->

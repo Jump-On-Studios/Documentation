@@ -215,18 +215,18 @@ jo.i18n.loadLocale(locale)
 
 ---
 
-### jo.i18n.onLocaleChanged()
+### jo.i18n.onLocaleChange()
 
-<!-- @include: ./slots/headers.md#shared|jo.i18n.onLocaleChanged -->
+<!-- @include: ./slots/headers.md#shared|jo.i18n.onLocaleChange -->
 
 Register a callback to be called when the locale changes <br>
 
-<!-- @include: ./slots/descriptions.md#shared|jo.i18n.onLocaleChanged -->
+<!-- @include: ./slots/descriptions.md#shared|jo.i18n.onLocaleChange -->
 
 #### Syntax
 
 ```lua
-jo.i18n.onLocaleChanged(callback, priority)
+jo.i18n.onLocaleChange(callback, priority)
 ```
 
 #### Parameters
@@ -239,9 +239,9 @@ jo.i18n.onLocaleChanged(callback, priority)
 > The priority of the callback
 >
 
-<!-- @include: ./slots/examples.md#shared|jo.i18n.onLocaleChanged -->
+<!-- @include: ./slots/examples.md#shared|jo.i18n.onLocaleChange -->
 
-<!-- @include: ./slots/footers.md#shared|jo.i18n.onLocaleChanged -->
+<!-- @include: ./slots/footers.md#shared|jo.i18n.onLocaleChange -->
 
 ---
 
