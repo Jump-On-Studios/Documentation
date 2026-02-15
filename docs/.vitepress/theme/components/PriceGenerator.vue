@@ -1,5 +1,6 @@
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, watchEffect } from 'vue'
+import { codeToHtml } from 'shiki'
 
 const TYPES = [
   { value: 'money', label: 'Money' },
@@ -28,10 +29,8 @@ function cloneComponents(components) {
 
 watch(useOr, (isOr) => {
   if (isOr) {
-    // Copy single → first multi option
     multiOptions.value[0] = { components: cloneComponents(singleOption.value.components) }
   } else {
-    // Copy first multi option → single
     singleOption.value = { components: cloneComponents(multiOptions.value[0].components) }
   }
 })
@@ -55,9 +54,7 @@ function removeMultiOption(idx) {
 }
 
 function generateOptionLua(option) {
-  // Merge currencies by type (money, gold, rol)
   const currencyTotals = {}
-  // Merge items by name
   const itemMap = {}
 
   for (const comp of option.components) {
@@ -100,6 +97,18 @@ const generatedCode = computed(() => {
   }
 })
 
+const highlightedCode = ref('')
+
+watchEffect(async () => {
+  highlightedCode.value = await codeToHtml(generatedCode.value, {
+    lang: 'lua',
+    themes: {
+      light: 'light-plus',
+      dark: 'slack-dark',
+    },
+  })
+})
+
 async function copyCode() {
   try {
     await navigator.clipboard.writeText(generatedCode.value)
@@ -128,81 +137,78 @@ async function copyCode() {
       </label>
     </div>
 
-    <!-- Single option mode -->
-    <div v-if="!useOr" class="pg-section">
-      <div class="pg-section-title">Price components</div>
-      <div class="pg-option-card">
-        <div v-for="(comp, cIdx) in singleOption.components" :key="cIdx" class="pg-component">
-          <div class="pg-component-row">
-            <Select v-model="comp.type" :options="TYPES" optionLabel="label" optionValue="value" class="pg-select-type" />
+    <div class="pg-section-title">{{ useOr ? 'Payment options' : 'Price components' }}</div>
 
-            <!-- Money / Gold / Rol -->
-            <template v-if="comp.type !== 'item'">
-              <input type="number" v-model.number="comp.value" min="0" step="0.01" class="pg-input pg-input-md" placeholder="Amount" />
-            </template>
-
-            <!-- Item -->
-            <template v-else>
-              <input type="number" v-model.number="comp.quantity" min="1" class="pg-input pg-input-xs" />
-              <span class="pg-label-inline">x</span>
-              <input type="text" v-model="comp.itemName" class="pg-input pg-input-grow" placeholder="Item name" />
-              <label class="pg-checkbox pg-checkbox-inline">
-                <input type="checkbox" v-model="comp.keep" />
-                <span>Keep</span>
-              </label>
-            </template>
-
-            <button class="pg-btn-icon pg-btn-danger" @click="removeComponentFrom(singleOption, cIdx)" title="Remove">✕</button>
+    <div class="pg-layout">
+      <!-- Left: inputs -->
+      <div class="pg-left">
+        <!-- Single option mode -->
+        <div v-if="!useOr">
+          <div class="pg-option-card">
+            <div v-for="(comp, cIdx) in singleOption.components" :key="cIdx" class="pg-component">
+              <div class="pg-component-row">
+                <Select v-model="comp.type" :options="TYPES" optionLabel="label" optionValue="value" class="pg-select-type" />
+                <template v-if="comp.type !== 'item'">
+                  <input type="number" v-model.number="comp.value" min="0" step="0.01" class="pg-input pg-input-md" placeholder="Amount" />
+                </template>
+                <template v-else>
+                  <input type="number" v-model.number="comp.quantity" min="1" class="pg-input pg-input-xs" />
+                  <span class="pg-label-inline">x</span>
+                  <input type="text" v-model="comp.itemName" class="pg-input pg-input-grow" placeholder="Item name" />
+                  <label class="pg-checkbox pg-checkbox-inline">
+                    <input type="checkbox" v-model="comp.keep" />
+                    <span>Keep</span>
+                  </label>
+                </template>
+                <button class="pg-btn-icon pg-btn-danger" @click="removeComponentFrom(singleOption, cIdx)" title="Remove">✕</button>
+              </div>
+            </div>
+            <button class="pg-btn pg-btn-add" @click="addComponentTo(singleOption)">+ Add</button>
           </div>
         </div>
-        <button class="pg-btn pg-btn-add" @click="addComponentTo(singleOption)">+ Add</button>
-      </div>
-    </div>
 
-    <!-- Multiple options mode (OR) -->
-    <div v-else class="pg-section">
-      <div class="pg-section-title">Payment options</div>
-      <div v-for="(option, oIdx) in multiOptions" :key="oIdx" class="pg-option-card">
-        <div class="pg-option-header">
-          <span class="pg-option-label">Option {{ oIdx + 1 }}</span>
-          <button v-if="multiOptions.length > 1" class="pg-btn-icon pg-btn-danger" @click="removeMultiOption(oIdx)" title="Remove option">✕</button>
-        </div>
-        <div v-for="(comp, cIdx) in option.components" :key="cIdx" class="pg-component">
-          <div class="pg-component-row">
-            <Select v-model="comp.type" :options="TYPES" optionLabel="label" optionValue="value" class="pg-select-type" />
-
-            <template v-if="comp.type !== 'item'">
-              <input type="number" v-model.number="comp.value" min="0" step="0.01" class="pg-input pg-input-md" placeholder="Amount" />
-            </template>
-
-            <template v-else>
-              <input type="number" v-model.number="comp.quantity" min="1" class="pg-input pg-input-xs" />
-              <span class="pg-label-inline">x</span>
-              <input type="text" v-model="comp.itemName" class="pg-input pg-input-grow" placeholder="Item name" />
-              <label class="pg-checkbox pg-checkbox-inline">
-                <input type="checkbox" v-model="comp.keep" />
-                <span>Keep</span>
-              </label>
-            </template>
-
-            <button class="pg-btn-icon pg-btn-danger" @click="removeComponentFrom(option, cIdx)" title="Remove">✕</button>
+        <!-- Multiple options mode (OR) -->
+        <div v-else>
+          <div v-for="(option, oIdx) in multiOptions" :key="oIdx" class="pg-option-card">
+            <div class="pg-option-header">
+              <span class="pg-option-label">Option {{ oIdx + 1 }}</span>
+              <button v-if="multiOptions.length > 1" class="pg-btn-icon pg-btn-danger" @click="removeMultiOption(oIdx)" title="Remove option">✕</button>
+            </div>
+            <div v-for="(comp, cIdx) in option.components" :key="cIdx" class="pg-component">
+              <div class="pg-component-row">
+                <Select v-model="comp.type" :options="TYPES" optionLabel="label" optionValue="value" class="pg-select-type" />
+                <template v-if="comp.type !== 'item'">
+                  <input type="number" v-model.number="comp.value" min="0" step="0.01" class="pg-input pg-input-md" placeholder="Amount" />
+                </template>
+                <template v-else>
+                  <input type="number" v-model.number="comp.quantity" min="1" class="pg-input pg-input-xs" />
+                  <span class="pg-label-inline">x</span>
+                  <input type="text" v-model="comp.itemName" class="pg-input pg-input-grow" placeholder="Item name" />
+                  <label class="pg-checkbox pg-checkbox-inline">
+                    <input type="checkbox" v-model="comp.keep" />
+                    <span>Keep</span>
+                  </label>
+                </template>
+                <button class="pg-btn-icon pg-btn-danger" @click="removeComponentFrom(option, cIdx)" title="Remove">✕</button>
+              </div>
+            </div>
+            <button class="pg-btn pg-btn-add" @click="addComponentTo(option)">+ Add</button>
           </div>
+          <button class="pg-btn pg-btn-option" @click="addMultiOption">+ Add payment option</button>
         </div>
-        <button class="pg-btn pg-btn-add" @click="addComponentTo(option)">+ Add</button>
       </div>
-      <button class="pg-btn pg-btn-option" @click="addMultiOption">+ Add payment option</button>
-    </div>
 
-    <!-- Generated Code -->
-    <div class="pg-section">
-      <div class="pg-code-block">
-        <div class="pg-code-header">
-          <span>Lua</span>
-          <button class="pg-btn-copy" @click="copyCode">
-            {{ copied ? 'Copied!' : 'Copy' }}
-          </button>
+      <!-- Right: generated code (sticky on desktop) -->
+      <div class="pg-right">
+        <div class="pg-code-block">
+          <div class="pg-code-header">
+            <span>Lua</span>
+            <button class="pg-btn-copy" @click="copyCode">
+              {{ copied ? 'Copied!' : 'Copy' }}
+            </button>
+          </div>
+          <div class="pg-code-body vp-adaptive-theme" v-html="highlightedCode"></div>
         </div>
-        <pre class="pg-code"><code>{{ generatedCode }}</code></pre>
       </div>
     </div>
   </div>
@@ -211,6 +217,25 @@ async function copyCode() {
 <style scoped>
 .price-generator {
   margin-top: 1.5rem;
+}
+
+/* Two-column layout on desktop */
+.pg-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.pg-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.pg-right {
+  flex: 1;
+  min-width: 0;
+  position: sticky;
+  top: calc(var(--vp-nav-height) + 1rem);
 }
 
 .pg-section {
@@ -425,23 +450,35 @@ async function copyCode() {
   color: var(--vp-c-brand-1);
 }
 
-.pg-code {
+.pg-code-body {
+  background: var(--vp-code-block-bg);
+}
+
+.pg-code-body :deep(pre) {
   margin: 0;
   padding: 1rem;
-  background: var(--vp-code-block-bg);
-  color: var(--vp-c-text-1);
-  font-size: 0.85rem;
-  line-height: 1.7;
+  background: transparent !important;
   overflow-x: auto;
 }
 
-.pg-code code {
+.pg-code-body :deep(code) {
   font-family: var(--vp-font-family-mono);
+  font-size: var(--vp-code-font-size);
+  line-height: var(--vp-code-line-height);
   white-space: pre;
 }
 
-/* Responsive */
-@media (max-width: 640px) {
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+  .pg-layout {
+    flex-direction: column;
+  }
+
+  .pg-right {
+    width: 100%;
+    position: static;
+  }
+
   .pg-component-row {
     gap: 0.35rem;
   }
