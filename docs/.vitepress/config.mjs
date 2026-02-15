@@ -331,6 +331,10 @@ export default defineConfig({
             text: "OverwriteLang.lua",
             link: "/DeveloperResources/overwrite-lang",
           },
+          {
+            text: "Price Generator",
+            link: "/DeveloperResources/price-generator",
+          },
         ],
       },
       {
