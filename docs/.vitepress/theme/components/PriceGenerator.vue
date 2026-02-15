@@ -332,7 +332,8 @@ async function copyCode() {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 /* Buttons */
@@ -443,14 +444,6 @@ async function copyCode() {
 @media (max-width: 640px) {
   .pg-component-row {
     gap: 0.35rem;
-  }
-
-  .pg-select-type {
-    width: 85px;
-  }
-
-  .pg-input-md {
-    width: 90px;
   }
 }
 </style>
