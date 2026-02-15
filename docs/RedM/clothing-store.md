@@ -30,9 +30,9 @@ https://github.com/Jump-On-Studios/redemrp_clothing/releases
 :::
 
 ::: details For VORP
-To fix clothes and skin, you have to edit two files :
-* `vorp_character/client/client.lua` - line 267
-```lua:line-numbers=267
+To fix clothes and skin, you have to edit three files :
+:::code-group
+```lua:line-numbers=267 [vorp_character/client/client.lua]
 function LoadAll(gender, ped, pedskin, components, set)
 	removeMetaTags(ped)
 	IsPedReadyToRender(ped)
@@ -59,8 +59,7 @@ function LoadAll(gender, ped, pedskin, components, set)
 	return skin
 end
 ```
-* `vorp_character/server/server.lua` - line 6
-```lua:line-numbers=6
+```lua:line-numbers=6 [vorp_character/server/server.lua]
 local function ConvertTable(comps, compTints)
 	local NewComps = {}
 
@@ -79,6 +78,18 @@ local function ConvertTable(comps, compTints)
 
 	return NewComps
 end
+```
+```lua:line-numbers=3 [vorp_character/config_shops.lua]
+ConfigShops.UseShops = false --turn off VORP clothing store
+```
+:::
+
+::: details for RSG
+The script is plug and play for RSG. You only have to disable the RSG clothing store and wardrobe.
+:::code-group
+```lua:line-numbers=147 [rsg_appearance/config.lua]
+RSG.Zones1 = {}
+RSG.Cloakroom = {}
 ```
 :::
 
