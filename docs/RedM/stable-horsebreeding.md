@@ -30,69 +30,7 @@ Go in the stable to start the breeding.
 You can select parents between your own horses. 
 
 ## 3. Config.lua file
-:::details Config.lua
-```lua
-Config = {}
-
-Config.chanceToKeepMaleBreed = 50         -- Chance to use the same breed than male
-Config.chanceToBeMale = 50                -- Chance to create a male foal
-Config.maxBellySize = 1.5                 -- Max size of belly when female is pregnant
-Config.breedingTime = 5 * 60 * 1000       -- Duration of pregnancy in ms
-Config.gapBetweenBreeding = 5 * 60 * 1000 -- Duration between two breeding of the same horse
-Config.averageStats = {                   -- the foal stats will be between min and max of the parents average stats
-    max = 110,                            -- in percent: 110 = 10% more than the average of the parents
-    min = 90                              -- in percent: 90 = 10% less than the average of the parents
-}
-Config.previews = {
-    valentine = {
-        male = vec4(-373.653, 785.386, 116.178, 273.751),
-        female = vec4(-373.665, 787.145, 116.170, 271.054),
-    },
-    blackwater = {
-        male = vec4(-861.050, -1365.625, 43.548, 90.004),
-        female = vec4(-860.964, -1367.177, 43.548, 89.874),
-    },
-    saintDenis = {
-        male = vec4(2504.182, -1439.932, 46.315, 180.180),
-        female = vec4(2502.509, -1439.840, 46.314, 179.753)
-    },
-    strawberry = {
-        male = vec4(-1822.980, -559.944, 156.061, 256.246),
-        female = vec4(-1823.328, -561.532, 156.055, 258.251),
-    },
-    tumbleweed = {
-        male = vec4(-5522.213, -3042.691, -2.388, 269.215),
-        female = vec4(-5522.228, -3044.422, -2.388, 268.564),
-    },
-    emerald = {
-        male = vec4(1211.878, -196.030, 101.380, 18.145),
-        female = vec4(1210.174, -196.514, 101.386, 18.331),
-    },
-}
-
-Config.randomCoatColor = true --Use random coat color for the foal
-Config.noRandomTint = {       --Disable random tint color for tint number X
-    A_C_Horse_Appaloosa_Leopard = {
-        horse_heads = { 1 },
-        horse_bodies = { 1 },
-    },
-    A_C_Horse_AmericanPaint_SplashedWhite = {
-        horse_heads = {},
-        horse_bodies = { 3 }
-    },
-}
-Config.wrongRandomColor = { --forbidden color values from horse color palette (-1 from the preview)
-    [34] = false,
-    [70] = false,
-    [87] = false,
-    [157] = false,
-    [194] = false,
-    [195] = false,
-    [196] = false,
-    [197] = false
-}
-```
-:::
+<ScriptConfig scriptPath="redm/horse-breeding" />
 
 ## 4. For developers
 

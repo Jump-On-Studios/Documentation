@@ -21,10 +21,4 @@ If nobody are on, it will works exactly like the native game : you will take the
 If someone already control it, you will climb in passager. 
 
 ## 3. Config.lua
-```lua
-Config = {}
--- Turn to false to disable the steal of horse/wagon from NPC
-Config.CanStealToNPC = true
--- Turn to false to disable the steal of horse/wagon from Player. If false, you will climb in passenger.
-Config.CanStealToPlayer = false
-```
+<ScriptConfig scriptPath="redm/share-horse-wagon" />

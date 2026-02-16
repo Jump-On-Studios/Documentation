@@ -36,42 +36,7 @@ A help message with key will appears at the top left of your screen every time a
 4. If you need to detach the winch, go back to the front of vehicle and take the winch. You can store it by go back to the front of the dune loader 
 
 ## 3. Config.lua
-```lua
-Config = {}
-
--- Display more help message by turn it to true
-Config.Debug = false 
--- Max length of the winch.
-Config.MaxLengthRope = 19.0
--- Duration to synchronize the rope between players
-Config.ResyncRopeFrenquency = 10000 --ms
--- Tow truck available for this scripts
-Config.ValidModel = {
--- Copy this array to add vehicle. Add-on vehicle compatible
-    [`dloader`] =  {
-        ropeBone = "engine", -- Bone where winch will be attach
-        ropeOffset = vector3(0.0,0.8,-0.45), -- Offset of bone
-        ropeDistanceTake = 1.5 -- Distance to take the winch
-    }
-}
--- Model name of the hook
-Config.HookModel = 'prop_rope_hook_01'
-4. Add new vehicle
-To add a new vehicle, just copy the dloader array in the Config.ValidModel variable and change the modelname. Sometime, you will have to change the configuration of the vehicle to make it more usable. 
-Example :
-Config.ValidModel = {
- [`dloader`] =  {
-        ropeBone = "engine", -- Bone where winch will be attach
-        ropeOffset = vector3(0.0,0.8,-0.45), -- Offset of bone
-        ropeDistanceTake = 1.5 -- Distance to take the winch
-  },
-  [`insurge,t`] =  {
-        ropeBone = "engine", -- Bone where winch will be attach
-        ropeOffset = vector3(0.0,0.8,-0.45), -- Offset of bone
-        ropeDistanceTake = 1.5 -- Distance to take the winch
-  },
-}
-```
+<ScriptConfig scriptPath="fivem/vehicle-winch" />
 ## 4. For developer
 You can turn off the script for a specific player by using this client event
 ```lua

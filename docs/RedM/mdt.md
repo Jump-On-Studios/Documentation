@@ -80,54 +80,9 @@ Go to one of the sheriff station to get your MDT. Use the MDT item to open it.
 Use `/mdt`to open the MDT
 
 ## 3. Script configuration
-### Config.lua file
 
-:::details Config.lua
-```lua
-Config = {}
+<ScriptConfig scriptPath="redm/sheriff-mdt" />
 
-Config.openingMode = "item"
--- "item": use the item to open the MDT
--- "command": use the command to open the MDT
-
-Config.citizensSyncMode = "station"
--- "station": sync between all MDT from the same station (only if Config.openingMode = "item")
--- "global": sync between all MDT
-
-Config.reportSyncMode = "mdt"
--- "mdt": only display reports included in the mdt inventory
--- "station": sync between all MDT from the same station (only if Config.openingMode = "item")
--- "global": sync between all MDT
-
-Config.distanceToSyncStationContent = 5.0 --distance max between the player and station to sync his content
-
-Config.keys = {
-  backToClipboard = "INPUT_FRONTEND_UP",
-  fileLockerAccess = "INPUT_FRONTEND_ACCEPT",
-  getMDT = "INPUT_INTERACT_OPTION1"
-}
-
-Config.commands = {
-  openMDT = "mdt" --if (Config.openingMode == "command")
-}
-
-Config.items = {
-  mdt = "mdt", -- MDT item name
-  report = "mdt_report", -- report item name
-}
-
-Config.stations = {
-  {
-    id = "saintDenis", --has to be unique
-    name = "Saint-Denis", --label of the station
-    location = vec3(2509.532, -1304.805, 48.954), --location of the file cabinet
-    distancePrompt = 1.0, --distance to access to the file cabinet
-    jobs = {'sheriff'} --list of job restriction
-  },
-  ...
-}
-```
-:::
 ## 4. For developers
 
 ### Actions

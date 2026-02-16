@@ -29,42 +29,7 @@ Congratulation, the **Hair & Beard coloring** add-on is ready to be used!
 Go into the hairdresser to dye or hair/beard.
 
 ## 3. Config.lua file
-:::details Config.lua
-```lua
-Config = {}
-
-Config.keys = {
-  coloring = 'INPUT_CREATOR_RS'
-}
-
-Config.palettes = {
-	hair = {
-		tint_generic_clean = true,
-		tint_hair = true,
-		tint_horse = true,
-		tint_horse_leather = true,
-		tint_leather = true,
-		tint_makeup = true
-	},
-	beard = {
-		tint_generic_clean = true,
-		tint_hair = true,
-		tint_horse = true,
-		tint_horse_leather = true,
-		tint_leather = true,
-		tint_makeup = true
-	},
-	hair_accessories = {
-		tint_generic_clean = true,
-		tint_hair = true,
-		tint_horse = true,
-		tint_horse_leather = true,
-		tint_leather = true,
-		tint_makeup = true
-	},
-}
-```
-:::
+<ScriptConfig scriptPath="redm/hair-coloring" />
 
 ## 4. For developers
 

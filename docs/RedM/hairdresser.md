@@ -96,42 +96,7 @@ kd_hairdresser:client:reload
 ```
 
 ### 3. Config.lua file
-```lua
--------------------------------
--- DOCUMENTATION : https://docs.jumpon-studios.com/
---------------------------------
-
-Config = {}
-Config.debug = false
-Config.commandName = "barber" --use false to disable it
-Config.audioVolume = 0.5 --value between 0.0 and 1.0
-Config.displayBlips = true --display blip on the map
-Config.displayPromptDistance = 3.0 -- distance to display the prompt (use false to disable it)
-
-Config.oldVORPChar = false --(Only for VORP users) to use the C# version of VORP Character
-
-
-Config.prices = {
-  hair = 3.75, --Price for hair
-  beard = 2.5, --Price for beard
-  hair_accessories = 1.0 --Price for hair_accessories
-}
-
-Config.shops = { --list of hairdresser shops
-  vector3(-813.3,-1366.9,43.75),
-  vector3(-306.2,814.2,118.9),
-  vector3(2655.4,-1179.9,53.2),
-}
-
-Config.keys = {
-	enter = "INPUT_FRONTEND_RB", --key to open the store
-}
-
---Client side
-Config.displayTip = function(text)
-  print(text)
-end
-```
+<ScriptConfig scriptPath="redm/hairdresser" />
 
 ## 4. For developper
 Two client events are fired when you use the script :

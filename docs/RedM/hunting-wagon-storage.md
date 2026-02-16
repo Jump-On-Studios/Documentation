@@ -25,18 +25,4 @@ Carry carcass and go at the back of the Hunting Wagon to store it. <br>
 Go back at the back to get out it when you are arrived where you want.
 
 ## 3. Config.lua file
-```lua
-Config = {}
-
-Config.Debug = false
-
-Config.SizeDropzone = 2.0
-Config.MaxCarcass = 10
-Config.saveCarcassInDB = true --Need my stable script: https://shop.jumpon-studios.com/package/5705468
-
-Config.wagons = {             --list of compatible wagon (⚠ tarp is only available on huntercart01 ⚠)
-  [`huntercart01`] = true,
-  [`cart03`] = true,
-  [`supplywagon`] = true,
-}
-```
+<ScriptConfig scriptPath="redm/hunting-wagon" />

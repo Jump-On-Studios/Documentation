@@ -26,7 +26,11 @@ Press the key `Dead Eye Tag Enemies (by default Q)` to display the mouse. Move y
 
 If it glow, just press the `right click` to open the menu.
 
-## 3. Add Entity interaction
+## 3. Configuration
+
+<ScriptConfig scriptPath="redm/mouse-selection" />
+
+## 4. Add Entity interaction
 Because I don't like modify the main script to add options for other scripts. I created a simple functions to add item to the right click menu (client side).
 
 Init your script : 
@@ -59,7 +63,7 @@ AddEventHandler("mouse-selection:ClickEntity", function(_entityHover)
 end)
 ```
 
-## 4. Available functions
+## 5. Available functions
 - Clear the right click menu
 ```lua
 CMenu.Clear()

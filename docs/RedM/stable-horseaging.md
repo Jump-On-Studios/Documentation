@@ -36,18 +36,4 @@ Congratulation, the **Horse aging** add-on is ready to be used!
 Go on stable to see horses age.
 
 ## 3. Config.lua file
-```lua
-Config = {}
-
-Config.timeRate = 365 -- the rate between the real time and the ingame time. example : 365.0 = the ingame time is 365x faster than real time (1 real day = 1 year ingame)
---Config.timeRate = 30 -- 1 real day = 1 month ingame
-
-Config.deathAgeMin = 25 -- The minimum age the horse can die (in year).
-Config.deathAgeMax = 30 -- The maximum age the horse can die (in year).
-Config.buyAtAge = 3 -- The age of horse when you buy him (in year)
-
-Config.visualHorseGrowth = true -- use true to change the horse size depending of his age
-Config.HorseGrowthMin = 0.65 -- percentage of the normal size
-Config.HorseGrowthMax = 1.0 -- percentage of the normal size
-Config.AgeForGrowthMax = 5 -- horse's age when he reachs the max size (in year)
-```
+<ScriptConfig scriptPath="redm/horse-aging" />

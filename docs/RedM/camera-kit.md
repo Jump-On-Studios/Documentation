@@ -74,32 +74,7 @@ Congratulation, the **Camera Kit** script is ready to be used!
 :::
 
 ## 3. Config.lua
-
-```lua
-Config = {}
-
--- Keybind configuration for various actions
-Config.keys = {
-    setTripod = "ENTER",
-    unequipe = "BACKSPACE",
-    useTripod = "ENTER",
-    moveTripod = "M",
-    removeTripod = "R"
-}
-
-Config.items = {
-    camera = "jo_camera" -- Item name for camera item in your inventory
-}
-
-Config.showCameraPromptsDistance = 2.0 -- Distance to show prompts when near tripod
-
-Config.cameraSpawnDistance = 100.0     -- Distance at which camera entities are spawned in the world
-
-Config.screenshotTime = 2.0            -- Time in seconds to take a screenshot after taking a photo
-Config.restrictUseToOwner = false      -- Whether placed camera can be used by other players. True for owner only, false for everyone
-
-Config.useSocialClubGallery = false    -- If true, photos will be saved to Social Club gallery.
-```
+<ScriptConfig scriptPath="redm/camera-kit" />
 
 ## 4. For developers
 
