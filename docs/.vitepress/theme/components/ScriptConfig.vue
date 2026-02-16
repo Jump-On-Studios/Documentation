@@ -43,6 +43,7 @@ async function highlightAll(fileList) {
           light: 'light-plus',
           dark: 'slack-dark',
         },
+        defaultColor: false,
       })
     })
   )
@@ -89,27 +90,13 @@ onMounted(() => {
       >
         <button class="copy" @click="copyCode(file.content)" title="Copy"></button>
         <span class="lang">lua</span>
-        <div v-html="highlightedBlocks[index]" class="sc-code-content"></div>
+        <div v-html="highlightedBlocks[index]" class="vp-code"></div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.sc-code-content :deep(pre) {
-  margin: 0;
-  padding: 20px 24px;
-  background: var(--vp-code-block-bg) !important;
-  overflow-x: auto;
-}
-
-.sc-code-content :deep(code) {
-  font-family: var(--vp-font-family-mono);
-  font-size: var(--vp-code-font-size);
-  line-height: var(--vp-code-line-height);
-  white-space: pre;
-}
-
 .sc-loading-wrapper {
   margin-top: 16px;
 }
