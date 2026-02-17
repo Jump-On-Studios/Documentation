@@ -70,34 +70,34 @@ The main configuration is done in `jo_radial/shared/config.lua`. This file allow
 
 You can modify the menu open/close behavior by changing properties of the `Config` table.
 
-| Parameter           | Type      | Default value | Description                                                                                                                        |
-| :------------------ | :-------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-| `Config.openKey`    | `string`  | `F7`           | Key to open the menu (find all usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)).      |
-| `Config.holdToOpen` | `boolean` | `false`        | Hold key to open menu (`true`) or toggle on/off (`false`).                                                                          |
-| `Config.postFX`     | `string`\|`boolean` | `"WheelHUDIn"` | Post-processing effect to play when opening the menu. Set `false` to disable.                                                       |
+| Parameter           | Type                | Default value  | Description                                                                                                                   |
+| :------------------ | :------------------ | :------------- | :---------------------------------------------------------------------------------------------------------------------------- |
+| `Config.openKey`    | `string`            | `F7`           | Key to open the menu (find all usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)). |
+| `Config.holdToOpen` | `boolean`           | `false`        | Hold key to open menu (`true`) or toggle on/off (`false`).                                                                    |
+| `Config.postFX`     | `string`\|`boolean` | `"WheelHUDIn"` | Post-processing effect to play when opening the menu. Set `false` to disable.                                                 |
 
 
 
 You can customize the overall look and feel of the radial menu using the `Config.radial` table.
 
-| Parameter       | Type                | Default value | Description                                                                                                                                          |
-| :-------------- | :------------------ | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `color`         | `string`            | `"#ff0000"`    | Main color for highlights and hover effects (hex color code).                                                                                        |
-| `centerOpacity` | `float`             | `0.6`          | Opacity of the center background.                                                                                                                    |
-| `logo`          | `string` (optional) | `nil`          | Your server's logo. Supports URL (`https://...`), local file (`logo.png` from `jo_radial/nui/img/`), or other script NUI (`nui://...`). Set `nil` to disable. |
-| `hotkeys` | `table`             | See below      | The hotkeys system configuration (see below).                                                                                                        |
+| Parameter       | Type                | Default value | Description                                                                                                                                                   |
+| :-------------- | :------------------ | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `color`         | `string`            | `"#ff0000"`   | Main color for highlights and hover effects (hex color code).                                                                                                 |
+| `centerOpacity` | `float`             | `0.6`         | Opacity of the center background.                                                                                                                             |
+| `logo`          | `string` (optional) | `nil`         | Your server's logo. Supports URL (`https://...`), local file (`logo.png` from `jo_radial/nui/img/`), or other script NUI (`nui://...`). Set `nil` to disable. |
+| `hotkeys`       | `table`             | See below     | The hotkeys system configuration (see below).                                                                                                                 |
 
 
 ### Hotkeys / Hotbar
 
 The radial menu can expose a hotkey/hotbar layer. Players can bind actions from the wheel to keys and trigger them later without opening the wheel.
 
-| Parameter                                | Type                      | Default value  | Description                                                                                                                                                              |
-| :--------------------------------------- | :------------------------ | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hotkeys.enabled`                  | `boolean`                 | `true`         | Enable/disable the hotkey system.                                                                                                                                        |
-| `hotkeys.mode`                     | `"hotbar"` or `"hotkeys"` | `"hotbar"`     | `hotbar`: only `0-9` keys are allowed and a bottom hotbar is shown while the wheel is open. <br>`hotkeys`: any key can be bound (no hotbar overlay, badges still show on slices). |
-| `hotkeys.activationKey`            | `string`                  | `"L ALT"`    | Modifier key to hold when triggering a hotkey while the wheel is closed (find usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)). |
-| `hotkeys.disableAllControlActions` | `boolean`                 | `true`         | When `true`, disables all control actions while the activation key is held to avoid conflicts.                                                                           |
+| Parameter                          | Type                      | Default value | Description                                                                                                                                                                       |
+| :--------------------------------- | :------------------------ | :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hotkeys.enabled`                  | `boolean`                 | `true`        | Enable/disable the hotkey system.                                                                                                                                                 |
+| `hotkeys.mode`                     | `"hotbar"` or `"hotkeys"` | `"hotbar"`    | `hotbar`: only `0-9` keys are allowed and a bottom hotbar is shown while the wheel is open. <br>`hotkeys`: any key can be bound (no hotbar overlay, badges still show on slices). |
+| `hotkeys.activationKey`            | `string`                  | `"L ALT"`     | Modifier key to hold when triggering a hotkey while the wheel is closed (find usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)).      |
+| `hotkeys.disableAllControlActions` | `boolean`                 | `true`        | When `true`, disables all control actions while the activation key is held to avoid conflicts.                                                                                    |
 
 
 
@@ -121,9 +121,9 @@ Config.radial = {
 
 You can customize the command names used by the radial menu.
 
-| Parameter                       | Type     | Default value       | Description                                                    |
-| :------------------------------ | :------- | :------------------ | :------------------------------------------------------------- |
-| `Config.commands.clearAllHotkeys` | `string` | `"clearAllHotkeys"` | Command to clear all hotkey bindings for the current player.   |
+| Parameter                         | Type     | Default value       | Description                                                  |
+| :-------------------------------- | :------- | :------------------ | :----------------------------------------------------------- |
+| `Config.commands.clearAllHotkeys` | `string` | `"clearAllHotkeys"` | Command to clear all hotkey bindings for the current player. |
 
 Example:
 
@@ -166,10 +166,11 @@ Here is the structure for a single menu item:
 
 #### `submenu` Object
 
-| Parameter | Type     | Description                                                                                            |
-| :-------- | :------- | :----------------------------------------------------------------------------------------------------- |
-| `type`    | `string` | The type of submenu to display. Valid options are:<br>- `submenu`: Navigates to a new, separate wheel. |
-| `items`   | `table\|function`  | * table: list of item tables that make up the content of the submenu.<br>* function: fire everytime the menu is opened: it should returns a list of item tables.                                       |
+| Parameter | Type                  | Description                                                                                                                                                      |
+| :-------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`    | `string`              | The type of submenu to display. Valid options are:<br>- `submenu`: Navigates to a new, separate wheel.                                                           |
+| `items`   | `table` \| `function` | * table: list of item tables that make up the content of the submenu.<br>* function: fire everytime the menu is opened: it should returns a list of item tables. |
+| `creator` | `function`(optional)  | A function fired the first time the submenu is needed                                                                                                            |
 
 
 
