@@ -26,15 +26,21 @@ To install `jo_radial_clotheswheel`:
 - Congratulation, the Clothes Wheel script is ready to be used !
 
 ## 2. Usage
-The script will automatically detect what clothes you wear to only display them.
 
-Two integration options are available depending on how you want to expose the clothes wheel.
+`jo_radial_clotheswheel` is an **addon for [jo_radial](radial-menu)** — it does not open a wheel on its own. It exposes a single export, `getMenu()`, that builds and returns a list of clothing items ready to be displayed by `jo_radial`. The wheel is rebuilt every time it is opened, so it always reflects the player's current wardrobe and what they are wearing at that moment.
+
+Only clothes the player **owns** appear in the wheel. Each item shows at full opacity when currently worn, and dimmed when owned but not equipped. For supported clothing types (neckwear, shirts, boots, vests, loadouts), a sub-ring appears with extra state options such as rolling up a sleeve, opening a collar, or switching boots over or under the pants.
+
+::: tip
+To display the wheel, you need to call `exports.jo_radial_clotheswheel:getMenu()` from inside your `jo_radial` configuration. Two approaches are available depending on your setup.
+:::
 
 ### Option A : As a submenu inside your radial menu
 
-Add a clothes wheel entry inside your `Config.radialMenuItems` table. The `items` function is called fresh every time the player opens that submenu, so the wheel always reflects the current wardrobe.
+Use this option if you already have a `jo_radial` menu and want to add the clothes wheel as one entry among others. The `items` function is evaluated fresh each time the player opens that submenu.
 
 ```lua
+-- In your jo_radial config file (e.g. config/menus.lua)
 Config.radialMenuItems = {
   -- ... your other items ...
   {
@@ -52,9 +58,10 @@ Config.radialMenuItems = {
 
 ### Option B : As the only radial menu
 
-If you want the clothes wheel to be the entire radial menu, set `Config.radialMenuItems` to a function that directly returns the clothes wheel items.
+Use this option if the clothes wheel should be the entire content of your radial menu. Setting `Config.radialMenuItems` to a function makes `jo_radial` call it on every open, so the wheel is always up to date.
 
 ```lua
+-- In your jo_radial config file (e.g. config/menus.lua)
 Config.radialMenuItems = function()
   return exports.jo_radial_clotheswheel:getMenu()
 end
