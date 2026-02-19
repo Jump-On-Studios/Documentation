@@ -31,36 +31,7 @@ Congratulation, the **Colorways** add-on is ready to be used!
 
 ## 3. Configuration
 
-### How to customize the configuration
-
-1. Navigate to `jo_clothingstore_colorways_/config/_default.lock/`
-2. Copy the file you want to modify (e.g., `global.lua`)
-3. Paste it into `jo_clothingstore_colorways_/config/custom/`
-4. Edit the copied file in the `custom` folder
-
-The script automatically loads files from `custom/` first, and only uses `_default.lock/` as a fallback. This system ensures your customizations are preserved when updating the script.
-
-### Default configuration files
-
-::: code-group
-```lua [global.lua]
-Config.keys = {
-  colorways = "INPUT_CREATOR_RS" -- Colorways menu prompt (see https://github.com/femga/rdr3_discoveries/tree/master/Controls)
-}
-
-Config.palettes = { -- Enable/Disable palettes
-  tint_generic_clean = true,
-  tint_hair = true,
-  tint_horse = true,
-  tint_horse_leather = true,
-  tint_leather = true,
-  tint_makeup = true
-}
-
-```
-
-
-:::
+<ScriptConfig scriptPath="redm/clothes-colorways" />
 
 ### Language Configuration
 

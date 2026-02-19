@@ -95,7 +95,7 @@ For developer, you can force the reload of hair and beard with the client event
 kd_hairdresser:client:reload
 ```
 
-### 3. Config.lua file
+## 3. Configuration
 <ScriptConfig scriptPath="redm/hairdresser" />
 
 ## 4. For developper

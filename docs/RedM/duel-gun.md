@@ -36,4 +36,6 @@ If he accepts, both player have to nearby and stand back to back. Next, they hav
 
 Use the command `/duel2 [ID]` to challenge player with this second scenario. In this scenario, both players have to move away from other. When they are far enough, the duel will start with a little cinematic. After a random duration, the bells will ring. The first guy who hit his opponent wins the duel ! 
 
+## 3. Configuration
+
 <ScriptConfig scriptPath="redm/gun-duel" />

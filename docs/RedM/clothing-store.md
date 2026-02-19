@@ -149,22 +149,6 @@ Commands can be customized or disabled in the configuration.
 
 ## 3. Configuration
 
-The configuration files are located in the `config` folder within the resource. This folder contains two subfolders:
-
-- **`_default.lock/`** - Contains the default configuration files. **Do not edit these files directly** as they may be overwritten during updates.
-- **`custom/`** - This is where you place your custom configuration files to override the defaults.
-
-### How to customize the configuration
-
-1. Navigate to `jo_clothingstore/config/_default.lock/`
-2. Copy the file you want to modify (e.g., `prices.lua`)
-3. Paste it into `jo_clothingstore/config/custom/`
-4. Edit the copied file in the `custom` folder
-
-The script automatically loads files from `custom/` first, and only uses `_default.lock/` as a fallback. This system ensures your customizations are preserved when updating the script.
-
-### Default configuration files
-
 <ScriptConfig scriptPath="redm/clothing-store" />
 
 ### Language Configuration
