@@ -72,7 +72,7 @@ function GenerateMenu(fileTree, key, parent) {
   if (fileTree.children) {
     for (const child in fileTree.children) {
       menu.items.push(
-        GenerateMenu(fileTree.children[child], child, parent + key)
+        GenerateMenu(fileTree.children[child], child, parent + key),
       );
     }
   }
@@ -95,26 +95,26 @@ export default defineConfig({
   },
   vite: {
     ssr: {
-      noExternal: ['primevue'],
+      noExternal: ["primevue"],
     },
     resolve: {
       alias: [
         {
           find: /^.*\/VPDocOutlineItem\.vue$/,
           replacement: fileURLToPath(
-            new URL("./components/VPDocOutlineItem.vue", import.meta.url)
+            new URL("./components/VPDocOutlineItem.vue", import.meta.url),
           ),
         },
         {
           find: /^.*\/VPSidebarItem\.vue$/,
           replacement: fileURLToPath(
-            new URL("./components/VPSidebarItem.vue", import.meta.url)
+            new URL("./components/VPSidebarItem.vue", import.meta.url),
           ),
         },
         {
           find: /^.*\/outline$/,
           replacement: fileURLToPath(
-            new URL("./composables/outline.ts", import.meta.url)
+            new URL("./composables/outline.ts", import.meta.url),
           ),
         },
       ],
@@ -223,7 +223,6 @@ export default defineConfig({
             text: "Chest Anywhere",
             link: "/RedM/chest-anywhere",
           },
-          { text: "🎩 Clothes Wheel", link: "/RedM/clothes-wheel" },
           {
             text: "👔 Clothing Store",
             link: "/RedM/clothing-store",
@@ -274,6 +273,10 @@ export default defineConfig({
             iconDark: "/images/radial-dark.png",
             text: " Radial Menu",
             link: "/RedM/radial-menu",
+            items: [
+              { text: "Main script", link: "/RedM/radial-menu" },
+              { text: "Clothes Wheel", link: "/RedM/clothes-wheel" },
+            ],
           },
           {
             text: "🐴 Stable",
