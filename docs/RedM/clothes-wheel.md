@@ -30,7 +30,7 @@ The script will automatically detect what clothes you wear to only display them.
 
 Two integration options are available depending on how you want to expose the clothes wheel.
 
-### Option A — As a submenu inside your radial menu
+### Option A : As a submenu inside your radial menu
 
 Add a clothes wheel entry inside your `Config.radialMenuItems` table. The `items` function is called fresh every time the player opens that submenu, so the wheel always reflects the current wardrobe.
 
@@ -50,7 +50,7 @@ Config.radialMenuItems = {
 }
 ```
 
-### Option B — As the only radial menu
+### Option B : As the only radial menu
 
 If you want the clothes wheel to be the entire radial menu, set `Config.radialMenuItems` to a function that directly returns the clothes wheel items.
 
