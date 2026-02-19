@@ -1,5 +1,5 @@
 # :tophat: Clothes Wheel
-Documentation relating to the kd_clotheswheel.
+Documentation relating to the jo_radial_clotheswheel.
 
 :::: tabs
 ::: tab BUY
@@ -13,59 +13,71 @@ Documentation relating to the kd_clotheswheel.
 
 ## 1. Installation
 
+::: warning
+[Radial menu script](radial-menu) is required to use this add-on
+:::
+
+To install `jo_radial_clotheswheel`:
+
 - Drag and drop the resource in your resources folder
-  - kd_clotheswheel
-- Add this ensure in your server.cfg
-  - `ensure kd_clotheswheel`
-- Congratulation, the Clothes Wheel script is ready to be use !
+  - jo_radial_clotheswheel
+- Add this ensure in your server.cfg after `ensure jo_radial`
+  - `ensure jo_radial_clotheswheel`
+- Congratulation, the Clothes Wheel script is ready to be used !
+
 ## 2. Usage
-The script will automatically detect what clothes you wear to only display them. 
-By default, press the key `B` to open the wheel. 
+The script will automatically detect what clothes you wear to only display them.
 
-You can also open the wheel from other resource by using the server side event :
+Two integration options are available depending on how you want to expose the clothes wheel.
+
+### Option A — As a submenu inside your radial menu
+
+Add a clothes wheel entry inside your `Config.radialMenuItems` table. The `items` function is called fresh every time the player opens that submenu, so the wheel always reflects the current wardrobe.
+
 ```lua
-TriggerServerEvent("kd_clotheswheel:server:getClothes")
-
+Config.radialMenuItems = {
+  -- ... your other items ...
+  {
+    label = "Clothes",
+    icon = "nui://jo_libs/nui/menu/assets/images/icons/myclothes.png",
+    submenu = {
+      type = "submenu",
+      items = function()
+        return exports.jo_radial_clotheswheel:getMenu()
+      end
+    }
+  },
+}
 ```
-For shirt and neckwear, you have the possibility to put them up/down too.
 
-Listen the action on bandana with this client event :
+### Option B — As the only radial menu
+
+If you want the clothes wheel to be the entire radial menu, set `Config.radialMenuItems` to a function that directly returns the clothes wheel items.
+
 ```lua
-AddEventHandler('kd_clotheswheel:client:bandanaUp', function(isUp)
-    -- isUp = true if bandana up
-    -- isUp = false if bandana down
-end)
-
+Config.radialMenuItems = function()
+  return exports.jo_radial_clotheswheel:getMenu()
+end
 ```
 
-## 3. Config.lua
+
+## 3. Configuration
 <ScriptConfig scriptPath="redm/clothes-wheel" />
-## 4. Custom Frameworks
 
-It's possible to force the reload of the clothes equiped by using this client event :
-```lua
---Event to send custom data
---@param category : category of clothes you need to reload. Set nil to reload all clothes
-TriggerClientEvent('kd_clotheswheel:updateClothes', source, category)
 
-```
-
-## 5. For developers
+## 4. For developers
 
 ### Filters
 
-[Filters](/DeveloperResources/filters) are the new way to modify data used by the script added in the `v1.2.0`. These filters are fired at a specific point in time during the execution of the script. But contrary to events, filters are **synchronous**. 
-
-::: tip  
-You can create a filter in another resource. To do that, replace `jo.hook.registerFilter()` by `exports.kd_clotheswheel:registerFilter()`
-:::
+[Filters](/DeveloperResources/filters) allow you to modify data or permissions synchronously at specific points in the script. Below is the complete list of `jo_radial_clotheswheel` filters and how to use them.
 
 #### <Badge type="client" text="Client" /> canOpenWheel
 Fired before open the clothes wheel
 ```lua
-jo.hook.registerFilter('canOpenWheel', function(canOpen)
-    --return false to cancel the opening of the clothes wheel
-    return canOpen
+-- @param canAccess - boolean
+exports.jo_radial_clotheswheel:registerFilter('canOpenWheel', function(canAccess)
+  --return false to disable the access of the wheel
+  return canAccess
 end)
 
 ```
