@@ -1,5 +1,5 @@
 # :knife: Knife game
-Documentation relating to the kd_fivefingerfillet.
+Documentation relating to the jo_fivefingerfillet.
 
 :::: tabs
 ::: tab BUY
@@ -12,12 +12,12 @@ Documentation relating to the kd_fivefingerfillet.
 ::::
 
 ## 1. Installation
-kd_fivefingerfillet is a standalone script. So you don't need a specific framework to use it. It's also mean it works with all framework (VORP, RedEM:RP, QBCore, …).
+jo_fivefingerfillet is a standalone script. So you don't need a specific framework to use it. It's also mean it works with all framework (VORP, RedEM:RP, QBCore, …).
 
 - Drag and drop the resource in your resources folder
-  - kd_fivefingerfillet
+  - jo_fivefingerfillet
 - Add this ensure in your server.cfg
-  - `ensure kd_fivefingerfillet`
+  - `ensure jo_fivefingerfillet`
 - Congratulation, the Knife game, aka Five finger filler script is ready to be use !
 
 ## 2. Usage
