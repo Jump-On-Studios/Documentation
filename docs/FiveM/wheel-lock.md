@@ -1,5 +1,5 @@
 # <img src='/images/wheelclamp.webp'/> Wheel clamp
-Documentation relating to the kd_wheellock.
+Documentation relating to the jo_wheellock.
 
 :::: tabs
 ::: tab BUY
@@ -12,38 +12,38 @@ Documentation relating to the kd_wheellock.
 ::::
 
 ## 1. Installation
-kd_wheellock is a standalone script. So you don't need a specific framework to use it. It's also mean it works with all framework (Esx, QBCore, VRP, DRP, …).
+jo_wheellock is a standalone script. So you don't need a specific framework to use it. It's also mean it works with all framework (Esx, QBCore, VRP, DRP, …).
 
-- Drag and drop the 2 resources in your resources folder
-  - kd_custom-native
-  - kd_wheellock
-- Add this 4 ensures in your server.cfg
-  - `ensure kd_custom-native`
-  - `ensure kd_wheellock`
+- Drag and drop the resource in your resources folder
+  - jo_wheellock
+- Add this ensure in your server.cfg
+  - `ensure jo_wheellock`
 - Congratulation, the Wheel lock script is ready to be use !
 
 ## 2. Usage
 You have twos way to put/remove the wheel lock on the car in front of you :
 - Use the command : /wheellock
-- Use the client event : 'kd_wheellock:action'
+- Use the client event : 'jo_wheellock:action'
 
 ## 3. Config.lua
+
 <ScriptConfig scriptPath="fivem/wheel-clamp" />
+
 ## 4. For developer
 Spawn the wheel lock on car without player animation :
 ```lua
 -- @param vehNet : Server ID of the vehicle
 -- @param boneName : Name of the bone where the wheel lock is
 -- @side : Client side
-TriggerEvent("kd_wheellock:addLockedCars", vehNet, 0, boneName)
+TriggerEvent("jo_wheellock:addLockedCars", vehNet, 0, boneName)
 
 ```
 Use event to put/remove the wheel lock :
 ```lua
 -- @side : Client side
-TriggerEvent('kd_wheellock:action')       -- Put or remove the wheel lock
-TriggerEvent('kd_wheellock:actionPut')    -- Only Put the wheel lock
-TriggerEvent('kd_wheellock:actionRemove') -- Only Remove the wheel lock
+TriggerEvent('jo_wheellock:action')       -- Put or remove the wheel lock
+TriggerEvent('jo_wheellock:actionPut')    -- Only Put the wheel lock
+TriggerEvent('jo_wheellock:actionRemove') -- Only Remove the wheel lock
 
 ```
 
