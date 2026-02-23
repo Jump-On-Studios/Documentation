@@ -40,6 +40,8 @@ jo.menu.create(id, data)
 > 
 > `data.distanceToClose` : _float_ - Distance at which the menu will self close if the player is moving away <br> default: `false`
 > 
+> `data.displayBackButton` : _boolean_ - Whether to display the back button <br> default: `false`
+> 
 > `data.onEnter` : _function_ - Fired when the menu is opened <BadgeOptional />
 > 
 > `data.onBack` : _function_ - Fired when the backspace/Escape is pressed <BadgeOptional />

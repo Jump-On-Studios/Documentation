@@ -3,6 +3,11 @@
 <!-- #endregion client|jo.nui.forceFocus -->
 
 
+<!-- #region client|jo.nui.isHovering -->
+
+<!-- #endregion client|jo.nui.isHovering -->
+
+
 <!-- #region client|jo.nui.isLoaded -->
 
 <!-- #endregion client|jo.nui.isLoaded -->
