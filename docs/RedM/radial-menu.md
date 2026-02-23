@@ -72,7 +72,7 @@ You can modify the menu open/close behavior by changing properties of the `Confi
 
 | Parameter           | Type                | Default value  | Description                                                                                                                   |
 | :------------------ | :------------------ | :------------- | :---------------------------------------------------------------------------------------------------------------------------- |
-| `Config.openKey`    | `string`            | `F7`           | Key to open the menu (find all usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)). |
+| `Config.openKey`    | `string`\|`false`   | `F7`           | Key to open the menu (find all usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)). Set `false` to disable manual opening via key (useful when controlling the menu only through exports or events). |
 | `Config.holdToOpen` | `boolean`           | `false`        | Hold key to open menu (`true`) or toggle on/off (`false`).                                                                    |
 | `Config.postFX`     | `string`\|`boolean` | `"WheelHUDIn"` | Post-processing effect to play when opening the menu. Set `false` to disable.                                                 |
 
@@ -1028,6 +1028,8 @@ Config.radialMenuItems = {
 ```
 :::
 
+
+
 ### Language Configuration
 
 The script supports full translation through the language system. To override any text in the script:
@@ -1051,4 +1053,29 @@ Available translation categories include:
 
 :::tip 💡Only change the key you need to translate
 You only need to include the specific keys you want to change in `overwriteLang.lua`. Don't copy the entire language file.
+:::
+
+### External Control
+
+You can open or close the radial menu programmatically from other scripts using either an **export** or a **client event**.
+
+#### Export
+
+```lua
+exports.jo_radial:showMenu(true)  -- Open the menu
+exports.jo_radial:showMenu(false) -- Close the menu
+```
+
+#### Client Event
+
+```lua
+TriggerEvent("jo_radial:client:showMenu", true)  -- Open the menu (from client)
+TriggerEvent("jo_radial:client:showMenu", false)  -- Close the menu (from client)
+-- or
+TriggerClientEvent("jo_radial:client:showMenu", source, true) -- Open the menu (from server)
+TriggerClientEvent("jo_radial:client:showMenu", source, false) -- Close the menu (from server)
+```
+
+:::tip
+If you want to control the menu **only** through exports or events, set `Config.openKey = false` to disable the manual keybind.
 :::
