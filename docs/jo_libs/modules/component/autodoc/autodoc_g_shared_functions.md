@@ -318,3 +318,21 @@ Type : _string_
 
 <!-- @include: ./slots/footers.md#g_shared|jo.component.getTeethFromIndex -->
 
+---
+
+### jo.component.isCategoryAClothes()
+
+<!-- @include: ./slots/headers.md#g_shared|jo.component.isCategoryAClothes -->
+
+<!-- @include: ./slots/descriptions.md#g_shared|jo.component.isCategoryAClothes -->
+
+#### Syntax
+
+```lua
+jo.component.isCategoryAClothes(category)
+```
+
+<!-- @include: ./slots/examples.md#g_shared|jo.component.isCategoryAClothes -->
+
+<!-- @include: ./slots/footers.md#g_shared|jo.component.isCategoryAClothes -->
+

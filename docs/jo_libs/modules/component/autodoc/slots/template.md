@@ -88,11 +88,6 @@
 <!-- #endregion g_client|jo.component.hairIsPomade -->
 
 
-<!-- #region g_client|jo.component.isCategoryAClothes -->
-
-<!-- #endregion g_client|jo.component.isCategoryAClothes -->
-
-
 <!-- #region g_client|jo.component.isCategoryEquiped -->
 
 <!-- #endregion g_client|jo.component.isCategoryEquiped -->
@@ -201,4 +196,9 @@
 <!-- #region g_shared|jo.component.getTeethFromIndex -->
 
 <!-- #endregion g_shared|jo.component.getTeethFromIndex -->
+
+
+<!-- #region g_shared|jo.component.isCategoryAClothes -->
+
+<!-- #endregion g_shared|jo.component.isCategoryAClothes -->
 
