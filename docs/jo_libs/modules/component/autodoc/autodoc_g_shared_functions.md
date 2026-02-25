@@ -244,6 +244,31 @@ Type : _table_
 
 ---
 
+### jo.component.getFullShopItemTintsList()
+
+<!-- @include: ./slots/headers.md#g_shared|jo.component.getFullShopItemTintsList -->
+
+A function to get the list of tints <br>
+
+<!-- @include: ./slots/descriptions.md#g_shared|jo.component.getFullShopItemTintsList -->
+
+#### Syntax
+
+```lua
+jo.component.getFullShopItemTintsList()
+```
+
+#### Return Value
+
+Type : _table_
+
+
+<!-- @include: ./slots/examples.md#g_shared|jo.component.getFullShopItemTintsList -->
+
+<!-- @include: ./slots/footers.md#g_shared|jo.component.getFullShopItemTintsList -->
+
+---
+
 ### jo.component.getHeadFromSkinTone()
 
 <!-- @include: ./slots/headers.md#g_shared|jo.component.getHeadFromSkinTone -->
@@ -281,6 +306,37 @@ Type : _string_
 <!-- @include: ./slots/examples.md#g_shared|jo.component.getHeadFromSkinTone -->
 
 <!-- @include: ./slots/footers.md#g_shared|jo.component.getHeadFromSkinTone -->
+
+---
+
+### jo.component.getShopItemTint()
+
+<!-- @include: ./slots/headers.md#g_shared|jo.component.getShopItemTint -->
+
+A function to get the tint of a shop itemSet <br>
+
+<!-- @include: ./slots/descriptions.md#g_shared|jo.component.getShopItemTint -->
+
+#### Syntax
+
+```lua
+jo.component.getShopItemTint(shopItem)
+```
+
+#### Parameters
+
+`shopItem` : _integer|string_ <BadgeOptional />
+> The shop item name
+>
+
+#### Return Value
+
+Type : _table_
+
+
+<!-- @include: ./slots/examples.md#g_shared|jo.component.getShopItemTint -->
+
+<!-- @include: ./slots/footers.md#g_shared|jo.component.getShopItemTint -->
 
 ---
 

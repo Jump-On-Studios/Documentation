@@ -188,9 +188,19 @@
 <!-- #endregion g_shared|jo.component.getFullPedComponentList -->
 
 
+<!-- #region g_shared|jo.component.getFullShopItemTintsList -->
+
+<!-- #endregion g_shared|jo.component.getFullShopItemTintsList -->
+
+
 <!-- #region g_shared|jo.component.getHeadFromSkinTone -->
 
 <!-- #endregion g_shared|jo.component.getHeadFromSkinTone -->
+
+
+<!-- #region g_shared|jo.component.getShopItemTint -->
+
+<!-- #endregion g_shared|jo.component.getShopItemTint -->
 
 
 <!-- #region g_shared|jo.component.getTeethFromIndex -->

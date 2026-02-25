@@ -31,22 +31,13 @@ jo.nui.forceFocus(uiName)
 
 <!-- @include: ./slots/headers.md#client|jo.nui.isHovering -->
 
-A function to know if the mouse is hovering over a NUI <br>
-The NUI has to be start with the nui module to be detected <br>
-
 <!-- @include: ./slots/descriptions.md#client|jo.nui.isHovering -->
 
 #### Syntax
 
 ```lua
-jo.nui.isHovering()
+jo.nui.isHovering(global)
 ```
-
-#### Return Value
-
-Type : _boolean_
-
-> `true` if the mouse is hovering over a NUI
 
 <!-- @include: ./slots/examples.md#client|jo.nui.isHovering -->
 
