@@ -48,13 +48,17 @@ Checks whether a specified key has been held for the required duration to trigge
 #### Syntax
 
 ```lua
-jo.promptNui.isCompleted(key, fireMultipleTimes)
+jo.promptNui.isCompleted(group, key, fireMultipleTimes)
 ```
 
 #### Parameters
 
-`key` : _string_
-> The key identifier to check.
+`group` : _[GroupClass](#groupclass-methods)|string_
+> The prompt group to validate against. Retrocompatible: can be the key string.
+>
+
+`key` : _string|boolean|nil_
+> The key identifier to check. Retrocompatible: can be `fireMultipleTimes`.
 >
 
 `fireMultipleTimes` : _boolean|nil_ <BadgeOptional />
