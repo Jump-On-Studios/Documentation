@@ -48,6 +48,11 @@
 <!-- #endregion client|GroupClass:setTitle -->
 
 
+<!-- #region client|PromptClass:isVisible -->
+
+<!-- #endregion client|PromptClass:isVisible -->
+
+
 <!-- #region client|PromptClass:refreshNUI -->
 
 <!-- #endregion client|PromptClass:refreshNUI -->

@@ -331,6 +331,32 @@ GroupClass:setTitle(title)
 
 ## PromptClass Methods
 
+### PromptClass:isVisible()
+
+<!-- @include: ./slots/headers.md#client|PromptClass:isVisible -->
+
+Returns whether the prompt is currently visible. <br>
+
+<!-- @include: ./slots/descriptions.md#client|PromptClass:isVisible -->
+
+#### Syntax
+
+```lua
+PromptClass:isVisible()
+```
+
+#### Return Value
+
+Type : _boolean_
+
+> `true` if the prompt is visible, `false` otherwise
+
+<!-- @include: ./slots/examples.md#client|PromptClass:isVisible -->
+
+<!-- @include: ./slots/footers.md#client|PromptClass:isVisible -->
+
+---
+
 ### PromptClass:refreshNUI()
 
 <!-- @include: ./slots/headers.md#client|PromptClass:refreshNUI -->
