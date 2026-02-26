@@ -277,6 +277,26 @@ UserClass:removeMoney(amount, moneyType)
 <!-- #region group_3 -->
 ## jo.framework Methods
 
+### <Badge type="client" text="Client" /> jo.framework:getMyIdentifiers()
+
+<!-- @include: ./slots/headers.md#client|jo.framework:getMyIdentifiers -->
+
+A function to get the user identifiers <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.framework:getMyIdentifiers -->
+
+#### Syntax
+
+```lua
+jo.framework:getMyIdentifiers()
+```
+
+<!-- @include: ./slots/examples.md#client|jo.framework:getMyIdentifiers -->
+
+<!-- @include: ./slots/footers.md#client|jo.framework:getMyIdentifiers -->
+
+---
+
 ### <Badge type="server" text="Server" /> jo.framework:addItemInInventory()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:addItemInInventory -->
