@@ -331,6 +331,32 @@ GroupClass:setTitle(title)
 
 ## PromptClass Methods
 
+### PromptClass:getLabel()
+
+<!-- @include: ./slots/headers.md#client|PromptClass:getLabel -->
+
+Get the label text for the prompt. <br>
+
+<!-- @include: ./slots/descriptions.md#client|PromptClass:getLabel -->
+
+#### Syntax
+
+```lua
+PromptClass:getLabel()
+```
+
+#### Return Value
+
+Type : _string_
+
+> The text label assigned to the prompt.
+
+<!-- @include: ./slots/examples.md#client|PromptClass:getLabel -->
+
+<!-- @include: ./slots/footers.md#client|PromptClass:getLabel -->
+
+---
+
 ### PromptClass:isVisible()
 
 <!-- @include: ./slots/headers.md#client|PromptClass:isVisible -->

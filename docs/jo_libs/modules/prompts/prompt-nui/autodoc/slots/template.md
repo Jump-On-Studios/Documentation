@@ -48,6 +48,11 @@
 <!-- #endregion client|GroupClass:setTitle -->
 
 
+<!-- #region client|PromptClass:getLabel -->
+
+<!-- #endregion client|PromptClass:getLabel -->
+
+
 <!-- #region client|PromptClass:isVisible -->
 
 <!-- #endregion client|PromptClass:isVisible -->
