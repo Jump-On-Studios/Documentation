@@ -106,6 +106,7 @@ watchEffect(async () => {
       light: 'light-plus',
       dark: 'slack-dark',
     },
+    defaultColor: false,
   })
 })
 
@@ -466,6 +467,14 @@ async function copyCode() {
   font-size: var(--vp-code-font-size);
   line-height: var(--vp-code-line-height);
   white-space: pre;
+}
+
+html:not(.dark) .pg-code-body :deep(span) {
+  color: var(--shiki-light);
+}
+
+html.dark .pg-code-body :deep(span) {
+  color: var(--shiki-dark);
 }
 
 /* Responsive: stack on mobile */
