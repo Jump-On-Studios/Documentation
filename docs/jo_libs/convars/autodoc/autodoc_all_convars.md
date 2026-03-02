@@ -2,7 +2,7 @@
 
 This document lists all configuration variables used in jo_libs, grouped by module.
 
-Total convars: 52
+Total convars: 53
 
 ## Modules
 
@@ -82,3 +82,9 @@ Total convars: 52
 | `jo_libs:i18n:allowSwitchLocale` | <Badge type="client" text="Client" /> | String | `true` | Allow switching locale |
 | `jo_libs:i18n:localeCommand` | <Badge type="client" text="Client" /> | String | `setLocale` | Command to switch locale |
 | `jo_libs:i18n:locale` | <Badge type="shared" text="Shared" /> | String | `en` |  |
+
+### Raw-keys
+
+| Convar | Side | Type | Default | Description |
+|--------|------|------|---------|-------------|
+| `jo_libs:keyboard_layout` | <Badge type="client" text="Client" /> | String | `qwerty` |  |
