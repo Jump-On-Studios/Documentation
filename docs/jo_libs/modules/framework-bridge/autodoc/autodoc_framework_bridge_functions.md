@@ -966,6 +966,40 @@ jo.framework:listenItemRemoved(...)
 
 ---
 
+### <Badge type="server" text="Server" /> jo.framework:mergeInventoriesConfiguration()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:mergeInventoriesConfiguration -->
+
+Merge inventory configuration <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:mergeInventoriesConfiguration -->
+
+#### Syntax
+
+```lua
+jo.framework:mergeInventoriesConfiguration(...)
+```
+
+#### Parameters
+
+`...` : _table_
+
+> The inventory configurations to merge
+>
+
+
+#### Return Value
+
+Type : _table_
+
+> The merged inventory configuration
+
+<!-- @include: ./slots/examples.md#server|jo.framework:mergeInventoriesConfiguration -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:mergeInventoriesConfiguration -->
+
+---
+
 ### <Badge type="server" text="Server" /> jo.framework:onCharacterSelected()
 
 <!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:onCharacterSelected -->
