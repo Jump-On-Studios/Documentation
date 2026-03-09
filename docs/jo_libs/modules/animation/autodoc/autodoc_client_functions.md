@@ -59,7 +59,7 @@ jo.animation.goToCoords(ped, coords, speed, waiter, distanceToStop)
 > vec3 or vec4 - The coordinate of the destination <br> If vector4 is used, the ped will stop at the end and turn to the desired heading
 >
 
-`speed` : _float_ <BadgeOptional />
+`speed` : _number_ <BadgeOptional />
 > The speed of the walk - default:1.0
 >
 
@@ -67,7 +67,7 @@ jo.animation.goToCoords(ped, coords, speed, waiter, distanceToStop)
 > If need to wait the reach of location to end the function - default:false
 >
 
-`distanceToStop` : _float_ <BadgeOptional />
+`distanceToStop` : _number_ <BadgeOptional />
 > The distance between the ped and the destination to stop it - default:0.0
 >
 
@@ -143,7 +143,7 @@ jo.animation.play(ped, dict, name, duration, flag, offset)
 > The flag of the animation - default:0
 >
 
-`offset` : _float_ <BadgeOptional />
+`offset` : _number_ <BadgeOptional />
 > The offset of the animation 0.0 <> 1.0 - default: 0.0
 >
 
