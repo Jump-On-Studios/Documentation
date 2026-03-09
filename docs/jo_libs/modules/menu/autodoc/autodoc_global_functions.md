@@ -1152,6 +1152,24 @@ Type : _boolean_
 
 ---
 
+### <Badge type="client" text="Client" /> jo.menu.isSoftHidden()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.isSoftHidden -->
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.isSoftHidden -->
+
+#### Syntax
+
+```lua
+jo.menu.isSoftHidden()
+```
+
+<!-- @include: ./slots/examples.md#client|jo.menu.isSoftHidden -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.isSoftHidden -->
+
+---
+
 ### <Badge type="client" text="Client" /> jo.menu.missingMenuHandler()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.missingMenuHandler -->
