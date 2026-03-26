@@ -6,43 +6,32 @@
 <!-- @include: ./slots/headers.md#client|jo.blip.create -->
 
 Create a new blip <br>
-This function adds a blip at the specified location with customizable properties. <br>
+This function adds a blip at the specified location or on an entity with customizable properties. <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.blip.create -->
 
 #### Syntax
 
 ```lua
-jo.blip.create(location, name, sprite, blipHash, color)
+jo.blip.create(locationOrEntity, name, sprite, blipHash, color)
 ```
 
 #### Parameters
 
-`location` : _vector3_
-> The blip location
->
+`locationOrEntity` : _vector3|integer_
 
 `name` : _string_
-> The blip name
->
 
-`sprite` : _string_
-> The name of the sprite ([Non exhaustive list](https://github.com/femga/rdr3_discoveries/tree/master/useful_info_from_rpfs/textures/blips))
->
+`sprite` : _string|integer_
 
 `blipHash` : _integer_ <BadgeOptional />
-> The blip type - default: 1664425300
->
 
 `color` : _string_ <BadgeOptional />
-> The color of the blip
->
 
 #### Return Value
 
-Type : _integer_
+Type : _integer|false_
 
-> Return the blip ID
 
 <!-- @include: ./slots/examples.md#client|jo.blip.create -->
 
