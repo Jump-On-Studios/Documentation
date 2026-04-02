@@ -28,6 +28,11 @@
 <!-- #endregion client|GroupClass:isVisible -->
 
 
+<!-- #region client|GroupClass:new -->
+
+<!-- #endregion client|GroupClass:new -->
+
+
 <!-- #region client|GroupClass:refreshNUI -->
 
 <!-- #endregion client|GroupClass:refreshNUI -->
@@ -56,6 +61,11 @@
 <!-- #region client|PromptClass:isVisible -->
 
 <!-- #endregion client|PromptClass:isVisible -->
+
+
+<!-- #region client|PromptClass:new -->
+
+<!-- #endregion client|PromptClass:new -->
 
 
 <!-- #region client|PromptClass:refreshNUI -->
@@ -96,4 +106,9 @@
 <!-- #region client|jo.promptNui.isCompleted -->
 
 <!-- #endregion client|jo.promptNui.isCompleted -->
+
+
+<!-- #region client|jo.promptNui.isDisplayed -->
+
+<!-- #endregion client|jo.promptNui.isDisplayed -->
 

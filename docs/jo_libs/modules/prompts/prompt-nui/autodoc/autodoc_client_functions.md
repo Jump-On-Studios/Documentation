@@ -75,6 +75,24 @@ Type : _boolean_
 
 <!-- @include: ./slots/footers.md#client|jo.promptNui.isCompleted -->
 
+---
+
+### jo.promptNui.isDisplayed()
+
+<!-- @include: ./slots/headers.md#client|jo.promptNui.isDisplayed -->
+
+<!-- @include: ./slots/descriptions.md#client|jo.promptNui.isDisplayed -->
+
+#### Syntax
+
+```lua
+jo.promptNui.isDisplayed()
+```
+
+<!-- @include: ./slots/examples.md#client|jo.promptNui.isDisplayed -->
+
+<!-- @include: ./slots/footers.md#client|jo.promptNui.isDisplayed -->
+
 
 ## GroupClass Methods
 
@@ -227,6 +245,24 @@ Type : _boolean_
 <!-- @include: ./slots/examples.md#client|GroupClass:isVisible -->
 
 <!-- @include: ./slots/footers.md#client|GroupClass:isVisible -->
+
+---
+
+### GroupClass:new()
+
+<!-- @include: ./slots/headers.md#client|GroupClass:new -->
+
+<!-- @include: ./slots/descriptions.md#client|GroupClass:new -->
+
+#### Syntax
+
+```lua
+GroupClass:new()
+```
+
+<!-- @include: ./slots/examples.md#client|GroupClass:new -->
+
+<!-- @include: ./slots/footers.md#client|GroupClass:new -->
 
 ---
 
@@ -384,6 +420,24 @@ Type : _boolean_
 <!-- @include: ./slots/examples.md#client|PromptClass:isVisible -->
 
 <!-- @include: ./slots/footers.md#client|PromptClass:isVisible -->
+
+---
+
+### PromptClass:new()
+
+<!-- @include: ./slots/headers.md#client|PromptClass:new -->
+
+<!-- @include: ./slots/descriptions.md#client|PromptClass:new -->
+
+#### Syntax
+
+```lua
+PromptClass:new()
+```
+
+<!-- @include: ./slots/examples.md#client|PromptClass:new -->
+
+<!-- @include: ./slots/footers.md#client|PromptClass:new -->
 
 ---
 
