@@ -76,7 +76,7 @@ The script automatically creates all necessary database tables during its first 
 The housing system provides an admin interface to manage properties on your server.
 
 > [!NOTE] 
-> `jo_housing` supports three distinct types of properties: MLOs, Zones and Shells. MLO and Zone houses are interiors that are physically part of the game world, allowing for a smooth and seamless transition as players can often just walk through the door. In contrast, Shell houses utilize pre-defined interior layouts, that exist separately from the main map. When a player enters a Shell house, they are teleported from the front door to an instance of the interior, which the script spawns on demand.
+> `jo_housing` supports three distinct types of properties: MLOs, Zones and Shells. MLO and Zone houses are physically part of the game world, so they now share the same outside flow for buying, door interactions, inside/outside detection and build mode. In contrast, Shell houses use pre-defined propset interiors that exist separately from the main map. When a player enters a Shell house, they are teleported from the front door to an instance of the interior, which the script spawns on demand.
 
 :::tip 🔒 Permission Control (By job, grade,etc.)
 By default, any player can use the `/houseManager` command to create and manage houses.  
@@ -133,7 +133,7 @@ You can restrict access by using the [`canUseHouseManagerCommand`](#canusehousem
 3. Fill in the house details :
    - **Name**: Give your house a descriptive name
    - **Interior**: Go inside the house you want to create and press `Enter` to set the interior
-   - **Add doors**: While hovering this item, you can walk around the house and register the various doors. Each door you add will be treated as an access point for the property, showing the interaction prompt and marker (if enabled) when a player gets close.
+   - **Add doors**: While hovering this item, you can walk around the house and register the various doors. Each door you add will be treated as an access point for the property, showing the interaction prompt and marker (if enabled) when a player gets close. These registered doors are also used by the dedicated outside door menu and the quick open / close prompt.
    - **Contract Type**: Choose between one-time sale or rent
      - If rent: Select daily or weekly rent periods
    - **Price**: Set money and gold prices
@@ -162,8 +162,8 @@ You can restrict access by using the [`canUseHouseManagerCommand`](#canusehousem
 2. Select **Create a new house**, then choose the `Zone` type
 3. Fill in the house details :
    - **Name**: Give your house a descriptive name
-   - **Zone**: Use the zone creator to add points and define the "inside" zone.
-   - **Add doors**: While hovering this item, you can walk around the house and register the various doors. Each door you add will be treated as an access point for the property, showing the interaction prompt and marker (if enabled) when a player gets close.
+   - **Zone**: Use the zone creator to add points and define the "inside" zone. This same zone is later reused for inside / outside checks, build mode safety and furniture placement validation.
+   - **Add doors**: While hovering this item, you can walk around the house and register the various doors. Each door you add will be treated as an access point for the property, showing the interaction prompt and marker (if enabled) when a player gets close. These registered doors are also used by the dedicated outside door menu and the quick open / close prompt.
    - **Contract Type**: Choose between one-time sale or rent
      - If rent: Select daily or weekly rent periods
    - **Price**: Set money and gold prices
@@ -225,19 +225,24 @@ Players can purchase or rent available houses throughout your server.
 ::: tab 🔍 Finding Available Houses
 **Finding Available Houses:**
 1. Approach a house door with the help of the map blips
-2. Press the prompt key (default: E) to open the house menu
+2. Press the front door prompt key (default: E) to open the contextual menu
+3. If several properties share the same entrance, first choose the unit you want to inspect
 :::
 
 ::: tab 💰 Purchasing a House
 
 **Purchasing a House:**
-1. In the house menu, available properties will show their price
-2. Press the "Buy House" prompt key (default: ENTER) to purchase with money
-3. Alternatively, press the "Buy with Gold" key (default: G) if enabled
-4. For rental properties:
+1. For `Shell` houses, the location menu lists the available units at that entrance
+2. For unowned `MLO` and `Zone` houses, the script opens a dedicated buy menu
+3. Available properties will show their sale or rent price
+4. Press the "Buy House" prompt key (default: ENTER) to purchase with money
+5. Alternatively, press the "Buy with Gold" key (default: G) if enabled
+6. For rental properties:
    - Select the number of days/weeks to rent using the slider
    - Press the appropriate key to pay with money or gold
-5. Once purchased, you'll become the owner of the property
+7. Once purchased, the house switches to its owner flow:
+   - `Shell`: shell entry and interior menu flow
+   - `MLO` / `Zone`: dedicated door menu and quick door prompt
 
 :::
 
@@ -255,11 +260,6 @@ Players can purchase or rent available houses throughout your server.
 ::::
 
 
-
-
-
-
-
 ### Using a house
 
 Once you own a house, you can use its features and customize its interior.
@@ -268,29 +268,47 @@ Once you own a house, you can use its features and customize its interior.
 
 ::: tab 🚪 Entering Your House
 **Entering Your House:**
-1. Approach your house's front door
+1. Approach your house's entrance
 
 **For <Badge type="tip" text="Shell houses" /> :**
 
 2. Press the "Enter House" prompt key (default: ENTER)
-3. You'll be teleported inside your property
+3. You'll be teleported inside your private shell instance
+4. Inside the shell, use the entrance prompts to open the interior menu or leave the house
 
 
 **For <Badge type="tip" text="MLO houses" /> and <Badge type="tip" text="Zone houses" />:**
 
-2. Press the "Open door" prompt key (default: ENTER)
-3. The door will unlock and you'll be able to enter your house (doors states are synchronized between players, so don't forget to close the doors !)
+2. Press the front door menu key (default: E) to open the dedicated door menu
+3. Depending on your access, this menu can show actions such as:
+   - Open / Close door
+   - Manage my house
+   - Enter build mode
+   - Knock on house
+4. If you are close to an eligible registered door, you can also use the quick door prompt (default: ENTER) to directly open or close the nearest door without opening the menu
+5. The quick door prompt label automatically switches between "Open door" and "Close door"
+6. Door states are synchronized between players
+7. Access to `MLO` / `Zone` doors depends on ownership, accessibility mode, access list permissions and `Config.enableKeyMode`
 :::
 
 ::: tab 🛠️ Build Mode
 **Build Mode:**
-1. Inside your house, open the house menu (near the entrance door)
+1. Open the menu that matches your house type
+   - `Shell`: use the interior menu near the entrance from inside the house
+   - `MLO` / `Zone`: use the dedicated door menu
 2. Select "Enter build mode"
-3. In build mode, you can:
+3. For `MLO` and `Zone` houses, this option is only shown to eligible players, and it only becomes available while you are physically inside the house bounds
+4. In build mode, you can:
    - Press the "Add Furnitures" key (default: A) to purchase and place furniture
    - Press the "Edit Furnitures" key (default: E) to move, duplicate or delete existing furniture
    - Set locations for dressing rooms and storage if your house has these features
-4. Press the "Leave Build Mode" key (default: X) to exit
+5. Furniture placement is validated according to the house type:
+   - `Shell`: around the spawned shell interior
+   - `MLO`: inside the registered interior
+   - `Zone`: inside the defined zone
+6. If you leave the bounds of an `MLO` or `Zone` house while building or editing, build mode closes automatically
+7. `Zone` houses display their zone boundaries during build mode to make placement clearer
+8. Press the "Leave Build Mode" key (default: R) to exit
 :::
 
 ::: tab 🔐 Managing Access
@@ -299,32 +317,36 @@ Once you own a house, you can use its features and customize its interior.
 The access management options depend on your server's `Config.enableKeyMode` setting:
 
 **When Key Mode is Disabled (`Config.enableKeyMode = false`):**
-1. Inside your house, open the house menu
+1. Open the house menu for your property
 2. Select "Manage my house"
 3. Choose "Manage Access"
 4. Set your access type:
    - "Only me": Only you can enter
-   - "List": Only players you've added to the access list can enter
-   - "Everyone": Any player can enter your house
+   - "List": Only players you've added to the access list can enter or use `MLO` / `Zone` door interactions
+   - "Everyone": Any player can enter your house and use `MLO` / `Zone` door interactions
 5. If using the "List" option, you can add or remove players from your access list
 6.  After adding a player, you can select them to manage their specific permissions:
     * Can access storage
     * Can access wardrobe
     * Can add furniture
     * Can edit furniture
+7. Access and permission updates are synchronized immediately for online players, even if they are currently outside the house
 
 ---
 
 **When Key Mode is Enabled (`Config.enableKeyMode = true`):**
-1. Inside your house, open the house menu
+1. Open the house menu for your property
 2. Select "Manage my house"
 3. Choose "Manage Access"
 4. Set your access type:
    - "Anyone with the key": Anyone who has a key to your house can enter
-   - "Everyone": Any player can enter your house
+   - "Everyone": Any player can enter your house and toggle `MLO` / `Zone` doors
 5. Additional key management options:
    - **Buy new key**: Purchase additional keys to give to other players
    - **Change lock**: Change your house lock, making all existing keys obsolete (you'll receive a new key)
+6. For owned `MLO` and `Zone` houses, door toggling follows the same key rules: a valid key is required unless the house is set to `Everyone`
+
+If an access or permission change is invalid or not allowed, the player receives an error notification.
 :::
 
 ::: tab 🏠 Using House Features
@@ -342,15 +364,15 @@ _This script does not have built-in solutions for dressing, stable and wagon fun
 
 ::: tab 👥 Inviting Players
 **Inviting Players:**
-1. Other players can knock on your door by approaching and pressing the knock key
-2. You'll receive a notification when someone knocks
-3. Press the designated key to allow them entry
-4. Alternatively, add them to your access list for permanent access or give them a key if `Config.enableKeyMode` is `true`
+1. Visitors can knock on an owned house from the front door or from the `MLO` / `Zone` door menu
+2. For `Shell` houses, eligible players inside receive a notification and can directly welcome the visitor in
+3. For `MLO` and `Zone` houses, eligible players are notified that someone is at the door and should go to the door to let them in
+4. Alternatively, add the visitor to your access list for permanent access or give them a key if `Config.enableKeyMode` is `true`
 :::
 
 ::: tab 📤 Transferring Ownership
 **Transferring Ownership:**
-1. Inside your house, open the house menu
+1. Open the house menu for your property
 2. Select "Manage my house"
 3. Choose "Transfer House"
 4. Enter the player's server ID
@@ -368,7 +390,7 @@ When `Config.enableKeyMode = true`, house access is tied to a **physical key ite
 -   **Ownership:** Players receive a key in their inventory upon purchasing a house.
 -   **Sharing:** Owners can buy additional keys to give to friends or other players.
 -   **Security:** An owner can **change the locks** at any time. This action makes all previously issued keys for that house obsolete and provides the owner with a new one.
--   **Requirement:** A player **must** have the corresponding key in their inventory to enter the house.
+-   **Requirement:** A player **must** have the corresponding key in their inventory to enter the house. For owned `MLO` and `Zone` houses, the same rule also applies to door toggling unless the house accessibility is set to `Everyone`.
 
 ---
 
@@ -383,7 +405,7 @@ When `Config.enableKeyMode = false`, access is managed digitally through an in-g
     -   Can access wardrobe
     -   Can add furniture
     -   Can edit furniture
--   **Requirement:** Players on the access list can enter without needing any specific item.
+-   **Requirement:** Players on the access list can enter without needing any specific item. On `MLO` and `Zone` houses, the same access rules also govern the door menu and quick door prompt.
 :::
 
 ## 3. Interiors Shells Gallery
@@ -400,25 +422,7 @@ This gallery showcases the complete collection of interiors you can choose from 
 
 ## 5. FAQ
 
-:::details Zone house is not working properly
-The zone creator is designed to trace the **walls** of the house, not the entire plot of land around it. This is how the script determines whether a player is **inside** or **outside** the house.
 
-A common mistake is trying to create a zone that covers the full property or land area. Instead, you must place your zone points along the **walls of the building itself**.
-
-**How to create a correct zone:**
-- If the house has **4 walls**, the zone should have **4 points** — one in each **corner** of the house.
-- Each point must follow the wall line so the zone accurately represents the interior space.
-- Walk along the walls and place a point at every corner where the wall changes direction.
-
-<video controls>
-  <source src="/videos/jo_housing_zone.mp4" type="video/mp4">
-</video>
-
-:::tip
-Think of it as drawing the floor plan of the house: trace the walls, not the yard.
-
-An improved zone creator is planned for a future update. Until then, tracing the walls is the only way to create a properly working house zone.
-:::
 
 
 :::details It's raining in my house !
@@ -818,7 +822,7 @@ Triggered when someone knocks on a house door.
 ```lua
 -- @param source - serverID of the player knocking
 -- @param house - the house object being knocked on
--- @param foundSources - array of player sources inside the house who were notified
+-- @param foundSources - array of player sources who were notified (propset: eligible players inside the house, MLO/Zone: notified targets excluding the knocker)
 exports.jo_housing:registerAction('knockedOnHouse', function(source, house, foundSources)
     -- Your code here
 end)
@@ -1092,6 +1096,7 @@ end)
 
 #### <Badge type="server" text="Server" /> canEnterHouse
 Controls who can enter a house.
+Door toggling for owned `MLO` and `Zone` houses is handled separately by `canToggleHouseDoor`.
 
 ```lua
 -- @param canEnter - boolean indicating if the action is allowed by default
@@ -1218,6 +1223,19 @@ Controls who can set a storage location inside a house.
 -- @param coords - coordinates for the storage location
 exports.jo_housing:registerFilter('canSetStorageLocation', function(canSet, source, houseId, coords)
     return canSet
+end)
+```
+
+#### <Badge type="server" text="Server" /> canToggleHouseDoor
+Controls who can open or close an owned `MLO` or `Zone` house door.
+This filter is evaluated by the dedicated server door-toggle callback, separately from `canEnterHouse`.
+
+```lua
+-- @param canToggle - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param houseId - ID of the house
+exports.jo_housing:registerFilter('canToggleHouseDoor', function(canToggle, source, houseId)
+    return canToggle
 end)
 ```
 
