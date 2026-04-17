@@ -160,6 +160,32 @@ Type : _string_
 
 ---
 
+### <Badge type="server" text="Server" /> UserClass:getJobGrade()
+
+<!-- @include: ./slots/headers.md#UserClass|UserClass:getJobGrade -->
+
+Returns the current job grade assigned to a player <br>
+
+<!-- @include: ./slots/descriptions.md#UserClass|UserClass:getJobGrade -->
+
+#### Syntax
+
+```lua
+UserClass:getJobGrade()
+```
+
+#### Return Value
+
+Type : _number_
+
+> Returns the job grade of the player
+
+<!-- @include: ./slots/examples.md#UserClass|UserClass:getJobGrade -->
+
+<!-- @include: ./slots/footers.md#UserClass|UserClass:getJobGrade -->
+
+---
+
 ### <Badge type="server" text="Server" /> UserClass:getMoney()
 
 <!-- @include: ./slots/headers.md#UserClass|UserClass:getMoney -->
