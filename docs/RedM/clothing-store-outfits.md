@@ -70,6 +70,20 @@ Available translation keys include:
 
 ## 4. For developers
 
+### Actions
+
+Actions are one of the two types of Hooks. They provide a way for running a function at a specific point in the execution of scripts. Callback functions for an Action do not return anything back to the calling Action hook. They are the counterpart to Filters.
+
+Below is a complete list of all available actions in the jo_clothingstore_outfits script.
+
+#### <Badge type="client" text="Client" /> switchPrice
+Triggered when user switch the outfit price
+
+```lua
+exports.jo_clothingstore_outfits:registerAction('switchPrice', function(priceIndex)
+    -- Your code here
+end)
+```
 
 ### Filters
 
