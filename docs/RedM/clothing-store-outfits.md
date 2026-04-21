@@ -3,7 +3,7 @@ Documentation relating to the **jo_clothingstore_outfits** add-on for [Clothing 
 
 :::: tabs
 ::: tab BUY
-[Buy the add-on](https://jumpon-studios.com/redm/clothes-outfits)
+[Buy the add-on](https://jumpon-studios.com/redm/premade-outfits)
 :::
 
 ::: tab PREVIEW
