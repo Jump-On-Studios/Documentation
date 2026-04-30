@@ -75,7 +75,7 @@ Available translation categories include:
 - General UI & Common Terms
 - Palettes names
 
-:::tip ðŸ’¡Only change the key you need to translate
+:::tip Only change the key you need to translate
 You only need to include the specific keys you want to change in `config/custom/lang.lua`. Don't copy the entire language file if you don't need to.
 :::
 
