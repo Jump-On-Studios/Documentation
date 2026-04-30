@@ -1,4 +1,4 @@
-# :necktie: Colorways
+﻿# :necktie: Colorways
 Documentation relating to the **jo_clothingstore_colorways** add-on for [Clothing store script](clothing-store).
 
 :::: tabs
@@ -33,6 +33,29 @@ Congratulation, the **Colorways** add-on is ready to be used!
 
 <ScriptConfig scriptPath="redm/clothes-colorways" />
 
+### Palette Configuration
+
+`Config.palettes` controls which palettes are visible in the menu and which tint values can be selected for each palette.
+
+Supported options per palette:
+- `enabled`: show or hide the palette in the menu
+- `disabledTints`: tint indices that cannot be selected
+- `min`: lowest allowed tint index
+- `max`: highest allowed tint index
+
+Example:
+
+```lua
+Config.palettes = {
+  tint_generic_clean = { enabled = true, min = 0, max = 31 },
+  tint_hair = { enabled = true, disabledTints = { 1, 2, 3 }, min = 0, max = 25 },
+  tint_makeup = { enabled = true, disabledTints = { 33, 34, 35, 36, 37, 38 } },
+  tint_horse = { enabled = false }
+}
+```
+
+These restrictions are applied to the tint sliders for the selected palette.
+
 ### Language Configuration
 
 The script supports full translation through the language system. To override any text:
@@ -43,16 +66,16 @@ The script supports full translation through the language system. To override an
 Example:
 
 ```lua
-Lang.colorways = "Цветовая гамма"
-Lang.customColor = "Пользовательский цвет"
-Lang.noPalette = "Вы не можете получить доступ к цветовой гамме"
+Lang.colorways = "Ð¦Ð²ÐµÑ‚Ð¾Ð²Ð°Ñ Ð³Ð°Ð¼Ð¼Ð°"
+Lang.customColor = "ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¹ Ñ†Ð²ÐµÑ‚"
+Lang.noPalette = "Ð’Ñ‹ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚Ðµ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ðº Ñ†Ð²ÐµÑ‚Ð¾Ð²Ð¾Ð¹ Ð³Ð°Ð¼Ð¼Ðµ"
 ```
 
 Available translation categories include:
 - General UI & Common Terms
 - Palettes names
 
-:::tip 💡Only change the key you need to translate
+:::tip ðŸ’¡Only change the key you need to translate
 You only need to include the specific keys you want to change in `config/custom/lang.lua`. Don't copy the entire language file if you don't need to.
 :::
 
