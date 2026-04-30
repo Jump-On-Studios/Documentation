@@ -172,6 +172,38 @@ Here is the structure for a single menu item:
 | `items`   | `table` \| `function` | * table: list of item tables that make up the content of the submenu.<br>* function: fire everytime the menu is opened: it should returns a list of item tables. |
 | `creator` | `function`(optional)  | A function fired the first time the submenu is needed                                                                                                            |
 
+### Emotes Configuration (`Config.emotes`)
+
+The default emote catalog used by `CreateEmotesMenu()` is configurable through `Config.emotes`. The preset list is defined in `jo_radial/config/_default.lock/listEmotes.lua`.
+
+You can:
+
+- Add emotes to the existing categories
+- Remove individual emotes from a category
+- Remove an entire category by clearing it or setting it to `nil`
+
+You cannot create new categories for the radial emotes menu. `CreateEmotesMenu()` only supports these built-in categories:
+
+- `Reaction`
+- `Action`
+- `Taunts`
+- `Greets`
+- `TwirlGun`
+- `Dances`
+
+Example:
+
+```lua
+-- In overwriteConfig.lua
+table.insert(Config.emotes.Action, {
+    image = "my_custom_emote.webp",
+    anim = "KIT_EMOTE_ACTION_POINT_1",
+    label = "My Custom Emote"
+})
+
+Config.emotes.TwirlGun = nil -- Removes the whole category from the radial menu
+```
+
 
 
 ### Full Configuration Examples
@@ -220,7 +252,7 @@ Config.radialMenuItems = {
             type = "submenu",
             creator = function()
                 --Only fire the first time the submenu is opened
-                return CreateEmotesMenu(12) -- Dynamically generated from emotes.lua
+                return CreateEmotesMenu(12) -- Dynamically generated from Config.emotes
             end
         }
     },
@@ -303,7 +335,7 @@ Config.holdToOpen = false
 -- ===== MENU DEFINITIONS =====
 -- These are reusable menu definitions that can be referenced in the main menu structure
 
--- Dynamically created emotes menu (creates 12 emote items)
+-- Dynamically created emotes menu from Config.emotes (creates 12 emote items)
 local emotesMenu = CreateEmotesMenu(12)
 
 -- UI Configuration for the radial menu appearance
@@ -600,7 +632,7 @@ Config.holdToOpen = false
 -- ===== MENU DEFINITIONS =====
 -- These are reusable menu definitions that can be referenced in the main menu structure
 
--- Dynamically created emotes menu (creates 12 emote items)
+-- Dynamically created emotes menu from Config.emotes (creates 12 emote items)
 local emotesMenu = CreateEmotesMenu(12)
 local RSG = exports['rsg-core']:GetCoreObject()
 
@@ -911,7 +943,7 @@ Config.commands = {
 }
 
 -- An example of a dynamically generated menu from another file
-local emotesMenu = CreateEmotesMenu(12) -- This function is defined in shared/data/emotes.lua
+local emotesMenu = CreateEmotesMenu(12) -- This function reads from Config.emotes
 
 -- Define the items for the main radial menu
 Config.radialMenuItems = {
