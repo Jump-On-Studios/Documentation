@@ -8,6 +8,11 @@
 <!-- #endregion client|jo.player.forceUpdate -->
 
 
+<!-- #region client|jo.player.instanceChanged -->
+
+<!-- #endregion client|jo.player.instanceChanged -->
+
+
 <!-- #region client|jo.player.move -->
 
 <!-- #endregion client|jo.player.move -->
@@ -16,4 +21,9 @@
 <!-- #region g_client|jo.player.forceUpdate -->
 
 <!-- #endregion g_client|jo.player.forceUpdate -->
+
+
+<!-- #region server|jo.player.instanceChanged -->
+
+<!-- #endregion server|jo.player.instanceChanged -->
 

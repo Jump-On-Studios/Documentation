@@ -53,6 +53,34 @@ jo.player.forceUpdate()
 
 ---
 
+### jo.player.instanceChanged()
+
+<!-- @include: ./slots/headers.md#client|jo.player.instanceChanged -->
+
+A function fired when the local player's routing bucket (instance) changes. <br>
+Also fires immediately if the current instance is already known, or requests it <br>
+from the server if not — guaranteeing exactly one initial call per registration. <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.player.instanceChanged -->
+
+#### Syntax
+
+```lua
+jo.player.instanceChanged(cb)
+```
+
+#### Parameters
+
+`cb` : _function_
+> function called with `(newInstance, oldInstance)`
+>
+
+<!-- @include: ./slots/examples.md#client|jo.player.instanceChanged -->
+
+<!-- @include: ./slots/footers.md#client|jo.player.instanceChanged -->
+
+---
+
 ### jo.player.move()
 
 <!-- @include: ./slots/headers.md#client|jo.player.move -->
