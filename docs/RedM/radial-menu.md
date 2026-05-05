@@ -176,33 +176,110 @@ Here is the structure for a single menu item:
 
 The default emote catalog used by `CreateEmotesMenu()` is configurable through `Config.emotes`. The preset list is defined in `jo_radial/config/_default.lock/listEmotes.lua`.
 
+#### Standard RDO emote entry
+
+| Field   | Required | Description                            |
+| :------ | :------- | :------------------------------------- |
+| `image` | optional | Icon filename (from `nui/img/`) or URL |
+| `anim`  | required | RDO animation hash name                |
+| `label` | required | Display text or `__("i18n_key")`       |
+
+Set `anim = "unknown"` or `image = "unknown"` to hide an entry without deleting it.
+
+#### Custom animation entry (dict-based)
+
+| Field   | Required | Description                               |
+| :------ | :------- | :---------------------------------------- |
+| `image` | optional | Icon filename (from `nui/img/`) or URL    |
+| `anim`  | required | Animation clip name inside the dictionary |
+| `dict`  | required | Animation dictionary name                 |
+| `label` | required | Display text or `__("i18n_key")`          |
+
+#### Adding and removing emotes
+
 You can:
+- Add emotes to any existing category
+- Remove individual emotes or entire categories
+- Hide an entry temporarily with `anim = "unknown"`
 
-- Add emotes to the existing categories
-- Remove individual emotes from a category
-- Remove an entire category by clearing it or setting it to `nil`
-
-You cannot create new categories for the radial emotes menu. `CreateEmotesMenu()` only supports these built-in categories:
-
-- `Reaction`
-- `Action`
-- `Taunts`
-- `Greets`
-- `TwirlGun`
-- `Dances`
+You cannot create new categories. `CreateEmotesMenu()` only supports these built-in categories: `Reaction`, `Action`, `Taunts`, `Greets`, `TwirlGun`, `Dances`.
 
 Example:
 
 ```lua
--- In overwriteConfig.lua
+-- Standard RDO emote
 table.insert(Config.emotes.Action, {
     image = "my_custom_emote.webp",
     anim = "KIT_EMOTE_ACTION_POINT_1",
     label = "My Custom Emote"
 })
 
+-- Custom dict-based animation
+table.insert(Config.emotes.Dances, {
+    anim  = "arthur_dance_loop",
+    dict  = "cnv_camp@rchso@cnv@ccdtc33@player_karen",
+    label = "Arthur Dance"
+})
+
 Config.emotes.TwirlGun = nil -- Removes the whole category from the radial menu
 ```
+
+### Walk Anims Configuration (`Config.walkAnims`)
+
+The built-in walk style menu is powered by `Config.walkAnims`. The preset list is defined in `jo_radial/config/_default.lock/listWalkAnims.lua`. A **Reset to default** entry is always prepended automatically.
+
+Two native approaches are supported and detected from the entry's fields:
+
+#### Clipset + movetype
+
+| Field      | Required | Description                                                        |
+| :--------- | :------- | :----------------------------------------------------------------- |
+| `label`    | required | Display text                                                       |
+| `clipset`  | required | Locomotion archetype        |
+| `movetype` | required | Movement type             |
+| `image`    | optional | Icon filename (from `nui/img/`) or URL                             |
+
+Available `clipset` values: `algie`, `angry_female`, `arthur_healthy`, `cowboy`, `cowboy_f`, `default_female`, `free_slave_01`, `free_slave_02`, `gold_panner`, `guard_lantern`, `injured_general`, `john_marston`, `lilly_millet`, `lone_prisoner`, `lost_man`, `mp_ova_hunter`, `mp_ova_hunter_female`, `murfree`, `old_female`, `primate`, `rally`, `waiter`, `war_veteran`
+
+#### MP_Style_*
+
+| Field   | Required | Description                                                              |
+| :------ | :------- | :----------------------------------------------------------------------- |
+| `label` | required | Display text                                                             |
+| `style` | required | Style name    |
+| `image` | optional | Icon filename (from `nui/img/`) or URL                                   |
+
+
+#### Using the menu
+
+```lua
+{
+    label = "Walk Styles",
+    submenu = {
+        type = "submenu",
+        creator = function()
+            return CreateWalkAnimsMenu(12) -- 12 items per page
+        end
+    }
+}
+```
+
+#### Adding and removing styles
+
+```lua
+table.insert(Config.walkAnims, {
+    label    = "My Style",
+    clipset  = "war_veteran",
+    movetype = "normal"
+})
+
+table.insert(Config.walkAnims, {
+    label = "Drunk",
+    style = "MP_Style_drunk"
+})
+```
+
+To override the entire catalog, copy `config/_default.lock/listWalkAnims.lua` to `config/custom/listWalkAnims.lua` and edit the copy.
 
 
 
@@ -578,14 +655,16 @@ Config.radialMenuItems = {
             value = "callPolice" -- Command to execute
         }
     },
-    {
-        label = "Walk style",               -- Change character walking animation ⚠️VORP ONLY
-        icon = "emote_dance_formal_a.webp", -- Local file in nui/img/ directory
-        onClick = {
-            type = "command",               -- Executes chat command
-            value = "walkanim"              -- Command to execute
-        }
+  {
+    label = "Walk Styles",
+    icon = "emote_dance_formal_a.webp", -- Local file in nui/img/ directory
+    submenu = {
+      type = "submenu",
+      creator = function()
+        return CreateWalkAnimsMenu(12) -- Configure in  jo_radial\config\_default.lock\listWalkAnims.lua
+      end,
     },
+  },
     {
         label = "Wagon",                                               -- Wagon management options
         -- ⚠️Works only if you have https://jumpon-studios.com/redm/horse-stable
@@ -873,14 +952,16 @@ Config.radialMenuItems = {
             value = "callPolice" -- Command to execute
         }
     },
-    {
-        label = "Walk style",               -- Change character walking animation
-        icon = "emote_dance_formal_a.webp", -- Local file in nui/img/ directory
-        onClick = {
-            type = "command",               -- Executes chat command
-            value = "walkanim"              -- Command to execute
-        }
+  {
+    label = "Walk Styles",
+    icon = "emote_dance_formal_a.webp", -- Local file in nui/img/ directory
+    submenu = {
+      type = "submenu",
+      creator = function()
+        return CreateWalkAnimsMenu(12) -- Configure in  jo_radial\config\_default.lock\listWalkAnims.lua
+      end,
     },
+  },
     {
         label = "Wagon",                                               -- Wagon management options
         -- ⚠️Works only if you have https://jumpon-studios.com/redm/horse-stable
