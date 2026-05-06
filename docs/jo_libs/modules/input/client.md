@@ -215,6 +215,40 @@ Preview:
   style = "",                               -- css style (optional)
 }
 ```
+##### • Price
+```lua
+{
+  type = "price",                         -- type of the entry
+  id = 'price',                           -- unique id of the input
+  value = {                               -- default value of the input
+    { item = "horse_license", keep = true },
+    money = 10
+  },
+  options = {                             -- list of available price types (optional)
+    "money",
+    "gold",
+    "rol",
+    "item"
+  },
+  allowOR = true,                         -- allow multiple payment options (optional, default: true)
+  required = true,                        -- if the input is required
+  class = "",                             -- css class (optional)
+  style = "",                             -- css style (optional)
+}
+```
+
+With `allowOR = true`, the returned value can contain multiple payment options:
+```lua
+{
+  operator = "or",
+  {
+    money = 10
+  },
+  {
+    { item = "horse_license", keep = true }
+  }
+}
+```
 </span>
 
 #### Button
