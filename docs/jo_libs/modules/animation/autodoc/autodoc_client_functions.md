@@ -139,8 +139,8 @@ jo.animation.play(ped, dict, name, duration, flag, offset)
 > Duration of the animation in ms - default:-1
 >
 
-`flag` : _integer_ <BadgeOptional />
-> The flag of the animation - default:0
+`flag` : _integer|table_ <BadgeOptional />
+> Animation flags - default:0. Pass an integer value or a table of bit indices (e.g. {0,3}
 >
 
 `offset` : _number_ <BadgeOptional />
