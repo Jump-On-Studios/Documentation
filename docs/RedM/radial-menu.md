@@ -197,20 +197,24 @@ When the `dict` field is present the entry bypasses the RDO emote system and pla
 | `dict`     | required | Animation dictionary name                                                            |
 | `label`    | required | Display text or `__("i18n_key")`                                                     |
 | `duration` | optional | Duration in ms — default: `-1` (plays the full clip once)                            |
-| `flag`     | optional | Animation flags — default: `0`. Flags can be combined with `\|` (bitwise OR)         |
+| `flag`     | optional | Animation flags — default: `{}`. Table of bit indices or plain integer (used as-is). |
 | `offset`   | optional | Start offset `0.0` → `1.0` — default: `0.0`                                         |
 
-Common flag values:
+Two formats are accepted for `flag`:
+- **Table of bit indices** (recommended): `flag = {0, 3}` — each number is a bit index
+- **Plain integer**: `flag = 9` — the value is passed directly to the native
 
-| Flag constant         | Value  | Description                          |
-| :-------------------- | :----- | :----------------------------------- |
-| `AF_LOOPING`          | `1`    | Loop the animation continuously      |
-| `AF_HOLD_LAST_FRAME`  | `2`    | Freeze on the last frame when done   |
-| `AF_NOT_INTERRUPTABLE`| `4`    | Prevent other tasks from stopping it |
-| `AF_UPPERBODY`        | `8`    | Play on upper body only              |
-| `AF_SECONDARY`        | `16`   | Play as a secondary animation        |
+Common bit indices:
 
-Full flag list: [RDR3-Native-Flags-And-Enums/eScriptedAnimFlags](https://github.com/Halen84/RDR3-Native-Flags-And-Enums/tree/main/eScriptedAnimFlags)
+| Bit index | Integer value | Name | Description |
+| :-------- | ------------: | :--- | :---------- |
+| `0` | `1` | `AF_LOOPING` | Loop the animation continuously |
+| `1` | `2` | `AF_HOLD_LAST_FRAME` | Freeze on the last frame when done |
+| `2` | `4` | `AF_NOT_INTERRUPTABLE` | Prevent other tasks from cancelling the animation |
+| `3` | `8` | `AF_UPPERBODY` | Play on upper body only (allows movement) |
+| `4` | `16` | `AF_SECONDARY` | Play as a secondary/blended animation |
+
+Full flag list: https://docs.jumpon-studios.com/jo_libs/modules/animation/client#jo-animation-play
 
 Example with flags:
 
@@ -219,7 +223,7 @@ table.insert(Config.emotes.Dances, {
     anim     = "arthur_dance_loop",
     dict     = "cnv_camp@rchso@cnv@ccdtc33@player_karen",
     label    = "Arthur Dance",
-    flag     = 1,    -- AF_LOOPING
+    flag     = {0},   -- AF_LOOPING
     duration = -1,
 })
 
@@ -228,7 +232,7 @@ table.insert(Config.emotes.Action, {
     anim  = "my_anim",
     dict  = "my_dict",
     label = "Wave",
-    flag  = 1 | 8,   -- AF_LOOPING + AF_UPPERBODY
+    flag  = {0, 3},   -- AF_LOOPING + AF_UPPERBODY
 })
 ```
 
