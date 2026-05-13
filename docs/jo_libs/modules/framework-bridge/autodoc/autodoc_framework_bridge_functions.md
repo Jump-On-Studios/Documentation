@@ -36,27 +36,6 @@ Type : _[UserClass](#userclass-methods)_
 <!-- #endregion group_1 -->
 
 <!-- #region group_2 -->
-## Other Functions
-
-### <Badge type="server" text="Server" /> ExecCharacterSelectedCallback()
-
-<!-- @include: ./slots/headers.md#server|ExecCharacterSelectedCallback -->
-
-<!-- @include: ./slots/descriptions.md#server|ExecCharacterSelectedCallback -->
-
-#### Syntax
-
-```lua
-ExecCharacterSelectedCallback(source, isNew)
-```
-
-<!-- @include: ./slots/examples.md#server|ExecCharacterSelectedCallback -->
-
-<!-- @include: ./slots/footers.md#server|ExecCharacterSelectedCallback -->
-
-<!-- #endregion group_2 -->
-
-<!-- #region group_3 -->
 ## UserClass Methods
 
 ### <Badge type="server" text="Server" /> UserClass:addMoney()
@@ -319,9 +298,9 @@ UserClass:removeMoney(amount, moneyType)
 
 <!-- @include: ./slots/footers.md#UserClass|UserClass:removeMoney -->
 
-<!-- #endregion group_3 -->
+<!-- #endregion group_2 -->
 
-<!-- #region group_4 -->
+<!-- #region group_3 -->
 ## jo.framework Methods
 
 ### <Badge type="client" text="Client" /> jo.framework:getMyIdentifiers()
@@ -1572,4 +1551,4 @@ Type : _table_
 
 <!-- @include: ./slots/footers.md#shared|jo.framework:getItems -->
 
-<!-- #endregion group_4 -->
+<!-- #endregion group_3 -->
