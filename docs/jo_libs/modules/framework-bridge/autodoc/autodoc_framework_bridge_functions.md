@@ -36,6 +36,27 @@ Type : _[UserClass](#userclass-methods)_
 <!-- #endregion group_1 -->
 
 <!-- #region group_2 -->
+## Other Functions
+
+### <Badge type="server" text="Server" /> ExecCharacterSelectedCallback()
+
+<!-- @include: ./slots/headers.md#server|ExecCharacterSelectedCallback -->
+
+<!-- @include: ./slots/descriptions.md#server|ExecCharacterSelectedCallback -->
+
+#### Syntax
+
+```lua
+ExecCharacterSelectedCallback(source, isNew)
+```
+
+<!-- @include: ./slots/examples.md#server|ExecCharacterSelectedCallback -->
+
+<!-- @include: ./slots/footers.md#server|ExecCharacterSelectedCallback -->
+
+<!-- #endregion group_2 -->
+
+<!-- #region group_3 -->
 ## UserClass Methods
 
 ### <Badge type="server" text="Server" /> UserClass:addMoney()
@@ -298,9 +319,9 @@ UserClass:removeMoney(amount, moneyType)
 
 <!-- @include: ./slots/footers.md#UserClass|UserClass:removeMoney -->
 
-<!-- #endregion group_2 -->
+<!-- #endregion group_3 -->
 
-<!-- #region group_3 -->
+<!-- #region group_4 -->
 ## jo.framework Methods
 
 ### <Badge type="client" text="Client" /> jo.framework:getMyIdentifiers()
@@ -1028,11 +1049,11 @@ Type : _table_
 
 ### <Badge type="server" text="Server" /> jo.framework:onCharacterSelected()
 
-<!-- @include: ./slots/headers.md#FrameworkClass|jo.framework:onCharacterSelected -->
+<!-- @include: ./slots/headers.md#server|jo.framework:onCharacterSelected -->
 
 Callback when a character is selected <br>
 
-<!-- @include: ./slots/descriptions.md#FrameworkClass|jo.framework:onCharacterSelected -->
+<!-- @include: ./slots/descriptions.md#server|jo.framework:onCharacterSelected -->
 
 #### Syntax
 
@@ -1043,12 +1064,12 @@ jo.framework:onCharacterSelected(cb)
 #### Parameters
 
 `cb` : _function_
-> The callback function triggered when the character is selected
+> The callback function triggered when the character is selected, contains (source:integer, isNew:boolean)
 >
 
-<!-- @include: ./slots/examples.md#FrameworkClass|jo.framework:onCharacterSelected -->
+<!-- @include: ./slots/examples.md#server|jo.framework:onCharacterSelected -->
 
-<!-- @include: ./slots/footers.md#FrameworkClass|jo.framework:onCharacterSelected -->
+<!-- @include: ./slots/footers.md#server|jo.framework:onCharacterSelected -->
 
 ---
 
@@ -1551,4 +1572,4 @@ Type : _table_
 
 <!-- @include: ./slots/footers.md#shared|jo.framework:getItems -->
 
-<!-- #endregion group_3 -->
+<!-- #endregion group_4 -->
