@@ -1,5 +1,5 @@
 # :scissors: Hair & beard coloring
-Documentation relating to the **kd_haidresser_coloring** add-on for [Hairdresser script](hairdresser).
+Documentation relating to the **jo_haidresser_coloring** add-on for the [Hairdresser script](hairdresser).
 
 :::: tabs
 ::: tab BUY
@@ -13,42 +13,42 @@ Documentation relating to the **kd_haidresser_coloring** add-on for [Hairdresser
 
 ## 1. Installation
 ::: warning
-[Hairdresser script](hairdresser) is required to use this add-on
+The [Hairdresser script](hairdresser) is required to use this add-on.
 :::
 
-To install kd_hairdresser_coloring:
+To install jo_hairdresser_coloring:
 - Drag and drop the resource into your resources folder
-  - kd_hairdresser_coloring 
-- Add this ensure in your server.cfg after `ensure kd_hairdresser`
-  - `ensure kd_hairdresser_coloring`
+  - jo_hairdresser_coloring 
+- Add this ensure in your server.cfg after `ensure jo_hairdresser`
+  - `ensure jo_hairdresser_coloring`
 
-Congratulation, the **Hair & Beard coloring** add-on is ready to be used!
+Congratulations, the **Hair & Beard Coloring** add-on is ready to use!
 
 ## 2. Usage
 
-Go into the hairdresser to dye or hair/beard.
+Go to the hairdresser to dye your hair or beard.
 
 ## 3. Config.lua file
 <ScriptConfig scriptPath="redm/hair-coloring" />
 
 ## 4. For developers
 
-[Filters](/DeveloperResources/filters) are the new way to modify data used by the script. These filters are fired at a specific point in time during the execution of the script. But contrary to events, filters are **synchronous**. 
+[Filters](/DeveloperResources/filters) are the new way to modify data used by the script. These filters are fired at a specific point in time during the execution of the script. However, unlike events, filters are **synchronous**. 
 
 - Syntax: 
 ```lua
 -- @param <actionName> - name of the action
 -- @param <argumentList> - list of arguments which are passed
-exports.kd_hairdresser_coloring:registerFilter(<actionName>, function(variable)
+exports.jo_hairdresser_coloring:registerFilter(<actionName>, function(variable)
   -- Add your new data here
 	return variable -- Don't forget to return the value
 end)
 ```
 #### <Badge type="client" text="Client" /> Restrict the coloring
-Fires after completed the coloring prompt
+Fires after completing the coloring prompt.
 ```lua
 -- @param canUse - boolean
-exports.kd_hairdresser_coloring:registerFilter('canOpenColorPalette', function(canUse)
+exports.jo_hairdresser_coloring:registerFilter('canOpenColorPalette', function(canUse)
 	return canUse
 end)
 ```

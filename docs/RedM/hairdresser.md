@@ -1,5 +1,5 @@
 # :scissors: Hairdresser
-Documentation relating to the kd_hairdresser.
+Documentation relating to jo_hairdresser.
 
 :::: tabs
 ::: tab BUY
@@ -12,24 +12,24 @@ Documentation relating to the kd_hairdresser.
 ::::
 
 ## 1. Installation
-kd_hairdresser works on all frameworks compatible with jo_libs ([the list](/jo_libs/)).
+jo_hairdresser works on all frameworks compatible with jo_libs ([the list](/jo_libs/)).
 
-To install kd_hairdresser :
+To install jo_hairdresser:
 - Download the library: [jo_libs](https://github.com/Jump-On-Studios/RedM-jo_libs/releases/latest/download/jo_libs.zip)
-- Unzip the folder and drop it in your resource folder
-- Download kd_hairdresser from your [keymaster](https://keymaster.fivem.net/asset-grants?search=hairdresser)
-- Unzip the folder and drop it in your resource folder
-- Add this ensure in your server.cfg
+- Unzip the folder and drop it into your resources folder
+- Download jo_hairdresser from your [keymaster](https://keymaster.fivem.net/asset-grants?search=hairdresser)
+- Unzip the folder and drop it into your resources folder
+- Add this ensure to your server.cfg
   - `ensure jo_libs`
-  - `ensure kd_hairdresser`
+  - `ensure jo_hairdresser`
 
-Congratulation, the Hairdresser script is ready to be use !
+Congratulations, the Hairdresser script is ready to use!
 :::warning
-Be sure you have oxmysql ensure in your server.cfg
+Make sure you have oxmysql ensured in your server.cfg.
 :::
 
 ::: details For VORP
-To fixed clothes and skin, you have to edit two files :
+To fix clothes and skin, you have to edit two files:
 * `vorp_character/client/client.lua` - line 284
 ```lua:line-numbers=267
 function LoadAll(gender, ped, pedskin, components, set)
@@ -83,46 +83,46 @@ end
 :::
 
 ## 2. Usage
-You have two way to use my script :
+You have three ways to use my script:
 
-Go on the shop (marker on the map) and use the command /barber to seat on the chair and open the menu.
+Go to the shop (marker on the map) and use the `/barber` command to sit on the chair and open the menu.
 
-Go on the shop and use the prompt to seat on the chair and open the menu
+Go to the shop and use the prompt to sit on the chair and open the menu.
 
-Use my mouse selection and right click on the barber chair to seat on it and open the menu.
+Use my mouse selection and right-click on the barber chair to sit on it and open the menu.
 
-For developer, you can force the reload of hair and beard with the client event 
+For developers, you can force hair and beard to reload with the client event:
 ```lua
-kd_hairdresser:client:reload
+jo_hairdresser:client:reload
 ```
 
 ## 3. Configuration
 <ScriptConfig scriptPath="redm/hairdresser" />
 
-## 4. For developper
-Two client events are fired when you use the script :
-1. When you open the menu : `kd_hairdresser:event:Open`
-2. When you close the menu : `kd_hairdresser:event:Close`
+## 4. For developers
+Two client events are fired when you use the script:
+1. When you open the menu: `jo_hairdresser:event:Open`
+2. When you close the menu: `jo_hairdresser:event:Close`
 
 ### Filters
 
-[Filters](/DeveloperResources/filters) are the new way to modify data used by the script. These filters are fired at a specific point in time during the execution of the script. But contrary to events, filters are **synchronous**. 
+[Filters](/DeveloperResources/filters) are the new way to modify data used by the script. These filters are fired at a specific point in time during the execution of the script. However, unlike events, filters are **synchronous**. 
 
 - Syntax: 
 ```lua
 -- @param <actionName> - name of the action
 -- @param <argumentList> - list of arguments which are passed
-exports.kd_haidresser:registerFilter(<actionName>, function(variable)
+exports.jo_haidresser:registerFilter(<actionName>, function(variable)
   -- Add your new data here
 	return variable -- Don't forget to return the value
 end)
 ```
 
 #### <Badge type="client" text="Client" /> canOpenMenu
-Fires before sit on the chair. Return false to disable the menu
+Fires before sitting on the chair. Return false to disable the menu.
 ```lua
 -- @param canUse - boolean
-exports.kd_haidresser:registerFilter('canOpenMenu', function(canOpen)
+exports.jo_haidresser:registerFilter('canOpenMenu', function(canOpen)
 	return canOpen
 end)
 ```
