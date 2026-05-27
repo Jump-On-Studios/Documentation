@@ -244,6 +244,7 @@ export default defineConfig({
             items: [
               { text: "Main script", link: "/RedM/hairdresser" },
               { text: "Coloring", link: "/RedM/hairdresser-coloring" },
+              { text: "Makeup", link: "/RedM/hairdresser-makeup" },
             ],
           },
           {

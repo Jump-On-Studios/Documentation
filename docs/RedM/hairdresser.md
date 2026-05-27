@@ -127,6 +127,7 @@ If you use the mouse-selection integration, right-click a barber chair inside a 
 
 The Hairdresser script supports optional add-ons:
 - [Hair & Beard Coloring](hairdresser-coloring) - Lets players dye their hair and beard
+- [Makeup](hairdresser-makeup) - Lets players customize makeup and lifestyle overlays
 
 ## 4. For developers
 
@@ -208,37 +209,6 @@ AddEventHandler('jo_hairdresser:event:Close', function()
 end)
 ```
 
-### Exports
-
-#### <Badge type="client" text="Client" /> Reload all hairdresser components
-Reload hair, beard, hair accessories, teeth, and overlays.
-
-```lua
-exports.jo_hairdresser:reloadAll()
-```
-
-#### <Badge type="client" text="Client" /> Get current skin data
-Return the local hairdresser skin data.
-
-```lua
-local skin = exports.jo_hairdresser:getSkin()
-```
-
-#### <Badge type="client" text="Client" /> Turn camera
-Rotate the hairdresser camera.
-
-```lua
--- @param direction - number: -1 to rotate left, 1 to rotate right
-exports.jo_hairdresser:TurnCamera(direction)
-```
-
-#### <Badge type="client" text="Client" /> Handle hat prompt
-Run the hat prompt behavior for the current prompt group.
-
-```lua
--- @param promptGroup - string: prompt group name ("select" or "buy")
-exports.jo_hairdresser:HandleHatPrompt(promptGroup)
-```
 
 ### Filters
 
