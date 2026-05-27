@@ -32,7 +32,7 @@ https://github.com/Jump-On-Studios/redemrp_clothing/releases
 ::: details For VORP
 To fix clothes and skin, you have to edit three files :
 :::code-group
-```lua:line-numbers=267 [vorp_character/client/client.lua]
+```lua:line-numbers=284 [vorp_character/client/client.lua]
 function LoadAll(gender, ped, pedskin, components, set)
 	removeMetaTags(ped)
 	IsPedReadyToRender(ped)
@@ -56,6 +56,7 @@ function LoadAll(gender, ped, pedskin, components, set)
 	SetPedScale(ped, skin.Scale)
 	UpdatePedVariation(ped)
 	TriggerServerEvent("jo_libs:server:applySkinAndClothes",ped,skin,components) -- [!code ++]
+	IsPedReadyToRender(ped) -- [!code ++]
 	return skin
 end
 ```

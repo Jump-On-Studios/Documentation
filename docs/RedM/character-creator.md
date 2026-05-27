@@ -25,8 +25,8 @@ AddEventHandler("vorpcharacter:startCharacterCreator", function()
 end)
 ```
 To fixed clothes and skin, you have to edit two files :
-* `vorp_character/client/client.lua` - line 267
-```lua:line-numbers=267
+* `vorp_character/client/client.lua` - line 284
+```lua:line-numbers=284
 function LoadAll(gender, ped, pedskin, components, set)
 	removeMetaTags(ped)
 	IsPedReadyToRender(ped)
@@ -50,6 +50,7 @@ function LoadAll(gender, ped, pedskin, components, set)
 	SetPedScale(ped, skin.Scale)
 	UpdatePedVariation(ped)
 	TriggerServerEvent("jo_libs:server:applySkinAndClothes",ped,skin,components) -- [!code ++]
+	IsPedReadyToRender(ped) -- [!code ++]
 	return skin
 end
 ```
