@@ -57,7 +57,7 @@ Actions are one of the two types of Hooks. They provide a way to run a function 
 
 Below is the available action in the jo_hairdresser_coloring script.
 
-#### <Badge type="client" text="Client" /> init
+#### <Badge type="client" text="Client" /> Init
 Triggered when the add-on links to jo_hairdresser and registers its Hairdresser menu hooks.
 
 ```lua
@@ -72,7 +72,7 @@ end)
 
 [Filters](/DeveloperResources/filters) allow you to modify data or permissions synchronously at specific points in the script. Below is the complete list of `jo_hairdresser_coloring` filters and how to use them.
 
-#### <Badge type="client" text="Client" /> canOpenColorPalette
+#### <Badge type="client" text="Client" /> Can open color palette
 Control whether the player can open the color palette.
 
 ```lua

@@ -78,7 +78,7 @@ Actions are one of the two types of Hooks. They provide a way to run a function 
 
 Below is the available action in the jo_hairdresser_makeup script.
 
-#### <Badge type="client" text="Client" /> init
+#### <Badge type="client" text="Client" /> Init
 Triggered when the add-on links to jo_hairdresser and registers its Hairdresser menu entries.
 
 ```lua
@@ -91,7 +91,7 @@ end)
 
 [Filters](/DeveloperResources/filters) allow you to modify data or permissions synchronously at specific points in the script. Below is the complete list of `jo_hairdresser_makeup` filters and how to use them.
 
-#### <Badge type="client" text="Client" /> canOpenMakeupMenu
+#### <Badge type="client" text="Client" /> Can open makeup menu
 Control whether the Makeup entry is added to the Hairdresser menu.
 
 ```lua
@@ -101,7 +101,7 @@ exports.jo_hairdresser_makeup:registerFilter('canOpenMakeupMenu', function(canOp
 end)
 ```
 
-#### <Badge type="client" text="Client" /> canOpenLifestyleMenu
+#### <Badge type="client" text="Client" /> Can open lifestyle menu
 Control whether the Lifestyle entry is added to the Hairdresser menu.
 
 ```lua
@@ -111,7 +111,7 @@ exports.jo_hairdresser_makeup:registerFilter('canOpenLifestyleMenu', function(ca
 end)
 ```
 
-#### <Badge type="server" text="Server" /> canBuy
+#### <Badge type="server" text="Server" /> Can buy
 Control whether the purchase can continue before money is charged.
 
 ```lua

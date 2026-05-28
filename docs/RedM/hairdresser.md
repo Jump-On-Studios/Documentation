@@ -177,6 +177,24 @@ end)
 
 ### Events
 
+#### <Badge type="client" text="Client" /> Listen menu closing
+Triggered when the hairdresser menu closes.
+
+```lua
+AddEventHandler('jo_hairdresser:event:Close', function()
+    -- Your code here
+end)
+```
+
+#### <Badge type="client" text="Client" /> Listen menu opening
+Triggered when the hairdresser menu opens.
+
+```lua
+AddEventHandler('jo_hairdresser:event:Open', function()
+    -- Your code here
+end)
+```
+
 #### <Badge type="client" text="Client" /> Open the hairdresser
 Call this event from your own scripts to start the hairdresser interaction.
 
@@ -191,94 +209,12 @@ Reload the player skin from the server, then apply hairdresser components.
 TriggerEvent('jo_hairdresser:client:reloadSkin')
 ```
 
-#### <Badge type="client" text="Client" /> Listen menu opening
-Triggered when the hairdresser menu opens.
-
-```lua
-AddEventHandler('jo_hairdresser:event:Open', function()
-    -- Your code here
-end)
-```
-
-#### <Badge type="client" text="Client" /> Listen menu closing
-Triggered when the hairdresser menu closes.
-
-```lua
-AddEventHandler('jo_hairdresser:event:Close', function()
-    -- Your code here
-end)
-```
-
 
 ### Filters
 
 [Filters](/DeveloperResources/filters) allow you to modify data or permissions synchronously at specific points in the script. Below is the complete list of `jo_hairdresser` filters and how to use them.
 
-#### <Badge type="client" text="Client" /> canOpenMenu
-Control whether the player can open the hairdresser menu.
-```lua
--- @param canOpen - boolean (default true)
-exports.jo_hairdresser:registerFilter('canOpenMenu', function(canOpen)
-	return canOpen
-end)
-```
-
-#### <Badge type="client" text="Client" /> reloadAll
-Control whether hairdresser components can be reloaded.
-```lua
--- @param canUse - boolean
-exports.jo_hairdresser:registerFilter('reloadAll', function(canUse)
-	return canUse
-end)
-```
-
-#### <Badge type="client" text="Client" /> updateMenuPrompt
-Override which prompt group is displayed while navigating menus.
-```lua
--- @param promptType - string ("select" or "buy")
--- @param currentData - table: current menu item data
-exports.jo_hairdresser:registerFilter('updateMenuPrompt', function(promptType, currentData)
-	return promptType
-end)
-```
-
-#### <Badge type="client" text="Client" /> updateCurrentDataBeforeBuy
-Modify the current buy data before it is sent to the server purchase flow.
-```lua
--- @param currentData - table: current menu item data
-exports.jo_hairdresser:registerFilter('updateCurrentDataBeforeBuy', function(currentData)
-	return currentData
-end)
-```
-
-#### <Badge type="client" text="Client" /> updateLangForNUI
-Alter the language table before it is sent to the NUI menu.
-```lua
--- @param lang - table
-exports.jo_hairdresser:registerFilter('updateLangForNUI', function(lang)
-	return lang
-end)
-```
-
-#### <Badge type="client" text="Client" /> rootMenuItems
-Add high-level entries to the root hairdresser menu.
-```lua
--- @param items - table
-exports.jo_hairdresser:registerFilter('rootMenuItems', function(items)
-	return items
-end)
-```
-
-#### <Badge type="client" text="Client" /> mainMenuItems
-Add entries to the native hairdresser menu.
-```lua
--- @param items - table
-exports.jo_hairdresser:registerFilter('mainMenuItems', function(items)
-	return items
-end)
-```
-
-#### <Badge type="server" text="Server" /> canBuy
+#### <Badge type="server" text="Server" /> Can buy
 Control whether the purchase can continue before money is charged.
 ```lua
 -- @param canBuy - boolean (default true)
@@ -287,5 +223,69 @@ Control whether the purchase can continue before money is charged.
 -- @param moneyType - any: selected money type/payment context
 exports.jo_hairdresser:registerFilter('canBuy', function(canBuy, source, data, moneyType)
 	return canBuy
+end)
+```
+
+#### <Badge type="client" text="Client" /> Can open menu
+Control whether the player can open the hairdresser menu.
+```lua
+-- @param canOpen - boolean (default true)
+exports.jo_hairdresser:registerFilter('canOpenMenu', function(canOpen)
+	return canOpen
+end)
+```
+
+#### <Badge type="client" text="Client" /> Main menu items
+Add entries to the native hairdresser menu.
+```lua
+-- @param items - table
+exports.jo_hairdresser:registerFilter('mainMenuItems', function(items)
+	return items
+end)
+```
+
+#### <Badge type="client" text="Client" /> Reload all
+Control whether hairdresser components can be reloaded.
+```lua
+-- @param canUse - boolean
+exports.jo_hairdresser:registerFilter('reloadAll', function(canUse)
+	return canUse
+end)
+```
+
+#### <Badge type="client" text="Client" /> Root menu items
+Add high-level entries to the root hairdresser menu.
+```lua
+-- @param items - table
+exports.jo_hairdresser:registerFilter('rootMenuItems', function(items)
+	return items
+end)
+```
+
+#### <Badge type="client" text="Client" /> Update current data before buy
+Modify the current buy data before it is sent to the server purchase flow.
+```lua
+-- @param currentData - table: current menu item data
+exports.jo_hairdresser:registerFilter('updateCurrentDataBeforeBuy', function(currentData)
+	return currentData
+end)
+```
+
+#### <Badge type="client" text="Client" /> Update lang for NUI
+Alter the language table before it is sent to the NUI menu.
+```lua
+-- @param lang - table
+exports.jo_hairdresser:registerFilter('updateLangForNUI', function(lang)
+	return lang
+end)
+```
+
+#### <Badge type="client" text="Client" /> Update menu prompt
+Override which prompt group is displayed while navigating menus.
+```lua
+-- @param promptType - string ("select" or "buy")
+-- @param currentData - table: current menu item data
+exports.jo_hairdresser:registerFilter('updateMenuPrompt', function(promptType, currentData)
+	return promptType
 end)
 ```
