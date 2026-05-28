@@ -1,5 +1,5 @@
 # :scissors: Hairdresser
-Documentation relating to the kd_hairdresser.
+Documentation relating to jo_hairdresser.
 
 :::: tabs
 ::: tab BUY
@@ -12,26 +12,26 @@ Documentation relating to the kd_hairdresser.
 ::::
 
 ## 1. Installation
-kd_hairdresser works on all frameworks compatible with jo_libs ([the list](/jo_libs/)).
+jo_hairdresser works on all frameworks compatible with jo_libs ([the list](/jo_libs/)).
 
-To install kd_hairdresser :
+To install jo_hairdresser:
 - Download the library: [jo_libs](https://github.com/Jump-On-Studios/RedM-jo_libs/releases/latest/download/jo_libs.zip)
-- Unzip the folder and drop it in your resource folder
-- Download kd_hairdresser from your [keymaster](https://keymaster.fivem.net/asset-grants?search=hairdresser)
-- Unzip the folder and drop it in your resource folder
-- Add this ensure in your server.cfg
+- Unzip the folder and drop it into your resources folder
+- Download jo_hairdresser from your [account](https://jumpon-studios.com/account)
+- Unzip the folder and drop it into your resources folder
+- Add this ensure to your server.cfg
   - `ensure jo_libs`
-  - `ensure kd_hairdresser`
+  - `ensure jo_hairdresser`
 
-Congratulation, the Hairdresser script is ready to be use !
+Congratulations, the Hairdresser script is ready to use!
 :::warning
-Be sure you have oxmysql ensure in your server.cfg
+Make sure you have oxmysql ensured in your server.cfg.
 :::
 
-::: details For VORP
-To fixed clothes and skin, you have to edit two files :
-* `vorp_character/client/client.lua` - line 284
-```lua:line-numbers=267
+:::: details For VORP
+To fix clothes and skin, you have to edit two files:
+:::code-group
+```lua:line-numbers=267 [vorp_character/client/client.lua]
 function LoadAll(gender, ped, pedskin, components, set)
 	removeMetaTags(ped)
 	IsPedReadyToRender(ped)
@@ -59,8 +59,7 @@ function LoadAll(gender, ped, pedskin, components, set)
 	return skin
 end
 ```
-* `vorp_character/server/server.lua` - line 6
-```lua:line-numbers=6
+```lua:line-numbers=6 [vorp_character/server/server.lua]
 local function ConvertTable(comps, compTints)
 	local NewComps = {}
 
@@ -81,48 +80,212 @@ local function ConvertTable(comps, compTints)
 end
 ```
 :::
+::::
 
 ## 2. Usage
-You have two way to use my script :
 
-Go on the shop (marker on the map) and use the command /barber to seat on the chair and open the menu.
+:::: tabs
+::: tab Find a hairdresser
+Hairdressers are marked on the map with a barber blip icon when blips are enabled. By default, there are 3 hairdresser locations:
+- **Blackwater**
+- **Valentine**
+- **Saint Denis**
 
-Go on the shop and use the prompt to seat on the chair and open the menu
+Approach a barber chair and a prompt will appear when you're close enough.
+:::
 
-Use my mouse selection and right click on the barber chair to seat on it and open the menu.
+::: tab Hairdresser features
+In the hairdresser menu, you can:
+- **Change hair** - Browse, preview, and buy hairstyles
+- **Change beard** - Browse, preview, and buy beard styles for male characters
+- **Hair accessories** - Browse and buy hair accessories for female characters
+- **Edit teeth** - Change teeth options when enabled
+- **Edit eyebrow** - Change eyebrow style and opacity when enabled
+- **Switch payment options** - Choose between available prices when multiple options exist
+- **Hat prompt** - Remove or equip your hat while browsing
+- **Pomade preview** - Preview pomade on male hairstyles before buying
 
-For developer, you can force the reload of hair and beard with the client event 
-```lua
-kd_hairdresser:client:reload
-```
+Use the prompts displayed on screen to navigate, rotate your character, preview options, and purchase changes.
+:::
+
+::: tab Commands
+The script provides a chat command to open the hairdresser interaction:
+- `/hairdresser` - Sit on the nearest barber chair and open the menu
+
+The command can be customized or disabled in the configuration.
+:::
+
+::: tab Mouse selection
+If you use the mouse-selection integration, right-click a barber chair inside a configured hairdresser shop to open the interaction menu.
+:::
+::::
 
 ## 3. Configuration
 <ScriptConfig scriptPath="redm/hairdresser" />
 
-## 4. For developper
-Two client events are fired when you use the script :
-1. When you open the menu : `kd_hairdresser:event:Open`
-2. When you close the menu : `kd_hairdresser:event:Close`
+### Add-ons
 
-### Filters
+The Hairdresser script supports optional add-ons:
+- [Hair & Beard Coloring](hairdresser-coloring) - Lets players dye their hair and beard
+- [Makeup](hairdresser-makeup) - Lets players customize makeup and lifestyle overlays
 
-[Filters](/DeveloperResources/filters) are the new way to modify data used by the script. These filters are fired at a specific point in time during the execution of the script. But contrary to events, filters are **synchronous**. 
+## 4. For developers
 
-- Syntax: 
+### Actions
+
+Actions are one of the two types of Hooks. They provide a way to run a function at a specific point in the execution of scripts. Callback functions for an Action do not return anything back to the calling Action hook. They are the counterpart to Filters.
+
+Below is a complete list of all available actions in the jo_hairdresser script.
+
+#### <Badge type="client" text="Client" /> InitPrompt
+Triggered after the hairdresser prompt groups are created.
+
 ```lua
--- @param <actionName> - name of the action
--- @param <argumentList> - list of arguments which are passed
-exports.kd_haidresser:registerFilter(<actionName>, function(variable)
-  -- Add your new data here
-	return variable -- Don't forget to return the value
+exports.jo_hairdresser:registerAction('InitPrompt', function()
+    -- Your code here
 end)
 ```
 
-#### <Badge type="client" text="Client" /> canOpenMenu
-Fires before sit on the chair. Return false to disable the menu
+#### <Badge type="client" text="Client" /> LoopIn
+Triggered every frame while the player is inside the hairdresser menu.
+
+```lua
+-- @param currentPrompt - string: current prompt group ("select" or "buy")
+exports.jo_hairdresser:registerAction('LoopIn', function(currentPrompt)
+    -- Your code here
+end)
+```
+
+#### <Badge type="client" text="Client" /> reloadAll
+Triggered after hair, beard, hair accessories, teeth, and overlays are reloaded.
+
+```lua
+exports.jo_hairdresser:registerAction('reloadAll', function()
+    -- Your code here
+end)
+```
+
+#### <Badge type="client" text="Client" /> switchPrice
+Triggered when the player switches between payment options.
+
+```lua
+-- @param priceIndex - int: index of the selected price option
+exports.jo_hairdresser:registerAction('switchPrice', function(priceIndex)
+    -- Your code here
+end)
+```
+
+### Events
+
+#### <Badge type="client" text="Client" /> Listen menu closing
+Triggered when the hairdresser menu closes.
+
+```lua
+AddEventHandler('jo_hairdresser:event:Close', function()
+    -- Your code here
+end)
+```
+
+#### <Badge type="client" text="Client" /> Listen menu opening
+Triggered when the hairdresser menu opens.
+
+```lua
+AddEventHandler('jo_hairdresser:event:Open', function()
+    -- Your code here
+end)
+```
+
+#### <Badge type="client" text="Client" /> Open the hairdresser
+Call this event from your own scripts to start the hairdresser interaction.
+
+```lua
+TriggerEvent('jo_hairdresser:Enter')
+```
+
+#### <Badge type="client" text="Client" /> Reload skin
+Reload the player skin from the server, then apply hairdresser components.
+
+```lua
+TriggerEvent('jo_hairdresser:client:reloadSkin')
+```
+
+
+### Filters
+
+[Filters](/DeveloperResources/filters) allow you to modify data or permissions synchronously at specific points in the script. Below is the complete list of `jo_hairdresser` filters and how to use them.
+
+#### <Badge type="server" text="Server" /> Can buy
+Control whether the purchase can continue before money is charged.
+```lua
+-- @param canBuy - boolean (default true)
+-- @param source - serverID of the player
+-- @param data - table: purchase data
+-- @param moneyType - any: selected money type/payment context
+exports.jo_hairdresser:registerFilter('canBuy', function(canBuy, source, data, moneyType)
+	return canBuy
+end)
+```
+
+#### <Badge type="client" text="Client" /> Can open menu
+Control whether the player can open the hairdresser menu.
+```lua
+-- @param canOpen - boolean (default true)
+exports.jo_hairdresser:registerFilter('canOpenMenu', function(canOpen)
+	return canOpen
+end)
+```
+
+#### <Badge type="client" text="Client" /> Main menu items
+Add entries to the native hairdresser menu.
+```lua
+-- @param items - table
+exports.jo_hairdresser:registerFilter('mainMenuItems', function(items)
+	return items
+end)
+```
+
+#### <Badge type="client" text="Client" /> Reload all
+Control whether hairdresser components can be reloaded.
 ```lua
 -- @param canUse - boolean
-exports.kd_haidresser:registerFilter('canOpenMenu', function(canOpen)
-	return canOpen
+exports.jo_hairdresser:registerFilter('reloadAll', function(canUse)
+	return canUse
+end)
+```
+
+#### <Badge type="client" text="Client" /> Root menu items
+Add high-level entries to the root hairdresser menu.
+```lua
+-- @param items - table
+exports.jo_hairdresser:registerFilter('rootMenuItems', function(items)
+	return items
+end)
+```
+
+#### <Badge type="client" text="Client" /> Update current data before buy
+Modify the current buy data before it is sent to the server purchase flow.
+```lua
+-- @param currentData - table: current menu item data
+exports.jo_hairdresser:registerFilter('updateCurrentDataBeforeBuy', function(currentData)
+	return currentData
+end)
+```
+
+#### <Badge type="client" text="Client" /> Update lang for NUI
+Alter the language table before it is sent to the NUI menu.
+```lua
+-- @param lang - table
+exports.jo_hairdresser:registerFilter('updateLangForNUI', function(lang)
+	return lang
+end)
+```
+
+#### <Badge type="client" text="Client" /> Update menu prompt
+Override which prompt group is displayed while navigating menus.
+```lua
+-- @param promptType - string ("select" or "buy")
+-- @param currentData - table: current menu item data
+exports.jo_hairdresser:registerFilter('updateMenuPrompt', function(promptType, currentData)
+	return promptType
 end)
 ```
