@@ -1435,7 +1435,7 @@ Show or hide a menu <br>
 #### Syntax
 
 ```lua
-jo.menu.show(show, keepInput, hideRadar, animation, hideCursor)
+jo.menu.show(show, keepInput, hideRadar, playMenuAnimation, hideCursor)
 ```
 
 #### Parameters
@@ -1452,7 +1452,7 @@ jo.menu.show(show, keepInput, hideRadar, animation, hideCursor)
 > Whether to hide the radar when menu is shown <br> default: `true`
 >
 
-`animation` : _boolean_ <BadgeOptional />
+`playMenuAnimation` : _boolean_ <BadgeOptional />
 > Whether to use animation when showing/hiding the menu <br> default: `true`
 >
 
@@ -1477,7 +1477,7 @@ A function to hide temporary the menu and do action <br>
 #### Syntax
 
 ```lua
-jo.menu.softHide(cb, animation)
+jo.menu.softHide(cb, playMenuAnimation, keepBackground)
 ```
 
 #### Parameters
@@ -1486,7 +1486,7 @@ jo.menu.softHide(cb, animation)
 > Action executed before show again the menu
 >
 
-`animation` : _boolean_ <BadgeOptional />
+`playMenuAnimation` : _boolean_ <BadgeOptional />
 > Whether to use animation when showing/hiding the menu <br> default: `true`
 >
 
