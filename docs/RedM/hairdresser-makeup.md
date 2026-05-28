@@ -68,7 +68,7 @@ When multiple payment options are available, players can switch between them bef
 ::::
 
 ## 3. Configuration
-<ScriptConfig scriptPath="redm/hairdresser-makeup" />
+<ScriptConfig scriptPath="redm/makeup" />
 
 ## 4. For developers
 
