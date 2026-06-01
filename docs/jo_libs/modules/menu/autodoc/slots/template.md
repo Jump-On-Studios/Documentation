@@ -3,6 +3,11 @@
 <!-- #endregion client|MenuClass:addItem -->
 
 
+<!-- #region client|MenuClass:deleteItem -->
+
+<!-- #endregion client|MenuClass:deleteItem -->
+
+
 <!-- #region client|MenuClass:deleteValue -->
 
 <!-- #endregion client|MenuClass:deleteValue -->
@@ -43,6 +48,11 @@
 <!-- #endregion client|MenuClass:sort -->
 
 
+<!-- #region client|MenuClass:updateItem -->
+
+<!-- #endregion client|MenuClass:updateItem -->
+
+
 <!-- #region client|MenuClass:updateValue -->
 
 <!-- #endregion client|MenuClass:updateValue -->
@@ -68,6 +78,11 @@
 <!-- #endregion client|MenuItem:updateValue -->
 
 
+<!-- #region client|item:getParentMenu -->
+
+<!-- #endregion client|item:getParentMenu -->
+
+
 <!-- #region client|jo.menu.addItem -->
 
 <!-- #endregion client|jo.menu.addItem -->
@@ -76,6 +91,11 @@
 <!-- #region client|jo.menu.create -->
 
 <!-- #endregion client|jo.menu.create -->
+
+
+<!-- #region client|jo.menu.createIfNotExist -->
+
+<!-- #endregion client|jo.menu.createIfNotExist -->
 
 
 <!-- #region client|jo.menu.delete -->
@@ -161,6 +181,11 @@
 <!-- #region client|jo.menu.isOpen -->
 
 <!-- #endregion client|jo.menu.isOpen -->
+
+
+<!-- #region client|jo.menu.isSoftHidden -->
+
+<!-- #endregion client|jo.menu.isSoftHidden -->
 
 
 <!-- #region client|jo.menu.missingMenuHandler -->
@@ -251,4 +276,9 @@
 <!-- #region shared|jo.menu.isPriceFree -->
 
 <!-- #endregion shared|jo.menu.isPriceFree -->
+
+
+<!-- #region shared|jo.menu.mergePrices -->
+
+<!-- #endregion shared|jo.menu.mergePrices -->
 

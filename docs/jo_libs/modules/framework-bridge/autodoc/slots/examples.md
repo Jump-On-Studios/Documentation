@@ -1,4 +1,4 @@
-<!-- #region FrameworkClass|jo.framework:addItemInInventory -->
+<!-- #region server|jo.framework:addItemInInventory -->
 #### Example
 ```lua
 local source = 1
@@ -9,10 +9,10 @@ local metadata = { id = 321 }
 jo.framework:addItemInInventory(source, id, item, quantity, metadata)
 
 ```
-<!-- #endregion FrameworkClass|jo.framework:addItemInInventory -->
+<!-- #endregion server|jo.framework:addItemInInventory -->
 
 
-<!-- #region FrameworkClass|jo.framework:canUseItem -->
+<!-- #region server|jo.framework:canUseItem -->
 #### Example
 ```lua
 local source = 1
@@ -22,10 +22,10 @@ local canUseWater = jo.framework:canUseItem(source, item, amount, nil, nil)
 print(canUseWater)
 
 ```
-<!-- #endregion FrameworkClass|jo.framework:canUseItem -->
+<!-- #endregion server|jo.framework:canUseItem -->
 
 
-<!-- #region FrameworkClass|jo.framework:createInventory -->
+<!-- #region server|jo.framework:createInventory -->
 #### Example
 ```lua
 local id = "locker:sheriff"
@@ -42,10 +42,10 @@ local definition = {
 jo.framework:createInventory(id, label, definition)
 
 ```
-<!-- #endregion FrameworkClass|jo.framework:createInventory -->
+<!-- #endregion server|jo.framework:createInventory -->
 
 
-<!-- #region FrameworkClass|jo.framework:getItemsFromInventory -->
+<!-- #region server|jo.framework:getItemsFromInventory -->
 #### Example
 ```lua
 local source = 1
@@ -56,10 +56,10 @@ for key, item in pairs(items) do
 end
 
 ```
-<!-- #endregion FrameworkClass|jo.framework:getItemsFromInventory -->
+<!-- #endregion server|jo.framework:getItemsFromInventory -->
 
 
-<!-- #region FrameworkClass|jo.framework:giveItem -->
+<!-- #region server|jo.framework:giveItem -->
 #### Example
 ```lua
 local source = 1
@@ -69,10 +69,10 @@ local itemGave = jo.framework:giveItem(source, item, amount)
 print(itemGave)
 
 ```
-<!-- #endregion FrameworkClass|jo.framework:giveItem -->
+<!-- #endregion server|jo.framework:giveItem -->
 
 
-<!-- #region FrameworkClass|jo.framework:openInventory -->
+<!-- #region server|jo.framework:openInventory -->
 #### Example
 ```lua
 local source = 1
@@ -80,10 +80,10 @@ local id = "locker:sheriff"
 jo.framework:openInventory(source, id)
 
 ```
-<!-- #endregion FrameworkClass|jo.framework:openInventory -->
+<!-- #endregion server|jo.framework:openInventory -->
 
 
-<!-- #region FrameworkClass|jo.framework:registerUseItem -->
+<!-- #region server|jo.framework:registerUseItem -->
 #### Example
 ```lua
 jo.framework:registerUseItem('water', true, function(source, metadata)
@@ -92,17 +92,17 @@ jo.framework:registerUseItem('water', true, function(source, metadata)
 end)
 
 ```
-<!-- #endregion FrameworkClass|jo.framework:registerUseItem -->
+<!-- #endregion server|jo.framework:registerUseItem -->
 
 
-<!-- #region FrameworkClass|jo.framework:removeInventory -->
+<!-- #region server|jo.framework:removeInventory -->
 #### Example
 ```lua
 local id = "locker:sheriff"
 jo.framework:removeInventory(id)
 
 ```
-<!-- #endregion FrameworkClass|jo.framework:removeInventory -->
+<!-- #endregion server|jo.framework:removeInventory -->
 
 
 <!-- #region UserClass|UserClass:addMoney -->
@@ -439,11 +439,11 @@ jo.framework:updateUserSkin(source, category, data, overwrite)
 ```
 <!-- #endregion server|jo.framework:updateUserSkin -->
 
-<!-- #region FrameworkClass|jo.framework:onCharacterSelected -->
+<!-- #region server|jo.framework:onCharacterSelected -->
 #### Example
 ```lua
 jo.framework:onCharacterSelected(function(source)
   print('A new player select his character', source)
 end)
 ```
-<!-- #endregion FrameworkClass|jo.framework:onCharacterSelected -->
+<!-- #endregion server|jo.framework:onCharacterSelected -->

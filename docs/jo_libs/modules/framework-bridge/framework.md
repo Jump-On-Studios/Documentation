@@ -33,7 +33,6 @@ If you have a custom framework, you can overwrite methods by added the one you w
 ---
 
 
-
 # UserClass Methods
 Documentation for the [User](./user.md) 
 
