@@ -35,5 +35,5 @@ The **framework bridge** module is compatible with these frameworks:
 ## Functions
 
 Documentation for the [Framework](./framework.md)  
-Documentation for the [User](./user.md) 
+
 
