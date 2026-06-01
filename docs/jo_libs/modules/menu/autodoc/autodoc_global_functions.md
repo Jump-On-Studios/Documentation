@@ -364,8 +364,6 @@ MenuClass:sort(first, last)
 
 <!-- @include: ./slots/headers.md#client|MenuClass:updateItem -->
 
- <br>
- <br>
 Update a specific property of a menu [item](#item-methods) <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:updateItem -->
@@ -1174,8 +1172,6 @@ jo.menu.isSoftHidden()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.missingMenuHandler -->
 
- <br>
- <br>
 Register a handler for missing menu error <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.missingMenuHandler -->

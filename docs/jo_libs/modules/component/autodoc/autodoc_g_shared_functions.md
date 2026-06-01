@@ -5,10 +5,6 @@
 
 <!-- @include: ./slots/headers.md#g_shared|jo.component.formatComponentData -->
 
- <br>
- <br>
- <br>
- <br>
 A function to format component data <br>
 
 <!-- @include: ./slots/descriptions.md#g_shared|jo.component.formatComponentData -->
@@ -217,12 +213,6 @@ Type : _table_
 
 <!-- @include: ./slots/headers.md#g_shared|jo.component.getFullPedComponentList -->
 
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
 A function to get the list of clothes sorted by sex and category <br>
 
 <!-- @include: ./slots/descriptions.md#g_shared|jo.component.getFullPedComponentList -->

@@ -5,8 +5,6 @@
 
 <!-- @include: ./slots/headers.md#server|jo.player.instanceChanged -->
 
- <br>
- <br>
 A function fired when a player's routing bucket (instance) changes <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.player.instanceChanged -->

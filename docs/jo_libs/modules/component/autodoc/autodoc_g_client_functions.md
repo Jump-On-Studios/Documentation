@@ -327,10 +327,6 @@ Type : _table|integer,integer,integer,integer,integer,integer,integer,integer_
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getCategoriesEquiped -->
 
- <br>
- <br>
- <br>
- <br>
 Return the list of component categories equiped on the ped <br>
 
 <!-- @include: ./slots/descriptions.md#g_client|jo.component.getCategoriesEquiped -->
@@ -539,10 +535,6 @@ Type : _table_
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.getPaletteNameFromHash -->
 
- <br>
- <br>
- <br>
- <br>
 A function to get the palette name from a hash value <br>
 
 <!-- @include: ./slots/descriptions.md#g_client|jo.component.getPaletteNameFromHash -->
@@ -797,10 +789,6 @@ Type : _boolean_
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.refreshPed -->
 
- <br>
- <br>
- <br>
- <br>
 A function to refresh the ped components <br>
 
 <!-- @include: ./slots/descriptions.md#g_client|jo.component.refreshPed -->
@@ -883,10 +871,6 @@ jo.component.removeAllClothes(ped)
 
 <!-- @include: ./slots/headers.md#g_client|jo.component.setWearableState -->
 
- <br>
- <br>
- <br>
- <br>
 A function to edit the wearable state of a category <br>
 
 <!-- @include: ./slots/descriptions.md#g_client|jo.component.setWearableState -->

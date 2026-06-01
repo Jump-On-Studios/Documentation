@@ -302,8 +302,6 @@ Type : _boolean,vector3,integer_
 
 <!-- @include: ./slots/headers.md#client|jo.entity.requestControl -->
 
- <br>
- <br>
 Request control of an entity and wait until it's granted <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.entity.requestControl -->

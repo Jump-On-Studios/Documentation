@@ -1,16 +1,75 @@
 <!-- #region group_1 -->
+## Constructor
+
+### <Badge type="server" text="Server" /> jo.framework.UserClass:get()
+
+<!-- @include: ./slots/headers.md#server|jo.framework.UserClass:get -->
+
+Creates and returns a new User instance for the specified player <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework.UserClass:get -->
+
+#### Syntax
+
+```lua
+jo.framework.UserClass:get(source)
+```
+
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+#### Return Value
+
+Type : _[UserClass](#userclass-methods)_
+
+> Return a User class object containing player data and methods
+
+<!-- @include: ./slots/examples.md#server|jo.framework.UserClass:get -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework.UserClass:get -->
+
+<!-- #endregion group_1 -->
+
+<!-- #region group_2 -->
 ## UserClass Methods
+
+### <Badge type="server" text="Server" /> UserClass:addMoney()
+
+<!-- @include: ./slots/headers.md#server|UserClass:addMoney -->
+
+Adds money to the player <br>
+
+<!-- @include: ./slots/descriptions.md#server|UserClass:addMoney -->
+
+#### Syntax
+
+```lua
+UserClass:addMoney(amount, moneyType)
+```
+
+#### Parameters
+
+`amount` : _number_
+> The amount of money to add
+>
+
+`moneyType` : _integer_
+> The type of currency: `0`: dollar, `1`: gold, `2`: rol
+>
+
+<!-- @include: ./slots/examples.md#server|UserClass:addMoney -->
+
+<!-- @include: ./slots/footers.md#server|UserClass:addMoney -->
+
+---
 
 ### <Badge type="server" text="Server" /> UserClass:canBuy()
 
 <!-- @include: ./slots/headers.md#server|UserClass:canBuy -->
 
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
 Checks if a player has sufficient funds of a specified currency type <br>
 
 <!-- @include: ./slots/descriptions.md#server|UserClass:canBuy -->
@@ -47,6 +106,142 @@ Type : _boolean_
 
 ---
 
+### <Badge type="server" text="Server" /> UserClass:getIdentifiers()
+
+<!-- @include: ./slots/headers.md#server|UserClass:getIdentifiers -->
+
+Retrieves all identifiers associated with the player <br>
+
+<!-- @include: ./slots/descriptions.md#server|UserClass:getIdentifiers -->
+
+#### Syntax
+
+```lua
+UserClass:getIdentifiers()
+```
+
+#### Return Value
+
+Type : _table_
+
+> Return the player's identifiers <br> `identifiers.identifier` - Unique identifier of the player <br> `identifiers.charid` - Unique id of the player
+
+<!-- @include: ./slots/examples.md#server|UserClass:getIdentifiers -->
+
+<!-- @include: ./slots/footers.md#server|UserClass:getIdentifiers -->
+
+---
+
+### <Badge type="server" text="Server" /> UserClass:getJob()
+
+<!-- @include: ./slots/headers.md#server|UserClass:getJob -->
+
+Returns the current job assigned to a player <br>
+
+<!-- @include: ./slots/descriptions.md#server|UserClass:getJob -->
+
+#### Syntax
+
+```lua
+UserClass:getJob()
+```
+
+#### Return Value
+
+Type : _string_
+
+> Returns the job name of the player
+
+<!-- @include: ./slots/examples.md#server|UserClass:getJob -->
+
+<!-- @include: ./slots/footers.md#server|UserClass:getJob -->
+
+---
+
+### <Badge type="server" text="Server" /> UserClass:getJobGrade()
+
+<!-- @include: ./slots/headers.md#server|UserClass:getJobGrade -->
+
+Returns the current job grade assigned to a player <br>
+
+<!-- @include: ./slots/descriptions.md#server|UserClass:getJobGrade -->
+
+#### Syntax
+
+```lua
+UserClass:getJobGrade()
+```
+
+#### Return Value
+
+Type : _number_
+
+> Returns the job grade of the player
+
+<!-- @include: ./slots/examples.md#server|UserClass:getJobGrade -->
+
+<!-- @include: ./slots/footers.md#server|UserClass:getJobGrade -->
+
+---
+
+### <Badge type="server" text="Server" /> UserClass:getMoney()
+
+<!-- @include: ./slots/headers.md#server|UserClass:getMoney -->
+
+Gets the amount of money a player has of the specified type <br>
+
+<!-- @include: ./slots/descriptions.md#server|UserClass:getMoney -->
+
+#### Syntax
+
+```lua
+UserClass:getMoney(moneyType)
+```
+
+#### Parameters
+
+`moneyType` : _integer_
+> The type of currency: `0`: dollar, `1`: gold, `2`: rol
+>
+
+#### Return Value
+
+Type : _number_
+
+> Return the amount for this kind of money
+
+<!-- @include: ./slots/examples.md#server|UserClass:getMoney -->
+
+<!-- @include: ./slots/footers.md#server|UserClass:getMoney -->
+
+---
+
+### <Badge type="server" text="Server" /> UserClass:getRPName()
+
+<!-- @include: ./slots/headers.md#server|UserClass:getRPName -->
+
+Returns the roleplay name (first and last name) of the player <br>
+
+<!-- @include: ./slots/descriptions.md#server|UserClass:getRPName -->
+
+#### Syntax
+
+```lua
+UserClass:getRPName()
+```
+
+#### Return Value
+
+Type : _string_
+
+> Returns the formatted first and last name of the player
+
+<!-- @include: ./slots/examples.md#server|UserClass:getRPName -->
+
+<!-- @include: ./slots/footers.md#server|UserClass:getRPName -->
+
+---
+
 ### <Badge type="server" text="Server" /> UserClass:giveGold()
 
 <!-- @include: ./slots/headers.md#server|UserClass:giveGold -->
@@ -71,19 +266,45 @@ UserClass:giveGold(amount)
 
 <!-- @include: ./slots/footers.md#server|UserClass:giveGold -->
 
-<!-- #endregion group_1 -->
+---
 
-<!-- #region group_2 -->
+### <Badge type="server" text="Server" /> UserClass:removeMoney()
+
+<!-- @include: ./slots/headers.md#server|UserClass:removeMoney -->
+
+Removes money from the player <br>
+
+<!-- @include: ./slots/descriptions.md#server|UserClass:removeMoney -->
+
+#### Syntax
+
+```lua
+UserClass:removeMoney(amount, moneyType)
+```
+
+#### Parameters
+
+`amount` : _number_
+> The amount of money to remove
+>
+
+`moneyType` : _integer_
+> The type of currency: `0`: dollar, `1`: gold, `2`: rol
+>
+
+<!-- @include: ./slots/examples.md#server|UserClass:removeMoney -->
+
+<!-- @include: ./slots/footers.md#server|UserClass:removeMoney -->
+
+<!-- #endregion group_2 -->
+
+<!-- #region group_3 -->
 ## jo.framework Methods
 
 ### <Badge type="client" text="Client" /> jo.framework:getMyIdentifiers()
 
 <!-- @include: ./slots/headers.md#client|jo.framework:getMyIdentifiers -->
 
- <br>
- <br>
- <br>
- <br>
 A function to get the user identifiers <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.framework:getMyIdentifiers -->
@@ -97,6 +318,54 @@ jo.framework:getMyIdentifiers()
 <!-- @include: ./slots/examples.md#client|jo.framework:getMyIdentifiers -->
 
 <!-- @include: ./slots/footers.md#client|jo.framework:getMyIdentifiers -->
+
+---
+
+### <Badge type="server" text="Server" /> jo.framework:addItemInInventory()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:addItemInInventory -->
+
+Adds a specific item to a custom inventory with optional metadata and wait parameter <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:addItemInInventory -->
+
+#### Syntax
+
+```lua
+jo.framework:addItemInInventory(source, invId, item, quantity, metadata, needWait)
+```
+
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+`invId` : _string_
+> The unique ID of the inventory
+>
+
+`item` : _string_
+> The name of the item
+>
+
+`quantity` : _integer_
+> The quantity of the item
+>
+
+`metadata` : _table_ <BadgeOptional />
+
+> The metadata of the item
+>
+
+
+`needWait` : _boolean_ <BadgeOptional />
+> If need to wait after the SQL insertion <br> default:`false`
+>
+
+<!-- @include: ./slots/examples.md#server|jo.framework:addItemInInventory -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:addItemInInventory -->
 
 ---
 
@@ -137,6 +406,56 @@ Type : _boolean_
 <!-- @include: ./slots/examples.md#server|jo.framework:addMoney -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework:addMoney -->
+
+---
+
+### <Badge type="server" text="Server" /> jo.framework:canUseItem()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:canUseItem -->
+
+Checks if a player has the required quantity of a specific item in their inventory and optionally removes it <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:canUseItem -->
+
+#### Syntax
+
+```lua
+jo.framework:canUseItem(source, item, amount, meta, remove)
+```
+
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+`item` : _string_
+> The name of the item need to use
+>
+
+`amount` : _integer_
+> The quantity of the item
+>
+
+`meta` : _table_ <BadgeOptional />
+
+> The metadata of the item
+>
+
+
+`remove` : _boolean_ <BadgeOptional />
+> If the item has to be removed <br> default:`false`
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> Return `true` if the player has enough quantity of the item
+
+<!-- @include: ./slots/examples.md#server|jo.framework:canUseItem -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:canUseItem -->
 
 ---
 
@@ -225,6 +544,58 @@ Type : _boolean,_
 
 ---
 
+### <Badge type="server" text="Server" /> jo.framework:createInventory()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:createInventory -->
+
+Creates a custom inventory with configurable slots, weight limits, and item restrictions <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:createInventory -->
+
+#### Syntax
+
+```lua
+jo.framework:createInventory(invName, name, invConfig)
+```
+
+#### Parameters
+
+`invName` : _string_
+> Unique id of the inventory
+>
+
+`name` : _string_
+> Label of the inventory
+>
+
+`invConfig` : _table_
+
+> Configuration of the inventory
+>
+
+> `invConfig.maxSlots` : _integer_ - Max slot of the inventory
+> 
+> `invConfig.maxWeight` : _float_ - Max weight of the inventory
+> 
+> `invConfig.acceptWeapons` : _boolean_ - Whether the inventory accepts weapons <BadgeOptional />
+> 
+> `invConfig.shared` : _boolean_ - If the inventory is shared between players <BadgeOptional />
+> 
+> `invConfig.ignoreStackLimit` : _boolean_ - If the inventory can overcoming stack limits <BadgeOptional />
+> 
+> `invConfig.whitelist` : _table_ - Restrict the list of items that can be put in the inventory <BadgeOptional />
+> 
+> `invConfig.whitelistˌ_x_ˌitem` : _string_ - Name of the whitelisted item
+> 
+> `invConfig.whitelistˌ_x_ˌlimit` : _integer_ - Stack limit of this item
+> 
+
+<!-- @include: ./slots/examples.md#server|jo.framework:createInventory -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:createInventory -->
+
+---
+
 ### <Badge type="server" text="Server" /> jo.framework:get()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:get -->
@@ -248,6 +619,38 @@ Type : _string_
 <!-- @include: ./slots/examples.md#server|jo.framework:get -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework:get -->
+
+---
+
+### <Badge type="server" text="Server" /> jo.framework:getItemsFromInventory()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:getItemsFromInventory -->
+
+Retrieves all items from a specific inventory with their quantities and metadata <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:getItemsFromInventory -->
+
+#### Syntax
+
+```lua
+jo.framework:getItemsFromInventory(invId)
+```
+
+#### Parameters
+
+`invId` : _string_
+> The unique ID of the inventory
+>
+
+#### Return Value
+
+Type : _table_
+
+> Return the list of items with structure : <br> `item.amount` : *integer* - The amount of the item<br> `item.id` : *integer* - The id of the item<br>`item.item` : *string* - The name of the item<br>`item.metadata` : *table* - The metadata of the item<br>
+
+<!-- @include: ./slots/examples.md#server|jo.framework:getItemsFromInventory -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:getItemsFromInventory -->
 
 ---
 
@@ -479,6 +882,52 @@ Type : _table_
 
 ---
 
+### <Badge type="server" text="Server" /> jo.framework:giveItem()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:giveItem -->
+
+Adds an item to a player's inventory with optional metadata <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:giveItem -->
+
+#### Syntax
+
+```lua
+jo.framework:giveItem(source, item, quantity, meta)
+```
+
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+`item` : _string_
+> The name of the item
+>
+
+`quantity` : _integer_
+> The amount of the item to give
+>
+
+`meta` : _table_ <BadgeOptional />
+
+> The metadata of the item
+>
+
+
+#### Return Value
+
+Type : _boolean_
+
+> Return `true` if the item is successfully given
+
+<!-- @include: ./slots/examples.md#server|jo.framework:giveItem -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:giveItem -->
+
+---
+
 ### <Badge type="server" text="Server" /> jo.framework:is()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:is -->
@@ -601,6 +1050,36 @@ jo.framework:onCharacterSelected(cb)
 
 ---
 
+### <Badge type="server" text="Server" /> jo.framework:openInventory()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:openInventory -->
+
+Opens a specific inventory <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:openInventory -->
+
+#### Syntax
+
+```lua
+jo.framework:openInventory(source, invName)
+```
+
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+`invName` : _string_
+> The unique ID of the inventory
+>
+
+<!-- @include: ./slots/examples.md#server|jo.framework:openInventory -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:openInventory -->
+
+---
+
 ### <Badge type="server" text="Server" /> jo.framework:refundUserWith()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:refundUserWith -->
@@ -635,6 +1114,66 @@ Type : _nil_
 <!-- @include: ./slots/examples.md#server|jo.framework:refundUserWith -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework:refundUserWith -->
+
+---
+
+### <Badge type="server" text="Server" /> jo.framework:registerUseItem()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:registerUseItem -->
+
+Registers an item as usable and attaches a callback function that executes when the item is used <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:registerUseItem -->
+
+#### Syntax
+
+```lua
+jo.framework:registerUseItem(item, closeAfterUsed, callback)
+```
+
+#### Parameters
+
+`item` : _string_
+> The name of the item
+>
+
+`closeAfterUsed` : _boolean_ <BadgeOptional />
+> If the inventory needs to be closed after using the item <br> default:`true`
+>
+
+`callback` : _function_
+> The function fired after use the item <br> 1st argument: source <br> 2nd argument: metadata of the item
+>
+
+<!-- @include: ./slots/examples.md#server|jo.framework:registerUseItem -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:registerUseItem -->
+
+---
+
+### <Badge type="server" text="Server" /> jo.framework:removeInventory()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:removeInventory -->
+
+Removes an inventory from the *server cache*, useful for reloading inventory data from the database <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:removeInventory -->
+
+#### Syntax
+
+```lua
+jo.framework:removeInventory(invName)
+```
+
+#### Parameters
+
+`invName` : _string_
+> Unique id of the inventory
+>
+
+<!-- @include: ./slots/examples.md#server|jo.framework:removeInventory -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:removeInventory -->
 
 ---
 
@@ -1028,4 +1567,4 @@ jo.framework:loadInventoryFiles(file)
 
 <!-- @include: ./slots/footers.md#shared|jo.framework:loadInventoryFiles -->
 
-<!-- #endregion group_2 -->
+<!-- #endregion group_3 -->
