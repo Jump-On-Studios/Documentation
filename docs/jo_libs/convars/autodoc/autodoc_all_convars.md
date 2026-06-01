@@ -2,7 +2,7 @@
 
 This document lists all configuration variables used in jo_libs, grouped by module.
 
-Total convars: 53
+Total convars: 52
 
 ## Modules
 
@@ -34,12 +34,6 @@ Total convars: 53
 | Convar | Side | Type | Default | Description |
 |--------|------|------|---------|-------------|
 | `jo_libs:emit:bps` | <Badge type="shared" text="Shared" /> | Integer | `20000` | Default bit/s for latent events |
-
-### Framework-bridge
-
-| Convar | Side | Type | Default | Description |
-|--------|------|------|---------|-------------|
-| `jo_libs:framework` | <Badge type="shared" text="Shared" /> | String | `false` | Force the framework |
 
 ### Gizmo
 

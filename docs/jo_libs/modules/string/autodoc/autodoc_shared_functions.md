@@ -59,6 +59,32 @@ Type : _number_
 
 ---
 
+### string:extractConvarComparator()
+
+<!-- @include: ./slots/headers.md#shared|string:extractConvarComparator -->
+
+Extract resource, convar, comparator and value from a "resourceName[:convar](< > <= >= ==)value" [string](#string-methods) <br>
+The ":convar" part is optional (eg. "rsg-core>=2.0.0") <br>
+
+<!-- @include: ./slots/descriptions.md#shared|string:extractConvarComparator -->
+
+#### Syntax
+
+```lua
+string:extractConvarComparator()
+```
+
+#### Return Value
+
+Type : _[string](#string-methods)?_
+
+
+<!-- @include: ./slots/examples.md#shared|string:extractConvarComparator -->
+
+<!-- @include: ./slots/footers.md#shared|string:extractConvarComparator -->
+
+---
+
 ### string:firstToUpper()
 
 <!-- @include: ./slots/headers.md#shared|string:firstToUpper -->

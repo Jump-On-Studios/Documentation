@@ -18,6 +18,11 @@
 <!-- #endregion shared|string:convertVersion -->
 
 
+<!-- #region shared|string:extractConvarComparator -->
+
+<!-- #endregion shared|string:extractConvarComparator -->
+
+
 <!-- #region shared|string:firstToUpper -->
 
 <!-- #endregion shared|string:firstToUpper -->
