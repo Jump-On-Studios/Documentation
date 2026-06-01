@@ -32,33 +32,20 @@ https://github.com/Jump-On-Studios/redemrp_clothing/releases
 ::: details For VORP
 To fix clothes and skin, you have to edit three files :
 :::code-group
-```lua:line-numbers=284 [vorp_character/client/client.lua]
-function LoadAll(gender, ped, pedskin, components, set)
-	removeMetaTags(ped)
-	IsPedReadyToRender(ped)
-	ResetPedComponents(ped)
-	local skin = setDefaultSkin(gender, pedskin)
-	ApplyShopItemToPed(skin.HeadType, ped)
-	ApplyShopItemToPed(skin.BodyType, ped)
-	ApplyShopItemToPed(skin.LegsType, ped)
-	ApplyShopItemToPed(skin.Eyes, ped)
-	ApplyShopItemToPed(skin.Legs, ped)
-	ApplyShopItemToPed(skin.Hair, ped)
-	ApplyShopItemToPed(skin.Beard, ped)
-	ApplyShopItemToPed(skin.Torso, ped)
-	EquipMetaPedOutfit(skin.Waist, ped)
-	EquipMetaPedOutfit(skin.Body, ped)
-	Citizen.InvokeNative(0xAAB86462966168CE, ped, 1)
-	LoadFaceFeatures(ped, skin)
-	UpdatePedVariation(ped)
-	IsPedReadyToRender(ped)
-	LoadComps(ped, components, set)
-	SetPedScale(ped, skin.Scale)
-	UpdatePedVariation(ped)
-	TriggerServerEvent("jo_libs:server:applySkinAndClothes",ped,skin,components) -- [!code ++]
-	IsPedReadyToRender(ped) -- [!code ++]
-	return skin
-end
+```lua:line-numbers=404 [vorp_character/client/client.lua]
+LoadCharacterSelect(playerPed, value.skin, value.components)
+CachedSkin = value.skin
+canContinue = false
+ApplyFaceOverlays(value.skin)
+canContinue = true
+FaceOverlay("grime", value.skin.grime_visibility, value.skin.grime_tx_id, 0, 0, 0, 1.0, 0, 1, 0, 0, 0, 1, value.skin.grime_opacity)
+Wait(500)
+
+TriggerServerEvent("jo_libs:server:applySkinAndClothes", playerPed, value.skin, value.components) -- [!code ++]
+Wait(500) -- [!code ++]
+IsPedReadyToRender(playerPed) -- [!code ++]
+
+data.PedHandler = ClonePed(playerPed, false, false, false, false)
 ```
 ```lua:line-numbers=6 [vorp_character/server/server.lua]
 local function ConvertTable(comps, compTints)
