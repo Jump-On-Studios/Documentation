@@ -89,6 +89,23 @@ end)
 
 [Filters](/DeveloperResources/filters) allow you to modify data or permissions synchronously at specific points in the script.
 
+#### <Badge type="server" text="Server" /> canBuyOutfit
+Control whether a player can buy a premade outfit. This filter is called after the selected outfit has been cleaned and before the payment is charged.
+
+```lua
+-- @param canBuy - boolean (default true)
+-- @param source - integer server ID of the player
+-- @param name - string outfit name entered by the player
+-- @param outfit - table cleaned outfit data that will be saved/applied
+-- @param price - table selected price for the outfit
+-- @param sexe - string outfit sex category
+-- @param outfitIndex - integer premade outfit index
+-- @param variationIndex - integer premade outfit variation index
+exports.jo_clothingstore_outfits:registerFilter("canBuyOutfit", function(canBuy, source, name, outfit, price, sexe, outfitIndex, variationIndex)
+    return canBuy
+end)
+```
+
 #### <Badge type="client" text="Client" /> canOpenPremadeOutfitsMenu
 Control whether the player can open the premade outfits menu.
 
