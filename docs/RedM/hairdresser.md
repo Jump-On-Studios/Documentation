@@ -3,7 +3,10 @@ Documentation relating to jo_hairdresser.
 
 :::: tabs
 ::: tab BUY
-[Buy the script](https://jumpon-studios.com/redm/hairdresser-npc)
+[Buy the script](https://jumpon-studios.com/redm/hairdresser)
+:::
+::: tab PREVIEW
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fk8_NfIcVTo?si=jPp9u4nlWKLpOtj1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
 ::::
 

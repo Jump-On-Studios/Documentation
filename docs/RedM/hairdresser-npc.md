@@ -3,11 +3,7 @@ Documentation relating to the **jo_hairdresser_npc** add-on for the [Hairdresser
 
 :::: tabs
 ::: tab BUY
-[Buy the add-on](https://jumpon-studios.com/redm/makeup)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ybDiAx_a-1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[Buy the add-on](https://jumpon-studios.com/redm/hairdresser-npc)
 :::
 ::::
 
