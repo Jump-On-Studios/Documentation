@@ -245,6 +245,7 @@ export default defineConfig({
               { text: "Main script", link: "/RedM/hairdresser" },
               { text: "Coloring", link: "/RedM/hairdresser-coloring" },
               { text: "Makeup", link: "/RedM/hairdresser-makeup" },
+              { text: "NPC Hair & Beard", link: "/RedM/hairdresser-npc" },
             ],
           },
           {
