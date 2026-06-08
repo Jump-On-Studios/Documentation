@@ -341,31 +341,9 @@ See examples below.
 
 ```lua [Basic Configuration]
 -- ==================================================================================
--- Add inside the ./overwriteConfig.lua file
+-- Add inside the jo_radial\config\custom\menus.lua file
 -- ==================================================================================
 
-
-
-Config.openKey = 'F7' -- Key to open the menu, find all the controls here : https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
-
--- Hold key to open menu (true) or toggle on/off (false, default)
-Config.holdToOpen = false
-
-Config.radial = {
-    color = "#ff0000",                                         -- Primary color for the radial menu (hex color)
-    centerOpacity = 0.6,                                       -- Opacity of the center background
-    logo = "https://jumpon-studios.com/images/logo_no_bg.png", -- Logo URL displayed in center
-    hotkeys = {
-        enabled = true,                                        -- Enable/disable hotkey binding feature
-        mode = "hotbar",                                       -- "hotbar" (0-9 keys) or "hotkeys" (Any key)
-        activationKey = "L ALT",                             -- Modifier key required to trigger (CTRL, ALT, SHIFT), , find all the usable controls here :https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
-        disableAllControlActions = true                        -- When `true`, disables all control actions while the activation key is held to avoid conflicts
-    }
-}
-
-Config.commands = {
-    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
-}
 
 Config.radialMenuItems = {
     {
@@ -445,14 +423,8 @@ Config.radialMenuItems = {
 
 ```lua [VORP]
 -- ==================================================================================
--- Add inside the ./overwriteConfig.lua file
+-- Add inside the jo_radial\config\custom\menus.lua file
 -- ==================================================================================
-
--- Keybind to open the radial menu
-Config.openKey = "F7"
-
--- Hold key to open menu (true) or toggle on/off (false, default)
-Config.holdToOpen = false
 
 -- ===== MENU DEFINITIONS =====
 -- These are reusable menu definitions that can be referenced in the main menu structure
@@ -460,22 +432,6 @@ Config.holdToOpen = false
 -- Dynamically created emotes menu from Config.emotes (creates 12 emote items)
 local emotesMenu = CreateEmotesMenu(12)
 
--- UI Configuration for the radial menu appearance
-Config.radial = {
-    color = "#ff0000",                                         -- Primary color for the radial menu (hex color)
-    centerOpacity = 0.6,                                       -- Opacity of the center background
-    logo = "https://jumpon-studios.com/images/logo_no_bg.png", -- Logo URL displayed in center
-    hotkeys = {
-        enabled = true,                                        -- Enable/disable hotkey binding feature
-        mode = "hotbar",                                       -- "hotbar" (0-9 keys) or "hotkeys" (Any key)
-        activationKey = "L ALT",                             -- Modifier key required to trigger (CTRL, ALT, SHIFT), , find all the usable controls here :https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
-        disableAllControlActions = true                        -- When `true`, disables all control actions while the activation key is held to avoid conflicts
-    }
-}
-
-Config.commands = {
-    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
-}
 
 -- Example menu demonstrating different item types and properties
 local exampleMenu = {
@@ -744,14 +700,8 @@ Config.radialMenuItems = {
 
 ```lua [RSG]
 -- ==================================================================================
--- Add inside the ./overwriteConfig.lua file
+-- Add inside the jo_radial\config\custom\menus.lua file
 -- ==================================================================================
-
--- Keybind to open the radial menu
-Config.openKey = "F7"
-
--- Hold key to open menu (true) or toggle on/off (false, default)
-Config.holdToOpen = false
 
 -- ===== MENU DEFINITIONS =====
 -- These are reusable menu definitions that can be referenced in the main menu structure
@@ -760,22 +710,6 @@ Config.holdToOpen = false
 local emotesMenu = CreateEmotesMenu(12)
 local RSG = exports['rsg-core']:GetCoreObject()
 
--- UI Configuration for the radial menu appearance
-Config.radial = {
-    color = "#ff0000",                                         -- Primary color for the radial menu (hex color)
-    centerOpacity = 0.6,                                       -- Opacity of the center background
-    logo = "https://jumpon-studios.com/images/logo_no_bg.png", -- Logo URL displayed in center
-    hotkeys = {
-        enabled = true,                                        -- Enable/disable hotkey binding feature
-        mode = "hotbar",                                       -- "hotbar" (0-9 keys) or "hotkeys" (Any key)
-        activationKey = "L ALT",                             -- Modifier key required to trigger (CTRL, ALT, SHIFT), , find all the usable controls here :https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
-        disableAllControlActions = true                        -- When `true`, disables all control actions while the activation key is held to avoid conflicts
-    }
-}
-
-Config.commands = {
-    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
-}
 
 -- Example menu demonstrating different item types and properties
 local exampleMenu = {
@@ -1043,30 +977,9 @@ Config.radialMenuItems = {
 
 ```lua [Advanced Configuration]
 -- ==================================================================================
--- Add inside the ./overwriteConfig.lua file
+-- Add inside the jo_radial\config\custom\menus.lua file
 -- ==================================================================================
 
-Config.openKey = "F7" -- Key to open the menu
-
--- Hold key to open menu (true) or toggle on/off (false, default)
-Config.holdToOpen = false
-
--- General configuration for the radial menu's appearance
-Config.radial = {
-    color = "#ff0000",                                         -- Primary color for the radial menu (hex color)
-    centerOpacity = 0.6,                                       -- Opacity of the center background
-    logo = "https://jumpon-studios.com/images/logo_no_bg.png", -- Logo URL displayed in center
-    hotkeys = {
-        enabled = true,                                        -- Enable/disable hotkey binding feature
-        mode = "hotbar",                                       -- "hotbar" (0-9 keys) or "hotkeys" (Any key)
-        activationKey = "L ALT",                             -- Modifier key required to trigger (CTRL, ALT, SHIFT), , find all the usable controls here :https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys
-        disableAllControlActions = true                        -- When `true`, disables all control actions while the activation key is held to avoid conflicts
-    }
-}
-
-Config.commands = {
-    clearAllHotkeys = "clearAllHotkeys" -- Command to clear all hotkey bindings for the current player.
-}
 
 -- An example of a dynamically generated menu from another file
 local emotesMenu = CreateEmotesMenu(12) -- This function reads from Config.emotes
@@ -1192,13 +1105,13 @@ Config.radialMenuItems = {
 
 The script supports full translation through the language system. To override any text in the script:
 
-1. Find the key you want to change in `shared/lang.lua`
-2. Add only that key to `overwriteLang.lua` with your new text
+1. Find the key you want to change in `jo_radial\config\_default.lock\lang.lua`
+2. Add only that key to `jo_radial\config\custom\lang.lua` with your new text
 
 Example:
 
 ```lua
--- In overwriteLang.lua
+-- In jo_radial\config\custom\lang.lua
 Lang.backText = "Назад"
 Lang.closeText = "Закрыть"
 Lang.invalidHotkeyRegistration = "Неверные данные регистрации горячей клавиши"
@@ -1210,7 +1123,7 @@ Available translation categories include:
 - Emotes names
 
 :::tip 💡Only change the key you need to translate
-You only need to include the specific keys you want to change in `overwriteLang.lua`. Don't copy the entire language file.
+You only need to include the specific keys you want to change in `jo_radial\config\custom\lang.lua`. Don't copy the entire language file.
 :::
 
 ### External Control
