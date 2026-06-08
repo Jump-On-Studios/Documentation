@@ -344,80 +344,86 @@ See examples below.
 -- Add inside the jo_radial\config\custom\menus.lua file
 -- ==================================================================================
 
+-- More complete menu examples are available in the documentation:
+-- https://docs.jumpon-studios.com/RedM/radial-menu#full-configuration-examples
+--
+-- This documentation section includes:
+--   - basic menu structure examples
+--   - VORP and RSG-oriented examples
+--   - advanced examples with reusable submenu tables
+--   - dynamic visible/disabled callbacks
+--   - clientEvent, serverEvent, command, and function actions
+--
+-- Use those examples as references when building your own menu in:
+-- jo_radial\config\custom\menus.lua
+
 
 Config.radialMenuItems = {
-    {
-        label = "Emotes ▼",
-        submenu = {
-            type = "submenu",
-            creator = function()
-                --Only fire the first time the submenu is opened
-                return CreateEmotesMenu(12) -- Dynamically generated from Config.emotes
-            end
-        }
+  {
+    label = "Emotes",                     -- Character animations and expressions
+    icon = "emote_dance_carefree_a.webp", -- Local file in nui/img/ directory
+    submenu = {
+      type = "submenu",                   -- Navigate to new wheel level with fade transition
+      creator = function()
+        return CreateEmotesMenu(12)       -- Configure in jo_radial\config\_default.lock\listEmotes.lua
+      end,                                -- Reference to the dynamically created emotes menu
     },
-    { 
-        label = "Dynamic submenu",
-        submenu = {
-            type = "submenu",
-            items = function()
-                -- Fire everytime the submenu is opened
-                return {
-                    label = math.random(1, 100),
-                    onClick = {
-                        type = "clientEvent",
-                        value = "jo_radial:client:test",
-                        args = { "arg1", { test = "arg2" } }
-                    }
-                },
-            end
-            }
-        }
+  },
+  {
+    label = "Walk Styles",
+    icon = "emote_dance_formal_a.webp", -- Local file in nui/img/ directory
+    submenu = {
+      type = "submenu",
+      creator = function()
+        return CreateWalkAnimsMenu(12) -- Configure in  jo_radial\config\_default.lock\listWalkAnims.lua
+      end,
+    },
+  },
+  {
+    label = "Dynamic Disabled",
+    disabled = function()
+      return true -- This item will always be disabled
+    end
+  },
+  {
+    label = "Dynamic Visible",
+    visible = function()
+      return false -- This item will never be visible
+    end
+  },
+  {
+    label = "Client Event",
+    onClick = {
+      type = "clientEvent",
+      value = "jo_radial:client:test",
+      args = { "arg1", { test = "arg2" } }
     }
-    {
-        label = "Dynamic Disabled",
-        disabled = function()
-            return true -- This item will always be disabled
-        end
-    },
-    {
-        label = "Dynamic Visible",
-        visible = function()
-            return false -- This item will never be visible
-        end
-    },
-    {
-        label = "Client Event",
-        onClick = {
-            type = "clientEvent",
-            value = "jo_radial:client:test",
-            args = { "arg1", { test = "arg2" } }
-        }
-    },
-    {
-        label = "Server Event",
-        onClick = {
-            type = "serverEvent",
-            value = "jo_radial:server:test",
-            args = { "arg1", { test = "arg2" } }
-        }
-    },
-    {
-        label = "Function",
-        onClick = {
-            type = "function",
-            value = function() print("hello") end
-        }
-    },
-    {
-        label = "Command",
-        shouldClose = false, -- Dont't close menu after executing
-        onClick = {
-            type = "command",
-            value = "openMap"
-        }
-    },
+  },
+  {
+    label = "Server Event",
+    onClick = {
+      type = "serverEvent",
+      value = "jo_radial:server:test",
+      args = { "arg1", { test = "arg2" } }
+    }
+  },
+  {
+    label = "Function",
+    onClick = {
+      type = "function",
+      value = function() print("hello") end
+    }
+  },
+  {
+    label = "Command",
+    shouldClose = false, -- Dont't close menu after executing
+    onClick = {
+      type = "command",
+      value = "openMap"
+    }
+  },
 }
+
 ```
 
 
