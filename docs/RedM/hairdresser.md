@@ -115,7 +115,7 @@ If you use the mouse-selection integration, right-click a barber chair inside a 
 The Hairdresser script supports optional add-ons:
 - [Hair & Beard Coloring](hairdresser-coloring) - Lets players dye their hair and beard
 - [Makeup](hairdresser-makeup) - Lets players customize makeup and lifestyle overlays
-- [NPC Hair & Beard](hairdresser-npc) - Lets players browse NPC hair and beard styles
+- [NPC Hair & Beards](hairdresser-npc) - Lets players browse NPC hair and beard styles
 
 ## 4. For developers
 

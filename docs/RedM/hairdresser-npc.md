@@ -1,4 +1,4 @@
-# :scissors: NPC Hair & Beard
+# :scissors: NPC Hair & Beards
 Documentation relating to the **jo_hairdresser_npc** add-on for the [Hairdresser script](hairdresser).
 
 :::: tabs
@@ -22,7 +22,7 @@ To install jo_hairdresser_npc:
 - Add this ensure to your server.cfg after `ensure jo_hairdresser`
   - `ensure jo_hairdresser_npc`
 
-Congratulations, the **NPC Hair & Beard** add-on is ready to use!
+Congratulations, the **NPC Hair & Beards** add-on is ready to use!
 
 ## 2. Usage
 
