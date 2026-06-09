@@ -80,3 +80,32 @@ The NPC add-on keeps the purchase flow delegated to the main Hairdresser script,
 
 ## 3. Configuration
 <ScriptConfig scriptPath="redm/hairdresser-npc" />
+
+## 4. For developers
+
+### Filters
+
+[Filters](/DeveloperResources/filters) allow you to modify data or permissions synchronously at specific points in the script.
+
+#### <Badge type="server" text="Server" /> canAccessToNPCMenu
+Control access to the NPC hair and beard menus.
+
+When this filter returns `false`, the add-on stays linked to Hairdresser but does not add its NPC entries to the menu. Players will see the same behavior as if the NPC add-on was not present: Hair and Beard open the native Hairdresser menus directly.
+
+```lua
+-- @param canAccess - boolean (default true)
+-- @param source - serverID of the player
+exports.jo_hairdresser_npc:registerFilter("canAccessToNPCMenu", function(canAccess, source)
+    return canAccess
+end)
+```
+
+Example - allow only VIP players:
+
+```lua
+local vipPlayers = {}
+
+exports.jo_hairdresser_npc:registerFilter("canAccessToNPCMenu", function(canAccess, source)
+    return canAccess and vipPlayers[source] == true
+end)
+```
