@@ -75,11 +75,11 @@ jo.notif.right(text, dict, icon, color, duration, soundset_ref, soundset_name)
 > The text of the notification
 >
 
-`dict` : _string_
+`dict` : _string_ <BadgeOptional />
 > The dictionnary of the icon
 >
 
-`icon` : _string_
+`icon` : _string_ <BadgeOptional />
 > The name of the icon
 >
 
