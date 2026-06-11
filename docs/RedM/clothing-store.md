@@ -238,12 +238,16 @@ Call from your own scripts (NPC, quest, interior, etc.) to open the clothing sto
 ```lua
 local customStore = {
   useOutfitMenu = true,
-  needInstance = true
+  needInstance = false,
+  useNPCClothesMenu = true,
+  useClassicClothesMenu = true
 }
 TriggerEvent("jo_clothingstore:openStore", customStore)
 -- or export
 exports["jo_clothingstore"]:openStore(customStore)
 ```
+
+`useNPCClothesMenu` and `useClassicClothesMenu` must be enabled if you want players to access the clothing purchase menus from a custom store.
 #### <Badge type="client" text="Client" /> Open the wardrobe
 Event to open the wardrobe
 ```lua
