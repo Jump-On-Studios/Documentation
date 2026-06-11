@@ -86,12 +86,21 @@ The NPC add-on keeps the purchase flow delegated to the main Hairdresser script,
 #### <Badge type="server" text="Server" /> canAccessToNPCMenu
 Control access to the NPC hair and beard menus.
 
-When this filter returns `false`, the add-on stays linked to Hairdresser but does not add its NPC entries to the menu. Players will see the same behavior as if the NPC add-on was not present: Hair and Beard open the native Hairdresser menus directly.
+This filter works with `Config.npcMenuAccessMode`.
+
+- `hide_locked` - the filter is called with the `display` context. When it returns `false`, the add-on stays linked to Hairdresser but does not add its NPC entries to the menu. Players will see the same behavior as if the NPC add-on was not present: Hair and Beard open the native Hairdresser menus directly.
+- `show_locked` - NPC entries stay visible. The filter is called only with the `open` context when the player clicks an NPC entry. Return `false` to block the menu opening and optionally notify the player.
+
+Available contexts:
+
+- `display` - checks if NPC entries should be added to the Hairdresser menus.
+- `open` - checks if the NPC menu can open after the player clicks an NPC entry.
 
 ```lua
 -- @param canAccess - boolean (default true)
 -- @param source - serverID of the player
-exports.jo_hairdresser_npc:registerFilter("canAccessToNPCMenu", function(canAccess, source)
+-- @param context - string ("display" or "open")
+exports.jo_hairdresser_npc:registerFilter("canAccessToNPCMenu", function(canAccess, source, context)
     return canAccess
 end)
 ```
@@ -101,7 +110,26 @@ Example - allow only VIP players:
 ```lua
 local vipPlayers = {}
 
-exports.jo_hairdresser_npc:registerFilter("canAccessToNPCMenu", function(canAccess, source)
+exports.jo_hairdresser_npc:registerFilter("canAccessToNPCMenu", function(canAccess, source, context)
     return canAccess and vipPlayers[source] == true
+end)
+```
+
+Example - keep NPC entries visible and notify only when the player clicks:
+
+```lua
+-- config/_default.lock/global.lua or your custom config file
+Config.npcMenuAccessMode = "show_locked"
+```
+
+```lua
+local isSubscriber = false
+
+exports.jo_hairdresser_npc:registerFilter("canAccessToNPCMenu", function(canAccess, source, context)
+    if context == "open" and not isSubscriber then
+        jo.notif.rightError(source, "You can't access the NPC menu if you're not a subscriber")
+    end
+
+    return canAccess and isSubscriber
 end)
 ```
