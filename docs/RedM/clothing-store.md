@@ -42,7 +42,7 @@ FaceOverlay("grime", value.skin.grime_visibility, value.skin.grime_tx_id, 0, 0, 
 Wait(500)
 
 TriggerServerEvent("jo_libs:server:applySkinAndClothes", playerPed, value.skin, value.components) -- [!code ++]
-Wait(500) -- [!code ++]
+Wait(2000) -- [!code ++]
 IsPedReadyToRender(playerPed) -- [!code ++]
 
 data.PedHandler = ClonePed(playerPed, false, false, false, false)
