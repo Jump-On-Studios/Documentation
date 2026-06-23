@@ -105,9 +105,12 @@ In the clothing store, you can:
 - **Buy clothes** - Browse and purchase new clothing items by category
 - **Resell clothes** - If enabled, sell back owned items
 - **Manage outfits** - Create, save, and equip complete outfits
+- **Create male or female outfits** - Choose the outfit sex before opening the outfit creator
 - **Clothes manager** - Adjust wearable states (rolled sleeves, open collar, etc.)
 
 Use the prompts displayed on screen to navigate, zoom, rotate your character, and purchase items.
+
+When creating an outfit, players can select **Male** or **Female** before entering the outfit creator. If the selected sex is different from the player's current character, the preview is displayed on a temporary mannequin so players can build the outfit without changing their character.
 :::
 
 ::: tab 📍 Find a wardrobe
@@ -120,9 +123,12 @@ Approach a wardrobe location and a prompt will appear to open the menu.
 In the wardrobe, you can:
 - **Equip owned clothes** - Browse and wear clothes you've already purchased
 - **Manage outfits** - Create, save, delete, and equip saved outfits
+- **Preview saved outfits by sex** - Opposite-sex outfits remain visible in the outfit list for preview
 - **Clothes manager** - Adjust wearable states (rolled sleeves, open collar, etc.)
 
 Note: You cannot buy new clothes from a wardrobe, only from stores.
+
+Saved outfits display a male or female icon. Outfits matching the current character sex can be equipped directly. Opposite-sex outfits are listed separately and can be previewed on a mannequin, but they cannot be equipped on the current character.
 :::
 
 ::: tab 💬 Commands
@@ -319,6 +325,17 @@ Control who can buy an outfit item.
 -- @param price - table price data
 exports.jo_clothingstore:registerFilter("canBuyOutfitItem", function(canBuy, source, outfit, sexe, name, price)
     return canBuy
+end)
+```
+
+#### <Badge type="server" text="Server" /> canCreateOppositeSexOutfit
+Control whether a player can create an outfit for the opposite sex.
+```lua
+-- @param canCreate - boolean (default true)
+-- @param source - serverID of the player
+exports.jo_clothingstore:registerFilter("canCreateOppositeSexOutfit", function(canCreate, source)
+    -- Example: force players to create outfits only for their current character sex
+    return false
 end)
 ```
 
