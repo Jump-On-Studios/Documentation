@@ -28,11 +28,15 @@ Congratulation, the **Premade outfits** add-on is ready to be used!
 
 This add-on adds a **Premade outfits** menu in the clothing store/wardrobe.
 - Open the clothing store, go to **Outfits** and select **Premade outfits**.
+- Choose the premade outfit sex when the sex selection menu opens.
 - Outfits are split into sections of 100 (Outfits 1 to 100, 101 to 200, ...).
 - Select an outfit, use the variation slider to preview, then press the buy prompt to purchase.
 - Purchased outfits are saved to the player's outfits list in jo_clothingstore.
 
 If multiple payment options are configured for an outfit, use the **Switch price** prompt to cycle through them.
+
+Premade outfits are separated into `male` and `female` catalogues. If the selected premade outfit sex is different from the player's current character, the preview is displayed on the opposite-sex mannequin.
+
 ### Fixing body parts
 :::warning Fixing body parts
 
@@ -115,3 +119,17 @@ exports.jo_clothingstore_outfits:registerFilter("canOpenPremadeOutfitsMenu", fun
     return canOpen
 end)
 ```
+
+### Related jo_clothingstore filter
+
+The premade outfits menu uses the outfit sex selection flow from the main `jo_clothingstore` resource. To disable opposite-sex premade outfit browsing and purchases, register this server filter from the main script `jo_clothingstore`:
+
+#### <Badge type="server" text="Server" /> canCreateOppositeSexOutfit
+```lua
+-- @param canCreate - boolean (default true)
+-- @param source - serverID of the player
+exports.jo_clothingstore:registerFilter("canCreateOppositeSexOutfit", function(canCreate, source)
+    return false
+end)
+```
+
