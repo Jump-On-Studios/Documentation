@@ -296,6 +296,42 @@ UserClass:removeMoney(amount, moneyType)
 
 <!-- @include: ./slots/footers.md#server|UserClass:removeMoney -->
 
+---
+
+### <Badge type="server" text="Server" /> UserClass:setJob()
+
+<!-- @include: ./slots/headers.md#server|UserClass:setJob -->
+
+Sets the current job assigned to a player <br>
+
+<!-- @include: ./slots/descriptions.md#server|UserClass:setJob -->
+
+#### Syntax
+
+```lua
+UserClass:setJob(job, grade)
+```
+
+#### Parameters
+
+`job` : _string_
+> The name of the job
+>
+
+`grade` : _number_
+> The grade of the job
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> If job assignment was successful
+
+<!-- @include: ./slots/examples.md#server|UserClass:setJob -->
+
+<!-- @include: ./slots/footers.md#server|UserClass:setJob -->
+
 <!-- #endregion group_2 -->
 
 <!-- #region group_3 -->

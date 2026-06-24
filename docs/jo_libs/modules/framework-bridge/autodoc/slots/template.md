@@ -48,6 +48,11 @@
 <!-- #endregion server|UserClass:removeMoney -->
 
 
+<!-- #region server|UserClass:setJob -->
+
+<!-- #endregion server|UserClass:setJob -->
+
+
 <!-- #region server|jo.framework.UserClass:get -->
 
 <!-- #endregion server|jo.framework.UserClass:get -->
