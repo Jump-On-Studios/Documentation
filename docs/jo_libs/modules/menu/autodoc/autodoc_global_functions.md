@@ -103,7 +103,7 @@ MenuClass:addItem(index, item)
 > 
 > `[item](#item-methods).prefix` : _string_ - The little icon before the title from `nui\menu\assets\images\icons` folder  ![prefix Icon](/images/previews/menu/prefixIcon.jpg) <BadgeOptional />
 > 
-> `[item](#item-methods).icon` : _string_ - The left icon filename from `nui\menu\assets\images\icons` folder  ![Icon](/images/previews/menu/leftIcon.jpg) <BadgeOptional />
+> `[item](#item-methods).icon` : _string_ - The left icon filename from `nui\menu\assets\images\icons` folder, or full image URL  ![Icon](/images/previews/menu/leftIcon.jpg) <BadgeOptional />
 > 
 > `[item](#item-methods).iconRight` : _string_ - The right icon filename from `nui\menu\assets\images\icons` folder  ![icon right](/images/previews/menu/iconRight.jpg) <BadgeOptional />
 > 
