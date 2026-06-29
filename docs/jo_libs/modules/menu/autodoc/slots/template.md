@@ -262,23 +262,3 @@
 
 <!-- #endregion client|jo.menu.updateVolume -->
 
-
-<!-- #region shared|jo.menu.formatPrice -->
-
-<!-- #endregion shared|jo.menu.formatPrice -->
-
-
-<!-- #region shared|jo.menu.formatPrices -->
-
-<!-- #endregion shared|jo.menu.formatPrices -->
-
-
-<!-- #region shared|jo.menu.isPriceFree -->
-
-<!-- #endregion shared|jo.menu.isPriceFree -->
-
-
-<!-- #region shared|jo.menu.mergePrices -->
-
-<!-- #endregion shared|jo.menu.mergePrices -->
-
