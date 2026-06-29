@@ -93,6 +93,11 @@
 <!-- #endregion client|PromptClass:setLabel -->
 
 
+<!-- #region client|PromptClass:setPrice -->
+
+<!-- #endregion client|PromptClass:setPrice -->
+
+
 <!-- #region client|PromptClass:setVisible -->
 
 <!-- #endregion client|PromptClass:setVisible -->

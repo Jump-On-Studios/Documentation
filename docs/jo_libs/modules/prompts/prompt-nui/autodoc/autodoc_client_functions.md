@@ -107,7 +107,7 @@ Adds a new prompt to the group on a specified page. <br>Creates or initializes p
 #### Syntax
 
 ```lua
-GroupClass:addPrompt(key, label, holdTime, page)
+GroupClass:addPrompt(key, label, holdTime, page, price)
 ```
 
 #### Parameters
@@ -126,6 +126,10 @@ GroupClass:addPrompt(key, label, holdTime, page)
 
 `page` : _number_ <BadgeOptional />
 > The page number to add the prompt to<br> defaults to 1.
+>
+
+`price` : _table|integer|number|boolean_ <BadgeOptional />
+> The price to display next to the prompt label. Uses the shared pricing structure <br> defaults to false.
 >
 
 #### Return Value
@@ -568,6 +572,32 @@ PromptClass:setLabel(label)
 <!-- @include: ./slots/examples.md#client|PromptClass:setLabel -->
 
 <!-- @include: ./slots/footers.md#client|PromptClass:setLabel -->
+
+---
+
+### PromptClass:setPrice()
+
+<!-- @include: ./slots/headers.md#client|PromptClass:setPrice -->
+
+Sets the prompt price and formats it with the shared pricing structure. <br>
+
+<!-- @include: ./slots/descriptions.md#client|PromptClass:setPrice -->
+
+#### Syntax
+
+```lua
+PromptClass:setPrice(price)
+```
+
+#### Parameters
+
+`price` : _table|integer|number|boolean|nil_
+> The prompt price. Set it to `false` if no price is required
+>
+
+<!-- @include: ./slots/examples.md#client|PromptClass:setPrice -->
+
+<!-- @include: ./slots/footers.md#client|PromptClass:setPrice -->
 
 ---
 
