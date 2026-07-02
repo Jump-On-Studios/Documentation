@@ -1529,6 +1529,40 @@ jo.framework:updateUserSkin(...)
 
 ---
 
+### <Badge type="shared" text="Shared" /> jo.framework:addItemDataToPrice()
+
+<!-- @include: ./slots/headers.md#shared|jo.framework:addItemDataToPrice -->
+
+A function to add inventory item data to every item cost inside a price <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.framework:addItemDataToPrice -->
+
+#### Syntax
+
+```lua
+jo.framework:addItemDataToPrice(price)
+```
+
+#### Parameters
+
+`price` : _table_
+
+> The price to augment
+>
+
+
+#### Return Value
+
+Type : _table_
+
+> The mutated price
+
+<!-- @include: ./slots/examples.md#shared|jo.framework:addItemDataToPrice -->
+
+<!-- @include: ./slots/footers.md#shared|jo.framework:addItemDataToPrice -->
+
+---
+
 ### <Badge type="shared" text="Shared" /> jo.framework:getItemData()
 
 <!-- @include: ./slots/headers.md#shared|jo.framework:getItemData -->

@@ -3,9 +3,64 @@
 <!-- #endregion shared|PriceClass:add -->
 
 
+<!-- #region shared|PriceClass:clear -->
+
+<!-- #endregion shared|PriceClass:clear -->
+
+
 <!-- #region shared|PriceClass:copy -->
 
 <!-- #endregion shared|PriceClass:copy -->
+
+
+<!-- #region shared|PriceClass:equals -->
+
+<!-- #endregion shared|PriceClass:equals -->
+
+
+<!-- #region shared|PriceClass:get -->
+
+<!-- #endregion shared|PriceClass:get -->
+
+
+<!-- #region shared|PriceClass:getGold -->
+
+<!-- #endregion shared|PriceClass:getGold -->
+
+
+<!-- #region shared|PriceClass:getItem -->
+
+<!-- #endregion shared|PriceClass:getItem -->
+
+
+<!-- #region shared|PriceClass:getItems -->
+
+<!-- #endregion shared|PriceClass:getItems -->
+
+
+<!-- #region shared|PriceClass:getMoney -->
+
+<!-- #endregion shared|PriceClass:getMoney -->
+
+
+<!-- #region shared|PriceClass:getRol -->
+
+<!-- #endregion shared|PriceClass:getRol -->
+
+
+<!-- #region shared|PriceClass:hasCurrency -->
+
+<!-- #endregion shared|PriceClass:hasCurrency -->
+
+
+<!-- #region shared|PriceClass:hasItem -->
+
+<!-- #endregion shared|PriceClass:hasItem -->
+
+
+<!-- #region shared|PriceClass:isCurrencyOnly -->
+
+<!-- #endregion shared|PriceClass:isCurrencyOnly -->
 
 
 <!-- #region shared|PriceClass:isFree -->
@@ -13,9 +68,19 @@
 <!-- #endregion shared|PriceClass:isFree -->
 
 
-<!-- #region shared|PriceClass:remove -->
+<!-- #region shared|PriceClass:isItemOnly -->
 
-<!-- #endregion shared|PriceClass:remove -->
+<!-- #endregion shared|PriceClass:isItemOnly -->
+
+
+<!-- #region shared|PriceClass:removeCurrency -->
+
+<!-- #endregion shared|PriceClass:removeCurrency -->
+
+
+<!-- #region shared|PriceClass:removeItem -->
+
+<!-- #endregion shared|PriceClass:removeItem -->
 
 
 <!-- #region shared|PriceClass:tax -->
@@ -23,52 +88,72 @@
 <!-- #endregion shared|PriceClass:tax -->
 
 
-<!-- #region shared|PriceClass:toTable -->
+<!-- #region shared|PriceGroupClass:clear -->
 
-<!-- #endregion shared|PriceClass:toTable -->
-
-
-<!-- #region shared|PricesClass:addPrice -->
-
-<!-- #endregion shared|PricesClass:addPrice -->
+<!-- #endregion shared|PriceGroupClass:clear -->
 
 
-<!-- #region shared|PricesClass:copy -->
+<!-- #region shared|PriceGroupClass:compact -->
 
-<!-- #endregion shared|PricesClass:copy -->
-
-
-<!-- #region shared|PricesClass:removePrice -->
-
-<!-- #endregion shared|PricesClass:removePrice -->
+<!-- #endregion shared|PriceGroupClass:compact -->
 
 
-<!-- #region shared|PricesClass:toTable -->
+<!-- #region shared|PriceGroupClass:copy -->
 
-<!-- #endregion shared|PricesClass:toTable -->
-
-
-<!-- #region shared|jo.pricing.formatPrice -->
-
-<!-- #endregion shared|jo.pricing.formatPrice -->
+<!-- #endregion shared|PriceGroupClass:copy -->
 
 
-<!-- #region shared|jo.pricing.formatPrices -->
+<!-- #region shared|PriceGroupClass:count -->
 
-<!-- #endregion shared|jo.pricing.formatPrices -->
-
-
-<!-- #region shared|jo.pricing.isPriceFree -->
-
-<!-- #endregion shared|jo.pricing.isPriceFree -->
+<!-- #endregion shared|PriceGroupClass:count -->
 
 
-<!-- #region shared|jo.pricing.mergePrices -->
+<!-- #region shared|PriceGroupClass:get -->
 
-<!-- #endregion shared|jo.pricing.mergePrices -->
+<!-- #endregion shared|PriceGroupClass:get -->
 
 
-<!-- #region shared|jo.pricing.tax -->
+<!-- #region shared|PriceGroupClass:insert -->
 
-<!-- #endregion shared|jo.pricing.tax -->
+<!-- #endregion shared|PriceGroupClass:insert -->
+
+
+<!-- #region shared|PriceGroupClass:isEmpty -->
+
+<!-- #endregion shared|PriceGroupClass:isEmpty -->
+
+
+<!-- #region shared|PriceGroupClass:remove -->
+
+<!-- #endregion shared|PriceGroupClass:remove -->
+
+
+<!-- #region shared|PriceGroupClass:set -->
+
+<!-- #endregion shared|PriceGroupClass:set -->
+
+
+<!-- #region shared|jo.pricing.get -->
+
+<!-- #endregion shared|jo.pricing.get -->
+
+
+<!-- #region shared|jo.pricing.isPrice -->
+
+<!-- #endregion shared|jo.pricing.isPrice -->
+
+
+<!-- #region shared|jo.pricing.isPriceGroup -->
+
+<!-- #endregion shared|jo.pricing.isPriceGroup -->
+
+
+<!-- #region shared|jo.pricing.new -->
+
+<!-- #endregion shared|jo.pricing.new -->
+
+
+<!-- #region shared|jo.pricing.newGroup -->
+
+<!-- #endregion shared|jo.pricing.newGroup -->
 

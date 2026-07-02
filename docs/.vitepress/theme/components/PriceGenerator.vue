@@ -9,7 +9,7 @@ const TYPES = [
   { value: 'item', label: 'Item' },
 ]
 
-const useOr = ref(false)
+const useOr = ref(true)
 const copied = ref(false)
 
 function createComponent(type = 'money') {
@@ -60,11 +60,12 @@ function generateOptionLua(option) {
   for (const comp of option.components) {
     if (comp.type === 'item') {
       const name = comp.itemName.trim() || 'item_name'
-      if (itemMap[name]) {
-        itemMap[name].quantity += (comp.quantity || 1)
-        if (comp.keep) itemMap[name].keep = true
+      const keep = comp.keep === true
+      const key = `${name}::${keep}`
+      if (itemMap[key]) {
+        itemMap[key].quantity += (comp.quantity || 1)
       } else {
-        itemMap[name] = { quantity: comp.quantity || 1, keep: comp.keep }
+        itemMap[key] = { name, quantity: comp.quantity || 1, keep }
       }
     } else {
       const val = parseFloat(comp.value) || 0
@@ -72,16 +73,20 @@ function generateOptionLua(option) {
     }
   }
 
-  const items = Object.entries(itemMap).map(([name, data]) => {
-    const parts = [`item = "${name}"`]
+  const itemValues = Object.values(itemMap)
+  const itemParts = itemValues.map((data) => {
+    const parts = [`item = "${data.name}"`]
     if (data.quantity > 1) parts.push(`quantity = ${data.quantity}`)
     if (data.keep) parts.push(`keep = true`)
-    return `{ ${parts.join(', ')} }`
+    return parts
   })
 
   const currencies = Object.entries(currencyTotals).map(([type, val]) => `${type} = ${val}`)
+  const canInlineItem = itemParts.length === 1 && itemValues[0].quantity === 1 && itemValues[0].keep === false
+  const inlineItem = canInlineItem ? itemParts[0].join(', ') : null
+  const items = canInlineItem ? [] : itemParts.map(parts => `{ ${parts.join(', ')} }`)
 
-  return [...items, ...currencies].join(', ')
+  return [inlineItem, ...items, ...currencies].filter(Boolean).join(', ')
 }
 
 const generatedCode = computed(() => {
@@ -90,13 +95,14 @@ const generatedCode = computed(() => {
       const inner = generateOptionLua(opt)
       return `    { ${inner} }`
     })
-    return `{\n    operator = "or",\n${lines.join(',\n')}\n}`
-  } else {
-    const inner = generateOptionLua(singleOption.value)
-    return `{ ${inner} }`
+    return `{
+${lines.join(',\n')}
+}`
   }
-})
 
+  const inner = generateOptionLua(singleOption.value)
+  return `{ ${inner} }`
+})
 const highlightedCode = ref('')
 
 watchEffect(async () => {
@@ -130,14 +136,6 @@ async function copyCode() {
 
 <template>
   <div class="price-generator">
-    <!-- OR toggle -->
-    <div class="pg-section">
-      <label class="pg-checkbox">
-        <input type="checkbox" v-model="useOr" />
-        <span>Use <code>operator = "or"</code> (player chooses one payment option)</span>
-      </label>
-    </div>
-
     <div class="pg-section-title">{{ useOr ? 'Payment options' : 'Price components' }}</div>
 
     <div class="pg-layout">

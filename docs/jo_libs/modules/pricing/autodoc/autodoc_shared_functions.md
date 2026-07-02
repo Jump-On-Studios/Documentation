@@ -1,174 +1,149 @@
 
+## Constructor
+
+### jo.pricing.new()
+
+<!-- @include: ./slots/headers.md#shared|jo.pricing.new -->
+
+Creates a canonical [PriceClass](#priceclass-methods). <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.pricing.new -->
+
+#### Syntax
+
+```lua
+jo.pricing.new(data)
+```
+
+#### Parameters
+
+`data` : _PriceInput_ <BadgeOptional />
+
+#### Return Value
+
+Type : _[PriceClass](#priceclass-methods)_
+
+
+<!-- @include: ./slots/examples.md#shared|jo.pricing.new -->
+
+<!-- @include: ./slots/footers.md#shared|jo.pricing.new -->
+
+---
+
+### jo.pricing.newGroup()
+
+<!-- @include: ./slots/headers.md#shared|jo.pricing.newGroup -->
+
+Creates a canonical [PriceGroupClass](#pricegroupclass-methods). <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.pricing.newGroup -->
+
+#### Syntax
+
+```lua
+jo.pricing.newGroup(data)
+```
+
+#### Parameters
+
+`data` : _PriceGroupInput_ <BadgeOptional />
+
+#### Return Value
+
+Type : _[PriceGroupClass](#pricegroupclass-methods)_
+
+
+<!-- @include: ./slots/examples.md#shared|jo.pricing.newGroup -->
+
+<!-- @include: ./slots/footers.md#shared|jo.pricing.newGroup -->
+
+
 ## JO Functions
 
-### jo.pricing.formatPrice()
+### jo.pricing.get()
 
-<!-- @include: ./slots/headers.md#shared|jo.pricing.formatPrice -->
+<!-- @include: ./slots/headers.md#shared|jo.pricing.get -->
 
-A function to format a single price <br>
+Converts a price input into a canonical costs list. <br>
 
-<!-- @include: ./slots/descriptions.md#shared|jo.pricing.formatPrice -->
+<!-- @include: ./slots/descriptions.md#shared|jo.pricing.get -->
 
 #### Syntax
 
 ```lua
-jo.pricing.formatPrice(price)
+jo.pricing.get(price)
 ```
 
 #### Parameters
 
-`price` : _table|integer|number_
-> The price to format
->
+`price` : _PriceInput_
 
 #### Return Value
 
-Type : _Price_
+Type : _Cost[]_
 
-> The formatted price
 
-<!-- @include: ./slots/examples.md#shared|jo.pricing.formatPrice -->
+<!-- @include: ./slots/examples.md#shared|jo.pricing.get -->
 
-<!-- @include: ./slots/footers.md#shared|jo.pricing.formatPrice -->
+<!-- @include: ./slots/footers.md#shared|jo.pricing.get -->
 
 ---
 
-### jo.pricing.formatPrices()
+### jo.pricing.isPrice()
 
-<!-- @include: ./slots/headers.md#shared|jo.pricing.formatPrices -->
+<!-- @include: ./slots/headers.md#shared|jo.pricing.isPrice -->
 
-A function to format price variations. <br>
-Only a root `operator = "or"` creates alternatives; every other shape is a single AND price. <br>
+Returns true when a value is a [PriceClass](#priceclass-methods) instance. <br>
 
-<!-- @include: ./slots/descriptions.md#shared|jo.pricing.formatPrices -->
+<!-- @include: ./slots/descriptions.md#shared|jo.pricing.isPrice -->
 
 #### Syntax
 
 ```lua
-jo.pricing.formatPrices(prices)
+jo.pricing.isPrice(value)
 ```
 
 #### Parameters
 
-`prices` : _table|integer|number_
-> The prices to format
->
-
-#### Return Value
-
-Type : _Prices_
-
-> The formatted prices
-
-<!-- @include: ./slots/examples.md#shared|jo.pricing.formatPrices -->
-
-<!-- @include: ./slots/footers.md#shared|jo.pricing.formatPrices -->
-
----
-
-### jo.pricing.isPriceFree()
-
-<!-- @include: ./slots/headers.md#shared|jo.pricing.isPriceFree -->
-
-Checks if a price is free <br>
-
-<!-- @include: ./slots/descriptions.md#shared|jo.pricing.isPriceFree -->
-
-#### Syntax
-
-```lua
-jo.pricing.isPriceFree(price)
-```
-
-#### Parameters
-
-`price` : _table|integer|number_
-> The price to check
->
+`value` : _any_
 
 #### Return Value
 
 Type : _boolean_
 
-> Return `true` if the price is free
 
-<!-- @include: ./slots/examples.md#shared|jo.pricing.isPriceFree -->
+<!-- @include: ./slots/examples.md#shared|jo.pricing.isPrice -->
 
-<!-- @include: ./slots/footers.md#shared|jo.pricing.isPriceFree -->
+<!-- @include: ./slots/footers.md#shared|jo.pricing.isPrice -->
 
 ---
 
-### jo.pricing.mergePrices()
+### jo.pricing.isPriceGroup()
 
-<!-- @include: ./slots/headers.md#shared|jo.pricing.mergePrices -->
+<!-- @include: ./slots/headers.md#shared|jo.pricing.isPriceGroup -->
 
-Merge prices <br>
+Returns true when a value is a [PriceGroupClass](#pricegroupclass-methods) instance. <br>
 
-<!-- @include: ./slots/descriptions.md#shared|jo.pricing.mergePrices -->
+<!-- @include: ./slots/descriptions.md#shared|jo.pricing.isPriceGroup -->
 
 #### Syntax
 
 ```lua
-jo.pricing.mergePrices(...)
+jo.pricing.isPriceGroup(value)
 ```
 
 #### Parameters
 
-`...` : _table_
-
-> The prices to merge
->
-
+`value` : _any_
 
 #### Return Value
 
-Type : _Price_
+Type : _boolean_
 
-> The merged prices
 
-<!-- @include: ./slots/examples.md#shared|jo.pricing.mergePrices -->
+<!-- @include: ./slots/examples.md#shared|jo.pricing.isPriceGroup -->
 
-<!-- @include: ./slots/footers.md#shared|jo.pricing.mergePrices -->
-
----
-
-### jo.pricing.tax()
-
-<!-- @include: ./slots/headers.md#shared|jo.pricing.tax -->
-
-Gets the tax price from a price and a percentage <br>
-
-<!-- @include: ./slots/descriptions.md#shared|jo.pricing.tax -->
-
-#### Syntax
-
-```lua
-jo.pricing.tax(price, percentage, roundUpItems)
-```
-
-#### Parameters
-
-`price` : _table|integer|number_
-> The price to tax
->
-
-`percentage` : _number_
-> The percentage to apply. Example: `0.2` returns 20% of the price
->
-
-`roundUpItems` : _boolean_ <BadgeOptional />
-> Whether item quantities should be rounded up. Defaults to `false`
->
-
-#### Return Value
-
-Type : _Price_
-
-> The taxed price
-
-<!-- @include: ./slots/examples.md#shared|jo.pricing.tax -->
-
-<!-- @include: ./slots/footers.md#shared|jo.pricing.tax -->
+<!-- @include: ./slots/footers.md#shared|jo.pricing.isPriceGroup -->
 
 
 ## PriceClass Methods
@@ -177,7 +152,7 @@ Type : _Price_
 
 <!-- @include: ./slots/headers.md#shared|PriceClass:add -->
 
-Adds a price to the current price. <br>
+Adds a price to the current [PriceClass](#priceclass-methods). <br>
 
 <!-- @include: ./slots/descriptions.md#shared|PriceClass:add -->
 
@@ -189,15 +164,12 @@ PriceClass:add(price)
 
 #### Parameters
 
-`price` : _table|integer|number_
-> The price to add
->
+`price` : _PriceInput_
 
 #### Return Value
 
-Type : _Price_
+Type : _[PriceClass](#priceclass-methods)_
 
-> The mutated price
 
 <!-- @include: ./slots/examples.md#shared|PriceClass:add -->
 
@@ -205,11 +177,36 @@ Type : _Price_
 
 ---
 
+### PriceClass:clear()
+
+<!-- @include: ./slots/headers.md#shared|PriceClass:clear -->
+
+Removes every cost from the current [PriceClass](#priceclass-methods). <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:clear -->
+
+#### Syntax
+
+```lua
+PriceClass:clear()
+```
+
+#### Return Value
+
+Type : _[PriceClass](#priceclass-methods)_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceClass:clear -->
+
+<!-- @include: ./slots/footers.md#shared|PriceClass:clear -->
+
+---
+
 ### PriceClass:copy()
 
 <!-- @include: ./slots/headers.md#shared|PriceClass:copy -->
 
-Copies the price. <br>
+Creates a new independent copy of the current [PriceClass](#priceclass-methods). <br>
 
 <!-- @include: ./slots/descriptions.md#shared|PriceClass:copy -->
 
@@ -221,9 +218,8 @@ PriceClass:copy()
 
 #### Return Value
 
-Type : _Price_
+Type : _[PriceClass](#priceclass-methods)_
 
-> The copied price
 
 <!-- @include: ./slots/examples.md#shared|PriceClass:copy -->
 
@@ -231,11 +227,281 @@ Type : _Price_
 
 ---
 
+### PriceClass:equals()
+
+<!-- @include: ./slots/headers.md#shared|PriceClass:equals -->
+
+Returns true when another price has the same costs. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:equals -->
+
+#### Syntax
+
+```lua
+PriceClass:equals(other)
+```
+
+#### Parameters
+
+`other` : _PriceInput_
+
+#### Return Value
+
+Type : _boolean_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceClass:equals -->
+
+<!-- @include: ./slots/footers.md#shared|PriceClass:equals -->
+
+---
+
+### PriceClass:get()
+
+<!-- @include: ./slots/headers.md#shared|PriceClass:get -->
+
+Returns the canonical costs list. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:get -->
+
+#### Syntax
+
+```lua
+PriceClass:get()
+```
+
+#### Return Value
+
+Type : _Cost[]_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceClass:get -->
+
+<!-- @include: ./slots/footers.md#shared|PriceClass:get -->
+
+---
+
+### PriceClass:getGold()
+
+<!-- @include: ./slots/headers.md#shared|PriceClass:getGold -->
+
+Returns the gold amount. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:getGold -->
+
+#### Syntax
+
+```lua
+PriceClass:getGold()
+```
+
+#### Return Value
+
+Type : _number|nil_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceClass:getGold -->
+
+<!-- @include: ./slots/footers.md#shared|PriceClass:getGold -->
+
+---
+
+### PriceClass:getItem()
+
+<!-- @include: ./slots/headers.md#shared|PriceClass:getItem -->
+
+Returns an ItemCost by item name and keep flag. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:getItem -->
+
+#### Syntax
+
+```lua
+PriceClass:getItem(item, keep)
+```
+
+#### Parameters
+
+`item` : _string_
+
+`keep` : _boolean_
+
+#### Return Value
+
+Type : _ItemCost|nil_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceClass:getItem -->
+
+<!-- @include: ./slots/footers.md#shared|PriceClass:getItem -->
+
+---
+
+### PriceClass:getItems()
+
+<!-- @include: ./slots/headers.md#shared|PriceClass:getItems -->
+
+Returns all ItemCost entries. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:getItems -->
+
+#### Syntax
+
+```lua
+PriceClass:getItems()
+```
+
+#### Return Value
+
+Type : _ItemCost[]_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceClass:getItems -->
+
+<!-- @include: ./slots/footers.md#shared|PriceClass:getItems -->
+
+---
+
+### PriceClass:getMoney()
+
+<!-- @include: ./slots/headers.md#shared|PriceClass:getMoney -->
+
+Returns the money amount. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:getMoney -->
+
+#### Syntax
+
+```lua
+PriceClass:getMoney()
+```
+
+#### Return Value
+
+Type : _number|nil_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceClass:getMoney -->
+
+<!-- @include: ./slots/footers.md#shared|PriceClass:getMoney -->
+
+---
+
+### PriceClass:getRol()
+
+<!-- @include: ./slots/headers.md#shared|PriceClass:getRol -->
+
+Returns the rol amount. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:getRol -->
+
+#### Syntax
+
+```lua
+PriceClass:getRol()
+```
+
+#### Return Value
+
+Type : _number|nil_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceClass:getRol -->
+
+<!-- @include: ./slots/footers.md#shared|PriceClass:getRol -->
+
+---
+
+### PriceClass:hasCurrency()
+
+<!-- @include: ./slots/headers.md#shared|PriceClass:hasCurrency -->
+
+Returns true when a currency cost exists. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:hasCurrency -->
+
+#### Syntax
+
+```lua
+PriceClass:hasCurrency(key)
+```
+
+#### Parameters
+
+`key` : _"money"|"gold"|"rol"_
+
+#### Return Value
+
+Type : _boolean_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceClass:hasCurrency -->
+
+<!-- @include: ./slots/footers.md#shared|PriceClass:hasCurrency -->
+
+---
+
+### PriceClass:hasItem()
+
+<!-- @include: ./slots/headers.md#shared|PriceClass:hasItem -->
+
+Returns true when an ItemCost exists for an item name and keep flag. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:hasItem -->
+
+#### Syntax
+
+```lua
+PriceClass:hasItem(item, keep)
+```
+
+#### Parameters
+
+`item` : _string_
+
+`keep` : _boolean_
+
+#### Return Value
+
+Type : _boolean_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceClass:hasItem -->
+
+<!-- @include: ./slots/footers.md#shared|PriceClass:hasItem -->
+
+---
+
+### PriceClass:isCurrencyOnly()
+
+<!-- @include: ./slots/headers.md#shared|PriceClass:isCurrencyOnly -->
+
+Returns true when the [PriceClass](#priceclass-methods) contains only currency costs. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:isCurrencyOnly -->
+
+#### Syntax
+
+```lua
+PriceClass:isCurrencyOnly()
+```
+
+#### Return Value
+
+Type : _boolean_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceClass:isCurrencyOnly -->
+
+<!-- @include: ./slots/footers.md#shared|PriceClass:isCurrencyOnly -->
+
+---
+
 ### PriceClass:isFree()
 
 <!-- @include: ./slots/headers.md#shared|PriceClass:isFree -->
 
-Checks if the price is free. <br>
+Returns true when the [PriceClass](#priceclass-methods) has no payable costs. <br>
 
 <!-- @include: ./slots/descriptions.md#shared|PriceClass:isFree -->
 
@@ -249,7 +515,6 @@ PriceClass:isFree()
 
 Type : _boolean_
 
-> Return `true` if the price is free
 
 <!-- @include: ./slots/examples.md#shared|PriceClass:isFree -->
 
@@ -257,35 +522,88 @@ Type : _boolean_
 
 ---
 
-### PriceClass:remove()
+### PriceClass:isItemOnly()
 
-<!-- @include: ./slots/headers.md#shared|PriceClass:remove -->
+<!-- @include: ./slots/headers.md#shared|PriceClass:isItemOnly -->
 
-Removes a price from the current price. <br>
+Returns true when the [PriceClass](#priceclass-methods) contains only item costs. <br>
 
-<!-- @include: ./slots/descriptions.md#shared|PriceClass:remove -->
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:isItemOnly -->
 
 #### Syntax
 
 ```lua
-PriceClass:remove(price)
+PriceClass:isItemOnly()
+```
+
+#### Return Value
+
+Type : _boolean_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceClass:isItemOnly -->
+
+<!-- @include: ./slots/footers.md#shared|PriceClass:isItemOnly -->
+
+---
+
+### PriceClass:removeCurrency()
+
+<!-- @include: ./slots/headers.md#shared|PriceClass:removeCurrency -->
+
+Removes a currency cost from the current [PriceClass](#priceclass-methods). <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:removeCurrency -->
+
+#### Syntax
+
+```lua
+PriceClass:removeCurrency(key)
 ```
 
 #### Parameters
 
-`price` : _table|integer|number_
-> The price to remove
->
+`key` : _"money"|"gold"|"rol"_
 
 #### Return Value
 
-Type : _Price|boolean,string?_
+Type : _[PriceClass](#priceclass-methods)_
 
-> The mutated price, or false and the reason
 
-<!-- @include: ./slots/examples.md#shared|PriceClass:remove -->
+<!-- @include: ./slots/examples.md#shared|PriceClass:removeCurrency -->
 
-<!-- @include: ./slots/footers.md#shared|PriceClass:remove -->
+<!-- @include: ./slots/footers.md#shared|PriceClass:removeCurrency -->
+
+---
+
+### PriceClass:removeItem()
+
+<!-- @include: ./slots/headers.md#shared|PriceClass:removeItem -->
+
+Removes an ItemCost from the current [PriceClass](#priceclass-methods). <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:removeItem -->
+
+#### Syntax
+
+```lua
+PriceClass:removeItem(item, keep)
+```
+
+#### Parameters
+
+`item` : _string_
+
+`keep` : _boolean_
+
+#### Return Value
+
+Type : _[PriceClass](#priceclass-methods)_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceClass:removeItem -->
+
+<!-- @include: ./slots/footers.md#shared|PriceClass:removeItem -->
 
 ---
 
@@ -293,7 +611,7 @@ Type : _Price|boolean,string?_
 
 <!-- @include: ./slots/headers.md#shared|PriceClass:tax -->
 
-Applies a percentage to the current price. <br>
+Applies a multiplier to the current [PriceClass](#priceclass-methods). <br>
 
 <!-- @include: ./slots/descriptions.md#shared|PriceClass:tax -->
 
@@ -305,164 +623,262 @@ PriceClass:tax(percentage, roundUpItems)
 
 #### Parameters
 
-`percentage` : _number_
-> The percentage to apply
->
+`percentage` : _number_ <BadgeOptional />
 
 `roundUpItems` : _boolean_ <BadgeOptional />
-> Whether item quantities should be rounded up
->
 
 #### Return Value
 
-Type : _Price_
+Type : _[PriceClass](#priceclass-methods)_
 
-> The mutated price
 
 <!-- @include: ./slots/examples.md#shared|PriceClass:tax -->
 
 <!-- @include: ./slots/footers.md#shared|PriceClass:tax -->
 
----
 
-### PriceClass:toTable()
+## PriceGroupClass Methods
 
-<!-- @include: ./slots/headers.md#shared|PriceClass:toTable -->
+### PriceGroupClass:clear()
 
-Converts the price to a plain table. <br>
+<!-- @include: ./slots/headers.md#shared|PriceGroupClass:clear -->
 
-<!-- @include: ./slots/descriptions.md#shared|PriceClass:toTable -->
+Removes every price from the group. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceGroupClass:clear -->
 
 #### Syntax
 
 ```lua
-PriceClass:toTable()
+PriceGroupClass:clear()
 ```
 
 #### Return Value
 
-Type : _table_
-
-> The plain table
-
-<!-- @include: ./slots/examples.md#shared|PriceClass:toTable -->
-
-<!-- @include: ./slots/footers.md#shared|PriceClass:toTable -->
+Type : _[PriceGroupClass](#pricegroupclass-methods)_
 
 
-## PricesClass Methods
+<!-- @include: ./slots/examples.md#shared|PriceGroupClass:clear -->
 
-### PricesClass:addPrice()
+<!-- @include: ./slots/footers.md#shared|PriceGroupClass:clear -->
 
-<!-- @include: ./slots/headers.md#shared|PricesClass:addPrice -->
+---
 
-Adds a price option to the prices set. <br>
+### PriceGroupClass:compact()
 
-<!-- @include: ./slots/descriptions.md#shared|PricesClass:addPrice -->
+<!-- @include: ./slots/headers.md#shared|PriceGroupClass:compact -->
+
+Compacts an "and" [PriceGroupClass](#pricegroupclass-methods) into a new [PriceClass](#priceclass-methods). <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceGroupClass:compact -->
 
 #### Syntax
 
 ```lua
-PricesClass:addPrice(price)
+PriceGroupClass:compact()
+```
+
+#### Return Value
+
+Type : _[PriceClass](#priceclass-methods)_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceGroupClass:compact -->
+
+<!-- @include: ./slots/footers.md#shared|PriceGroupClass:compact -->
+
+---
+
+### PriceGroupClass:copy()
+
+<!-- @include: ./slots/headers.md#shared|PriceGroupClass:copy -->
+
+Creates a new independent copy of the current [PriceGroupClass](#pricegroupclass-methods). <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceGroupClass:copy -->
+
+#### Syntax
+
+```lua
+PriceGroupClass:copy()
+```
+
+#### Return Value
+
+Type : _[PriceGroupClass](#pricegroupclass-methods)_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceGroupClass:copy -->
+
+<!-- @include: ./slots/footers.md#shared|PriceGroupClass:copy -->
+
+---
+
+### PriceGroupClass:count()
+
+<!-- @include: ./slots/headers.md#shared|PriceGroupClass:count -->
+
+Returns the number of prices in the group. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceGroupClass:count -->
+
+#### Syntax
+
+```lua
+PriceGroupClass:count()
+```
+
+#### Return Value
+
+Type : _number_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceGroupClass:count -->
+
+<!-- @include: ./slots/footers.md#shared|PriceGroupClass:count -->
+
+---
+
+### PriceGroupClass:get()
+
+<!-- @include: ./slots/headers.md#shared|PriceGroupClass:get -->
+
+Returns a [PriceClass](#priceclass-methods) by index. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceGroupClass:get -->
+
+#### Syntax
+
+```lua
+PriceGroupClass:get(index)
 ```
 
 #### Parameters
 
-`price` : _table|integer|number_
-> The price to add
->
+`index` : _number_
 
 #### Return Value
 
-Type : _Prices_
+Type : _[PriceClass](#priceclass-methods)|nil_
 
-> The mutated prices set
 
-<!-- @include: ./slots/examples.md#shared|PricesClass:addPrice -->
+<!-- @include: ./slots/examples.md#shared|PriceGroupClass:get -->
 
-<!-- @include: ./slots/footers.md#shared|PricesClass:addPrice -->
+<!-- @include: ./slots/footers.md#shared|PriceGroupClass:get -->
 
 ---
 
-### PricesClass:copy()
+### PriceGroupClass:insert()
 
-<!-- @include: ./slots/headers.md#shared|PricesClass:copy -->
+<!-- @include: ./slots/headers.md#shared|PriceGroupClass:insert -->
 
-Copies the prices set. <br>
+Inserts a [PriceClass](#priceclass-methods) into the group. <br>
 
-<!-- @include: ./slots/descriptions.md#shared|PricesClass:copy -->
+<!-- @include: ./slots/descriptions.md#shared|PriceGroupClass:insert -->
 
 #### Syntax
 
 ```lua
-PricesClass:copy()
-```
-
-#### Return Value
-
-Type : _Prices_
-
-> The copied prices set
-
-<!-- @include: ./slots/examples.md#shared|PricesClass:copy -->
-
-<!-- @include: ./slots/footers.md#shared|PricesClass:copy -->
-
----
-
-### PricesClass:removePrice()
-
-<!-- @include: ./slots/headers.md#shared|PricesClass:removePrice -->
-
-Removes a price option from the prices set. <br>
-
-<!-- @include: ./slots/descriptions.md#shared|PricesClass:removePrice -->
-
-#### Syntax
-
-```lua
-PricesClass:removePrice(index)
+PriceGroupClass:insert(price, index)
 ```
 
 #### Parameters
 
-`index` : _integer_
-> The price option index
->
+`price` : _PriceInput_
+
+`index` : _number_ <BadgeOptional />
 
 #### Return Value
 
-Type : _Prices_
+Type : _[PriceGroupClass](#pricegroupclass-methods)_
 
-> The mutated prices set
 
-<!-- @include: ./slots/examples.md#shared|PricesClass:removePrice -->
+<!-- @include: ./slots/examples.md#shared|PriceGroupClass:insert -->
 
-<!-- @include: ./slots/footers.md#shared|PricesClass:removePrice -->
+<!-- @include: ./slots/footers.md#shared|PriceGroupClass:insert -->
 
 ---
 
-### PricesClass:toTable()
+### PriceGroupClass:isEmpty()
 
-<!-- @include: ./slots/headers.md#shared|PricesClass:toTable -->
+<!-- @include: ./slots/headers.md#shared|PriceGroupClass:isEmpty -->
 
-Converts the prices set to a plain table. <br>
+Returns true when the group contains no prices. <br>
 
-<!-- @include: ./slots/descriptions.md#shared|PricesClass:toTable -->
+<!-- @include: ./slots/descriptions.md#shared|PriceGroupClass:isEmpty -->
 
 #### Syntax
 
 ```lua
-PricesClass:toTable()
+PriceGroupClass:isEmpty()
 ```
 
 #### Return Value
 
-Type : _table_
+Type : _boolean_
 
-> The plain table
 
-<!-- @include: ./slots/examples.md#shared|PricesClass:toTable -->
+<!-- @include: ./slots/examples.md#shared|PriceGroupClass:isEmpty -->
 
-<!-- @include: ./slots/footers.md#shared|PricesClass:toTable -->
+<!-- @include: ./slots/footers.md#shared|PriceGroupClass:isEmpty -->
+
+---
+
+### PriceGroupClass:remove()
+
+<!-- @include: ./slots/headers.md#shared|PriceGroupClass:remove -->
+
+Removes a [PriceClass](#priceclass-methods) from the group by index. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceGroupClass:remove -->
+
+#### Syntax
+
+```lua
+PriceGroupClass:remove(index)
+```
+
+#### Parameters
+
+`index` : _number_
+
+#### Return Value
+
+Type : _[PriceClass](#priceclass-methods)|nil_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceGroupClass:remove -->
+
+<!-- @include: ./slots/footers.md#shared|PriceGroupClass:remove -->
+
+---
+
+### PriceGroupClass:set()
+
+<!-- @include: ./slots/headers.md#shared|PriceGroupClass:set -->
+
+Replaces an existing [PriceClass](#priceclass-methods) by index. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceGroupClass:set -->
+
+#### Syntax
+
+```lua
+PriceGroupClass:set(index, price)
+```
+
+#### Parameters
+
+`index` : _number_
+
+`price` : _PriceInput_
+
+#### Return Value
+
+Type : _[PriceGroupClass](#pricegroupclass-methods)_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceGroupClass:set -->
+
+<!-- @include: ./slots/footers.md#shared|PriceGroupClass:set -->
 

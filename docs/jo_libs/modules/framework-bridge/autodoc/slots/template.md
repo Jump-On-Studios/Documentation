@@ -218,6 +218,11 @@
 <!-- #endregion server|jo.framework:updateUserSkin -->
 
 
+<!-- #region shared|jo.framework:addItemDataToPrice -->
+
+<!-- #endregion shared|jo.framework:addItemDataToPrice -->
+
+
 <!-- #region shared|jo.framework:getItemData -->
 
 <!-- #endregion shared|jo.framework:getItemData -->

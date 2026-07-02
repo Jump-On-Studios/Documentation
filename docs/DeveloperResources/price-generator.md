@@ -17,18 +17,40 @@ local price = 5
 local price = { money = 2.75, gold = 2 }
 ```
 
+### Price with rol
+```lua
+local price = { rol = 3 }
+```
+
 ### Price with item and money
 ```lua
 local price = { { item = "horse_license", keep = true }, money = 10 }
 ```
 
-### Multiple payment options (OR)
+### Price with item quantity
+```lua
+local price = { { item = "apple", quantity = 3 } }
+```
+
+### Price with multiple items
+```lua
+local price = {
+    { item = "apple", quantity = 2 },
+    { item = "water", quantity = 1 }
+}
+```
+
+### Price with required item kept after payment
+```lua
+local price = { { item = "permit", keep = true } }
+```
+
+### Multiple payment options
 The player chooses **one** of the listed payment options.
 ```lua
 -- Example: Player can pay with either (1 apple + $10) OR (152 gold)
 local price = {
-    operator = "or",
-    { { item = "apple", quantity = 1, keep = true }, money = 10 },
+    { { item = "apple", keep = true }, money = 10 },
     { gold = 152 }
 }
 ```

@@ -1,275 +1,524 @@
-<!-- #region shared|jo.pricing.formatPrice -->
+<!-- #region shared|PriceClass.new -->
 #### Example
 ```lua
-local moneyPrice = jo.pricing.formatPrice(10)
-print(moneyPrice[1].money) -- 10
+local price = jo.pricing.new({ money = 12, item = "water" })
 
-local currencyPrice = jo.pricing.formatPrice({
-  money = 2.75,
-  gold = 2
-})
--- $2.75 AND 2 gold
-
-local itemPrice = jo.pricing.formatPrice({
-  item = "water",
-  quantity = 2
-})
--- 2 water items
-
-local mixedPrice = jo.pricing.formatPrice({
-  money = 5,
-  item = "acid"
-})
--- $5 AND 1 acid item
-
-local mixedWithQuantity = jo.pricing.formatPrice({
-  money = 2,
-  { item = "acid", quantity = 3 }
-})
--- $2 AND 3 acid items
-
+log(price:get())
+-- Expected output:
+-- {
+--   { money = 12 },
+--   { item = "water", quantity = 1, keep = false }
+-- }
 ```
-<!-- #endregion shared|jo.pricing.formatPrice -->
-
-
-<!-- #region shared|jo.pricing.formatPrices -->
-#### Example
-```lua
-local andPrices = jo.pricing.formatPrices({
-  money = 2,
-  gold = 1
-})
--- One option: $2 AND 1 gold
-
-local alsoAndPrices = jo.pricing.formatPrices({
-  { money = 2 },
-  { gold = 1 }
-})
--- One option: $2 AND 1 gold
-
-local orPrices = jo.pricing.formatPrices({
-  operator = "or",
-  { money = 2 },
-  { gold = 1 }
-})
--- Option 1: $2
--- Option 2: 1 gold
-
-local complexOrPrices = jo.pricing.formatPrices({
-  operator = "or",
-  { money = 5, item = "acid" },
-  { gold = 5 },
-  { money = 2, { item = "acid", quantity = 3 } }
-})
--- Option 1: $5 AND 1 acid
--- Option 2: 5 gold
--- Option 3: $2 AND 3 acid
-
-print(orPrices.operator)     -- "or"
-print(orPrices[1][1].money)  -- 2
-
-```
-<!-- #endregion shared|jo.pricing.formatPrices -->
-
-
-<!-- #region shared|jo.pricing.isPriceFree -->
-#### Example
-```lua
-print(jo.pricing.isPriceFree(0))           -- true
-print(jo.pricing.isPriceFree({ money = 1 })) -- false
-
-local prices = jo.pricing.formatPrices({ money = 0 })
-print(jo.pricing.isPriceFree(prices)) -- true
-
-```
-<!-- #endregion shared|jo.pricing.isPriceFree -->
-
-
-<!-- #region shared|jo.pricing.mergePrices -->
-#### Example
-```lua
-local price = jo.pricing.mergePrices(
-  { money = 10 },
-  { gold = 1 },
-  { item = "water", quantity = 2 }
-)
-
--- $10 AND 1 gold AND 2 water
-```
-<!-- #endregion shared|jo.pricing.mergePrices -->
-
-
-<!-- #region shared|jo.pricing.tax -->
-#### Example
-```lua
-local price = jo.pricing.tax({
-  money = 10,
-  item = "water",
-  quantity = 3
-}, 0.5)
-
--- $5 AND 1 water, because item quantities are rounded down by default
-
-local roundedUpPrice = jo.pricing.tax({
-  item = "water",
-  quantity = 3
-}, 0.5, true)
-
--- 2 water, because roundUpItems is true
-```
-<!-- #endregion shared|jo.pricing.tax -->
+<!-- #endregion shared|PriceClass.new -->
 
 
 <!-- #region shared|PriceClass:add -->
 #### Example
 ```lua
-local price = jo.pricing.formatPrice({ money = 10 })
+local price = jo.pricing.new({ money = 10 })
+price:add({ money = 5, gold = 2 })
 
-price:add({ gold = 1 })
-price:add({ item = "water", quantity = 2 })
-
--- price is now: $10 AND 1 gold AND 2 water
+log(price:get())
+-- Expected output:
+-- {
+--   { money = 15 },
+--   { gold = 2 }
+-- }
 ```
 <!-- #endregion shared|PriceClass:add -->
+
+
+<!-- #region shared|PriceClass:clear -->
+#### Example
+```lua
+local price = jo.pricing.new({ money = 10, item = "water" })
+price:clear()
+
+log(price:get())
+-- Expected output: {}
+
+print(price:isFree())
+-- Expected output: true
+```
+<!-- #endregion shared|PriceClass:clear -->
 
 
 <!-- #region shared|PriceClass:copy -->
 #### Example
 ```lua
-local original = jo.pricing.formatPrice({ money = 10 })
-local copy = original:copy()
+local price = jo.pricing.new({ money = 10 })
+local copy = price:copy()
 
-copy:add({ gold = 1 })
+copy:add({ gold = 2 })
 
-print(original[1].money) -- 10
+log(price:get())
+-- Expected output: { { money = 10 } }
+
+log(copy:get())
+-- Expected output: { { money = 10 }, { gold = 2 } }
 ```
 <!-- #endregion shared|PriceClass:copy -->
+
+
+<!-- #region shared|PriceClass:equals -->
+#### Example
+```lua
+local price = jo.pricing.new({ money = 10, item = "water" })
+
+print(price:equals({ item = "water", money = 10 }))
+-- Expected output: true
+
+print(price:equals("invalid"))
+-- Expected output: false
+```
+<!-- #endregion shared|PriceClass:equals -->
+
+
+<!-- #region shared|PriceClass:get -->
+#### Example
+```lua
+local price = jo.pricing.new({ money = 10, gold = 2 })
+local costs = price:get()
+
+log(costs)
+-- Expected output:
+-- {
+--   { money = 10 },
+--   { gold = 2 }
+-- }
+```
+<!-- #endregion shared|PriceClass:get -->
+
+
+<!-- #region shared|PriceClass:getGold -->
+#### Example
+```lua
+local price = jo.pricing.new({ money = 10, gold = 2 })
+local gold = price:getGold()
+
+log(gold)
+-- Expected output: 2
+```
+<!-- #endregion shared|PriceClass:getGold -->
+
+
+<!-- #region shared|PriceClass:getItem -->
+#### Example
+```lua
+local price = jo.pricing.new({
+  { item = "water", quantity = 2, keep = false },
+  { item = "permit", quantity = 1, keep = true }
+})
+
+local consumedWater = price:getItem("water", false)
+local keptPermit = price:getItem("permit", true)
+
+log(consumedWater)
+-- Expected output: { item = "water", quantity = 2, keep = false }
+
+log(keptPermit)
+-- Expected output: { item = "permit", quantity = 1, keep = true }
+```
+<!-- #endregion shared|PriceClass:getItem -->
+
+
+<!-- #region shared|PriceClass:getItems -->
+#### Example
+```lua
+local price = jo.pricing.new({ money = 10, item = "water" })
+local items = price:getItems()
+
+log(items)
+-- Expected output:
+-- {
+--   { item = "water", quantity = 1, keep = false }
+-- }
+```
+<!-- #endregion shared|PriceClass:getItems -->
+
+
+<!-- #region shared|PriceClass:getMoney -->
+#### Example
+```lua
+local price = jo.pricing.new({ money = 10, gold = 2 })
+local money = price:getMoney()
+
+log(money)
+-- Expected output: 10
+```
+<!-- #endregion shared|PriceClass:getMoney -->
+
+
+<!-- #region shared|PriceClass:getRol -->
+#### Example
+```lua
+local price = jo.pricing.new({ rol = 3 })
+local rol = price:getRol()
+
+log(rol)
+-- Expected output: 3
+```
+<!-- #endregion shared|PriceClass:getRol -->
+
+
+<!-- #region shared|PriceClass:hasCurrency -->
+#### Example
+```lua
+local price = jo.pricing.new({ money = 10, item = "water" })
+
+print(price:hasCurrency("money"))
+-- Expected output: true
+
+print(price:hasCurrency("gold"))
+-- Expected output: false
+```
+<!-- #endregion shared|PriceClass:hasCurrency -->
+
+
+<!-- #region shared|PriceClass:hasItem -->
+#### Example
+```lua
+local price = jo.pricing.new({ item = "water", quantity = 2 })
+
+print(price:hasItem("water", false))
+-- Expected output: true
+
+print(price:hasItem("water", true))
+-- Expected output: false
+```
+<!-- #endregion shared|PriceClass:hasItem -->
+
+
+<!-- #region shared|PriceClass:isCurrencyOnly -->
+#### Example
+```lua
+print(jo.pricing.new({ money = 10, gold = 2 }):isCurrencyOnly())
+-- Expected output: true
+
+print(jo.pricing.new({ money = 10, item = "water" }):isCurrencyOnly())
+-- Expected output: false
+```
+<!-- #endregion shared|PriceClass:isCurrencyOnly -->
 
 
 <!-- #region shared|PriceClass:isFree -->
 #### Example
 ```lua
-local freePrice = jo.pricing.formatPrice(0)
-local paidPrice = jo.pricing.formatPrice(10)
+print(jo.pricing.new():isFree())
+-- Expected output: true
 
-print(freePrice:isFree()) -- true
-print(paidPrice:isFree()) -- false
+print(jo.pricing.new({ money = 0 }):isFree())
+-- Expected output: true
+
+print(jo.pricing.new({ item = "water" }):isFree())
+-- Expected output: false
 ```
 <!-- #endregion shared|PriceClass:isFree -->
 
 
-<!-- #region shared|PriceClass:remove -->
+<!-- #region shared|PriceClass:isItemOnly -->
 #### Example
 ```lua
-local price = jo.pricing.formatPrice({
-  money = 10,
-  item = "water",
-  quantity = 2
+print(jo.pricing.new({ item = "water" }):isItemOnly())
+-- Expected output: true
+
+print(jo.pricing.new({ money = 10, item = "water" }):isItemOnly())
+-- Expected output: false
+```
+<!-- #endregion shared|PriceClass:isItemOnly -->
+
+
+<!-- #region shared|PriceClass:removeCurrency -->
+#### Example
+```lua
+local price = jo.pricing.new({ money = 10, gold = 2 })
+price:removeCurrency("money")
+
+log(price:get())
+-- Expected output: { { gold = 2 } }
+```
+<!-- #endregion shared|PriceClass:removeCurrency -->
+
+
+<!-- #region shared|PriceClass:removeItem -->
+#### Example
+```lua
+local price = jo.pricing.new({
+  { item = "water", quantity = 2, keep = false },
+  { item = "permit", keep = true }
 })
 
-price:remove({ money = 5 })
--- price is now: $5 AND 2 water
+price:removeItem("water", false)
 
-local success, reason = price:remove({ money = 15 })
-
-if not success then
-  print(reason) -- "not_enough_money"
-end
+log(price:get())
+-- Expected output:
+-- {
+--   { item = "permit", quantity = 1, keep = true }
+-- }
 ```
-<!-- #endregion shared|PriceClass:remove -->
+<!-- #endregion shared|PriceClass:removeItem -->
 
 
 <!-- #region shared|PriceClass:tax -->
 #### Example
 ```lua
-local price = jo.pricing.formatPrice({
-  money = 10,
-  item = "water",
-  quantity = 3
-})
+local price = jo.pricing.new({ money = 10, item = "water", quantity = 3 })
+price:tax(1.5, true)
 
-price:tax(0.5)
--- price is now: $5 AND 1 water
+log(price:get())
+-- Expected output:
+-- {
+--   { money = 15 },
+--   { item = "water", quantity = 5, keep = false }
+-- }
 ```
 <!-- #endregion shared|PriceClass:tax -->
 
 
-<!-- #region shared|PriceClass:toTable -->
+<!-- #region shared|PriceGroupClass.new -->
 #### Example
 ```lua
-local price = jo.pricing.formatPrice({
+local group = jo.pricing.newGroup({
+  operator = "or",
+  prices = {
+    { money = 10 },
+    { gold = 2 }
+  }
+})
+
+print(group.operator)
+-- Expected output: "or"
+
+print(group:count())
+-- Expected output: 2
+```
+<!-- #endregion shared|PriceGroupClass.new -->
+
+
+<!-- #region shared|PriceGroupClass:clear -->
+#### Example
+```lua
+local group = jo.pricing.newGroup({ { money = 10 }, { gold = 2 } })
+group:clear()
+
+print(group:count())
+-- Expected output: 0
+
+print(group:isEmpty())
+-- Expected output: true
+```
+<!-- #endregion shared|PriceGroupClass:clear -->
+
+
+<!-- #region shared|PriceGroupClass:compact -->
+#### Example
+```lua
+local group = jo.pricing.newGroup({
+  operator = "and",
+  prices = {
+    { money = 10 },
+    { item = "water", quantity = 2 }
+  }
+})
+
+local price = group:compact()
+log(price:get())
+-- Expected output:
+-- {
+--   { money = 10 },
+--   { item = "water", quantity = 2, keep = false }
+-- }
+```
+<!-- #endregion shared|PriceGroupClass:compact -->
+
+
+<!-- #region shared|PriceGroupClass:copy -->
+#### Example
+```lua
+local group = jo.pricing.newGroup({ { money = 10 }, { gold = 2 } })
+local copy = group:copy()
+
+copy:insert({ rol = 1 })
+
+print(group:count())
+-- Expected output: 2
+
+print(copy:count())
+-- Expected output: 3
+```
+<!-- #endregion shared|PriceGroupClass:copy -->
+
+
+<!-- #region shared|PriceGroupClass:count -->
+#### Example
+```lua
+local group = jo.pricing.newGroup({ { money = 10 }, { gold = 2 } })
+
+print(group:count())
+-- Expected output: 2
+```
+<!-- #endregion shared|PriceGroupClass:count -->
+
+
+<!-- #region shared|PriceGroupClass:get -->
+#### Example
+```lua
+local group = jo.pricing.newGroup({ { money = 10 }, { gold = 2 } })
+local firstPrice = group:get(1)
+
+log(firstPrice:get())
+-- Expected output: { { money = 10 } }
+```
+<!-- #endregion shared|PriceGroupClass:get -->
+
+
+<!-- #region shared|PriceGroupClass:insert -->
+#### Example
+```lua
+local group = jo.pricing.newGroup({ { money = 10 } })
+group:insert({ gold = 2 })
+group:insert({ rol = 1 }, 1)
+
+print(group:count())
+-- Expected output: 3
+
+log(group:get(1):get())
+-- Expected output: { { rol = 1 } }
+```
+<!-- #endregion shared|PriceGroupClass:insert -->
+
+
+<!-- #region shared|PriceGroupClass:isEmpty -->
+#### Example
+```lua
+local group = jo.pricing.newGroup()
+
+print(group:isEmpty())
+-- Expected output: true
+
+group:insert({ money = 10 })
+
+print(group:isEmpty())
+-- Expected output: false
+```
+<!-- #endregion shared|PriceGroupClass:isEmpty -->
+
+
+<!-- #region shared|PriceGroupClass:remove -->
+#### Example
+```lua
+local group = jo.pricing.newGroup({ { money = 10 }, { gold = 2 } })
+local removed = group:remove(1)
+
+log(removed:get())
+-- Expected output: { { money = 10 } }
+
+print(group:count())
+-- Expected output: 1
+```
+<!-- #endregion shared|PriceGroupClass:remove -->
+
+
+<!-- #region shared|PriceGroupClass:set -->
+#### Example
+```lua
+local group = jo.pricing.newGroup({ { money = 10 }, { gold = 2 } })
+group:set(2, { item = "water", quantity = 2 })
+
+log(group:get(2):get())
+-- Expected output:
+-- {
+--   { item = "water", quantity = 2, keep = false }
+-- }
+```
+<!-- #endregion shared|PriceGroupClass:set -->
+
+
+<!-- #region shared|jo.pricing.get -->
+#### Example
+```lua
+local costs = jo.pricing.get({ money = 10, item = "water" })
+
+log(costs)
+-- Expected output:
+-- {
+--   { money = 10 },
+--   { item = "water", quantity = 1, keep = false }
+-- }
+```
+<!-- #endregion shared|jo.pricing.get -->
+
+
+<!-- #region shared|jo.pricing.isPrice -->
+#### Example
+```lua
+local price = jo.pricing.new({ money = 10 })
+local plainTable = { costs = { { money = 10 } } }
+
+print(jo.pricing.isPrice(price))
+-- Expected output: true
+
+print(jo.pricing.isPrice(plainTable))
+-- Expected output: false
+```
+<!-- #endregion shared|jo.pricing.isPrice -->
+
+
+<!-- #region shared|jo.pricing.isPriceGroup -->
+#### Example
+```lua
+local group = jo.pricing.newGroup({ { money = 10 }, { gold = 2 } })
+local plainTable = { operator = "or", prices = {} }
+
+print(jo.pricing.isPriceGroup(group))
+-- Expected output: true
+
+print(jo.pricing.isPriceGroup(plainTable))
+-- Expected output: false
+```
+<!-- #endregion shared|jo.pricing.isPriceGroup -->
+
+
+<!-- #region shared|jo.pricing.new -->
+#### Example
+```lua
+local price = jo.pricing.new({
+  money = 5,
+  { money = 10 },
+  { item = "water", quantity = 2 }
+})
+
+log(price:get())
+-- Expected output:
+-- {
+--   { money = 15 },
+--   { item = "water", quantity = 2, keep = false }
+-- }
+```
+<!-- #endregion shared|jo.pricing.new -->
+
+
+<!-- #region shared|jo.pricing.newGroup -->
+#### Example
+```lua
+local group = jo.pricing.newGroup({
+  operator = "and",
   money = 10,
-  item = "water"
+  gold = 2
 })
 
-local plainPrice = price:toTable()
-print(plainPrice[1].money or plainPrice[2].money)
+print(group.operator)
+-- Expected output: "and"
+
+print(group:count())
+-- Expected output: 2
+
+log(group:compact():get())
+-- Expected output:
+-- {
+--   { money = 10 },
+--   { gold = 2 }
+-- }
 ```
-<!-- #endregion shared|PriceClass:toTable -->
-
-
-<!-- #region shared|PricesClass:addPrice -->
-#### Example
-```lua
-local prices = jo.pricing.formatPrices({
-  operator = "or",
-  { money = 10 }
-})
-
-prices:addPrice({ gold = 1 })
--- prices now has two options
-
-local andPrices = jo.pricing.formatPrices({ money = 10 })
-andPrices:addPrice({ gold = 1 })
--- andPrices still has one option: $10 AND 1 gold
-```
-<!-- #endregion shared|PricesClass:addPrice -->
-
-
-<!-- #region shared|PricesClass:copy -->
-#### Example
-```lua
-local prices = jo.pricing.formatPrices({
-  operator = "or",
-  { money = 10 },
-  { gold = 1 }
-})
-
-local copy = prices:copy()
-copy:addPrice({ rol = 5 })
-
-print(#prices) -- 2
-print(#copy)   -- 3
-```
-<!-- #endregion shared|PricesClass:copy -->
-
-
-<!-- #region shared|PricesClass:removePrice -->
-#### Example
-```lua
-local prices = jo.pricing.formatPrices({
-  operator = "or",
-  { money = 10 },
-  { gold = 1 }
-})
-
-prices:removePrice(1)
--- only the gold option remains
-```
-<!-- #endregion shared|PricesClass:removePrice -->
-
-
-<!-- #region shared|PricesClass:toTable -->
-#### Example
-```lua
-local prices = jo.pricing.formatPrices({
-  operator = "or",
-  { money = 10 },
-  { gold = 1 }
-})
-
-local plainPrices = prices:toTable()
-
-print(plainPrices.operator) -- "or"
-```
-<!-- #endregion shared|PricesClass:toTable -->
+<!-- #endregion shared|jo.pricing.newGroup -->

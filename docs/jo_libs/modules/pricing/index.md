@@ -1,16 +1,16 @@
 # Pricing
 
-Pricing is a shared module to normalize and manipulate prices in your scripts.
-It supports money, gold, roleplay money (`rol`) and item prices.
+Pricing is a shared module to normalize, compare, and manipulate prices in your scripts.
+It supports money, gold, roleplay money (`rol`), and item prices.
 
-The module uses two table objects:
+The module uses two normalized pricing objects:
 
-- `Price`: one payment expression. Multiple entries inside a `Price` are paid together.
-- `Prices`: a list of `Price` options, with `operator = "or"` for alternatives or `operator = "and"` for a single merged option.
+- `PriceClass`: one payment expression. All costs inside a price are required together.
+- `PriceGroupClass`: a list of prices joined by `operator = "or"` for alternatives or `operator = "and"` for grouped requirements.
 
 :::tip
-`OR` is never implicit. Only a root `operator = "or"` creates payment alternatives.
-Every other price shape is treated as an `AND` price.
+A `PriceClass` is always an implicit `AND` between its costs.
+Use `jo.pricing.newGroup()` when you need explicit `"or"` alternatives or an explicit `"and"` group.
 :::
 
 :::tip
