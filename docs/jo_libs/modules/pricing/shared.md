@@ -102,6 +102,37 @@ log(multiplied:get())
 -- Expected output: { { money = 10 } }
 ```
 
+### Division
+
+Use the `/` operator to divide a price by a number into a new `PriceClass`.
+It reuses the multiplication behavior internally, so currencies keep their divided value and item quantities are rounded to the nearest integer.
+
+```lua
+local price = jo.pricing.new({
+  money = 15,
+  item = "water",
+  quantity = 5
+})
+
+local divided = price / 2
+
+log(divided:get())
+-- Expected output:
+-- {
+--   { money = 7.5 },
+--   { item = "water", quantity = 3, keep = false }
+-- }
+
+log(price:get())
+-- Expected output:
+-- {
+--   { money = 15 },
+--   { item = "water", quantity = 5, keep = false }
+-- }
+```
+
+Only `price / number` is supported. Division by zero raises an error.
+
 ### Length
 
 Use the `#` operator to count canonical entries.
