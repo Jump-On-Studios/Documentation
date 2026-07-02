@@ -1,4 +1,7 @@
 
+## Constructor
+
+
 ## JO Functions
 
 ### jo.pricing.formatPrice()
