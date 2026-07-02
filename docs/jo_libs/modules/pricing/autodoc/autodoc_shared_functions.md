@@ -18,6 +18,8 @@ jo.pricing.new(data)
 #### Parameters
 
 `data` : _PriceInput_ <BadgeOptional />
+> Price input to normalize <br> default:`nil`
+>
 
 #### Return Value
 
@@ -47,6 +49,8 @@ jo.pricing.newGroup(data)
 #### Parameters
 
 `data` : _PriceGroupInput_ <BadgeOptional />
+> Price group input to normalize <br> default:`nil`
+>
 
 #### Return Value
 
@@ -64,7 +68,7 @@ Type : _[PriceGroupClass](#pricegroupclass-methods)_
 
 <!-- @include: ./slots/headers.md#shared|jo.pricing.get -->
 
-Converts a price input into a canonical costs list. <br>
+Returns the canonical costs list for a price input. <br>
 
 <!-- @include: ./slots/descriptions.md#shared|jo.pricing.get -->
 
@@ -77,6 +81,8 @@ jo.pricing.get(price)
 #### Parameters
 
 `price` : _PriceInput_
+> Price input
+>
 
 #### Return Value
 
@@ -106,6 +112,8 @@ jo.pricing.isPrice(value)
 #### Parameters
 
 `value` : _any_
+> Value to test
+>
 
 #### Return Value
 
@@ -135,6 +143,8 @@ jo.pricing.isPriceGroup(value)
 #### Parameters
 
 `value` : _any_
+> Value to test
+>
 
 #### Return Value
 
@@ -164,14 +174,20 @@ jo.pricing.tax(price, percentage, roundUpItems)
 #### Parameters
 
 `price` : _PriceInput_
+> Price input to split
+>
 
 `percentage` : _number_ <BadgeOptional />
+> Tax multiplier applied to the input price <br> default:`0`
+>
 
 `roundUpItems` : _boolean_ <BadgeOptional />
+> Round item quantities up instead of down <br> default:`false`
+>
 
 #### Return Value
 
-Type : _[PriceClass](#priceclass-methods),[PriceClass](#priceclass-methods)_
+Type : _[PriceClass](#priceclass-methods),_
 
 
 <!-- @include: ./slots/examples.md#shared|jo.pricing.tax -->
@@ -198,6 +214,8 @@ PriceClass:add(price)
 #### Parameters
 
 `price` : _PriceInput_
+> Price input to add to the current price
+>
 
 #### Return Value
 
@@ -277,6 +295,8 @@ PriceClass:equals(other)
 #### Parameters
 
 `other` : _PriceInput_
+> Price input to compare with the current price
+>
 
 #### Return Value
 
@@ -356,8 +376,12 @@ PriceClass:getItem(item, keep)
 #### Parameters
 
 `item` : _string_
+> Item name
+>
 
 `keep` : _boolean_
+> Item keep flag - `false`: consumed cost, `true`: required but kept
+>
 
 #### Return Value
 
@@ -462,6 +486,8 @@ PriceClass:hasCurrency(key)
 #### Parameters
 
 `key` : _"money"|"gold"|"rol"_
+> Currency cost key
+>
 
 #### Return Value
 
@@ -491,8 +517,12 @@ PriceClass:hasItem(item, keep)
 #### Parameters
 
 `item` : _string_
+> Item name
+>
 
 `keep` : _boolean_
+> Item keep flag - `false`: consumed cost, `true`: required but kept
+>
 
 #### Return Value
 
@@ -597,6 +627,8 @@ PriceClass:removeCurrency(key)
 #### Parameters
 
 `key` : _"money"|"gold"|"rol"_
+> Currency cost key to remove
+>
 
 #### Return Value
 
@@ -626,8 +658,12 @@ PriceClass:removeItem(item, keep)
 #### Parameters
 
 `item` : _string_
+> Item name
+>
 
 `keep` : _boolean_
+> Item keep flag - `false`: consumed cost, `true`: required but kept
+>
 
 #### Return Value
 
@@ -758,6 +794,8 @@ PriceGroupClass:get(index)
 #### Parameters
 
 `index` : _number_
+> Price index
+>
 
 #### Return Value
 
@@ -787,8 +825,12 @@ PriceGroupClass:insert(price, index)
 #### Parameters
 
 `price` : _PriceInput_
+> Price input to insert
+>
 
 `index` : _number_ <BadgeOptional />
+> Insertion index <br> default: append at the end
+>
 
 #### Return Value
 
@@ -843,6 +885,8 @@ PriceGroupClass:remove(index)
 #### Parameters
 
 `index` : _number_
+> Price index to remove
+>
 
 #### Return Value
 
@@ -872,8 +916,12 @@ PriceGroupClass:set(index, price)
 #### Parameters
 
 `index` : _number_
+> Existing price index to replace
+>
 
 `price` : _PriceInput_
+> Replacement price input
+>
 
 #### Return Value
 

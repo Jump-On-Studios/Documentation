@@ -344,7 +344,10 @@ local group = jo.pricing.newGroup({
   operator = "and",
   prices = {
     { money = 10 },
-    { item = "water", quantity = 2 }
+    { money = 5 },
+    { item = "water", quantity = 2, keep = false  },
+    { item = "water", quantity = 5 },
+    { item = "water", quantity = 2, keep = true }
   }
 })
 
@@ -352,8 +355,9 @@ local price = group:compact()
 log(price:get())
 -- Expected output:
 -- {
---   { money = 10 },
---   { item = "water", quantity = 2, keep = false }
+--   { money = 15 },
+--   { item = "water", quantity = 7, keep = false },
+--   { item = "water", quantity = 2, keep = true }
 -- }
 ```
 <!-- #endregion shared|PriceGroupClass:compact -->
