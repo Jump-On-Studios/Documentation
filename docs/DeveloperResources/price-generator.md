@@ -7,50 +7,70 @@ Copy the generated Lua code and paste it into your `config` file as the value of
 
 ## Price syntax reference
 
-### Simple price for dollars (number only)
+Each entry is a payment option. Inside one option, all listed costs are paid together.
+
+### Simple price for dollars
 ```lua
 local price = 5
 ```
 
-### Combined price with money and gold
+### Money and gold together
 ```lua
-local price = { money = 2.75, gold = 2 }
+local price = {
+    { money = 2.75, gold = 2 }
+}
 ```
 
-### Price with rol
+### Rol
 ```lua
 local price = { rol = 3 }
 ```
 
-### Price with item and money
+### Item only
 ```lua
-local price = { { item = "horse_license", keep = true }, money = 10 }
+local price = { item = "water" }
 ```
 
-### Price with item quantity
+### Item with quantity
 ```lua
-local price = { { item = "apple", quantity = 3 } }
+local price = { item = "apple", quantity = 3 }
 ```
 
-### Price with multiple items
+### Item kept after payment
+```lua
+local price = { item = "permit", keep = true }
+```
+
+### Item and money together
 ```lua
 local price = {
-    { item = "apple", quantity = 2 },
-    { item = "water", quantity = 1 }
+    { item = "water", money = 10 }
 }
 ```
 
-### Price with required item kept after payment
+### Item with quantity and money
 ```lua
-local price = { { item = "permit", keep = true } }
+local price = {
+    { { item = "apple", quantity = 2 }, money = 10 }
+}
+```
+
+### Multiple items in one option
+```lua
+local price = {
+    {
+        { item = "apple", quantity = 2 },
+        { item = "water" }
+    }
+}
 ```
 
 ### Multiple payment options
-The player chooses **one** of the listed payment options.
+The player chooses **one** option.
 ```lua
--- Example: Player can pay with either (1 apple + $10) OR (152 gold)
+-- Example: Player can pay with either ($10 + 1 water) OR 152 gold
 local price = {
-    { { item = "apple", keep = true }, money = 10 },
+    { item = "water", money = 10 },
     { gold = 152 }
 }
 ```
