@@ -64,6 +64,64 @@ log(priceA:get())
 -- Expected output: { { money = 10 } }
 ```
 
+### Multiplication
+
+Use the `*` operator to multiply a price into a new `PriceClass`.
+Currencies keep their multiplied value, while item quantities are rounded to the nearest integer.
+
+```lua
+local price = jo.pricing.new({
+  money = 10,
+  item = "water",
+  quantity = 3
+})
+
+local multiplied = price * 1.5
+
+log(multiplied:get())
+-- Expected output:
+-- {
+--   { money = 15 },
+--   { item = "water", quantity = 5, keep = false }
+-- }
+
+log(price:get())
+-- Expected output:
+-- {
+--   { money = 10 },
+--   { item = "water", quantity = 3, keep = false }
+-- }
+```
+
+The reversed order also works:
+
+```lua
+local multiplied = 2 * jo.pricing.new({ money = 5 })
+
+log(multiplied:get())
+-- Expected output: { { money = 10 } }
+```
+
+### Length
+
+Use the `#` operator to count canonical entries.
+For a `PriceClass`, it returns the number of costs.
+For a `PriceGroupClass`, it returns the number of prices in the group.
+
+```lua
+local price = jo.pricing.new({ money = 10, item = "water" })
+local group = jo.pricing.newGroup({
+  { money = 10 },
+  { gold = 2 }
+})
+
+print(#price)
+-- Expected output: 2
+
+print(#group)
+-- Expected output: 2
+```
+
 ### Equality
 
 Use the `==` operator to compare two prices by value. Cost order does not matter.

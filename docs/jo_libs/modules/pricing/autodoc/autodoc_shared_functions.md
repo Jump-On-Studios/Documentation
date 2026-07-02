@@ -145,6 +145,39 @@ Type : _boolean_
 
 <!-- @include: ./slots/footers.md#shared|jo.pricing.isPriceGroup -->
 
+---
+
+### jo.pricing.tax()
+
+<!-- @include: ./slots/headers.md#shared|jo.pricing.tax -->
+
+Splits a price into tax and remaining prices. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|jo.pricing.tax -->
+
+#### Syntax
+
+```lua
+jo.pricing.tax(price, percentage, roundUpItems)
+```
+
+#### Parameters
+
+`price` : _PriceInput_
+
+`percentage` : _number_ <BadgeOptional />
+
+`roundUpItems` : _boolean_ <BadgeOptional />
+
+#### Return Value
+
+Type : _[PriceClass](#priceclass-methods),[PriceClass](#priceclass-methods)_
+
+
+<!-- @include: ./slots/examples.md#shared|jo.pricing.tax -->
+
+<!-- @include: ./slots/footers.md#shared|jo.pricing.tax -->
+
 
 ## PriceClass Methods
 
@@ -604,37 +637,6 @@ Type : _[PriceClass](#priceclass-methods)_
 <!-- @include: ./slots/examples.md#shared|PriceClass:removeItem -->
 
 <!-- @include: ./slots/footers.md#shared|PriceClass:removeItem -->
-
----
-
-### PriceClass:tax()
-
-<!-- @include: ./slots/headers.md#shared|PriceClass:tax -->
-
-Applies a multiplier to the current [PriceClass](#priceclass-methods). <br>
-
-<!-- @include: ./slots/descriptions.md#shared|PriceClass:tax -->
-
-#### Syntax
-
-```lua
-PriceClass:tax(percentage, roundUpItems)
-```
-
-#### Parameters
-
-`percentage` : _number_ <BadgeOptional />
-
-`roundUpItems` : _boolean_ <BadgeOptional />
-
-#### Return Value
-
-Type : _[PriceClass](#priceclass-methods)_
-
-
-<!-- @include: ./slots/examples.md#shared|PriceClass:tax -->
-
-<!-- @include: ./slots/footers.md#shared|PriceClass:tax -->
 
 
 ## PriceGroupClass Methods

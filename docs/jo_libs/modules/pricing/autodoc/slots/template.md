@@ -83,11 +83,6 @@
 <!-- #endregion shared|PriceClass:removeItem -->
 
 
-<!-- #region shared|PriceClass:tax -->
-
-<!-- #endregion shared|PriceClass:tax -->
-
-
 <!-- #region shared|PriceGroupClass:clear -->
 
 <!-- #endregion shared|PriceGroupClass:clear -->
@@ -156,4 +151,9 @@
 <!-- #region shared|jo.pricing.newGroup -->
 
 <!-- #endregion shared|jo.pricing.newGroup -->
+
+
+<!-- #region shared|jo.pricing.tax -->
+
+<!-- #endregion shared|jo.pricing.tax -->
 

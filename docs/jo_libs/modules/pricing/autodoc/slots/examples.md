@@ -260,20 +260,46 @@ log(price:get())
 <!-- #endregion shared|PriceClass:removeItem -->
 
 
-<!-- #region shared|PriceClass:tax -->
+<!-- #region shared|jo.pricing.tax -->
 #### Example
 ```lua
 local price = jo.pricing.new({ money = 10, item = "water", quantity = 3 })
-price:tax(1.5, true)
 
-log(price:get())
+-- With roundUpItems = false, item quantities in the tax are rounded down.
+local taxPrice, remainingPrice = jo.pricing.tax(price, 0.5, false)
+
+log(taxPrice:get()) -- Tax PriceClass
 -- Expected output:
 -- {
---   { money = 15 },
---   { item = "water", quantity = 5, keep = false }
+--   { money = 5 },
+--   { item = "water", quantity = 1, keep = false }
+-- }
+
+log(remainingPrice:get()) -- Remaining PriceClass
+-- Expected output:
+-- {
+--   { money = 5 },
+--   { item = "water", quantity = 2, keep = false }
+-- }
+
+-- With roundUpItems = true, item quantities in the tax are rounded up.
+local roundedTaxPrice, roundedRemainingPrice = jo.pricing.tax(price, 0.5, true)
+
+log(roundedTaxPrice:get()) -- Tax PriceClass
+-- Expected output:
+-- {
+--   { money = 5 },
+--   { item = "water", quantity = 2, keep = false }
+-- }
+
+log(roundedRemainingPrice:get()) -- Remaining PriceClass
+-- Expected output:
+-- {
+--   { money = 5 },
+--   { item = "water", quantity = 1, keep = false }
 -- }
 ```
-<!-- #endregion shared|PriceClass:tax -->
+<!-- #endregion shared|jo.pricing.tax -->
 
 
 <!-- #region shared|PriceGroupClass.new -->
