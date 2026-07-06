@@ -120,6 +120,98 @@ exports.jo_clothingstore_outfits:registerFilter("canOpenPremadeOutfitsMenu", fun
 end)
 ```
 
+#### <Badge type="server" text="Server" /> outfitSectionsAccess
+Control which premade outfit types and sections are visible to a player. This server filter is called when the add-on opens the premade outfits menu after the player selects a sex in the main `jo_clothingstore` menu.
+
+The filter receives the full access table and must return it. You can hide a complete type with `access.types`, or hide individual sections with `access.sections`.
+
+```lua
+-- @param access - table access configuration for the selected outfit sex
+-- @param source - integer server ID of the player
+-- @param sexe - string selected outfit sex: "male" or "female"
+exports.jo_clothingstore_outfits:registerFilter("outfitSectionsAccess", function(access, source, sexe)
+    return access
+end)
+```
+
+Default contract:
+
+```lua
+local access = {
+    types = {
+        custom = true,  -- Custom outfits type is visible
+        classic = true, -- Classic outfits type is visible
+    },
+    sections = {
+        custom = {
+            ["Your custom category label 1"] = true, -- Custom category label
+            ["Your custom category label 2"] = true,
+        },
+        classic = {
+            [1] = true, -- Outfits 1 to 100
+            [2] = true, -- Outfits 101 to 200
+        }
+    }
+}
+```
+
+If every type and section is denied, the menu is not opened and the player receives the `noOutfitsForYou` notification.
+
+Example: allow only custom outfits:
+
+```lua
+exports.jo_clothingstore_outfits:registerFilter("outfitSectionsAccess", function(access, source, sexe)
+    access.types.classic = false
+    access.sections.classic = {}
+
+    return access
+end)
+```
+
+Example: allow only one custom category:
+
+```lua
+exports.jo_clothingstore_outfits:registerFilter("outfitSectionsAccess", function(access, source, sexe)
+    access.types.custom = true
+    access.types.classic = false
+    access.sections.custom = {
+        ["Your custom category label 1"] = true,
+    }
+    access.sections.classic = {}
+
+    return access
+end)
+```
+
+Example: allow only the first classic section:
+
+```lua
+exports.jo_clothingstore_outfits:registerFilter("outfitSectionsAccess", function(access, source, sexe)
+    access.types.custom = false
+    access.types.classic = true
+    access.sections.custom = {}
+    access.sections.classic = {
+        [1] = true,
+    }
+
+    return access
+end)
+```
+
+Example: deny everything:
+
+```lua
+exports.jo_clothingstore_outfits:registerFilter("outfitSectionsAccess", function(access, source, sexe)
+    access.types.custom = false
+    access.types.classic = false
+    access.sections.custom = {}
+    access.sections.classic = {}
+
+    return access
+end)
+```
+
+
 ### Related jo_clothingstore filter
 
 The premade outfits menu uses the outfit sex selection flow from the main `jo_clothingstore` resource. To disable opposite-sex premade outfit browsing and purchases, register this server filter from the main script `jo_clothingstore`:
