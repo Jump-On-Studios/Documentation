@@ -187,7 +187,7 @@ jo.pricing.tax(price, percentage, roundUpItems)
 
 #### Return Value
 
-Type : _[PriceClass](#priceclass-methods),_
+Type : _[PriceClass](#priceclass-methods),[PriceClass](#priceclass-methods)_
 
 
 <!-- @include: ./slots/examples.md#shared|jo.pricing.tax -->
