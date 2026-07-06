@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch, watchEffect } from 'vue'
+import { ref, computed, watchEffect } from 'vue'
 import { codeToHtml } from 'shiki'
 
 const TYPES = [
@@ -9,92 +9,125 @@ const TYPES = [
   { value: 'item', label: 'Item' },
 ]
 
-const useOr = ref(false)
 const copied = ref(false)
+const options = ref([createOption()])
 
 function createComponent(type = 'money') {
-  return { type, value: 1, itemName: '', quantity: 1, keep: false }
+  return {
+    type,
+    value: 1,
+    itemName: '',
+    quantity: 1,
+    keep: false,
+  }
 }
 
 function createOption() {
-  return { components: [] }
-}
-
-const singleOption = ref(createOption())
-const multiOptions = ref([createOption()])
-
-function cloneComponents(components) {
-  return components.map(c => ({ ...c }))
-}
-
-watch(useOr, (isOr) => {
-  if (isOr) {
-    multiOptions.value[0] = { components: cloneComponents(singleOption.value.components) }
-  } else {
-    singleOption.value = { components: cloneComponents(multiOptions.value[0].components) }
-  }
-})
-
-function addComponentTo(option) {
-  option.components.push(createComponent('money'))
-}
-
-function removeComponentFrom(option, idx) {
-  option.components.splice(idx, 1)
-}
-
-function addMultiOption() {
-  multiOptions.value.push(createOption())
-}
-
-function removeMultiOption(idx) {
-  if (multiOptions.value.length > 1) {
-    multiOptions.value.splice(idx, 1)
+  return {
+    components: [createComponent('money')],
   }
 }
 
-function generateOptionLua(option) {
+function addComponent(option, type = 'money') {
+  option.components.push(createComponent(type))
+}
+
+function removeComponent(option, index) {
+  option.components.splice(index, 1)
+}
+
+function addOption() {
+  options.value.push(createOption())
+}
+
+function removeOption(index) {
+  if (options.value.length > 1) {
+    options.value.splice(index, 1)
+  }
+}
+
+function formatNumber(value) {
+  const number = Number(value)
+  return Number.isFinite(number) ? number : 0
+}
+
+function getOptionParts(option) {
   const currencyTotals = {}
-  const itemMap = {}
+  const items = []
 
-  for (const comp of option.components) {
-    if (comp.type === 'item') {
-      const name = comp.itemName.trim() || 'item_name'
-      if (itemMap[name]) {
-        itemMap[name].quantity += (comp.quantity || 1)
-        if (comp.keep) itemMap[name].keep = true
-      } else {
-        itemMap[name] = { quantity: comp.quantity || 1, keep: comp.keep }
-      }
+  for (const component of option.components) {
+    if (component.type === 'item') {
+      const name = component.itemName.trim() || 'item_name'
+      const quantity = Math.max(1, Number(component.quantity) || 1)
+      const keep = component.keep === true
+
+      items.push({ name, quantity, keep })
     } else {
-      const val = parseFloat(comp.value) || 0
-      currencyTotals[comp.type] = (currencyTotals[comp.type] || 0) + val
+      const value = formatNumber(component.value)
+      currencyTotals[component.type] = (currencyTotals[component.type] || 0) + value
     }
   }
 
-  const items = Object.entries(itemMap).map(([name, data]) => {
-    const parts = [`item = "${name}"`]
-    if (data.quantity > 1) parts.push(`quantity = ${data.quantity}`)
-    if (data.keep) parts.push(`keep = true`)
-    return `{ ${parts.join(', ')} }`
+  const currencies = Object.entries(currencyTotals)
+    .filter(([, value]) => value !== 0)
+    .map(([type, value]) => `${type} = ${value}`)
+
+  const canInlineItem = items.length === 1 && items[0].quantity === 1 && items[0].keep === false
+  const itemParts = items.map((item) => {
+    const parts = [`item = "${item.name}"`]
+    if (item.quantity !== 1) parts.push(`quantity = ${item.quantity}`)
+    if (item.keep) parts.push('keep = true')
+    return parts
   })
 
-  const currencies = Object.entries(currencyTotals).map(([type, val]) => `${type} = ${val}`)
+  if (canInlineItem) {
+    return [...itemParts[0], ...currencies]
+  }
 
-  return [...items, ...currencies].join(', ')
+  return [
+    ...itemParts.map(parts => `{ ${parts.join(', ')} }`),
+    ...currencies,
+  ]
+}
+
+function generateSingleOptionLua(option) {
+  const parts = getOptionParts(option)
+
+  if (parts.length === 1) {
+    const money = parts[0].match(/^money = (.+)$/)
+    if (money) return money[1]
+
+    return parts[0].startsWith('{') ? parts[0] : `{ ${parts[0]} }`
+  }
+
+  return `{
+    ${generateOptionLua(option)}
+}`
+}
+
+function generateOptionLua(option) {
+  const parts = getOptionParts(option)
+  return `{ ${parts.join(', ')} }`
 }
 
 const generatedCode = computed(() => {
-  if (useOr.value) {
-    const lines = multiOptions.value.map(opt => {
-      const inner = generateOptionLua(opt)
-      return `    { ${inner} }`
-    })
-    return `{\n    operator = "or",\n${lines.join(',\n')}\n}`
-  } else {
-    const inner = generateOptionLua(singleOption.value)
-    return `{ ${inner} }`
+  if (options.value.length === 1) {
+    return generateSingleOptionLua(options.value[0])
   }
+
+  const lines = []
+  options.value.forEach((option, index) => {
+    if (index > 0) {
+      lines.push('    -- or')
+    }
+
+    const suffix = index < options.value.length - 1 ? ',' : ''
+    lines.push(`    ${generateOptionLua(option)}${suffix}`)
+  })
+
+  return `{
+${lines.join('\n')}
+}`
 })
 
 const highlightedCode = ref('')
@@ -114,15 +147,16 @@ async function copyCode() {
   try {
     await navigator.clipboard.writeText(generatedCode.value)
   } catch {
-    const ta = document.createElement('textarea')
-    ta.value = generatedCode.value
-    ta.style.position = 'fixed'
-    ta.style.opacity = '0'
-    document.body.appendChild(ta)
-    ta.select()
+    const textarea = document.createElement('textarea')
+    textarea.value = generatedCode.value
+    textarea.style.position = 'fixed'
+    textarea.style.opacity = '0'
+    document.body.appendChild(textarea)
+    textarea.select()
     document.execCommand('copy')
-    document.body.removeChild(ta)
+    document.body.removeChild(textarea)
   }
+
   copied.value = true
   setTimeout(() => { copied.value = false }, 2000)
 }
@@ -130,81 +164,91 @@ async function copyCode() {
 
 <template>
   <div class="price-generator">
-    <!-- OR toggle -->
-    <div class="pg-section">
-      <label class="pg-checkbox">
-        <input type="checkbox" v-model="useOr" />
-        <span>Use <code>operator = "or"</code> (player chooses one payment option)</span>
-      </label>
-    </div>
-
-    <div class="pg-section-title">{{ useOr ? 'Payment options' : 'Price components' }}</div>
+    <div class="pg-section-title">Payment options</div>
 
     <div class="pg-layout">
-      <!-- Left: inputs -->
       <div class="pg-left">
-        <!-- Single option mode -->
-        <div v-if="!useOr">
+        <template v-for="(option, optionIndex) in options" :key="optionIndex">
           <div class="pg-option-card">
-            <div v-for="(comp, cIdx) in singleOption.components" :key="cIdx" class="pg-component">
-              <div class="pg-component-row">
-                <Select v-model="comp.type" :options="TYPES" optionLabel="label" optionValue="value" class="pg-select-type" />
-                <template v-if="comp.type !== 'item'">
-                  <input type="number" v-model.number="comp.value" min="0" step="0.01" class="pg-input pg-input-md" placeholder="Amount" />
-                </template>
-                <template v-else>
-                  <input type="number" v-model.number="comp.quantity" min="1" class="pg-input pg-input-xs" />
-                  <span class="pg-label-inline">x</span>
-                  <input type="text" v-model="comp.itemName" class="pg-input pg-input-grow" placeholder="Item name" />
-                  <label class="pg-checkbox pg-checkbox-inline">
-                    <input type="checkbox" v-model="comp.keep" />
-                    <span>Keep</span>
-                  </label>
-                </template>
-                <button class="pg-btn-icon pg-btn-danger" @click="removeComponentFrom(singleOption, cIdx)" title="Remove">✕</button>
-              </div>
-            </div>
-            <button class="pg-btn pg-btn-add" @click="addComponentTo(singleOption)">+ Add</button>
+          <div class="pg-option-header">
+            <span class="pg-option-label">Option {{ optionIndex + 1 }}</span>
+            <button
+              v-if="options.length > 1"
+              class="pg-btn-icon pg-btn-danger"
+              type="button"
+              title="Remove option"
+              @click="removeOption(optionIndex)"
+            >
+              x
+            </button>
           </div>
-        </div>
 
-        <!-- Multiple options mode (OR) -->
-        <div v-else>
-          <div v-for="(option, oIdx) in multiOptions" :key="oIdx" class="pg-option-card">
-            <div class="pg-option-header">
-              <span class="pg-option-label">Option {{ oIdx + 1 }}</span>
-              <button v-if="multiOptions.length > 1" class="pg-btn-icon pg-btn-danger" @click="removeMultiOption(oIdx)" title="Remove option">✕</button>
+          <div v-for="(component, componentIndex) in option.components" :key="componentIndex" class="pg-component">
+            <div class="pg-component-row">
+              <Select
+                v-model="component.type"
+                :options="TYPES"
+                optionLabel="label"
+                optionValue="value"
+                class="pg-select-type"
+              />
+
+              <template v-if="component.type !== 'item'">
+                <input
+                  v-model.number="component.value"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  class="pg-input pg-input-md"
+                  placeholder="Amount"
+                />
+              </template>
+
+              <template v-else>
+                <input
+                  v-model.number="component.quantity"
+                  type="number"
+                  min="1"
+                  step="1"
+                  class="pg-input pg-input-xs"
+                />
+                <span class="pg-label-inline">x</span>
+                <input
+                  v-model="component.itemName"
+                  type="text"
+                  class="pg-input pg-input-grow"
+                  placeholder="Item name"
+                />
+                <label class="pg-checkbox pg-checkbox-inline">
+                  <input v-model="component.keep" type="checkbox" />
+                  <span>Keep</span>
+                </label>
+              </template>
+
+              <button
+                class="pg-btn-icon pg-btn-danger"
+                type="button"
+                title="Remove"
+                @click="removeComponent(option, componentIndex)"
+              >
+                x
+              </button>
             </div>
-            <div v-for="(comp, cIdx) in option.components" :key="cIdx" class="pg-component">
-              <div class="pg-component-row">
-                <Select v-model="comp.type" :options="TYPES" optionLabel="label" optionValue="value" class="pg-select-type" />
-                <template v-if="comp.type !== 'item'">
-                  <input type="number" v-model.number="comp.value" min="0" step="0.01" class="pg-input pg-input-md" placeholder="Amount" />
-                </template>
-                <template v-else>
-                  <input type="number" v-model.number="comp.quantity" min="1" class="pg-input pg-input-xs" />
-                  <span class="pg-label-inline">x</span>
-                  <input type="text" v-model="comp.itemName" class="pg-input pg-input-grow" placeholder="Item name" />
-                  <label class="pg-checkbox pg-checkbox-inline">
-                    <input type="checkbox" v-model="comp.keep" />
-                    <span>Keep</span>
-                  </label>
-                </template>
-                <button class="pg-btn-icon pg-btn-danger" @click="removeComponentFrom(option, cIdx)" title="Remove">✕</button>
-              </div>
-            </div>
-            <button class="pg-btn pg-btn-add" @click="addComponentTo(option)">+ Add</button>
           </div>
-          <button class="pg-btn pg-btn-option" @click="addMultiOption">+ Add payment option</button>
+
+          <button class="pg-btn pg-btn-add" type="button" @click="addComponent(option)">+ Add cost</button>
         </div>
+          <div v-if="optionIndex < options.length - 1" class="pg-or-separator">or</div>
+        </template>
+
+        <button class="pg-btn pg-btn-option" type="button" @click="addOption">+ Add payment option</button>
       </div>
 
-      <!-- Right: generated code (sticky on desktop) -->
       <div class="pg-right">
         <div class="pg-code-block">
           <div class="pg-code-header">
             <span>Lua</span>
-            <button class="pg-btn-copy" @click="copyCode">
+            <button class="pg-btn-copy" type="button" @click="copyCode">
               {{ copied ? 'Copied!' : 'Copy' }}
             </button>
           </div>
@@ -220,78 +264,89 @@ async function copyCode() {
   margin-top: 1.5rem;
 }
 
-/* Two-column layout on desktop */
 .pg-layout {
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
 }
 
-.pg-left {
+.pg-left,
+.pg-right {
   flex: 1;
   min-width: 0;
 }
 
 .pg-right {
-  flex: 1;
-  min-width: 0;
   position: sticky;
   top: calc(var(--vp-nav-height) + 1rem);
 }
 
-.pg-section {
-  margin-bottom: 1.25rem;
-}
-
 .pg-section-title {
+  margin-bottom: 0.75rem;
+  color: var(--vp-c-text-2);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--vp-c-text-2);
-  text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 0.75rem;
+  text-transform: uppercase;
 }
 
-/* Checkbox */
-.pg-checkbox {
+.pg-option-card {
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--vp-c-border);
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+}
+
+.pg-option-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.pg-option-label {
+  color: var(--vp-c-brand-1);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pg-or-separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -0.25rem 0 0.5rem;
+  color: var(--vp-c-text-3);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pg-component {
+  margin-bottom: 0.5rem;
+}
+
+.pg-component-row {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  cursor: pointer;
-  font-size: 0.9rem;
-  color: var(--vp-c-text-1);
-  user-select: none;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
-.pg-checkbox input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--vp-c-brand-1);
-  cursor: pointer;
-}
-
-.pg-checkbox-inline {
-  font-size: 0.8rem;
-  gap: 0.3rem;
-  white-space: nowrap;
-  color: var(--vp-c-text-2);
-}
-
-/* Inputs */
-.pg-select,
 .pg-input {
   padding: 0.45rem 0.65rem;
   border: 1px solid var(--vp-c-border);
   border-radius: 8px;
   background: var(--vp-c-bg);
   color: var(--vp-c-text-1);
-  font-size: 0.85rem;
   font-family: inherit;
+  font-size: 0.85rem;
   outline: none;
   transition: border-color 0.15s;
 }
 
-.pg-select:focus,
 .pg-input:focus {
   border-color: var(--vp-c-brand-1);
 }
@@ -302,9 +357,9 @@ async function copyCode() {
 }
 
 .pg-select-type :deep(.p-select) {
-  font-size: 0.85rem;
-  font-family: inherit;
   width: 100%;
+  font-family: inherit;
+  font-size: 0.85rem;
 }
 
 .pg-input-md {
@@ -318,51 +373,40 @@ async function copyCode() {
 
 .pg-input-grow {
   flex: 1;
-  min-width: 100px;
+  min-width: 120px;
 }
 
 .pg-label-inline {
-  font-size: 0.85rem;
-  color: var(--vp-c-text-3);
   flex-shrink: 0;
-}
-
-/* Option cards */
-.pg-option-card {
-  border: 1px solid var(--vp-c-border);
-  border-radius: 10px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.75rem;
-  background: var(--vp-c-bg-soft);
-}
-
-.pg-option-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.pg-option-label {
+  color: var(--vp-c-text-3);
   font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--vp-c-brand-1);
 }
 
-/* Component rows */
-.pg-component {
-  margin-bottom: 0.5rem;
-}
-
-.pg-component-row {
+.pg-checkbox {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  gap: 0.3rem;
+  color: var(--vp-c-text-2);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
 }
 
-/* Buttons */
+.pg-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--vp-c-brand-1);
+  cursor: pointer;
+}
+
+.pg-btn,
+.pg-btn-copy {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
 .pg-btn {
   padding: 0.45rem 0.85rem;
   border: 1px dashed var(--vp-c-border);
@@ -370,9 +414,6 @@ async function copyCode() {
   background: transparent;
   color: var(--vp-c-text-2);
   font-size: 0.85rem;
-  cursor: pointer;
-  transition: all 0.15s;
-  font-family: inherit;
 }
 
 .pg-btn:hover {
@@ -391,19 +432,19 @@ async function copyCode() {
 }
 
 .pg-btn-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 28px;
   height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
   border: none;
   border-radius: 6px;
   background: transparent;
-  cursor: pointer;
   font-size: 0.85rem;
+  cursor: pointer;
   transition: all 0.15s;
-  flex-shrink: 0;
-  padding: 0;
 }
 
 .pg-btn-danger {
@@ -415,10 +456,9 @@ async function copyCode() {
   color: #e53e3e;
 }
 
-/* Code output */
 .pg-code-block {
   border: 1px solid var(--vp-c-border);
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -427,11 +467,11 @@ async function copyCode() {
   justify-content: space-between;
   align-items: center;
   padding: 0.4rem 1rem;
-  background: var(--vp-c-bg-soft);
   border-bottom: 1px solid var(--vp-c-border);
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-2);
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--vp-c-text-2);
 }
 
 .pg-btn-copy {
@@ -441,9 +481,6 @@ async function copyCode() {
   background: var(--vp-c-bg);
   color: var(--vp-c-text-2);
   font-size: 0.8rem;
-  cursor: pointer;
-  transition: all 0.15s;
-  font-family: inherit;
 }
 
 .pg-btn-copy:hover {
@@ -477,7 +514,6 @@ html.dark .pg-code-body :deep(span) {
   color: var(--shiki-dark);
 }
 
-/* Responsive: stack on mobile */
 @media (max-width: 768px) {
   .pg-layout {
     flex-direction: column;
