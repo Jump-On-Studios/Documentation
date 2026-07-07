@@ -35,6 +35,26 @@ jo_libs {
 ```
 You can now use the library inside of your resource with the `jo.pricing` global variable.
 
+
+## Quick usage
+
+```lua
+-- Create a price with $5 and 1 acid item.
+local price = jo.pricing.new({
+  money = 5,
+  item = "acid"
+})
+
+-- Add 1 gold to the existing price.
+price:add({ gold = 1 })
+
+-- Create a group where the player can pay either $10 or 1 gold.
+local group = jo.pricing.newGroup({
+  { money = 10 },
+  { gold = 1 }
+})
+```
+
 ## Functions
 
 Documentation for the [Both](./shared.md) side.
