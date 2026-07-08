@@ -18,9 +18,9 @@
 <!-- #endregion shared|PriceClass:equals -->
 
 
-<!-- #region shared|PriceClass:get -->
+<!-- #region shared|PriceClass:getCosts -->
 
-<!-- #endregion shared|PriceClass:get -->
+<!-- #endregion shared|PriceClass:getCosts -->
 
 
 <!-- #region shared|PriceClass:getGold -->
@@ -106,6 +106,11 @@
 <!-- #region shared|PriceGroupClass:get -->
 
 <!-- #endregion shared|PriceGroupClass:get -->
+
+
+<!-- #region shared|PriceGroupClass:getCosts -->
+
+<!-- #endregion shared|PriceGroupClass:getCosts -->
 
 
 <!-- #region shared|PriceGroupClass:insert -->

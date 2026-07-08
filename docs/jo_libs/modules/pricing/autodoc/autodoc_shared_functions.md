@@ -309,18 +309,18 @@ Type : _boolean_
 
 ---
 
-### PriceClass:get()
+### PriceClass:getCosts()
 
-<!-- @include: ./slots/headers.md#shared|PriceClass:get -->
+<!-- @include: ./slots/headers.md#shared|PriceClass:getCosts -->
 
 Returns the canonical costs list. <br>
 
-<!-- @include: ./slots/descriptions.md#shared|PriceClass:get -->
+<!-- @include: ./slots/descriptions.md#shared|PriceClass:getCosts -->
 
 #### Syntax
 
 ```lua
-PriceClass:get()
+PriceClass:getCosts()
 ```
 
 #### Return Value
@@ -328,9 +328,9 @@ PriceClass:get()
 Type : _Cost[]_
 
 
-<!-- @include: ./slots/examples.md#shared|PriceClass:get -->
+<!-- @include: ./slots/examples.md#shared|PriceClass:getCosts -->
 
-<!-- @include: ./slots/footers.md#shared|PriceClass:get -->
+<!-- @include: ./slots/footers.md#shared|PriceClass:getCosts -->
 
 ---
 
@@ -805,6 +805,37 @@ Type : _[PriceClass](#priceclass-methods)|nil_
 <!-- @include: ./slots/examples.md#shared|PriceGroupClass:get -->
 
 <!-- @include: ./slots/footers.md#shared|PriceGroupClass:get -->
+
+---
+
+### PriceGroupClass:getCosts()
+
+<!-- @include: ./slots/headers.md#shared|PriceGroupClass:getCosts -->
+
+Returns the costs of a price by index. <br>
+
+<!-- @include: ./slots/descriptions.md#shared|PriceGroupClass:getCosts -->
+
+#### Syntax
+
+```lua
+PriceGroupClass:getCosts(index)
+```
+
+#### Parameters
+
+`index` : _number_
+> Price index
+>
+
+#### Return Value
+
+Type : _Cost[]|nil_
+
+
+<!-- @include: ./slots/examples.md#shared|PriceGroupClass:getCosts -->
+
+<!-- @include: ./slots/footers.md#shared|PriceGroupClass:getCosts -->
 
 ---
 
