@@ -30,4 +30,5 @@
 | `jo_libs:gizmo:minY` | <Badge type="client" text="Client" /> | Integer | `-40` | Minimum Y value for camera rotation |
 | `jo_libs:gizmo:movementSpeed` | <Badge type="client" text="Client" /> | Float | `0.1` | Default movement speed for camera |
 | `jo_libs:gizmo:movementSpeedIncrement` | <Badge type="client" text="Client" /> | Float | `0.01` | Increment value when adjusting camera speed |
+| `jo_libs:gizmo:onlyOnMove` | <Badge type="client" text="Client" /> | Boolean | `false` |  |
 | `jo_libs:gizmo:rotationSnap` | <Badge type="client" text="Client" /> | Integer | `5` | Rotation snap value |

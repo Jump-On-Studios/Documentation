@@ -78,6 +78,8 @@ jo.gizmo.moveEntity(entity, cfg, allowPlace)
 > 
 > `cfg.onMove` : _function_ - Optional function fired when the entity move with the gizmo
 > 
+> `cfg.onlyOnMove` : _boolean_ - Optional if onMove set the position or rotation will only be send to the function
+> 
 
 `allowPlace` : _function_ <BadgeOptional />
 > Optional callback to validate placement - receives proposed position as parameter
