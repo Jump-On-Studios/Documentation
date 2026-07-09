@@ -25,7 +25,7 @@ Congratulations, the **Tailor** add-on is ready to be used!
 
 ## 2. Usage
 
-The Tailor add-on lets players sell outfits through persistent mannequins placed in the world. It is an add-on of `jo_clothingstore`: before a seller can create a mannequin, they must first create and save at least one male or female outfit from the clothing store or wardrobe outfit menu.
+The Tailor add-on lets players sell outfits through persistent mannequins placed in the world. It is an add-on of `jo_clothingstore`: before a seller can sell an outfit from a mannequin, they must first create and save at least one male or female outfit from the clothing store or wardrobe outfit menu. Mannequins can also be saved without an outfit.
 
 The [Premade Outfits add-on](clothing-store-outfits) can help sellers create outfits faster by buying ready-made outfits and saving them into their clothing-store outfit list before using them on mannequins.
 
@@ -41,32 +41,33 @@ The [Premade Outfits add-on](clothing-store-outfits) can help sellers create out
 ::: tab 🧍 Create a mannequin
 1. Use `/tailorMenu` to open the mannequin creation menu.
 2. Select the mannequin sex: **Male** or **Female**.
-3. Select one of your saved outfits. The list only shows outfits compatible with the selected mannequin sex.
+3. Select one of your saved outfits, or select **None** to create a mannequin without an outfit. The list only shows outfits compatible with the selected mannequin sex.
 4. Set the mannequin name. By default, selecting an outfit also fills the mannequin name with the outfit name.
-5. Set the sale price. This opens an in-game NUI price modal where you can define a simple price, a combo of several costs paid together, or several payment options for the buyer to choose from.
-   If you add several payment options, use the **Switch price** prompt to preview them before placing the mannequin.
+5. If an outfit is selected, set the sale price. This opens an in-game NUI price modal where you can define a simple price, a combo of several costs paid together, or several payment options for the buyer to choose from.
+   If you add several payment options, use the **Switch price** prompt to preview them before saving the mannequin.
 6. Select a pose.
-7. Choose **Place mannequin**, move and rotate it with the gizmo, then confirm the placement.
+7. Choose **Move mannequin**, place and rotate it with the gizmo, then confirm the placement.
+8. Choose **Save mannequin** to persist it.
 
 The mannequin is saved, synchronized to every player, and will respawn automatically when players are close enough.
 :::
 
 ::: tab 💰 Manage sales
 When the owner approaches one of their mannequins, owner prompts are displayed:
-- **Edit mannequin** - Reopen the mannequin menu to change its sex, outfit, name, price, or pose.
-- **Delete mannequin** - Remove the mannequin from the world and from persistence.
+- **Edit mannequin** - Reopen the mannequin menu to change its sex, outfit, name, price, pose, or position.
+- **Delete mannequin** - Remove the mannequin from the world and from persistence. If the mannequin has sales to collect, they must be collected before deleting it.
 - **Collect sales** - Recover money, gold, ROL, or items stored from previous purchases when the mannequin has sales to collect.
 
 Editing a mannequin keeps the existing world mannequin while the menu is open. If you cancel the edit, unsaved changes are reverted.
 :::
 
 ::: tab 🛍️ Buyer interactions
-When another player approaches a mannequin, buyer prompts are displayed:
+When another player approaches a mannequin with an outfit, buyer prompts are displayed:
 - **Switch price** - Cycle through the available payment options when the mannequin has more than one price.
 - **Try outfit** - Temporarily apply the displayed outfit to the player. The preview is removed when the player moves away from the mannequin.
 - **Buy outfit** - Purchase the outfit with the selected payment option.
 
-Trying an outfit only works when the mannequin sex matches the buyer's current character sex. Buying can still save an outfit of either sex in the buyer's clothing-store outfit list. If the main clothing-store outfit-item mode is enabled, the purchase gives an outfit item instead.
+Mannequins without outfits do not show try or buy prompts. Trying an outfit only works when the mannequin sex matches the buyer's current character sex. Buying can still save an outfit of either sex in the buyer's clothing-store outfit list. If the main clothing-store outfit-item mode is enabled, the purchase gives an outfit item instead.
 :::
 ::::
 
