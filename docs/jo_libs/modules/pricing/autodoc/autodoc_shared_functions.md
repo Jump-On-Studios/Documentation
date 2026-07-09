@@ -12,13 +12,17 @@ Creates a canonical [PriceClass](#priceclass-methods). <br>
 #### Syntax
 
 ```lua
-jo.pricing.new(data)
+jo.pricing.new(data, reuseExisting)
 ```
 
 #### Parameters
 
-`data` : _PriceInput_ <BadgeOptional />
+`data` : _PriceInput|[PriceClass](#priceclass-methods)_ <BadgeOptional />
 > Price input to normalize <br> default:`nil`
+>
+
+`reuseExisting` : _boolean_ <BadgeOptional />
+> Reuse existing [PriceClass](#priceclass-methods) if already created <br> default:`false`
 >
 
 #### Return Value
@@ -43,13 +47,17 @@ Creates a canonical [PriceGroupClass](#pricegroupclass-methods). <br>
 #### Syntax
 
 ```lua
-jo.pricing.newGroup(data)
+jo.pricing.newGroup(data, reuseExisting)
 ```
 
 #### Parameters
 
 `data` : _PriceGroupInput_ <BadgeOptional />
 > Price group input to normalize <br> default:`nil`
+>
+
+`reuseExisting` : _boolean_ <BadgeOptional />
+> Reuse existing [PriceGroupClass](#pricegroupclass-methods) if already created <br> default:`false`
 >
 
 #### Return Value
@@ -64,18 +72,18 @@ Type : _[PriceGroupClass](#pricegroupclass-methods)_
 
 ## JO Functions
 
-### jo.pricing.get()
+### jo.pricing.getCosts()
 
-<!-- @include: ./slots/headers.md#shared|jo.pricing.get -->
+<!-- @include: ./slots/headers.md#shared|jo.pricing.getCosts -->
 
 Returns the canonical costs list for a price input. <br>
 
-<!-- @include: ./slots/descriptions.md#shared|jo.pricing.get -->
+<!-- @include: ./slots/descriptions.md#shared|jo.pricing.getCosts -->
 
 #### Syntax
 
 ```lua
-jo.pricing.get(price)
+jo.pricing.getCosts(price)
 ```
 
 #### Parameters
@@ -89,9 +97,9 @@ jo.pricing.get(price)
 Type : _Cost[]_
 
 
-<!-- @include: ./slots/examples.md#shared|jo.pricing.get -->
+<!-- @include: ./slots/examples.md#shared|jo.pricing.getCosts -->
 
-<!-- @include: ./slots/footers.md#shared|jo.pricing.get -->
+<!-- @include: ./slots/footers.md#shared|jo.pricing.getCosts -->
 
 ---
 
@@ -161,6 +169,7 @@ Type : _boolean_
 
 <!-- @include: ./slots/headers.md#shared|jo.pricing.tax -->
 
+Returns the canonical costs list for a price input. <br>
 Splits a price into tax and remaining prices. <br>
 
 <!-- @include: ./slots/descriptions.md#shared|jo.pricing.tax -->

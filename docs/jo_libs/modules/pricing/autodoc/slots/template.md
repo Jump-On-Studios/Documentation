@@ -133,9 +133,9 @@
 <!-- #endregion shared|PriceGroupClass:set -->
 
 
-<!-- #region shared|jo.pricing.get -->
+<!-- #region shared|jo.pricing.getCosts -->
 
-<!-- #endregion shared|jo.pricing.get -->
+<!-- #endregion shared|jo.pricing.getCosts -->
 
 
 <!-- #region shared|jo.pricing.isPrice -->
