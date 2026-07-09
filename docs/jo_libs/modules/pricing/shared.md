@@ -31,7 +31,7 @@ local group = jo.pricing.newGroup({
 Prices are normalized into canonical cost tables:
 
 ```lua
-log(price:get())
+log(price:getCosts())
 -- Expected output:
 -- {
 --   { money = 5 },
@@ -55,14 +55,14 @@ local priceB = jo.pricing.new({ money = 5, item = "water" })
 
 local total = priceA + priceB
 
-log(total:get())
+log(total:getCosts())
 -- Expected output:
 -- {
 --   { money = 15 },
 --   { item = "water", quantity = 1, keep = false }
 -- }
 
-log(priceA:get())
+log(priceA:getCosts())
 -- Expected output: { { money = 10 } }
 ```
 
@@ -80,14 +80,14 @@ local price = jo.pricing.new({
 
 local multiplied = price * 1.5
 
-log(multiplied:get())
+log(multiplied:getCosts())
 -- Expected output:
 -- {
 --   { money = 15 },
 --   { item = "water", quantity = 5, keep = false }
 -- }
 
-log(price:get())
+log(price:getCosts())
 -- Expected output:
 -- {
 --   { money = 10 },
@@ -100,7 +100,7 @@ The reversed order also works:
 ```lua
 local multiplied = 2 * jo.pricing.new({ money = 5 })
 
-log(multiplied:get())
+log(multiplied:getCosts())
 -- Expected output: { { money = 10 } }
 ```
 
@@ -118,14 +118,14 @@ local price = jo.pricing.new({
 
 local divided = price / 2
 
-log(divided:get())
+log(divided:getCosts())
 -- Expected output:
 -- {
 --   { money = 7.5 },
 --   { item = "water", quantity = 3, keep = false }
 -- }
 
-log(price:get())
+log(price:getCosts())
 -- Expected output:
 -- {
 --   { money = 15 },

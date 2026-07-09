@@ -3,7 +3,7 @@
 ```lua
 local price = jo.pricing.new({ money = 12, item = "water" })
 
-log(price:get())
+log(price:getCosts())
 -- Expected output:
 -- {
 --   { money = 12 },
@@ -19,7 +19,7 @@ log(price:get())
 local price = jo.pricing.new({ money = 10 })
 price:add({ money = 5, gold = 2 })
 
-log(price:get())
+log(price:getCosts())
 -- Expected output:
 -- {
 --   { money = 15 },
@@ -35,7 +35,7 @@ log(price:get())
 local price = jo.pricing.new({ money = 10, item = "water" })
 price:clear()
 
-log(price:get())
+log(price:getCosts())
 -- Expected output: {}
 
 print(price:isFree())
@@ -52,10 +52,10 @@ local copy = price:copy()
 
 copy:add({ gold = 2 })
 
-log(price:get())
+log(price:getCosts())
 -- Expected output: { { money = 10 } }
 
-log(copy:get())
+log(copy:getCosts())
 -- Expected output: { { money = 10 }, { gold = 2 } }
 ```
 <!-- #endregion shared|PriceClass:copy -->
@@ -79,7 +79,7 @@ print(price:equals("invalid"))
 #### Example
 ```lua
 local price = jo.pricing.new({ money = 10, gold = 2 })
-local costs = price:get()
+local costs = price:getCosts()
 
 log(costs)
 -- Expected output:
@@ -235,7 +235,7 @@ print(jo.pricing.new({ money = 10, item = "water" }):isItemOnly())
 local price = jo.pricing.new({ money = 10, gold = 2 })
 price:removeCurrency("money")
 
-log(price:get())
+log(price:getCosts())
 -- Expected output: { { gold = 2 } }
 ```
 <!-- #endregion shared|PriceClass:removeCurrency -->
@@ -251,7 +251,7 @@ local price = jo.pricing.new({
 
 price:removeItem("water", false)
 
-log(price:get())
+log(price:getCosts())
 -- Expected output:
 -- {
 --   { item = "permit", quantity = 1, keep = true }
@@ -268,14 +268,14 @@ local price = jo.pricing.new({ money = 10, item = "water", quantity = 3 })
 -- With roundUpItems = false, item quantities in the tax are rounded down.
 local taxPrice, remainingPrice = jo.pricing.tax(price, 0.5, false)
 
-log(taxPrice:get()) -- Tax PriceClass
+log(taxPrice:getCosts()) -- Tax PriceClass
 -- Expected output:
 -- {
 --   { money = 5 },
 --   { item = "water", quantity = 1, keep = false }
 -- }
 
-log(remainingPrice:get()) -- Remaining PriceClass
+log(remainingPrice:getCosts()) -- Remaining PriceClass
 -- Expected output:
 -- {
 --   { money = 5 },
@@ -285,14 +285,14 @@ log(remainingPrice:get()) -- Remaining PriceClass
 -- With roundUpItems = true, item quantities in the tax are rounded up.
 local roundedTaxPrice, roundedRemainingPrice = jo.pricing.tax(price, 0.5, true)
 
-log(roundedTaxPrice:get()) -- Tax PriceClass
+log(roundedTaxPrice:getCosts()) -- Tax PriceClass
 -- Expected output:
 -- {
 --   { money = 5 },
 --   { item = "water", quantity = 2, keep = false }
 -- }
 
-log(roundedRemainingPrice:get()) -- Remaining PriceClass
+log(roundedRemainingPrice:getCosts()) -- Remaining PriceClass
 -- Expected output:
 -- {
 --   { money = 5 },
@@ -352,7 +352,7 @@ local group = jo.pricing.newGroup({
 })
 
 local price = group:compact()
-log(price:get())
+log(price:getCosts())
 -- Expected output:
 -- {
 --   { money = 15 },
@@ -397,7 +397,7 @@ print(group:count())
 local group = jo.pricing.newGroup({ { money = 10 }, { gold = 2 } })
 local firstPrice = group:get(1)
 
-log(firstPrice:get())
+log(firstPrice:getCosts())
 -- Expected output: { { money = 10 } }
 ```
 <!-- #endregion shared|PriceGroupClass:get -->
@@ -413,7 +413,7 @@ group:insert({ rol = 1 }, 1)
 print(group:count())
 -- Expected output: 3
 
-log(group:get(1):get())
+log(group:get(1):getCosts())
 -- Expected output: { { rol = 1 } }
 ```
 <!-- #endregion shared|PriceGroupClass:insert -->
@@ -441,7 +441,7 @@ print(group:isEmpty())
 local group = jo.pricing.newGroup({ { money = 10 }, { gold = 2 } })
 local removed = group:remove(1)
 
-log(removed:get())
+log(removed:getCosts())
 -- Expected output: { { money = 10 } }
 
 print(group:count())
@@ -456,7 +456,7 @@ print(group:count())
 local group = jo.pricing.newGroup({ { money = 10 }, { gold = 2 } })
 group:set(2, { item = "water", quantity = 2 })
 
-log(group:get(2):get())
+log(group:get(2):getCosts())
 -- Expected output:
 -- {
 --   { item = "water", quantity = 2, keep = false }
@@ -519,7 +519,7 @@ local price = jo.pricing.new({
   { item = "water", quantity = 2 }
 })
 
-log(price:get())
+log(price:getCosts())
 -- Expected output:
 -- {
 --   { money = 15 },
@@ -544,7 +544,7 @@ print(group.operator)
 print(group:count())
 -- Expected output: 2
 
-log(group:compact():get())
+log(group:compact():getCosts())
 -- Expected output:
 -- {
 --   { money = 10 },
