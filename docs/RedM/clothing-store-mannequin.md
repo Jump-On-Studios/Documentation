@@ -72,7 +72,7 @@ Mannequins without outfits do not show try or buy prompts. Trying an outfit only
 ::::
 
 ## 3. Configuration
-<ScriptConfig scriptPath="redm/tailor" />
+<ScriptConfig scriptPath="redm/mannequin" />
 
 ## 4. For developers
 
