@@ -231,7 +231,7 @@ export default defineConfig({
               { text: "Colorways", link: "/RedM/clothing-store-colorways" },
               { text: "NPC Clothes", link: "/RedM/npc-clothes" },
               { text: "Premade Outfits", link: "/RedM/clothing-store-outfits" },
-              { text: "Tailor", link: "/RedM/clothing-store-tailor" },
+              { text: "Mannequin", link: "/RedM/clothing-store-mannequin" },
             ],
           },
           {
