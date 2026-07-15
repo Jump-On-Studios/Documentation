@@ -93,6 +93,11 @@
 <!-- #endregion server|jo.framework:get -->
 
 
+<!-- #region server|jo.framework:getItemCount -->
+
+<!-- #endregion server|jo.framework:getItemCount -->
+
+
 <!-- #region server|jo.framework:getItemsFromInventory -->
 
 <!-- #endregion server|jo.framework:getItemsFromInventory -->

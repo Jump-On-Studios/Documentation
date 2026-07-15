@@ -658,6 +658,48 @@ Type : _string_
 
 ---
 
+### <Badge type="server" text="Server" /> jo.framework:getItemCount()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:getItemCount -->
+
+Gets the quantity of a specific item in a player's inventory <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:getItemCount -->
+
+#### Syntax
+
+```lua
+jo.framework:getItemCount(source, item, meta)
+```
+
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+`item` : _string_
+> The name of the item
+>
+
+`meta` : _table_ <BadgeOptional />
+
+> The metadata of the item
+>
+
+
+#### Return Value
+
+Type : _integer_
+
+> Return the total quantity of the item in the player's inventory
+
+<!-- @include: ./slots/examples.md#server|jo.framework:getItemCount -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:getItemCount -->
+
+---
+
 ### <Badge type="server" text="Server" /> jo.framework:getItemsFromInventory()
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getItemsFromInventory -->
