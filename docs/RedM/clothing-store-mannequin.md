@@ -76,6 +76,15 @@ Mannequins without outfits do not show try or buy prompts. Trying an outfit only
 
 ## 4. For developers
 
+### Events
+
+### <Badge type="client" text="Client" /> Open Mannequin Creator
+Trigger to open the mannequin creator menu for a specific player.
+
+```lua
+TriggerClientEvent("jo_clothingstore_mannequin:openMannequinMenu", playerId)
+```
+
 ### Actions
 
 Actions are one of the two types of Hooks. They provide a way to run a function at a specific point in the execution of scripts. Callback functions for an Action do not return anything back to the calling Action hook. They are the counterpart to Filters.
@@ -243,14 +252,14 @@ exports.jo_clothingstore_mannequin:registerFilter("canUpdateMannequin", function
 end)
 ```
 
-#### <Badge type="server" text="Server" /> canUseMannequinMenuCommand
-Control whether a player can use the mannequin menu command.
+#### <Badge type="server" text="Server" /> canOpenMannequinCreator
+Control whether a player can open the mannequin creator menu.
 
 ```lua
--- @param canUse - boolean (default true)
+-- @param canOpen - boolean (default true)
 -- @param source - integer server ID of the player
-exports.jo_clothingstore_mannequin:registerFilter("canUseMannequinMenuCommand", function(canUse, source)
-    return canUse
+exports.jo_clothingstore_mannequin:registerFilter("canOpenMannequinCreator", function(canOpen, source)
+    return canOpen
 end)
 ```
 
@@ -287,3 +296,55 @@ exports.jo_clothingstore_mannequin:registerFilter("overwriteSellerRevenue", func
     return revenuePrice
 end)
 ```
+
+## 5. Snippets
+
+### Mannequin in item
+
+Here is a snippet to manage the mannequin creation as an item:
+
+1. Create the `mannequin` item in your inventory script.
+2. Create a `mannequin_items.lua` file inside the `config/custom` folder.
+3. Add the following code to the file:
+
+```lua
+--Define the mannequin item
+local mannequinItem = "mannequin"
+
+--Turn off the command to open the mannequin menu
+Config.commands.openMannequinMenu = false
+
+--Create all the server side logic
+if jo.isServerSide() then
+  --load the framework module
+  jo.require("framework")
+
+  --Register the mannequin item has usable
+  jo.framework:registerUseItem(mannequinItem, true, function(source)
+    TriggerClientEvent("jo_clothingstore_mannequin:openMannequinMenu", source)
+  end)
+
+  --Register the filter to check if the player has the mannequin item in their inventory
+  jo.hook.registerFilter("canCreateMannequin", function(canCreate, source)
+    if jo.framework:getItemCount(source, mannequinItem) <= 0 then
+      jo.notif.rightError(source, "You don't have a mannequin in your inventory!")
+      return false
+    end
+    return canCreate
+  end)
+
+  --Register the action to remove the mannequin item when a mannequin is created
+  jo.hook.registerAction("mannequinCreated", function(source)
+    jo.framework:removeItem(source, mannequinItem, 1)
+  end)
+
+  --Register the action to add the mannequin item when a mannequin is deleted
+  jo.hook.registerAction("mannequinDeleted", function(source)
+    jo.framework:giveItem(source, mannequinItem, 1)
+  end)
+end
+```
+
+4. Restart your server.
+5. Done, you can now use the mannequin item to create mannequins.
+6. When you delete a mannequin, the item will be added back to your inventory.
