@@ -144,6 +144,32 @@ Type : _[PromptClass](#promptclass-methods)_
 
 ---
 
+### GroupClass:addSeparator()
+
+<!-- @include: ./slots/headers.md#client|GroupClass:addSeparator -->
+
+Adds a visual separator to the group on a specified page. <br>
+
+<!-- @include: ./slots/descriptions.md#client|GroupClass:addSeparator -->
+
+#### Syntax
+
+```lua
+GroupClass:addSeparator(page)
+```
+
+#### Parameters
+
+`page` : _number_ <BadgeOptional />
+> The page number to add the separator to<br> defaults to 1.
+>
+
+<!-- @include: ./slots/examples.md#client|GroupClass:addSeparator -->
+
+<!-- @include: ./slots/footers.md#client|GroupClass:addSeparator -->
+
+---
+
 ### GroupClass:display()
 
 <!-- @include: ./slots/headers.md#client|GroupClass:display -->
