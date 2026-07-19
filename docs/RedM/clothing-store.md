@@ -335,7 +335,7 @@ Control whether a player can create an outfit for the opposite sex.
 -- @param source - serverID of the player
 exports.jo_clothingstore:registerFilter("canCreateOppositeSexOutfit", function(canCreate, source)
     -- Example: force players to create outfits only for their current character sex
-    return false
+    return canCreate
 end)
 ```
 
