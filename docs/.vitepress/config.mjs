@@ -331,12 +331,22 @@ export default defineConfig({
             ],
           },
           {
-            text: "OverwriteConfig.lua",
-            link: "/DeveloperResources/overwrite-config",
-          },
-          {
-            text: "OverwriteLang.lua",
-            link: "/DeveloperResources/overwrite-lang",
+            text: "Scripts configuration",
+            collapsed: true,
+            items: [
+              {
+                text: "Config Folder",
+                link: "/DeveloperResources/config-folder",
+              },
+              {
+                text: "OverwriteConfig.lua",
+                link: "/DeveloperResources/overwrite-config",
+              },
+              {
+                text: "OverwriteLang.lua",
+                link: "/DeveloperResources/overwrite-lang",
+              },
+            ],
           },
           {
             text: "Price Generator",
