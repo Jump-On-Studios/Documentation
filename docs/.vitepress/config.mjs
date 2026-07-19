@@ -336,15 +336,15 @@ export default defineConfig({
             items: [
               {
                 text: "Config Folder",
-                link: "/DeveloperResources/config-folder",
+                link: "/DeveloperResources/scripts-configuration/config-folder",
               },
               {
                 text: "OverwriteConfig.lua",
-                link: "/DeveloperResources/overwrite-config",
+                link: "/DeveloperResources/scripts-configuration/overwrite-config",
               },
               {
                 text: "OverwriteLang.lua",
-                link: "/DeveloperResources/overwrite-lang",
+                link: "/DeveloperResources/scripts-configuration/overwrite-lang",
               },
             ],
           },

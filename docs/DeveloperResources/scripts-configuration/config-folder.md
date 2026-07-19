@@ -6,7 +6,7 @@ outline: [2,3]
 
 The `config` folder is our new way to manage the configuration of our scripts. Instead of editing a single `config.lua` file, the configuration is split into multiple readable files, and you customize them without ever touching the original files.
 
-This system replaces the [`overwriteConfig.lua`](/DeveloperResources/overwrite-config) and [`overwriteLang.lua`](/DeveloperResources/overwrite-lang) mechanism on newer scripts. If your script ships with a `config` folder, use this method.
+This system replaces the [`overwriteConfig.lua`](/DeveloperResources/scripts-configuration/overwrite-config) and [`overwriteLang.lua`](/DeveloperResources/scripts-configuration/overwrite-lang) mechanism on newer scripts. If your script ships with a `config` folder, use this method.
 
 ## Why use the `config` folder?
 
@@ -164,7 +164,7 @@ Lang.clothesManagerDescription = "Gérez vos vêtements"
 ```
 
 :::tip Preserve placeholders and tags
-Keep any placeholders (`%s`, `%d`, `%1`, `%2`), color codes (`~COLOR_GOLD~`), and HTML tags (`<br>`) exactly as they appear in the original strings. See the [translation tips](/DeveloperResources/overwrite-lang#translation-tips) for details.
+Keep any placeholders (`%s`, `%d`, `%1`, `%2`), color codes (`~COLOR_GOLD~`), and HTML tags (`<br>`) exactly as they appear in the original strings. See the [translation tips](/DeveloperResources/scripts-configuration/overwrite-lang#translation-tips) for details.
 :::
 
 ## Summary
