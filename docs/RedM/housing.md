@@ -1119,6 +1119,18 @@ exports.jo_housing:registerFilter('canGetPlayersAccessibilityList', function(can
 end)
 ```
 
+#### <Badge type="server" text="Server" /> canListHouseForResale
+Controls who can list a house for resale.
+
+```lua
+-- @param canList - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param houseId - ID of the house
+exports.jo_housing:registerFilter('canListHouseForResale', function(canList, source, houseId)
+    return canList
+end)
+```
+
 #### <Badge type="server" text="Server" /> canMoveFurniture
 Controls who can move furniture in a house.
 
@@ -1187,6 +1199,18 @@ exports.jo_housing:registerFilter('canPlaceFurniture', function(canPlace, source
 end)
 ```
 
+#### <Badge type="server" text="Server" /> canRemoveHouseOwner
+Controls who can remove the owner from a house.
+
+```lua
+-- @param canRemove - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param houseId - ID of the house
+exports.jo_housing:registerFilter('canRemoveHouseOwner', function(canRemove, source, houseId)
+    return canRemove
+end)
+```
+
 #### <Badge type="server" text="Server" /> canRemovePlayerFromHouse
 Controls who can remove players from a house's access list.
 
@@ -1197,6 +1221,45 @@ Controls who can remove players from a house's access list.
 -- @param accessibilityId - ID of the access entry to remove
 exports.jo_housing:registerFilter('canRemovePlayerFromHouse', function(canRemove, source, houseId, accessibilityId)
     return canRemove
+end)
+```
+
+#### <Badge type="client" text="Client" /> canSeeBlipForHouse
+Controls if a blip should be created for a specific house on the client.
+This filter is evaluated locally for each house after the global `canSeeHousesBlips` filter has allowed blips.
+
+```lua
+-- @param canSee - boolean indicating if the blip is visible by default
+-- @param house - house object
+exports.jo_housing:registerFilter('canSeeBlipForHouse', function(canSee, house)
+    if not canSee then return false end
+
+    -- Example: only show blips for houses owned by the current player
+    return house:isOwner()
+end)
+```
+
+#### <Badge type="server" text="Server" /> canSeeHousesBlips
+Controls if the player can see housing blips at all.
+This filter is called once when the player's housing data is initialized, before houses are sent to the client.
+
+```lua
+-- @param canSee - boolean indicating if housing blips are visible by default
+-- @param source - serverID of the player
+exports.jo_housing:registerFilter('canSeeHousesBlips', function(canSee, source)
+    return canSee
+end)
+```
+
+#### <Badge type="server" text="Server" /> canSellHouse
+Controls who can sell a house.
+
+```lua
+-- @param canSell - boolean indicating if the action is allowed by default
+-- @param source - serverID of the player
+-- @param houseId - ID of the house
+exports.jo_housing:registerFilter('canSellHouse', function(canSell, source, houseId)
+    return canSell
 end)
 ```
 
@@ -1303,6 +1366,22 @@ exports.jo_housing:registerFilter('canUseHouseManagerCommand', function(canUse, 
     -- Example: Only allow admins
     local isAdmin = exports.your_permission_system:isAdmin(source)
     return isAdmin
+end)
+```
+
+#### <Badge type="server" text="Server" /> resalePaymentAmount
+Allows you to modify the amount paid to the previous owner when a resale listing is bought.
+
+```lua
+-- @param amount - default resale payment amount
+-- @param previousOwnerSource - serverID of the previous owner, or false if offline
+-- @param previousOwnerIdentifier - identifier of the previous owner
+-- @param previousOwnerCharId - character ID of the previous owner
+-- @param buyerSource - serverID of the buyer
+-- @param house - house object
+-- @param moneyType - payment type (0 for money, 1 for gold)
+exports.jo_housing:registerFilter('resalePaymentAmount', function(amount, previousOwnerSource, previousOwnerIdentifier, previousOwnerCharId, buyerSource, house, moneyType)
+    return amount
 end)
 ```
 
