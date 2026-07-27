@@ -1231,7 +1231,7 @@ This filter is evaluated locally for each house after the global `canSeeHousesBl
 ```lua
 -- @param canSee - boolean indicating if the blip is visible by default
 -- @param house - house object
-exports.jo_housing:registerFilter('canSeeBlipForHouse', function(canSee, house)
+jo.hook.registerFilter('canSeeBlipForHouse', function(canSee, house)
     if not canSee then return false end
 
     -- Example: only show blips for houses owned by the current player
