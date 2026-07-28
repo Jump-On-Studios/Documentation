@@ -104,6 +104,38 @@ log(multiplied:getCosts())
 -- Expected output: { { money = 10 } }
 ```
 
+#### PriceGroupClass
+
+The `*` operator can also multiply every price in a `PriceGroupClass`.
+It returns a new group, preserves the original operator and does not modify the source group.
+
+```lua
+local group = jo.pricing.newGroup({
+  { money = 10 },
+  { gold = 2 }
+})
+
+local multipliedGroup = group * 3
+
+print(multipliedGroup.operator)
+-- Expected output: "or"
+
+log(multipliedGroup:get(1):getCosts())
+-- Expected output: { { money = 30 } }
+
+log(multipliedGroup:get(2):getCosts())
+-- Expected output: { { gold = 6 } }
+
+log(group:get(1):getCosts())
+-- Expected output: { { money = 10 } }
+```
+
+The reversed order is supported too:
+
+```lua
+local multipliedGroup = 3 * group
+```
+
 ### Division
 
 Use the `/` operator to divide a price by a number into a new `PriceClass`.
