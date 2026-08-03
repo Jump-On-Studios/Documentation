@@ -3,11 +3,11 @@ outline: [2,5]
 ---
 # Input <BadgeClient/>
 
-A library to manage the input box
+A library to display native and NUI input panels.
 
 ## jo.input.loadNUI()
 
-A function to load the NUI.
+Loads the Input NUI.
 
 **Syntax**
 
@@ -17,7 +17,7 @@ jo.input.loadNUI()
 
 ## jo.input.native()
 
-A function to open the native input
+Opens the native game input.
 
 **Syntax**
 
@@ -28,34 +28,23 @@ jo.input.native(label, placeholder, maxStringLength)
 **Parameters**
 
 `label` : _string_
-> The text above the typing field in the black square
->
+> Text displayed above the native input.
 
 `placeholder` : _string_
-> An Example Text, what it should say in the typing field
->
+> Placeholder displayed in the native input.
 
 `maxStringLength` : _integer_ <BadgeOptional />
-> Maximum String length
->
+> Maximum number of characters. Defaults to `60`.
 
 **Return Value**
 
 Type : _string_
 
-> Return the text from the input
-
-**Example**
-```lua
-local input = jo.input.native('The label: ', 'the placeholder')
-print(input)
-
-```
+The entered text, or an empty string when the input is cancelled.
 
 ## jo.input.nui()
 
-A function to open the nui input.  
-Usefull to ask multiple entries to the player.
+Opens a NUI input panel containing one or more rows of entries.
 
 <img src="/images/previews/input/nui.webp" class="data-zoomable preview" data-zoomable/>
 
@@ -65,211 +54,324 @@ Usefull to ask multiple entries to the player.
 jo.input.nui(options, cb)
 ```
 
-**Parameters**
+### Parameters
 
 `options` : _table_
 
-> Options of the input
->
+```lua
+{
+  rows = { -- list of row objects
+    {
+      position = "content", -- "header", "content" or "footer"
+      columns = {             -- entries rendered in this row
+        { type = "title", value = "Enter the horse's price" },
+      },
+    },
+  },
+  lang = Lang, -- optional translations
+}
+```
 
-> `options.rows` : _table_ - The list of rows content
-> 
+Each row is an object with a `columns` array. `position` is optional and defaults
+to `"content"`:
+
+- `"header"`: fixed content above the scrollable area;
+- `"content"`: main scrollable area;
+- `"footer"`: fixed content below the scrollable area.
+
+When `lang` is provided, only string keys prefixed with `inputNui` are sent to
+the NUI for translation.
 
 `cb` : _function_ <BadgeOptional />
-> The return function. If missing, the function is synchronous
->
+> Callback receiving the result. When omitted, `jo.input.nui` waits synchronously and returns the result.
 
-**Return Value**
+### Common entry properties
 
-Type : _table_
+Entries can use the following shared properties:
 
-> Return the table of the input if no `cb` is provided  
-> `result.action` : _string_ - The id of the button pressed  
-> `result.result` : _table_ - The table of the values  
-
-**Example**
 ```lua
-local options = {
-  rows = {
-    { --1st line
-      { type= "title", value= "Enter the horse's name" },
-    },
-    { --2nd line
-      { type= "description", value= "A description for the panel" }
-    },
-    { --3rd line
-      { type= "label", value= "Birthday=", for= "birthday" }, -- 1st column
-      { type= "date", id= "birthday", placeholder= "Select a date", yearRange= {1800, 1900}, value= '', format= 'dd/MM/yyyy', required= true } -- 2nd column
-    },
-    { --4th line
-      { type= "button", value= "Confirm", id= "confirm", }, -- 1st column
-      { type= "button", class= "bg-green", value= "Delete", id= 'delete', ignoreRequired= true }, -- 2nd column
-      { type= "button", id= "close", value= "X", width= 5, ignoreRequired= true } -- 3rd column
-    },
-  }
+{
+  id = "entry_id",       -- identifier used by labels and in the result
+  class = "custom-class", -- CSS class or built-in class
+  style = {               -- inline CSS properties
+    color = "#f0c674",
+  },
+  width = 50,              -- number = percentage, string = CSS width
 }
--- Open the input synchronously
-local input = jo.input.nui(options)
-log("Button pressed:", input?.action)
-log(input)
+```
 
--- Open the input asynchronously
+`id` must be unique when it is used as a label target or when the value is read
+from the result. `style` is a Lua table of CSS properties, not a CSS string.
+
+### Example
+
+```lua
+local Lang = {
+  inputNuiPaymentOptions = "Payment options",
+  inputNuiOrExplanation = "Set how the price can be paid",
+}
+
+local options = {
+  lang = Lang,
+  rows = {
+    {
+      position = "header",
+      columns = {
+        { type = "title", value = "Enter the horse's price" },
+        { type = "description", value = "Complete the form below" },
+      },
+    },
+    {
+      columns = {
+        { type = "label", value = "Name:", target = "name", width = 10 },
+        {
+          type = "text",
+          id = "name",
+          placeholder = "A horse name",
+          required = true,
+        },
+      },
+    },
+    {
+      columns = {
+        { type = "label", value = "Birthday:", target = "birthday", width = 10 },
+        {
+          type = "date",
+          id = "birthday",
+          placeholder = "Select a date",
+          yearRange = { 1800, 1900 },
+          format = "dd/MM/yyyy",
+          required = true,
+        },
+      },
+    },
+    {
+      columns = {
+        { type = "label", value = "Choice:", target = "choice", width = 10 },
+        {
+          type = "select",
+          id = "choice",
+          placeholder = "Choose an option",
+          options = {
+            { value = 1, label = "Option 1" },
+            { value = 2, label = "Option 2" },
+          },
+          required = true,
+        },
+      },
+    },
+    {
+      position = "footer",
+      columns = {
+        {
+          type = "button",
+          id = "confirm",
+          value = "Confirm",
+          icon = "nui://jo_libs/nui/input/assets/ui/tick.png",
+          class = "success",
+        },
+        {
+          type = "button",
+          id = "close",
+          value = "Close",
+          class = "flat",
+          ignoreRequired = true,
+        },
+      },
+    },
+  },
+}
+
+-- Synchronous
+local input = jo.input.nui(options)
+if input then
+  log("Button pressed:", input.action)
+  log(input.result)
+end
+
+-- Asynchronous
 jo.input.nui(options, function(input)
-  log(input)
+  if input then
+    log(input.action, input.result)
+  end
 end)
 ```
+
 Preview:
+
 <img src="/images/previews/input/nui-input.png" class="data-zoomable preview" data-zoomable/>
 
 ### Entry types
 
 #### Title
+
 ```lua
 {
-  type = "title",                   -- type of the entry
-  value = "Enter the horse's name", -- text to display
-  class = "",                       -- css class (optional)
-  style = "",                       -- css style (optional)
-},
+  type = "title",
+  value = "Enter the horse's price",
+  class = "custom-class", -- optional
+  style = {},              -- optional CSS properties
+}
 ```
----
+
 #### Description
-```lua
-{
-  type = "description",                   -- type of the entry
-  value = "A description for the panel",  -- text to display
-  class = "",                             -- css class (optional)
-  style = "",                             -- css style (optional)
-}
-```
----
-#### Inputs
-<span style="margin-left: 1em; margin-top: 1em; padding-left: 1em; display: block; border-left: 1px solid #ccc">
 
-##### • Label
 ```lua
 {
-  type = "label",       -- type of the entry
-  value = "Birthday=",  -- text to display
-  for = "birthday",     -- id of the input
-  class = "",           -- css class (optional)
-  style = "",           -- css style (optional)
+  type = "description",
+  value = "Complete the form below",
+  class = "custom-class", -- optional
+  style = {},              -- optional CSS properties
 }
 ```
 
-##### • Text
+#### Label
+
+Use `target` to associate a label with the `id` of an input, select, or date
+entry.
+
 ```lua
 {
-  type = "text",                 -- type of the entry
-  id = 'input',                  -- unique id of the input
-  value = "",                   -- default value of the input
-  placeholder = "A text input",  -- placeholder
-  required = true,               -- if the input is required
-  class = "",                    -- css class (optional)
-  style = "",                    -- css style (optional)
-}
-```
-##### • Number
-```lua
-{
-  type = "number",                -- type of the entry
-  id = 'input',                   -- unique id of the input
-  value = 0,                      -- default value of the input
-  min = 0,                        -- minimum value
-  max = 10,                       -- maximum value
-  step = 0.01,                    -- step value
-  placeholder = "A number input", -- placeholder
-  required = true,                -- if the input is required
-  class = "",                     -- css class (optional)
-  style = "",                     -- css style (optional)
-}
-```
-##### • Date
-```lua
-{
-  type = "date",                -- type of the entry
-  id = 'input',                 -- unique id of the input
-  value = "",                   -- default value of the input
-  yearRange = {1800, 1900},     -- range of years
-  format = 'dd/MM/yyyy',        -- format of the date
-  placeholder = "A date input", -- placeholder
-  required = true,              -- if the input is required
-  class = "",                   -- css class (optional)
-  style = "",                   -- css style (optional)
-}
-```
-##### • Select
-```lua
-{
-  type = "select",                          -- type of the entry
-  id = 'input',                             -- unique id of the input
-  value = { value= 1, label= "Option 1" },  -- default value of the input
-  options = {                               -- list of options
-    { value= 1, label= "Option 1" },        -- the label is the text to display
-    { value= 2, label= "Option 2" },
-    { value= 3, label= "Option 3" }
-  },
-  placeholder = "A select input",           -- placeholder
-  required = true,                          -- if the input is required
-  class = "",                               -- css class (optional)
-  style = "",                               -- css style (optional)
-}
-```
-##### • Price
-```lua
-{
-  type = "price",                         -- type of the entry
-  id = 'price',                           -- unique id of the input
-  value = {                               -- default value of the input
-    { item = "horse_license", keep = true },
-    money = 10
-  },
-  options = {                             -- list of available price types (optional)
-    "money",
-    "gold",
-    "rol",
-    "item"
-  },
-  allowOR = true,                         -- allow multiple payment options (optional, default: true)
-  required = true,                        -- if the input is required
-  class = "",                             -- css class (optional)
-  style = "",                             -- css style (optional)
+  type = "label",
+  value = "Birthday:",
+  target = "birthday",
+  class = "custom-class", -- optional
+  style = {},              -- optional CSS properties
 }
 ```
 
-With `allowOR = true`, the returned value can contain multiple payment options:
+#### Text
+
 ```lua
 {
-  operator = "or",
-  {
-    money = 10
-  },
-  {
-    { item = "horse_license", keep = true }
-  }
+  type = "text",
+  id = "name",
+  value = "",              -- optional initial value
+  placeholder = "A name",  -- optional
+  required = true,          -- optional
+  class = "custom-class",  -- optional
+  style = {},               -- optional CSS properties
 }
 ```
-</span>
+
+#### Number
+
+```lua
+{
+  type = "number",
+  id = "amount",
+  value = 0,                 -- optional initial value
+  min = 0,                   -- optional
+  max = 10,                  -- optional
+  step = 0.01,               -- optional
+  placeholder = "An amount", -- optional
+  required = true,           -- optional
+  class = "custom-class",   -- optional
+  style = {},                -- optional CSS properties
+}
+```
+
+#### Date
+
+```lua
+{
+  type = "date",
+  id = "birthday",
+  value = "",                 -- optional initial value
+  yearRange = { 1800, 1900 },  -- optional
+  format = "dd/MM/yyyy",      -- optional display and model format
+  placeholder = "Select a date", -- optional
+  required = true,             -- optional
+  class = "custom-class",     -- optional
+  style = {},                  -- optional CSS properties
+}
+```
+
+#### Select
+
+```lua
+{
+  type = "select",
+  id = "choice",
+  value = { value = 1, label = "Option 1" }, -- optional initial value
+  options = {
+    { value = 1, label = "Option 1" },
+    { value = 2, label = "Option 2" },
+  },
+  placeholder = "Choose an option", -- optional
+  required = true,                   -- optional
+  class = "custom-class",           -- optional
+  style = {},                        -- optional CSS properties
+}
+```
+
+#### Price
+
+```lua
+{
+  type = "price",
+  id = "price",
+  value = {
+    costs = {
+      { money = 10 },
+      { item = "horse_license", quantity = 1, keep = true },
+    },
+  },
+  options = { "money", "gold", "rol", "item" }, -- optional
+  allowOR = true,                                  -- optional, defaults to true
+  required = true,                                 -- optional
+  class = "custom-class",                         -- optional
+  style = {},                                      -- optional CSS properties
+}
+```
 
 #### Button
+
+Buttons are clickable entries. They remain real HTML buttons and can be
+activated with the mouse or keyboard.
+
 ```lua
 {
-  type = "button",       -- type of the entry
-  id = 'input',          -- unique id of the input
-  value = "Confirm",     -- text to display
-  class = "",            -- css class (optional)
-  style = "",            -- css style (optional)
-  ignoreRequired = true, -- if the button should be ignored if the required inputs are not filled
+  type = "button",
+  id = "confirm",
+  value = "Confirm",
+  icon = "nui://jo_libs/nui/input/assets/ui/tick.png", -- optional URL
+  class = "success",                                   -- optional
+  style = {},                                           -- optional CSS properties
+  width = 25,                                           -- optional
+  ignoreRequired = false,                               -- optional
 }
 ```
+
+`icon` accepts a web URL or a NUI URL. The button classes included by the Input
+NUI are:
+
+| Class | Appearance and use |
+| --- | --- |
+| `success` | Positive or confirmation action |
+| `danger` | Destructive or irreversible action |
+| `warning` | Action requiring attention |
+| `muted` | Secondary action with reduced emphasis |
+| `flat` | Text-only action without the textured button surface |
+
+Classes can be combined with custom classes, and `style` can override the
+button's inline CSS properties or button CSS variables.
+
+Both `button` and `action` are valid values for the entry `type`.
+
 ### Return
-If closed with ESC, the return value is `false`.  
-If closed with a button, the return value is a **table** with the following structure:
+
+When the panel is cancelled with `Escape`, the result is `false`.
+
+When the panel is confirmed by a button, the result is:
+
 ```lua
 {
-  action = "action_id", -- the id of the button pressed
+  action = "confirm", -- id of the button pressed
   result = {
-    -- the values of the inputs
-  }
+    name = "Bucephalus",
+    birthday = "01/01/1885",
+    choice = { value = 1, label = "Option 1" },
+  },
 }
 ```
