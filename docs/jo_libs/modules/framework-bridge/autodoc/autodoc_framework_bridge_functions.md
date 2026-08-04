@@ -326,7 +326,7 @@ UserClass:setJob(job, grade)
 
 Type : _boolean_
 
-> If job assignment was successful
+> Returns the combined result of the job and grade assignment
 
 <!-- @include: ./slots/examples.md#server|UserClass:setJob -->
 
