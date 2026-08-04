@@ -98,7 +98,8 @@ You can restrict access by using the [`canUseHouseManagerCommand`](#canusehousem
    - **Front Door Location**: Move the entrance marker
    - **Contract Type**: Choose between one-time sale or rent
      - If rent: Select daily or weekly rent periods
-   - **Price**: Set money and gold prices
+   - **Price**: Set a `jo.pricing` price group. Payment options can use money, gold, role currency or items, and multiple alternatives can be combined with `OR`
+   - **House Tax**: For sale houses only, enable recurring tax and configure its price group and period in days
    - **Features**:
      - **Stable**: Enable/disable horse storage
        - Stable Location: Place the stable interaction marker
@@ -136,7 +137,8 @@ You can restrict access by using the [`canUseHouseManagerCommand`](#canusehousem
    - **Add doors**: While hovering this item, you can walk around the house and register the various doors. Each door you add will be treated as an access point for the property, showing the interaction prompt and marker (if enabled) when a player gets close. These registered doors are also used by the dedicated outside door menu and the quick open / close prompt.
    - **Contract Type**: Choose between one-time sale or rent
      - If rent: Select daily or weekly rent periods
-   - **Price**: Set money and gold prices
+   - **Price**: Set a `jo.pricing` price group. Payment options can use money, gold, role currency or items, and multiple alternatives can be combined with `OR`
+   - **House Tax**: For sale houses only, enable recurring tax and configure its price group and period in days
    - **Features**:
      - **Stable**: Enable/disable horse storage
        - Stable Location: Place the stable interaction marker
@@ -166,7 +168,8 @@ You can restrict access by using the [`canUseHouseManagerCommand`](#canusehousem
    - **Add doors**: While hovering this item, you can walk around the house and register the various doors. Each door you add will be treated as an access point for the property, showing the interaction prompt and marker (if enabled) when a player gets close. These registered doors are also used by the dedicated outside door menu and the quick open / close prompt.
    - **Contract Type**: Choose between one-time sale or rent
      - If rent: Select daily or weekly rent periods
-   - **Price**: Set money and gold prices
+   - **Price**: Set a `jo.pricing` price group. Payment options can use money, gold, role currency or items, and multiple alternatives can be combined with `OR`
+   - **House Tax**: For sale houses only, enable recurring tax and configure its price group and period in days
    - **Features**:
      - **Stable**: Enable/disable horse storage
        - Stable Location: Place the stable interaction marker
@@ -254,6 +257,51 @@ Players can purchase or rent available houses throughout your server.
   - 🟠 Orange: Rent due soon (warning period)
   - 🔴 Red: Grace period (overdue but not yet evicted)
 - If rent expires beyond the grace period, the house will return to the market
+:::
+
+::: tab 🧾 House Tax
+**House Tax:**
+
+House tax is an optional recurring payment for houses configured as **for sale**. Rental houses are never taxed because they already use the rent lifecycle.
+
+Tax is configured by an administrator when creating or editing a house:
+- **House Tax:** Enable or disable the tax for the sale house
+- **Tax Price:** Price charged for one tax period; multiple payment alternatives are supported
+- **Tax Period:** Number of days covered by one payment
+
+Once a taxed house is owned:
+1. The owner can open the house menu and select **Pay house tax**.
+2. The menu displays the date until which the tax is paid (`Tax Paid Until`).
+3. The owner can pay one or more periods at once, up to the configured advance limit.
+4. Early payments extend the existing paid period. Late payments start from the current date, so missed periods are not charged twice.
+
+The default tax settings are:
+- `50 money` per period
+- `7 days` per period
+- `24 hours` warning period
+- `3 days` grace period after the due date
+- `14 days` maximum paid-ahead balance
+
+The house menu displays the current tax status:
+- 🟢 **Green:** Tax is paid and the due date is not approaching
+- 🟠 **Orange:** Tax is due within the warning period
+- 🔴 **Red:** The due date has passed and the owner is within the grace period
+- **Eviction suspended:** An external filter temporarily prevents eviction
+- **Eviction processed:** The grace period has expired and the house has returned to the market
+
+Tax status is enforced when the resource starts and when relevant house menus are opened. If the grace period expires, the owner is notified when online, occupants are removed, furniture and resale listings are cleared, and the house becomes available again. A new buyer or transferee receives a fresh paid period and never inherits the previous owner's tax debt.
+
+For example, a server can temporarily suspend tax evictions for protected characters or during a server event:
+
+```lua
+exports.jo_housing:registerFilter('canEvictForUnpaidTax', function(canEvict, house, ownerIdentifier, ownerCharId)
+    if exports.your_staff_system:isTaxProtected(ownerIdentifier, ownerCharId) then
+        return false
+    end
+
+    return canEvict
+end)
+```
 :::
 
 
@@ -478,7 +526,7 @@ exports.jo_housing:registerFilter('addInteriors', function(customInteriors)
         },
         propset = "luxury_penthouse_mlo",
         category = "manor",
-        numberRoom = 8
+        numberRoom = 8,
         -- insideDoors is optional - omit if no working interior doors needed
     }
     
@@ -590,7 +638,7 @@ This script uses the [raw keys](/jo_libs/modules/raw-keys/) module. If you have 
 2. **Verify Distance Settings:**
    - Make sure you're close enough to interact with objects
    - Check [`Config.distanceShowHousePrompt`](#distance-settings) and related distance settings
-   - Default house prompt distance is 2.5 meters
+   - Default house prompt distance is 2.0 meters
 
 3. **Framework Compatibility:**
    - Ensure your framework is [compatible with jo_libs](/jo_libs/modules/framework-bridge/#compatible-frameworks)
@@ -646,7 +694,9 @@ Triggered when a player purchases furniture for their house.
 -- @param source - serverID of the player
 -- @param house - the house object where furniture was bought
 -- @param furniture - the furniture object that was purchased
-exports.jo_housing:registerAction('furnitureBought', function(source, house, furniture)
+-- @param price - resolved price paid for the furniture
+-- @param priceIndex - selected price option index
+exports.jo_housing:registerAction('furnitureBought', function(source, house, furniture, price, priceIndex)
     -- Your code here
 end)
 ```
@@ -681,7 +731,9 @@ Triggered when a player successfully purchases a house.
 ```lua
 -- @param source - serverID of the buyer
 -- @param house - the house object that was purchased
-exports.jo_housing:registerAction('houseBought', function(source, house)
+-- @param price - resolved price paid for the house
+-- @param priceIndex - selected price option index
+exports.jo_housing:registerAction('houseBought', function(source, house, price, priceIndex)
     -- Your code here
 end)
 ```
@@ -726,7 +778,9 @@ Triggered when a new house key is purchased.
 ```lua
 -- @param source - serverID of the player buying the key
 -- @param house - the house object
-exports.jo_housing:registerAction('houseKeyBought', function(source, house)
+-- @param price - resolved price paid for the key
+-- @param priceIndex - selected price option index
+exports.jo_housing:registerAction('houseKeyBought', function(source, house, price, priceIndex)
     -- Your code here
 end)
 ```
@@ -753,6 +807,18 @@ exports.jo_housing:registerAction('houseLocationMenuOpened', function(source, ho
 end)
 ```
 
+#### <Badge type="server" text="Server" /> houseListedForResale
+Triggered when an owned house is listed for resale.
+
+```lua
+-- @param source - serverID of the player listing the house
+-- @param house - the house object being listed
+-- @param groupOrReason - resale price group or the reason for the listing
+exports.jo_housing:registerAction('houseListedForResale', function(source, house, groupOrReason)
+    -- Your code here
+end)
+```
+
 
 #### <Badge type="server" text="Server" /> houseLockChanged
 Triggered when a house lock is changed.
@@ -760,8 +826,10 @@ Triggered when a house lock is changed.
 ```lua
 -- @param source - serverID of the house owner
 -- @param house - the house object
+-- @param price - resolved price paid for the lock change
+-- @param priceIndex - selected price option index
 -- @param success - boolean indicating if lock change was successful
-exports.jo_housing:registerAction('houseLockChanged', function(source, house, success)
+exports.jo_housing:registerAction('houseLockChanged', function(source, house, price, priceIndex, success)
     -- Your code here
 end)
 ```
@@ -787,6 +855,58 @@ Triggered when house ownership is transferred to another player.
 -- @param house - the house object being transferred
 -- @param transferDone - boolean indicating if transfer was successful
 exports.jo_housing:registerAction('houseTransfered', function(source, toPlayerSrc, house, transferDone)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> houseOwnerRemoved
+Triggered when an owner is removed from a house.
+
+```lua
+-- @param source - serverID of the player or script removing the owner
+-- @param house - the house object
+-- @param ownerRemoved - boolean indicating if the owner was successfully removed
+exports.jo_housing:registerAction('houseOwnerRemoved', function(source, house, ownerRemoved)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> houseSold
+Triggered when an owner sells or leaves a house.
+
+```lua
+-- @param source - serverID of the player selling the house
+-- @param house - the house object that was sold
+-- @param refundPrice - price refunded to the previous owner
+exports.jo_housing:registerAction('houseSold', function(source, house, refundPrice)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> houseTaxEvicted
+Triggered after an owner loses a house because its tax remained unpaid beyond the grace period.
+
+```lua
+-- @param house - the house object that was evicted
+-- @param ownerIdentifier - identifier of the previous owner
+-- @param ownerCharId - character ID of the previous owner
+-- @param ownerSource - serverID of the previous owner, or false if offline
+exports.jo_housing:registerAction('houseTaxEvicted', function(house, ownerIdentifier, ownerCharId, ownerSource)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> houseTaxPaid
+Triggered after a house-tax payment has been processed.
+
+```lua
+-- @param source - serverID of the player paying the tax
+-- @param house - the taxed house
+-- @param price - resolved total price for the selected number of periods
+-- @param priceIndex - selected price option index
+-- @param numPeriods - number of tax periods selected
+-- @param success - boolean indicating if the payment was recorded successfully
+exports.jo_housing:registerAction('houseTaxPaid', function(source, house, price, priceIndex, numPeriods, success)
     -- Your code here
 end)
 ```
@@ -892,9 +1012,18 @@ Triggered when rent is paid for a house.
 -- @param numPeriods - number of periods paid for
 -- @param isDaily - boolean indicating if it's daily or weekly rent
 -- @param totalPrice - total amount paid
--- @param moneyType - payment type (0 for money, 1 for gold)
+-- @param priceIndex - selected price option index
 -- @param success - boolean indicating if payment was successful
-exports.jo_housing:registerAction('rentPaid', function(source, house, numPeriods, isDaily, totalPrice, moneyType, success)
+exports.jo_housing:registerAction('rentPaid', function(source, house, numPeriods, isDaily, totalPrice, priceIndex, success)
+    -- Your code here
+end)
+```
+
+#### <Badge type="client" text="Client" /> interiorsInitialized
+Triggered after the shared interior list has been initialized and custom interiors have been added.
+
+```lua
+jo.hook.registerAction('interiorsInitialized', function()
     -- Your code here
 end)
 ```
@@ -983,7 +1112,7 @@ exports.jo_housing:registerFilter('addInteriors', function(customInteriors)
         },
         propset = "luxury_penthouse_mlo",
         category = "manor",
-        numberRoom = 8
+        numberRoom = 8,
         -- insideDoors is optional - omit if no working interior doors needed
     }
     
@@ -1036,9 +1165,10 @@ Controls who can buy furniture.
 -- @param source - serverID of the player
 -- @param furniture - furniture model/object data
 -- @param houseId - ID of the house
--- @param moneyType - payment type (0 for money, 1 for gold)
+-- @param price - resolved price for the furniture
+-- @param priceIndex - selected price option index
 -- @param categoryKey - category key of the furniture
-exports.jo_housing:registerFilter('canBuyFurniture', function(canBuy, source, furniture, houseId, moneyType, categoryKey)
+exports.jo_housing:registerFilter('canBuyFurniture', function(canBuy, source, furniture, houseId, price, priceIndex, categoryKey)
     return canBuy
 end)
 ```
@@ -1050,9 +1180,10 @@ Controls who can buy a house.
 -- @param canBuy - boolean indicating if the action is allowed by default
 -- @param source - serverID of the player
 -- @param houseId - ID of the house being purchased
--- @param moneyType - payment type (0 for money, 1 for gold)
+-- @param price - resolved price for the house
+-- @param priceIndex - selected price option index
 -- @param period - for rentals, number of periods the player is paying for
-exports.jo_housing:registerFilter('canBuyHouse', function(canBuy, source, houseId, moneyType, period)
+exports.jo_housing:registerFilter('canBuyHouse', function(canBuy, source, houseId, price, priceIndex, period)
     return canBuy
 end)
 ```
@@ -1104,6 +1235,19 @@ Door toggling for owned `MLO` and `Zone` houses is handled separately by `canTog
 -- @param houseId - ID of the house being entered
 exports.jo_housing:registerFilter('canEnterHouse', function(canEnter, source, houseId)
     return canEnter
+end)
+```
+
+#### <Badge type="server" text="Server" /> canEvictForUnpaidTax
+Controls whether an owner can be evicted when a house tax remains unpaid beyond the grace period. Return `false` to suspend the eviction; the owner keeps the house and the client receives an eviction-suspended status.
+
+```lua
+-- @param canEvict - boolean indicating if the eviction is allowed by default
+-- @param house - the house object that is overdue
+-- @param ownerIdentifier - identifier of the owner
+-- @param ownerCharId - character ID of the owner
+exports.jo_housing:registerFilter('canEvictForUnpaidTax', function(canEvict, house, ownerIdentifier, ownerCharId)
+    return canEvict
 end)
 ```
 
@@ -1182,6 +1326,21 @@ exports.jo_housing:registerFilter('canOpenHouseWardrobe', function(canOpen, sour
 end)
 ```
 
+#### <Badge type="server" text="Server" /> canPayHouseTax
+Controls whether an owner can pay the tax of a house after the payment has been validated and the price has been resolved.
+
+```lua
+-- @param canPay - boolean indicating if the payment is allowed by default
+-- @param source - serverID of the player paying the tax
+-- @param houseId - ID of the house
+-- @param price - resolved total price for the selected number of periods
+-- @param priceIndex - selected price option index
+-- @param numPeriods - number of tax periods selected
+exports.jo_housing:registerFilter('canPayHouseTax', function(canPay, source, houseId, price, priceIndex, numPeriods)
+    return canPay
+end)
+```
+
 #### <Badge type="server" text="Server" /> canPlaceFurniture
 Controls who can place furniture in a house.
 
@@ -1192,9 +1351,10 @@ Controls who can place furniture in a house.
 -- @param houseId - ID of the house
 -- @param relPos - relative position where furniture will be placed
 -- @param relRot - relative rotation of the furniture
--- @param moneyType - payment type (0 for money, 1 for gold)
+-- @param price - resolved price for the furniture
+-- @param priceIndex - selected price option index
 -- @param categoryKey - category key of the furniture
-exports.jo_housing:registerFilter('canPlaceFurniture', function(canPlace, source, furniture, houseId, relPos, relRot, moneyType, categoryKey)
+exports.jo_housing:registerFilter('canPlaceFurniture', function(canPlace, source, furniture, houseId, relPos, relRot, price, priceIndex, categoryKey)
     return canPlace
 end)
 ```
@@ -1369,6 +1529,20 @@ exports.jo_housing:registerFilter('canUseHouseManagerCommand', function(canUse, 
 end)
 ```
 
+#### <Badge type="server" text="Server" /> houseTaxPrice
+Allows you to adjust the total price charged for a house-tax payment, for example to apply discounts or tax-free events. The returned value is validated again before the payment is taken.
+
+```lua
+-- @param price - resolved total price for the selected number of periods
+-- @param source - serverID of the player paying the tax
+-- @param house - the taxed house
+-- @param numPeriods - number of tax periods selected
+-- @param priceIndex - selected price option index
+exports.jo_housing:registerFilter('houseTaxPrice', function(price, source, house, numPeriods, priceIndex)
+    return price
+end)
+```
+
 #### <Badge type="server" text="Server" /> resalePaymentAmount
 Allows you to modify the amount paid to the previous owner when a resale listing is bought.
 
@@ -1379,8 +1553,8 @@ Allows you to modify the amount paid to the previous owner when a resale listing
 -- @param previousOwnerCharId - character ID of the previous owner
 -- @param buyerSource - serverID of the buyer
 -- @param house - house object
--- @param moneyType - payment type (0 for money, 1 for gold)
-exports.jo_housing:registerFilter('resalePaymentAmount', function(amount, previousOwnerSource, previousOwnerIdentifier, previousOwnerCharId, buyerSource, house, moneyType)
+-- @param priceIndex - selected price option index
+exports.jo_housing:registerFilter('resalePaymentAmount', function(amount, previousOwnerSource, previousOwnerIdentifier, previousOwnerCharId, buyerSource, house, priceIndex)
     return amount
 end)
 ```
