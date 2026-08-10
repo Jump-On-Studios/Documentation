@@ -76,7 +76,7 @@ jo.rawKeys.listen(key, callback)
 >
 
 `callback` : _function_
-> The function to be executed when the key event occurs. It receives one parameter: <br> _boolean_ — `true` when the key is pressed, `false` when it is released.
+> The function fired when the key state changes. Arguments: `isPressed` boolean, resolved `key` string, raw `vk` number.
 >
 
 #### Return Value
