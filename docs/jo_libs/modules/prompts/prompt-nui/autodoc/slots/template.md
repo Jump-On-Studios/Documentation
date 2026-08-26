@@ -53,6 +53,11 @@
 <!-- #endregion client|GroupClass:setPosition -->
 
 
+<!-- #region client|GroupClass:setSuppressNativePrompts -->
+
+<!-- #endregion client|GroupClass:setSuppressNativePrompts -->
+
+
 <!-- #region client|GroupClass:setTitle -->
 
 <!-- #endregion client|GroupClass:setTitle -->

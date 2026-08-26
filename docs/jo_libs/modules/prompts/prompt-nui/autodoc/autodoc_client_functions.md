@@ -374,6 +374,32 @@ GroupClass:setPosition(position)
 
 ---
 
+### GroupClass:setSuppressNativePrompts()
+
+<!-- @include: ./slots/headers.md#client|GroupClass:setSuppressNativePrompts -->
+
+Configures which native RedM prompt types are suppressed while this group is displayed. <br>
+Call without an argument or with `true` to suppress the default types 1 through 12. <br>
+Pass `false` or an empty table to suppress none, or an integer array to suppress only those types. <br>
+
+<!-- @include: ./slots/descriptions.md#client|GroupClass:setSuppressNativePrompts -->
+
+#### Syntax
+
+```lua
+GroupClass:setSuppressNativePrompts(value)
+```
+
+#### Parameters
+
+`value` : _boolean|integer[]_ <BadgeOptional />
+
+<!-- @include: ./slots/examples.md#client|GroupClass:setSuppressNativePrompts -->
+
+<!-- @include: ./slots/footers.md#client|GroupClass:setSuppressNativePrompts -->
+
+---
+
 ### GroupClass:setTitle()
 
 <!-- @include: ./slots/headers.md#client|GroupClass:setTitle -->
