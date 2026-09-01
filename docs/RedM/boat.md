@@ -51,7 +51,7 @@ The **Boats** script is now ready to use.
 Players buy and manage their boats from configured boat shops. Purchased boats, their names, customizations, health, storage, last garage, and anchor position are persisted by the server.
 
 :::: tabs
-::: tab Buying a boat
+::: tab 💰 Buying a boat
 1. Go to a boat shop. Enabled shops are displayed on the map by default.
 2. Approach the seller and press `ENTER` to open the shop.
 3. Select **Buy a boat**.
@@ -65,8 +65,8 @@ The boat is added to **Manage your boats** at the shop where it was purchased. I
 **Shop availability:** A shop can disable purchases or restrict its catalog with `canBuyBoats` and `availableBoats` in `shops.lua`.
 :::
 
-::: tab Spawning and docking
-### Spawn a boat
+::: tab ⚓ Spawning and docking
+##### Spawn a boat
 
 1. Open a boat shop and select **Manage your boats**.
 2. Select one of your stored boats.
@@ -80,7 +80,7 @@ A boat cannot be spawned when:
 - Another vehicle blocks the spawn area within `Config.distanceSafeSpawn`.
 - `Config.bindBoatToGarage = true` and the boat is stored at another shop.
 
-### Dock a boat
+##### Dock a boat
 
 1. Drive near a configured shop spawn point.
 2. Make sure the boat is not anchored.
@@ -89,7 +89,7 @@ A boat cannot be spawned when:
 Docking removes the boat from the world and stores its current shop ID. When `Config.bindBoatToGarage = true`, that shop becomes the only shop from which the boat can be retrieved.
 :::
 
-::: tab Customizing and managing
+::: tab 🎨 Customizing and managing
 Open **Manage your boats**, select a stored boat, then press `ENTER` to edit it.
 
 Depending on the selected model, the menu can provide:
@@ -109,7 +109,7 @@ Customization options only appear when they are supported by the selected model.
 The repair price is proportional to the boat's missing health and stays between the configured minimum and maximum prices.
 :::
 
-::: tab Driving and anchoring
+::: tab ⛵ Driving and anchoring
 The driver can use the prompts displayed at the bottom right of the screen.
 
 - Press `R` to anchor the boat at its current location.
@@ -127,15 +127,15 @@ Large boats use their configured `entrancePosition` for safe boarding and driver
 Other boats continue to use the game's native boarding and exit behavior.
 :::
 
-::: tab Storage
+::: tab 📦 Storage
 Boat storage is configured separately for each model.
 
-### Open storage from the boat
+##### Open storage from the boat
 
 1. Stand near the model's configured `storagePosition`.
 2. Press `O` when the **Storage** prompt appears.
 
-### Open storage while driving
+##### Open storage while driving
 
 The driver can press `O` while aboard when all these conditions are met:
 
@@ -148,7 +148,7 @@ By default, `Config.restrictStorageToOwner = true`, so only the owner can open t
 Storage capacity, slot count, and weapon support come from the model's `storage` configuration.
 :::
 
-::: tab Carrying small boats
+::: tab 💪 Carrying boats
 Models with `carriable = true` can be carried manually.
 
 1. Approach an eligible boat on foot.
@@ -167,7 +167,7 @@ The player must be on foot and cannot be climbing, jumping, falling, swimming, i
 :::
 ::::
 
-### Default controls
+##### Default controls
 
 | Key | Context | Action |
 | --- | --- | --- |
@@ -215,10 +215,6 @@ Check the status displayed in **Manage your boats**. A boat cannot spawn if it i
 When `Config.bindBoatToGarage = true`, each shop only lists boats whose stored `shopId` matches that shop. Visit the shop where the boat was purchased or last docked. Set the option to `false` to list all owned boats at every shop.
 :::
 
-:::details Why can't I dock an anchored boat?
-
-Raise the anchor with `R` before docking. The player must also own the boat, drive near a configured shop spawn point, and use the **Dock** prompt.
-:::
 
 :::details Why can't I open the storage?
 
