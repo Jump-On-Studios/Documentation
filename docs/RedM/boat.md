@@ -179,7 +179,7 @@ The player must be on foot and cannot be climbing, jumping, falling, swimming, i
 | `O` | Boat | Open storage |
 
 :::tip Persistence
-Purchased boats and their customizations are always persisted. Damage is saved when the authoritative client removes the world entity. If `Config.persitAnchored = true`, anchored positions are persisted and the script can respawn those boats when a player comes within range.
+Purchased boats and their customizations are always persisted. Damage is saved when the authoritative client removes the world entity. If `Config.persistAnchored = true`, anchored positions are persisted and the script can respawn those boats when a player comes within range.
 :::
 
 ## 3. Configuration
@@ -232,7 +232,7 @@ When `Config.canBoatsBeDamaged = true`, a destroyed boat is marked as wrecked an
 
 :::details Do anchored boats remain after logout or restart?
 
-With `Config.persitAnchored = true`, anchored boats are not despawned by the logout cleanup and their locations remain in the database. If the world entity is missing, the script attempts to respawn it when a player is within `200` meters. With the option disabled, anchored boats are treated like other spawned boats during logout cleanup.
+With `Config.persistAnchored = true`, anchored boats are not despawned by the logout cleanup and their locations remain in the database. If the world entity is missing, the script attempts to respawn it when a player is within `200` meters. With the option disabled, anchored boats are treated like other spawned boats during logout cleanup.
 :::
 
 :::details Why is a customization category missing?
@@ -771,9 +771,9 @@ exports.jo_boats:registerFilter("updateMaxRefSpawnedByPlayer", function(maxSpawn
 end)
 ```
 
-## 6. Snippets
+### Snippets
 
-### Restrict boat purchases by job
+#### Restrict boat purchases by job
 
 This server-side filter only allows fishermen to purchase boats while preserving every built-in validation failure.
 
@@ -791,7 +791,7 @@ exports.jo_boats:registerFilter("canBuyBoat", function(canBuy, source, typeOrder
 end)
 ```
 
-### Apply a boat-purchase discount
+#### Apply a boat-purchase discount
 
 This example applies a 20% discount to boat purchases and leaves every other operation unchanged.
 
@@ -805,7 +805,7 @@ exports.jo_boats:registerFilter("overwritePrice", function(price, typeOrder, sou
 end)
 ```
 
-### Customize boat-storage permissions
+#### Customize boat-storage permissions
 
 This example preserves missing-storage validation, keeps normal owner access, and additionally lets fishermen open boat storage.
 
