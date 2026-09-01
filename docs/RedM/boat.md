@@ -36,7 +36,6 @@ To install `jo_boats`:
 5. Start the resources in this order in your `server.cfg`:
 
 ```cfg
-ensure oxmysql
 ensure jo_libs
 ensure jo_boats
 ```
@@ -187,35 +186,6 @@ Purchased boats and their customizations are always persisted. Damage is saved w
 
 <ScriptConfig scriptPath="redm/boats" />
 
-### Editing configuration files
-
-Default files are stored in `jo_boats/config/_default.lock` and should not be edited directly.
-
-To change a configuration file:
-
-1. Copy the required file from `config/_default.lock`.
-2. Paste it into `config/custom` with the same filename.
-3. Edit the copied file.
-4. Run `/refresh` in the server console.
-5. Restart the resource with `/ensure jo_boats`.
-
-See [Config folder](/DeveloperResources/scripts-configuration/config-folder) for more information about the configuration override system.
-
-### Configuration files
-
-| File | Purpose |
-| --- | --- |
-| `global.lua` | Interaction distances, damage, spawn limits, garage binding, storage access, logout behavior, and anchored-boat persistence |
-| `keys.lua` | Default prompt controls |
-| `shops.lua` | Shop IDs, sellers, map positions, boat spawns, catalogs, deck side, NPCs, and per-shop blips |
-| `boats.lua` | Categories, models, labels, purchase prices, storage, motors, carriable models, entrances, and interaction positions |
-| `prices.lua` | Rename, customization, and damage-based repair prices, including model overrides |
-| `blips.lua` | Global shop and boat blips with per-entry override support |
-| `lang.lua` | User-facing text |
-
-:::warning Exact configuration key
-The anchored-boat persistence option is named `Config.persitAnchored` in the script. Keep this exact spelling in custom configuration files.
-:::
 
 ### Customization price priority
 
