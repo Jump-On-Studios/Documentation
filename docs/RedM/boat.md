@@ -24,7 +24,7 @@ Documentation related to the `jo_boats` script.
 
 The script requires:
 
-- `jo_libs` version `2.5.2` or newer
+- `jo_libs` version `2.14.2` or newer
 - `oxmysql`
 
 To install `jo_boats`:
