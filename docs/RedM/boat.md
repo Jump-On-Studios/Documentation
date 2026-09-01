@@ -253,37 +253,31 @@ No. `jo_boats` creates its database table automatically when `oxmysql` is ready.
 
 Actions run after a script operation or client interaction. Their callbacks do not return a value.
 
-#### <Badge type="client" text="Client" /> shopOpened
+#### <Badge type="server" text="Server" /> boatAnchored
 
-Triggered after the local player opens a boat shop.
+Triggered after a boat is anchored or its anchor is raised.
+
+When an anchored boat is wrecked, this action is also triggered with `anchored = nil` and `shouldAnchor = false` before `boatWrecked`.
 
 ```lua
--- @param shop - table opened shop configuration
-exports.jo_boats:registerAction("shopOpened", function(shop)
+-- @param source - integer server ID of the owner
+-- @param boat - Boat updated boat instance
+-- @param anchored - vector4|nil saved anchor position
+-- @param shouldAnchor - boolean true when anchoring, false when raising the anchor
+exports.jo_boats:registerAction("boatAnchored", function(source, boat, anchored, shouldAnchor)
     -- Your code here
 end)
 ```
 
-#### <Badge type="client" text="Client" /> boatCarried
+#### <Badge type="server" text="Server" /> boatBequeathed
 
-Triggered after the local player successfully attaches a carriable boat.
-
-```lua
--- @param boat - Boat carried boat instance
--- @param entity - integer boat entity handle
-exports.jo_boats:registerAction("boatCarried", function(boat, entity)
-    -- Your code here
-end)
-```
-
-#### <Badge type="client" text="Client" /> boatDropped
-
-Triggered after the local player drops a carried boat that still has a valid world entity.
+Triggered after ownership has been transferred to another connected player.
 
 ```lua
--- @param boat - Boat dropped boat instance
--- @param entity - integer boat entity handle
-exports.jo_boats:registerAction("boatDropped", function(boat, entity)
+-- @param source - integer server ID of the previous owner
+-- @param boat - Boat transferred boat instance with its updated owner
+-- @param targetId - integer server ID of the new owner
+exports.jo_boats:registerAction("boatBequeathed", function(source, boat, targetId)
     -- Your code here
 end)
 ```
@@ -306,29 +300,14 @@ end)
 `boatBought` also exists as a filter. The filter runs first and can replace the boat instance passed to this action.
 :::
 
-#### <Badge type="server" text="Server" /> boatRenamed
+#### <Badge type="client" text="Client" /> boatCarried
 
-Triggered after a boat name has been filtered, saved, and synchronized.
-
-```lua
--- @param source - integer server ID of the owner
--- @param boat - Boat renamed boat instance
--- @param name - string final saved name
-exports.jo_boats:registerAction("boatRenamed", function(source, boat, name)
-    -- Your code here
-end)
-```
-
-#### <Badge type="server" text="Server" /> customizationBought
-
-Triggered after a customization has been applied and persisted. Removing a customization also triggers this action.
+Triggered after the local player successfully attaches a carriable boat.
 
 ```lua
--- @param source - integer server ID of the owner
--- @param boat - Boat customized boat instance
--- @param category - string "tints", "propsets", "liveries", "lanterns", or "extras"
--- @param value - number/hash selected customization value
-exports.jo_boats:registerAction("customizationBought", function(source, boat, category, value)
+-- @param boat - Boat carried boat instance
+-- @param entity - integer boat entity handle
+exports.jo_boats:registerAction("boatCarried", function(boat, entity)
     -- Your code here
 end)
 ```
@@ -341,32 +320,6 @@ Triggered after a boat has been permanently removed from persistence and synchro
 -- @param source - integer server ID of the owner
 -- @param boatId - integer deleted boat ID
 exports.jo_boats:registerAction("boatDeleted", function(source, boatId)
-    -- Your code here
-end)
-```
-
-#### <Badge type="server" text="Server" /> boatBequeathed
-
-Triggered after ownership has been transferred to another connected player.
-
-```lua
--- @param source - integer server ID of the previous owner
--- @param boat - Boat transferred boat instance with its updated owner
--- @param targetId - integer server ID of the new owner
-exports.jo_boats:registerAction("boatBequeathed", function(source, boat, targetId)
-    -- Your code here
-end)
-```
-
-#### <Badge type="server" text="Server" /> boatSpawned
-
-Triggered after the client-created boat entity has replicated and been linked to its server boat instance.
-
-```lua
--- @param source - integer server ID of the spawning client
--- @param boat - Boat spawned boat instance
--- @param netId - integer network ID of the boat entity
-exports.jo_boats:registerAction("boatSpawned", function(source, boat, netId)
     -- Your code here
 end)
 ```
@@ -398,31 +351,42 @@ exports.jo_boats:registerAction("boatDocked", function(source, boat, shopId)
 end)
 ```
 
-#### <Badge type="server" text="Server" /> boatAnchored
+#### <Badge type="client" text="Client" /> boatDropped
 
-Triggered after a boat is anchored or its anchor is raised.
-
-When an anchored boat is wrecked, this action is also triggered with `anchored = nil` and `shouldAnchor = false` before `boatWrecked`.
+Triggered after the local player drops a carried boat that still has a valid world entity.
 
 ```lua
--- @param source - integer server ID of the owner
--- @param boat - Boat updated boat instance
--- @param anchored - vector4|nil saved anchor position
--- @param shouldAnchor - boolean true when anchoring, false when raising the anchor
-exports.jo_boats:registerAction("boatAnchored", function(source, boat, anchored, shouldAnchor)
+-- @param boat - Boat dropped boat instance
+-- @param entity - integer boat entity handle
+exports.jo_boats:registerAction("boatDropped", function(boat, entity)
     -- Your code here
 end)
 ```
 
-#### <Badge type="server" text="Server" /> boatWrecked
+#### <Badge type="server" text="Server" /> boatHealthSaved
 
-Triggered after a wrecked boat has been marked for despawn and its anchor has been cleared.
+Triggered after the authoritative client health values have been validated and persisted.
 
 ```lua
 -- @param source - integer server ID of the authoritative client
--- @param boat - Boat wrecked boat instance
--- @param wasAnchored - boolean whether the boat was anchored before being wrecked
-exports.jo_boats:registerAction("boatWrecked", function(source, boat, wasAnchored)
+-- @param boat - Boat updated boat instance
+-- @param engineHealth - number reported engine health
+-- @param petrolTankHealth - number reported petrol-tank health
+-- @param bodyHealth - number reported body health
+exports.jo_boats:registerAction("boatHealthSaved", function(source, boat, engineHealth, petrolTankHealth, bodyHealth)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> boatRenamed
+
+Triggered after a boat name has been filtered, saved, and synchronized.
+
+```lua
+-- @param source - integer server ID of the owner
+-- @param boat - Boat renamed boat instance
+-- @param name - string final saved name
+exports.jo_boats:registerAction("boatRenamed", function(source, boat, name)
     -- Your code here
 end)
 ```
@@ -440,6 +404,19 @@ exports.jo_boats:registerAction("boatRepaired", function(source, boat, price)
 end)
 ```
 
+#### <Badge type="server" text="Server" /> boatSpawned
+
+Triggered after the client-created boat entity has replicated and been linked to its server boat instance.
+
+```lua
+-- @param source - integer server ID of the spawning client
+-- @param boat - Boat spawned boat instance
+-- @param netId - integer network ID of the boat entity
+exports.jo_boats:registerAction("boatSpawned", function(source, boat, netId)
+    -- Your code here
+end)
+```
+
 #### <Badge type="server" text="Server" /> boatStorageOpened
 
 Triggered after the boat inventory has been created and opened for a player.
@@ -453,17 +430,29 @@ exports.jo_boats:registerAction("boatStorageOpened", function(source, boat, inve
 end)
 ```
 
-#### <Badge type="server" text="Server" /> boatHealthSaved
+#### <Badge type="server" text="Server" /> boatWrecked
 
-Triggered after the authoritative client health values have been validated and persisted.
+Triggered after a wrecked boat has been marked for despawn and its anchor has been cleared.
 
 ```lua
 -- @param source - integer server ID of the authoritative client
--- @param boat - Boat updated boat instance
--- @param engineHealth - number reported engine health
--- @param petrolTankHealth - number reported petrol-tank health
--- @param bodyHealth - number reported body health
-exports.jo_boats:registerAction("boatHealthSaved", function(source, boat, engineHealth, petrolTankHealth, bodyHealth)
+-- @param boat - Boat wrecked boat instance
+-- @param wasAnchored - boolean whether the boat was anchored before being wrecked
+exports.jo_boats:registerAction("boatWrecked", function(source, boat, wasAnchored)
+    -- Your code here
+end)
+```
+
+#### <Badge type="server" text="Server" /> customizationBought
+
+Triggered after a customization has been applied and persisted. Removing a customization also triggers this action.
+
+```lua
+-- @param source - integer server ID of the owner
+-- @param boat - Boat customized boat instance
+-- @param category - string "tints", "propsets", "liveries", "lanterns", or "extras"
+-- @param value - number/hash selected customization value
+exports.jo_boats:registerAction("customizationBought", function(source, boat, category, value)
     -- Your code here
 end)
 ```
@@ -493,61 +482,61 @@ exports.jo_boats:registerAction("playerLeftBoat", function(source, previousBoatI
 end)
 ```
 
+#### <Badge type="client" text="Client" /> shopOpened
+
+Triggered after the local player opens a boat shop.
+
+```lua
+-- @param shop - table opened shop configuration
+exports.jo_boats:registerAction("shopOpened", function(shop)
+    -- Your code here
+end)
+```
+
 ### Filters
 
 Filters synchronously control permissions or replace values used by the script. Always return the value expected by the filter.
 
-#### <Badge type="client" text="Client" /> canOpenShop
+#### <Badge type="server" text="Server" /> boatBought
 
-Controls whether the local player can open a shop.
+Replaces the boat instance immediately after it is created and before the `boatBought` action and callback response.
 
 ```lua
--- @param canOpen - boolean true by default
--- @param shop - table shop configuration
-exports.jo_boats:registerFilter("canOpenShop", function(canOpen, shop)
-    return canOpen
+-- @param boat - Boat newly created boat instance
+-- @param source - integer server ID of the buyer
+-- @param boatData - table purchase data received from the client
+-- @return Boat boat instance passed to the action and callback response
+exports.jo_boats:registerFilter("boatBought", function(boat, source, boatData)
+    return boat
 end)
 ```
 
-#### <Badge type="client" text="Client" /> canSeeBlipForShop
+#### <Badge type="server" text="Server" /> canAnchorBoat
 
-Controls whether a configured shop blip is visible to the local player.
+Controls whether an owner can change a spawned boat's anchor state.
 
 ```lua
--- @param canSee - boolean true by default
--- @param shop - table shop configuration
--- @param blipConfig - table resolved blip configuration
-exports.jo_boats:registerFilter("canSeeBlipForShop", function(canSee, shop, blipConfig)
-    return canSee
+-- @param canAnchor - boolean result of the built-in validation
+-- @param source - integer server ID of the owner
+-- @param boat - Boat|nil boat instance
+-- @param shouldAnchor - boolean requested anchor state
+-- @param anchored - vector4|nil proposed anchor position
+exports.jo_boats:registerFilter("canAnchorBoat", function(canAnchor, source, boat, shouldAnchor, anchored)
+    return canAnchor
 end)
 ```
 
-#### <Badge type="client" text="Client" /> canSeeBlipForBoat
+#### <Badge type="server" text="Server" /> canBequeathBoat
 
-Controls whether a spawned boat blip is visible to the local player.
-
-```lua
--- @param canSee - boolean true by default
--- @param boat - Boat spawned boat instance
--- @param blipConfig - table resolved blip configuration
-exports.jo_boats:registerFilter("canSeeBlipForBoat", function(canSee, boat, blipConfig)
-    return canSee
-end)
-```
-
-#### <Badge type="client" text="Client" /> canCarryBoat
-
-Adds custom restrictions before the local player carries a boat.
-
-:::warning Safety checks cannot be bypassed
-This filter runs only after the script has verified the boat, player state, distance, movement, occupants, wreck, and anchor conditions. Returning `true` cannot bypass those checks.
-:::
+Controls whether a player can transfer a boat to another connected player.
 
 ```lua
--- @param canCarry - boolean true by default
--- @param boat - Boat boat instance
-exports.jo_boats:registerFilter("canCarryBoat", function(canCarry, boat)
-    return canCarry
+-- @param canBequeath - boolean result of the built-in validation
+-- @param source - integer server ID of the current owner
+-- @param boat - Boat|nil boat instance
+-- @param targetId - integer|nil target server ID
+exports.jo_boats:registerFilter("canBequeathBoat", function(canBequeath, source, boat, targetId)
+    return canBequeath
 end)
 ```
 
@@ -567,47 +556,6 @@ exports.jo_boats:registerFilter("canBuyBoat", function(canBuy, source, typeOrder
 end)
 ```
 
-#### <Badge type="server" text="Server" /> boatBought
-
-Replaces the boat instance immediately after it is created and before the `boatBought` action and callback response.
-
-```lua
--- @param boat - Boat newly created boat instance
--- @param source - integer server ID of the buyer
--- @param boatData - table purchase data received from the client
--- @return Boat boat instance passed to the action and callback response
-exports.jo_boats:registerFilter("boatBought", function(boat, source, boatData)
-    return boat
-end)
-```
-
-#### <Badge type="server" text="Server" /> canRenameBoat
-
-Controls whether a player can rename a boat after name, existence, and ownership validation.
-
-```lua
--- @param canRename - boolean result of the built-in validation
--- @param source - integer server ID of the player
--- @param boat - Boat|nil boat instance
-exports.jo_boats:registerFilter("canRenameBoat", function(canRename, source, boat)
-    return canRename
-end)
-```
-
-#### <Badge type="server" text="Server" /> renameBoat
-
-Replaces the trimmed boat name after payment and before it is persisted.
-
-```lua
--- @param name - string requested boat name
--- @param source - integer server ID of the owner
--- @param boatId - integer boat ID
--- @return string final name to save
-exports.jo_boats:registerFilter("renameBoat", function(name, source, boatId)
-    return name
-end)
-```
-
 #### <Badge type="server" text="Server" /> canBuyCustomization
 
 Controls whether a player can apply or remove a customization after category, ownership, and value validation.
@@ -623,6 +571,22 @@ exports.jo_boats:registerFilter("canBuyCustomization", function(canBuy, source, 
 end)
 ```
 
+#### <Badge type="client" text="Client" /> canCarryBoat
+
+Adds custom restrictions before the local player carries a boat.
+
+:::warning Safety checks cannot be bypassed
+This filter runs only after the script has verified the boat, player state, distance, movement, occupants, wreck, and anchor conditions. Returning `true` cannot bypass those checks.
+:::
+
+```lua
+-- @param canCarry - boolean true by default
+-- @param boat - Boat boat instance
+exports.jo_boats:registerFilter("canCarryBoat", function(canCarry, boat)
+    return canCarry
+end)
+```
+
 #### <Badge type="server" text="Server" /> canDeleteBoat
 
 Controls whether a player can permanently delete a boat.
@@ -633,47 +597,6 @@ Controls whether a player can permanently delete a boat.
 -- @param boat - Boat|nil boat instance
 exports.jo_boats:registerFilter("canDeleteBoat", function(canDelete, source, boat)
     return canDelete
-end)
-```
-
-#### <Badge type="server" text="Server" /> canBequeathBoat
-
-Controls whether a player can transfer a boat to another connected player.
-
-```lua
--- @param canBequeath - boolean result of the built-in validation
--- @param source - integer server ID of the current owner
--- @param boat - Boat|nil boat instance
--- @param targetId - integer|nil target server ID
-exports.jo_boats:registerFilter("canBequeathBoat", function(canBequeath, source, boat, targetId)
-    return canBequeath
-end)
-```
-
-#### <Badge type="server" text="Server" /> updateMaxRefSpawnedByPlayer
-
-Changes the maximum number of boats this player can have spawned at once.
-
-```lua
--- @param maxSpawned - integer value from Config.maxSpawnByPlayer
--- @param typeRef - string "boat"
--- @param source - integer server ID of the player
--- @return integer maximum spawned boats for this player
-exports.jo_boats:registerFilter("updateMaxRefSpawnedByPlayer", function(maxSpawned, typeRef, source)
-    return maxSpawned
-end)
-```
-
-#### <Badge type="server" text="Server" /> canSpawnBoat
-
-Controls whether a player can spawn a boat after ownership, world state, wreck, and spawn-limit validation.
-
-```lua
--- @param canSpawn - boolean result of the built-in validation
--- @param source - integer server ID of the player
--- @param boat - Boat|nil boat instance
-exports.jo_boats:registerFilter("canSpawnBoat", function(canSpawn, source, boat)
-    return canSpawn
 end)
 ```
 
@@ -691,34 +614,6 @@ exports.jo_boats:registerFilter("canDockBoat", function(canDock, source, boat, s
 end)
 ```
 
-#### <Badge type="server" text="Server" /> canRepairBoat
-
-Controls whether an owner can repair a stored boat.
-
-```lua
--- @param canRepair - boolean result of the built-in validation
--- @param source - integer server ID of the player
--- @param boat - Boat|nil boat instance
-exports.jo_boats:registerFilter("canRepairBoat", function(canRepair, source, boat)
-    return canRepair
-end)
-```
-
-#### <Badge type="server" text="Server" /> canAnchorBoat
-
-Controls whether an owner can change a spawned boat's anchor state.
-
-```lua
--- @param canAnchor - boolean result of the built-in validation
--- @param source - integer server ID of the owner
--- @param boat - Boat|nil boat instance
--- @param shouldAnchor - boolean requested anchor state
--- @param anchored - vector4|nil proposed anchor position
-exports.jo_boats:registerFilter("canAnchorBoat", function(canAnchor, source, boat, shouldAnchor, anchored)
-    return canAnchor
-end)
-```
-
 #### <Badge type="server" text="Server" /> canOpenBoatStorage
 
 Controls whether a player can open a spawned boat's configured inventory.
@@ -730,6 +625,44 @@ Controls whether a player can open a spawned boat's configured inventory.
 -- @param storageConfig - table|false model storage configuration
 exports.jo_boats:registerFilter("canOpenBoatStorage", function(canOpen, source, boat, storageConfig)
     return canOpen
+end)
+```
+
+#### <Badge type="client" text="Client" /> canOpenShop
+
+Controls whether the local player can open a shop.
+
+```lua
+-- @param canOpen - boolean true by default
+-- @param shop - table shop configuration
+exports.jo_boats:registerFilter("canOpenShop", function(canOpen, shop)
+    return canOpen
+end)
+```
+
+#### <Badge type="server" text="Server" /> canRenameBoat
+
+Controls whether a player can rename a boat after name, existence, and ownership validation.
+
+```lua
+-- @param canRename - boolean result of the built-in validation
+-- @param source - integer server ID of the player
+-- @param boat - Boat|nil boat instance
+exports.jo_boats:registerFilter("canRenameBoat", function(canRename, source, boat)
+    return canRename
+end)
+```
+
+#### <Badge type="server" text="Server" /> canRepairBoat
+
+Controls whether an owner can repair a stored boat.
+
+```lua
+-- @param canRepair - boolean result of the built-in validation
+-- @param source - integer server ID of the player
+-- @param boat - Boat|nil boat instance
+exports.jo_boats:registerFilter("canRepairBoat", function(canRepair, source, boat)
+    return canRepair
 end)
 ```
 
@@ -746,6 +679,45 @@ Controls whether reported health values can be persisted when a world boat is re
 -- @param bodyHealth - number|nil reported body health
 exports.jo_boats:registerFilter("canSaveBoatHealth", function(canSave, source, boat, engineHealth, petrolTankHealth, bodyHealth)
     return canSave
+end)
+```
+
+#### <Badge type="client" text="Client" /> canSeeBlipForBoat
+
+Controls whether a spawned boat blip is visible to the local player.
+
+```lua
+-- @param canSee - boolean true by default
+-- @param boat - Boat spawned boat instance
+-- @param blipConfig - table resolved blip configuration
+exports.jo_boats:registerFilter("canSeeBlipForBoat", function(canSee, boat, blipConfig)
+    return canSee
+end)
+```
+
+#### <Badge type="client" text="Client" /> canSeeBlipForShop
+
+Controls whether a configured shop blip is visible to the local player.
+
+```lua
+-- @param canSee - boolean true by default
+-- @param shop - table shop configuration
+-- @param blipConfig - table resolved blip configuration
+exports.jo_boats:registerFilter("canSeeBlipForShop", function(canSee, shop, blipConfig)
+    return canSee
+end)
+```
+
+#### <Badge type="server" text="Server" /> canSpawnBoat
+
+Controls whether a player can spawn a boat after ownership, world state, wreck, and spawn-limit validation.
+
+```lua
+-- @param canSpawn - boolean result of the built-in validation
+-- @param source - integer server ID of the player
+-- @param boat - Boat|nil boat instance
+exports.jo_boats:registerFilter("canSpawnBoat", function(canSpawn, source, boat)
+    return canSpawn
 end)
 ```
 
@@ -768,6 +740,34 @@ Replaces the resolved `PriceClass` before the player is charged. The arguments a
 -- @return PriceClass price charged to the player
 exports.jo_boats:registerFilter("overwritePrice", function(price, typeOrder, source, ...)
     return price
+end)
+```
+
+#### <Badge type="server" text="Server" /> renameBoat
+
+Replaces the trimmed boat name after payment and before it is persisted.
+
+```lua
+-- @param name - string requested boat name
+-- @param source - integer server ID of the owner
+-- @param boatId - integer boat ID
+-- @return string final name to save
+exports.jo_boats:registerFilter("renameBoat", function(name, source, boatId)
+    return name
+end)
+```
+
+#### <Badge type="server" text="Server" /> updateMaxRefSpawnedByPlayer
+
+Changes the maximum number of boats this player can have spawned at once.
+
+```lua
+-- @param maxSpawned - integer value from Config.maxSpawnByPlayer
+-- @param typeRef - string "boat"
+-- @param source - integer server ID of the player
+-- @return integer maximum spawned boats for this player
+exports.jo_boats:registerFilter("updateMaxRefSpawnedByPlayer", function(maxSpawned, typeRef, source)
+    return maxSpawned
 end)
 ```
 
