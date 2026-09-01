@@ -298,6 +298,34 @@ Type : _boolean,vector3,integer_
 
 ---
 
+### jo.entity.noReactions()
+
+<!-- @include: ./slots/headers.md#client|jo.entity.noReactions -->
+
+Make a ped totally inert: it will not react, flee, panic, ragdoll, be targeted or take damage <br>
+- Useful for decorative NPCs like shopkeepers or mannequins <br>
+- Does not freeze the ped: call `FreezeEntityPosition()` yourself if needed <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.entity.noReactions -->
+
+#### Syntax
+
+```lua
+jo.entity.noReactions(entity)
+```
+
+#### Parameters
+
+`entity` : _integer_
+> The ped ID to make inert
+>
+
+<!-- @include: ./slots/examples.md#client|jo.entity.noReactions -->
+
+<!-- @include: ./slots/footers.md#client|jo.entity.noReactions -->
+
+---
+
 ### jo.entity.requestControl()
 
 <!-- @include: ./slots/headers.md#client|jo.entity.requestControl -->

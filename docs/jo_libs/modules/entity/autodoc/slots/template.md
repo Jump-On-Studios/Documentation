@@ -38,6 +38,11 @@
 <!-- #endregion client|jo.entity.getEntityInCrosshair -->
 
 
+<!-- #region client|jo.entity.noReactions -->
+
+<!-- #endregion client|jo.entity.noReactions -->
+
+
 <!-- #region client|jo.entity.requestControl -->
 
 <!-- #endregion client|jo.entity.requestControl -->
