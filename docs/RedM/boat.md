@@ -205,37 +205,45 @@ Use the [Price Generator](/DeveloperResources/price-generator) to build compatib
 
 ## 4. FAQ
 
-### Why can't I spawn my boat?
+:::details Why can't I spawn my boat?
 
 Check the status displayed in **Manage your boats**. A boat cannot spawn if it is already out, is wrecked, the player reached `Config.maxSpawnByPlayer`, or another vehicle is within `Config.distanceSafeSpawn` of the spawn point. When `Config.bindBoatToGarage = true`, also make sure you are visiting the shop where the boat was last docked.
+:::
 
-### Why is my boat missing from this shop?
+:::details Why is my boat missing from this shop?
 
 When `Config.bindBoatToGarage = true`, each shop only lists boats whose stored `shopId` matches that shop. Visit the shop where the boat was purchased or last docked. Set the option to `false` to list all owned boats at every shop.
+:::
 
-### Why can't I dock an anchored boat?
+:::details Why can't I dock an anchored boat?
 
 Raise the anchor with `R` before docking. The player must also own the boat, drive near a configured shop spawn point, and use the **Dock** prompt.
+:::
 
-### Why can't I open the storage?
+:::details Why can't I open the storage?
 
 The model must have a `storage` table and a valid `storagePosition`. When `Config.restrictStorageToOwner = true`, only the owner can open it. Opening storage while driving additionally requires the driver seat and `canOpenStorageWhileDriving` to be enabled for that model.
+:::
 
-### What happens when a boat is wrecked?
+:::details What happens when a boat is wrecked?
 
 When `Config.canBoatsBeDamaged = true`, a destroyed boat is marked as wrecked and removed from the world. Its anchor is cleared, and it cannot be spawned again until its owner repairs it from **Manage your boats**. Repair cost is calculated from the missing body, engine, and petrol-tank health supported by the model.
+:::
 
-### Do anchored boats remain after logout or restart?
+:::details Do anchored boats remain after logout or restart?
 
 With `Config.persitAnchored = true`, anchored boats are not despawned by the logout cleanup and their locations remain in the database. If the world entity is missing, the script attempts to respawn it when a player is within `200` meters. With the option disabled, anchored boats are treated like other spawned boats during logout cleanup.
+:::
 
-### Why is a customization category missing?
+:::details Why is a customization category missing?
 
 The edit menu only displays categories supported by the model's customization data. Extras are detected from the model dynamically. A model without compatible propsets, liveries, tints, lanterns, or extras will not show that category.
+:::
 
-### Do I need to import an SQL file?
+:::details Do I need to import an SQL file?
 
 No. `jo_boats` creates its database table automatically when `oxmysql` is ready.
+:::
 
 ## 5. For developers
 
