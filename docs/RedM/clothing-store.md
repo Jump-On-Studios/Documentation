@@ -30,7 +30,8 @@ https://github.com/Jump-On-Studios/redemrp_clothing/releases
 :::
 
 ::: details For VORP
-To fix clothes and skin, you have to edit three files :
+To fix clothes and skin, you have to edit four files :
+
 :::code-group
 ```lua:line-numbers=404 [vorp_character/client/client.lua]
 LoadCharacterSelect(playerPed, value.skin, value.components)
@@ -46,6 +47,18 @@ Wait(2000) -- [!code ++]
 IsPedReadyToRender(playerPed) -- [!code ++]
 
 data.PedHandler = ClonePed(playerPed, false, false, false, false)
+```
+```lua:line-numbers=99 [vorp_character/client/creator_functions.lua]
+function ApplyShopItemToPed(comp, ped)
+    if type(comp) == "table" then return end -- [!code ++]
+    Citizen.InvokeNative(0xD3A7B003ED343FD9, ped or PlayerPedId(), comp, false, false, false)
+    Citizen.InvokeNative(0xD3A7B003ED343FD9, ped or PlayerPedId(), comp, false, true, false)
+end
+
+function UpdateShopItemWearableState(comp, wearable)
+    if type(comp) == "table" then return end -- [!code ++]
+    Citizen.InvokeNative(0x66B957AAC2EAAEAB, PlayerPedId(), comp, wearable, 0, 1, 1)
+end
 ```
 ```lua:line-numbers=6 [vorp_character/server/server.lua]
 local function ConvertTable(comps, compTints)
