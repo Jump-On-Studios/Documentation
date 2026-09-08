@@ -30,41 +30,7 @@ Make sure you have oxmysql ensured in your server.cfg.
 :::: details For VORP
 To fix clothes and skin, you have to edit two files:
 :::code-group
-```lua:line-numbers=404 [vorp_character/client/client.lua]
-LoadCharacterSelect(playerPed, value.skin, value.components)
-CachedSkin = value.skin
-canContinue = false
-ApplyFaceOverlays(value.skin)
-canContinue = true
-FaceOverlay("grime", value.skin.grime_visibility, value.skin.grime_tx_id, 0, 0, 0, 1.0, 0, 1, 0, 0, 0, 1, value.skin.grime_opacity)
-Wait(500)
-
-TriggerServerEvent("jo_libs:server:applySkinAndClothes", playerPed, value.skin, value.components) -- [!code ++]
-Wait(500) -- [!code ++]
-IsPedReadyToRender(playerPed) -- [!code ++]
-
-data.PedHandler = ClonePed(playerPed, false, false, false, false)
-```
-```lua:line-numbers=6 [vorp_character/server/server.lua]
-local function ConvertTable(comps, compTints)
-	local NewComps = {}
-
-	for k, comp in pairs(comps) do
-		NewComps[k] = { comp = comp, tint0 = 0, tint1 = 0, tint2 = 0, palette = 0 }
-
-		if compTints and compTints[k] and compTints[k][tostring(comp)] then
-			local compTint = compTints[k][tostring(comp)]
-			NewComps[k].tint0 = compTint.tint0 or 0
-			NewComps[k].tint1 = compTint.tint1 or 0
-			NewComps[k].tint2 = compTint.tint2 or 0
-			NewComps[k].palette = compTint.palette or 0
-			NewComps[k].state = compTint.state or nil -- [!code ++]
-		end
-	end
-
-	return NewComps
-end
-```
+<!--@include: ../snippets/vorp-character-editing.md-->
 :::
 ::::
 

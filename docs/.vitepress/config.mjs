@@ -83,7 +83,7 @@ let sideBarModules = GenerateMenu(libModules);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  srcExclude: ["**/autodoc/**"],
+  srcExclude: ["**/autodoc/**", "**/snippets/**"],
   ignoreDeadLinks: ["./user"],
   sitemap: {
     hostname: "https://docs.jumpon-studios.com",

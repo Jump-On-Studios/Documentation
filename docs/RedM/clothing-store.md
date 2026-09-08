@@ -33,53 +33,7 @@ https://github.com/Jump-On-Studios/redemrp_clothing/releases
 To fix clothes and skin, you have to edit four files :
 
 :::code-group
-```lua:line-numbers=404 [vorp_character/client/client.lua]
-LoadCharacterSelect(playerPed, value.skin, value.components)
-CachedSkin = value.skin
-canContinue = false
-ApplyFaceOverlays(value.skin)
-canContinue = true
-FaceOverlay("grime", value.skin.grime_visibility, value.skin.grime_tx_id, 0, 0, 0, 1.0, 0, 1, 0, 0, 0, 1, value.skin.grime_opacity)
-Wait(500)
-
-TriggerServerEvent("jo_libs:server:applySkinAndClothes", playerPed, value.skin, value.components) -- [!code ++]
-Wait(2000) -- [!code ++]
-IsPedReadyToRender(playerPed) -- [!code ++]
-
-data.PedHandler = ClonePed(playerPed, false, false, false, false)
-```
-```lua:line-numbers=99 [vorp_character/client/creator_functions.lua]
-function ApplyShopItemToPed(comp, ped)
-    if type(comp) == "table" then return end -- [!code ++]
-    Citizen.InvokeNative(0xD3A7B003ED343FD9, ped or PlayerPedId(), comp, false, false, false)
-    Citizen.InvokeNative(0xD3A7B003ED343FD9, ped or PlayerPedId(), comp, false, true, false)
-end
-
-function UpdateShopItemWearableState(comp, wearable)
-    if type(comp) == "table" then return end -- [!code ++]
-    Citizen.InvokeNative(0x66B957AAC2EAAEAB, PlayerPedId(), comp, wearable, 0, 1, 1)
-end
-```
-```lua:line-numbers=6 [vorp_character/server/server.lua]
-local function ConvertTable(comps, compTints)
-	local NewComps = {}
-
-	for k, comp in pairs(comps) do
-		NewComps[k] = { comp = comp, tint0 = 0, tint1 = 0, tint2 = 0, palette = 0 }
-
-		if compTints and compTints[k] and compTints[k][tostring(comp)] then
-			local compTint = compTints[k][tostring(comp)]
-			NewComps[k].tint0 = compTint.tint0 or 0
-			NewComps[k].tint1 = compTint.tint1 or 0
-			NewComps[k].tint2 = compTint.tint2 or 0
-			NewComps[k].palette = compTint.palette or 0
-			NewComps[k].state = compTint.state or nil -- [!code ++]
-		end
-	end
-
-	return NewComps
-end
-```
+<!--@include: ../snippets/vorp-character-editing.md-->
 ```lua:line-numbers=3 [vorp_character/config_shops.lua]
 ConfigShops.UseShops = false --turn off VORP clothing store
 ```
