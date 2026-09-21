@@ -71,6 +71,7 @@ Type : _[MenuClass](#menuclass-methods)_
 <!-- @include: ./slots/headers.md#client|MenuClass:addItem -->
 
 Add an [item](#item-methods) to a menu <br>
+[item](#item-methods).statistics[].value? table (`weapon-bar`: legacy `{current, max}` or `{max = number, bars = {{value = cumulativeValue, color? = cssColor, opacity? = number}}}`) <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:addItem -->
 
@@ -574,6 +575,7 @@ item:getParentMenu()
 <!-- @include: ./slots/headers.md#client|jo.menu.addItem -->
 
 Add an [item](#item-methods) to a menu by its ID <br>
+[item](#item-methods).statistics[].value? table (`weapon-bar`: legacy `{current, max}` or `{max = number, bars = {{value = cumulativeValue, color? = cssColor, opacity? = number}}}`) <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.addItem -->
 
