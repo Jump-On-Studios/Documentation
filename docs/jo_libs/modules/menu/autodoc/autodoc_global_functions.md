@@ -110,6 +110,8 @@ MenuClass:addItem(index, item)
 > 
 > `[item](#item-methods).iconClass` : _string_ - CSS class for the icon <BadgeOptional />
 > 
+> `[item](#item-methods).tilePadding` : _number|string_ - In a `tile` menu, the space between the image and the edge of the tile: a number in vh, or a CSS length. `0` brings the image to the edge <br> default: 1.2 <BadgeOptional />
+> 
 > `[item](#item-methods).price` : _table_ - The price of the [item](#item-methods). Use 0 to display "free" <br> default: false  ![preview price](/images/previews/menu/price.jpg) <BadgeOptional />
 > 
 > > `[item](#item-methods).price.money` : _number_ - The price in $ <BadgeOptional />
@@ -617,6 +619,8 @@ jo.menu.addItem(id, p, item)
 > `[item](#item-methods).iconRight` : _string_ - The right icon filename from `nui\menu\assets\images\icons` folder  ![icon right](/images/previews/menu/iconRight.jpg) <BadgeOptional />
 > 
 > `[item](#item-methods).iconClass` : _string_ - CSS class for the icon <BadgeOptional />
+> 
+> `[item](#item-methods).tilePadding` : _number|string_ - In a `tile` menu, the space between the image and the edge of the tile: a number in vh, or a CSS length. `0` brings the image to the edge <br> default: 1.2 <BadgeOptional />
 > 
 > `[item](#item-methods).price` : _table_ - The price of the [item](#item-methods). Use 0 to display "free" <br> default: false  ![preview price](/images/previews/menu/price.jpg) <BadgeOptional />
 > 
