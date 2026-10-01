@@ -383,6 +383,8 @@ A statistic with the weapon bar design. Useful to display a percent of completio
 #### Syntax
 ```lua
 {label = "", type="weapon-bar", value = {current,max}}
+-- or, with several segments
+{label = "", type="weapon-bar", value = {max = 100, bars = {{value = 50}, {value = 63, color = "#00FF00"}}}}
 ```
 #### Keys
 `label` : *string*
@@ -394,6 +396,10 @@ A statistic with the weapon bar design. Useful to display a percent of completio
 > The percent of completion is calculated by `value.current\value.max`  
 > `value.current` : *float* - the current value of the statistic  
 > `value.max` : *float* - the max value the statistic can reach  
+> `value.bars` : *table* - the segments, from left to right  
+> `value.bars[].value` : *float* - where the segment ends (cumulative)  
+> `value.bars[].color` : *string* - CSS color <BadgeOptional /> default: `white`  
+> `value.bars[].opacity` : *float (0<>1)* - opacity <BadgeOptional /> default: `1`  
   
 #### Example
 ```lua
@@ -401,7 +407,8 @@ local menu = jo.menu.create('menu1', {})
 menu:addItem({
   title = "Item",
   statistics = {
-    { label = "The label", type = "weapon-bar", value = { 60, 100 } }
+    { label = "The label", type = "weapon-bar", value = { 60, 100 } },
+    { label = "Upgrade", type = "weapon-bar", value = { max = 100, bars = { { value = 50 }, { value = 63, color = "#00FF00" } } } }
   }
 })
 menu:send()
