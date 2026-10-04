@@ -5,6 +5,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { renderComponents } from "./markdownComponents.mjs";
 
 const includesRE = /<!--\s*@include:\s*(.*?)(?:\s+options=(\{.*?\}))?\s*-->/g;
 const regionRE = /(#[^\s{]+)/;
@@ -77,23 +78,33 @@ function pageUrl(page) {
   return "/" + page.replace(/(^|\/)index\.md$/, "$1").replace(/\.md$/, "");
 }
 
-export function exportMarkdown(siteConfig) {
+export async function exportMarkdown(siteConfig) {
   const { srcDir, outDir, pages, site } = siteConfig;
   const hostname = (siteConfig.userConfig.sitemap?.hostname || "").replace(
     /\/$/,
     "",
   );
-  const entries = [];
+  const publicDir = path.join(srcDir, "public");
 
-  for (const page of [...pages].sort()) {
+  const exportPage = async (page) => {
     const file = path.join(srcDir, page);
     const raw = fs.readFileSync(file, "utf-8");
     const frontmatter = raw.match(frontmatterRE)?.[1] || "";
-    const body = resolveIncludes(raw.replace(frontmatterRE, ""), file, srcDir)
-      .replace(regionMarkerRE, "")
+    const url = pageUrl(page);
+    const resolved = resolveIncludes(
+      raw.replace(frontmatterRE, ""),
+      file,
+      srcDir,
+    ).replace(regionMarkerRE, "");
+    const body = (
+      await renderComponents(resolved, {
+        srcDir,
+        publicDir,
+        url: hostname + url,
+      })
+    )
       .replace(/\n{3,}/g, "\n\n")
       .trim();
-    const url = pageUrl(page);
     const title = pageTitle(frontmatter, body, url);
     const content = `${body}\n`;
 
@@ -109,13 +120,10 @@ export function exportMarkdown(siteConfig) {
       fs.writeFileSync(out, content);
     }
 
-    entries.push({
-      url,
-      mdUrl: "/" + targets[targets.length - 1],
-      title,
-      content,
-    });
-  }
+    return { url, mdUrl: "/" + targets[targets.length - 1], title, content };
+  };
+
+  const entries = await Promise.all([...pages].sort().map(exportPage));
 
   const header = `# ${site.title}\n\n> ${site.description}\n\n`;
   const index =
