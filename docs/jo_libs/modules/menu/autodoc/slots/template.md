@@ -63,24 +63,19 @@
 <!-- #endregion client|MenuClass:use -->
 
 
-<!-- #region client|MenuItem:deleteValue -->
+<!-- #region client|MenuItemClass:deleteValue -->
 
-<!-- #endregion client|MenuItem:deleteValue -->
-
-
-<!-- #region client|MenuItem:getParentMenu -->
-
-<!-- #endregion client|MenuItem:getParentMenu -->
+<!-- #endregion client|MenuItemClass:deleteValue -->
 
 
-<!-- #region client|MenuItem:updateValue -->
+<!-- #region client|MenuItemClass:getParentMenu -->
 
-<!-- #endregion client|MenuItem:updateValue -->
+<!-- #endregion client|MenuItemClass:getParentMenu -->
 
 
-<!-- #region client|item:getParentMenu -->
+<!-- #region client|MenuItemClass:updateValue -->
 
-<!-- #endregion client|item:getParentMenu -->
+<!-- #endregion client|MenuItemClass:updateValue -->
 
 
 <!-- #region client|jo.menu.addItem -->

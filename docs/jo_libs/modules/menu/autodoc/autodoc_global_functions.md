@@ -5,7 +5,8 @@
 
 <!-- @include: ./slots/headers.md#client|jo.menu.create -->
 
-Create a new menu <br>
+Create a new menu. If a menu with the same ID exists, it's replaced <br>
+Add the items with `MenuClass:addItem()`, then send the menu to the NUI with `MenuClass:send()` <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.create -->
 
@@ -21,45 +22,100 @@ jo.menu.create(id, data)
 > Unique ID of the menu
 >
 
-`data` : _table_ <BadgeOptional />
+`data` : _table_
 
-> Menu configuration data
+> The menu configuration
 >
 
-> `data.type` : _string_ - The type of menu `tile` or `list` <br> default `tile`
+> `data.title` : _string_ - The big title of the menu. HTML is allowed <br> default: `"Jump On"` <BadgeOptional />
 > 
-> `data.title` : _string_ - The big title of the menu  ![The menu title](https://docs.jumpon-studios.com/images/previews/menu/bigTitle.jpg) <BadgeOptional />
+> `data.subtitle` : _string_ - The subtitle of the menu, displayed above the items. HTML is allowed <br> default: `""` <BadgeOptional />
 > 
-> `data.subtitle` : _string_ - The subtitle of the menu  ![The subtitle](https://docs.jumpon-studios.com/images/previews/menu/subtitle.jpg)
+> `data.type` : _string_ - The type of menu: `list` or `tile` <br> default: `"list"` <BadgeOptional />
 > 
-> `data.numberOnScreen` : _integer_ - Only for list menu, Maximum number of [item](#item-methods)s visibles at the same time <br> default : `8` <BadgeOptional />
+> `data.numberOnScreen` : _integer_ - `list` menu: number of items displayed before the scroll. Maximum `13` <br> default: `8` <BadgeOptional />
 > 
-> `data.numberOnLine` : _integer_ - Only for tile menu, Maximum number of [item](#item-methods)s visibles at the same time <br> default : `4` <BadgeOptional />
+> `data.numberOnLine` : _integer_ - `tile` menu: number of tiles per line <br> default: `4` <BadgeOptional />
 > 
-> `data.numberLineOnScreen` : _integer_ - Only for tile menu, Maximum number of lines visibles at the same time <br> default : `6` <BadgeOptional />
+> `data.numberLineOnScreen` : _integer_ - `tile` menu: number of lines displayed before the scroll <br> default: `6` <BadgeOptional />
 > 
-> `data.distanceToClose` : _float_ - Distance at which the menu will self close if the player is moving away <br> default: `false`
+> `data.image` : _string|table_ - An image displayed above the items: a URL or `{url, width, height, radius, style}` <BadgeOptional />
 > 
-> `data.displayBackButton` : _boolean_ - Whether to display the back button <br> default: `false`
+> `data.displayBackButton` : _boolean_ - Display the back arrow next to the subtitle, even without history <br> default: `false` <BadgeOptional />
 > 
-> `data.onEnter` : _function_ - Fired when the menu is opened <BadgeOptional />
+> `data.hideBackground` : _boolean_ - Hide the dark background behind the menu <br> default: `false` <BadgeOptional />
 > 
-> `data.onBack` : _function_ - Fired when the backspace/Escape is pressed <BadgeOptional />
+> `data.price` : _number|table_ - The price displayed when the active item has no price. See [Prices](./items#prices) <BadgeOptional />
 > 
-> `data.onExit` : _function_ - Fired when the menu is exited <BadgeOptional />
+> `data.priceTitle` : _string_ - Replace the "Price" label of `data.price` <BadgeOptional />
 > 
-> `data.onTick` : _function_ - Fired every tick <BadgeOptional />
+> `data.distanceToClose` : _number_ - The menu closes itself when the player moves further than this distance <br> default: `false` <BadgeOptional />
+> 
+> `data.translateTitle` : _boolean_ - Use `title` as a key of the translation strings <br> default: `false` <BadgeOptional />
+> 
+> `data.translateSubtitle` : _boolean_ - Use `subtitle` as a key of the translation strings <br> default: `false` <BadgeOptional />
+> 
+> `data.onBeforeEnter` : _function_ - Fired before the menu is displayed. The NUI waits for the end of the function <BadgeOptional />
+> 
+> `data.onEnter` : _function_ - Fired when the menu becomes the current menu <BadgeOptional />
+> 
+> `data.onBack` : _function_ - Fired when Backspace or Escape is pressed <BadgeOptional />
+> 
+> `data.onExit` : _function_ - Fired when the menu is no longer the current menu <BadgeOptional />
+> 
+> `data.onChange` : _function_ - Fired when the active item or a slider changes in the menu <BadgeOptional />
+> 
+> `data.onTick` : _function_ - Fired every frame while the menu is the current menu <BadgeOptional />
 > 
 
 #### Return Value
 
 Type : _[MenuClass](#menuclass-methods)_
 
-> The newly created menu object
+> The new menu
 
 <!-- @include: ./slots/examples.md#client|jo.menu.create -->
 
 <!-- @include: ./slots/footers.md#client|jo.menu.create -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.createIfNotExist()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.createIfNotExist -->
+
+Create a new menu, only if no menu exists with this ID <br>
+Returns two values: the menu (the new one or the existing one) and `true` if the menu was created <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.createIfNotExist -->
+
+#### Syntax
+
+```lua
+jo.menu.createIfNotExist(id, data)
+```
+
+#### Parameters
+
+`id` : _string_
+> Unique ID of the menu
+>
+
+`data` : _table_
+
+> The menu configuration. See [jo.menu.create()](#jo-menu-create)
+>
+
+
+#### Return Value
+
+Type : _[MenuClass](#menuclass-methods)_
+
+> The menu
+
+<!-- @include: ./slots/examples.md#client|jo.menu.createIfNotExist -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.createIfNotExist -->
 
 <!-- #endregion group_1 -->
 
@@ -70,8 +126,7 @@ Type : _[MenuClass](#menuclass-methods)_
 
 <!-- @include: ./slots/headers.md#client|MenuClass:addItem -->
 
-Add an [item](#item-methods) to a menu <br>
-[item](#item-methods).statistics[].value? table (`weapon-bar`: legacy `{current, max}` or `{max = number, bars = { { value = cumulativeValue, color? = cssColor, opacity? = number } } }`) <br>
+Add an item to the menu. Call `MenuClass:send()` to send the menu to the NUI <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:addItem -->
 
@@ -84,70 +139,98 @@ MenuClass:addItem(index, item)
 #### Parameters
 
 `index` : _integer|table_
-> Position index or [item](#item-methods) table if used as single parameter
+> The position of the item in the menu, or the item itself to add it at the end
 >
 
-`[item](#item-methods)` : _table_ <BadgeOptional />
+`item` : _table_ <BadgeOptional />
 
-> The [item](#item-methods) to add - if not provided, p is used as the [item](#item-methods)
+> The item to add, when `index` is a position
 >
 
-> `[item](#item-methods).title` : _string_ - The [item](#item-methods) label
+> `item.title` : _string_ - The item label. HTML is allowed
 > 
-> `[item](#item-methods).child` : _string_ - The menu to open when Enter is pressed <br> default: false <BadgeOptional />
+> `item.subtitle` : _string_ - A second line displayed under the title <BadgeOptional />
 > 
-> `[item](#item-methods).visible` : _boolean_ - If the [item](#item-methods) is visible in the menu <br> default: true <BadgeOptional />
+> `item.description` : _string_ - The text displayed in the description area, under the list. HTML is allowed <BadgeOptional />
 > 
-> `[item](#item-methods).data` : _table_ - Variable to store custom data in the [item](#item-methods) <BadgeOptional />
+> `item.footer` : _string_ - The text displayed at the bottom of the menu. HTML is allowed <BadgeOptional />
 > 
-> `[item](#item-methods).description` : _string_ - Description text for the [item](#item-methods) <BadgeOptional />
+> `item.child` : _string_ - The ID of the menu opened when the item is clicked <br> default: `false` <BadgeOptional />
 > 
-> `[item](#item-methods).prefix` : _string_ - The little icon before the title from `nui\menu\assets\images\icons` folder  ![prefix Icon](/images/previews/menu/prefixIcon.jpg) <BadgeOptional />
+> `item.visible` : _boolean_ - If `false`, the item is not displayed <br> default: `true` <BadgeOptional />
 > 
-> `[item](#item-methods).icon` : _string_ - The left icon filename from `nui\menu\assets\images\icons` folder, or full image URL  ![Icon](/images/previews/menu/leftIcon.jpg) <BadgeOptional />
+> `item.disabled` : _boolean_ - Grey out the item: it can't be clicked and its sliders are hidden <br> default: `false` <BadgeOptional />
 > 
-> `[item](#item-methods).iconRight` : _string_ - The right icon filename from `nui\menu\assets\images\icons` folder  ![icon right](/images/previews/menu/iconRight.jpg) <BadgeOptional />
+> `item.data` : _table_ - Free storage for your own data, available in the callbacks with `currentData.item.data` <BadgeOptional />
 > 
-> `[item](#item-methods).iconClass` : _string_ - CSS class for the icon <BadgeOptional />
+> `item.icon` : _string_ - The icon on the left of the item: a filename of `nui/menu/assets/images/icons` (without `.png`) or a full image URL <BadgeOptional />
 > 
-> `[item](#item-methods).tilePadding` : _number|string_ - In a `tile` menu, the space between the image and the edge of the tile: a number in vh, or a CSS length. `0` brings the image to the edge <br> default: 1.2 <BadgeOptional />
+> `item.iconClass` : _string_ - CSS classes applied to the icon, like `fgold` or `bw`. See [CSS classes](./menus#css-classes) <BadgeOptional />
 > 
-> `[item](#item-methods).price` : _table_ - The price of the [item](#item-methods). Use 0 to display "free" <br> default: false  ![preview price](/images/previews/menu/price.jpg) <BadgeOptional />
+> `item.iconSize` : _string_ - `"small"` to reduce the size of the icon <br> default: `"normal"` <BadgeOptional />
 > 
-> > `[item](#item-methods).price.money` : _number_ - The price in $ <BadgeOptional />
-> > 
-> > `[item](#item-methods).price.gold` : _number_ - The price in gold <BadgeOptional />
-> > 
-> `[item](#item-methods).priceTitle` : _string_ - Replace the "Price" label <BadgeOptional />
+> `item.iconRight` : _string_ - An icon displayed on the right of the item. In a `tile` menu, it's displayed in the bottom right corner of the tile <BadgeOptional />
 > 
-> `[item](#item-methods).priceRight` : _boolean_ - Display the price at the right of the [item](#item-methods) title  ![price to the right](/images/previews/menu/priceRight.jpg) <BadgeOptional />
+> `item.prefix` : _string_ - A small icon displayed before the title <BadgeOptional />
 > 
-> `[item](#item-methods).statistics` : _table_ - List of [statistics](#statistics) to display for the [item](#item-methods) <BadgeOptional />
+> `item.textRight` : _string_ - A text displayed on the right of the item <BadgeOptional />
 > 
-> `[item](#item-methods).disabled` : _boolean_ - If the [item](#item-methods) is disabled (grey) in the menu  ![disable item](/images/previews/menu/disableItem.jpg) <BadgeOptional />
+> `item.textRightClass` : _string_ - CSS classes applied to `textRight`, like `tiny` <BadgeOptional />
 > 
-> `[item](#item-methods).textRight` : _string_ - The label displayed at the right of the [item](#item-methods)  ![Right text](/images/previews/menu/rightText.jpg) <BadgeOptional />
+> `item.image` : _string|table_ - An image displayed in the description area: a URL or `{url, width, height, radius, style}` <BadgeOptional />
 > 
-> `[item](#item-methods).previewPalette` : _boolean_ - Display a color square at the right of the [item](#item-methods) <br> default: true  ![preview palette](/images/previews/menu/previewPalette.jpg) <BadgeOptional />
+> `item.color` : _string|table_ - The CSS color of the title, or a table `{title, background, accent, icon}`. See [Colors](./items#colors) <BadgeOptional />
 > 
-> `[item](#item-methods).sliders` : _table_ - List of [sliders](#sliders) for the [item](#item-methods) <BadgeOptional />
+> `item.price` : _number|table_ - The price displayed under the description. See [Prices](./items#prices) <br> default: `false` <BadgeOptional />
 > 
-> `[item](#item-methods).onActive` : _function_ - Fired when the [item](#item-methods) is selected <BadgeOptional />
+> `item.priceTitle` : _string_ - Replace the "Price" label above the price <BadgeOptional />
 > 
-> `[item](#item-methods).onClick` : _function_ - Fired when Enter is pressed on the [item](#item-methods) <BadgeOptional />
+> `item.priceRight` : _boolean|number|table_ - Display a price on the right of the item: `true` to display `item.price`, or a price value <BadgeOptional />
 > 
-> `[item](#item-methods).onChange` : _function_ - Fired when a slider value changes <BadgeOptional />
+> `item.statistics` : _table_ - The list of statistics displayed in the description area. See [Statistics](./statistics) <BadgeOptional />
 > 
-> `[item](#item-methods).onExit` : _function_ - Fired when the [item](#item-methods) is exited <BadgeOptional />
+> `item.sliders` : _table_ - The list of sliders of the item. See [Sliders](./sliders) <BadgeOptional />
 > 
-> `[item](#item-methods).onTick` : _function_ - Fired every tick <BadgeOptional />
+> `item.previewPalette` : _boolean_ - Display a square with the current color of the sliders on the right of the item <br> default: `false` <BadgeOptional />
+> 
+> `item.quantity` : _number_ - In a `tile` menu, a number displayed in a circle in the top right corner of the tile <BadgeOptional />
+> 
+> `item.quantityCircleClass` : _string_ - CSS classes applied to the quantity circle, like `fgold` <BadgeOptional />
+> 
+> `item.quality` : _integer_ - In a `tile` menu, a quality from `1` to `3` displayed with stars <BadgeOptional />
+> 
+> `item.qualityClass` : _string_ - CSS classes applied to the quality stars <BadgeOptional />
+> 
+> `item.stars` : _table_ - In a `tile` menu, a row of stars: `{current, total}` <BadgeOptional />
+> 
+> `item.starsClass` : _string_ - CSS classes applied to the row of stars <BadgeOptional />
+> 
+> `item.tilePadding` : _number|string_ - In a `tile` menu, the space between the image and the edge of the tile: a number in vh, or a CSS length. `0` brings the image to the edge <br> default: `1.2` <BadgeOptional />
+> 
+> `item.translate` : _boolean_ - Use `title` as a key of the translation strings. See [jo.menu.updateLang()](#jo-menu-updatelang) <br> default: `false` <BadgeOptional />
+> 
+> `item.translateDescription` : _boolean_ - Use `description` as a key of the translation strings <br> default: `false` <BadgeOptional />
+> 
+> `item.translateTextRight` : _boolean_ - Use `textRight` as a key of the translation strings <br> default: `false` <BadgeOptional />
+> 
+> `item.bufferOnChange` : _boolean_ - Wait a few milliseconds between two `onChange` events of fast slider moves. `false` fires them on the next frame <br> default: `true` <BadgeOptional />
+> 
+> `item.onActive` : _function_ - Fired when the item becomes the active item <BadgeOptional />
+> 
+> `item.onClick` : _function_ - Fired when the item is clicked or Enter is pressed <BadgeOptional />
+> 
+> `item.onChange` : _function_ - Fired when a slider of the item changes <BadgeOptional />
+> 
+> `item.onExit` : _function_ - Fired when the item is no longer the active item <BadgeOptional />
+> 
+> `item.onTick` : _function_ - Fired every frame while the item is active <BadgeOptional />
 > 
 
 #### Return Value
 
-Type : _[MenuItem](#menu[item](#item-methods)-methods)Class_
+Type : _[MenuItemClass](#menuitemclass-methods)_
 
-> The added [item](#item-methods)
+> The added item
 
 <!-- @include: ./slots/examples.md#client|MenuClass:addItem -->
 
@@ -159,6 +242,8 @@ Type : _[MenuItem](#menu[item](#item-methods)-methods)Class_
 
 <!-- @include: ./slots/headers.md#client|MenuClass:deleteItem -->
 
+Delete an item of the menu and update the index of the next items. Call `MenuClass:push()` to send the changes to the NUI <br>
+
 <!-- @include: ./slots/descriptions.md#client|MenuClass:deleteItem -->
 
 #### Syntax
@@ -166,6 +251,12 @@ Type : _[MenuItem](#menu[item](#item-methods)-methods)Class_
 ```lua
 MenuClass:deleteItem(index)
 ```
+
+#### Parameters
+
+`index` : _integer_
+> The index of the item to delete
+>
 
 <!-- @include: ./slots/examples.md#client|MenuClass:deleteItem -->
 
@@ -177,7 +268,8 @@ MenuClass:deleteItem(index)
 
 <!-- @include: ./slots/headers.md#client|MenuClass:deleteValue -->
 
-Delete a specific property of a menu. Requires MenuClass:push() to be called to apply the changes <br>
+Delete a property of the menu or of one of its items. Call `MenuClass:push()` to send the changes to the NUI <br>
+`{"items", index}` deletes the item, like `MenuClass:deleteItem()` <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:deleteValue -->
 
@@ -190,7 +282,7 @@ MenuClass:deleteValue(keys)
 #### Parameters
 
 `keys` : _string|table_
-> The list of property name to access to the value
+> The property name, or the path to a nested property like `{"items", 2, "price"}`
 >
 
 <!-- @include: ./slots/examples.md#client|MenuClass:deleteValue -->
@@ -203,7 +295,7 @@ MenuClass:deleteValue(keys)
 
 <!-- @include: ./slots/headers.md#client|MenuClass:push -->
 
-Push the updated values to the NUI layer <br>
+Send to the NUI the changes made with `updateValue()`, `deleteValue()` and `deleteItem()` <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:push -->
 
@@ -223,8 +315,9 @@ MenuClass:push()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:refresh -->
 
-Refresh all the menu without changing the current state <br>
-Used when you want rebuild the menu <br>
+Send the whole menu to the NUI again, without changing the active item <br>
+Use it after big changes, like items added or sorted after `MenuClass:send()` <br>
+If the menu is the current menu, `onExit` and `onActive` of the active item are fired again <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:refresh -->
 
@@ -244,7 +337,11 @@ MenuClass:refresh()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:removeItem -->
 
-Remove an [item](#item-methods) from a menu by its index. Requires MenuClass:push() to be called to apply the changes <br>
+::: warning DEPRECATED
+since v2.4.0. Use MenuClass:deleteItem() instead
+:::
+
+Remove an item from the menu, in Lua only <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:removeItem -->
 
@@ -257,7 +354,7 @@ MenuClass:removeItem(index)
 #### Parameters
 
 `index` : _integer_
-> The index of the [item](#item-methods) to remove
+> The index of the item to remove
 >
 
 <!-- @include: ./slots/examples.md#client|MenuClass:removeItem -->
@@ -270,8 +367,7 @@ MenuClass:removeItem(index)
 
 <!-- @include: ./slots/headers.md#client|MenuClass:reset -->
 
-Reset the menu to its initial state <br>
-Moves the cursor back to the first [item](#item-methods) <br>
+Move the cursor of the menu back to the first item <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:reset -->
 
@@ -291,7 +387,8 @@ MenuClass:reset()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:send -->
 
-Send the menu data to the NUI layer <br>
+Send the menu to the NUI. Call it once the items are added <br>
+If the menu has already been sent, it's refreshed (see `MenuClass:refresh()`) <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:send -->
 
@@ -311,7 +408,7 @@ MenuClass:send()
 
 <!-- @include: ./slots/headers.md#client|MenuClass:setCurrentIndex -->
 
-Change the current active [item](#item-methods) index <br>
+Move the cursor to an item <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:setCurrentIndex -->
 
@@ -324,7 +421,7 @@ MenuClass:setCurrentIndex(index)
 #### Parameters
 
 `index` : _integer_
-> The [item](#item-methods) index to switch to
+> The index of the item
 >
 
 <!-- @include: ./slots/examples.md#client|MenuClass:setCurrentIndex -->
@@ -337,7 +434,8 @@ MenuClass:setCurrentIndex(index)
 
 <!-- @include: ./slots/headers.md#client|MenuClass:sort -->
 
-Sort menu [item](#item-methods)s alphabetically by title <br>
+Sort the items alphabetically by title <br>
+Call `MenuClass:refresh()` (or `MenuClass:send()` if the menu has never been sent) to display the new order <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:sort -->
 
@@ -350,11 +448,11 @@ MenuClass:sort(first, last)
 #### Parameters
 
 `first` : _integer_ <BadgeOptional />
-> Position of the first element to sort <br> default: `1`
+> The position of the first item to sort <br> default: `1`
 >
 
 `last` : _integer_ <BadgeOptional />
-> Position of the last element to sort <br> default: `#self.[item](#item-methods)s`
+> The position of the last item to sort <br> default: the last item
 >
 
 <!-- @include: ./slots/examples.md#client|MenuClass:sort -->
@@ -367,7 +465,11 @@ MenuClass:sort(first, last)
 
 <!-- @include: ./slots/headers.md#client|MenuClass:updateItem -->
 
-Update a specific property of a menu [item](#item-methods) <br>
+::: warning DEPRECATED
+since v2.3.0. Use MenuClass:updateValue() or MenuItem:updateValue() then MenuClass:push() instead
+:::
+
+Overwrite a property of an item. The NUI is not updated <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:updateItem -->
 
@@ -380,7 +482,7 @@ MenuClass:updateItem(index, key, value)
 #### Parameters
 
 `index` : _integer_
-> The index of the [item](#item-methods) to update
+> The index of the item to update
 >
 
 `key` : _string_
@@ -401,7 +503,8 @@ MenuClass:updateItem(index, key, value)
 
 <!-- @include: ./slots/headers.md#client|MenuClass:updateValue -->
 
-Update a specific property of a menu. Requires MenuClass:push() to be called to apply the changes <br>
+Update a property of the menu or of one of its items. Call `MenuClass:push()` to send the changes to the NUI <br>
+`price` and `priceRight` values are formatted automatically <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:updateValue -->
 
@@ -414,7 +517,7 @@ MenuClass:updateValue(keys, value)
 #### Parameters
 
 `keys` : _string|table_
-> The list of property name to access to the value
+> The property name, or the path to a nested property like `{"items", 2, "title"}`
 >
 
 `value` : _any_
@@ -425,7 +528,7 @@ MenuClass:updateValue(keys, value)
 
 Type : _boolean_
 
-> true if the update was successful, false otherwise
+> Always `true`
 
 <!-- @include: ./slots/examples.md#client|MenuClass:updateValue -->
 
@@ -437,7 +540,7 @@ Type : _boolean_
 
 <!-- @include: ./slots/headers.md#client|MenuClass:use -->
 
-Set this menu as the current active menu <br>
+Set the menu as the current menu. Same as `jo.menu.setCurrentMenu()` <br>
 
 <!-- @include: ./slots/descriptions.md#client|MenuClass:use -->
 
@@ -450,11 +553,11 @@ MenuClass:use(keepHistoric, resetMenu)
 #### Parameters
 
 `keepHistoric` : _boolean_ <BadgeOptional />
-> Whether to keep navigation history <br> default: `true`
+> Keep the previous menu in the history, to go back to it with Backspace <br> default: `true`
 >
 
 `resetMenu` : _boolean_ <BadgeOptional />
-> Whether to reset the menu state <br> default: `true`
+> Move the cursor back to the first item <br> default: `true`
 >
 
 <!-- @include: ./slots/examples.md#client|MenuClass:use -->
@@ -464,46 +567,48 @@ MenuClass:use(keepHistoric, resetMenu)
 <!-- #endregion group_2 -->
 
 <!-- #region group_3 -->
-## MenuItem Methods
+## MenuItemClass Methods
 
-### <Badge type="client" text="Client" /> MenuItem:deleteValue()
+### <Badge type="client" text="Client" /> MenuItemClass:deleteValue()
 
-<!-- @include: ./slots/headers.md#client|MenuItem:deleteValue -->
+<!-- @include: ./slots/headers.md#client|MenuItemClass:deleteValue -->
 
-Delete a specific property of a menu [item](#item-methods). Requires MenuClass:push() to be called to apply the changes <br>
+Delete a property of the item. Call `MenuClass:push()` to send the changes to the NUI <br>
+Only works on an item returned by `MenuClass:addItem()` <br>
 
-<!-- @include: ./slots/descriptions.md#client|MenuItem:deleteValue -->
+<!-- @include: ./slots/descriptions.md#client|MenuItemClass:deleteValue -->
 
 #### Syntax
 
 ```lua
-MenuItem:deleteValue(keys)
+MenuItemClass:deleteValue(keys)
 ```
 
 #### Parameters
 
 `keys` : _string|table_
-> The list of property name to access to the value
+> The property name, or the path to a nested property like `{"sliders", 2}`
 >
 
-<!-- @include: ./slots/examples.md#client|MenuItem:deleteValue -->
+<!-- @include: ./slots/examples.md#client|MenuItemClass:deleteValue -->
 
-<!-- @include: ./slots/footers.md#client|MenuItem:deleteValue -->
+<!-- @include: ./slots/footers.md#client|MenuItemClass:deleteValue -->
 
 ---
 
-### <Badge type="client" text="Client" /> MenuItem:getParentMenu()
+### <Badge type="client" text="Client" /> MenuItemClass:getParentMenu()
 
-<!-- @include: ./slots/headers.md#client|MenuItem:getParentMenu -->
+<!-- @include: ./slots/headers.md#client|MenuItemClass:getParentMenu -->
 
-Get the parent menu of the [item](#item-methods) <br>
+Get the menu the item belongs to <br>
+Only works on an item returned by `MenuClass:addItem()` <br>
 
-<!-- @include: ./slots/descriptions.md#client|MenuItem:getParentMenu -->
+<!-- @include: ./slots/descriptions.md#client|MenuItemClass:getParentMenu -->
 
 #### Syntax
 
 ```lua
-MenuItem:getParentMenu()
+MenuItemClass:getParentMenu()
 ```
 
 #### Return Value
@@ -512,72 +617,51 @@ Type : _[MenuClass](#menuclass-methods)_
 
 > The parent menu
 
-<!-- @include: ./slots/examples.md#client|MenuItem:getParentMenu -->
+<!-- @include: ./slots/examples.md#client|MenuItemClass:getParentMenu -->
 
-<!-- @include: ./slots/footers.md#client|MenuItem:getParentMenu -->
+<!-- @include: ./slots/footers.md#client|MenuItemClass:getParentMenu -->
 
 ---
 
-### <Badge type="client" text="Client" /> MenuItem:updateValue()
+### <Badge type="client" text="Client" /> MenuItemClass:updateValue()
 
-<!-- @include: ./slots/headers.md#client|MenuItem:updateValue -->
+<!-- @include: ./slots/headers.md#client|MenuItemClass:updateValue -->
 
-Update a specific property of a menu [item](#item-methods). Requires MenuClass:push() to be called to apply the changes <br>
+Update a property of the item. Call `MenuClass:push()` to send the changes to the NUI <br>
+Only works on an item returned by `MenuClass:addItem()` <br>
 
-<!-- @include: ./slots/descriptions.md#client|MenuItem:updateValue -->
+<!-- @include: ./slots/descriptions.md#client|MenuItemClass:updateValue -->
 
 #### Syntax
 
 ```lua
-MenuItem:updateValue(keys, value)
+MenuItemClass:updateValue(keys, value)
 ```
 
 #### Parameters
 
 `keys` : _string|table_
-> The property name to update
+> The property name, or the path to a nested property like `{"sliders", 1, "current"}`
 >
 
 `value` : _any_
-> The new value for the property
+> The new value
 >
 
-<!-- @include: ./slots/examples.md#client|MenuItem:updateValue -->
+<!-- @include: ./slots/examples.md#client|MenuItemClass:updateValue -->
 
-<!-- @include: ./slots/footers.md#client|MenuItem:updateValue -->
+<!-- @include: ./slots/footers.md#client|MenuItemClass:updateValue -->
 
 <!-- #endregion group_3 -->
 
 <!-- #region group_4 -->
-## item Methods
-
-### <Badge type="client" text="Client" /> item:getParentMenu()
-
-<!-- @include: ./slots/headers.md#client|item:getParentMenu -->
-
-<!-- @include: ./slots/descriptions.md#client|item:getParentMenu -->
-
-#### Syntax
-
-```lua
-item:getParentMenu()
-```
-
-<!-- @include: ./slots/examples.md#client|item:getParentMenu -->
-
-<!-- @include: ./slots/footers.md#client|item:getParentMenu -->
-
-<!-- #endregion group_4 -->
-
-<!-- #region group_5 -->
-## JO Functions
+## Menu Management
 
 ### <Badge type="client" text="Client" /> jo.menu.addItem()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.addItem -->
 
-Add an [item](#item-methods) to a menu by its ID <br>
-[item](#item-methods).statistics[].value? table (`weapon-bar`: legacy `{current, max}` or `{max = number, bars = { { value = cumulativeValue, color? = cssColor, opacity? = number } } }`) <br>
+Add an item to a menu from its ID. Same as `MenuClass:addItem()` <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.addItem -->
 
@@ -594,62 +678,14 @@ jo.menu.addItem(id, p, item)
 >
 
 `p` : _integer|table_
-> Position index or [item](#item-methods) table if used as single parameter
+> The position of the item in the menu, or the item itself to add it at the end
 >
 
-`[item](#item-methods)` : _table_ <BadgeOptional />
+`item` : _table_ <BadgeOptional />
 
-> The [item](#item-methods) to add - if not provided, p is used as the [item](#item-methods)
+> The item to add, when `p` is a position. See [MenuClass:addItem()](#menuclass-additem) for the keys
 >
 
-> `[item](#item-methods).title` : _string_ - The [item](#item-methods) label
-> 
-> `[item](#item-methods).child` : _string_ - The menu to open when Enter is pressed <br> default: false <BadgeOptional />
-> 
-> `[item](#item-methods).visible` : _boolean_ - If the [item](#item-methods) is visible in the menu <br> default: true <BadgeOptional />
-> 
-> `[item](#item-methods).data` : _table_ - Variable to store custom data in the [item](#item-methods) <BadgeOptional />
-> 
-> `[item](#item-methods).description` : _string_ - Description text for the [item](#item-methods) <BadgeOptional />
-> 
-> `[item](#item-methods).prefix` : _string_ - The little icon before the title from `nui\menu\assets\images\icons` folder  ![prefix Icon](/images/previews/menu/prefixIcon.jpg) <BadgeOptional />
-> 
-> `[item](#item-methods).icon` : _string_ - The left icon filename from `nui\menu\assets\images\icons` folder  ![Icon](/images/previews/menu/leftIcon.jpg) <BadgeOptional />
-> 
-> `[item](#item-methods).iconRight` : _string_ - The right icon filename from `nui\menu\assets\images\icons` folder  ![icon right](/images/previews/menu/iconRight.jpg) <BadgeOptional />
-> 
-> `[item](#item-methods).iconClass` : _string_ - CSS class for the icon <BadgeOptional />
-> 
-> `[item](#item-methods).tilePadding` : _number|string_ - In a `tile` menu, the space between the image and the edge of the tile: a number in vh, or a CSS length. `0` brings the image to the edge <br> default: 1.2 <BadgeOptional />
-> 
-> `[item](#item-methods).price` : _table_ - The price of the [item](#item-methods). Use 0 to display "free" <br> default: false  ![preview price](/images/previews/menu/price.jpg) <BadgeOptional />
-> 
-> > `[item](#item-methods).price.money` : _number_ - The price in $ <BadgeOptional />
-> > 
-> > `[item](#item-methods).price.gold` : _number_ - The price in gold <BadgeOptional />
-> > 
-> `[item](#item-methods).priceTitle` : _string_ - Replace the "Price" label <BadgeOptional />
-> 
-> `[item](#item-methods).priceRight` : _boolean_ - Display the price at the right of the [item](#item-methods) title  ![price to the right](/images/previews/menu/priceRight.jpg) <BadgeOptional />
-> 
-> `[item](#item-methods).statistics` : _table_ - List of [statistics](#statistics) to display for the [item](#item-methods) <BadgeOptional />
-> 
-> `[item](#item-methods).disabled` : _boolean_ - If the [item](#item-methods) is disabled (grey) in the menu  ![disable item](/images/previews/menu/disableItem.jpg) <BadgeOptional />
-> 
-> `[item](#item-methods).textRight` : _string_ - The label displayed at the right of the [item](#item-methods)  ![Right text](/images/previews/menu/rightText.jpg) <BadgeOptional />
-> 
-> `[item](#item-methods).previewPalette` : _boolean_ - Display a color square at the right of the [item](#item-methods) <br> default: true  ![preview palette](/images/previews/menu/previewPalette.jpg) <BadgeOptional />
-> 
-> `[item](#item-methods).sliders` : _table_ - List of [sliders](#sliders) for the [item](#item-methods) <BadgeOptional />
-> 
-> `[item](#item-methods).onActive` : _function_ - Fired when the [item](#item-methods) is selected <BadgeOptional />
-> 
-> `[item](#item-methods).onClick` : _function_ - Fired when Enter is pressed on the [item](#item-methods) <BadgeOptional />
-> 
-> `[item](#item-methods).onChange` : _function_ - Fired when a slider value changes <BadgeOptional />
-> 
-> `[item](#item-methods).onExit` : _function_ - Fired when the [item](#item-methods) is exited <BadgeOptional />
-> 
 
 <!-- @include: ./slots/examples.md#client|jo.menu.addItem -->
 
@@ -657,49 +693,11 @@ jo.menu.addItem(id, p, item)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.createIfNotExist()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.createIfNotExist -->
-
-Create a new menu if it doesn't exist <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.createIfNotExist -->
-
-#### Syntax
-
-```lua
-jo.menu.createIfNotExist(id, data)
-```
-
-#### Parameters
-
-`id` : _string_
-> Unique ID of the menu
->
-
-`data` : _table_ <BadgeOptional />
-
-> Menu configuration data
->
-
-
-#### Return Value
-
-Type : _boolean_
-
-> Returns `true` if the menu was created
-
-<!-- @include: ./slots/examples.md#client|jo.menu.createIfNotExist -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.createIfNotExist -->
-
----
-
 ### <Badge type="client" text="Client" /> jo.menu.delete()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.delete -->
 
-Delete a menu from memory <br>
+Delete a menu, in Lua and in the NUI <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.delete -->
 
@@ -712,7 +710,7 @@ jo.menu.delete(id)
 #### Parameters
 
 `id` : _string_
-> The menu ID to delete
+> The menu ID
 >
 
 <!-- @include: ./slots/examples.md#client|jo.menu.delete -->
@@ -721,149 +719,11 @@ jo.menu.delete(id)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.displayLoader()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.displayLoader -->
-
-A function to display the loader <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.displayLoader -->
-
-#### Syntax
-
-```lua
-jo.menu.displayLoader(value)
-```
-
-#### Parameters
-
-`value` : _boolean_ <BadgeOptional />
-> Whether to display the loader <br> default: `true`
->
-
-<!-- @include: ./slots/examples.md#client|jo.menu.displayLoader -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.displayLoader -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.doesActiveButtonChange()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.doesActiveButtonChange -->
-
-Check if the active button has changed since last update <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.doesActiveButtonChange -->
-
-#### Syntax
-
-```lua
-jo.menu.doesActiveButtonChange()
-```
-
-#### Return Value
-
-Type : _boolean_
-
-> Returns `true` if the active button has changed
-
-<!-- @include: ./slots/examples.md#client|jo.menu.doesActiveButtonChange -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.doesActiveButtonChange -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.fireAllLevelsEvent()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.fireAllLevelsEvent -->
-
-Fire an event across all menu levels (current menu and current item) <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.fireAllLevelsEvent -->
-
-#### Syntax
-
-```lua
-jo.menu.fireAllLevelsEvent(eventName, ...)
-```
-
-#### Parameters
-
-`eventName` : _string_
-> The name of the event to fire
->
-
-`...` : _any_ <BadgeOptional />
-> Additional arguments to pass to the event handlers
->
-
-<!-- @include: ./slots/examples.md#client|jo.menu.fireAllLevelsEvent -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.fireAllLevelsEvent -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.fireEvent()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.fireEvent -->
-
-Fire an event for a specific menu [item](#item-methods) <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.fireEvent -->
-
-#### Syntax
-
-```lua
-jo.menu.fireEvent(item, eventName, ...)
-```
-
-#### Parameters
-
-`[item](#item-methods)` : _table_
-
-> The [item](#item-methods) to trigger the event on
->
-
-
-`eventName` : _string_
-> The name of the event to fire
->
-
-`...` : _any_ <BadgeOptional />
-> Additional arguments to pass to the event handler
->
-
-<!-- @include: ./slots/examples.md#client|jo.menu.fireEvent -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.fireEvent -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.forceBack()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.forceBack -->
-
-Force the menu to go back to the previous menu <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.forceBack -->
-
-#### Syntax
-
-```lua
-jo.menu.forceBack()
-```
-
-<!-- @include: ./slots/examples.md#client|jo.menu.forceBack -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.forceBack -->
-
----
-
 ### <Badge type="client" text="Client" /> jo.menu.get()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.get -->
 
-Get a menu instance by its ID <br>
+Get a menu from its ID <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.get -->
 
@@ -891,218 +751,11 @@ Type : _[MenuClass](#menuclass-methods)_
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.getCurrentData()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentData -->
-
-Get data about the current menu state <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentData -->
-
-#### Syntax
-
-```lua
-jo.menu.getCurrentData()
-```
-
-#### Return Value
-
-Type : _table_
-
-> Current menu data including menu ID and selected [item](#item-methods)
-
-<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentData -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentData -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.getCurrentIndex()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentIndex -->
-
-A function to get the current index <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentIndex -->
-
-#### Syntax
-
-```lua
-jo.menu.getCurrentIndex()
-```
-
-#### Return Value
-
-Type : _integer_
-
-> The index of the current [item](#item-methods)
-
-<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentIndex -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentIndex -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.getCurrentItem()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentItem -->
-
-Get the currently selected menu [item](#item-methods) <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentItem -->
-
-#### Syntax
-
-```lua
-jo.menu.getCurrentItem()
-```
-
-#### Return Value
-
-Type : _table_
-
-> The currently selected [item](#item-methods)
-
-<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentItem -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentItem -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.getCurrentMenu()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentMenu -->
-
-Get the currently active menu <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentMenu -->
-
-#### Syntax
-
-```lua
-jo.menu.getCurrentMenu()
-```
-
-#### Return Value
-
-Type : _[MenuClass](#menuclass-methods)_
-
-> The currently active menu
-
-<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentMenu -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentMenu -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.getCurrentMenuId()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentMenuId -->
-
-A function to get the current menu id <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentMenuId -->
-
-#### Syntax
-
-```lua
-jo.menu.getCurrentMenuId()
-```
-
-#### Return Value
-
-Type : _string_
-
-> The id of the current menu
-
-<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentMenuId -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentMenuId -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.getPreviousData()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.getPreviousData -->
-
-Get data about the previous menu state <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.getPreviousData -->
-
-#### Syntax
-
-```lua
-jo.menu.getPreviousData()
-```
-
-#### Return Value
-
-Type : _table_
-
-> Previous menu data including menu ID and selected [item](#item-methods)
-
-<!-- @include: ./slots/examples.md#client|jo.menu.getPreviousData -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.getPreviousData -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.hideLoader()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.hideLoader -->
-
-A function to hide the loader <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.hideLoader -->
-
-#### Syntax
-
-```lua
-jo.menu.hideLoader()
-```
-
-<!-- @include: ./slots/examples.md#client|jo.menu.hideLoader -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.hideLoader -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.isCurrentMenu()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.isCurrentMenu -->
-
-A function to know if the menu is the current one <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.isCurrentMenu -->
-
-#### Syntax
-
-```lua
-jo.menu.isCurrentMenu(id)
-```
-
-#### Parameters
-
-`id` : _string_
-> The menu id
->
-
-#### Return Value
-
-Type : _boolean_
-
-
-<!-- @include: ./slots/examples.md#client|jo.menu.isCurrentMenu -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.isCurrentMenu -->
-
----
-
 ### <Badge type="client" text="Client" /> jo.menu.isExist()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.isExist -->
 
-Check if a menu exist <br>
+Check if a menu exists <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.isExist -->
 
@@ -1115,7 +768,7 @@ jo.menu.isExist(id)
 #### Parameters
 
 `id` : _string_
-> the menu ID
+> The menu ID
 >
 
 #### Return Value
@@ -1130,135 +783,11 @@ Type : _boolean_
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.isOpen()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.isOpen -->
-
-Check if any menu is currently open <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.isOpen -->
-
-#### Syntax
-
-```lua
-jo.menu.isOpen()
-```
-
-#### Return Value
-
-Type : _boolean_
-
-> Returns `true` if a menu is open
-
-<!-- @include: ./slots/examples.md#client|jo.menu.isOpen -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.isOpen -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.isSoftHidden()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.isSoftHidden -->
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.isSoftHidden -->
-
-#### Syntax
-
-```lua
-jo.menu.isSoftHidden()
-```
-
-<!-- @include: ./slots/examples.md#client|jo.menu.isSoftHidden -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.isSoftHidden -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.missingMenuHandler()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.missingMenuHandler -->
-
-Register a handler for missing menu error <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.missingMenuHandler -->
-
-#### Syntax
-
-```lua
-jo.menu.missingMenuHandler(id, callback)
-```
-
-#### Parameters
-
-`id` : _string_
-> The menu ID
->
-
-`callback` : _function_
-> The handler function
->
-
-<!-- @include: ./slots/examples.md#client|jo.menu.missingMenuHandler -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.missingMenuHandler -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.onChange()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.onChange -->
-
-Register a callback function for menu change events <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.onChange -->
-
-#### Syntax
-
-```lua
-jo.menu.onChange(cb)
-```
-
-#### Parameters
-
-`cb` : _function_
-> The callback function to register
->
-
-<!-- @include: ./slots/examples.md#client|jo.menu.onChange -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.onChange -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.playAudio()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.playAudio -->
-
-A function to play a NUI sound <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.playAudio -->
-
-#### Syntax
-
-```lua
-jo.menu.playAudio(sound)
-```
-
-#### Parameters
-
-`sound` : _string_
-
-<!-- @include: ./slots/examples.md#client|jo.menu.playAudio -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.playAudio -->
-
----
-
 ### <Badge type="client" text="Client" /> jo.menu.refresh()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.refresh -->
 
-Refresh a menu by its ID <br>
+Refresh a menu from its ID. Same as `MenuClass:refresh()` <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.refresh -->
 
@@ -1271,7 +800,7 @@ jo.menu.refresh(id)
 #### Parameters
 
 `id` : _string_
-> The menu ID to refresh
+> The menu ID
 >
 
 <!-- @include: ./slots/examples.md#client|jo.menu.refresh -->
@@ -1284,7 +813,7 @@ jo.menu.refresh(id)
 
 <!-- @include: ./slots/headers.md#client|jo.menu.reset -->
 
-Reset a menu by its ID <br>
+Reset a menu from its ID. Same as `MenuClass:reset()` <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.reset -->
 
@@ -1297,7 +826,7 @@ jo.menu.reset(id)
 #### Parameters
 
 `id` : _string_
-> The menu ID to reset
+> The menu ID
 >
 
 <!-- @include: ./slots/examples.md#client|jo.menu.reset -->
@@ -1306,41 +835,11 @@ jo.menu.reset(id)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.runRefreshEvents()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.runRefreshEvents -->
-
-A function to fire menu and [item](#item-methods)s events <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.runRefreshEvents -->
-
-#### Syntax
-
-```lua
-jo.menu.runRefreshEvents(menuEvent, itemEvent)
-```
-
-#### Parameters
-
-`menuEvent` : _boolean_ <BadgeOptional />
-> Whether to run menu events
->
-
-`[item](#item-methods)Event` : _boolean_ <BadgeOptional />
-> Whether to run [item](#item-methods) events
->
-
-<!-- @include: ./slots/examples.md#client|jo.menu.runRefreshEvents -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.runRefreshEvents -->
-
----
-
 ### <Badge type="client" text="Client" /> jo.menu.send()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.send -->
 
-Send a menu to the NUI layer by its ID <br>
+Send a menu to the NUI from its ID. Same as `MenuClass:send()` <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.send -->
 
@@ -1366,7 +865,7 @@ jo.menu.send(id)
 
 <!-- @include: ./slots/headers.md#client|jo.menu.set -->
 
-Set or replace a menu instance <br>
+Replace the menu stored with this ID <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.set -->
 
@@ -1383,7 +882,7 @@ jo.menu.set(id, menu)
 >
 
 `menu` : _[MenuClass](#menuclass-methods)_
-> The menu object to set
+> The menu
 >
 
 <!-- @include: ./slots/examples.md#client|jo.menu.set -->
@@ -1392,117 +891,11 @@ jo.menu.set(id, menu)
 
 ---
 
-### <Badge type="client" text="Client" /> jo.menu.setCurrentMenu()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.setCurrentMenu -->
-
-Set a menu as the current active menu <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.setCurrentMenu -->
-
-#### Syntax
-
-```lua
-jo.menu.setCurrentMenu(id, keepHistoric, resetMenu)
-```
-
-#### Parameters
-
-`id` : _string_
-> ID of the menu to activate
->
-
-`keepHistoric` : _boolean_ <BadgeOptional />
-> Keep the menu navigation history <br> default: `true`
->
-
-`resetMenu` : _boolean_ <BadgeOptional />
-> Clear and redraw the menu before displaying <br> default: `true`
->
-
-<!-- @include: ./slots/examples.md#client|jo.menu.setCurrentMenu -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.setCurrentMenu -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.show()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.show -->
-
-Show or hide a menu <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.show -->
-
-#### Syntax
-
-```lua
-jo.menu.show(show, keepInput, hideRadar, playMenuAnimation, hideCursor)
-```
-
-#### Parameters
-
-`show` : _boolean_
-> Whether to show or hide the menu
->
-
-`keepInput` : _boolean_ <BadgeOptional />
-> Whether to keep game input controls active <br> default: `true`
->
-
-`hideRadar` : _boolean_ <BadgeOptional />
-> Whether to hide the radar when menu is shown <br> default: `true`
->
-
-`playMenuAnimation` : _boolean_ <BadgeOptional />
-> Whether to use animation when showing/hiding the menu <br> default: `true`
->
-
-`hideCursor` : _boolean_ <BadgeOptional />
-> Whether to hide the cursor <br> default: `false`
->
-
-<!-- @include: ./slots/examples.md#client|jo.menu.show -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.show -->
-
----
-
-### <Badge type="client" text="Client" /> jo.menu.softHide()
-
-<!-- @include: ./slots/headers.md#client|jo.menu.softHide -->
-
-A function to hide temporary the menu and do action <br>
-
-<!-- @include: ./slots/descriptions.md#client|jo.menu.softHide -->
-
-#### Syntax
-
-```lua
-jo.menu.softHide(cb, playMenuAnimation, keepBackground)
-```
-
-#### Parameters
-
-`cb` : _function_
-> Action executed before show again the menu
->
-
-`playMenuAnimation` : _boolean_ <BadgeOptional />
-> Whether to use animation when showing/hiding the menu <br> default: `true`
->
-
-<!-- @include: ./slots/examples.md#client|jo.menu.softHide -->
-
-<!-- @include: ./slots/footers.md#client|jo.menu.softHide -->
-
----
-
 ### <Badge type="client" text="Client" /> jo.menu.sort()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.sort -->
 
-Sort menu [item](#item-methods)s alphabetically by title using menu ID <br>
+Sort the items of a menu from its ID. Same as `MenuClass:sort()` <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.sort -->
 
@@ -1519,11 +912,11 @@ jo.menu.sort(id, first, last)
 >
 
 `first` : _integer_ <BadgeOptional />
-> Position of the first element to sort <br> default: `1`
+> The position of the first item to sort <br> default: `1`
 >
 
 `last` : _integer_ <BadgeOptional />
-> Position of the last element to sort <br> default: `#self.[item](#item-methods)s`
+> The position of the last item to sort <br> default: the last item
 >
 
 <!-- @include: ./slots/examples.md#client|jo.menu.sort -->
@@ -1536,7 +929,11 @@ jo.menu.sort(id, first, last)
 
 <!-- @include: ./slots/headers.md#client|jo.menu.updateItem -->
 
-Update a specific property of a menu [item](#item-methods) by menu ID <br>
+::: warning DEPRECATED
+since v2.3.0. Use MenuClass:updateValue() or MenuItem:updateValue() then MenuClass:push() instead
+:::
+
+Overwrite a property of an item from the menu ID. The NUI is not updated <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.updateItem -->
 
@@ -1553,7 +950,7 @@ jo.menu.updateItem(id, index, key, value)
 >
 
 `index` : _integer_
-> The index of the [item](#item-methods) to update
+> The index of the item to update
 >
 
 `key` : _string_
@@ -1568,13 +965,654 @@ jo.menu.updateItem(id, index, key, value)
 
 <!-- @include: ./slots/footers.md#client|jo.menu.updateItem -->
 
+<!-- #endregion group_4 -->
+
+<!-- #region group_5 -->
+## Display
+
+### <Badge type="client" text="Client" /> jo.menu.displayLoader()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.displayLoader -->
+
+Display a loading animation in the menu <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.displayLoader -->
+
+#### Syntax
+
+```lua
+jo.menu.displayLoader(value)
+```
+
+#### Parameters
+
+`value` : _boolean_ <BadgeOptional />
+> `false` to hide the loader <br> default: `true`
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.displayLoader -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.displayLoader -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.forceBack()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.forceBack -->
+
+Go back to the previous menu of the history, like Backspace <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.forceBack -->
+
+#### Syntax
+
+```lua
+jo.menu.forceBack()
+```
+
+<!-- @include: ./slots/examples.md#client|jo.menu.forceBack -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.forceBack -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.hideLoader()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.hideLoader -->
+
+Hide the loading animation <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.hideLoader -->
+
+#### Syntax
+
+```lua
+jo.menu.hideLoader()
+```
+
+<!-- @include: ./slots/examples.md#client|jo.menu.hideLoader -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.hideLoader -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.isOpen()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.isOpen -->
+
+Check if the menu is displayed <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.isOpen -->
+
+#### Syntax
+
+```lua
+jo.menu.isOpen()
+```
+
+#### Return Value
+
+Type : _boolean_
+
+> Returns `true` if the menu is displayed
+
+<!-- @include: ./slots/examples.md#client|jo.menu.isOpen -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.isOpen -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.isSoftHidden()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.isSoftHidden -->
+
+Check if the menu is hidden by `jo.menu.softHide()` <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.isSoftHidden -->
+
+#### Syntax
+
+```lua
+jo.menu.isSoftHidden()
+```
+
+#### Return Value
+
+Type : _boolean_
+
+> Returns `true` during the execution of the `jo.menu.softHide()` function
+
+<!-- @include: ./slots/examples.md#client|jo.menu.isSoftHidden -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.isSoftHidden -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.setCurrentMenu()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.setCurrentMenu -->
+
+Set the current menu: the one displayed by `jo.menu.show()` <br>
+If the menu doesn't exist, the handler registered with `jo.menu.missingMenuHandler()` is called <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.setCurrentMenu -->
+
+#### Syntax
+
+```lua
+jo.menu.setCurrentMenu(id, keepHistoric, resetMenu)
+```
+
+#### Parameters
+
+`id` : _string_
+> The menu ID
+>
+
+`keepHistoric` : _boolean_ <BadgeOptional />
+> Keep the previous menu in the history, to go back to it with Backspace <br> default: `true`
+>
+
+`resetMenu` : _boolean_ <BadgeOptional />
+> Move the cursor back to the first item <br> default: `true`
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.setCurrentMenu -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.setCurrentMenu -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.show()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.show -->
+
+Show or hide the current menu <br>
+While the menu is displayed, the radar is hidden and the weapon wheel and pause menu controls are disabled <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.show -->
+
+#### Syntax
+
+```lua
+jo.menu.show(show, keepInput, hideRadar, playMenuAnimation, hideCursor)
+```
+
+#### Parameters
+
+`show` : _boolean_
+> `true` to show the menu, `false` to hide it
+>
+
+`keepInput` : _boolean_ <BadgeOptional />
+> Keep the game controls active, to move the player while the menu is open <br> default: `true`
+>
+
+`hideRadar` : _boolean_ <BadgeOptional />
+> Unused: the radar is always hidden while the menu is displayed <br> default: `true`
+>
+
+`playMenuAnimation` : _boolean_ <BadgeOptional />
+> Play the open/close animation <br> default: `true`
+>
+
+`hideCursor` : _boolean_ <BadgeOptional />
+> Hide the mouse cursor <br> default: `false`
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.show -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.show -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.softHide()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.softHide -->
+
+Hide the menu during the execution of a function, then display it again <br>
+The function is executed synchronously: `jo.menu.softHide()` returns once the menu is displayed again <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.softHide -->
+
+#### Syntax
+
+```lua
+jo.menu.softHide(cb, playMenuAnimation, keepBackground)
+```
+
+#### Parameters
+
+`cb` : _function_
+> The function executed while the menu is hidden
+>
+
+`playMenuAnimation` : _boolean_ <BadgeOptional />
+> Play the open/close animation <br> default: `true`
+>
+
+`keepBackground` : _boolean_ <BadgeOptional />
+> Keep the dark background of the menu while it's hidden <br> default: `false`
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.softHide -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.softHide -->
+
+<!-- #endregion group_5 -->
+
+<!-- #region group_6 -->
+## Current State
+
+### <Badge type="client" text="Client" /> jo.menu.doesActiveButtonChange()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.doesActiveButtonChange -->
+
+Check if the active item (or the menu) changed during the last update <br>
+Useful in `onChange` callbacks, to know if a slider moved or if the cursor moved <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.doesActiveButtonChange -->
+
+#### Syntax
+
+```lua
+jo.menu.doesActiveButtonChange()
+```
+
+#### Return Value
+
+Type : _boolean_
+
+> Returns `true` if the active item changed
+
+<!-- @include: ./slots/examples.md#client|jo.menu.doesActiveButtonChange -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.doesActiveButtonChange -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.getCurrentData()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentData -->
+
+Get the current state of the menu: the data passed to all the callbacks <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentData -->
+
+#### Syntax
+
+```lua
+jo.menu.getCurrentData()
+```
+
+#### Return Value
+
+Type : _table_
+
+> `{menu = menuID, index = activeItemIndex, item = activeItem}`
+
+<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentData -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentData -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.getCurrentIndex()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentIndex -->
+
+Get the index of the active item of the current menu <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentIndex -->
+
+#### Syntax
+
+```lua
+jo.menu.getCurrentIndex()
+```
+
+#### Return Value
+
+Type : _integer_
+
+> The index of the active item
+
+<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentIndex -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentIndex -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.getCurrentItem()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentItem -->
+
+Get the active item of the current menu <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentItem -->
+
+#### Syntax
+
+```lua
+jo.menu.getCurrentItem()
+```
+
+#### Return Value
+
+Type : _[MenuItemClass](#menuitemclass-methods)_
+
+> The active item
+
+<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentItem -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentItem -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.getCurrentMenu()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentMenu -->
+
+Get the current menu <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentMenu -->
+
+#### Syntax
+
+```lua
+jo.menu.getCurrentMenu()
+```
+
+#### Return Value
+
+Type : _[MenuClass](#menuclass-methods)_
+
+> The current menu
+
+<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentMenu -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentMenu -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.getCurrentMenuId()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.getCurrentMenuId -->
+
+Get the ID of the current menu <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.getCurrentMenuId -->
+
+#### Syntax
+
+```lua
+jo.menu.getCurrentMenuId()
+```
+
+#### Return Value
+
+Type : _string_
+
+> The ID of the current menu
+
+<!-- @include: ./slots/examples.md#client|jo.menu.getCurrentMenuId -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.getCurrentMenuId -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.getPreviousData()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.getPreviousData -->
+
+Get the state of the menu before the last change <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.getPreviousData -->
+
+#### Syntax
+
+```lua
+jo.menu.getPreviousData()
+```
+
+#### Return Value
+
+Type : _table_
+
+> `{menu = menuID, index = activeItemIndex, item = activeItem}`
+
+<!-- @include: ./slots/examples.md#client|jo.menu.getPreviousData -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.getPreviousData -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.isCurrentMenu()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.isCurrentMenu -->
+
+Check if a menu is the current menu and is displayed <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.isCurrentMenu -->
+
+#### Syntax
+
+```lua
+jo.menu.isCurrentMenu(id)
+```
+
+#### Parameters
+
+`id` : _string_
+> The menu ID
+>
+
+#### Return Value
+
+Type : _boolean_
+
+> Returns `true` if the menu is displayed and is the current one
+
+<!-- @include: ./slots/examples.md#client|jo.menu.isCurrentMenu -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.isCurrentMenu -->
+
+<!-- #endregion group_6 -->
+
+<!-- #region group_7 -->
+## Events
+
+### <Badge type="client" text="Client" /> jo.menu.fireAllLevelsEvent()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.fireAllLevelsEvent -->
+
+Fire an event on the current menu, then on its active item <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.fireAllLevelsEvent -->
+
+#### Syntax
+
+```lua
+jo.menu.fireAllLevelsEvent(eventName, ...)
+```
+
+#### Parameters
+
+`eventName` : _string_
+> The name of the event, like `onTick`
+>
+
+`...` : _any_ <BadgeOptional />
+> Additional arguments for the listeners
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.fireAllLevelsEvent -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.fireAllLevelsEvent -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.fireEvent()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.fireEvent -->
+
+Fire an event of a menu or an item <br>
+The listeners receive the current data (see `jo.menu.getCurrentData()`) followed by the additional arguments <br>
+The client and server events defined with `<eventName>ClientEvent` and `<eventName>ServerEvent` keys are triggered too <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.fireEvent -->
+
+#### Syntax
+
+```lua
+jo.menu.fireEvent(item, eventName, ...)
+```
+
+#### Parameters
+
+`item` : _table_
+
+> The menu or the item
+>
+
+
+`eventName` : _string_
+> The name of the event, like `onClick`
+>
+
+`...` : _any_ <BadgeOptional />
+> Additional arguments for the listeners
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.fireEvent -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.fireEvent -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.missingMenuHandler()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.missingMenuHandler -->
+
+Register a function to create a menu the first time it's needed <br>
+Called when `jo.menu.setCurrentMenu()` or an item `child` targets this menu ID and the menu doesn't exist <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.missingMenuHandler -->
+
+#### Syntax
+
+```lua
+jo.menu.missingMenuHandler(id, callback)
+```
+
+#### Parameters
+
+`id` : _string_
+> The menu ID
+>
+
+`callback` : _function_
+> The function that creates the menu
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.missingMenuHandler -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.missingMenuHandler -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.onChange()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.onChange -->
+
+Listen to all the changes of all the menus: active item, sliders, menu <br>
+The callback receives `{menu, index, item}`. It's unregistered when the resource stops <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.onChange -->
+
+#### Syntax
+
+```lua
+jo.menu.onChange(cb)
+```
+
+#### Parameters
+
+`cb` : _function_
+> The function fired on each change
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.onChange -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.onChange -->
+
+---
+
+### <Badge type="client" text="Client" /> jo.menu.runRefreshEvents()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.runRefreshEvents -->
+
+Fire the events of the current menu again, as if it was just opened <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.runRefreshEvents -->
+
+#### Syntax
+
+```lua
+jo.menu.runRefreshEvents(menuEvent, itemEvent)
+```
+
+#### Parameters
+
+`menuEvent` : _boolean_ <BadgeOptional />
+> Fire `onExit` and `onEnter` of the menu, and `onExit` and `onActive` of the item <br> default: `false`
+>
+
+`itemEvent` : _boolean_ <BadgeOptional />
+> Fire `onExit` and `onActive` of the active item <br> default: `false`
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.runRefreshEvents -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.runRefreshEvents -->
+
+<!-- #endregion group_7 -->
+
+<!-- #region group_8 -->
+## Settings
+
+### <Badge type="client" text="Client" /> jo.menu.playAudio()
+
+<!-- @include: ./slots/headers.md#client|jo.menu.playAudio -->
+
+Play a sound of the menu <br>
+
+<!-- @include: ./slots/descriptions.md#client|jo.menu.playAudio -->
+
+#### Syntax
+
+```lua
+jo.menu.playAudio(sound)
+```
+
+#### Parameters
+
+`sound` : _string_
+> The sound name: `button`, `coins`, `menu_open`, `menu_close` or `selected`
+>
+
+<!-- @include: ./slots/examples.md#client|jo.menu.playAudio -->
+
+<!-- @include: ./slots/footers.md#client|jo.menu.playAudio -->
+
 ---
 
 ### <Badge type="client" text="Client" /> jo.menu.updateLang()
 
 <!-- @include: ./slots/headers.md#client|jo.menu.updateLang -->
 
-Update menu language text <br>
+Translate the texts of the menu <br>
+You can also add your own keys, used by the `translate*` options of the menus, items and sliders <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.updateLang -->
 
@@ -1588,20 +1626,18 @@ jo.menu.updateLang(lang)
 
 `lang` : _table_
 
-> List of translated strings
+> The translated strings, by key
 >
 
-> `lang.of` : _string_ - The bottom right text displaying current [item](#item-methods) number <br> default : `"%1 of %2"` <BadgeOptional />
+> `lang.of` : _string_ - The counter of the items and sliders. `%1` is the current position, `%2` the total <br> default: `"%1 of %2"` <BadgeOptional />
 > 
-> `lang.selection` : _string_ - The "Selection" text <br> default : `"Selection"` <BadgeOptional />
+> `lang.price` : _string_ - The label above the price <br> default: `"Price"` <BadgeOptional />
 > 
-> `lang.devise` : _string_ - The devise text <br> default : `"$"` <BadgeOptional />
+> `lang.devise` : _string_ - The currency symbol <br> default: `"$"` <BadgeOptional />
 > 
-> `lang.number` : _string_ - The number text <br> default : `"Number %1"` <BadgeOptional />
+> `lang.free` : _string_ - The text displayed when the price is `0` <br> default: `"Free"` <BadgeOptional />
 > 
-> `lang.free` : _string_ - The "Free" text <br> default : `"Free"` <BadgeOptional />
-> 
-> `lang.variation` : _string_ - The variatio, text <br> default : `"Variation"` <BadgeOptional />
+> `lang.number` : _string_ - The title of an item without title. `%1` is the item position <br> default: `"Number %1"` <BadgeOptional />
 > 
 
 <!-- @include: ./slots/examples.md#client|jo.menu.updateLang -->
@@ -1614,7 +1650,7 @@ jo.menu.updateLang(lang)
 
 <!-- @include: ./slots/headers.md#client|jo.menu.updateVolume -->
 
-Set the volume level for menu sound effects <br>
+Set the volume of the menu sounds <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.menu.updateVolume -->
 
@@ -1627,11 +1663,11 @@ jo.menu.updateVolume(volume)
 #### Parameters
 
 `volume` : _number_
-> Volume of sound effects 0.0 to 1.0
+> The volume, from `0.0` to `1.0` <br> default: `0.5`
 >
 
 <!-- @include: ./slots/examples.md#client|jo.menu.updateVolume -->
 
 <!-- @include: ./slots/footers.md#client|jo.menu.updateVolume -->
 
-<!-- #endregion group_5 -->
+<!-- #endregion group_8 -->

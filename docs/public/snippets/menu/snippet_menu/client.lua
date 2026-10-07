@@ -1,97 +1,94 @@
-RegisterCommand('menu', function()
-  CreateMenu()
-end)
+-- Example of the jo_libs menu: /tailor opens a tailor shop
+-- Documentation: https://docs.jumpon-studios.com/jo_libs/modules/menu/
 
-function CreateMenu()
-  -------------
-  -- Initialize the menu
-  -------------
-  local menu = jo.menu.create('menu1',{
-    title = "My title",
-    subtitle = "The subtitle",
-    onEnter = function()
-      print('onEnter menu1')
-    end,
+local hats = {
+  { label = "Stetson", price = 12.5, variations = { "Brown", "Black", "Grey" } },
+  { label = "Bowler", price = 8, variations = { "Black", "Grey" } },
+  { label = "Flat cap", price = 3.25, variations = { "Brown" } },
+}
+
+local function createHatsMenu()
+  local menu = jo.menu.create("hats", {
+    title = "Tailor",
+    subtitle = "Hats",
+  })
+
+  for _, hat in ipairs(hats) do
+    local item
+    item = menu:addItem({
+      title = hat.label,
+      icon = "hats",
+      description = "A fine hat for every occasion.",
+      price = { money = hat.price },
+      data = { hat = hat },
+      sliders = {
+        { title = "Variation", values = hat.variations },
+      },
+      statistics = {
+        { label = "Warmth", type = "bar", value = { 4 } },
+        { label = "Durability", type = "weapon-bar", value = { 70, 100 } },
+      },
+      onActive = function(currentData)
+        print("Preview", currentData.item.data.hat.label)
+      end,
+      onChange = function(currentData)
+        print("Variation", currentData.item.sliders[1].value)
+      end,
+      onClick = function(currentData)
+        print("Buy", currentData.item.data.hat.label, currentData.item.sliders[1].value)
+        jo.menu.playAudio("coins")
+        -- Update the bought item without rebuilding the menu
+        item:updateValue("textRight", "Owned")
+        item:deleteValue("price")
+        menu:push()
+      end,
+    })
+  end
+
+  menu:send()
+end
+
+local function createTailorMenu()
+  local menu = jo.menu.create("tailor", {
+    title = "Tailor",
+    subtitle = "Clothes",
     onBack = function()
-      print('onBack menu1')
+      -- Backspace on the first menu: close the menu
       jo.menu.show(false)
     end,
-    onExit = function()
-      print('onExit menu1')
-    end,
-  })
-
-  -------------
-  -- Add items in the menu
-  -------------
-
-  menu:addItem({
-    title = "Statistic Item",
-    statistics = {
-      {label = "The label", value = "The value"},
-      {label = "The label", type="bar-style", value = {"active","active fgold","active fred","possible fred",'possible',''}},
-      {label = "The label", type = "bar", value = {3,8}},
-      {label = "The label", type="icon", value = {{icon = "player_health", opacity = 1},{icon = "player_health", opacity = 0.75},{icon = "player_health", opacity = 0.3}}},
-      {label = "The label", type="weapon-bar", value = {60,100}},
-    },
-    onActive = function(data)
-      print('onActive item 1')
-    end,
-    onClick = function(data)
-      print('onClick item 1')
-    end,
-    onExit = function(data)
-      print('onExit item 1')
-    end
   })
 
   menu:addItem({
-    title="Go to child menu",
-    child = "subMenu"
+    title = "Hats",
+    icon = "hats",
+    textRight = tostring(#hats),
+    child = "hats", -- opens the "hats" menu
+  })
+  menu:addItem({
+    title = "Coats",
+    icon = "coats",
+    disabled = true,
+    prefix = "lock",
+  })
+  menu:addItem({
+    title = "Leave",
+    onClick = function()
+      jo.menu.show(false)
+    end,
   })
 
-  -------------
-  -- Send the menu to the NUI
-  -------------
   menu:send()
-
-  -------------
-  -- Create a second menu
-  -------------
-
-  local subMenu = jo.menu.create('subMenu', {
-    title = "SubMenu",
-    onEnter = function()
-      print('enter subMenu')
-    end,
-    onBack = function()
-      print('pressed BACK subMenu')
-    end,
-    onExit = function()
-      print('exit subMenu')
-    end,
-  })
-  subMenu:addItem({
-    title="My Submenu",
-    onActive = function(data)
-      print('onActive sub')
-    end,
-    onClick = function(data)
-      print('click sub')
-    end,
-    onExit = function(data)
-      print('onExit sub')
-    end
-  })
-  subMenu:send()
-
-  -------------
-  -- Define the current menu
-  -------------
-  jo.menu.setCurrentMenu('menu1',false,true)
-
-  -------------
-  -- Show the menu
-  -------------
-  jo.menu.show(true)
 end
+
+-- The "hats" menu is created the first time it's opened
+jo.menu.missingMenuHandler("hats", function()
+  createHatsMenu()
+  jo.menu.setCurrentMenu("hats")
+end)
+
+RegisterCommand("tailor", function()
+  if jo.menu.isOpen() then return end
+  createTailorMenu()
+  jo.menu.setCurrentMenu("tailor", false)
+  jo.menu.show(true)
+end)

@@ -81,6 +81,41 @@ h1 .VPBadge {
   }
 }
 
+// Screenshots of the jo_libs menu
+.vp-doc {
+  img.menu-full {
+    max-height: 34em;
+  }
+
+  img.menu-detail {
+    max-width: min(100%, 460px);
+  }
+
+  .menu-screens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-start;
+    margin: 16px 0;
+
+    figure {
+      margin: 0;
+      text-align: center;
+      font-size: 0.85em;
+      color: var(--vp-c-text-2);
+    }
+
+    img {
+      max-height: 34em;
+      max-width: 100%;
+    }
+  }
+
+  table.menu-palettes img {
+    max-width: 320px;
+  }
+}
+
 .VPSidebarItem {
   .text {
     display: flex;
