@@ -95,6 +95,10 @@ Type : _integer_
 
 <!-- @include: ./slots/headers.md#client|jo.rawKeys.remove -->
 
+::: warning DEPRECATED
+since v2.9.0. Use jo.rawKeys.removeListener instead
+:::
+
 Removes all listeners associated with the specified key. Use this function to stop listening for events on a key when it is no longer needed. <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.rawKeys.remove -->

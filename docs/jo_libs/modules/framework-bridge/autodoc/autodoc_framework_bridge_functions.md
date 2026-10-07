@@ -900,7 +900,7 @@ Type : _table_
 
 <!-- @include: ./slots/headers.md#server|jo.framework:getUserIdentifiers -->
 
-Retrieves all identifiers associated with a player <br> Shortcut for [jo.framework.UserClass:getIdentifiers()](./user#jo.framework.[UserClass](#userclass-methods)-getidentifiers) method <br>
+Retrieves all identifiers associated with a player <br> Shortcut for [jo.framework.UserClass:getIdentifiers()](./user#jo.framework.UserClass-getidentifiers) method <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.framework:getUserIdentifiers -->
 
@@ -1406,48 +1406,6 @@ Type : _table_
 <!-- @include: ./slots/examples.md#server|jo.framework:revertSkin -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework:revertSkin -->
-
----
-
-### <Badge type="server" text="Server" /> jo.framework:sendSkinAndClothes()
-
-<!-- @include: ./slots/headers.md#server|jo.framework:sendSkinAndClothes -->
-
-Standardize a skin & clothes couple and send them to the client to be applied <br>
-
-<!-- @include: ./slots/descriptions.md#server|jo.framework:sendSkinAndClothes -->
-
-#### Syntax
-
-```lua
-jo.framework:sendSkinAndClothes(source, ped, skin, clothes)
-```
-
-#### Parameters
-
-`source` : _integer_
-> The source ID of the player
->
-
-`ped` : _integer_ <BadgeOptional />
-> The entity to dress. Defaults to the player ped, client-side
->
-
-`skin` : _table_
-
-> The skin data, in framework format
->
-
-
-`clothes` : _table_
-
-> The clothes data, in framework format
->
-
-
-<!-- @include: ./slots/examples.md#server|jo.framework:sendSkinAndClothes -->
-
-<!-- @include: ./slots/footers.md#server|jo.framework:sendSkinAndClothes -->
 
 ---
 

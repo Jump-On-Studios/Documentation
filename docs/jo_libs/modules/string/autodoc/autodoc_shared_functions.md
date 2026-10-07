@@ -5,7 +5,7 @@
 
 <!-- @include: ./slots/headers.md#shared|string:compareVersionWith -->
 
-Compare two version [string](#string-methods)s <br>
+Compare two version strings <br>
 
 <!-- @include: ./slots/descriptions.md#shared|string:compareVersionWith -->
 
@@ -17,8 +17,8 @@ string:compareVersionWith(version)
 
 #### Parameters
 
-`version` : _[string](#string-methods)_
-> The [string](#string-methods) version to compare to
+`version` : _string_
+> The string version to compare to
 >
 
 #### Return Value
@@ -37,7 +37,7 @@ Type : _integer_
 
 <!-- @include: ./slots/headers.md#shared|string:convertVersion -->
 
-Convert a version [string](#string-methods) (like "1.2.3") to a numeric value <br>
+Convert a version string (like "1.2.3") to a numeric value <br>
 
 <!-- @include: ./slots/descriptions.md#shared|string:convertVersion -->
 
@@ -63,7 +63,7 @@ Type : _number_
 
 <!-- @include: ./slots/headers.md#shared|string:extractConvarComparator -->
 
-Extract resource, convar, comparator and value from a "resourceName[:convar](< > <= >= ==)value" [string](#string-methods) <br>
+Extract resource, convar, comparator and value from a "resourceName[:convar](< > <= >= ==)value" string <br>
 The ":convar" part is optional (eg. "rsg-core>=2.0.0") <br>
 
 <!-- @include: ./slots/descriptions.md#shared|string:extractConvarComparator -->
@@ -76,7 +76,7 @@ string:extractConvarComparator()
 
 #### Return Value
 
-Type : _[string](#string-methods)?_
+Type : _string?_
 
 
 <!-- @include: ./slots/examples.md#shared|string:extractConvarComparator -->
@@ -89,7 +89,7 @@ Type : _[string](#string-methods)?_
 
 <!-- @include: ./slots/headers.md#shared|string:firstToUpper -->
 
-Return the [string](#string-methods) with the first letter in uppercase <br>
+Return the string with the first letter in uppercase <br>
 
 <!-- @include: ./slots/descriptions.md#shared|string:firstToUpper -->
 
@@ -101,9 +101,9 @@ string:firstToUpper()
 
 #### Return Value
 
-Type : _[string](#string-methods)_
+Type : _string_
 
-> Return the [string](#string-methods) with the first letter in uppercase
+> Return the string with the first letter in uppercase
 
 <!-- @include: ./slots/examples.md#shared|string:firstToUpper -->
 
@@ -115,7 +115,7 @@ Type : _[string](#string-methods)_
 
 <!-- @include: ./slots/headers.md#shared|string:removeAccent -->
 
-A function to remove all accent in a [string](#string-methods) <br>
+A function to remove all accent in a string <br>
 
 <!-- @include: ./slots/descriptions.md#shared|string:removeAccent -->
 
@@ -127,9 +127,9 @@ string:removeAccent()
 
 #### Return Value
 
-Type : _[string](#string-methods)_
+Type : _string_
 
-> A [string](#string-methods) without accent
+> A string without accent
 
 <!-- @include: ./slots/examples.md#shared|string:removeAccent -->
 
@@ -141,7 +141,7 @@ Type : _[string](#string-methods)_
 
 <!-- @include: ./slots/headers.md#shared|string:split -->
 
-Split a [string](#string-methods) into parts based on a delimiter <br>
+Split a string into parts based on a delimiter <br>
 
 <!-- @include: ./slots/descriptions.md#shared|string:split -->
 
@@ -153,8 +153,8 @@ string:split(delimiter, pieces)
 
 #### Parameters
 
-`delimiter` : _[string](#string-methods)_
-> The character(s) to split the [string](#string-methods) on
+`delimiter` : _string_
+> The character(s) to split the string on
 >
 
 `pieces` : _number_ <BadgeOptional />
@@ -165,7 +165,7 @@ string:split(delimiter, pieces)
 
 Type : _table_
 
-> Array of [string](#string-methods) parts
+> Array of string parts
 
 <!-- @include: ./slots/examples.md#shared|string:split -->
 
@@ -177,7 +177,7 @@ Type : _table_
 
 <!-- @include: ./slots/headers.md#shared|string:toHex -->
 
-Convert a hexadecimal [string](#string-methods) to a number, handling signed values <br>
+Convert a hexadecimal string to a number, handling signed values <br>
 
 <!-- @include: ./slots/descriptions.md#shared|string:toHex -->
 
@@ -203,7 +203,7 @@ Type : _number_
 
 <!-- @include: ./slots/headers.md#shared|string:trim -->
 
-Remove whitespace from both ends of a [string](#string-methods) <br>
+Remove whitespace from both ends of a string <br>
 
 <!-- @include: ./slots/descriptions.md#shared|string:trim -->
 
@@ -215,9 +215,9 @@ string:trim()
 
 #### Return Value
 
-Type : _[string](#string-methods)_
+Type : _string_
 
-> The trimmed [string](#string-methods)
+> The trimmed string
 
 <!-- @include: ./slots/examples.md#shared|string:trim -->
 
@@ -230,7 +230,7 @@ Type : _[string](#string-methods)_
 
 <!-- @include: ./slots/headers.md#shared|string.compare -->
 
-A function to compare two [string](#string-methods)s <br>
+A function to compare two strings <br>
 
 <!-- @include: ./slots/descriptions.md#shared|string.compare -->
 
@@ -242,12 +242,12 @@ string.compare(a, b, caseSensitive)
 
 #### Parameters
 
-`a` : _[string](#string-methods)_
-> The 1st [string](#string-methods)
+`a` : _string_
+> The 1st string
 >
 
-`b` : _[string](#string-methods)_
-> The 2nd [string](#string-methods)
+`b` : _string_
+> The 2nd string
 >
 
 `caseSensitive` : _boolean_

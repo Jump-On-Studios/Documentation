@@ -5,6 +5,10 @@
 
 <!-- @include: ./slots/headers.md#server|jo.triggerEvent.server -->
 
+::: warning DEPRECATED
+since v2.3.7. Use jo.emit.triggerServerWithSource instead
+:::
+
 Trigger an event on the server side <br>
 
 <!-- @include: ./slots/descriptions.md#server|jo.triggerEvent.server -->

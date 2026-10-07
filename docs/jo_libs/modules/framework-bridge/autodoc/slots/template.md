@@ -203,11 +203,6 @@
 <!-- #endregion server|jo.framework:revertSkin -->
 
 
-<!-- #region server|jo.framework:sendSkinAndClothes -->
-
-<!-- #endregion server|jo.framework:sendSkinAndClothes -->
-
-
 <!-- #region server|jo.framework:standardizeClothes -->
 
 <!-- #endregion server|jo.framework:standardizeClothes -->

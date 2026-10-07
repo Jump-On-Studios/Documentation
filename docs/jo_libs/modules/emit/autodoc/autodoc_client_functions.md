@@ -29,6 +29,10 @@ jo.emit.isEventInProgress(eventName)
 
 <!-- @include: ./slots/headers.md#client|jo.emit.triggerClient -->
 
+::: warning DEPRECATED
+since v2.12.2. Unsafe: the server relays this without validation, so any client can trigger arbitrary events on any client. Use a server-authoritative event instead.
+:::
+
 A function to trigger client(s) <br>
 
 <!-- @include: ./slots/descriptions.md#client|jo.emit.triggerClient -->
