@@ -74,7 +74,8 @@ Gun oil is usable once registered, but the gunsmith does not sell it. Add it to 
 
 ## 2. Usage
 
-### Buy weapons and ammunition
+:::: tabs
+::: tab 🛒 Buy
 
 Approach a configured gunsmith and use the displayed interaction prompt. The shop menu offers **Buy weapons**, **Buy ammunition** and **My weapons**.
 
@@ -84,7 +85,9 @@ Approach a configured gunsmith and use the displayed interaction prompt. The sho
 
 By default, **ENTER** opens the shop and confirms a purchase when held; **B** switches the payment option. Follow the prompts on screen if your server changes the shop controls. A purchase that cannot be delivered to the inventory is refunded.
 
-### Equip and load a weapon
+:::
+
+::: tab 🔫 Equip & load
 
 Use the weapon's inventory item to equip and draw it. Using an equipped item draws it if it is holstered; using it while it is already in hand puts it away and unequips it.
 
@@ -94,7 +97,9 @@ To load ammunition, hold a compatible weapon and use an ammunition box from the 
 
 Changing ammunition type first returns the old rounds to the inventory. If there is no room to return them, the switch is blocked. To load an empty bow, equip the bow and use a compatible arrow box.
 
-### Manage your weapons
+:::
+
+::: tab 🛠️ Manage
 
 Open **My weapons**, choose an inventory weapon, then open **Manage**:
 
@@ -109,23 +114,32 @@ Customization follows the game's gunsmith options for each weapon. Some models h
 
 See the [component reference](./gunsmith-components) for readable component labels and the `COMPONENT_*` keys used by custom prices.
 
-### Condition and gun oil
+:::
+
+::: tab 🧴 Gun oil
 
 When weapon wear is enabled, use gun oil while holding a worn ordinary weapon, or through the native weapon inspection cleaning interaction. Oil reduces wear and clears dirt. A weapon that is too worn for oil must be cleaned at the gunsmith.
 
 Oil is consumed when cleaning begins. Interrupting the animation does not return the item. A server-side failure to save the result refunds it. If clean weapons are required for customization, clean the weapon before entering its customization menu.
 
-### Transfer and persistence
+:::
+
+::: tab 🔄 Transfer
 
 An ordinary weapon's serial identifies its saved customization, name and wear. Loaded ammunition and equipped state are stored in the item's metadata. Giving, dropping or storing that item transfers the weapon itself, including its loaded rounds.
 
 The weapon is put away when its item leaves the player's inventory. Equipped ordinary weapons are restored after reconnecting or restarting the resource. A catalogue weapon item given by another script receives a serial when first used; it appears in **My weapons** after adoption.
 
-### Thrown weapons
+:::
+
+::: tab 💣 Throwables
 
 Bolas, dynamite, fire and poison bottles, throwing knives and tomahawks are stackable consumables. Each throw consumes one inventory item, within the game's carrying limits. Recovering an eligible thrown weapon can return an item up to the number thrown since equipping it.
 
 These weapons have no serial, are excluded from **My weapons**, and cannot be renamed or customized. Their equipped state is not restored like an ordinary serialized weapon.
+
+:::
+::::
 
 ## 3. Configuration
 
