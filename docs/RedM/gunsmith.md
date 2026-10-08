@@ -106,11 +106,64 @@ Open **My weapons**, choose an inventory weapon, then open **Manage**:
 | Service | How it works |
 | --- | --- |
 | **Clean** | Restores the weapon's condition. The charge follows its current wear and dirt. |
-| **Customize** | Opens the parts available for that model. Preview the choices, then select the final **Buy** line to purchase all changed choices in the current part together. Leaving without purchasing restores the owned appearance. |
+| **Customize** | Opens the parts and finishes available for that model. See the **Customize** tab for the full walkthrough. |
 | **Unload** | Returns loaded ammunition to partial or new boxes. Rounds that cannot fit in the inventory remain in the weapon. |
 | **Rename** | Sets a custom name of up to **32 characters**. Empty names and unsupported characters are refused. |
 
-Customization follows the game's gunsmith options for each weapon. Some models have no customization options. Wrap colors require an owned wrap, and engraving inlays require an owned engraving. A dependency must be purchased before its dependent choices become available. Removing or replacing a part can also remove its dependent decorations; the preview explains affected components.
+:::
+
+::: tab 🎨 Customize
+
+**Open customization**
+
+1. Visit a gunsmith with the weapon item in your inventory.
+2. Open **My weapons**, select the copy you want to modify, then choose **Manage → Customize**. Each copy has its own customization.
+3. Select a part to open its choices. The camera focuses on the selected part as you browse.
+
+Customization follows the game's gunsmith options for that model. A weapon with no customization options has no **Customize** entry. If your server requires cleaning first, a dirty weapon's entry is disabled: use **Clean**, then open customization again.
+
+**Parts and finishes**
+
+The available choices vary by model. A part can combine several settings in the same menu:
+
+| Type of choice | Examples |
+| --- | --- |
+| **Components** | Barrel length, rifling, iron sights and scopes. |
+| **Grips and stocks** | Grip materials, wood grain, carvings and varnish. |
+| **Metals** | Finishes for the barrel, frame, action, hammer or trigger. |
+| **Engravings** | Designs on individual parts, full engravings and inlay materials. |
+| **Wraps** | Leather or cloth protection, patterns and colors. |
+| **Variants** | Special designs offered for that model. |
+
+The improved bow and hunting knife have their own styles, such as bowstring colors or blade finishes.
+
+**Preview your choices**
+
+Move each slider to try a different option. Some choices use image swatches; others use text labels. The option currently installed is marked **Equipped** or has a tick on its swatch. Moving the slider previews a change; it does not purchase it.
+
+Choices that affect performance show the relevant statistics compared with your installed setup. Cosmetic finishes such as metals and engravings do not show performance bars.
+
+You can preview several changes within the current part, such as barrel length, rifling and metal finish, before confirming them together. Returning a slider to its installed option removes that change from the purchase.
+
+**Unlock dependent decorations**
+
+- Cloth colors require an installed cloth wrap; leather colors require an installed leather wrap.
+- Inlay materials require at least one installed engraving.
+- A prerequisite must be purchased first. Previewing it does not unlock dependent choices. Disabled choices explain what is missing.
+
+For example, buy a cloth wrap first. Its color choices then become available in the menu; choose a color and make a second purchase to apply it.
+
+Replacing or removing a supporting part can also remove its decorations. Read the **Also removes** description before buying: changing a wrap can remove its tint, and removing the last engraving removes its inlay.
+
+**Confirm or cancel**
+
+1. Check the selected choices and their prices. When a choice offers several payment options, use the switch-price prompt on that choice's line (**B** by default).
+2. Select the final **Buy** line. It shows the combined cost of the pending changes in the current part.
+3. Hold the purchase prompt (**ENTER** by default) to confirm. The changes are charged together and saved after the purchase succeeds. Their marks then update to **Equipped**.
+
+**Buy** stays disabled when there are no changes to purchase. Removal choices such as **None** and **Standard** are free, but still need confirmation through **Buy**. A priced option that is no longer installed counts as a new purchase if you select it again.
+
+Going back or closing the menu discards unpurchased previews. Changes already purchased remain installed. Confirm a part's changes before leaving it to customize another part.
 
 See the [component reference](./gunsmith-components) for readable component labels and the `COMPONENT_*` keys used by custom prices.
 
