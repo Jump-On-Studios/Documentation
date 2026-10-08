@@ -859,8 +859,40 @@ exports.jo_housing:registerAction('houseTransfered', function(source, toPlayerSr
 end)
 ```
 
+#### <Badge type="server" text="Server" /> houseOwnerChanged
+Triggered every time the owner of a house changes, whatever the reason. Use it to react to any ownership change in one place, for example to empty the house storage (inventory ID `jo_housing_<houseId>`).
+
+| `reason` | When |
+| --- | --- |
+| `bought` | A player bought the house (including a house listed for resale) |
+| `rented` | A player rented the house |
+| `transferred` | The owner transferred the house to another player |
+| `sold` | The owner sold the house back to the market |
+| `rentCancelled` | The tenant ended the rental |
+| `listedForResale` | The owner listed the house for resale |
+| `adminRemoved` | An admin removed the owner |
+| `rentExpired` | The rental expired and the grace period is over |
+| `taxEvicted` | The owner was evicted for unpaid tax |
+
+```lua
+-- @param house - the house object
+-- @param previousOwner - the previous owner ({ identifier, charid, ... }), or false if the house had no owner
+-- @param newOwner - the new owner ({ identifier, charid, ... }), or false if the house has no owner anymore
+-- @param reason - why the owner changed (see the table above)
+exports.jo_housing:registerAction('houseOwnerChanged', function(house, previousOwner, newOwner, reason)
+    if reason == "rentExpired" then
+        local invId = "jo_housing_" .. house.id
+        -- Empty the storage invId here
+    end
+end)
+```
+
+:::tip
+An expired rental is processed the next time the house status is checked (house menu opened, rent status requested or rent extension attempted), not at the exact end of the grace period.
+:::
+
 #### <Badge type="server" text="Server" /> houseOwnerRemoved
-Triggered when an owner is removed from a house.
+Triggered when an admin removes the owner of a house.
 
 ```lua
 -- @param source - serverID of the player or script removing the owner
