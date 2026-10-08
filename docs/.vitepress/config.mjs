@@ -240,6 +240,14 @@ export default defineConfig({
             link: "/RedM/duel-gun",
           },
           {
+            text: "🔫 Gunsmith",
+            link: "/RedM/gunsmith",
+            items: [
+              { text: "Main script", link: "/RedM/gunsmith" },
+              { text: "Weapon components", link: "/RedM/gunsmith-components" },
+            ],
+          },
+          {
             text: "✂️ Hairdresser",
             link: "/RedM/hairdresser",
             items: [
