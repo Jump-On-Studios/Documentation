@@ -177,6 +177,12 @@ Check that the inventory item exists and is usable, that the player has enough i
 
 The menu lists serialized gunsmith weapons currently present in the inventory. Use an ordinary catalogue item once to adopt it. Weapons held in another inventory, thrown consumables and legacy VORP native weapons are not listed.
 
+### Is dual wielding supported?
+
+Dual wielding is not currently supported by `jo_gunsmith`. You can own multiple revolvers or pistols, but only one sidearm can be equipped at a time. Equipping another sidearm replaces the equipped one; the replaced weapon remains in your inventory.
+
+VORP's `Config.DuelWield` option does not enable dual wielding for weapons managed by `jo_gunsmith`.
+
 ### Why are some customization choices disabled?
 
 The model must offer that choice through the game's gunsmith data. Dependent decorations require an owned supporting component. Your server may also require cleaning before customization or hide choices through a developer filter.
