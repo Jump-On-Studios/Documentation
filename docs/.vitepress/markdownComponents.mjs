@@ -28,9 +28,10 @@ function table(headers, rows) {
 
 // --- <ScriptConfig scriptPath="..." /> -------------------------------------
 
+const SCRIPT_CONFIG_RE = /<ScriptConfig\s+scriptPath="([^"]+)"\s*\/>/g;
 const configCache = new Map();
 
-function fetchConfig(scriptPath) {
+export function fetchConfig(scriptPath) {
   if (!configCache.has(scriptPath)) {
     configCache.set(
       scriptPath,
@@ -85,9 +86,34 @@ The script loads \`config.lua\` first, then \`overwriteConfig.lua\` overwrites o
   return [intro, ...blocks].join("\n\n");
 }
 
+export function scriptConfigPaths(body) {
+  return [...new Set([...body.matchAll(SCRIPT_CONFIG_RE)].map((m) => m[1]))];
+}
+
+// transformPageData hook: fetches the config files of the <ScriptConfig>
+// components of the page once at build time, read by ScriptConfig.vue.
+export async function attachScriptConfigs(pageData, { siteConfig }) {
+  if (pageData.isNotFound || !pageData.relativePath) return;
+  const source = fs.readFileSync(
+    path.join(siteConfig.srcDir, pageData.relativePath),
+    "utf-8",
+  );
+  const paths = scriptConfigPaths(source);
+  if (!paths.length) return;
+  pageData.scriptConfigs = {};
+  await Promise.all(
+    paths.map(async (p) => {
+      try {
+        pageData.scriptConfigs[p] = await fetchConfig(p);
+      } catch (e) {
+        console.warn(`⚠ ScriptConfig "${p}" not loaded: ${e.message}`);
+      }
+    }),
+  );
+}
+
 async function scriptConfig(body, { url }) {
-  const re = /<ScriptConfig\s+scriptPath="([^"]+)"\s*\/>/g;
-  const paths = [...new Set([...body.matchAll(re)].map((m) => m[1]))];
+  const paths = scriptConfigPaths(body);
   const rendered = {};
   await Promise.all(
     paths.map(async (p) => {
@@ -100,7 +126,7 @@ async function scriptConfig(body, { url }) {
       }
     }),
   );
-  return body.replace(re, (_, p) => rendered[p]);
+  return body.replace(SCRIPT_CONFIG_RE, (_, p) => rendered[p]);
 }
 
 // --- npc-clothes charts (loaded from /data/charts/*.json) ------------------

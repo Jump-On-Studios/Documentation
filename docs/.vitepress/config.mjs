@@ -5,6 +5,7 @@ import fs from "node:fs/promises";
 
 import tabsPlugin from "@red-asuka/vitepress-plugin-tabs";
 import { exportMarkdown, markdownAlternateHead } from "./markdownExport.mjs";
+import { attachScriptConfigs } from "./markdownComponents.mjs";
 
 function isFile(filename) {
   return filename.split(".").length > 1;
@@ -90,7 +91,11 @@ export default defineConfig({
     hostname: "https://docs.jumpon-studios.com",
   },
   // Publish each page as raw Markdown (`/page.md`) + llms.txt for LLMs/RAG
-  transformPageData: markdownAlternateHead,
+  // and fetch the <ScriptConfig> files once at build time
+  async transformPageData(pageData, ctx) {
+    markdownAlternateHead(pageData);
+    await attachScriptConfigs(pageData, ctx);
+  },
   buildEnd: exportMarkdown,
   resolve: {
     alias: {

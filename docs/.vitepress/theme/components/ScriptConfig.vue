@@ -1,5 +1,6 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, computed, onMounted } from "vue";
+import { useData } from "vitepress";
 import { codeToHtml } from "shiki";
 
 const props = defineProps({
@@ -9,38 +10,21 @@ const props = defineProps({
   },
 });
 
-const files = ref([]);
-const loading = ref(true);
-const error = ref(null);
+// Config files are fetched once at build time (see transformPageData in
+// docs/.vitepress/config.mjs), so the page is refreshed on each deployment.
+const { page } = useData();
+const files = computed(
+  () => page.value.scriptConfigs?.[props.scriptPath] || [],
+);
+const error = computed(() =>
+  files.value.length ? null : "Failed to load configuration files.",
+);
+const newConfigFormat = computed(() =>
+  files.value.some((file) => file.path.includes("_default.lock")),
+);
+const scriptName = computed(() => files.value[0]?.path.split("/")[0] || "");
+const loading = ref(files.value.length > 0);
 const highlightedBlocks = ref({});
-const newConfigFormat = ref(false);
-const scriptName = ref("");
-
-async function fetchConfig() {
-  loading.value = true;
-  error.value = null;
-  try {
-    const res = await fetch(
-      `https://jumpon-studios.com/api/scripts/config/${props.scriptPath}`,
-    );
-    const data = await res.json();
-    console.log("Fetched config data:", data);
-    if (data.success && data.files) {
-      files.value = data.files;
-      newConfigFormat.value = data.files.some((file) =>
-        file.path.includes("_default.lock"),
-      );
-      scriptName.value = data.files[0].path.split("/")[0];
-      await highlightAll(data.files);
-    } else {
-      error.value = "Failed to load configuration files.";
-    }
-  } catch (e) {
-    error.value = "Failed to fetch configuration.";
-  } finally {
-    loading.value = false;
-  }
-}
 
 async function highlightAll(fileList) {
   const results = {};
@@ -63,8 +47,10 @@ function copyCode(content) {
   navigator.clipboard.writeText(content);
 }
 
-onMounted(() => {
-  fetchConfig();
+onMounted(async () => {
+  if (!files.value.length) return;
+  await highlightAll(files.value);
+  loading.value = false;
 });
 </script>
 
