@@ -220,6 +220,72 @@ end
 ```
 :::
 
+### Integration with other resources
+The state of every tow truck is stored in [state bags](https://docs.fivem.net/docs/scripting-manual/networking/state-bags/) on the truck entity. They are readable from any resource (client and server) with `Entity(truck).state` and you can listen to their changes with `AddStateBagChangeHandler`. You don't need to edit the script to integrate it.
+
+| State bag | Value | Description |
+| --- | --- | --- |
+| `jo_towtruck_vehicleAttached` | `netId` \| `nil` | Network ID of the vehicle secured on the bed |
+| `jo_towtruck_bedPosition` | `number` \| `nil` | Position of the bed. The bed is raised when the value is `nil` or `<= minBedPosition` (default `0.0`) |
+| `jo_towtruck_rolling` | `number` \| `nil` | Speed of the bed while it's moving (`> 0` lowering, `< 0` raising). `nil` when the bed doesn't move |
+| `jo_towtruck_fullDown` | `boolean` \| `nil` | `true` when the bed is fully lowered (touching the ground) |
+| `jo_towtruck_winchAttachedTo` | `table` \| `nil` | Where the winch hook is: `{ player = serverId }` (in hand), `{ hook = netId }` (on the ground), `{ vehicle = netId, bone = boneName }` (hooked to a vehicle). `nil` when the winch is stored |
+| `jo_towtruck_windWinch` | `table` \| `nil` | `{ player = serverId, speed = number }` while the winch is winding (`speed > 0`) or unwinding (`speed < 0`) |
+
+#### Get the configuration of a truck
+Available on client and server side. Returns the `Trucks` entry of the model from the `config.lua`, or `nil` if the model isn't a configured tow truck. Optional values not set in the configuration are `nil` (defaults: `minBedPosition = 0.0`, `minWinchLength = 1.0`, `bedSpeed = 1.0`).
+```lua
+local truckConfig = exports.jo_towtruck:GetTruckConfig(GetEntityModel(truck))
+-- or with the model name
+local truckConfig = exports.jo_towtruck:GetTruckConfig("flatbed3")
+```
+
+:::details Detect when a vehicle is attached/detached from the bed
+```lua
+-- Server side
+AddStateBagChangeHandler("jo_towtruck_vehicleAttached", nil, function(bagName, _, vehNetId)
+  local truck = GetEntityFromStateBagName(bagName)
+  if truck == 0 then return end
+  if vehNetId then
+    print("Vehicle attached", NetworkGetNetworkIdFromEntity(truck), vehNetId)
+  else
+    -- The state bag is not updated yet when the handler is called: it still contains the previous vehicle
+    local oldVehNetId = Entity(truck).state.jo_towtruck_vehicleAttached
+    print("Vehicle detached", NetworkGetNetworkIdFromEntity(truck), oldVehNetId)
+  end
+end)
+```
+:::
+
+:::details Check the bed and the winch state
+```lua
+local function isBedLowered(truck)
+  local state = Entity(truck).state
+  local truckConfig = exports.jo_towtruck:GetTruckConfig(GetEntityModel(truck))
+  local minBedPosition = truckConfig and truckConfig.minBedPosition or 0.0
+  return not state.jo_towtruck_rolling and (state.jo_towtruck_bedPosition or 0.0) > minBedPosition
+end
+
+local function isVehicleSecured(truck, vehicle)
+  return Entity(truck).state.jo_towtruck_vehicleAttached == NetworkGetNetworkIdFromEntity(vehicle)
+end
+
+local function isVehicleBeingWinched(truck, vehicle)
+  local state = Entity(truck).state
+  local winch = state.jo_towtruck_winchAttachedTo
+  return winch and winch.vehicle == NetworkGetNetworkIdFromEntity(vehicle) and state.jo_towtruck_windWinch ~= nil
+end
+```
+:::
+
+:::details Detach or delete a transported vehicle
+To detach the vehicle from the bed, clear the state bag from the server side:
+```lua
+Entity(truck).state.jo_towtruck_vehicleAttached = nil
+```
+If a resource deletes the transported vehicle (scrapyard, impound, …), the truck is automatically released.
+:::
+
 ## 6. Some Tow trucks configuration
 :::warning
 This list is not exhaustive. In most of case, if the bed is animated = the truck is compatible with this script
