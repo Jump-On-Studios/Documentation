@@ -12,19 +12,29 @@ const props = defineProps({
 
 // Config files are fetched once at build time (see transformPageData in
 // docs/.vitepress/config.mjs), so the page is refreshed on each deployment.
+// If the config API failed during the build, they are fetched in the browser.
 const { page } = useData();
+const fetchedFiles = ref(null);
+const error = ref(null);
 const files = computed(
-  () => page.value.scriptConfigs?.[props.scriptPath] || [],
-);
-const error = computed(() =>
-  files.value.length ? null : "Failed to load configuration files.",
+  () =>
+    fetchedFiles.value || page.value.scriptConfigs?.[props.scriptPath] || [],
 );
 const newConfigFormat = computed(() =>
   files.value.some((file) => file.path.includes("_default.lock")),
 );
 const scriptName = computed(() => files.value[0]?.path.split("/")[0] || "");
-const loading = ref(files.value.length > 0);
+const loading = ref(true);
 const highlightedBlocks = ref({});
+
+async function fetchConfig() {
+  const res = await fetch(
+    `https://jumpon-studios.com/api/scripts/config/${props.scriptPath}`,
+  );
+  const data = await res.json();
+  if (!data.success || !data.files?.length) throw new Error("no files");
+  fetchedFiles.value = data.files;
+}
 
 async function highlightAll(fileList) {
   const results = {};
@@ -48,9 +58,14 @@ function copyCode(content) {
 }
 
 onMounted(async () => {
-  if (!files.value.length) return;
-  await highlightAll(files.value);
-  loading.value = false;
+  try {
+    if (!files.value.length) await fetchConfig();
+    await highlightAll(files.value);
+  } catch (e) {
+    error.value = "Failed to load configuration files.";
+  } finally {
+    loading.value = false;
+  }
 });
 </script>
 
