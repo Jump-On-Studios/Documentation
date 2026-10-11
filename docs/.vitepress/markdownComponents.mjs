@@ -30,17 +30,53 @@ function table(headers, rows) {
 
 const SCRIPT_CONFIG_RE = /<ScriptConfig\s+scriptPath="([^"]+)"\s*\/>/g;
 const configCache = new Map();
+// The build fetches the configs of every page at once: limit the concurrent
+// requests and retry, as some connections get dropped otherwise.
+const CONFIG_CONCURRENCY = 4;
+const CONFIG_ATTEMPTS = 3;
+let activeConfigRequests = 0;
+const configQueue = [];
+
+async function withConfigSlot(task) {
+  if (activeConfigRequests >= CONFIG_CONCURRENCY) {
+    await new Promise((resolve) => configQueue.push(resolve));
+  }
+  activeConfigRequests++;
+  try {
+    return await task();
+  } finally {
+    activeConfigRequests--;
+    configQueue.shift()?.();
+  }
+}
+
+async function requestConfig(scriptPath) {
+  for (let attempt = 1; ; attempt++) {
+    let retryable = true;
+    try {
+      const res = await fetch(CONFIG_API + scriptPath, {
+        signal: AbortSignal.timeout(30000),
+      });
+      retryable = res.status >= 500 || res.status === 429;
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if (!data.success || !data.files?.length) {
+        retryable = false;
+        throw new Error("no files");
+      }
+      return data.files;
+    } catch (e) {
+      if (!retryable || attempt >= CONFIG_ATTEMPTS) throw e;
+      await new Promise((resolve) => setTimeout(resolve, attempt * 2000));
+    }
+  }
+}
 
 export function fetchConfig(scriptPath) {
   if (!configCache.has(scriptPath)) {
     configCache.set(
       scriptPath,
-      fetch(CONFIG_API + scriptPath, { signal: AbortSignal.timeout(30000) })
-        .then((res) => res.json())
-        .then((data) => {
-          if (!data.success || !data.files?.length) throw new Error("no files");
-          return data.files;
-        }),
+      withConfigSlot(() => requestConfig(scriptPath)),
     );
   }
   return configCache.get(scriptPath);
