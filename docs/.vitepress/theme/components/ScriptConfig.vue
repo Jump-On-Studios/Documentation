@@ -1,5 +1,6 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, computed, onMounted } from "vue";
+import { useData } from "vitepress";
 import { codeToHtml } from "shiki";
 
 const props = defineProps({
@@ -9,37 +10,30 @@ const props = defineProps({
   },
 });
 
-const files = ref([]);
-const loading = ref(true);
+// Config files are fetched once at build time (see transformPageData in
+// docs/.vitepress/config.mjs), so the page is refreshed on each deployment.
+// If the config API failed during the build, they are fetched in the browser.
+const { page } = useData();
+const fetchedFiles = ref(null);
 const error = ref(null);
+const files = computed(
+  () =>
+    fetchedFiles.value || page.value.scriptConfigs?.[props.scriptPath] || [],
+);
+const newConfigFormat = computed(() =>
+  files.value.some((file) => file.path.includes("_default.lock")),
+);
+const scriptName = computed(() => files.value[0]?.path.split("/")[0] || "");
+const loading = ref(true);
 const highlightedBlocks = ref({});
-const newConfigFormat = ref(false);
-const scriptName = ref("");
 
 async function fetchConfig() {
-  loading.value = true;
-  error.value = null;
-  try {
-    const res = await fetch(
-      `https://jumpon-studios.com/api/scripts/config/${props.scriptPath}`,
-    );
-    const data = await res.json();
-    console.log("Fetched config data:", data);
-    if (data.success && data.files) {
-      files.value = data.files;
-      newConfigFormat.value = data.files.some((file) =>
-        file.path.includes("_default.lock"),
-      );
-      scriptName.value = data.files[0].path.split("/")[0];
-      await highlightAll(data.files);
-    } else {
-      error.value = "Failed to load configuration files.";
-    }
-  } catch (e) {
-    error.value = "Failed to fetch configuration.";
-  } finally {
-    loading.value = false;
-  }
+  const res = await fetch(
+    `https://jumpon-studios.com/api/scripts/config/${props.scriptPath}`,
+  );
+  const data = await res.json();
+  if (!data.success || !data.files?.length) throw new Error("no files");
+  fetchedFiles.value = data.files;
 }
 
 async function highlightAll(fileList) {
@@ -63,8 +57,15 @@ function copyCode(content) {
   navigator.clipboard.writeText(content);
 }
 
-onMounted(() => {
-  fetchConfig();
+onMounted(async () => {
+  try {
+    if (!files.value.length) await fetchConfig();
+    await highlightAll(files.value);
+  } catch (e) {
+    error.value = "Failed to load configuration files.";
+  } finally {
+    loading.value = false;
+  }
 });
 </script>
 
