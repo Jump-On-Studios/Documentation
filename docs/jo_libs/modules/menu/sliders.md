@@ -347,6 +347,35 @@ menu:addItem({
 
 The `tints` folder contains the swatches of the game: hair colors, eye colors, skin tones, metals, woods, leathers, engravings...
 
+### Size and layout
+
+| Key of the slider | Type | Description |
+| --- | --- | --- |
+| `size` | _number\|string_ | The size of a value, its frame included: a number in vh, or a CSS length <BadgeOptional /> default: `5` |
+| `gap` | _number\|string_ | The space between the frames of two values: a number in vh, or a CSS length <BadgeOptional /> default: `1.5` |
+| `columns` | _integer_ | The number of values shown across the slider, the gap then computed from its width <BadgeOptional /> |
+| `imagePadding` | _number\|string_ | The space between the image of a value and its frame: a number in vh, or a CSS length <BadgeOptional /> |
+| `imageZoom` | _number_ | The image of a value enlarged in its frame, cut by it: `1.5` for 150 %, as the [`tileZoom`](./items#image-zoom) of a tile. The [color preview](./items#color-preview) of the item is enlarged too <BadgeOptional /> |
+| `imageZoomOrigin` | _string_ | The point `imageZoom` enlarges the image from, as a CSS `transform-origin`: `top`, `center`, `top center`... <BadgeOptional /> default: `center` |
+
+```lua
+{
+  type = "sprite",
+  title = "Variation",
+  size = 6,
+  columns = 7, -- 7 thumbnails across
+  imagePadding = 0.4,
+  imageZoom = 1.4,
+  imageZoomOrigin = "top",
+  values = {
+    { sprite = "https://my-cdn.com/outfits/1.avif" },
+    { sprite = "https://my-cdn.com/outfits/1_2.avif" },
+  },
+}
+```
+
+The images from the web are loaded as the ones of the tiles: see [Images from the web](./items#images-from-the-web).
+
 ### Tags and icons
 
 ```lua

@@ -316,6 +316,55 @@ menu:addItem({ title = "tilePadding = 0", icon = "nui://my_resource/images/coppe
 
 ![Image padding of tiles](/images/previews/menu/item-tile-padding.jpg){.menu-detail data-zoomable}
 
+### Image zoom
+
+`tileZoom` enlarges the image in its tile, cut by it: `1.5` for 150 %. `tileZoomOrigin` is the point it is enlarged from, as a CSS `transform-origin`: `top`, `center`, `right`, `top center`... (default: `center`). Useful to frame the top of a full-body picture.
+
+```lua
+menu:addItem({
+  title = "Outfit 1",
+  icon = "https://my-cdn.com/outfits/1.avif",
+  tilePadding = 0,
+  tileZoom = 1.4,
+  tileZoomOrigin = "top", -- the head to the middle of the legs
+})
+```
+
+## Images from the web
+
+An image of a URL (a CDN, the `nui://` of another resource...), as the icon of a tile or the image of a [sprite](./sliders#sprite), shows a loading spinner until it is loaded; one already in the browser's cache shows at once. When it changes, the former image stays until the new one is loaded.
+
+To spare the server, an image from the web (an `http` or `https` URL) is requested only once it stays displayed 150 ms, and its request is cancelled when it changes or leaves the menu: scrolling fast through a menu never requests the images it passes. An image that fails (a rate limit...) is requested again twice, 3 seconds apart.
+
+### Preload
+
+`preload` is a list of image URLs loaded when the item becomes active, so they show at once afterwards: the images of its sliders, or the ones of the menu it opens. The images from the web are requested once the item stays active 150 ms.
+
+```lua
+menu:addItem({
+  title = "Hats",
+  preload = {
+    "https://my-cdn.com/hats/1.avif",
+    "https://my-cdn.com/hats/2.avif",
+  },
+  onClick = function() OpenHatsMenu() end,
+})
+```
+
+`preload` can also be set later, from `onActive`: to compute the images only for the item the player stops on.
+
+```lua
+local item
+item = menu:addItem({
+  title = "Hats",
+  onActive = function()
+    if item.preload then return end
+    item:updateValue("preload", GetFirstHatsThumbnails())
+    menu:push()
+  end,
+})
+```
+
 ## Color preview
 
 `previewPalette = true` displays a square with the current color of the item, on the right of the item. It shows the `palette` sliders of the item (up to 3 colors), or the current value of a `sprite` or `color` slider. See [Sliders](./sliders).
