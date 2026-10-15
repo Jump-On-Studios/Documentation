@@ -207,6 +207,12 @@ MenuClass:addItem(index, item)
 > 
 > `item.tilePadding` : _number|string_ - In a `tile` menu, the space between the image and the edge of the tile: a number in vh, or a CSS length. `0` brings the image to the edge <br> default: `1.2` <BadgeOptional />
 > 
+> `item.tileZoom` : _number_ - In a `tile` menu, the image enlarged in its tile, cut by it: `1.5` for 150 % <BadgeOptional />
+> 
+> `item.tileZoomOrigin` : _string_ - The point `tileZoom` enlarges the image from, as a CSS transform-origin: `top`, `center`, `right`, `top center`... <br> default: `center` <BadgeOptional />
+> 
+> `item.preload` : _table_ - Image URLs loaded when the item becomes active, so they show at once afterwards: the images of its sliders, or of the menu it opens. Those of the web are requested once the item stays active 150 ms <BadgeOptional />
+> 
 > `item.translate` : _boolean_ - Use `title` as a key of the translation strings. See [jo.menu.updateLang()](#jo-menu-updatelang) <br> default: `false` <BadgeOptional />
 > 
 > `item.translateDescription` : _boolean_ - Use `description` as a key of the translation strings <br> default: `false` <BadgeOptional />
