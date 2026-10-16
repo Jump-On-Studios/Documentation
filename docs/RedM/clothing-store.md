@@ -77,6 +77,8 @@ In the clothing store, you can:
 
 Use the prompts displayed on screen to navigate, zoom, rotate your character, and purchase items.
 
+Clothes are displayed as a grid of thumbnails (`Config.useThumbnails`), loaded from our CDN: nothing to install. Each category uses one of four kinds of thumbnail (`Config.thumbnailsType`): the cloth alone or worn by a mannequin, at rest or in the idle pose. The variations slider shows their colors or their thumbnails (`Config.variationsSlider`).
+
 When creating an outfit, players can select **Male** or **Female** before entering the outfit creator. If the selected sex is different from the player's current character, the preview is displayed on a temporary mannequin so players can build the outfit without changing their character.
 :::
 

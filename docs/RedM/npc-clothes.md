@@ -142,6 +142,8 @@ Congratulation, the **NPC Clothes** add-on is ready to be used!
 
 The scripts add a new intermediate menu in the store which allow you to choose between `Classic Clothes` or `NPC Clothes`. NPC clothing categories share some categories with classic clothes, but there are also many new categories.
 
+With `jo_clothingstore` v4.4.0 or newer, every variation of the NPC clothes has its thumbnail, displayed with the clothing store's thumbnail options.
+
 ## 3. Number of clothes
 
 The add-on adds {{ Intl.NumberFormat().format(totalModels) }} unique clothes ({{ Intl.NumberFormat().format(totalVariations) }} variations):
