@@ -144,6 +144,8 @@ The scripts add a new intermediate menu in the store which allow you to choose b
 
 With `jo_clothingstore` v4.4.0 or newer, every variation of the NPC clothes has its thumbnail, displayed with the clothing store's thumbnail options.
 
+With `jo_clothingstore` v4.5.0 or newer, `Config.thumbnailsOverride` (`thumbnail.lua`) replaces a NPC cloth's thumbnail with your own image.
+
 ## 3. Number of clothes
 
 The add-on adds {{ Intl.NumberFormat().format(totalModels) }} unique clothes ({{ Intl.NumberFormat().format(totalVariations) }} variations):

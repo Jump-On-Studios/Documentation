@@ -83,6 +83,8 @@ Clothes are displayed as a grid of thumbnails (`Config.useThumbnails`), loaded f
 |:---:|:---:|:---:|:---:|
 | ![base](/images/clothing-store/thumbnail_base.webp) | ![idle](/images/clothing-store/thumbnail_idle.webp) | ![base_body](/images/clothing-store/thumbnail_base_body.webp) | ![idle_body](/images/clothing-store/thumbnail_idle_body.webp) |
 
+To use your own image for a cloth (an `https://` URL or a `nui://` file), set it in `Config.thumbnailsOverride` (`thumbnail.lua`), for a whole model or a single variation.
+
 When creating an outfit, players can select **Male** or **Female** before entering the outfit creator. If the selected sex is different from the player's current character, the preview is displayed on a temporary mannequin so players can build the outfit without changing their character.
 :::
 

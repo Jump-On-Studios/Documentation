@@ -37,6 +37,8 @@ If multiple payment options are configured for an outfit, use the **Switch price
 
 With `jo_clothingstore` v4.4.0 or newer, outfits are displayed as a grid of thumbnails when the clothing store's `Config.useThumbnails` is enabled, and the variation slider shows their thumbnails (`Config.variationsSlider`). The kind of thumbnail and its zoom in the tile are set in `thumbnail.lua`.
 
+`Config.thumbnailsOverride` (`thumbnail.lua`) replaces an outfit's thumbnail with your own image, and gives custom outfits a thumbnail.
+
 Premade outfits are separated into `male` and `female` catalogues. If the selected premade outfit sex is different from the player's current character, the preview is displayed on the opposite-sex mannequin.
 
 ### Fixing body parts
