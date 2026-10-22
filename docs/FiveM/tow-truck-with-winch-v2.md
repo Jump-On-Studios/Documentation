@@ -29,7 +29,7 @@ Tow Truck with Winch v2 is a standalone script. So you don't need a specific fra
 
 Congratulation, the **Tow Truck with Winch v2** script is ready to be use !
 ## 2. Usage
-By default, the script is configured to work with a custom flatbed : `flatbed3` and with the native `slamtruck`. Use your admin menu (or other scripts) to spawn it. 
+By default, the script is configured to work with a custom flatbed : `flatbed3` and with the native `slamtruck`. Use your admin menu (or other scripts) to spawn it. To add your own truck, use the [configuration command](#_4-add-a-new-vehicle).
 
 A help message with key will appears at the bottom right of your screen every time action is available. Please read them to know what keys are usable. 
 1. Move the bed down from inside the vehicle or near the rear wheels
@@ -44,44 +44,49 @@ A help message with key will appears at the bottom right of your screen every ti
 <ScriptConfig scriptPath="fivem/tow-truck-with-winch-v2" />
 ## 4. Add a new vehicle
 
-### 1. Preparation
+:::tip Configuration command
+The script configures a new truck for you: `/towtruckcalibrate <model>` checks if the truck is compatible, finds its bones and measures its bed.
+:::
 
-* **Spawn** the truck you want to configure (example: `lgc9` flatbed).
-* **Open** the script's `config.lua` file.
-
-### 2. Enable Debug Mode
+### 1. Enable Debug Mode
 
 * Edit `Config.debug = true` into the `config.lua` file.
-* This will show useful markers and values in-game to help with setup.
-* Use `/towtruckcalibrate <model>` to check the truck compatibility, its configured bones and its bed values in the F8 console.
+* Restart the script with the server command: `ensure jo_towtruck`.
 
-### 3. Add Your Vehicle to the script's configuration
+### 2. Run the configuration command
 
-* Add the default value into the `config.lua` file
+* Stand on a flat ground and use `/towtruckcalibrate <model>` (example: `/towtruckcalibrate flatbed3`).
+* The truck spawns on you and its bed moves: the result is shown in notifications and in the F8 console.
+* Copy the configuration printed in the F8 console into the `config.lua` file. Example for the `flatbed3`:
 ```lua
-Trucks[`lgc9`] = {
-  winchBone = "misc_b",                       -- The bone where the winch is attached
-  winchOffset = vector3(0.3, 0.0, 0.3),       -- <optional> The origin of the winch
-  attachVehBone = "misc_a",                   -- The bone where the vehicle is attached
-  attachOffset = vector4(0.0, 1.5, 0.0, 0.0), -- <optional> The origin of the attachment
+Trucks[`flatbed3`] = {
+  winchBone = "misc_b",
+  attachVehBone = "misc_a",
+  minBedPosition = 9.66,
+  maxBedPosition = 14.26,
 }
 ```
+* At the end, the bed movement is played with these values to check them.
 
-### 4. Set the bones values
+:::details My truck has a forklift bed
+The command asks you to press `SHIFT` to lower the bed, then gives the bones only: the bed of these trucks is moved by the driver (see [Trucks with a forklift bed](#_6-some-tow-trucks-configuration)).
+:::
+
+:::details Set the values manually
+* In-game, you can see the vehicle's bones by aiming at it with right-click while standing outside.
+* `winchBone`: a bone near the winch reel.
+* `attachVehBone`: a bone attached to the bed that follows its movement.
+* `minBedPosition` and `maxBedPosition`: the current value is printed in the F8 console while the bed moves.
+:::
+
+### 3. Configure winch and Attachment Points
 
 * Restart the script with the server command: `ensure jo_towtruck`.
-* **In-game, you can see the vehicle's bones by aiming at it with right-click while standing outside.**
-1. Define the `winchBone`: Use a bone near the winch reel.
-2. Define the `attachVehBone`: The bone must be attached to the bed and follow its movement.
-
-### 5. Configure winch and Attachment Points
-
-* Restart the script with the server command: `ensure jo_towtruck`.
-* Exit the truck — debug markers will show up.
+* Exit the truck: debug markers will show up.
 * Use the `winchOffset` to fine-tune the position of the winch.
-* Use the `attachOffset` to fine-tune the position of the attachment — it should align with the surface of the bed.
+* Use the `attachOffset` to fine-tune the position of the attachment, it should align with the surface of the bed.
 
-### 6. Test Your Setup
+### 4. Test Your Setup
 
 **To tow a vehicle:**
 * Spawn the truck.
@@ -89,12 +94,12 @@ Trucks[`lgc9`] = {
 * Press `↓` to lower the bed.
 * Go to the winch reel location.
 * Press `E` to take the winch.
-* Go near the vehicle you want tow.
+* Go near the vehicle you want to tow.
 * Press `E` to attach the winch.
 * Go near the truck's rear wheels.
 * Press `←` to wind the winch and release when the vehicle is on the truck.
 * Press `Alt` to attach the vehicle to the bed.
-* Press `↑` to upper the bed.
+* Press `↑` to raise the bed.
 * **Done, the vehicle is towed!**
 
 
@@ -108,14 +113,14 @@ Trucks[`lgc9`] = {
 * Go to the winch reel location.
 * Press `E` to store the winch.
 * Go near the rear wheels or inside the truck.
-* Press `↑` to upper the bed.
+* Press `↑` to raise the bed.
 * **Done, the vehicle is untowed!**
 
 ---
 
-### 7. Optional parameters
+### 5. Optional parameters
 
-`minBedPosition` and `maxBedPosition` are distances in meters between the front of the truck and the `attachVehBone`. In debug mode, `/towtruckcalibrate <model>` spawns the truck on you (stand on a flat ground), prints both values in the F8 console and plays the bed movement with them: adjust `bedSpeed` if it's too slow or too fast.
+`minBedPosition` and `maxBedPosition` are distances in meters between the front of the truck and the `attachVehBone`, measured by the [configuration command](#_2-run-the-configuration-command).
 
 :::details The bed movement is too slow or too fast.  
 You can increase/decrease the bed movement by adding the `bedSpeed` value into your truck configuration.
@@ -123,22 +128,16 @@ You can increase/decrease the bed movement by adding the `bedSpeed` value into y
 Trucks[`flatbed3`].bedSpeed = 2.0 
 ```
 :::
-:::details The bed doesn't lower enough or lower too much.  
+:::details The bed doesn't lower enough, or lowers too much and lifts the truck.  
 You can edit the maximum of bed movement by adding the `maxBedPosition` value into your truck configuration.
 ```lua
-Trucks[`flatbed3`].maxBedPosition = 6.0 
+Trucks[`flatbed3`].maxBedPosition = 13.5
 ```
 :::
-:::details My truck goes in the sky when I lower the bed.  
-You can have to reduce the maximum of bed movement by editing/adding the `maxBedPosition` value into your truck configuration.
-```lua
-Trucks[`flatbed3`].maxBedPosition = 6.0 
-```
-:::
-:::details The bed move in the cab or doesn't raise enough.  
+:::details The bed moves in the cab or doesn't raise enough.  
 You can edit the minimum of bed position by adding the `minBedPosition` value into your truck configuration.
 ```lua
-Trucks[`flatbed3`].minBedPosition = 3.0
+Trucks[`flatbed3`].minBedPosition = 10.0
 ```
 :::
 :::details The winch doesn't wind enough or wind too much.  
@@ -153,7 +152,7 @@ You can use the `wheelLift` key to move the wheel lift up/down when the bed move
 Trucks[`flatbed3`].wheelLift = { 5 } -- list of doors index
 ```
 :::
-### 8. Finalize
+### 6. Finalize
 
 * Once everything is working think to **Disable the debug mode** by setting `Config.debug = false`.
 
