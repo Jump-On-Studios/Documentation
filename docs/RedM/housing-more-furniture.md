@@ -88,24 +88,24 @@ The furniture is bought in the build mode of Housing, see [Using a house](housin
 ::: tab ➕ Categories of Housing
 These categories already exist in the Housing script: the furniture added by the add-on is listed after the furniture of Housing.
 
-| Category | Added by the add-on | Already in the Housing script |
-| --- | --- | --- |
-| Bathroom | 67 | 26 |
-| Beds | 18 | 62 |
-| Cabinets | 62 | 124 |
-| Carpets | 15 | 12 |
-| Chairs | 52 | 171 |
-| Curtains | 161 | 129 |
-| Decorations | 464 | 541 |
-| Desks | 2 | 30 |
-| Fireplaces | 29 | 21 |
-| Food | 205 | 663 |
-| Kitchen | 193 | 149 |
-| Lamps | 88 | 237 |
-| Plants | 315 | 185 |
-| Sofas | 5 | 23 |
-| Tables | 41 | 175 |
-| Wall Decorations | 207 | 101 |
+| Category | Already in the Housing script | Added by the add-on | New total |
+| --- | --- | --- | --- |
+| Bathroom | 26 | 67 | 93 |
+| Beds | 62 | 18 | 80 |
+| Cabinets | 124 | 62 | 186 |
+| Carpets | 12 | 15 | 27 |
+| Chairs | 171 | 52 | 223 |
+| Curtains | 129 | 161 | 290 |
+| Decorations | 541 | 464 | 1,005 |
+| Desks | 30 | 2 | 32 |
+| Fireplaces | 21 | 29 | 50 |
+| Food | 663 | 205 | 868 |
+| Kitchen | 149 | 193 | 342 |
+| Lamps | 237 | 88 | 325 |
+| Plants | 185 | 315 | 500 |
+| Sofas | 23 | 5 | 28 |
+| Tables | 175 | 41 | 216 |
+| Wall Decorations | 101 | 207 | 308 |
 :::
 
 ::::
