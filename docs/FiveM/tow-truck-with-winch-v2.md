@@ -53,6 +53,7 @@ A help message with key will appears at the bottom right of your screen every ti
 
 * Edit `Config.debug = true` into the `config.lua` file.
 * This will show useful markers and values in-game to help with setup.
+* Use `/towtruckcalibrate <model>` to check the truck compatibility, its configured bones and its bed values in the F8 console.
 
 ### 3. Add Your Vehicle to the script's configuration
 
@@ -73,7 +74,7 @@ Trucks[`lgc9`] = {
 1. Define the `winchBone`: Use a bone near the winch reel.
 2. Define the `attachVehBone`: The bone must be attached to the bed and follow its movement.
 
-#### 5. Configure winch and Attachment Points
+### 5. Configure winch and Attachment Points
 
 * Restart the script with the server command: `ensure jo_towtruck`.
 * Exit the truck — debug markers will show up.
@@ -100,22 +101,21 @@ Trucks[`lgc9`] = {
 **To untow a vehicle:**
 * Go near the rear wheels.
 * Press `↓` to lower the bed.
-* Press `E` to attach the winch.
-* Go near the vehicle.
-* Press `E` to attach the winch.
-* Go near the truck's rear wheels.
-* Press `G` to unwind the winch and release `G` when the vehicle is fully off.
+* Press `E` to attach the winch to the vehicle.
+* Press `→` to unwind the winch and release `→` when the vehicle is fully off.
 * Go near the vehicle.
 * Press `E` to take the winch.
 * Go to the winch reel location.
 * Press `E` to store the winch.
-* Go inside the vehicle.
-* Press `J` to upper the bed.
+* Go near the rear wheels or inside the truck.
+* Press `↑` to upper the bed.
 * **Done, the vehicle is untowed!**
 
 ---
 
 ### 7. Optional parameters
+
+`minBedPosition` and `maxBedPosition` are distances in meters between the front of the truck and the `attachVehBone`. In debug mode, `/towtruckcalibrate <model>` spawns the truck on you (stand on a flat ground), prints both values in the F8 console and plays the bed movement with them: adjust `bedSpeed` if it's too slow or too fast.
 
 :::details The bed movement is too slow or too fast.  
 You can increase/decrease the bed movement by adding the `bedSpeed` value into your truck configuration.
@@ -138,7 +138,7 @@ Trucks[`flatbed3`].maxBedPosition = 6.0
 :::details The bed move in the cab or doesn't raise enough.  
 You can edit the minimum of bed position by adding the `minBedPosition` value into your truck configuration.
 ```lua
-Trucks[`flatbed3`].minBedPosition = 0.025
+Trucks[`flatbed3`].minBedPosition = 3.0
 ```
 :::
 :::details The winch doesn't wind enough or wind too much.  
@@ -226,9 +226,10 @@ The state of every tow truck is stored in [state bags](https://docs.fivem.net/do
 | State bag | Value | Description |
 | --- | --- | --- |
 | `jo_towtruck_vehicleAttached` | `netId` \| `nil` | Network ID of the vehicle secured on the bed |
-| `jo_towtruck_bedPosition` | `number` \| `nil` | Position of the bed. The bed is raised when the value is `nil` or `<= minBedPosition` (default `0.0`) |
+| `jo_towtruck_bedPosition` | `number` \| `nil` | Position of the bulldozer arm moving the bed, from `0.0` to `1.0` |
 | `jo_towtruck_rolling` | `number` \| `nil` | Speed of the bed while it's moving (`> 0` lowering, `< 0` raising). `nil` when the bed doesn't move |
-| `jo_towtruck_fullDown` | `boolean` \| `nil` | `true` when the bed is fully lowered (touching the ground) |
+| `jo_towtruck_fullDown` | `boolean` \| `nil` | `true` when the bed is fully lowered (`maxBedPosition` reached) |
+| `jo_towtruck_fullUp` | `boolean` \| `nil` | `true` when the bed is fully raised (`minBedPosition` reached), `false` when it's lowered. `nil` if the bed never moved |
 | `jo_towtruck_winchAttachedTo` | `table` \| `nil` | Where the winch hook is: `{ player = serverId }` (in hand), `{ hook = netId }` (on the ground), `{ vehicle = netId, bone = boneName }` (hooked to a vehicle). `nil` when the winch is stored |
 | `jo_towtruck_windWinch` | `table` \| `nil` | `{ player = serverId, speed = number }` while the winch is winding (`speed > 0`) or unwinding (`speed < 0`) |
 
@@ -261,9 +262,7 @@ end)
 ```lua
 local function isBedLowered(truck)
   local state = Entity(truck).state
-  local truckConfig = exports.jo_towtruck:GetTruckConfig(GetEntityModel(truck))
-  local minBedPosition = truckConfig and truckConfig.minBedPosition or 0.0
-  return not state.jo_towtruck_rolling and (state.jo_towtruck_bedPosition or 0.0) > minBedPosition
+  return not state.jo_towtruck_rolling and state.jo_towtruck_fullUp == false
 end
 
 local function isVehicleSecured(truck, vehicle)
@@ -291,12 +290,19 @@ If a resource deletes the transported vehicle (scrapyard, impound, …), the tru
 This list is not exhaustive. In most of case, if the bed is animated = the truck is compatible with this script
 :::
 
+:::tip Make a bed movable by the script
+The bed must be the `scoop` bone of the model (GTA bulldozer arm) with a limited rotation, like the `flatbed3`: its pivot is placed far below the truck, so the rotation looks like a slide. The `attachVehBone` (and the `winchBone` if the winch is on the bed) must be children of `scoop` to follow the bed.
+:::
+
+:::warning Trucks with a forklift bed
+A bed using the forklift forks (`forks` bone) can't be moved by any script: this is a limitation of FiveM and GTA, not of this script. The driver moves it with `SHIFT`/`CTRL`, the winch and the attachment still work.
+:::
+
 ### independent389
 ```lua
 Trucks[`independent389`] = {
   winchBone = "attach_male",
   attachVehBone = "misc_z",
-  minBedPosition = 0.03,
   maxBedPosition = 16.0,
   wheelLift = { 5 },
 }
@@ -337,7 +343,6 @@ Trucks[`112towmfd3`] = {
 Trucks[`112towmfd4`] = {
   winchBone = "attach_male",
   attachVehBone = "misc_z",
-  minBedPosition = 0.035,
   maxBedPosition = 12.5,
   wheelLift = { 5 }
 }
@@ -363,13 +368,11 @@ Trucks[`389towmfd3`] = {
   winchBone = "attach_male",
   attachVehBone = "misc_z",
   maxBedPosition = 12.5,
-  minBedPosition = 0.0001,
   wheelLift = { 5 },
 }
 Trucks[`389towmfd6`] = {
   winchBone = "attach_male",
   attachVehBone = "misc_z",
-  minBedPosition = 0.04,
   maxBedPosition = 11.75,
   wheelLift = { 5 }
 }
@@ -382,14 +385,12 @@ Trucks[`440towmfd2`] = {
 Trucks[`440towmfd4`] = {
   winchBone = "attach_male",
   attachVehBone = "misc_z",
-  minBedPosition = 0.03,
   maxBedPosition = 15.5,
   wheelLift = { 5 }
 }
 Trucks[`cortowmfd4`] = {
   winchBone = "attach_male",
   attachVehBone = "misc_z",
-  minBedPosition = 0.03,
   maxBedPosition = 11.5,
   wheelLift = { 5 }
 }
@@ -408,7 +409,6 @@ Trucks[`20ramrbc`] = {
   winchOffset = vector3(0.0, 0.0, 0.0),
   attachVehBone = "misc_z",
   attachOffset = vector4(0.0, 0.75, 0.0, 0.0),
-  minBedPosition = 0.015,
   maxBedPosition = 13.0,
   minWinchLength = 1.0
 }
