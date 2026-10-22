@@ -271,6 +271,10 @@ export default defineConfig({
                 text: "More Interiors",
                 link: "/RedM/housing-more-interiors",
               },
+              {
+                text: "More Furniture",
+                link: "/RedM/housing-more-furniture",
+              },
             ],
           },
           {
