@@ -48,12 +48,13 @@ Congratulations, the **Radial Menu** script is ready to be used\! 🥳
 
 ## 2. Usage
 
-Using the radial menu is straightforward. Simply press the configured key (default is `F7`, find all the usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)) to open the wheel. From there, you can navigate through the different options with your mouse.
+Using the radial menu is straightforward. Simply press the configured key (default is `F7`) to open the wheel. From there, you can navigate through the different options with your mouse.
 
-  - **Open/Close**: Press the configured `Config.openKey`.
+  - **Open/Close**: Press the configured `Config.openKey`. Players can rebind it in the game's key binding settings.
   - **Navigate**: Move your mouse over an item to select it.
   - **Select**: Click on an item to trigger its action or open a submenu.
   - **Submenus**: Selecting an item with a `submenu` of type `submenu` will open a new set of options.
+  - **Search**: Matches item labels and descriptions, submenus included.
   - **Back/Close**: Use the central button to go back to the previous menu or close the wheel entirely. You can also use `ESC` or `BACKSPACE` to close it.
   - **Hotkeys (if enabled)**:
       - With the wheel open, hover an actionable item (must have `onClick`, no submenu, not disabled/hidden) and long-press an allowed key (~1s) to bind it. Long-pressing the same key on the same item removes the binding. A circular loader shows progress.
@@ -72,9 +73,12 @@ You can modify the menu open/close behavior by changing properties of the `Confi
 
 | Parameter           | Type                | Default value  | Description                                                                                                                   |
 | :------------------ | :------------------ | :------------- | :---------------------------------------------------------------------------------------------------------------------------- |
-| `Config.openKey`    | `string`\|`false`   | `F7`           | Key to open the menu (find all usable controls [here](https://docs.jumpon-studios.com/jo_libs/modules/raw-keys/client#keys)). Set `false` to disable manual opening via key (useful when controlling the menu only through exports or events). |
+| `Config.openKey`    | `string`\|`false`   | `F7`           | Default key to open the menu ([key names](https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/)). Players can rebind it. Set `false` to disable it. |
 | `Config.holdToOpen` | `boolean`           | `false`        | Hold key to open menu (`true`) or toggle on/off (`false`).                                                                    |
+| `Config.blockWhenNuiFocused` | `boolean`  | `true`         | Don't open the menu with the key while another script has the NUI focus. |
 | `Config.postFX`     | `string`\|`boolean` | `"WheelHUDIn"` | Post-processing effect to play when opening the menu. Set `false` to disable.                                                 |
+| `Config.cameraZoom` | `boolean`           | `true`         | Zoom the camera while the menu is open. |
+| `Config.controlsToEnableWhileRadialOpen` | `table` | `` { `INPUT_PUSH_TO_TALK` } `` | Controls kept enabled while the menu is open. |
 
 
 
@@ -86,6 +90,7 @@ You can customize the overall look and feel of the radial menu using the `Config
 | `centerOpacity` | `float`             | `0.6`         | Opacity of the center background.                                                                                                                             |
 | `logo`          | `string` (optional) | Jump On logo  | Your server's logo. Supports URL (`https://...`), local file (`logo.png` from `jo_radial/nui/img/`), or other script NUI (`nui://...`). Set `nil` to disable. |
 | `allowSearch`   | `boolean`           | `true`        | Enable/disable the search feature in the radial menu.                                                                                                         |
+| `size`          | `number`            | `800`         | Wheel size in pixels, for a 1024px high screen.                                                                                                               |
 | `hotkeys`       | `table`             | See below     | The hotkeys system configuration (see below).                                                                                                                 |
 
 
@@ -114,6 +119,7 @@ Config.radial = {
     centerOpacity = 0.6,                                       -- Opacity of the center background
     logo = "https://jumpon-studios.com/images/logo_no_bg.png", -- Logo URL displayed in center
     allowSearch = true,                                        -- Enable/disable search feature in the radial menu
+    size = 800,                                                -- Wheel size in pixels, for a 1024px high screen
     hotkeys = {
         enabled = true,                                        -- Enable/disable hotkey binding feature
         mode = "hotkeys",                                      -- "hotbar" (0-9 keys) or "hotkeys" (Any key)
@@ -150,6 +156,7 @@ Here is the structure for a single menu item:
 | Parameter     | Type                               | Description                                                                                                                                                                                              |
 | :------------ | :--------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `label`       | `string`                           | The text displayed on the menu item. Use `▼` to indicate a submenu.                                                                                                                                      |
+| `description` | `string` (optional)                | Text shown below the wheel on hover. Also matched by the search.                                                                                                                                         |
 | `icon`        | `string` (optional)                | The icon to display. Supports three formats:<br>- Local file: `weapons.png` (from `jo_radial/nui/img/`)<br>- Web URL: `https://example.com/icon.png`<br>- Other script NUI: `nui://script_name/icon.png` |
 | `hideLabel`   | `boolean` (optional)               | Show the label within each wheel slice. Defaults to `false`.                                                                                                                                             |
 | `disabled`    | `boolean` \| `function` (optional) | If `true`, the item is visible but cannot be clicked. A function returning a boolean can be used for dynamic conditions.                                                                                 |
@@ -175,7 +182,7 @@ Here is the structure for a single menu item:
 | Parameter | Type                  | Description                                                                                                                                                      |
 | :-------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `type`    | `string`              | The type of submenu to display. Valid options are:<br>- `submenu`: Navigates to a new, separate wheel.                                                           |
-| `items`   | `table` \| `function` | * table: list of item tables that make up the content of the submenu.<br>* function: fire everytime the menu is opened: it should returns a list of item tables. |
+| `items`   | `table` \| `function` | * table: list of item tables that make up the content of the submenu.<br>* function: fire everytime the menu is opened: it should returns a list of item tables.<br>Items with an empty submenu are hidden. |
 | `creator` | `function`(optional)  | A function fired the first time the submenu is needed                                                                                                            |
 
 ### Emotes Configuration (`Config.emotes`)
@@ -367,6 +374,7 @@ See examples below.
 Config.radialMenuItems = {
   {
     label = "Emotes",                     -- Character animations and expressions
+    description = "Play an emote or an expression", -- Optional: shown on hover
     icon = "emote_dance_carefree_a.webp", -- Local file in nui/img/ directory
     submenu = {
       type = "submenu",                   -- Navigate to new wheel level with fade transition
@@ -377,6 +385,7 @@ Config.radialMenuItems = {
   },
   {
     label = "Walk Styles",
+    description = "Change the way your character walks",
     icon = "emote_dance_formal_a.webp", -- Local file in nui/img/ directory
     submenu = {
       type = "submenu",
