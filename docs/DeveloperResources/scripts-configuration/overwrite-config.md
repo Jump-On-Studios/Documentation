@@ -27,7 +27,7 @@ If new parameters are added to the `config.lua` file during an update, they will
 This separation makes your configuration clearer and more maintainable.
 
 #### 3. Preserves Your Settings
-The `overwriteConfig.lua` file is included in all scripts and is specifically designed to store your custom settings. This file is meant to be edited, unlike `config.lua` which should remain untouched to preserve update compatibility.
+The `overwriteConfig.lua` file is included in the scripts that keep their `config.lua` in a `shared` folder and is specifically designed to store your custom settings. This file is meant to be edited, unlike `config.lua` which should remain untouched to preserve update compatibility.
 
 ## How to use it?
 
