@@ -194,6 +194,7 @@ export default defineConfig({
           { text: "🎣 Fishing", link: "/FiveM/fishing" },
           { text: "⛏️ Mining job", link: "/FiveM/mining-job" },
           { text: "📦 Movable chest", link: "/FiveM/movable-chest" },
+          { text: "🥷 Ninja roll", link: "/FiveM/ninja-roll" },
           {
             icon: "/images/towtruck.webp",
             text: " Tow Truck with WINCH",
