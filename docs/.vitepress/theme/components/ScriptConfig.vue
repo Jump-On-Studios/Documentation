@@ -23,6 +23,10 @@ const files = computed(
 const newConfigFormat = computed(() =>
   files.value.some((file) => file.path.includes("_default.lock")),
 );
+// Only the scripts with their config in a shared folder ship overwriteConfig.lua.
+const hasOverwriteConfig = computed(() =>
+  files.value.some((file) => file.path.includes("/shared/")),
+);
 const scriptName = computed(() => files.value[0]?.path.split("/")[0] || "");
 const loading = ref(true);
 const highlightedBlocks = ref({});
@@ -139,7 +143,7 @@ onMounted(async () => {
       </a>
     </h3>
   </div>
-  <div v-else>
+  <div v-else-if="hasOverwriteConfig">
     <p>
       The configuration file is
       <code>config.lua</code>
@@ -195,6 +199,18 @@ onMounted(async () => {
       <code>overwriteConfig.lua</code>
       overwrites only the values you redefine. This ensures your customizations
       are preserved when updating the script.
+    </p>
+  </div>
+  <div v-else>
+    <p>
+      The configuration file is
+      <code>config.lua</code>
+      in the resource root. Edit this file to change the settings of the script,
+      then restart the resource.
+    </p>
+    <p>
+      <strong>Keep a copy of your changes</strong>
+      before updating the script, as an update replaces this file.
     </p>
   </div>
 
