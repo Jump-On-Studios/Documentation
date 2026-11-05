@@ -53,7 +53,7 @@ Players buy and manage their boats from configured boat shops. Purchased boats, 
 :::: tabs
 ::: tab 💰 Buying a boat
 1. Go to a boat shop. Enabled shops are displayed on the map by default.
-2. Approach the seller and press `ENTER` to open the shop.
+2. Approach the seller and press `ENTER` to open the shop. The camera moves to a close-up of the seller (disable it with `Config.shopVendorCamera = false`).
 3. Select **Buy a boat**.
 4. Choose a boat category, then select a model.
 5. Use the preview and statistics panel to compare the boat's health, storage, speed, and number of seats.
@@ -489,6 +489,28 @@ exports.jo_boats:registerAction("shopOpened", function(shop)
 end)
 ```
 
+#### <Badge type="client" text="Client" /> shopVendorCameraStarted
+
+Triggered when the camera starts moving to the close-up of the shop seller.
+
+```lua
+-- @param shop - table opened shop configuration
+-- @param cam - number camera handle
+exports.jo_boats:registerAction("shopVendorCameraStarted", function(shop, cam)
+    -- Your code here
+end)
+```
+
+#### <Badge type="client" text="Client" /> shopVendorCameraStopped
+
+Triggered when the shop menu closes and the camera returns to the gameplay camera.
+
+```lua
+exports.jo_boats:registerAction("shopVendorCameraStopped", function()
+    -- Your code here
+end)
+```
+
 ### Filters
 
 Filters synchronously control permissions or replace values used by the script. Always return the value expected by the filter.
@@ -714,6 +736,18 @@ Controls whether a player can spawn a boat after ownership, world state, wreck, 
 -- @param boat - Boat|nil boat instance
 exports.jo_boats:registerFilter("canSpawnBoat", function(canSpawn, source, boat)
     return canSpawn
+end)
+```
+
+#### <Badge type="client" text="Client" /> canUseShopVendorCamera
+
+Controls whether opening a shop moves the camera to a close-up of the seller. Only checked when `Config.shopVendorCamera` is enabled and the shop has a seller NPC.
+
+```lua
+-- @param canUse - boolean true by default
+-- @param shop - table shop configuration
+exports.jo_boats:registerFilter("canUseShopVendorCamera", function(canUse, shop)
+    return canUse
 end)
 ```
 
