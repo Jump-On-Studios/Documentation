@@ -10,7 +10,7 @@ Documentation related to the `jo_boats` script.
 
 :::: tabs
 ::: tab BUY
-[Buy it on the shop](https://SHOP_URL)
+[Buy it on the shop](https://jumpon-studios.com/redm/boat-shop)
 :::
 
 ::: tab PREVIEW
