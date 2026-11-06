@@ -221,6 +221,7 @@ export default defineConfig({
         text: "RedM",
         collapsed: true,
         items: [
+          { text: "🛶 Boats", link: "/RedM/boat-shop" },
           { text: "📷 Camera Kit", link: "/RedM/camera-kit" },
           { text: "⛺ Camp builder", link: "/RedM/camp-builder" },
           {
