@@ -14,7 +14,7 @@ Documentation related to the `jo_boats` script.
 :::
 
 ::: tab PREVIEW
-<iframe width="560" height="315" src="PREVIEW_URL" title="RedM - Boats" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Y5Kz2qYjqu0" title="RedM - Boats" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
 ::::
 
