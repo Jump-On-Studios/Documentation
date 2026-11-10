@@ -32,10 +32,48 @@ jo_libs {
 }
 ```
 
+3. Set the jo_libs NUI page as the `ui_page` of your `fxmanifest.lua`:
+
+```lua
+ui_page "nui://jo_libs/nui/index.html"
+```
+
 You can now use the menu with the `jo.menu` global variable, in your client scripts.
 
-:::tip No ui_page needed
-The module loads its own NUI page (`nui://jo_libs/nui/menu/index.html`). You don't need to set `ui_page` in your `fxmanifest.lua`, so you keep it free for your own interface.
+:::warning The ui_page is required
+The menu can't be loaded without this `ui_page`.
+:::
+
+:::tip You can still use your own NUI
+`nui://jo_libs/nui/index.html` is only a container: it displays several NUI pages in the same resource, each one in its own frame. The menu loads itself in it, and you can load your own interface next to it with [`jo.nui.load`](../nui/client.md) instead of using `ui_page`.
+
+```lua
+-- fxmanifest.lua
+ui_page "nui://jo_libs/nui/index.html"
+
+files {
+  "html/**"
+}
+
+jo_libs {
+  "menu",
+  "nui",
+}
+```
+
+```lua
+-- client.lua
+-- Load your own page (it can be done once at the start of the resource)
+jo.nui.load("my_ui", "nui://" .. GetCurrentResourceName() .. "/html/index.html")
+
+-- Send a message only to your page
+SendNUIMessage({
+  messageTargetUiName = "my_ui",
+  action = "open",
+})
+```
+
+A message sent without `messageTargetUiName` is received by every loaded NUI.
 :::
 
 ## Quick start
