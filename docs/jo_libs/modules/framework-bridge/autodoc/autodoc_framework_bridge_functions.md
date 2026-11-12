@@ -132,6 +132,32 @@ Type : _table_
 
 ---
 
+### <Badge type="server" text="Server" /> UserClass:getIdentity()
+
+<!-- @include: ./slots/headers.md#server|UserClass:getIdentity -->
+
+Returns the character identity in a standard shape; the fields the framework does not store stay `nil` <br>
+
+<!-- @include: ./slots/descriptions.md#server|UserClass:getIdentity -->
+
+#### Syntax
+
+```lua
+UserClass:getIdentity()
+```
+
+#### Return Value
+
+Type : _table_
+
+> Returns `{ firstname?, lastname?, birthdate?: "YYYY-MM-DD", age?: integer, gender?: "male"|"female", nationality? }`
+
+<!-- @include: ./slots/examples.md#server|UserClass:getIdentity -->
+
+<!-- @include: ./slots/footers.md#server|UserClass:getIdentity -->
+
+---
+
 ### <Badge type="server" text="Server" /> UserClass:getJob()
 
 <!-- @include: ./slots/headers.md#server|UserClass:getJob -->
@@ -925,6 +951,39 @@ Type : _table_
 <!-- @include: ./slots/examples.md#server|jo.framework:getUserIdentifiers -->
 
 <!-- @include: ./slots/footers.md#server|jo.framework:getUserIdentifiers -->
+
+---
+
+### <Badge type="server" text="Server" /> jo.framework:getUserIdentity()
+
+<!-- @include: ./slots/headers.md#server|jo.framework:getUserIdentity -->
+
+Returns the character identity in a standard shape, whatever the framework <br>
+Fields the framework does not store are `nil`: VORP has an `age` but no `birthdate` or `nationality`. <br>
+
+<!-- @include: ./slots/descriptions.md#server|jo.framework:getUserIdentity -->
+
+#### Syntax
+
+```lua
+jo.framework:getUserIdentity(source)
+```
+
+#### Parameters
+
+`source` : _integer_
+> The source ID of the player
+>
+
+#### Return Value
+
+Type : _table|nil_
+
+> Return `{ firstname, lastname, birthdate?: "YYYY-MM-DD", age?: integer, gender?: "male"|"female", nationality? }`, or `nil` without a character or when a custom core does not implement it
+
+<!-- @include: ./slots/examples.md#server|jo.framework:getUserIdentity -->
+
+<!-- @include: ./slots/footers.md#server|jo.framework:getUserIdentity -->
 
 ---
 

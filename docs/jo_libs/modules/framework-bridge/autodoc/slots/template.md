@@ -18,6 +18,11 @@
 <!-- #endregion server|UserClass:getIdentifiers -->
 
 
+<!-- #region server|UserClass:getIdentity -->
+
+<!-- #endregion server|UserClass:getIdentity -->
+
+
 <!-- #region server|UserClass:getJob -->
 
 <!-- #endregion server|UserClass:getJob -->
@@ -131,6 +136,11 @@
 <!-- #region server|jo.framework:getUserIdentifiers -->
 
 <!-- #endregion server|jo.framework:getUserIdentifiers -->
+
+
+<!-- #region server|jo.framework:getUserIdentity -->
+
+<!-- #endregion server|jo.framework:getUserIdentity -->
 
 
 <!-- #region server|jo.framework:getUserSkin -->
