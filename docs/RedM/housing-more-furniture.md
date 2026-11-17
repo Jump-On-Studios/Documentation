@@ -6,14 +6,13 @@ outline: [2,4]
 
 Documentation related to the `jo_housing_more_furniture` add-on for the [Housing](housing) script.
 
-<!-- TODO: check the shop URL and replace VIDEO_ID once the add-on is published -->
 :::: tabs
 ::: tab BUY
 [Buy the add-on](https://jumpon-studios.com/redm/housing-more-furniture)
 :::
 
 ::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="RedM - Housing More Furniture" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lZ-P8Jziqfg" title="RedM - Housing More Furniture" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
 ::::
 
@@ -22,12 +21,12 @@ The add-on adds **8,396 furniture** to the build mode of Housing: 6,472 in 22 ne
 ## 1. Installation
 
 ::: warning
-The [Housing](housing) script is required to use this add-on. Use its latest version: the add-on relies on the exports added for the add-ons.
+The [Housing](housing) script is required to use this add-on, in version **1.6.7** or later, with `jo_libs` **2.17.2** or later. With an older version, the add-on stops when the server starts.
 :::
 
 To install `jo_housing_more_furniture`:
 
-1. Install [Housing](housing#_1-installation) and its requirements, `jo_libs` 2.17.0 or later.
+1. Install [Housing](housing#_1-installation) 1.6.7 or later and its requirements, with `jo_libs` 2.17.2 or later.
 2. Download `jo_housing_more_furniture` from your [account](https://jumpon-studios.com/account).
 3. Unzip it and place the `jo_housing_more_furniture` folder in your resources folder.
 4. Start it after Housing in your `server.cfg`:
@@ -39,7 +38,7 @@ ensure jo_housing_more_furniture
 ```
 
 ::: tip 💡 No SQL file, no item
-The furniture of the add-on is bought and placed like the furniture of Housing: nothing to add to your database or your inventory.
+The furniture of the add-on is bought and placed like the furniture of Housing: nothing to add to your database or your inventory. The add-on registers its furniture, prices and category names in Housing each time Housing starts.
 :::
 
 ## 2. Usage
@@ -114,12 +113,28 @@ These categories already exist in the Housing script: the furniture added by the
 
 <ScriptConfig scriptPath="redm/housing-more-furniture" />
 
+### Prices
+
+`prices.lua` sets the prices of the furniture of the add-on:
+
+- `Config.furnituresCategoriesPrices`: the price of each of the 22 new categories, used by all its furniture. By default `{ money = 100, gold = 1 }`: the player pays either $100 or 1 gold.
+- `Config.furnituresPrices`: the price of one model, used instead of the price of its category.
+- A price set to `-1` removes the category or the model from the menu.
+
+The furniture added to a category of Housing (Beds, Lamps…) uses the price of that category in the configuration of Housing (`Config.furnituresCategoriesPrices` of `jo_housing`).
+
+Use the [Price Generator](/DeveloperResources/price-generator) to build other prices (items, several payment options…).
+
 The prices and the names of the add-on are sent to Housing: for a same category or model, they replace the ones of the configuration of Housing.
+
+### Category names
+
+`lang.lua` holds the names of the 22 new categories in the build mode menu. A category of Housing added to this file (for example `Lang.fur_cat_lamps = "Lights"`) is renamed too.
 
 ## 4. FAQ
 
-:::details "No such export addFurnitures in resource jo_housing"
-Your version of Housing is older than the add-on. Update [Housing](housing) to its latest version, then restart both resources.
+:::details "jo_housing requires an update" or "No such export ... in resource jo_housing"
+Your version of Housing is older than 1.6.7, the version the add-on needs. Update [Housing](housing) (and `jo_libs` to 2.17.2 or later), then restart both resources.
 :::
 
 :::details How do I remove a category or a furniture ?
