@@ -186,6 +186,7 @@ async function requestStoreScript(scriptPath) {
     description: script.shortDescription || "",
     thumbnail: script.thumbnail || "",
     youtube: script.youtube || [],
+    isFree: script.isFree === true,
   };
 }
 
@@ -236,7 +237,9 @@ async function buyScript(body) {
         const script = await fetchStoreScript(p);
         rendered[p] = [
           script.description,
-          `[Buy ${script.name} on the Jump On Studios store](${url})`,
+          script.isFree
+            ? `[Get ${script.name} for free on the Jump On Studios store](${url})`
+            : `[Buy ${script.name} on the Jump On Studios store](${url})`,
           ...script.youtube.map(
             (id) => `[Trailer](https://www.youtube.com/watch?v=${id})`,
           ),

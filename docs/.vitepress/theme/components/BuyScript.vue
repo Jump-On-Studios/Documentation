@@ -17,6 +17,8 @@ const props = defineProps({
   script: { type: String, required: true },
   // Bold line of the block: the page title already names the script
   title: { type: String, default: "Don't have this script yet?" },
+  // Free script: also read from the store, set it on the page so the button stays right if the store did not answer
+  free: { type: Boolean, default: false },
 })
 
 const { page } = useData()
@@ -27,11 +29,12 @@ const storeUrl = computed(
 )
 const thumbnail = computed(() => (store.value?.thumbnail ? `${STORE_URL}/images/thumbnails/${store.value.thumbnail}` : ''))
 const trailers = computed(() => store.value?.youtube || [])
+const isFree = computed(() => props.free || store.value?.isFree === true)
 </script>
 
 <template>
   <div class="buy-script-wrap">
-    <aside class="buy-script" :aria-label="store ? `Buy ${store.name}` : 'Buy this script'">
+    <aside class="buy-script" :aria-label="`${isFree ? 'Get' : 'Buy'} ${store ? store.name : 'this script'}`">
       <a v-if="thumbnail" class="buy-script__media" :href="storeUrl" tabindex="-1" aria-hidden="true">
         <img :src="thumbnail" alt="" width="1920" height="1080" loading="eager" />
       </a>
@@ -39,7 +42,7 @@ const trailers = computed(() => store.value?.youtube || [])
         <p class="buy-script__title">{{ title }}</p>
         <p v-if="store?.description" class="buy-script__pitch">{{ store.description }}</p>
       </div>
-      <a class="buy-script__button" :href="storeUrl">Buy on the store</a>
+      <a class="buy-script__button" :href="storeUrl">{{ isFree ? 'Get it for free' : 'Buy on the store' }}</a>
     </aside>
 
     <details v-if="trailers.length" class="buy-script__trailer">
