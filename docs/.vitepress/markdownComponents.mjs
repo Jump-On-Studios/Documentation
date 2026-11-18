@@ -244,7 +244,17 @@ function staticComponents(body, { url }) {
     .replace(
       /<PriceGenerator\s*\/>/g,
       `_Interactive price generator, available at ${url}_`,
-    );
+    )
+    .replace(BUY_SCRIPT_RE, buyScript);
+}
+
+// <BuyScript name=".." game=".." link=".."> pitch </BuyScript>: the pitch and a plain link to the store
+const BUY_SCRIPT_RE = /<BuyScript\b([^>]*)>([\s\S]*?)<\/BuyScript>/g;
+
+function buyScript(_, attrs, pitch) {
+  const attr = (name) => attrs.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1];
+  const storeUrl = `https://jumpon-studios.com/${attr("game")}/${attr("link")}`;
+  return `${pitch.trim()}\n\n[Buy ${attr("name")} on the Jump On Studios store](${storeUrl})`;
 }
 
 // Top level <script> / <style> blocks are Vue code, not documentation
