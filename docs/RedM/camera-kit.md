@@ -5,15 +5,7 @@ outline: [2,4]
 # :camera: Camera Kit
 Documentation related to the jo_camera_kit script.
 
-:::: tabs
-::: tab BUY
-[Buy it on the shop](https://jumpon-studios.com/redm/camera-kit)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WBCINAeSkNQ?si=5SwlgLed77a8k1wE" title="RedM - Camera Kit" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="redm/camera-kit" />
 
 ## 1. Installation
 To install `jo_camera_kit` :

@@ -1,15 +1,7 @@
 # <img src='/images/chest.webp' /> Chest Anywhere
 Documentation relating to the jo_chest.
 
-:::: tabs
-::: tab BUY
-[Buy the script](https://jumpon-studios.com/redm/chest-anywhere)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jlHa0S7y9So" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="redm/chest-anywhere" />
 
 ## 1. Installation
 jo_chest works on all frameworks compatible with jo_libs ([the list](/jo_libs/modules/framework-bridge/#compatible-frameworks)).

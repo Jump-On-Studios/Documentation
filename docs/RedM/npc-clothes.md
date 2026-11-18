@@ -115,15 +115,7 @@ const setChartOptions = () => {
 # :necktie: NPC Clothes
 Documentation relating to the **jo_clothingstore_npc** add-on for [Clothing store script](clothing-store).
 
-:::: tabs
-::: tab BUY
-[Buy the add-on](https://jumpon-studios.com/redm/npc-clothes)
-:::
-
-::: tab PREVIEW
-Coming soon...
-:::
-::::
+<BuyScript script="redm/npc-clothes" />
 
 ## 1. Installation
 ::: warning

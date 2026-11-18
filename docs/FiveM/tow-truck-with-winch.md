@@ -5,15 +5,7 @@ outline: 2
 # <img src='/images/towtruck.webp'/> Tow Truck with WINCH
 Documentation relating to the kd_towtruck.
 
-:::: tabs
-::: tab BUY
-[Buy the script](https://jumpon-studios.com/fivem/tow-truck-with-winch)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/derm4LaiuGo?si=3PLcRE8vNp_iTgrN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="fivem/tow-truck-with-winch" />
 
 ## 1. Installation
 Tow Truck with WINCH is a standalone script. So you don't need a specific framework to use it. It's also mean it works with all framework (Esx, QBCore, VRP, DRP, …).

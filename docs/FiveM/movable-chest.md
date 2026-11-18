@@ -1,15 +1,7 @@
 # :package: Movable chest
 Documentation relating to the kd_coffre-deplacable.
 
-:::: tabs
-::: tab BUY
-[Buy the script](https://jumpon-studios.com/fivem/movable-chest)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lblCfryVnno?si=sN-2T2f452qRpMd1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="fivem/movable-chest" />
 
 ## 1. Installation
 

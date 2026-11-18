@@ -5,15 +5,11 @@ outline: [2,4]
 # :house: Housing
 Documentation related to the jo_housing script.
 
-:::: tabs
-::: tab BUY
-[Buy it on the shop](https://jumpon-studios.com/redm/housing)
-:::
+<BuyScript script="redm/housing" />
 
-::: tab PREVIEW
+::: details Preview
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1A_ubufvh80?si=Vrw1RxNKarTFS2_6" title="RedM - Housing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
-::::
 
 ## 1. Installation
 jo_housing works on all frameworks compatible with jo_libs ([the list](/jo_libs/modules/framework-bridge/#compatible-frameworks)).

@@ -1,15 +1,7 @@
 # :necktie: Premade Outfits
 Documentation relating to the **jo_clothingstore_outfits** add-on for [Clothing store script](clothing-store).
 
-:::: tabs
-::: tab BUY
-[Buy the add-on](https://jumpon-studios.com/redm/premade-outfits)
-:::
-
-::: tab PREVIEW
-Preview coming soon.
-:::
-::::
+<BuyScript script="redm/premade-outfits" />
 
 ## 1. Installation
 ::: warning

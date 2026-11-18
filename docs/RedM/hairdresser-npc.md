@@ -1,11 +1,7 @@
 # :scissors: NPC Hairs & Beards
 Documentation relating to the **jo_hairdresser_npc** add-on for the [Hairdresser script](hairdresser).
 
-:::: tabs
-::: tab BUY
-[Buy the add-on](https://jumpon-studios.com/redm/hairdresser-npc)
-:::
-::::
+<BuyScript script="redm/hairdresser-npc" />
 
 ## 1. Installation
 ::: warning

@@ -1,15 +1,7 @@
 # <img src="/images/gunrack.webp" /> Weapon storage
 Documentation relating to the jo_gunrack.
 
-:::: tabs
-::: tab BUY
-[Buy the script](https://jumpon-studios.com/fivem/weapon-storage)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wN7W2RE8r4M?si=o_3URKrSNJNL9wKc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="fivem/weapon-storage" />
 
 ## 1. Installation
 Be sure you installed the required dependencies :

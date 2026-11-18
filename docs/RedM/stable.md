@@ -5,15 +5,7 @@ outline: [2,4]
 # :horse: Stable
 Documentation relating to the kd_stable.
 
-:::: tabs
-::: tab BUY
-[Buy the script](https://jumpon-studios.com/redm/horse-stable)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LUgGS5I5FjM?si=wIuK5RGZWczm_twX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="redm/horse-stable" />
 
 ## 1. Installation
 kd_stable works on all frameworks compatible with jo_libs ([the list](/jo_libs/)).

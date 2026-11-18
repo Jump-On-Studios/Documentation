@@ -165,6 +165,92 @@ async function scriptConfig(body, { url }) {
   return body.replace(SCRIPT_CONFIG_RE, (_, p) => rendered[p]);
 }
 
+// --- <BuyScript script="game/link" /> ----------------------------------------
+// The purchase block of a script page takes everything from the store: name,
+// short description, thumbnail and trailers. One tag per page, nothing copied.
+
+export const STORE_URL = "https://jumpon-studios.com";
+const BUY_SCRIPT_RE = /<BuyScript\s+script="([^"]+)"[^>]*\/>/g;
+const storeScriptCache = new Map();
+
+async function requestStoreScript(scriptPath) {
+  const res = await fetch(`${STORE_URL}/api/scripts/${scriptPath}`, {
+    signal: AbortSignal.timeout(20000),
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const script = await res.json();
+  if (!script?.name) throw new Error("unknown script");
+  // Only what the block shows: this object is shipped with the page
+  return {
+    name: script.name,
+    description: script.shortDescription || "",
+    thumbnail: script.thumbnail || "",
+    youtube: script.youtube || [],
+  };
+}
+
+export function fetchStoreScript(scriptPath) {
+  if (!storeScriptCache.has(scriptPath)) {
+    const request = withConfigSlot(() => requestStoreScript(scriptPath));
+    // A failed request is not kept: the next page load or build tries again
+    request.catch(() => storeScriptCache.delete(scriptPath));
+    storeScriptCache.set(scriptPath, request);
+  }
+  return storeScriptCache.get(scriptPath);
+}
+
+export function buyScriptPaths(body) {
+  return [...new Set([...body.matchAll(BUY_SCRIPT_RE)].map((m) => m[1]))];
+}
+
+// transformPageData hook: fetches the store data of the <BuyScript> of the
+// page once at build time, read by BuyScript.vue. Without it (store down
+// during the build) the block still shows its button.
+export async function attachStoreScripts(pageData, { siteConfig }) {
+  if (pageData.isNotFound || !pageData.relativePath) return;
+  const source = fs.readFileSync(
+    path.join(siteConfig.srcDir, pageData.relativePath),
+    "utf-8",
+  );
+  const paths = buyScriptPaths(source);
+  if (!paths.length) return;
+  pageData.storeScripts = {};
+  await Promise.all(
+    paths.map(async (p) => {
+      try {
+        pageData.storeScripts[p] = await fetchStoreScript(p);
+      } catch (e) {
+        console.warn(`⚠ BuyScript "${p}" not loaded: ${e.message}`);
+      }
+    }),
+  );
+}
+
+async function buyScript(body) {
+  const paths = buyScriptPaths(body);
+  const rendered = {};
+  await Promise.all(
+    paths.map(async (p) => {
+      const url = `${STORE_URL}/${p}`;
+      try {
+        const script = await fetchStoreScript(p);
+        rendered[p] = [
+          script.description,
+          `[Buy ${script.name} on the Jump On Studios store](${url})`,
+          ...script.youtube.map(
+            (id) => `[Trailer](https://www.youtube.com/watch?v=${id})`,
+          ),
+        ]
+          .filter(Boolean)
+          .join("\n\n");
+      } catch {
+        rendered[p] = `[Buy this script on the Jump On Studios store](${url})`;
+      }
+    }),
+  );
+  return body.replace(BUY_SCRIPT_RE, (_, p) => rendered[p]);
+}
+
 // --- npc-clothes charts (loaded from /data/charts/*.json) ------------------
 
 function chartSummary(publicDir, file) {
@@ -255,6 +341,7 @@ function stripVueBlocks(body) {
 export async function renderComponents(body, ctx) {
   body = stripVueBlocks(body);
   body = await scriptConfig(body, ctx);
+  body = await buyScript(body);
   body = npcClothesCharts(body, ctx);
   body = interiorGallery(body, ctx);
   return staticComponents(body, ctx);

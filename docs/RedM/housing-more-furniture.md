@@ -6,15 +6,7 @@ outline: [2,4]
 
 Documentation related to the `jo_housing_more_furniture` add-on for the [Housing](housing) script.
 
-:::: tabs
-::: tab BUY
-[Buy the add-on](https://jumpon-studios.com/redm/housing-more-furniture)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lZ-P8Jziqfg" title="RedM - Housing More Furniture" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="redm/housing-more-furniture" />
 
 The add-on adds **8,396 furniture** to the build mode of Housing: 6,472 in 22 new categories, each with its own icon, and 1,924 in the 16 categories of Housing.
 

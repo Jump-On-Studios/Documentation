@@ -1,21 +1,13 @@
 ---
 outline: 2
+title: "Tow Truck with Winch v2: installation and configuration"
+description: "Install and configure the FiveM Tow Truck with Winch v2 script (jo_towtruck): bed and winch controls, adding your own tow trucks, job restriction and exports."
 ---
 
 # <img src='/images/towtruck.webp'/> Tow Truck with Winch v2
 Documentation relating to the v2 of the jo_towtruck.
 
-
-
-:::: tabs
-::: tab BUY
-[Buy the script](https://jumpon-studios.com/fivem/tow-truck-with-winch-v2)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rYBLHAjOhUo?si=A4vYDHI1xTMBUal-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="fivem/tow-truck-with-winch-v2" />
 
 *([Documentation relating to the v1](/FiveM/tow-truck-with-winch))*
 

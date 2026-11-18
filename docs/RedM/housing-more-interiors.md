@@ -2,12 +2,7 @@
 # :house: Housing - More Interiors
 Documentation relating to the **jo_housing_more_interiors** add-on for the [Housing script](housing).
 
-:::: tabs
-::: tab BUY
-[Buy the add-on](hhttps://jumpon-studios.com/redm/housing-more-interiors)
-:::
-
-::::
+<BuyScript script="redm/housing-more-interiors" />
 
 
 ## 1. Installation

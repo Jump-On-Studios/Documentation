@@ -1,15 +1,7 @@
 # :scissors: Hair & Beard Coloring
 Documentation relating to the **jo_hairdresser_coloring** add-on for the [Hairdresser script](hairdresser).
 
-:::: tabs
-::: tab BUY
-[Buy the add-on](https://jumpon-studios.com/redm/hair-coloring)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/L59H6mLFu_Y?si=WpVh0x8uw5KuyYEX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="redm/hair-coloring" />
 
 ## 1. Installation
 ::: warning
