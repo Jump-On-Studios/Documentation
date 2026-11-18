@@ -279,3 +279,17 @@ a.box-button {
   }
 }
 
+// Title icons with a light and a dark version (<img class="icon-light"> + <img class="icon-dark">), as iconDark in the sidebar
+.icon-dark {
+  display: none;
+}
+
+html.dark {
+  .icon-light {
+    display: none;
+  }
+
+  .icon-dark {
+    display: inline;
+  }
+}
