@@ -1,15 +1,7 @@
 # :car: Car door Icon
 **Documentation relating to the kd_ath_car_door.**
 
-:::: tabs
-::: tab BUY
-[Buy the script](https://jumpon-studios.com/fivem/car-door-icon)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KLwc9zr9L1Q?si=Zw0ID9gUyu1TtgQg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="fivem/car-door-icon" />
 
 
 ## 1. Installation

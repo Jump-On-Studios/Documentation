@@ -1,15 +1,7 @@
 # 🥷 Ninja roll
 Documentation relating to the kd_ninjaroll.
 
-:::: tabs
-::: tab BUY
-[Buy the script](https://jumpon-studios.com/fivem/ninja-roll)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8Sqq1nwRBYs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="fivem/ninja-roll" />
 
 ## 1. Installation
 Ninja roll is a standalone script. You don't need a specific framework or any other resource to use it, so it works with every framework (ESX, QBCore, vRP, ...).

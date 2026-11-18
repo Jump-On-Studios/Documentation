@@ -17,16 +17,7 @@ html:not(.dark) .icon-light {
 
 Documentation relating to the jo_radial script.
 
-:::: tabs
-::: tab BUY
-[Buy the script](https://jumpon-studios.com/redm/radial-menu)
-:::
-
-::: tab PREVIEW
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zeMpRXC8kJk?si=wIuK5RGZWczm_twX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="redm/radial-menu" />
 
 ## 1. Installation
 

@@ -1,15 +1,7 @@
 # <img src='/images/winch.webp'/> Vehicle WINCH
 Documentation relating to the kd_winch.
 
-:::: tabs
-::: tab BUY
-[Buy the script](https://jumpon-studios.com/fivem/vehicle-winch)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CIs16GE6hZM?si=pfp8U1-hPmXm1Yoc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="fivem/vehicle-winch" />
 
 ## 1. Installation
 Vehicle WINCH is a standalone script. So you don't need a specific framework to use it. It's also mean it works with all framework (Esx, QBCore, VRP, DRP, …).

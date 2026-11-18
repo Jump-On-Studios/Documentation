@@ -8,15 +8,7 @@ Documentation related to the `jo_boats` script.
 
 `jo_boats` provides a persistent boat ownership system with shops, previews, multiple payment options, customization, storage, damage and repairs, anchoring, docking, and support for carriable and large boats.
 
-:::: tabs
-::: tab BUY
-[Buy it on the shop](https://jumpon-studios.com/redm/boat-shop)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Y5Kz2qYjqu0" title="RedM - Boats" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="redm/boat-shop" />
 
 ## 1. Installation
 

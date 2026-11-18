@@ -7,13 +7,7 @@ description: "Install and configure the FiveM Tow Truck with Winch v2 script (jo
 # <img src='/images/towtruck.webp'/> Tow Truck with Winch v2
 Documentation relating to the v2 of the jo_towtruck.
 
-<BuyScript name="Tow Truck with Winch v2" game="fivem" link="tow-truck-with-winch-v2" image="/images/shop/tow-truck-winch-v2.webp">
-
-A tow truck script for FiveM with a working flatbed and a winch players can carry by hand. Standalone, fully synchronized, 0.00ms idle.
-
-</BuyScript>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rYBLHAjOhUo?si=A4vYDHI1xTMBUal-" title="Tow Truck with Winch v2 trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<BuyScript script="fivem/tow-truck-with-winch-v2" />
 
 *([Documentation relating to the v1](/FiveM/tow-truck-with-winch))*
 

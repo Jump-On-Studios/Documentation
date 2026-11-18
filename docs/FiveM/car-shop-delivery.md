@@ -1,15 +1,7 @@
 # :truck: Car shop delivery
 Documentation relating to the kd_carshop
 
-:::: tabs
-::: tab BUY
-[Buy the script](https://jumpon-studios.com/fivem/car-delivery)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/s9H4rvXFCgI?si=-fbB2TWaTklhIugh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="fivem/car-delivery" />
 
 ## 1. Installation
 kd_carshop is a standalone script. So you don't need a specific framework to use it. It's also mean it works with all framework (Esx, QBCore, VRP, DRP, …).

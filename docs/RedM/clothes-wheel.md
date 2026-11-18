@@ -1,15 +1,11 @@
 # :tophat: Clothes Wheel
 Documentation relating to the jo_radial_clotheswheel.
 
-:::: tabs
-::: tab BUY
-[Buy the script](https://jumpon-studios.com/redm/clothes-wheel)
-:::
+<BuyScript script="redm/clothes-wheel" />
 
-::: tab PREVIEW
+::: details Preview
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DfbGIS4tGo8?si=G71Vam6KQBNYn-Bh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
-::::
 
 ## 1. Installation
 

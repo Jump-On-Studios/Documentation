@@ -1,15 +1,7 @@
 # 🗒 MDT
 Documentation relating to the jo_mdt.
 
-:::: tabs
-::: tab BUY
-[Buy the script](https://jumpon-studios.com/redm/sheriff-mdt)
-:::
-
-::: tab PREVIEW
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gmhL877LsVE?si=Db_h4KODVJHKKhda" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-:::
-::::
+<BuyScript script="redm/sheriff-mdt" />
 
 ## 1. Installation
 jo_mdt works on all frameworks compatible with jo_libs ([the list](/jo_libs/)).

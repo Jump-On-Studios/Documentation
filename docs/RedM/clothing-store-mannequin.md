@@ -1,15 +1,11 @@
 # :necktie: Mannequin
 Documentation relating to the **jo_clothingstore_mannequin** add-on for [Clothing store script](clothing-store).
 
-:::: tabs
-::: tab BUY
-[Buy the add-on](https://jumpon-studios.com/redm/mannequin)
-:::
+<BuyScript script="redm/mannequin" />
 
-::: tab PREVIEW
+::: details Preview
 <iframe width="560" height="315" src="https://streamable.com/e/agu2uh" title="Streamable video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::
-::::
 
 ## 1. Installation
 ::: warning
