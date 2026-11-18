@@ -193,7 +193,12 @@ export default defineConfig({
           { text: "🚗 Car door Icon", link: "/FiveM/car-door-icon" },
           { text: "🚚 Car shop delivery", link: "/FiveM/car-shop-delivery" },
           { text: "🎣 Fishing", link: "/FiveM/fishing" },
-          { text: "🔌 Hotwire", link: "/FiveM/hotwire" },
+          {
+            icon: "/images/hotwire.webp",
+            iconDark: "/images/hotwire-dark.webp",
+            text: " Hotwire",
+            link: "/FiveM/hotwire",
+          },
           { text: "⛏️ Mining job", link: "/FiveM/mining-job" },
           { text: "📦 Movable chest", link: "/FiveM/movable-chest" },
           { text: "🥷 Ninja roll", link: "/FiveM/ninja-roll" },

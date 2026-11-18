@@ -1,18 +1,40 @@
 ---
 outline: 2
-title: "Hotwire: installation and configuration"
-description: "Install and configure the free FiveM Hotwire script (jo_hotwire): two-stick minigame, vehicles to hotwire, key, item and dispatch integration, exports and events."
+title: "FiveM Hotwire Script (GTA 6 Style): Install and Config"
+description: "Free FiveM hotwire script with a GTA 6 style two-stick minigame to steal parked cars. Standalone for ESX, QBCore and QBox, gamepad and keyboard."
+head:
+  - - meta
+    - property: og:type
+      content: article
+  - - meta
+    - property: og:title
+      content: "FiveM Hotwire Script (GTA 6 Style): Install and Config"
+  - - meta
+    - property: og:description
+      content: "Free FiveM hotwire script with a GTA 6 style two-stick minigame to steal parked cars. Standalone for ESX, QBCore and QBox, gamepad and keyboard."
+  - - meta
+    - property: og:url
+      content: https://docs.jumpon-studios.com/FiveM/hotwire
+  - - meta
+    - property: og:image
+      content: https://jumpon-studios.com/images/thumbnails/hotwire.webp
+  - - meta
+    - name: twitter:card
+      content: summary_large_image
+  - - meta
+    - name: twitter:image
+      content: https://jumpon-studios.com/images/thumbnails/hotwire.webp
 ---
 
-# 🔌 Hotwire
-Documentation relating to the jo_hotwire.
+# <img src='/images/hotwire.webp' class="icon-light" /><img src='/images/hotwire-dark.webp' class="icon-dark" /> Hotwire
+Documentation of jo_hotwire, the free and open source **FiveM hotwire script** with a **GTA 6 (GTA VI) style** two-stick minigame: players steal parked cars by turning both sticks to the right spots to start the engine without a key. It runs on FiveM (GTA V) and is inspired by GTA VI, not an official Rockstar Games product.
 
 <BuyScript script="fivem/hotwire" title="Free and open source" free />
 
 ## 1. Installation
-Hotwire is a standalone script. So you don't need a specific framework to use it. It also means **it works with all frameworks** (Esx, QBCore, VRP, DRP, …). It only requires **OneSync**.
+Hotwire is a standalone script. So you don't need a specific framework to use it. It also means **it works with all frameworks** (ESX, QBCore, QBox, VRP, …). It only requires **OneSync**.
 
-- Download the resource from [GitHub](https://github.com/Jump-On-Studios/FiveM-Hotwire/releases/latest) or the Cfx.re portal
+- [Get it for free on the store](https://jumpon-studios.com/fivem/hotwire?utm_source=docs&utm_medium=referral&utm_campaign=installation&utm_content=hotwire), then download it from the Cfx.re portal
 - Drag and drop the resource in your resources folder
   - jo_hotwire
 - Add it to your server.cfg
