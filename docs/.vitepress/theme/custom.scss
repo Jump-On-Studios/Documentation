@@ -1,6 +1,8 @@
 :root {
   --vp-layout-max-width: 100%;
   --aside-width: 350px;
+  // Widest the text column gets on a large screen, centered between the menu and the outline
+  --content-max-width: 900px;
 }
 
 body {
@@ -9,7 +11,8 @@ body {
 }
 
 .content-container {
-  max-width: 100% !important;
+  max-width: var(--content-max-width) !important;
+  margin: 0 auto;
 }
 
 .aside {
