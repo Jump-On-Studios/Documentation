@@ -196,10 +196,15 @@ export default defineConfig({
           {
             icon: "/images/hotwire.webp",
             iconDark: "/images/hotwire-dark.webp",
-            text: " Hotwire",
+            text: " GTA 6 Hotwire",
             link: "/FiveM/hotwire",
           },
-          { text: "🔓 Lockpick", link: "/FiveM/lockpick" },
+          {
+            icon: "/images/lockpick.webp",
+            iconDark: "/images/lockpick-dark.webp",
+            text: " GTA 6 Lockpick",
+            link: "/FiveM/lockpick",
+          },
           { text: "⛏️ Mining job", link: "/FiveM/mining-job" },
           { text: "📦 Movable chest", link: "/FiveM/movable-chest" },
           { text: "🥷 Ninja roll", link: "/FiveM/ninja-roll" },
