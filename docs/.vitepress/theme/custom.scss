@@ -140,6 +140,18 @@ h1 .VPBadge {
   img {
     width: 100%;
   }
+
+  // Screenshot with its caption below
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    margin-top: 6px;
+    text-align: center;
+    font-size: 0.85em;
+    color: var(--vp-c-text-2);
+  }
 }
 
 // Screenshots of the jo_libs menu
