@@ -199,6 +199,7 @@ export default defineConfig({
             text: " Hotwire",
             link: "/FiveM/hotwire",
           },
+          { text: "🔓 Lockpick", link: "/FiveM/lockpick" },
           { text: "⛏️ Mining job", link: "/FiveM/mining-job" },
           { text: "📦 Movable chest", link: "/FiveM/movable-chest" },
           { text: "🥷 Ninja roll", link: "/FiveM/ninja-roll" },
