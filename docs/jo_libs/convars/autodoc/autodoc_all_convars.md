@@ -2,7 +2,7 @@
 
 This document lists all configuration variables used in jo_libs, grouped by module.
 
-Total convars: 53
+Total convars: 54
 
 ## Modules
 
@@ -33,7 +33,7 @@ Total convars: 53
 
 | Convar | Side | Type | Default | Description |
 |--------|------|------|---------|-------------|
-| `jo_libs:emit:bps` | <Badge type="shared" text="Shared" /> | Integer | `20000` | Default bit/s for latent events |
+| `jo_libs:emit:bps` | <Badge type="shared" text="Shared" /> | Integer | `100000` | Default bit/s for latent events |
 
 ### Gizmo
 
@@ -77,6 +77,12 @@ Total convars: 53
 | `jo_libs:i18n:allowSwitchLocale` | <Badge type="client" text="Client" /> | String | `true` | Allow switching locale |
 | `jo_libs:i18n:localeCommand` | <Badge type="client" text="Client" /> | String | `setLocale` | Command to switch locale |
 | `jo_libs:i18n:locale` | <Badge type="shared" text="Shared" /> | String | `en` |  |
+
+### Menu
+
+| Convar | Side | Type | Default | Description |
+|--------|------|------|---------|-------------|
+| `jo_libs:keyboard_layout` | <Badge type="client" text="Client" /> | String | `qwerty` |  |
 
 ### Raw-keys
 
