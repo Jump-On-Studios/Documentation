@@ -227,8 +227,8 @@ Preview:
 
 #### Label
 
-Use `target` to associate a label with the `id` of an input, select, or date
-entry.
+Use `target` to associate a label with the `id` of an input, textarea, select,
+or date entry.
 
 ```lua
 {
@@ -253,6 +253,28 @@ entry.
   style = {},               -- optional CSS properties
 }
 ```
+
+#### Textarea
+
+Multi-line text. `Enter` adds a new line and `Ctrl+Enter` submits the panel.
+The player can drag the box taller.
+
+```lua
+{
+  type = "textarea",
+  id = "note",
+  value = "",              -- optional initial value
+  placeholder = "A note",  -- optional
+  rows = 4,                 -- optional visible lines, defaults to 4
+  maxLength = 200,          -- optional maximum number of characters
+  required = true,          -- optional
+  class = "custom-class",  -- optional
+  style = {},               -- optional CSS properties
+}
+```
+
+`maxLength` also cuts a longer initial `value`. With `required = true`, a value
+made only of spaces or new lines counts as empty, as it does for `text`.
 
 #### Number
 
