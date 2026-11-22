@@ -22,6 +22,8 @@ The **Raw Keys** module allows you to register and remove key listeners for raw 
   setr jo_libs:keyboard_layout "QWERTY"
   ```
 
+  The [menu](../menu/sliders#keyboard-layout) uses it too.
+
 ## Keys
 
 ### Keyboard keys mapping

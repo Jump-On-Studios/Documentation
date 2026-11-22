@@ -262,7 +262,7 @@ menu:addItem({
 
 ### Several palettes
 
-Clothes of the game have up to 3 tints. Use one palette slider per tint, and `previewPalette = true` on the item to display the combination on the right of the item. The second and third palettes display their keyboard shortcuts (<kbd>Q</kbd> <kbd>E</kbd> and <kbd>4</kbd> <kbd>6</kbd>).
+Clothes of the game have up to 3 tints. Use one palette slider per tint, and `previewPalette = true` on the item to display the combination on the right of the item. The palettes driven by the keyboard display their keys (see [Keyboard](#keyboard)).
 
 ```lua
 menu:addItem({
@@ -450,3 +450,11 @@ menu:addItem({
 | Grid | <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> | <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> |
 
 The mouse wheel changes the slider under the cursor, and a click on a box selects its value.
+
+### Keyboard layout
+
+The key shown (<kbd>Q</kbd> or <kbd>A</kbd>) follows the `jo_libs:keyboard_layout` convar, then the player's layout after their first press.
+
+```cfg
+setr jo_libs:keyboard_layout "azerty"
+```
