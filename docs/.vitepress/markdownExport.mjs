@@ -120,10 +120,12 @@ export async function exportMarkdown(siteConfig) {
       fs.writeFileSync(out, content);
     }
 
-    return { url, mdUrl: "/" + targets[targets.length - 1], title, content };
+    const hidden = /^search:\s*false\s*$/m.test(frontmatter);
+    return { url, mdUrl: "/" + targets[targets.length - 1], title, content, hidden };
   };
 
-  const entries = await Promise.all([...pages].sort().map(exportPage));
+  // Hidden pages (`search: false`) keep their .md export but are left out of llms.txt and llms-full.txt
+  const entries = (await Promise.all([...pages].sort().map(exportPage))).filter((e) => !e.hidden);
 
   const header = `# ${site.title}\n\n> ${site.description}\n\n`;
   const index =

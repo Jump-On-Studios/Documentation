@@ -1,5 +1,6 @@
 ---
 outline: 2
+search: false
 title: "GTA 6 Hotwire Script for FiveM: Install and Config"
 description: "Free FiveM hotwire script with a GTA 6 style two-stick minigame to steal parked cars. Standalone for ESX, QBCore and QBox, gamepad and keyboard."
 head:

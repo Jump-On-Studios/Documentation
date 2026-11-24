@@ -83,16 +83,21 @@ function GenerateMenu(fileTree, key, parent) {
 
 let sideBarModules = GenerateMenu(libModules);
 
+// Pages with `search: false` in their frontmatter are hidden: left out of the local search (VitePress), the sitemap and llms.txt
+const hiddenPages = new Set();
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   srcExclude: ["**/autodoc/**", "**/snippets/**"],
   ignoreDeadLinks: ["./user"],
   sitemap: {
     hostname: "https://docs.jumpon-studios.com",
+    transformItems: (items) => items.filter((item) => !hiddenPages.has(item.url.replace(/^\//, "").replace(/\.html$/, ""))),
   },
   // Publish each page as raw Markdown (`/page.md`) + llms.txt for LLMs/RAG
   // and fetch the <ScriptConfig> files and the <BuyScript> store data once at build time
   async transformPageData(pageData, ctx) {
+    if (pageData.frontmatter.search === false) hiddenPages.add(pageData.relativePath.replace(/\.md$/, ""));
     markdownAlternateHead(pageData);
     await attachScriptConfigs(pageData, ctx);
     await attachStoreScripts(pageData, ctx);
@@ -193,18 +198,19 @@ export default defineConfig({
           { text: "🚗 Car door Icon", link: "/FiveM/car-door-icon" },
           { text: "🚚 Car shop delivery", link: "/FiveM/car-shop-delivery" },
           { text: "🎣 Fishing", link: "/FiveM/fishing" },
-          {
-            icon: "/images/hotwire.webp",
-            iconDark: "/images/hotwire-dark.webp",
-            text: " GTA 6 Hotwire",
-            link: "/FiveM/hotwire",
-          },
-          {
-            icon: "/images/lockpick.webp",
-            iconDark: "/images/lockpick-dark.webp",
-            text: " GTA 6 Lockpick",
-            link: "/FiveM/lockpick",
-          },
+          // Hidden for now (pages still reachable by direct URL, see `search: false` in their frontmatter)
+          // {
+          //   icon: "/images/hotwire.webp",
+          //   iconDark: "/images/hotwire-dark.webp",
+          //   text: " GTA 6 Hotwire",
+          //   link: "/FiveM/hotwire",
+          // },
+          // {
+          //   icon: "/images/lockpick.webp",
+          //   iconDark: "/images/lockpick-dark.webp",
+          //   text: " GTA 6 Lockpick",
+          //   link: "/FiveM/lockpick",
+          // },
           { text: "⛏️ Mining job", link: "/FiveM/mining-job" },
           { text: "📦 Movable chest", link: "/FiveM/movable-chest" },
           { text: "🥷 Ninja roll", link: "/FiveM/ninja-roll" },

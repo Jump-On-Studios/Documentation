@@ -1,5 +1,6 @@
 ---
 outline: 2
+search: false
 title: "GTA 6 Lockpick Script for FiveM: Install and Config"
 description: "Free FiveM lockpick minigame inspired by GTA 6: find the hidden sweet spot with one or two sticks. Standalone UI for doors, safes and vehicles, gamepad and keyboard."
 head:
