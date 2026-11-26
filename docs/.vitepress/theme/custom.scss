@@ -305,3 +305,23 @@ html.dark {
     display: inline;
   }
 }
+
+// Keep the ID Card V2 Usage tabs on one line, with scrolling when needed.
+.idcard-usage-tabs {
+  .tabs-component-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    .tabs-component-tab {
+      flex-shrink: 0;
+
+      .tabs-component-tab-a {
+        white-space: nowrap;
+      }
+    }
+  }
+}

@@ -303,6 +303,7 @@ export default defineConfig({
             link: "/RedM/hunting-wagon-storage",
           },
 
+          { text: "🪪 ID Card V2", link: "/RedM/id-card-v2" },
           { text: "🔪 Knife game", link: "/RedM/knife-game" },
           { text: "🗒 MDT", link: "/RedM/mdt" },
           { text: "🖱️ Mouse selection", link: "/RedM/mouse-selection" },
